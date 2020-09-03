@@ -1,5 +1,5 @@
 
-ENVOY_PROTOS = $(shell find src/envoy -type f -name '*.proto')
+ENVOY_PROTOS = $(shell find src/ -type f -name '*.proto')
 
 all: clean base gen-java gen-python gen-go
 
