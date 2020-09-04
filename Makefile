@@ -1,7 +1,7 @@
 
 ENVOY_PROTOS = $(shell find src/ -type f -name '*.proto')
 
-all: clean base gen-java gen-python gen-go
+all: clean base gen-java gen-python gen-go dist-python
 
 clean:
 	rm -rf gen
@@ -21,5 +21,7 @@ gen-go:
 install-protoc-gen-go:
 	go get github.com/golang/protobuf/protoc-gen-go
 
+dist-python:
+	cd dist/python && ./build.sh
 
-.PHONY: all clean base gen-java gen-python gen-go install-protoc-gen-go
+.PHONY: all clean base gen-java gen-python gen-go install-protoc-gen-go dist-python
