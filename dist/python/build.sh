@@ -12,4 +12,4 @@ done
 cp setup.py VERSION target/
 
 pushd target/ > /dev/null
-python setup.py sdist # bdist
+python setup.py sdist bdist_wheel
