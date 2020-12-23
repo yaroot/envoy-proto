@@ -23,11 +23,11 @@ package roads
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	latlng "google.golang.org/genproto/googleapis/type/latlng"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -186,7 +186,7 @@ type SnappedPoint struct {
 	// The index into the original path of the equivalent pre-snapped point.
 	// This allows for identification of points which have been interpolated if
 	// this index is missing.
-	OriginalIndex *wrapperspb.UInt32Value `protobuf:"bytes,2,opt,name=original_index,json=originalIndex,proto3" json:"original_index,omitempty"`
+	OriginalIndex *wrappers.UInt32Value `protobuf:"bytes,2,opt,name=original_index,json=originalIndex,proto3" json:"original_index,omitempty"`
 	// The place ID for this snapped location (road segment). These are the same
 	// as are currently used by the Places API.
 	PlaceId string `protobuf:"bytes,3,opt,name=place_id,json=placeId,proto3" json:"place_id,omitempty"`
@@ -231,7 +231,7 @@ func (x *SnappedPoint) GetLocation() *latlng.LatLng {
 	return nil
 }
 
-func (x *SnappedPoint) GetOriginalIndex() *wrapperspb.UInt32Value {
+func (x *SnappedPoint) GetOriginalIndex() *wrappers.UInt32Value {
 	if x != nil {
 		return x.OriginalIndex
 	}
@@ -526,7 +526,7 @@ var file_google_maps_roads_v1op_roads_proto_goTypes = []interface{}{
 	(*ListNearestRoadsRequest)(nil),  // 4: google.maps.roads.v1op.ListNearestRoadsRequest
 	(*ListNearestRoadsResponse)(nil), // 5: google.maps.roads.v1op.ListNearestRoadsResponse
 	(*latlng.LatLng)(nil),            // 6: google.type.LatLng
-	(*wrapperspb.UInt32Value)(nil),   // 7: google.protobuf.UInt32Value
+	(*wrappers.UInt32Value)(nil),     // 7: google.protobuf.UInt32Value
 }
 var file_google_maps_roads_v1op_roads_proto_depIdxs = []int32{
 	0, // 0: google.maps.roads.v1op.SnapToRoadsRequest.travel_mode:type_name -> google.maps.roads.v1op.TravelMode

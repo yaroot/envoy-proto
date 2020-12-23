@@ -22,12 +22,12 @@ package support
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	common "google.golang.org/genproto/googleapis/cloud/support/common"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -579,7 +579,7 @@ type UpdateCaseRequest struct {
 	Case *common.Case `protobuf:"bytes,1,opt,name=case,proto3" json:"case,omitempty"`
 	// A field that represents attributes of a Case object that should be updated
 	// as part of this request.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateCaseRequest) Reset() {
@@ -621,7 +621,7 @@ func (x *UpdateCaseRequest) GetCase() *common.Case {
 	return nil
 }
 
-func (x *UpdateCaseRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateCaseRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -944,7 +944,7 @@ var file_google_cloud_support_v1alpha1_cloud_support_proto_goTypes = []interface
 	(*common.SupportAccount)(nil),       // 12: google.cloud.support.common.SupportAccount
 	(*common.Case)(nil),                 // 13: google.cloud.support.common.Case
 	(*common.Comment)(nil),              // 14: google.cloud.support.common.Comment
-	(*fieldmaskpb.FieldMask)(nil),       // 15: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),        // 15: google.protobuf.FieldMask
 	(*common.IssueTaxonomy)(nil),        // 16: google.cloud.support.common.IssueTaxonomy
 }
 var file_google_cloud_support_v1alpha1_cloud_support_proto_depIdxs = []int32{

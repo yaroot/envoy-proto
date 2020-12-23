@@ -28,7 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n=io.envoyproxy.envoy.extensions.filters.network.redis_proxy.v3B\017RedisProxyProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nAenvoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto\x12/envoy.extensions.filters.network.redis_proxy.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1eudpa/annotations/migrate.proto\x1a udpa/annotations/sensitive.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xff\x0f\n\nRedisProxy\x12\x1c\n\x0bstat_prefix\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12h\n\x08settings\x18\x03 \x01(\x0b\x32L.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.ConnPoolSettingsB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x19\n\x11latency_in_micros\x18\x04 \x01(\x08\x12_\n\rprefix_routes\x18\x05 \x01(\x0b\x32H.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes\x12J\n\x18\x64ownstream_auth_password\x18\x06 \x01(\x0b\x32 .envoy.config.core.v3.DataSourceB\x06\xb8\xb7\x8b\xa4\x02\x01\x12J\n\x18\x64ownstream_auth_username\x18\x07 \x01(\x0b\x32 .envoy.config.core.v3.DataSourceB\x06\xb8\xb7\x8b\xa4\x02\x01\x1a\x8f\x05\n\x10\x43onnPoolSettings\x12\x37\n\nop_timeout\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02\x08\x01\x12\x1a\n\x12\x65nable_hashtagging\x18\x02 \x01(\x08\x12\x1a\n\x12\x65nable_redirection\x18\x03 \x01(\x08\x12$\n\x1cmax_buffer_size_before_flush\x18\x04 \x01(\r\x12\x37\n\x14\x62uffer_flush_timeout\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x46\n max_upstream_unknown_connections\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x1c\n\x14\x65nable_command_stats\x18\x08 \x01(\x08\x12v\n\x0bread_policy\x18\x07 \x01(\x0e\x32W.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.ConnPoolSettings.ReadPolicyB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\"~\n\nReadPolicy\x12\x1b\n\x06MASTER\x10\x00\x1a\x0f\xf2\x98\xfe\x8f\x05\t\n\x07PRIMARY\x12)\n\rPREFER_MASTER\x10\x01\x1a\x16\xf2\x98\xfe\x8f\x05\x10\n\x0ePREFER_PRIMARY\x12\x0b\n\x07REPLICA\x10\x02\x12\x12\n\x0ePREFER_REPLICA\x10\x03\x12\x07\n\x03\x41NY\x10\x04:M\x9a\xc5\x88\x1eH\nFenvoy.config.filter.network.redis_proxy.v2.RedisProxy.ConnPoolSettings\x1a\xf5\x06\n\x0cPrefixRoutes\x12^\n\x06routes\x18\x01 \x03(\x0b\x32N.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route\x12\x18\n\x10\x63\x61se_insensitive\x18\x02 \x01(\x08\x12g\n\x0f\x63\x61tch_all_route\x18\x04 \x01(\x0b\x32N.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route\x1a\x9d\x04\n\x05Route\x12\x0e\n\x06prefix\x18\x01 \x01(\t\x12\x15\n\rremove_prefix\x18\x02 \x01(\x08\x12\x18\n\x07\x63luster\x18\x03 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x81\x01\n\x15request_mirror_policy\x18\x04 \x03(\x0b\x32\x62.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy\x1a\xfd\x01\n\x13RequestMirrorPolicy\x12\x18\n\x07\x63luster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12H\n\x10runtime_fraction\x18\x02 \x01(\x0b\x32..envoy.config.core.v3.RuntimeFractionalPercent\x12\x1d\n\x15\x65xclude_read_commands\x18\x03 \x01(\x08:c\x9a\xc5\x88\x1e^\n\\envoy.config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy:O\x9a\xc5\x88\x1eJ\nHenvoy.config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutes.Route:I\x9a\xc5\x88\x1e\x44\nBenvoy.config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutesJ\x04\x08\x03\x10\x04R\x11\x63\x61tch_all_cluster:<\x9a\xc5\x88\x1e\x37\n5envoy.config.filter.network.redis_proxy.v2.RedisProxyJ\x04\x08\x02\x10\x03R\x07\x63luster\"\xe0\x01\n\x14RedisProtocolOptions\x12?\n\rauth_password\x18\x01 \x01(\x0b\x32 .envoy.config.core.v3.DataSourceB\x06\xb8\xb7\x8b\xa4\x02\x01\x12?\n\rauth_username\x18\x02 \x01(\x0b\x32 .envoy.config.core.v3.DataSourceB\x06\xb8\xb7\x8b\xa4\x02\x01:F\x9a\xc5\x88\x1e\x41\n?envoy.config.filter.network.redis_proxy.v2.RedisProtocolOptionsBZ\n=io.envoyproxy.envoy.extensions.filters.network.redis_proxy.v3B\x0fRedisProxyProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\nAenvoy/extensions/filters/network/redis_proxy/v3/redis_proxy.proto\x12/envoy.extensions.filters.network.redis_proxy.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1eudpa/annotations/migrate.proto\x1a udpa/annotations/sensitive.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x9a\x13\n\nRedisProxy\x12\x1c\n\x0bstat_prefix\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12h\n\x08settings\x18\x03 \x01(\x0b\x32L.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.ConnPoolSettingsB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x19\n\x11latency_in_micros\x18\x04 \x01(\x08\x12_\n\rprefix_routes\x18\x05 \x01(\x0b\x32H.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes\x12J\n\x18\x64ownstream_auth_password\x18\x06 \x01(\x0b\x32 .envoy.config.core.v3.DataSourceB\x06\xb8\xb7\x8b\xa4\x02\x01\x12V\n\x06\x66\x61ults\x18\x08 \x03(\x0b\x32\x46.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault\x12J\n\x18\x64ownstream_auth_username\x18\x07 \x01(\x0b\x32 .envoy.config.core.v3.DataSourceB\x06\xb8\xb7\x8b\xa4\x02\x01\x1a\x8f\x05\n\x10\x43onnPoolSettings\x12\x37\n\nop_timeout\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02\x08\x01\x12\x1a\n\x12\x65nable_hashtagging\x18\x02 \x01(\x08\x12\x1a\n\x12\x65nable_redirection\x18\x03 \x01(\x08\x12$\n\x1cmax_buffer_size_before_flush\x18\x04 \x01(\r\x12\x37\n\x14\x62uffer_flush_timeout\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x46\n max_upstream_unknown_connections\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x1c\n\x14\x65nable_command_stats\x18\x08 \x01(\x08\x12v\n\x0bread_policy\x18\x07 \x01(\x0e\x32W.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.ConnPoolSettings.ReadPolicyB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\"~\n\nReadPolicy\x12\x1b\n\x06MASTER\x10\x00\x1a\x0f\xf2\x98\xfe\x8f\x05\t\n\x07PRIMARY\x12)\n\rPREFER_MASTER\x10\x01\x1a\x16\xf2\x98\xfe\x8f\x05\x10\n\x0ePREFER_PRIMARY\x12\x0b\n\x07REPLICA\x10\x02\x12\x12\n\x0ePREFER_REPLICA\x10\x03\x12\x07\n\x03\x41NY\x10\x04:M\x9a\xc5\x88\x1eH\nFenvoy.config.filter.network.redis_proxy.v2.RedisProxy.ConnPoolSettings\x1a\xff\x06\n\x0cPrefixRoutes\x12^\n\x06routes\x18\x01 \x03(\x0b\x32N.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route\x12\x18\n\x10\x63\x61se_insensitive\x18\x02 \x01(\x08\x12g\n\x0f\x63\x61tch_all_route\x18\x04 \x01(\x0b\x32N.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route\x1a\xa7\x04\n\x05Route\x12\x18\n\x06prefix\x18\x01 \x01(\tB\x08\xfa\x42\x05r\x03(\xe8\x07\x12\x15\n\rremove_prefix\x18\x02 \x01(\x08\x12\x18\n\x07\x63luster\x18\x03 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x81\x01\n\x15request_mirror_policy\x18\x04 \x03(\x0b\x32\x62.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy\x1a\xfd\x01\n\x13RequestMirrorPolicy\x12\x18\n\x07\x63luster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12H\n\x10runtime_fraction\x18\x02 \x01(\x0b\x32..envoy.config.core.v3.RuntimeFractionalPercent\x12\x1d\n\x15\x65xclude_read_commands\x18\x03 \x01(\x08:c\x9a\xc5\x88\x1e^\n\\envoy.config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy:O\x9a\xc5\x88\x1eJ\nHenvoy.config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutes.Route:I\x9a\xc5\x88\x1e\x44\nBenvoy.config.filter.network.redis_proxy.v2.RedisProxy.PrefixRoutesJ\x04\x08\x03\x10\x04R\x11\x63\x61tch_all_cluster\x1a\xb6\x02\n\nRedisFault\x12s\n\nfault_type\x18\x01 \x01(\x0e\x32U.envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault.RedisFaultTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12O\n\rfault_enabled\x18\x02 \x01(\x0b\x32..envoy.config.core.v3.RuntimeFractionalPercentB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12(\n\x05\x64\x65lay\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x10\n\x08\x63ommands\x18\x04 \x03(\t\"&\n\x0eRedisFaultType\x12\t\n\x05\x44\x45LAY\x10\x00\x12\t\n\x05\x45RROR\x10\x01:<\x9a\xc5\x88\x1e\x37\n5envoy.config.filter.network.redis_proxy.v2.RedisProxyJ\x04\x08\x02\x10\x03R\x07\x63luster\"\xe0\x01\n\x14RedisProtocolOptions\x12?\n\rauth_password\x18\x01 \x01(\x0b\x32 .envoy.config.core.v3.DataSourceB\x06\xb8\xb7\x8b\xa4\x02\x01\x12?\n\rauth_username\x18\x02 \x01(\x0b\x32 .envoy.config.core.v3.DataSourceB\x06\xb8\xb7\x8b\xa4\x02\x01:F\x9a\xc5\x88\x1e\x41\n?envoy.config.filter.network.redis_proxy.v2.RedisProtocolOptionsBZ\n=io.envoyproxy.envoy.extensions.filters.network.redis_proxy.v3B\x0fRedisProxyProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_migrate__pb2.DESCRIPTOR,udpa_dot_annotations_dot_sensitive__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -69,10 +69,35 @@ _REDISPROXY_CONNPOOLSETTINGS_READPOLICY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1287,
-  serialized_end=1413,
+  serialized_start=1375,
+  serialized_end=1501,
 )
 _sym_db.RegisterEnumDescriptor(_REDISPROXY_CONNPOOLSETTINGS_READPOLICY)
+
+_REDISPROXY_REDISFAULT_REDISFAULTTYPE = _descriptor.EnumDescriptor(
+  name='RedisFaultType',
+  full_name='envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault.RedisFaultType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='DELAY', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ERROR', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2753,
+  serialized_end=2791,
+)
+_sym_db.RegisterEnumDescriptor(_REDISPROXY_REDISFAULT_REDISFAULTTYPE)
 
 
 _REDISPROXY_CONNPOOLSETTINGS = _descriptor.Descriptor(
@@ -152,8 +177,8 @@ _REDISPROXY_CONNPOOLSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=837,
-  serialized_end=1492,
+  serialized_start=925,
+  serialized_end=1580,
 )
 
 _REDISPROXY_PREFIXROUTES_ROUTE_REQUESTMIRRORPOLICY = _descriptor.Descriptor(
@@ -170,7 +195,7 @@ _REDISPROXY_PREFIXROUTES_ROUTE_REQUESTMIRRORPOLICY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='runtime_fraction', full_name='envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy.runtime_fraction', index=1,
       number=2, type=11, cpp_type=10, label=1,
@@ -197,8 +222,8 @@ _REDISPROXY_PREFIXROUTES_ROUTE_REQUESTMIRRORPOLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1946,
-  serialized_end=2199,
+  serialized_start=2044,
+  serialized_end=2297,
 )
 
 _REDISPROXY_PREFIXROUTES_ROUTE = _descriptor.Descriptor(
@@ -215,7 +240,7 @@ _REDISPROXY_PREFIXROUTES_ROUTE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\005r\003(\350\007', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='remove_prefix', full_name='envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route.remove_prefix', index=1,
       number=2, type=8, cpp_type=7, label=1,
@@ -229,7 +254,7 @@ _REDISPROXY_PREFIXROUTES_ROUTE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='request_mirror_policy', full_name='envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes.Route.request_mirror_policy', index=3,
       number=4, type=11, cpp_type=10, label=3,
@@ -249,8 +274,8 @@ _REDISPROXY_PREFIXROUTES_ROUTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1739,
-  serialized_end=2280,
+  serialized_start=1827,
+  serialized_end=2378,
 )
 
 _REDISPROXY_PREFIXROUTES = _descriptor.Descriptor(
@@ -294,8 +319,61 @@ _REDISPROXY_PREFIXROUTES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1495,
-  serialized_end=2380,
+  serialized_start=1583,
+  serialized_end=2478,
+)
+
+_REDISPROXY_REDISFAULT = _descriptor.Descriptor(
+  name='RedisFault',
+  full_name='envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='fault_type', full_name='envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault.fault_type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\005\202\001\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='fault_enabled', full_name='envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault.fault_enabled', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\005\212\001\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='delay', full_name='envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault.delay', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='commands', full_name='envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault.commands', index=3,
+      number=4, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _REDISPROXY_REDISFAULT_REDISFAULTTYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2481,
+  serialized_end=2791,
 )
 
 _REDISPROXY = _descriptor.Descriptor(
@@ -312,7 +390,7 @@ _REDISPROXY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='settings', full_name='envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.settings', index=1,
       number=3, type=11, cpp_type=10, label=1,
@@ -342,7 +420,14 @@ _REDISPROXY = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\270\267\213\244\002\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='downstream_auth_username', full_name='envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.downstream_auth_username', index=5,
+      name='faults', full_name='envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.faults', index=5,
+      number=8, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='downstream_auth_username', full_name='envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.downstream_auth_username', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -351,7 +436,7 @@ _REDISPROXY = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_REDISPROXY_CONNPOOLSETTINGS, _REDISPROXY_PREFIXROUTES, ],
+  nested_types=[_REDISPROXY_CONNPOOLSETTINGS, _REDISPROXY_PREFIXROUTES, _REDISPROXY_REDISFAULT, ],
   enum_types=[
   ],
   serialized_options=b'\232\305\210\0367\n5envoy.config.filter.network.redis_proxy.v2.RedisProxy',
@@ -361,7 +446,7 @@ _REDISPROXY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=410,
-  serialized_end=2457,
+  serialized_end=2868,
 )
 
 
@@ -399,8 +484,8 @@ _REDISPROTOCOLOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2460,
-  serialized_end=2684,
+  serialized_start=2871,
+  serialized_end=3095,
 )
 
 _REDISPROXY_CONNPOOLSETTINGS.fields_by_name['op_timeout'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
@@ -416,9 +501,15 @@ _REDISPROXY_PREFIXROUTES_ROUTE.containing_type = _REDISPROXY_PREFIXROUTES
 _REDISPROXY_PREFIXROUTES.fields_by_name['routes'].message_type = _REDISPROXY_PREFIXROUTES_ROUTE
 _REDISPROXY_PREFIXROUTES.fields_by_name['catch_all_route'].message_type = _REDISPROXY_PREFIXROUTES_ROUTE
 _REDISPROXY_PREFIXROUTES.containing_type = _REDISPROXY
+_REDISPROXY_REDISFAULT.fields_by_name['fault_type'].enum_type = _REDISPROXY_REDISFAULT_REDISFAULTTYPE
+_REDISPROXY_REDISFAULT.fields_by_name['fault_enabled'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._RUNTIMEFRACTIONALPERCENT
+_REDISPROXY_REDISFAULT.fields_by_name['delay'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
+_REDISPROXY_REDISFAULT.containing_type = _REDISPROXY
+_REDISPROXY_REDISFAULT_REDISFAULTTYPE.containing_type = _REDISPROXY_REDISFAULT
 _REDISPROXY.fields_by_name['settings'].message_type = _REDISPROXY_CONNPOOLSETTINGS
 _REDISPROXY.fields_by_name['prefix_routes'].message_type = _REDISPROXY_PREFIXROUTES
 _REDISPROXY.fields_by_name['downstream_auth_password'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._DATASOURCE
+_REDISPROXY.fields_by_name['faults'].message_type = _REDISPROXY_REDISFAULT
 _REDISPROXY.fields_by_name['downstream_auth_username'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._DATASOURCE
 _REDISPROTOCOLOPTIONS.fields_by_name['auth_password'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._DATASOURCE
 _REDISPROTOCOLOPTIONS.fields_by_name['auth_username'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._DATASOURCE
@@ -455,6 +546,13 @@ RedisProxy = _reflection.GeneratedProtocolMessageType('RedisProxy', (_message.Me
     # @@protoc_insertion_point(class_scope:envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.PrefixRoutes)
     })
   ,
+
+  'RedisFault' : _reflection.GeneratedProtocolMessageType('RedisFault', (_message.Message,), {
+    'DESCRIPTOR' : _REDISPROXY_REDISFAULT,
+    '__module__' : 'envoy.extensions.filters.network.redis_proxy.v3.redis_proxy_pb2'
+    # @@protoc_insertion_point(class_scope:envoy.extensions.filters.network.redis_proxy.v3.RedisProxy.RedisFault)
+    })
+  ,
   'DESCRIPTOR' : _REDISPROXY,
   '__module__' : 'envoy.extensions.filters.network.redis_proxy.v3.redis_proxy_pb2'
   # @@protoc_insertion_point(class_scope:envoy.extensions.filters.network.redis_proxy.v3.RedisProxy)
@@ -464,6 +562,7 @@ _sym_db.RegisterMessage(RedisProxy.ConnPoolSettings)
 _sym_db.RegisterMessage(RedisProxy.PrefixRoutes)
 _sym_db.RegisterMessage(RedisProxy.PrefixRoutes.Route)
 _sym_db.RegisterMessage(RedisProxy.PrefixRoutes.Route.RequestMirrorPolicy)
+_sym_db.RegisterMessage(RedisProxy.RedisFault)
 
 RedisProtocolOptions = _reflection.GeneratedProtocolMessageType('RedisProtocolOptions', (_message.Message,), {
   'DESCRIPTOR' : _REDISPROTOCOLOPTIONS,
@@ -481,9 +580,12 @@ _REDISPROXY_CONNPOOLSETTINGS.fields_by_name['read_policy']._options = None
 _REDISPROXY_CONNPOOLSETTINGS._options = None
 _REDISPROXY_PREFIXROUTES_ROUTE_REQUESTMIRRORPOLICY.fields_by_name['cluster']._options = None
 _REDISPROXY_PREFIXROUTES_ROUTE_REQUESTMIRRORPOLICY._options = None
+_REDISPROXY_PREFIXROUTES_ROUTE.fields_by_name['prefix']._options = None
 _REDISPROXY_PREFIXROUTES_ROUTE.fields_by_name['cluster']._options = None
 _REDISPROXY_PREFIXROUTES_ROUTE._options = None
 _REDISPROXY_PREFIXROUTES._options = None
+_REDISPROXY_REDISFAULT.fields_by_name['fault_type']._options = None
+_REDISPROXY_REDISFAULT.fields_by_name['fault_enabled']._options = None
 _REDISPROXY.fields_by_name['stat_prefix']._options = None
 _REDISPROXY.fields_by_name['settings']._options = None
 _REDISPROXY.fields_by_name['downstream_auth_password']._options = None

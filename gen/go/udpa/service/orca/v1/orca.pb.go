@@ -9,9 +9,9 @@ package udpa_service_orca_v1
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 	v1 "udpa/data/orca/v1"
@@ -34,7 +34,7 @@ type OrcaLoadReportRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Interval for generating Open RCA core metric responses.
-	ReportInterval *durationpb.Duration `protobuf:"bytes,1,opt,name=report_interval,json=reportInterval,proto3" json:"report_interval,omitempty"`
+	ReportInterval *duration.Duration `protobuf:"bytes,1,opt,name=report_interval,json=reportInterval,proto3" json:"report_interval,omitempty"`
 	// Request costs to collect. If this is empty, all known requests costs tracked by
 	// the load reporting agent will be returned. This provides an opportunity for
 	// the client to selectively obtain a subset of tracked costs.
@@ -73,7 +73,7 @@ func (*OrcaLoadReportRequest) Descriptor() ([]byte, []int) {
 	return file_udpa_service_orca_v1_orca_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *OrcaLoadReportRequest) GetReportInterval() *durationpb.Duration {
+func (x *OrcaLoadReportRequest) GetReportInterval() *duration.Duration {
 	if x != nil {
 		return x.ReportInterval
 	}
@@ -137,7 +137,7 @@ func file_udpa_service_orca_v1_orca_proto_rawDescGZIP() []byte {
 var file_udpa_service_orca_v1_orca_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_udpa_service_orca_v1_orca_proto_goTypes = []interface{}{
 	(*OrcaLoadReportRequest)(nil), // 0: udpa.service.orca.v1.OrcaLoadReportRequest
-	(*durationpb.Duration)(nil),   // 1: google.protobuf.Duration
+	(*duration.Duration)(nil),     // 1: google.protobuf.Duration
 	(*v1.OrcaLoadReport)(nil),     // 2: udpa.data.orca.v1.OrcaLoadReport
 }
 var file_udpa_service_orca_v1_orca_proto_depIdxs = []int32{

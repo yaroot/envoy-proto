@@ -22,11 +22,11 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v3/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -56,17 +56,17 @@ type MutateJob struct {
 	// `customers/{customer_id}/mutateJobs/{mutate_job_id}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. ID of this mutate job.
-	Id *wrapperspb.Int64Value `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	Id *wrappers.Int64Value `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	// Output only. The next sequence token to use when adding operations. Only set when the
 	// mutate job status is PENDING.
-	NextAddSequenceToken *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=next_add_sequence_token,json=nextAddSequenceToken,proto3" json:"next_add_sequence_token,omitempty"`
+	NextAddSequenceToken *wrappers.StringValue `protobuf:"bytes,3,opt,name=next_add_sequence_token,json=nextAddSequenceToken,proto3" json:"next_add_sequence_token,omitempty"`
 	// Output only. Contains additional information about this mutate job.
 	Metadata *MutateJob_MutateJobMetadata `protobuf:"bytes,4,opt,name=metadata,proto3" json:"metadata,omitempty"`
 	// Output only. Status of this mutate job.
 	Status enums.MutateJobStatusEnum_MutateJobStatus `protobuf:"varint,5,opt,name=status,proto3,enum=google.ads.googleads.v3.enums.MutateJobStatusEnum_MutateJobStatus" json:"status,omitempty"`
 	// Output only. The resource name of the long-running operation that can be used to poll
 	// for completion. Only set when the mutate job status is RUNNING or DONE.
-	LongRunningOperation *wrapperspb.StringValue `protobuf:"bytes,6,opt,name=long_running_operation,json=longRunningOperation,proto3" json:"long_running_operation,omitempty"`
+	LongRunningOperation *wrappers.StringValue `protobuf:"bytes,6,opt,name=long_running_operation,json=longRunningOperation,proto3" json:"long_running_operation,omitempty"`
 }
 
 func (x *MutateJob) Reset() {
@@ -108,14 +108,14 @@ func (x *MutateJob) GetResourceName() string {
 	return ""
 }
 
-func (x *MutateJob) GetId() *wrapperspb.Int64Value {
+func (x *MutateJob) GetId() *wrappers.Int64Value {
 	if x != nil {
 		return x.Id
 	}
 	return nil
 }
 
-func (x *MutateJob) GetNextAddSequenceToken() *wrapperspb.StringValue {
+func (x *MutateJob) GetNextAddSequenceToken() *wrappers.StringValue {
 	if x != nil {
 		return x.NextAddSequenceToken
 	}
@@ -136,7 +136,7 @@ func (x *MutateJob) GetStatus() enums.MutateJobStatusEnum_MutateJobStatus {
 	return enums.MutateJobStatusEnum_UNSPECIFIED
 }
 
-func (x *MutateJob) GetLongRunningOperation() *wrapperspb.StringValue {
+func (x *MutateJob) GetLongRunningOperation() *wrappers.StringValue {
 	if x != nil {
 		return x.LongRunningOperation
 	}
@@ -152,18 +152,18 @@ type MutateJob_MutateJobMetadata struct {
 
 	// Output only. The time when this mutate job was created.
 	// Formatted as yyyy-mm-dd hh:mm:ss. Example: "2018-03-05 09:15:00"
-	CreationDateTime *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=creation_date_time,json=creationDateTime,proto3" json:"creation_date_time,omitempty"`
+	CreationDateTime *wrappers.StringValue `protobuf:"bytes,1,opt,name=creation_date_time,json=creationDateTime,proto3" json:"creation_date_time,omitempty"`
 	// Output only. The time when this mutate job was completed.
 	// Formatted as yyyy-MM-dd HH:mm:ss. Example: "2018-03-05 09:16:00"
-	CompletionDateTime *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=completion_date_time,json=completionDateTime,proto3" json:"completion_date_time,omitempty"`
+	CompletionDateTime *wrappers.StringValue `protobuf:"bytes,2,opt,name=completion_date_time,json=completionDateTime,proto3" json:"completion_date_time,omitempty"`
 	// Output only. The fraction (between 0.0 and 1.0) of mutates that have been processed.
 	// This is empty if the job hasn't started running yet.
-	EstimatedCompletionRatio *wrapperspb.DoubleValue `protobuf:"bytes,3,opt,name=estimated_completion_ratio,json=estimatedCompletionRatio,proto3" json:"estimated_completion_ratio,omitempty"`
+	EstimatedCompletionRatio *wrappers.DoubleValue `protobuf:"bytes,3,opt,name=estimated_completion_ratio,json=estimatedCompletionRatio,proto3" json:"estimated_completion_ratio,omitempty"`
 	// Output only. The number of mutate operations in the mutate job.
-	OperationCount *wrapperspb.Int64Value `protobuf:"bytes,4,opt,name=operation_count,json=operationCount,proto3" json:"operation_count,omitempty"`
+	OperationCount *wrappers.Int64Value `protobuf:"bytes,4,opt,name=operation_count,json=operationCount,proto3" json:"operation_count,omitempty"`
 	// Output only. The number of mutate operations executed by the mutate job.
 	// Present only if the job has started running.
-	ExecutedOperationCount *wrapperspb.Int64Value `protobuf:"bytes,5,opt,name=executed_operation_count,json=executedOperationCount,proto3" json:"executed_operation_count,omitempty"`
+	ExecutedOperationCount *wrappers.Int64Value `protobuf:"bytes,5,opt,name=executed_operation_count,json=executedOperationCount,proto3" json:"executed_operation_count,omitempty"`
 }
 
 func (x *MutateJob_MutateJobMetadata) Reset() {
@@ -198,35 +198,35 @@ func (*MutateJob_MutateJobMetadata) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_resources_mutate_job_proto_rawDescGZIP(), []int{0, 0}
 }
 
-func (x *MutateJob_MutateJobMetadata) GetCreationDateTime() *wrapperspb.StringValue {
+func (x *MutateJob_MutateJobMetadata) GetCreationDateTime() *wrappers.StringValue {
 	if x != nil {
 		return x.CreationDateTime
 	}
 	return nil
 }
 
-func (x *MutateJob_MutateJobMetadata) GetCompletionDateTime() *wrapperspb.StringValue {
+func (x *MutateJob_MutateJobMetadata) GetCompletionDateTime() *wrappers.StringValue {
 	if x != nil {
 		return x.CompletionDateTime
 	}
 	return nil
 }
 
-func (x *MutateJob_MutateJobMetadata) GetEstimatedCompletionRatio() *wrapperspb.DoubleValue {
+func (x *MutateJob_MutateJobMetadata) GetEstimatedCompletionRatio() *wrappers.DoubleValue {
 	if x != nil {
 		return x.EstimatedCompletionRatio
 	}
 	return nil
 }
 
-func (x *MutateJob_MutateJobMetadata) GetOperationCount() *wrapperspb.Int64Value {
+func (x *MutateJob_MutateJobMetadata) GetOperationCount() *wrappers.Int64Value {
 	if x != nil {
 		return x.OperationCount
 	}
 	return nil
 }
 
-func (x *MutateJob_MutateJobMetadata) GetExecutedOperationCount() *wrapperspb.Int64Value {
+func (x *MutateJob_MutateJobMetadata) GetExecutedOperationCount() *wrappers.Int64Value {
 	if x != nil {
 		return x.ExecutedOperationCount
 	}
@@ -353,10 +353,10 @@ var file_google_ads_googleads_v3_resources_mutate_job_proto_msgTypes = make([]pr
 var file_google_ads_googleads_v3_resources_mutate_job_proto_goTypes = []interface{}{
 	(*MutateJob)(nil),                              // 0: google.ads.googleads.v3.resources.MutateJob
 	(*MutateJob_MutateJobMetadata)(nil),            // 1: google.ads.googleads.v3.resources.MutateJob.MutateJobMetadata
-	(*wrapperspb.Int64Value)(nil),                  // 2: google.protobuf.Int64Value
-	(*wrapperspb.StringValue)(nil),                 // 3: google.protobuf.StringValue
+	(*wrappers.Int64Value)(nil),                    // 2: google.protobuf.Int64Value
+	(*wrappers.StringValue)(nil),                   // 3: google.protobuf.StringValue
 	(enums.MutateJobStatusEnum_MutateJobStatus)(0), // 4: google.ads.googleads.v3.enums.MutateJobStatusEnum.MutateJobStatus
-	(*wrapperspb.DoubleValue)(nil),                 // 5: google.protobuf.DoubleValue
+	(*wrappers.DoubleValue)(nil),                   // 5: google.protobuf.DoubleValue
 }
 var file_google_ads_googleads_v3_resources_mutate_job_proto_depIdxs = []int32{
 	2,  // 0: google.ads.googleads.v3.resources.MutateJob.id:type_name -> google.protobuf.Int64Value

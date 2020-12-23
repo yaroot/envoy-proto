@@ -23,11 +23,11 @@ package documentai
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -1070,9 +1070,9 @@ type OperationMetadata struct {
 	// A message providing more details about the current state of processing.
 	StateMessage string `protobuf:"bytes,2,opt,name=state_message,json=stateMessage,proto3" json:"state_message,omitempty"`
 	// The creation time of the operation.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// The last update time of the operation.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 }
 
 func (x *OperationMetadata) Reset() {
@@ -1121,14 +1121,14 @@ func (x *OperationMetadata) GetStateMessage() string {
 	return ""
 }
 
-func (x *OperationMetadata) GetCreateTime() *timestamppb.Timestamp {
+func (x *OperationMetadata) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *OperationMetadata) GetUpdateTime() *timestamppb.Timestamp {
+func (x *OperationMetadata) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -1360,7 +1360,7 @@ var file_google_cloud_documentai_v1beta1_document_understanding_proto_rawDesc = 
 	0x65, 0x2e, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x2e, 0x44, 0x6f, 0x63, 0x75, 0x6d, 0x65, 0x6e, 0x74,
 	0x41, 0x49, 0x2e, 0x56, 0x31, 0x42, 0x65, 0x74, 0x61, 0x31, 0xca, 0x02, 0x1f, 0x47, 0x6f, 0x6f,
 	0x67, 0x6c, 0x65, 0x5c, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x5c, 0x44, 0x6f, 0x63, 0x75, 0x6d, 0x65,
-	0x6e, 0x74, 0x41, 0x69, 0x5c, 0x56, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0xea, 0x02, 0x22, 0x47,
+	0x6e, 0x74, 0x41, 0x49, 0x5c, 0x56, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0xea, 0x02, 0x22, 0x47,
 	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x3a, 0x3a, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x3a, 0x3a, 0x44, 0x6f,
 	0x63, 0x75, 0x6d, 0x65, 0x6e, 0x74, 0x41, 0x49, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x65, 0x74, 0x61,
 	0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
@@ -1398,7 +1398,7 @@ var file_google_cloud_documentai_v1beta1_document_understanding_proto_goTypes = 
 	(*GcsDestination)(nil),                // 14: google.cloud.documentai.v1beta1.GcsDestination
 	(*OperationMetadata)(nil),             // 15: google.cloud.documentai.v1beta1.OperationMetadata
 	(*BoundingPoly)(nil),                  // 16: google.cloud.documentai.v1beta1.BoundingPoly
-	(*timestamppb.Timestamp)(nil),         // 17: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),           // 17: google.protobuf.Timestamp
 	(*longrunning.Operation)(nil),         // 18: google.longrunning.Operation
 }
 var file_google_cloud_documentai_v1beta1_document_understanding_proto_depIdxs = []int32{

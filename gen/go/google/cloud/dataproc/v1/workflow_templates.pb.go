@@ -22,12 +22,12 @@ package dataproc
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -195,9 +195,9 @@ type WorkflowTemplate struct {
 	// then returns it as part of the `UpdateWorkflowTemplate` request.
 	Version int32 `protobuf:"varint,3,opt,name=version,proto3" json:"version,omitempty"`
 	// Output only. The time template was created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The time template was last updated.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// Optional. The labels to associate with this template. These labels
 	// will be propagated to all jobs and clusters created by the workflow
 	// instance.
@@ -274,14 +274,14 @@ func (x *WorkflowTemplate) GetVersion() int32 {
 	return 0
 }
 
-func (x *WorkflowTemplate) GetCreateTime() *timestamppb.Timestamp {
+func (x *WorkflowTemplate) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *WorkflowTemplate) GetUpdateTime() *timestamppb.Timestamp {
+func (x *WorkflowTemplate) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -1134,9 +1134,9 @@ type WorkflowMetadata struct {
 	// Map from parameter names to values that were used for those parameters.
 	Parameters map[string]string `protobuf:"bytes,8,rep,name=parameters,proto3" json:"parameters,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// Output only. Workflow start time.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,9,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// Output only. Workflow end time.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,10,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	// Output only. The UUID of target cluster.
 	ClusterUuid string `protobuf:"bytes,11,opt,name=cluster_uuid,json=clusterUuid,proto3" json:"cluster_uuid,omitempty"`
 }
@@ -1229,14 +1229,14 @@ func (x *WorkflowMetadata) GetParameters() map[string]string {
 	return nil
 }
 
-func (x *WorkflowMetadata) GetStartTime() *timestamppb.Timestamp {
+func (x *WorkflowMetadata) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *WorkflowMetadata) GetEndTime() *timestamppb.Timestamp {
+func (x *WorkflowMetadata) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -2605,7 +2605,7 @@ var file_google_cloud_dataproc_v1_workflow_templates_proto_goTypes = []interface
 	nil,                                              // 26: google.cloud.dataproc.v1.OrderedJob.LabelsEntry
 	nil,                                              // 27: google.cloud.dataproc.v1.WorkflowMetadata.ParametersEntry
 	nil,                                              // 28: google.cloud.dataproc.v1.InstantiateWorkflowTemplateRequest.ParametersEntry
-	(*timestamppb.Timestamp)(nil),                    // 29: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),                      // 29: google.protobuf.Timestamp
 	(*ClusterConfig)(nil),                            // 30: google.cloud.dataproc.v1.ClusterConfig
 	(*HadoopJob)(nil),                                // 31: google.cloud.dataproc.v1.HadoopJob
 	(*SparkJob)(nil),                                 // 32: google.cloud.dataproc.v1.SparkJob
@@ -2617,7 +2617,7 @@ var file_google_cloud_dataproc_v1_workflow_templates_proto_goTypes = []interface
 	(*PrestoJob)(nil),                                // 38: google.cloud.dataproc.v1.PrestoJob
 	(*JobScheduling)(nil),                            // 39: google.cloud.dataproc.v1.JobScheduling
 	(*longrunning.Operation)(nil),                    // 40: google.longrunning.Operation
-	(*emptypb.Empty)(nil),                            // 41: google.protobuf.Empty
+	(*empty.Empty)(nil),                              // 41: google.protobuf.Empty
 }
 var file_google_cloud_dataproc_v1_workflow_templates_proto_depIdxs = []int32{
 	29, // 0: google.cloud.dataproc.v1.WorkflowTemplate.create_time:type_name -> google.protobuf.Timestamp

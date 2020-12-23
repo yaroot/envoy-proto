@@ -24,10 +24,51 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"com.google.analytics.admin.v1alphaB\016ResourcesProtoP\001ZCgoogle.golang.org/genproto/googleapis/analytics/admin/v1alpha;admin',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.google/analytics/admin/v1alpha/resources.proto\x12\x1egoogle.analytics.admin.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\x8f\x02\n\x07\x41\x63\x63ount\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0c\x63ountry_code\x18\x05 \x01(\t\x12\x14\n\x07\x64\x65leted\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03:>\xea\x41;\n%analyticsadmin.googleapis.com/Account\x12\x12\x61\x63\x63ounts/{account}\"\x8a\x03\n\x08Property\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06parent\x18\x02 \x01(\tB\x03\xe0\x41\x05\x12\x19\n\x0c\x64isplay_name\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12K\n\x11industry_category\x18\x06 \x01(\x0e\x32\x30.google.analytics.admin.v1alpha.IndustryCategory\x12\x11\n\ttime_zone\x18\x07 \x01(\t\x12\x15\n\rcurrency_code\x18\x08 \x01(\t\x12\x14\n\x07\x64\x65leted\x18\t \x01(\x08\x42\x03\xe0\x41\x03:B\xea\x41?\n&analyticsadmin.googleapis.com/Property\x12\x15properties/{property}\"\xe4\x02\n\x14\x41ndroidAppDataStream\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x1c\n\x0f\x66irebase_app_id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x19\n\x0cpackage_name\x18\x05 \x01(\tB\x03\xe0\x41\x05\x12\x14\n\x0c\x64isplay_name\x18\x06 \x01(\t:~\xea\x41{\n2analyticsadmin.googleapis.com/AndroidAppDataStream\x12\x45properties/{property}/androidAppDataStreams/{android_app_data_stream}\"\xd4\x02\n\x10IosAppDataStream\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x1c\n\x0f\x66irebase_app_id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x19\n\tbundle_id\x18\x05 \x01(\tB\x06\xe0\x41\x05\xe0\x41\x02\x12\x14\n\x0c\x64isplay_name\x18\x06 \x01(\t:r\xea\x41o\n.analyticsadmin.googleapis.com/IosAppDataStream\x12=properties/{property}/iosAppDataStreams/{ios_app_data_stream}\"\xe8\x02\n\rWebDataStream\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x1b\n\x0emeasurement_id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x1c\n\x0f\x66irebase_app_id\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x18\n\x0b\x64\x65\x66\x61ult_uri\x18\x06 \x01(\tB\x03\xe0\x41\x05\x12\x19\n\x0c\x64isplay_name\x18\x07 \x01(\tB\x03\xe0\x41\x02:h\xea\x41\x65\n+analyticsadmin.googleapis.com/WebDataStream\x12\x36properties/{property}/webDataStreams/{web_data_stream}\"\xca\x01\n\x08UserLink\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\remail_address\x18\x02 \x01(\t\x12\x14\n\x0c\x64irect_roles\x18\x03 \x03(\t:\x82\x01\xea\x41\x7f\n&analyticsadmin.googleapis.com/UserLink\x12(accounts/{account}/userLinks/{user_link}\x12+properties/{property}/userLinks/{user_link}\"c\n\rAuditUserLink\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\remail_address\x18\x02 \x01(\t\x12\x14\n\x0c\x64irect_roles\x18\x03 \x03(\t\x12\x17\n\x0f\x65\x66\x66\x65\x63tive_roles\x18\x04 \x03(\t\"\xe8\x05\n\x1b\x45nhancedMeasurementSettings\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x16\n\x0estream_enabled\x18\x02 \x01(\x08\x12\x1f\n\x12page_views_enabled\x18\x03 \x01(\x08\x42\x03\xe0\x41\x03\x12\x17\n\x0fscrolls_enabled\x18\x04 \x01(\x08\x12\x1f\n\x17outbound_clicks_enabled\x18\x05 \x01(\x08\x12\x1d\n\x15\x63ontent_views_enabled\x18\x06 \x01(\x08\x12\x1b\n\x13site_search_enabled\x18\x07 \x01(\x08\x12!\n\x19\x66orm_interactions_enabled\x18\x08 \x01(\x08\x12 \n\x18video_engagement_enabled\x18\t \x01(\x08\x12\x1e\n\x16\x66ile_downloads_enabled\x18\n \x01(\x08\x12*\n\"data_tagged_element_clicks_enabled\x18\x0b \x01(\x08\x12\x1a\n\x12page_loads_enabled\x18\x0c \x01(\x08\x12\x1c\n\x14page_changes_enabled\x18\r \x01(\x08\x12\"\n\x1a\x61rticles_and_blogs_enabled\x18\x0e \x01(\x08\x12&\n\x1eproducts_and_ecommerce_enabled\x18\x0f \x01(\x08\x12#\n\x16search_query_parameter\x18\x10 \x01(\tB\x03\xe0\x41\x02\x12\x1b\n\x13url_query_parameter\x18\x11 \x01(\t\x12\x18\n\x10\x65xcluded_domains\x18\x12 \x01(\t:\x93\x01\xea\x41\x8f\x01\n9analyticsadmin.googleapis.com/EnhancedMeasurementSettings\x12Rproperties/{property}/webDataStreams/{web_data_stream}/enhancedMeasurementSettings\"\xa3\x02\n\x0c\x46irebaseLink\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x14\n\x07project\x18\x02 \x01(\tB\x03\xe0\x41\x05\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12N\n\x13maximum_user_access\x18\x04 \x01(\x0e\x32\x31.google.analytics.admin.v1alpha.MaximumUserAccess:d\xea\x41\x61\n*analyticsadmin.googleapis.com/FirebaseLink\x12\x33properties/{property}/firebaseLinks/{firebase_link}\"|\n\rGlobalSiteTag\x12\x14\n\x07snippet\x18\x01 \x01(\tB\x03\xe0\x41\x05:U\xea\x41R\n+analyticsadmin.googleapis.com/GlobalSiteTag\x12#properties/{property}/globalSiteTag\"\xa5\x03\n\rGoogleAdsLink\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x13\n\x06parent\x18\x02 \x01(\tB\x03\xe0\x41\x05\x12\x18\n\x0b\x63ustomer_id\x18\x03 \x01(\tB\x03\xe0\x41\x05\x12\x1f\n\x12\x63\x61n_manage_clients\x18\x04 \x01(\x08\x42\x03\xe0\x41\x03\x12?\n\x1b\x61\x64s_personalization_enabled\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x1a\n\remail_address\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03:h\xea\x41\x65\n+analyticsadmin.googleapis.com/GoogleAdsLink\x12\x36properties/{property}/googleAdsLinks/{google_ads_link}\"\xeb\x02\n\x13\x44\x61taSharingSettings\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12+\n#sharing_with_google_support_enabled\x18\x02 \x01(\x08\x12\x32\n*sharing_with_google_assigned_sales_enabled\x18\x03 \x01(\x08\x12-\n%sharing_with_google_any_sales_enabled\x18\x04 \x01(\x08\x12,\n$sharing_with_google_products_enabled\x18\x05 \x01(\x08\x12#\n\x1bsharing_with_others_enabled\x18\x06 \x01(\x08:^\xea\x41[\n1analyticsadmin.googleapis.com/DataSharingSettings\x12&accounts/{account}/dataSharingSettings*\xaa\x04\n\x10IndustryCategory\x12!\n\x1dINDUSTRY_CATEGORY_UNSPECIFIED\x10\x00\x12\x0e\n\nAUTOMOTIVE\x10\x01\x12#\n\x1f\x42USINESS_AND_INDUSTRIAL_MARKETS\x10\x02\x12\x0b\n\x07\x46INANCE\x10\x03\x12\x0e\n\nHEALTHCARE\x10\x04\x12\x0e\n\nTECHNOLOGY\x10\x05\x12\n\n\x06TRAVEL\x10\x06\x12\t\n\x05OTHER\x10\x07\x12\x1a\n\x16\x41RTS_AND_ENTERTAINMENT\x10\x08\x12\x16\n\x12\x42\x45\x41UTY_AND_FITNESS\x10\t\x12\x18\n\x14\x42OOKS_AND_LITERATURE\x10\n\x12\x12\n\x0e\x46OOD_AND_DRINK\x10\x0b\x12\t\n\x05GAMES\x10\x0c\x12\x17\n\x13HOBBIES_AND_LEISURE\x10\r\x12\x13\n\x0fHOME_AND_GARDEN\x10\x0e\x12\x18\n\x14INTERNET_AND_TELECOM\x10\x0f\x12\x16\n\x12LAW_AND_GOVERNMENT\x10\x10\x12\x08\n\x04NEWS\x10\x11\x12\x16\n\x12ONLINE_COMMUNITIES\x10\x12\x12\x16\n\x12PEOPLE_AND_SOCIETY\x10\x13\x12\x14\n\x10PETS_AND_ANIMALS\x10\x14\x12\x0f\n\x0bREAL_ESTATE\x10\x15\x12\r\n\tREFERENCE\x10\x16\x12\x0b\n\x07SCIENCE\x10\x17\x12\n\n\x06SPORTS\x10\x18\x12\x16\n\x12JOBS_AND_EDUCATION\x10\x19\x12\x0c\n\x08SHOPPING\x10\x1a*\xa7\x01\n\x11MaximumUserAccess\x12#\n\x1fMAXIMUM_USER_ACCESS_UNSPECIFIED\x10\x00\x12\r\n\tNO_ACCESS\x10\x01\x12\x14\n\x10READ_AND_ANALYZE\x10\x02\x12\"\n\x1e\x45\x44ITOR_WITHOUT_LINK_MANAGEMENT\x10\x03\x12$\n EDITOR_INCLUDING_LINK_MANAGEMENT\x10\x04\x42{\n\"com.google.analytics.admin.v1alphaB\x0eResourcesProtoP\x01ZCgoogle.golang.org/genproto/googleapis/analytics/admin/v1alpha;adminb\x06proto3'
+  serialized_pb=b'\n.google/analytics/admin/v1alpha/resources.proto\x12\x1egoogle.analytics.admin.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\x8f\x02\n\x07\x41\x63\x63ount\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0c\x63ountry_code\x18\x05 \x01(\t\x12\x14\n\x07\x64\x65leted\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03:>\xea\x41;\n%analyticsadmin.googleapis.com/Account\x12\x12\x61\x63\x63ounts/{account}\"\x8a\x03\n\x08Property\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06parent\x18\x02 \x01(\tB\x03\xe0\x41\x05\x12\x19\n\x0c\x64isplay_name\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12K\n\x11industry_category\x18\x06 \x01(\x0e\x32\x30.google.analytics.admin.v1alpha.IndustryCategory\x12\x11\n\ttime_zone\x18\x07 \x01(\t\x12\x15\n\rcurrency_code\x18\x08 \x01(\t\x12\x14\n\x07\x64\x65leted\x18\t \x01(\x08\x42\x03\xe0\x41\x03:B\xea\x41?\n&analyticsadmin.googleapis.com/Property\x12\x15properties/{property}\"\xe4\x02\n\x14\x41ndroidAppDataStream\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x1c\n\x0f\x66irebase_app_id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x19\n\x0cpackage_name\x18\x05 \x01(\tB\x03\xe0\x41\x05\x12\x14\n\x0c\x64isplay_name\x18\x06 \x01(\t:~\xea\x41{\n2analyticsadmin.googleapis.com/AndroidAppDataStream\x12\x45properties/{property}/androidAppDataStreams/{android_app_data_stream}\"\xd4\x02\n\x10IosAppDataStream\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x1c\n\x0f\x66irebase_app_id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x19\n\tbundle_id\x18\x05 \x01(\tB\x06\xe0\x41\x05\xe0\x41\x02\x12\x14\n\x0c\x64isplay_name\x18\x06 \x01(\t:r\xea\x41o\n.analyticsadmin.googleapis.com/IosAppDataStream\x12=properties/{property}/iosAppDataStreams/{ios_app_data_stream}\"\xe8\x02\n\rWebDataStream\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x1b\n\x0emeasurement_id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x1c\n\x0f\x66irebase_app_id\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x18\n\x0b\x64\x65\x66\x61ult_uri\x18\x06 \x01(\tB\x03\xe0\x41\x05\x12\x19\n\x0c\x64isplay_name\x18\x07 \x01(\tB\x03\xe0\x41\x02:h\xea\x41\x65\n+analyticsadmin.googleapis.com/WebDataStream\x12\x36properties/{property}/webDataStreams/{web_data_stream}\"\xca\x01\n\x08UserLink\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\remail_address\x18\x02 \x01(\t\x12\x14\n\x0c\x64irect_roles\x18\x03 \x03(\t:\x82\x01\xea\x41\x7f\n&analyticsadmin.googleapis.com/UserLink\x12(accounts/{account}/userLinks/{user_link}\x12+properties/{property}/userLinks/{user_link}\"c\n\rAuditUserLink\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\remail_address\x18\x02 \x01(\t\x12\x14\n\x0c\x64irect_roles\x18\x03 \x03(\t\x12\x17\n\x0f\x65\x66\x66\x65\x63tive_roles\x18\x04 \x03(\t\"\xe8\x05\n\x1b\x45nhancedMeasurementSettings\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x16\n\x0estream_enabled\x18\x02 \x01(\x08\x12\x1f\n\x12page_views_enabled\x18\x03 \x01(\x08\x42\x03\xe0\x41\x03\x12\x17\n\x0fscrolls_enabled\x18\x04 \x01(\x08\x12\x1f\n\x17outbound_clicks_enabled\x18\x05 \x01(\x08\x12\x1d\n\x15\x63ontent_views_enabled\x18\x06 \x01(\x08\x12\x1b\n\x13site_search_enabled\x18\x07 \x01(\x08\x12!\n\x19\x66orm_interactions_enabled\x18\x08 \x01(\x08\x12 \n\x18video_engagement_enabled\x18\t \x01(\x08\x12\x1e\n\x16\x66ile_downloads_enabled\x18\n \x01(\x08\x12*\n\"data_tagged_element_clicks_enabled\x18\x0b \x01(\x08\x12\x1a\n\x12page_loads_enabled\x18\x0c \x01(\x08\x12\x1c\n\x14page_changes_enabled\x18\r \x01(\x08\x12\"\n\x1a\x61rticles_and_blogs_enabled\x18\x0e \x01(\x08\x12&\n\x1eproducts_and_ecommerce_enabled\x18\x0f \x01(\x08\x12#\n\x16search_query_parameter\x18\x10 \x01(\tB\x03\xe0\x41\x02\x12\x1b\n\x13url_query_parameter\x18\x11 \x01(\t\x12\x18\n\x10\x65xcluded_domains\x18\x12 \x01(\t:\x93\x01\xea\x41\x8f\x01\n9analyticsadmin.googleapis.com/EnhancedMeasurementSettings\x12Rproperties/{property}/webDataStreams/{web_data_stream}/enhancedMeasurementSettings\"\xa3\x02\n\x0c\x46irebaseLink\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x14\n\x07project\x18\x02 \x01(\tB\x03\xe0\x41\x05\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12N\n\x13maximum_user_access\x18\x04 \x01(\x0e\x32\x31.google.analytics.admin.v1alpha.MaximumUserAccess:d\xea\x41\x61\n*analyticsadmin.googleapis.com/FirebaseLink\x12\x33properties/{property}/firebaseLinks/{firebase_link}\"\x8a\x01\n\rGlobalSiteTag\x12\x14\n\x07snippet\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x0c\n\x04name\x18\x02 \x01(\t:U\xea\x41R\n+analyticsadmin.googleapis.com/GlobalSiteTag\x12#properties/{property}/globalSiteTag\"\xa5\x03\n\rGoogleAdsLink\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x13\n\x06parent\x18\x02 \x01(\tB\x03\xe0\x41\x05\x12\x18\n\x0b\x63ustomer_id\x18\x03 \x01(\tB\x03\xe0\x41\x05\x12\x1f\n\x12\x63\x61n_manage_clients\x18\x04 \x01(\x08\x42\x03\xe0\x41\x03\x12?\n\x1b\x61\x64s_personalization_enabled\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x1a\n\remail_address\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03:h\xea\x41\x65\n+analyticsadmin.googleapis.com/GoogleAdsLink\x12\x36properties/{property}/googleAdsLinks/{google_ads_link}\"\xeb\x02\n\x13\x44\x61taSharingSettings\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12+\n#sharing_with_google_support_enabled\x18\x02 \x01(\x08\x12\x32\n*sharing_with_google_assigned_sales_enabled\x18\x03 \x01(\x08\x12-\n%sharing_with_google_any_sales_enabled\x18\x04 \x01(\x08\x12,\n$sharing_with_google_products_enabled\x18\x05 \x01(\x08\x12#\n\x1bsharing_with_others_enabled\x18\x06 \x01(\x08:^\xea\x41[\n1analyticsadmin.googleapis.com/DataSharingSettings\x12&accounts/{account}/dataSharingSettings\"\x95\x02\n\x0e\x41\x63\x63ountSummary\x12\x0c\n\x04name\x18\x01 \x01(\t\x12;\n\x07\x61\x63\x63ount\x18\x02 \x01(\tB*\xfa\x41\'\n%analyticsadmin.googleapis.com/Account\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12K\n\x12property_summaries\x18\x04 \x03(\x0b\x32/.google.analytics.admin.v1alpha.PropertySummary:U\xea\x41R\n,analyticsadmin.googleapis.com/AccountSummary\x12\"accountSummaries/{account_summary}\"f\n\x0fPropertySummary\x12=\n\x08property\x18\x01 \x01(\tB+\xfa\x41(\n&analyticsadmin.googleapis.com/Property\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t*\xa7\x01\n\x11MaximumUserAccess\x12#\n\x1fMAXIMUM_USER_ACCESS_UNSPECIFIED\x10\x00\x12\r\n\tNO_ACCESS\x10\x01\x12\x14\n\x10READ_AND_ANALYZE\x10\x02\x12\"\n\x1e\x45\x44ITOR_WITHOUT_LINK_MANAGEMENT\x10\x03\x12$\n EDITOR_INCLUDING_LINK_MANAGEMENT\x10\x04*\xaa\x04\n\x10IndustryCategory\x12!\n\x1dINDUSTRY_CATEGORY_UNSPECIFIED\x10\x00\x12\x0e\n\nAUTOMOTIVE\x10\x01\x12#\n\x1f\x42USINESS_AND_INDUSTRIAL_MARKETS\x10\x02\x12\x0b\n\x07\x46INANCE\x10\x03\x12\x0e\n\nHEALTHCARE\x10\x04\x12\x0e\n\nTECHNOLOGY\x10\x05\x12\n\n\x06TRAVEL\x10\x06\x12\t\n\x05OTHER\x10\x07\x12\x1a\n\x16\x41RTS_AND_ENTERTAINMENT\x10\x08\x12\x16\n\x12\x42\x45\x41UTY_AND_FITNESS\x10\t\x12\x18\n\x14\x42OOKS_AND_LITERATURE\x10\n\x12\x12\n\x0e\x46OOD_AND_DRINK\x10\x0b\x12\t\n\x05GAMES\x10\x0c\x12\x17\n\x13HOBBIES_AND_LEISURE\x10\r\x12\x13\n\x0fHOME_AND_GARDEN\x10\x0e\x12\x18\n\x14INTERNET_AND_TELECOM\x10\x0f\x12\x16\n\x12LAW_AND_GOVERNMENT\x10\x10\x12\x08\n\x04NEWS\x10\x11\x12\x16\n\x12ONLINE_COMMUNITIES\x10\x12\x12\x16\n\x12PEOPLE_AND_SOCIETY\x10\x13\x12\x14\n\x10PETS_AND_ANIMALS\x10\x14\x12\x0f\n\x0bREAL_ESTATE\x10\x15\x12\r\n\tREFERENCE\x10\x16\x12\x0b\n\x07SCIENCE\x10\x17\x12\n\n\x06SPORTS\x10\x18\x12\x16\n\x12JOBS_AND_EDUCATION\x10\x19\x12\x0c\n\x08SHOPPING\x10\x1a\x42{\n\"com.google.analytics.admin.v1alphaB\x0eResourcesProtoP\x01ZCgoogle.golang.org/genproto/googleapis/analytics/admin/v1alpha;adminb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
+_MAXIMUMUSERACCESS = _descriptor.EnumDescriptor(
+  name='MaximumUserAccess',
+  full_name='google.analytics.admin.v1alpha.MaximumUserAccess',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='MAXIMUM_USER_ACCESS_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='NO_ACCESS', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='READ_AND_ANALYZE', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='EDITOR_WITHOUT_LINK_MANAGEMENT', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='EDITOR_INCLUDING_LINK_MANAGEMENT', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=4606,
+  serialized_end=4773,
+)
+_sym_db.RegisterEnumDescriptor(_MAXIMUMUSERACCESS)
+
+MaximumUserAccess = enum_type_wrapper.EnumTypeWrapper(_MAXIMUMUSERACCESS)
 _INDUSTRYCATEGORY = _descriptor.EnumDescriptor(
   name='IndustryCategory',
   full_name='google.analytics.admin.v1alpha.IndustryCategory',
@@ -173,53 +214,17 @@ _INDUSTRYCATEGORY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4207,
-  serialized_end=4761,
+  serialized_start=4776,
+  serialized_end=5330,
 )
 _sym_db.RegisterEnumDescriptor(_INDUSTRYCATEGORY)
 
 IndustryCategory = enum_type_wrapper.EnumTypeWrapper(_INDUSTRYCATEGORY)
-_MAXIMUMUSERACCESS = _descriptor.EnumDescriptor(
-  name='MaximumUserAccess',
-  full_name='google.analytics.admin.v1alpha.MaximumUserAccess',
-  filename=None,
-  file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='MAXIMUM_USER_ACCESS_UNSPECIFIED', index=0, number=0,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='NO_ACCESS', index=1, number=1,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='READ_AND_ANALYZE', index=2, number=2,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='EDITOR_WITHOUT_LINK_MANAGEMENT', index=3, number=3,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='EDITOR_INCLUDING_LINK_MANAGEMENT', index=4, number=4,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=4764,
-  serialized_end=4931,
-)
-_sym_db.RegisterEnumDescriptor(_MAXIMUMUSERACCESS)
-
-MaximumUserAccess = enum_type_wrapper.EnumTypeWrapper(_MAXIMUMUSERACCESS)
+MAXIMUM_USER_ACCESS_UNSPECIFIED = 0
+NO_ACCESS = 1
+READ_AND_ANALYZE = 2
+EDITOR_WITHOUT_LINK_MANAGEMENT = 3
+EDITOR_INCLUDING_LINK_MANAGEMENT = 4
 INDUSTRY_CATEGORY_UNSPECIFIED = 0
 AUTOMOTIVE = 1
 BUSINESS_AND_INDUSTRIAL_MARKETS = 2
@@ -247,11 +252,6 @@ SCIENCE = 23
 SPORTS = 24
 JOBS_AND_EDUCATION = 25
 SHOPPING = 26
-MAXIMUM_USER_ACCESS_UNSPECIFIED = 0
-NO_ACCESS = 1
-READ_AND_ANALYZE = 2
-EDITOR_WITHOUT_LINK_MANAGEMENT = 3
-EDITOR_INCLUDING_LINK_MANAGEMENT = 4
 
 
 
@@ -936,6 +936,13 @@ _GLOBALSITETAG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.analytics.admin.v1alpha.GlobalSiteTag.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -948,8 +955,8 @@ _GLOBALSITETAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3290,
-  serialized_end=3414,
+  serialized_start=3291,
+  serialized_end=3429,
 )
 
 
@@ -1029,8 +1036,8 @@ _GOOGLEADSLINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3417,
-  serialized_end=3838,
+  serialized_start=3432,
+  serialized_end=3853,
 )
 
 
@@ -1096,8 +1103,100 @@ _DATASHARINGSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3841,
-  serialized_end=4204,
+  serialized_start=3856,
+  serialized_end=4219,
+)
+
+
+_ACCOUNTSUMMARY = _descriptor.Descriptor(
+  name='AccountSummary',
+  full_name='google.analytics.admin.v1alpha.AccountSummary',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.analytics.admin.v1alpha.AccountSummary.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='account', full_name='google.analytics.admin.v1alpha.AccountSummary.account', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A\'\n%analyticsadmin.googleapis.com/Account', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='display_name', full_name='google.analytics.admin.v1alpha.AccountSummary.display_name', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='property_summaries', full_name='google.analytics.admin.v1alpha.AccountSummary.property_summaries', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\352AR\n,analyticsadmin.googleapis.com/AccountSummary\022\"accountSummaries/{account_summary}',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4222,
+  serialized_end=4499,
+)
+
+
+_PROPERTYSUMMARY = _descriptor.Descriptor(
+  name='PropertySummary',
+  full_name='google.analytics.admin.v1alpha.PropertySummary',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='property', full_name='google.analytics.admin.v1alpha.PropertySummary.property', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A(\n&analyticsadmin.googleapis.com/Property', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='display_name', full_name='google.analytics.admin.v1alpha.PropertySummary.display_name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4501,
+  serialized_end=4603,
 )
 
 _ACCOUNT.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -1116,6 +1215,7 @@ _FIREBASELINK.fields_by_name['maximum_user_access'].enum_type = _MAXIMUMUSERACCE
 _GOOGLEADSLINK.fields_by_name['ads_personalization_enabled'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _GOOGLEADSLINK.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _GOOGLEADSLINK.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_ACCOUNTSUMMARY.fields_by_name['property_summaries'].message_type = _PROPERTYSUMMARY
 DESCRIPTOR.message_types_by_name['Account'] = _ACCOUNT
 DESCRIPTOR.message_types_by_name['Property'] = _PROPERTY
 DESCRIPTOR.message_types_by_name['AndroidAppDataStream'] = _ANDROIDAPPDATASTREAM
@@ -1128,8 +1228,10 @@ DESCRIPTOR.message_types_by_name['FirebaseLink'] = _FIREBASELINK
 DESCRIPTOR.message_types_by_name['GlobalSiteTag'] = _GLOBALSITETAG
 DESCRIPTOR.message_types_by_name['GoogleAdsLink'] = _GOOGLEADSLINK
 DESCRIPTOR.message_types_by_name['DataSharingSettings'] = _DATASHARINGSETTINGS
-DESCRIPTOR.enum_types_by_name['IndustryCategory'] = _INDUSTRYCATEGORY
+DESCRIPTOR.message_types_by_name['AccountSummary'] = _ACCOUNTSUMMARY
+DESCRIPTOR.message_types_by_name['PropertySummary'] = _PROPERTYSUMMARY
 DESCRIPTOR.enum_types_by_name['MaximumUserAccess'] = _MAXIMUMUSERACCESS
+DESCRIPTOR.enum_types_by_name['IndustryCategory'] = _INDUSTRYCATEGORY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Account = _reflection.GeneratedProtocolMessageType('Account', (_message.Message,), {
@@ -1216,6 +1318,20 @@ DataSharingSettings = _reflection.GeneratedProtocolMessageType('DataSharingSetti
   })
 _sym_db.RegisterMessage(DataSharingSettings)
 
+AccountSummary = _reflection.GeneratedProtocolMessageType('AccountSummary', (_message.Message,), {
+  'DESCRIPTOR' : _ACCOUNTSUMMARY,
+  '__module__' : 'google.analytics.admin.v1alpha.resources_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.AccountSummary)
+  })
+_sym_db.RegisterMessage(AccountSummary)
+
+PropertySummary = _reflection.GeneratedProtocolMessageType('PropertySummary', (_message.Message,), {
+  'DESCRIPTOR' : _PROPERTYSUMMARY,
+  '__module__' : 'google.analytics.admin.v1alpha.resources_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.PropertySummary)
+  })
+_sym_db.RegisterMessage(PropertySummary)
+
 
 DESCRIPTOR._options = None
 _ACCOUNT.fields_by_name['name']._options = None
@@ -1272,4 +1388,7 @@ _GOOGLEADSLINK.fields_by_name['update_time']._options = None
 _GOOGLEADSLINK._options = None
 _DATASHARINGSETTINGS.fields_by_name['name']._options = None
 _DATASHARINGSETTINGS._options = None
+_ACCOUNTSUMMARY.fields_by_name['account']._options = None
+_ACCOUNTSUMMARY._options = None
+_PROPERTYSUMMARY.fields_by_name['property']._options = None
 # @@protoc_insertion_point(module_scope)

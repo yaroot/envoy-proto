@@ -10,10 +10,10 @@ import (
 	core "envoy/api/v2/core"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -178,11 +178,11 @@ type CommonGrpcAccessLogConfig struct {
 	// Interval for flushing access logs to the gRPC stream. Logger will flush requests every time
 	// this interval is elapsed, or when batch size limit is hit, whichever comes first. Defaults to
 	// 1 second.
-	BufferFlushInterval *durationpb.Duration `protobuf:"bytes,3,opt,name=buffer_flush_interval,json=bufferFlushInterval,proto3" json:"buffer_flush_interval,omitempty"`
+	BufferFlushInterval *duration.Duration `protobuf:"bytes,3,opt,name=buffer_flush_interval,json=bufferFlushInterval,proto3" json:"buffer_flush_interval,omitempty"`
 	// Soft size limit in bytes for access log entries buffer. Logger will buffer requests until
 	// this limit it hit, or every time flush interval is elapsed, whichever comes first. Setting it
 	// to zero effectively disables the batching. Defaults to 16384.
-	BufferSizeBytes *wrapperspb.UInt32Value `protobuf:"bytes,4,opt,name=buffer_size_bytes,json=bufferSizeBytes,proto3" json:"buffer_size_bytes,omitempty"`
+	BufferSizeBytes *wrappers.UInt32Value `protobuf:"bytes,4,opt,name=buffer_size_bytes,json=bufferSizeBytes,proto3" json:"buffer_size_bytes,omitempty"`
 	// Additional filter state objects to log in :ref:`filter_state_objects
 	// <envoy_api_field_data.accesslog.v2.AccessLogCommon.filter_state_objects>`.
 	// Logger will call `FilterState::Object::serializeAsProto` to serialize the filter state object.
@@ -235,14 +235,14 @@ func (x *CommonGrpcAccessLogConfig) GetGrpcService() *core.GrpcService {
 	return nil
 }
 
-func (x *CommonGrpcAccessLogConfig) GetBufferFlushInterval() *durationpb.Duration {
+func (x *CommonGrpcAccessLogConfig) GetBufferFlushInterval() *duration.Duration {
 	if x != nil {
 		return x.BufferFlushInterval
 	}
 	return nil
 }
 
-func (x *CommonGrpcAccessLogConfig) GetBufferSizeBytes() *wrapperspb.UInt32Value {
+func (x *CommonGrpcAccessLogConfig) GetBufferSizeBytes() *wrappers.UInt32Value {
 	if x != nil {
 		return x.BufferSizeBytes
 	}
@@ -356,8 +356,8 @@ var file_envoy_config_accesslog_v2_als_proto_goTypes = []interface{}{
 	(*TcpGrpcAccessLogConfig)(nil),    // 1: envoy.config.accesslog.v2.TcpGrpcAccessLogConfig
 	(*CommonGrpcAccessLogConfig)(nil), // 2: envoy.config.accesslog.v2.CommonGrpcAccessLogConfig
 	(*core.GrpcService)(nil),          // 3: envoy.api.v2.core.GrpcService
-	(*durationpb.Duration)(nil),       // 4: google.protobuf.Duration
-	(*wrapperspb.UInt32Value)(nil),    // 5: google.protobuf.UInt32Value
+	(*duration.Duration)(nil),         // 4: google.protobuf.Duration
+	(*wrappers.UInt32Value)(nil),      // 5: google.protobuf.UInt32Value
 }
 var file_envoy_config_accesslog_v2_als_proto_depIdxs = []int32{
 	2, // 0: envoy.config.accesslog.v2.HttpGrpcAccessLogConfig.common_config:type_name -> envoy.config.accesslog.v2.CommonGrpcAccessLogConfig

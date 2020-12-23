@@ -17,6 +17,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.security.privateca.v1beta1 import resources_pb2 as google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
+from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
@@ -25,114 +26,47 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/security/privateca/v1beta1/service.proto',
   package='google.cloud.security.privateca.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n+com.google.cloud.security.privateca.v1beta1B\016PrivateCaProtoP\001ZPgoogle.golang.org/genproto/googleapis/cloud/security/privateca/v1beta1;privateca\370\001\001\252\002\'Google.Cloud.Security.PrivateCA.V1Beta1',
+  serialized_options=b'\n+com.google.cloud.security.privateca.v1beta1B\016PrivateCaProtoP\001ZPgoogle.golang.org/genproto/googleapis/cloud/security/privateca/v1beta1;privateca\370\001\001\252\002\'Google.Cloud.Security.PrivateCA.V1Beta1\312\002\'Google\\Cloud\\Security\\PrivateCA\\V1beta1\352\002+Google::Cloud::Security::PrivateCA::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n5google/cloud/security/privateca/v1beta1/service.proto\x12\'google.cloud.security.privateca.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x37google/cloud/security/privateca/v1beta1/resources.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbb\x01\n!ListCertificateAuthoritiesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xcb\x01\n%ListCertificateRevocationListsRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xbd\x01\n\x17ListCertificatesRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xb4\x01\n\x1aListReusableConfigsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xb2\x01\n\"ListCertificateAuthoritiesResponse\x12^\n\x17\x63\x65rtificate_authorities\x18\x01 \x03(\x0b\x32=.google.cloud.security.privateca.v1beta1.CertificateAuthority\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\xc0\x01\n&ListCertificateRevocationListsResponse\x12h\n\x1c\x63\x65rtificate_revocation_lists\x18\x01 \x03(\x0b\x32\x42.google.cloud.security.privateca.v1beta1.CertificateRevocationList\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\x94\x01\n\x18ListCertificatesResponse\x12J\n\x0c\x63\x65rtificates\x18\x01 \x03(\x0b\x32\x34.google.cloud.security.privateca.v1beta1.Certificate\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\x9e\x01\n\x1bListReusableConfigsResponse\x12Q\n\x10reusable_configs\x18\x01 \x03(\x0b\x32\x37.google.cloud.security.privateca.v1beta1.ReusableConfig\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"e\n\x1eGetCertificateAuthorityRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\"o\n#GetCertificateRevocationListRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2privateca.googleapis.com/CertificateRevocationList\"S\n\x15GetCertificateRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$privateca.googleapis.com/Certificate\"Y\n\x18GetReusableConfigRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'privateca.googleapis.com/ReusableConfig\"\x81\x02\n!CreateCertificateAuthorityRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12%\n\x18\x63\x65rtificate_authority_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x61\n\x15\x63\x65rtificate_authority\x18\x03 \x01(\x0b\x32=.google.cloud.security.privateca.v1beta1.CertificateAuthorityB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xa3\x02\n&CreateCertificateRevocationListRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12+\n\x1e\x63\x65rtificate_revocation_list_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12l\n\x1b\x63\x65rtificate_revocation_list\x18\x03 \x01(\x0b\x32\x42.google.cloud.security.privateca.v1beta1.CertificateRevocationListB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xe7\x01\n\x18\x43reateCertificateRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x1b\n\x0e\x63\x65rtificate_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12N\n\x0b\x63\x65rtificate\x18\x03 \x01(\x0b\x32\x34.google.cloud.security.privateca.v1beta1.CertificateB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xe9\x01\n\x1b\x43reateReusableConfigRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x1f\n\x12reusable_config_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12U\n\x0freusable_config\x18\x03 \x01(\x0b\x32\x37.google.cloud.security.privateca.v1beta1.ReusableConfigB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xd5\x01\n!UpdateCertificateAuthorityRequest\x12\x61\n\x15\x63\x65rtificate_authority\x18\x01 \x01(\x0b\x32=.google.cloud.security.privateca.v1beta1.CertificateAuthorityB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xe5\x01\n&UpdateCertificateRevocationListRequest\x12l\n\x1b\x63\x65rtificate_revocation_list\x18\x01 \x01(\x0b\x32\x42.google.cloud.security.privateca.v1beta1.CertificateRevocationListB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xb9\x01\n\x18UpdateCertificateRequest\x12N\n\x0b\x63\x65rtificate\x18\x01 \x01(\x0b\x32\x34.google.cloud.security.privateca.v1beta1.CertificateB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xc3\x01\n\x1bUpdateReusableConfigRequest\x12U\n\x0freusable_config\x18\x01 \x01(\x0b\x32\x37.google.cloud.security.privateca.v1beta1.ReusableConfigB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"h\n!GetCertificateAuthorityCsrRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\":\n\"GetCertificateAuthorityCsrResponse\x12\x14\n\x07pem_csr\x18\x01 \x01(\tB\x03\xe0\x41\x03\"\xcb\x01\n#ActivateCertificateAuthorityRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x1f\n\x12pem_ca_certificate\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12%\n\x18pem_ca_certificate_chain\x18\x03 \x03(\tB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\x82\x01\n\"DisableCertificateAuthorityRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\x81\x01\n!EnableCertificateAuthorityRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\x89\x01\n)ScheduleDeleteCertificateAuthorityRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\x82\x01\n\"RestoreCertificateAuthorityRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\xbf\x01\n\x18RevokeCertificateRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$privateca.googleapis.com/Certificate\x12N\n\x06reason\x18\x02 \x01(\x0e\x32\x39.google.cloud.security.privateca.v1beta1.RevocationReasonB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\x80\x02\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1b\n\x0estatus_message\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12#\n\x16requested_cancellation\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\x32\xa3\x34\n\x1b\x43\x65rtificateAuthorityService\x12\x87\x02\n\x1aListCertificateAuthorities\x12J.google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest\x1aK.google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesResponse\"P\x82\xd3\xe4\x93\x02\x41\x12?/v1beta1/{parent=projects/*/locations/*}/certificateAuthorities\xda\x41\x06parent\x12\xb0\x02\n\x1eListCertificateRevocationLists\x12N.google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest\x1aO.google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsResponse\"m\x82\xd3\xe4\x93\x02^\x12\\/v1beta1/{parent=projects/*/locations/*/certificateAuthorities/*}/certificateRevocationLists\xda\x41\x06parent\x12\xf8\x01\n\x10ListCertificates\x12@.google.cloud.security.privateca.v1beta1.ListCertificatesRequest\x1a\x41.google.cloud.security.privateca.v1beta1.ListCertificatesResponse\"_\x82\xd3\xe4\x93\x02P\x12N/v1beta1/{parent=projects/*/locations/*/certificateAuthorities/*}/certificates\xda\x41\x06parent\x12\xeb\x01\n\x13ListReusableConfigs\x12\x43.google.cloud.security.privateca.v1beta1.ListReusableConfigsRequest\x1a\x44.google.cloud.security.privateca.v1beta1.ListReusableConfigsResponse\"I\x82\xd3\xe4\x93\x02:\x12\x38/v1beta1/{parent=projects/*/locations/*}/reusableConfigs\xda\x41\x06parent\x12\xf1\x01\n\x17GetCertificateAuthority\x12G.google.cloud.security.privateca.v1beta1.GetCertificateAuthorityRequest\x1a=.google.cloud.security.privateca.v1beta1.CertificateAuthority\"N\x82\xd3\xe4\x93\x02\x41\x12?/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}\xda\x41\x04name\x12\x9d\x02\n\x1cGetCertificateRevocationList\x12L.google.cloud.security.privateca.v1beta1.GetCertificateRevocationListRequest\x1a\x42.google.cloud.security.privateca.v1beta1.CertificateRevocationList\"k\x82\xd3\xe4\x93\x02^\x12\\/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*/certificateRevocationLists/*}\xda\x41\x04name\x12\xe5\x01\n\x0eGetCertificate\x12>.google.cloud.security.privateca.v1beta1.GetCertificateRequest\x1a\x34.google.cloud.security.privateca.v1beta1.Certificate\"]\x82\xd3\xe4\x93\x02P\x12N/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*/certificates/*}\xda\x41\x04name\x12\xd8\x01\n\x11GetReusableConfig\x12\x41.google.cloud.security.privateca.v1beta1.GetReusableConfigRequest\x1a\x37.google.cloud.security.privateca.v1beta1.ReusableConfig\"G\x82\xd3\xe4\x93\x02:\x12\x38/v1beta1/{name=projects/*/locations/*/reusableConfigs/*}\xda\x41\x04name\x12\xcc\x02\n\x1a\x43reateCertificateAuthority\x12J.google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\xc2\x01\x82\xd3\xe4\x93\x02X\"?/v1beta1/{parent=projects/*/locations/*}/certificateAuthorities:\x15\x63\x65rtificate_authority\xda\x41\x35parent,certificate_authority,certificate_authority_id\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\x8a\x03\n\x1f\x43reateCertificateRevocationList\x12O.google.cloud.security.privateca.v1beta1.CreateCertificateRevocationListRequest\x1a\x1d.google.longrunning.Operation\"\xf6\x01\x82\xd3\xe4\x93\x02{\"\\/v1beta1/{parent=projects/*/locations/*/certificateAuthorities/*}/certificateRevocationLists:\x1b\x63\x65rtificate_revocation_list\xda\x41\x41parent,certificate_revocation_list,certificate_revocation_list_id\xca\x41.\n\x19\x43\x65rtificateRevocationList\x12\x11OperationMetadata\x12\x96\x02\n\x11\x43reateCertificate\x12\x41.google.cloud.security.privateca.v1beta1.CreateCertificateRequest\x1a\x34.google.cloud.security.privateca.v1beta1.Certificate\"\x87\x01\x82\xd3\xe4\x93\x02]\"N/v1beta1/{parent=projects/*/locations/*/certificateAuthorities/*}/certificates:\x0b\x63\x65rtificate\xda\x41!parent,certificate,certificate_id\x12\xa1\x02\n\x14\x43reateReusableConfig\x12\x44.google.cloud.security.privateca.v1beta1.CreateReusableConfigRequest\x1a\x1d.google.longrunning.Operation\"\xa3\x01\x82\xd3\xe4\x93\x02K\"8/v1beta1/{parent=projects/*/locations/*}/reusableConfigs:\x0freusable_config\xda\x41)parent,reusable_config,reusable_config_id\xca\x41#\n\x0eReusableConfig\x12\x11OperationMetadata\x12\xce\x02\n\x1aUpdateCertificateAuthority\x12J.google.cloud.security.privateca.v1beta1.UpdateCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\xc4\x01\x82\xd3\xe4\x93\x02n2U/v1beta1/{certificate_authority.name=projects/*/locations/*/certificateAuthorities/*}:\x15\x63\x65rtificate_authority\xda\x41!certificate_authority,update_mask\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\x8d\x03\n\x1fUpdateCertificateRevocationList\x12O.google.cloud.security.privateca.v1beta1.UpdateCertificateRevocationListRequest\x1a\x1d.google.longrunning.Operation\"\xf9\x01\x82\xd3\xe4\x93\x02\x97\x01\x32x/v1beta1/{certificate_revocation_list.name=projects/*/locations/*/certificateAuthorities/*/certificateRevocationLists/*}:\x1b\x63\x65rtificate_revocation_list\xda\x41\'certificate_revocation_list,update_mask\xca\x41.\n\x19\x43\x65rtificateRevocationList\x12\x11OperationMetadata\x12\x98\x02\n\x11UpdateCertificate\x12\x41.google.cloud.security.privateca.v1beta1.UpdateCertificateRequest\x1a\x34.google.cloud.security.privateca.v1beta1.Certificate\"\x89\x01\x82\xd3\xe4\x93\x02i2Z/v1beta1/{certificate.name=projects/*/locations/*/certificateAuthorities/*/certificates/*}:\x0b\x63\x65rtificate\xda\x41\x17\x63\x65rtificate,update_mask\x12\xa3\x02\n\x14UpdateReusableConfig\x12\x44.google.cloud.security.privateca.v1beta1.UpdateReusableConfigRequest\x1a\x1d.google.longrunning.Operation\"\xa5\x01\x82\xd3\xe4\x93\x02[2H/v1beta1/{reusable_config.name=projects/*/locations/*/reusableConfigs/*}:\x0freusable_config\xda\x41\x1breusable_config,update_mask\xca\x41#\n\x0eReusableConfig\x12\x11OperationMetadata\x12\x8c\x02\n\x1aGetCertificateAuthorityCsr\x12J.google.cloud.security.privateca.v1beta1.GetCertificateAuthorityCsrRequest\x1aK.google.cloud.security.privateca.v1beta1.GetCertificateAuthorityCsrResponse\"U\x82\xd3\xe4\x93\x02H\x12\x46/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:getCsr\xda\x41\x04name\x12\x94\x02\n\x1c\x41\x63tivateCertificateAuthority\x12L.google.cloud.security.privateca.v1beta1.ActivateCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\x86\x01\x82\xd3\xe4\x93\x02M\"H/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:activate:\x01*\xda\x41\x04name\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\x91\x02\n\x1b\x44isableCertificateAuthority\x12K.google.cloud.security.privateca.v1beta1.DisableCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\x85\x01\x82\xd3\xe4\x93\x02L\"G/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:disable:\x01*\xda\x41\x04name\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\x8e\x02\n\x1a\x45nableCertificateAuthority\x12J.google.cloud.security.privateca.v1beta1.EnableCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\x84\x01\x82\xd3\xe4\x93\x02K\"F/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:enable:\x01*\xda\x41\x04name\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\xa6\x02\n\"ScheduleDeleteCertificateAuthority\x12R.google.cloud.security.privateca.v1beta1.ScheduleDeleteCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\x8c\x01\x82\xd3\xe4\x93\x02S\"N/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:scheduleDelete:\x01*\xda\x41\x04name\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\x91\x02\n\x1bRestoreCertificateAuthority\x12K.google.cloud.security.privateca.v1beta1.RestoreCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\x85\x01\x82\xd3\xe4\x93\x02L\"G/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:restore:\x01*\xda\x41\x04name\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\xf5\x01\n\x11RevokeCertificate\x12\x41.google.cloud.security.privateca.v1beta1.RevokeCertificateRequest\x1a\x34.google.cloud.security.privateca.v1beta1.Certificate\"g\x82\xd3\xe4\x93\x02Z\"U/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*/certificates/*}:revoke:\x01*\xda\x41\x04name\x1aL\xca\x41\x18privateca.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xbe\x01\n+com.google.cloud.security.privateca.v1beta1B\x0ePrivateCaProtoP\x01ZPgoogle.golang.org/genproto/googleapis/cloud/security/privateca/v1beta1;privateca\xf8\x01\x01\xaa\x02\'Google.Cloud.Security.PrivateCA.V1Beta1b\x06proto3'
+  serialized_pb=b'\n5google/cloud/security/privateca/v1beta1/service.proto\x12\'google.cloud.security.privateca.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x37google/cloud/security/privateca/v1beta1/resources.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe7\x01\n\x18\x43reateCertificateRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x1b\n\x0e\x63\x65rtificate_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12N\n\x0b\x63\x65rtificate\x18\x03 \x01(\x0b\x32\x34.google.cloud.security.privateca.v1beta1.CertificateB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"S\n\x15GetCertificateRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$privateca.googleapis.com/Certificate\"\xbd\x01\n\x17ListCertificatesRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\x94\x01\n\x18ListCertificatesResponse\x12J\n\x0c\x63\x65rtificates\x18\x01 \x03(\x0b\x32\x34.google.cloud.security.privateca.v1beta1.Certificate\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\xbf\x01\n\x18RevokeCertificateRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$privateca.googleapis.com/Certificate\x12N\n\x06reason\x18\x02 \x01(\x0e\x32\x39.google.cloud.security.privateca.v1beta1.RevocationReasonB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xb9\x01\n\x18UpdateCertificateRequest\x12N\n\x0b\x63\x65rtificate\x18\x01 \x01(\x0b\x32\x34.google.cloud.security.privateca.v1beta1.CertificateB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\x81\x02\n#ActivateCertificateAuthorityRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x1f\n\x12pem_ca_certificate\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12[\n\x12subordinate_config\x18\x03 \x01(\x0b\x32:.google.cloud.security.privateca.v1beta1.SubordinateConfigB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\x81\x02\n!CreateCertificateAuthorityRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12%\n\x18\x63\x65rtificate_authority_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x61\n\x15\x63\x65rtificate_authority\x18\x03 \x01(\x0b\x32=.google.cloud.security.privateca.v1beta1.CertificateAuthorityB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\x82\x01\n\"DisableCertificateAuthorityRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\x81\x01\n!EnableCertificateAuthorityRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"j\n#FetchCertificateAuthorityCsrRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\"<\n$FetchCertificateAuthorityCsrResponse\x12\x14\n\x07pem_csr\x18\x01 \x01(\tB\x03\xe0\x41\x03\"e\n\x1eGetCertificateAuthorityRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\"\xbb\x01\n!ListCertificateAuthoritiesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xb2\x01\n\"ListCertificateAuthoritiesResponse\x12^\n\x17\x63\x65rtificate_authorities\x18\x01 \x03(\x0b\x32=.google.cloud.security.privateca.v1beta1.CertificateAuthority\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\x82\x01\n\"RestoreCertificateAuthorityRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\x89\x01\n)ScheduleDeleteCertificateAuthorityRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\xd5\x01\n!UpdateCertificateAuthorityRequest\x12\x61\n\x15\x63\x65rtificate_authority\x18\x01 \x01(\x0b\x32=.google.cloud.security.privateca.v1beta1.CertificateAuthorityB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"o\n#GetCertificateRevocationListRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2privateca.googleapis.com/CertificateRevocationList\"\xcb\x01\n%ListCertificateRevocationListsRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-privateca.googleapis.com/CertificateAuthority\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xc0\x01\n&ListCertificateRevocationListsResponse\x12h\n\x1c\x63\x65rtificate_revocation_lists\x18\x01 \x03(\x0b\x32\x42.google.cloud.security.privateca.v1beta1.CertificateRevocationList\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\xe5\x01\n&UpdateCertificateRevocationListRequest\x12l\n\x1b\x63\x65rtificate_revocation_list\x18\x01 \x01(\x0b\x32\x42.google.cloud.security.privateca.v1beta1.CertificateRevocationListB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"Y\n\x18GetReusableConfigRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'privateca.googleapis.com/ReusableConfig\"\xb4\x01\n\x1aListReusableConfigsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\x9e\x01\n\x1bListReusableConfigsResponse\x12Q\n\x10reusable_configs\x18\x01 \x03(\x0b\x32\x37.google.cloud.security.privateca.v1beta1.ReusableConfig\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\x80\x02\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1b\n\x0estatus_message\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12#\n\x16requested_cancellation\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\x32\xd1,\n\x1b\x43\x65rtificateAuthorityService\x12\x96\x02\n\x11\x43reateCertificate\x12\x41.google.cloud.security.privateca.v1beta1.CreateCertificateRequest\x1a\x34.google.cloud.security.privateca.v1beta1.Certificate\"\x87\x01\x82\xd3\xe4\x93\x02]\"N/v1beta1/{parent=projects/*/locations/*/certificateAuthorities/*}/certificates:\x0b\x63\x65rtificate\xda\x41!parent,certificate,certificate_id\x12\xe5\x01\n\x0eGetCertificate\x12>.google.cloud.security.privateca.v1beta1.GetCertificateRequest\x1a\x34.google.cloud.security.privateca.v1beta1.Certificate\"]\x82\xd3\xe4\x93\x02P\x12N/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*/certificates/*}\xda\x41\x04name\x12\xf8\x01\n\x10ListCertificates\x12@.google.cloud.security.privateca.v1beta1.ListCertificatesRequest\x1a\x41.google.cloud.security.privateca.v1beta1.ListCertificatesResponse\"_\x82\xd3\xe4\x93\x02P\x12N/v1beta1/{parent=projects/*/locations/*/certificateAuthorities/*}/certificates\xda\x41\x06parent\x12\xf5\x01\n\x11RevokeCertificate\x12\x41.google.cloud.security.privateca.v1beta1.RevokeCertificateRequest\x1a\x34.google.cloud.security.privateca.v1beta1.Certificate\"g\x82\xd3\xe4\x93\x02Z\"U/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*/certificates/*}:revoke:\x01*\xda\x41\x04name\x12\x98\x02\n\x11UpdateCertificate\x12\x41.google.cloud.security.privateca.v1beta1.UpdateCertificateRequest\x1a\x34.google.cloud.security.privateca.v1beta1.Certificate\"\x89\x01\x82\xd3\xe4\x93\x02i2Z/v1beta1/{certificate.name=projects/*/locations/*/certificateAuthorities/*/certificates/*}:\x0b\x63\x65rtificate\xda\x41\x17\x63\x65rtificate,update_mask\x12\x94\x02\n\x1c\x41\x63tivateCertificateAuthority\x12L.google.cloud.security.privateca.v1beta1.ActivateCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\x86\x01\x82\xd3\xe4\x93\x02M\"H/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:activate:\x01*\xda\x41\x04name\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\xcc\x02\n\x1a\x43reateCertificateAuthority\x12J.google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\xc2\x01\x82\xd3\xe4\x93\x02X\"?/v1beta1/{parent=projects/*/locations/*}/certificateAuthorities:\x15\x63\x65rtificate_authority\xda\x41\x35parent,certificate_authority,certificate_authority_id\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\x91\x02\n\x1b\x44isableCertificateAuthority\x12K.google.cloud.security.privateca.v1beta1.DisableCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\x85\x01\x82\xd3\xe4\x93\x02L\"G/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:disable:\x01*\xda\x41\x04name\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\x8e\x02\n\x1a\x45nableCertificateAuthority\x12J.google.cloud.security.privateca.v1beta1.EnableCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\x84\x01\x82\xd3\xe4\x93\x02K\"F/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:enable:\x01*\xda\x41\x04name\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\x91\x02\n\x1c\x46\x65tchCertificateAuthorityCsr\x12L.google.cloud.security.privateca.v1beta1.FetchCertificateAuthorityCsrRequest\x1aM.google.cloud.security.privateca.v1beta1.FetchCertificateAuthorityCsrResponse\"T\x82\xd3\xe4\x93\x02G\x12\x45/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:fetch\xda\x41\x04name\x12\xf1\x01\n\x17GetCertificateAuthority\x12G.google.cloud.security.privateca.v1beta1.GetCertificateAuthorityRequest\x1a=.google.cloud.security.privateca.v1beta1.CertificateAuthority\"N\x82\xd3\xe4\x93\x02\x41\x12?/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}\xda\x41\x04name\x12\x87\x02\n\x1aListCertificateAuthorities\x12J.google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest\x1aK.google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesResponse\"P\x82\xd3\xe4\x93\x02\x41\x12?/v1beta1/{parent=projects/*/locations/*}/certificateAuthorities\xda\x41\x06parent\x12\x91\x02\n\x1bRestoreCertificateAuthority\x12K.google.cloud.security.privateca.v1beta1.RestoreCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\x85\x01\x82\xd3\xe4\x93\x02L\"G/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:restore:\x01*\xda\x41\x04name\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\xa6\x02\n\"ScheduleDeleteCertificateAuthority\x12R.google.cloud.security.privateca.v1beta1.ScheduleDeleteCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\x8c\x01\x82\xd3\xe4\x93\x02S\"N/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:scheduleDelete:\x01*\xda\x41\x04name\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\xce\x02\n\x1aUpdateCertificateAuthority\x12J.google.cloud.security.privateca.v1beta1.UpdateCertificateAuthorityRequest\x1a\x1d.google.longrunning.Operation\"\xc4\x01\x82\xd3\xe4\x93\x02n2U/v1beta1/{certificate_authority.name=projects/*/locations/*/certificateAuthorities/*}:\x15\x63\x65rtificate_authority\xda\x41!certificate_authority,update_mask\xca\x41)\n\x14\x43\x65rtificateAuthority\x12\x11OperationMetadata\x12\x9d\x02\n\x1cGetCertificateRevocationList\x12L.google.cloud.security.privateca.v1beta1.GetCertificateRevocationListRequest\x1a\x42.google.cloud.security.privateca.v1beta1.CertificateRevocationList\"k\x82\xd3\xe4\x93\x02^\x12\\/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*/certificateRevocationLists/*}\xda\x41\x04name\x12\xb0\x02\n\x1eListCertificateRevocationLists\x12N.google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest\x1aO.google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsResponse\"m\x82\xd3\xe4\x93\x02^\x12\\/v1beta1/{parent=projects/*/locations/*/certificateAuthorities/*}/certificateRevocationLists\xda\x41\x06parent\x12\x8d\x03\n\x1fUpdateCertificateRevocationList\x12O.google.cloud.security.privateca.v1beta1.UpdateCertificateRevocationListRequest\x1a\x1d.google.longrunning.Operation\"\xf9\x01\x82\xd3\xe4\x93\x02\x97\x01\x32x/v1beta1/{certificate_revocation_list.name=projects/*/locations/*/certificateAuthorities/*/certificateRevocationLists/*}:\x1b\x63\x65rtificate_revocation_list\xda\x41\'certificate_revocation_list,update_mask\xca\x41.\n\x19\x43\x65rtificateRevocationList\x12\x11OperationMetadata\x12\xd8\x01\n\x11GetReusableConfig\x12\x41.google.cloud.security.privateca.v1beta1.GetReusableConfigRequest\x1a\x37.google.cloud.security.privateca.v1beta1.ReusableConfig\"G\x82\xd3\xe4\x93\x02:\x12\x38/v1beta1/{name=projects/*/locations/*/reusableConfigs/*}\xda\x41\x04name\x12\xeb\x01\n\x13ListReusableConfigs\x12\x43.google.cloud.security.privateca.v1beta1.ListReusableConfigsRequest\x1a\x44.google.cloud.security.privateca.v1beta1.ListReusableConfigsResponse\"I\x82\xd3\xe4\x93\x02:\x12\x38/v1beta1/{parent=projects/*/locations/*}/reusableConfigs\xda\x41\x06parent\x1aL\xca\x41\x18privateca.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x96\x02\n+com.google.cloud.security.privateca.v1beta1B\x0ePrivateCaProtoP\x01ZPgoogle.golang.org/genproto/googleapis/cloud/security/privateca/v1beta1;privateca\xf8\x01\x01\xaa\x02\'Google.Cloud.Security.PrivateCA.V1Beta1\xca\x02\'Google\\Cloud\\Security\\PrivateCA\\V1beta1\xea\x02+Google::Cloud::Security::PrivateCA::V1beta1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
 
 
-_LISTCERTIFICATEAUTHORITIESREQUEST = _descriptor.Descriptor(
-  name='ListCertificateAuthoritiesRequest',
-  full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest',
+_CREATECERTIFICATEREQUEST = _descriptor.Descriptor(
+  name='CreateCertificateRequest',
+  full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='parent', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest.parent', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='page_size', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest.page_size', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='page_token', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest.page_token', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='filter', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest.filter', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='order_by', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest.order_by', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=375,
-  serialized_end=562,
-)
-
-
-_LISTCERTIFICATEREVOCATIONLISTSREQUEST = _descriptor.Descriptor(
-  name='ListCertificateRevocationListsRequest',
-  full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest.parent', index=0,
+      name='parent', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRequest.parent', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='page_size', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest.page_size', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='page_token', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest.page_token', index=2,
-      number=3, type=9, cpp_type=9, label=1,
+      name='certificate_id', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRequest.certificate_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='filter', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest.filter', index=3,
+      name='certificate', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRequest.certificate', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRequest.request_id', index=3,
       number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='order_by', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest.order_by', index=4,
-      number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -149,8 +83,40 @@ _LISTCERTIFICATEREVOCATIONLISTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=565,
-  serialized_end=768,
+  serialized_start=407,
+  serialized_end=638,
+)
+
+
+_GETCERTIFICATEREQUEST = _descriptor.Descriptor(
+  name='GetCertificateRequest',
+  full_name='google.cloud.security.privateca.v1beta1.GetCertificateRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.security.privateca.v1beta1.GetCertificateRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A&\n$privateca.googleapis.com/Certificate', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=640,
+  serialized_end=723,
 )
 
 
@@ -209,8 +175,872 @@ _LISTCERTIFICATESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=771,
-  serialized_end=960,
+  serialized_start=726,
+  serialized_end=915,
+)
+
+
+_LISTCERTIFICATESRESPONSE = _descriptor.Descriptor(
+  name='ListCertificatesResponse',
+  full_name='google.cloud.security.privateca.v1beta1.ListCertificatesResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='certificates', full_name='google.cloud.security.privateca.v1beta1.ListCertificatesResponse.certificates', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.cloud.security.privateca.v1beta1.ListCertificatesResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='unreachable', full_name='google.cloud.security.privateca.v1beta1.ListCertificatesResponse.unreachable', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=918,
+  serialized_end=1066,
+)
+
+
+_REVOKECERTIFICATEREQUEST = _descriptor.Descriptor(
+  name='RevokeCertificateRequest',
+  full_name='google.cloud.security.privateca.v1beta1.RevokeCertificateRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.security.privateca.v1beta1.RevokeCertificateRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A&\n$privateca.googleapis.com/Certificate', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='reason', full_name='google.cloud.security.privateca.v1beta1.RevokeCertificateRequest.reason', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.security.privateca.v1beta1.RevokeCertificateRequest.request_id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1069,
+  serialized_end=1260,
+)
+
+
+_UPDATECERTIFICATEREQUEST = _descriptor.Descriptor(
+  name='UpdateCertificateRequest',
+  full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='certificate', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRequest.certificate', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_mask', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRequest.update_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRequest.request_id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1263,
+  serialized_end=1448,
+)
+
+
+_ACTIVATECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
+  name='ActivateCertificateAuthorityRequest',
+  full_name='google.cloud.security.privateca.v1beta1.ActivateCertificateAuthorityRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.security.privateca.v1beta1.ActivateCertificateAuthorityRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='pem_ca_certificate', full_name='google.cloud.security.privateca.v1beta1.ActivateCertificateAuthorityRequest.pem_ca_certificate', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='subordinate_config', full_name='google.cloud.security.privateca.v1beta1.ActivateCertificateAuthorityRequest.subordinate_config', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.security.privateca.v1beta1.ActivateCertificateAuthorityRequest.request_id', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1451,
+  serialized_end=1708,
+)
+
+
+_CREATECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
+  name='CreateCertificateAuthorityRequest',
+  full_name='google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='certificate_authority_id', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest.certificate_authority_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='certificate_authority', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest.certificate_authority', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest.request_id', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1711,
+  serialized_end=1968,
+)
+
+
+_DISABLECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
+  name='DisableCertificateAuthorityRequest',
+  full_name='google.cloud.security.privateca.v1beta1.DisableCertificateAuthorityRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.security.privateca.v1beta1.DisableCertificateAuthorityRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.security.privateca.v1beta1.DisableCertificateAuthorityRequest.request_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1971,
+  serialized_end=2101,
+)
+
+
+_ENABLECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
+  name='EnableCertificateAuthorityRequest',
+  full_name='google.cloud.security.privateca.v1beta1.EnableCertificateAuthorityRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.security.privateca.v1beta1.EnableCertificateAuthorityRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.security.privateca.v1beta1.EnableCertificateAuthorityRequest.request_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2104,
+  serialized_end=2233,
+)
+
+
+_FETCHCERTIFICATEAUTHORITYCSRREQUEST = _descriptor.Descriptor(
+  name='FetchCertificateAuthorityCsrRequest',
+  full_name='google.cloud.security.privateca.v1beta1.FetchCertificateAuthorityCsrRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.security.privateca.v1beta1.FetchCertificateAuthorityCsrRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2235,
+  serialized_end=2341,
+)
+
+
+_FETCHCERTIFICATEAUTHORITYCSRRESPONSE = _descriptor.Descriptor(
+  name='FetchCertificateAuthorityCsrResponse',
+  full_name='google.cloud.security.privateca.v1beta1.FetchCertificateAuthorityCsrResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='pem_csr', full_name='google.cloud.security.privateca.v1beta1.FetchCertificateAuthorityCsrResponse.pem_csr', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2343,
+  serialized_end=2403,
+)
+
+
+_GETCERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
+  name='GetCertificateAuthorityRequest',
+  full_name='google.cloud.security.privateca.v1beta1.GetCertificateAuthorityRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.security.privateca.v1beta1.GetCertificateAuthorityRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2405,
+  serialized_end=2506,
+)
+
+
+_LISTCERTIFICATEAUTHORITIESREQUEST = _descriptor.Descriptor(
+  name='ListCertificateAuthoritiesRequest',
+  full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filter', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest.filter', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='order_by', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest.order_by', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2509,
+  serialized_end=2696,
+)
+
+
+_LISTCERTIFICATEAUTHORITIESRESPONSE = _descriptor.Descriptor(
+  name='ListCertificateAuthoritiesResponse',
+  full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='certificate_authorities', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesResponse.certificate_authorities', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='unreachable', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesResponse.unreachable', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2699,
+  serialized_end=2877,
+)
+
+
+_RESTORECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
+  name='RestoreCertificateAuthorityRequest',
+  full_name='google.cloud.security.privateca.v1beta1.RestoreCertificateAuthorityRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.security.privateca.v1beta1.RestoreCertificateAuthorityRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.security.privateca.v1beta1.RestoreCertificateAuthorityRequest.request_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2880,
+  serialized_end=3010,
+)
+
+
+_SCHEDULEDELETECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
+  name='ScheduleDeleteCertificateAuthorityRequest',
+  full_name='google.cloud.security.privateca.v1beta1.ScheduleDeleteCertificateAuthorityRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.security.privateca.v1beta1.ScheduleDeleteCertificateAuthorityRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.security.privateca.v1beta1.ScheduleDeleteCertificateAuthorityRequest.request_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3013,
+  serialized_end=3150,
+)
+
+
+_UPDATECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
+  name='UpdateCertificateAuthorityRequest',
+  full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateAuthorityRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='certificate_authority', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateAuthorityRequest.certificate_authority', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_mask', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateAuthorityRequest.update_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateAuthorityRequest.request_id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3153,
+  serialized_end=3366,
+)
+
+
+_GETCERTIFICATEREVOCATIONLISTREQUEST = _descriptor.Descriptor(
+  name='GetCertificateRevocationListRequest',
+  full_name='google.cloud.security.privateca.v1beta1.GetCertificateRevocationListRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.security.privateca.v1beta1.GetCertificateRevocationListRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A4\n2privateca.googleapis.com/CertificateRevocationList', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3368,
+  serialized_end=3479,
+)
+
+
+_LISTCERTIFICATEREVOCATIONLISTSREQUEST = _descriptor.Descriptor(
+  name='ListCertificateRevocationListsRequest',
+  full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filter', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest.filter', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='order_by', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest.order_by', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3482,
+  serialized_end=3685,
+)
+
+
+_LISTCERTIFICATEREVOCATIONLISTSRESPONSE = _descriptor.Descriptor(
+  name='ListCertificateRevocationListsResponse',
+  full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='certificate_revocation_lists', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsResponse.certificate_revocation_lists', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='unreachable', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsResponse.unreachable', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3688,
+  serialized_end=3880,
+)
+
+
+_UPDATECERTIFICATEREVOCATIONLISTREQUEST = _descriptor.Descriptor(
+  name='UpdateCertificateRevocationListRequest',
+  full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRevocationListRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='certificate_revocation_list', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRevocationListRequest.certificate_revocation_list', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_mask', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRevocationListRequest.update_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRevocationListRequest.request_id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3883,
+  serialized_end=4112,
+)
+
+
+_GETREUSABLECONFIGREQUEST = _descriptor.Descriptor(
+  name='GetReusableConfigRequest',
+  full_name='google.cloud.security.privateca.v1beta1.GetReusableConfigRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.security.privateca.v1beta1.GetReusableConfigRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A)\n\'privateca.googleapis.com/ReusableConfig', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4114,
+  serialized_end=4203,
 )
 
 
@@ -269,146 +1099,8 @@ _LISTREUSABLECONFIGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=963,
-  serialized_end=1143,
-)
-
-
-_LISTCERTIFICATEAUTHORITIESRESPONSE = _descriptor.Descriptor(
-  name='ListCertificateAuthoritiesResponse',
-  full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='certificate_authorities', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesResponse.certificate_authorities', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='next_page_token', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesResponse.next_page_token', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='unreachable', full_name='google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesResponse.unreachable', index=2,
-      number=3, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1146,
-  serialized_end=1324,
-)
-
-
-_LISTCERTIFICATEREVOCATIONLISTSRESPONSE = _descriptor.Descriptor(
-  name='ListCertificateRevocationListsResponse',
-  full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='certificate_revocation_lists', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsResponse.certificate_revocation_lists', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='next_page_token', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsResponse.next_page_token', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='unreachable', full_name='google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsResponse.unreachable', index=2,
-      number=3, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1327,
-  serialized_end=1519,
-)
-
-
-_LISTCERTIFICATESRESPONSE = _descriptor.Descriptor(
-  name='ListCertificatesResponse',
-  full_name='google.cloud.security.privateca.v1beta1.ListCertificatesResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='certificates', full_name='google.cloud.security.privateca.v1beta1.ListCertificatesResponse.certificates', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='next_page_token', full_name='google.cloud.security.privateca.v1beta1.ListCertificatesResponse.next_page_token', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='unreachable', full_name='google.cloud.security.privateca.v1beta1.ListCertificatesResponse.unreachable', index=2,
-      number=3, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1522,
-  serialized_end=1670,
+  serialized_start=4206,
+  serialized_end=4386,
 )
 
 
@@ -453,851 +1145,8 @@ _LISTREUSABLECONFIGSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1673,
-  serialized_end=1831,
-)
-
-
-_GETCERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
-  name='GetCertificateAuthorityRequest',
-  full_name='google.cloud.security.privateca.v1beta1.GetCertificateAuthorityRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.cloud.security.privateca.v1beta1.GetCertificateAuthorityRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1833,
-  serialized_end=1934,
-)
-
-
-_GETCERTIFICATEREVOCATIONLISTREQUEST = _descriptor.Descriptor(
-  name='GetCertificateRevocationListRequest',
-  full_name='google.cloud.security.privateca.v1beta1.GetCertificateRevocationListRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.cloud.security.privateca.v1beta1.GetCertificateRevocationListRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A4\n2privateca.googleapis.com/CertificateRevocationList', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1936,
-  serialized_end=2047,
-)
-
-
-_GETCERTIFICATEREQUEST = _descriptor.Descriptor(
-  name='GetCertificateRequest',
-  full_name='google.cloud.security.privateca.v1beta1.GetCertificateRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.cloud.security.privateca.v1beta1.GetCertificateRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A&\n$privateca.googleapis.com/Certificate', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2049,
-  serialized_end=2132,
-)
-
-
-_GETREUSABLECONFIGREQUEST = _descriptor.Descriptor(
-  name='GetReusableConfigRequest',
-  full_name='google.cloud.security.privateca.v1beta1.GetReusableConfigRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.cloud.security.privateca.v1beta1.GetReusableConfigRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A)\n\'privateca.googleapis.com/ReusableConfig', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2134,
-  serialized_end=2223,
-)
-
-
-_CREATECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
-  name='CreateCertificateAuthorityRequest',
-  full_name='google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest.parent', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='certificate_authority_id', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest.certificate_authority_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='certificate_authority', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest.certificate_authority', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest.request_id', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2226,
-  serialized_end=2483,
-)
-
-
-_CREATECERTIFICATEREVOCATIONLISTREQUEST = _descriptor.Descriptor(
-  name='CreateCertificateRevocationListRequest',
-  full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRevocationListRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRevocationListRequest.parent', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='certificate_revocation_list_id', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRevocationListRequest.certificate_revocation_list_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='certificate_revocation_list', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRevocationListRequest.certificate_revocation_list', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRevocationListRequest.request_id', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2486,
-  serialized_end=2777,
-)
-
-
-_CREATECERTIFICATEREQUEST = _descriptor.Descriptor(
-  name='CreateCertificateRequest',
-  full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRequest.parent', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='certificate_id', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRequest.certificate_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='certificate', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRequest.certificate', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.CreateCertificateRequest.request_id', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2780,
-  serialized_end=3011,
-)
-
-
-_CREATEREUSABLECONFIGREQUEST = _descriptor.Descriptor(
-  name='CreateReusableConfigRequest',
-  full_name='google.cloud.security.privateca.v1beta1.CreateReusableConfigRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='google.cloud.security.privateca.v1beta1.CreateReusableConfigRequest.parent', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='reusable_config_id', full_name='google.cloud.security.privateca.v1beta1.CreateReusableConfigRequest.reusable_config_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='reusable_config', full_name='google.cloud.security.privateca.v1beta1.CreateReusableConfigRequest.reusable_config', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.CreateReusableConfigRequest.request_id', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3014,
-  serialized_end=3247,
-)
-
-
-_UPDATECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
-  name='UpdateCertificateAuthorityRequest',
-  full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateAuthorityRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='certificate_authority', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateAuthorityRequest.certificate_authority', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='update_mask', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateAuthorityRequest.update_mask', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateAuthorityRequest.request_id', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3250,
-  serialized_end=3463,
-)
-
-
-_UPDATECERTIFICATEREVOCATIONLISTREQUEST = _descriptor.Descriptor(
-  name='UpdateCertificateRevocationListRequest',
-  full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRevocationListRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='certificate_revocation_list', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRevocationListRequest.certificate_revocation_list', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='update_mask', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRevocationListRequest.update_mask', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRevocationListRequest.request_id', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3466,
-  serialized_end=3695,
-)
-
-
-_UPDATECERTIFICATEREQUEST = _descriptor.Descriptor(
-  name='UpdateCertificateRequest',
-  full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='certificate', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRequest.certificate', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='update_mask', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRequest.update_mask', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.UpdateCertificateRequest.request_id', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3698,
-  serialized_end=3883,
-)
-
-
-_UPDATEREUSABLECONFIGREQUEST = _descriptor.Descriptor(
-  name='UpdateReusableConfigRequest',
-  full_name='google.cloud.security.privateca.v1beta1.UpdateReusableConfigRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='reusable_config', full_name='google.cloud.security.privateca.v1beta1.UpdateReusableConfigRequest.reusable_config', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='update_mask', full_name='google.cloud.security.privateca.v1beta1.UpdateReusableConfigRequest.update_mask', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.UpdateReusableConfigRequest.request_id', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3886,
-  serialized_end=4081,
-)
-
-
-_GETCERTIFICATEAUTHORITYCSRREQUEST = _descriptor.Descriptor(
-  name='GetCertificateAuthorityCsrRequest',
-  full_name='google.cloud.security.privateca.v1beta1.GetCertificateAuthorityCsrRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.cloud.security.privateca.v1beta1.GetCertificateAuthorityCsrRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4083,
-  serialized_end=4187,
-)
-
-
-_GETCERTIFICATEAUTHORITYCSRRESPONSE = _descriptor.Descriptor(
-  name='GetCertificateAuthorityCsrResponse',
-  full_name='google.cloud.security.privateca.v1beta1.GetCertificateAuthorityCsrResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='pem_csr', full_name='google.cloud.security.privateca.v1beta1.GetCertificateAuthorityCsrResponse.pem_csr', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4189,
-  serialized_end=4247,
-)
-
-
-_ACTIVATECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
-  name='ActivateCertificateAuthorityRequest',
-  full_name='google.cloud.security.privateca.v1beta1.ActivateCertificateAuthorityRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.cloud.security.privateca.v1beta1.ActivateCertificateAuthorityRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='pem_ca_certificate', full_name='google.cloud.security.privateca.v1beta1.ActivateCertificateAuthorityRequest.pem_ca_certificate', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='pem_ca_certificate_chain', full_name='google.cloud.security.privateca.v1beta1.ActivateCertificateAuthorityRequest.pem_ca_certificate_chain', index=2,
-      number=3, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.ActivateCertificateAuthorityRequest.request_id', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4250,
-  serialized_end=4453,
-)
-
-
-_DISABLECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
-  name='DisableCertificateAuthorityRequest',
-  full_name='google.cloud.security.privateca.v1beta1.DisableCertificateAuthorityRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.cloud.security.privateca.v1beta1.DisableCertificateAuthorityRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.DisableCertificateAuthorityRequest.request_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4456,
-  serialized_end=4586,
-)
-
-
-_ENABLECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
-  name='EnableCertificateAuthorityRequest',
-  full_name='google.cloud.security.privateca.v1beta1.EnableCertificateAuthorityRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.cloud.security.privateca.v1beta1.EnableCertificateAuthorityRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.EnableCertificateAuthorityRequest.request_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4589,
-  serialized_end=4718,
-)
-
-
-_SCHEDULEDELETECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
-  name='ScheduleDeleteCertificateAuthorityRequest',
-  full_name='google.cloud.security.privateca.v1beta1.ScheduleDeleteCertificateAuthorityRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.cloud.security.privateca.v1beta1.ScheduleDeleteCertificateAuthorityRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.ScheduleDeleteCertificateAuthorityRequest.request_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4721,
-  serialized_end=4858,
-)
-
-
-_RESTORECERTIFICATEAUTHORITYREQUEST = _descriptor.Descriptor(
-  name='RestoreCertificateAuthorityRequest',
-  full_name='google.cloud.security.privateca.v1beta1.RestoreCertificateAuthorityRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.cloud.security.privateca.v1beta1.RestoreCertificateAuthorityRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A/\n-privateca.googleapis.com/CertificateAuthority', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.RestoreCertificateAuthorityRequest.request_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4861,
-  serialized_end=4991,
-)
-
-
-_REVOKECERTIFICATEREQUEST = _descriptor.Descriptor(
-  name='RevokeCertificateRequest',
-  full_name='google.cloud.security.privateca.v1beta1.RevokeCertificateRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.cloud.security.privateca.v1beta1.RevokeCertificateRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A&\n$privateca.googleapis.com/Certificate', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='reason', full_name='google.cloud.security.privateca.v1beta1.RevokeCertificateRequest.reason', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_id', full_name='google.cloud.security.privateca.v1beta1.RevokeCertificateRequest.request_id', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4994,
-  serialized_end=5185,
+  serialized_start=4389,
+  serialized_end=4547,
 )
 
 
@@ -1370,157 +1219,53 @@ _OPERATIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5188,
-  serialized_end=5444,
+  serialized_start=4550,
+  serialized_end=4806,
 )
 
-_LISTCERTIFICATEAUTHORITIESRESPONSE.fields_by_name['certificate_authorities'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEAUTHORITY
-_LISTCERTIFICATEREVOCATIONLISTSRESPONSE.fields_by_name['certificate_revocation_lists'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEREVOCATIONLIST
-_LISTCERTIFICATESRESPONSE.fields_by_name['certificates'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATE
-_LISTREUSABLECONFIGSRESPONSE.fields_by_name['reusable_configs'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._REUSABLECONFIG
-_CREATECERTIFICATEAUTHORITYREQUEST.fields_by_name['certificate_authority'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEAUTHORITY
-_CREATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['certificate_revocation_list'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEREVOCATIONLIST
 _CREATECERTIFICATEREQUEST.fields_by_name['certificate'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATE
-_CREATEREUSABLECONFIGREQUEST.fields_by_name['reusable_config'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._REUSABLECONFIG
-_UPDATECERTIFICATEAUTHORITYREQUEST.fields_by_name['certificate_authority'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEAUTHORITY
-_UPDATECERTIFICATEAUTHORITYREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
-_UPDATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['certificate_revocation_list'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEREVOCATIONLIST
-_UPDATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_LISTCERTIFICATESRESPONSE.fields_by_name['certificates'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATE
+_REVOKECERTIFICATEREQUEST.fields_by_name['reason'].enum_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._REVOCATIONREASON
 _UPDATECERTIFICATEREQUEST.fields_by_name['certificate'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATE
 _UPDATECERTIFICATEREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
-_UPDATEREUSABLECONFIGREQUEST.fields_by_name['reusable_config'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._REUSABLECONFIG
-_UPDATEREUSABLECONFIGREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
-_REVOKECERTIFICATEREQUEST.fields_by_name['reason'].enum_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._REVOCATIONREASON
+_ACTIVATECERTIFICATEAUTHORITYREQUEST.fields_by_name['subordinate_config'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._SUBORDINATECONFIG
+_CREATECERTIFICATEAUTHORITYREQUEST.fields_by_name['certificate_authority'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEAUTHORITY
+_LISTCERTIFICATEAUTHORITIESRESPONSE.fields_by_name['certificate_authorities'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEAUTHORITY
+_UPDATECERTIFICATEAUTHORITYREQUEST.fields_by_name['certificate_authority'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEAUTHORITY
+_UPDATECERTIFICATEAUTHORITYREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_LISTCERTIFICATEREVOCATIONLISTSRESPONSE.fields_by_name['certificate_revocation_lists'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEREVOCATIONLIST
+_UPDATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['certificate_revocation_list'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEREVOCATIONLIST
+_UPDATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_LISTREUSABLECONFIGSRESPONSE.fields_by_name['reusable_configs'].message_type = google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._REUSABLECONFIG
 _OPERATIONMETADATA.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _OPERATIONMETADATA.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
-DESCRIPTOR.message_types_by_name['ListCertificateAuthoritiesRequest'] = _LISTCERTIFICATEAUTHORITIESREQUEST
-DESCRIPTOR.message_types_by_name['ListCertificateRevocationListsRequest'] = _LISTCERTIFICATEREVOCATIONLISTSREQUEST
-DESCRIPTOR.message_types_by_name['ListCertificatesRequest'] = _LISTCERTIFICATESREQUEST
-DESCRIPTOR.message_types_by_name['ListReusableConfigsRequest'] = _LISTREUSABLECONFIGSREQUEST
-DESCRIPTOR.message_types_by_name['ListCertificateAuthoritiesResponse'] = _LISTCERTIFICATEAUTHORITIESRESPONSE
-DESCRIPTOR.message_types_by_name['ListCertificateRevocationListsResponse'] = _LISTCERTIFICATEREVOCATIONLISTSRESPONSE
-DESCRIPTOR.message_types_by_name['ListCertificatesResponse'] = _LISTCERTIFICATESRESPONSE
-DESCRIPTOR.message_types_by_name['ListReusableConfigsResponse'] = _LISTREUSABLECONFIGSRESPONSE
-DESCRIPTOR.message_types_by_name['GetCertificateAuthorityRequest'] = _GETCERTIFICATEAUTHORITYREQUEST
-DESCRIPTOR.message_types_by_name['GetCertificateRevocationListRequest'] = _GETCERTIFICATEREVOCATIONLISTREQUEST
-DESCRIPTOR.message_types_by_name['GetCertificateRequest'] = _GETCERTIFICATEREQUEST
-DESCRIPTOR.message_types_by_name['GetReusableConfigRequest'] = _GETREUSABLECONFIGREQUEST
-DESCRIPTOR.message_types_by_name['CreateCertificateAuthorityRequest'] = _CREATECERTIFICATEAUTHORITYREQUEST
-DESCRIPTOR.message_types_by_name['CreateCertificateRevocationListRequest'] = _CREATECERTIFICATEREVOCATIONLISTREQUEST
 DESCRIPTOR.message_types_by_name['CreateCertificateRequest'] = _CREATECERTIFICATEREQUEST
-DESCRIPTOR.message_types_by_name['CreateReusableConfigRequest'] = _CREATEREUSABLECONFIGREQUEST
-DESCRIPTOR.message_types_by_name['UpdateCertificateAuthorityRequest'] = _UPDATECERTIFICATEAUTHORITYREQUEST
-DESCRIPTOR.message_types_by_name['UpdateCertificateRevocationListRequest'] = _UPDATECERTIFICATEREVOCATIONLISTREQUEST
+DESCRIPTOR.message_types_by_name['GetCertificateRequest'] = _GETCERTIFICATEREQUEST
+DESCRIPTOR.message_types_by_name['ListCertificatesRequest'] = _LISTCERTIFICATESREQUEST
+DESCRIPTOR.message_types_by_name['ListCertificatesResponse'] = _LISTCERTIFICATESRESPONSE
+DESCRIPTOR.message_types_by_name['RevokeCertificateRequest'] = _REVOKECERTIFICATEREQUEST
 DESCRIPTOR.message_types_by_name['UpdateCertificateRequest'] = _UPDATECERTIFICATEREQUEST
-DESCRIPTOR.message_types_by_name['UpdateReusableConfigRequest'] = _UPDATEREUSABLECONFIGREQUEST
-DESCRIPTOR.message_types_by_name['GetCertificateAuthorityCsrRequest'] = _GETCERTIFICATEAUTHORITYCSRREQUEST
-DESCRIPTOR.message_types_by_name['GetCertificateAuthorityCsrResponse'] = _GETCERTIFICATEAUTHORITYCSRRESPONSE
 DESCRIPTOR.message_types_by_name['ActivateCertificateAuthorityRequest'] = _ACTIVATECERTIFICATEAUTHORITYREQUEST
+DESCRIPTOR.message_types_by_name['CreateCertificateAuthorityRequest'] = _CREATECERTIFICATEAUTHORITYREQUEST
 DESCRIPTOR.message_types_by_name['DisableCertificateAuthorityRequest'] = _DISABLECERTIFICATEAUTHORITYREQUEST
 DESCRIPTOR.message_types_by_name['EnableCertificateAuthorityRequest'] = _ENABLECERTIFICATEAUTHORITYREQUEST
-DESCRIPTOR.message_types_by_name['ScheduleDeleteCertificateAuthorityRequest'] = _SCHEDULEDELETECERTIFICATEAUTHORITYREQUEST
+DESCRIPTOR.message_types_by_name['FetchCertificateAuthorityCsrRequest'] = _FETCHCERTIFICATEAUTHORITYCSRREQUEST
+DESCRIPTOR.message_types_by_name['FetchCertificateAuthorityCsrResponse'] = _FETCHCERTIFICATEAUTHORITYCSRRESPONSE
+DESCRIPTOR.message_types_by_name['GetCertificateAuthorityRequest'] = _GETCERTIFICATEAUTHORITYREQUEST
+DESCRIPTOR.message_types_by_name['ListCertificateAuthoritiesRequest'] = _LISTCERTIFICATEAUTHORITIESREQUEST
+DESCRIPTOR.message_types_by_name['ListCertificateAuthoritiesResponse'] = _LISTCERTIFICATEAUTHORITIESRESPONSE
 DESCRIPTOR.message_types_by_name['RestoreCertificateAuthorityRequest'] = _RESTORECERTIFICATEAUTHORITYREQUEST
-DESCRIPTOR.message_types_by_name['RevokeCertificateRequest'] = _REVOKECERTIFICATEREQUEST
+DESCRIPTOR.message_types_by_name['ScheduleDeleteCertificateAuthorityRequest'] = _SCHEDULEDELETECERTIFICATEAUTHORITYREQUEST
+DESCRIPTOR.message_types_by_name['UpdateCertificateAuthorityRequest'] = _UPDATECERTIFICATEAUTHORITYREQUEST
+DESCRIPTOR.message_types_by_name['GetCertificateRevocationListRequest'] = _GETCERTIFICATEREVOCATIONLISTREQUEST
+DESCRIPTOR.message_types_by_name['ListCertificateRevocationListsRequest'] = _LISTCERTIFICATEREVOCATIONLISTSREQUEST
+DESCRIPTOR.message_types_by_name['ListCertificateRevocationListsResponse'] = _LISTCERTIFICATEREVOCATIONLISTSRESPONSE
+DESCRIPTOR.message_types_by_name['UpdateCertificateRevocationListRequest'] = _UPDATECERTIFICATEREVOCATIONLISTREQUEST
+DESCRIPTOR.message_types_by_name['GetReusableConfigRequest'] = _GETREUSABLECONFIGREQUEST
+DESCRIPTOR.message_types_by_name['ListReusableConfigsRequest'] = _LISTREUSABLECONFIGSREQUEST
+DESCRIPTOR.message_types_by_name['ListReusableConfigsResponse'] = _LISTREUSABLECONFIGSRESPONSE
 DESCRIPTOR.message_types_by_name['OperationMetadata'] = _OPERATIONMETADATA
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
-
-ListCertificateAuthoritiesRequest = _reflection.GeneratedProtocolMessageType('ListCertificateAuthoritiesRequest', (_message.Message,), {
-  'DESCRIPTOR' : _LISTCERTIFICATEAUTHORITIESREQUEST,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest)
-  })
-_sym_db.RegisterMessage(ListCertificateAuthoritiesRequest)
-
-ListCertificateRevocationListsRequest = _reflection.GeneratedProtocolMessageType('ListCertificateRevocationListsRequest', (_message.Message,), {
-  'DESCRIPTOR' : _LISTCERTIFICATEREVOCATIONLISTSREQUEST,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest)
-  })
-_sym_db.RegisterMessage(ListCertificateRevocationListsRequest)
-
-ListCertificatesRequest = _reflection.GeneratedProtocolMessageType('ListCertificatesRequest', (_message.Message,), {
-  'DESCRIPTOR' : _LISTCERTIFICATESREQUEST,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListCertificatesRequest)
-  })
-_sym_db.RegisterMessage(ListCertificatesRequest)
-
-ListReusableConfigsRequest = _reflection.GeneratedProtocolMessageType('ListReusableConfigsRequest', (_message.Message,), {
-  'DESCRIPTOR' : _LISTREUSABLECONFIGSREQUEST,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListReusableConfigsRequest)
-  })
-_sym_db.RegisterMessage(ListReusableConfigsRequest)
-
-ListCertificateAuthoritiesResponse = _reflection.GeneratedProtocolMessageType('ListCertificateAuthoritiesResponse', (_message.Message,), {
-  'DESCRIPTOR' : _LISTCERTIFICATEAUTHORITIESRESPONSE,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesResponse)
-  })
-_sym_db.RegisterMessage(ListCertificateAuthoritiesResponse)
-
-ListCertificateRevocationListsResponse = _reflection.GeneratedProtocolMessageType('ListCertificateRevocationListsResponse', (_message.Message,), {
-  'DESCRIPTOR' : _LISTCERTIFICATEREVOCATIONLISTSRESPONSE,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsResponse)
-  })
-_sym_db.RegisterMessage(ListCertificateRevocationListsResponse)
-
-ListCertificatesResponse = _reflection.GeneratedProtocolMessageType('ListCertificatesResponse', (_message.Message,), {
-  'DESCRIPTOR' : _LISTCERTIFICATESRESPONSE,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListCertificatesResponse)
-  })
-_sym_db.RegisterMessage(ListCertificatesResponse)
-
-ListReusableConfigsResponse = _reflection.GeneratedProtocolMessageType('ListReusableConfigsResponse', (_message.Message,), {
-  'DESCRIPTOR' : _LISTREUSABLECONFIGSRESPONSE,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListReusableConfigsResponse)
-  })
-_sym_db.RegisterMessage(ListReusableConfigsResponse)
-
-GetCertificateAuthorityRequest = _reflection.GeneratedProtocolMessageType('GetCertificateAuthorityRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETCERTIFICATEAUTHORITYREQUEST,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.GetCertificateAuthorityRequest)
-  })
-_sym_db.RegisterMessage(GetCertificateAuthorityRequest)
-
-GetCertificateRevocationListRequest = _reflection.GeneratedProtocolMessageType('GetCertificateRevocationListRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETCERTIFICATEREVOCATIONLISTREQUEST,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.GetCertificateRevocationListRequest)
-  })
-_sym_db.RegisterMessage(GetCertificateRevocationListRequest)
-
-GetCertificateRequest = _reflection.GeneratedProtocolMessageType('GetCertificateRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETCERTIFICATEREQUEST,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.GetCertificateRequest)
-  })
-_sym_db.RegisterMessage(GetCertificateRequest)
-
-GetReusableConfigRequest = _reflection.GeneratedProtocolMessageType('GetReusableConfigRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETREUSABLECONFIGREQUEST,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.GetReusableConfigRequest)
-  })
-_sym_db.RegisterMessage(GetReusableConfigRequest)
-
-CreateCertificateAuthorityRequest = _reflection.GeneratedProtocolMessageType('CreateCertificateAuthorityRequest', (_message.Message,), {
-  'DESCRIPTOR' : _CREATECERTIFICATEAUTHORITYREQUEST,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest)
-  })
-_sym_db.RegisterMessage(CreateCertificateAuthorityRequest)
-
-CreateCertificateRevocationListRequest = _reflection.GeneratedProtocolMessageType('CreateCertificateRevocationListRequest', (_message.Message,), {
-  'DESCRIPTOR' : _CREATECERTIFICATEREVOCATIONLISTREQUEST,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.CreateCertificateRevocationListRequest)
-  })
-_sym_db.RegisterMessage(CreateCertificateRevocationListRequest)
 
 CreateCertificateRequest = _reflection.GeneratedProtocolMessageType('CreateCertificateRequest', (_message.Message,), {
   'DESCRIPTOR' : _CREATECERTIFICATEREQUEST,
@@ -1529,26 +1274,33 @@ CreateCertificateRequest = _reflection.GeneratedProtocolMessageType('CreateCerti
   })
 _sym_db.RegisterMessage(CreateCertificateRequest)
 
-CreateReusableConfigRequest = _reflection.GeneratedProtocolMessageType('CreateReusableConfigRequest', (_message.Message,), {
-  'DESCRIPTOR' : _CREATEREUSABLECONFIGREQUEST,
+GetCertificateRequest = _reflection.GeneratedProtocolMessageType('GetCertificateRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETCERTIFICATEREQUEST,
   '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.CreateReusableConfigRequest)
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.GetCertificateRequest)
   })
-_sym_db.RegisterMessage(CreateReusableConfigRequest)
+_sym_db.RegisterMessage(GetCertificateRequest)
 
-UpdateCertificateAuthorityRequest = _reflection.GeneratedProtocolMessageType('UpdateCertificateAuthorityRequest', (_message.Message,), {
-  'DESCRIPTOR' : _UPDATECERTIFICATEAUTHORITYREQUEST,
+ListCertificatesRequest = _reflection.GeneratedProtocolMessageType('ListCertificatesRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCERTIFICATESREQUEST,
   '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.UpdateCertificateAuthorityRequest)
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListCertificatesRequest)
   })
-_sym_db.RegisterMessage(UpdateCertificateAuthorityRequest)
+_sym_db.RegisterMessage(ListCertificatesRequest)
 
-UpdateCertificateRevocationListRequest = _reflection.GeneratedProtocolMessageType('UpdateCertificateRevocationListRequest', (_message.Message,), {
-  'DESCRIPTOR' : _UPDATECERTIFICATEREVOCATIONLISTREQUEST,
+ListCertificatesResponse = _reflection.GeneratedProtocolMessageType('ListCertificatesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCERTIFICATESRESPONSE,
   '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.UpdateCertificateRevocationListRequest)
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListCertificatesResponse)
   })
-_sym_db.RegisterMessage(UpdateCertificateRevocationListRequest)
+_sym_db.RegisterMessage(ListCertificatesResponse)
+
+RevokeCertificateRequest = _reflection.GeneratedProtocolMessageType('RevokeCertificateRequest', (_message.Message,), {
+  'DESCRIPTOR' : _REVOKECERTIFICATEREQUEST,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.RevokeCertificateRequest)
+  })
+_sym_db.RegisterMessage(RevokeCertificateRequest)
 
 UpdateCertificateRequest = _reflection.GeneratedProtocolMessageType('UpdateCertificateRequest', (_message.Message,), {
   'DESCRIPTOR' : _UPDATECERTIFICATEREQUEST,
@@ -1557,33 +1309,19 @@ UpdateCertificateRequest = _reflection.GeneratedProtocolMessageType('UpdateCerti
   })
 _sym_db.RegisterMessage(UpdateCertificateRequest)
 
-UpdateReusableConfigRequest = _reflection.GeneratedProtocolMessageType('UpdateReusableConfigRequest', (_message.Message,), {
-  'DESCRIPTOR' : _UPDATEREUSABLECONFIGREQUEST,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.UpdateReusableConfigRequest)
-  })
-_sym_db.RegisterMessage(UpdateReusableConfigRequest)
-
-GetCertificateAuthorityCsrRequest = _reflection.GeneratedProtocolMessageType('GetCertificateAuthorityCsrRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETCERTIFICATEAUTHORITYCSRREQUEST,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.GetCertificateAuthorityCsrRequest)
-  })
-_sym_db.RegisterMessage(GetCertificateAuthorityCsrRequest)
-
-GetCertificateAuthorityCsrResponse = _reflection.GeneratedProtocolMessageType('GetCertificateAuthorityCsrResponse', (_message.Message,), {
-  'DESCRIPTOR' : _GETCERTIFICATEAUTHORITYCSRRESPONSE,
-  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.GetCertificateAuthorityCsrResponse)
-  })
-_sym_db.RegisterMessage(GetCertificateAuthorityCsrResponse)
-
 ActivateCertificateAuthorityRequest = _reflection.GeneratedProtocolMessageType('ActivateCertificateAuthorityRequest', (_message.Message,), {
   'DESCRIPTOR' : _ACTIVATECERTIFICATEAUTHORITYREQUEST,
   '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ActivateCertificateAuthorityRequest)
   })
 _sym_db.RegisterMessage(ActivateCertificateAuthorityRequest)
+
+CreateCertificateAuthorityRequest = _reflection.GeneratedProtocolMessageType('CreateCertificateAuthorityRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATECERTIFICATEAUTHORITYREQUEST,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.CreateCertificateAuthorityRequest)
+  })
+_sym_db.RegisterMessage(CreateCertificateAuthorityRequest)
 
 DisableCertificateAuthorityRequest = _reflection.GeneratedProtocolMessageType('DisableCertificateAuthorityRequest', (_message.Message,), {
   'DESCRIPTOR' : _DISABLECERTIFICATEAUTHORITYREQUEST,
@@ -1599,12 +1337,40 @@ EnableCertificateAuthorityRequest = _reflection.GeneratedProtocolMessageType('En
   })
 _sym_db.RegisterMessage(EnableCertificateAuthorityRequest)
 
-ScheduleDeleteCertificateAuthorityRequest = _reflection.GeneratedProtocolMessageType('ScheduleDeleteCertificateAuthorityRequest', (_message.Message,), {
-  'DESCRIPTOR' : _SCHEDULEDELETECERTIFICATEAUTHORITYREQUEST,
+FetchCertificateAuthorityCsrRequest = _reflection.GeneratedProtocolMessageType('FetchCertificateAuthorityCsrRequest', (_message.Message,), {
+  'DESCRIPTOR' : _FETCHCERTIFICATEAUTHORITYCSRREQUEST,
   '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ScheduleDeleteCertificateAuthorityRequest)
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.FetchCertificateAuthorityCsrRequest)
   })
-_sym_db.RegisterMessage(ScheduleDeleteCertificateAuthorityRequest)
+_sym_db.RegisterMessage(FetchCertificateAuthorityCsrRequest)
+
+FetchCertificateAuthorityCsrResponse = _reflection.GeneratedProtocolMessageType('FetchCertificateAuthorityCsrResponse', (_message.Message,), {
+  'DESCRIPTOR' : _FETCHCERTIFICATEAUTHORITYCSRRESPONSE,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.FetchCertificateAuthorityCsrResponse)
+  })
+_sym_db.RegisterMessage(FetchCertificateAuthorityCsrResponse)
+
+GetCertificateAuthorityRequest = _reflection.GeneratedProtocolMessageType('GetCertificateAuthorityRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETCERTIFICATEAUTHORITYREQUEST,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.GetCertificateAuthorityRequest)
+  })
+_sym_db.RegisterMessage(GetCertificateAuthorityRequest)
+
+ListCertificateAuthoritiesRequest = _reflection.GeneratedProtocolMessageType('ListCertificateAuthoritiesRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCERTIFICATEAUTHORITIESREQUEST,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesRequest)
+  })
+_sym_db.RegisterMessage(ListCertificateAuthoritiesRequest)
+
+ListCertificateAuthoritiesResponse = _reflection.GeneratedProtocolMessageType('ListCertificateAuthoritiesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCERTIFICATEAUTHORITIESRESPONSE,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListCertificateAuthoritiesResponse)
+  })
+_sym_db.RegisterMessage(ListCertificateAuthoritiesResponse)
 
 RestoreCertificateAuthorityRequest = _reflection.GeneratedProtocolMessageType('RestoreCertificateAuthorityRequest', (_message.Message,), {
   'DESCRIPTOR' : _RESTORECERTIFICATEAUTHORITYREQUEST,
@@ -1613,12 +1379,68 @@ RestoreCertificateAuthorityRequest = _reflection.GeneratedProtocolMessageType('R
   })
 _sym_db.RegisterMessage(RestoreCertificateAuthorityRequest)
 
-RevokeCertificateRequest = _reflection.GeneratedProtocolMessageType('RevokeCertificateRequest', (_message.Message,), {
-  'DESCRIPTOR' : _REVOKECERTIFICATEREQUEST,
+ScheduleDeleteCertificateAuthorityRequest = _reflection.GeneratedProtocolMessageType('ScheduleDeleteCertificateAuthorityRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SCHEDULEDELETECERTIFICATEAUTHORITYREQUEST,
   '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.RevokeCertificateRequest)
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ScheduleDeleteCertificateAuthorityRequest)
   })
-_sym_db.RegisterMessage(RevokeCertificateRequest)
+_sym_db.RegisterMessage(ScheduleDeleteCertificateAuthorityRequest)
+
+UpdateCertificateAuthorityRequest = _reflection.GeneratedProtocolMessageType('UpdateCertificateAuthorityRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATECERTIFICATEAUTHORITYREQUEST,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.UpdateCertificateAuthorityRequest)
+  })
+_sym_db.RegisterMessage(UpdateCertificateAuthorityRequest)
+
+GetCertificateRevocationListRequest = _reflection.GeneratedProtocolMessageType('GetCertificateRevocationListRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETCERTIFICATEREVOCATIONLISTREQUEST,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.GetCertificateRevocationListRequest)
+  })
+_sym_db.RegisterMessage(GetCertificateRevocationListRequest)
+
+ListCertificateRevocationListsRequest = _reflection.GeneratedProtocolMessageType('ListCertificateRevocationListsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCERTIFICATEREVOCATIONLISTSREQUEST,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsRequest)
+  })
+_sym_db.RegisterMessage(ListCertificateRevocationListsRequest)
+
+ListCertificateRevocationListsResponse = _reflection.GeneratedProtocolMessageType('ListCertificateRevocationListsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCERTIFICATEREVOCATIONLISTSRESPONSE,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListCertificateRevocationListsResponse)
+  })
+_sym_db.RegisterMessage(ListCertificateRevocationListsResponse)
+
+UpdateCertificateRevocationListRequest = _reflection.GeneratedProtocolMessageType('UpdateCertificateRevocationListRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATECERTIFICATEREVOCATIONLISTREQUEST,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.UpdateCertificateRevocationListRequest)
+  })
+_sym_db.RegisterMessage(UpdateCertificateRevocationListRequest)
+
+GetReusableConfigRequest = _reflection.GeneratedProtocolMessageType('GetReusableConfigRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETREUSABLECONFIGREQUEST,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.GetReusableConfigRequest)
+  })
+_sym_db.RegisterMessage(GetReusableConfigRequest)
+
+ListReusableConfigsRequest = _reflection.GeneratedProtocolMessageType('ListReusableConfigsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTREUSABLECONFIGSREQUEST,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListReusableConfigsRequest)
+  })
+_sym_db.RegisterMessage(ListReusableConfigsRequest)
+
+ListReusableConfigsResponse = _reflection.GeneratedProtocolMessageType('ListReusableConfigsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTREUSABLECONFIGSRESPONSE,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.ListReusableConfigsResponse)
+  })
+_sym_db.RegisterMessage(ListReusableConfigsResponse)
 
 OperationMetadata = _reflection.GeneratedProtocolMessageType('OperationMetadata', (_message.Message,), {
   'DESCRIPTOR' : _OPERATIONMETADATA,
@@ -1629,75 +1451,64 @@ _sym_db.RegisterMessage(OperationMetadata)
 
 
 DESCRIPTOR._options = None
-_LISTCERTIFICATEAUTHORITIESREQUEST.fields_by_name['parent']._options = None
-_LISTCERTIFICATEAUTHORITIESREQUEST.fields_by_name['page_size']._options = None
-_LISTCERTIFICATEAUTHORITIESREQUEST.fields_by_name['page_token']._options = None
-_LISTCERTIFICATEAUTHORITIESREQUEST.fields_by_name['filter']._options = None
-_LISTCERTIFICATEAUTHORITIESREQUEST.fields_by_name['order_by']._options = None
-_LISTCERTIFICATEREVOCATIONLISTSREQUEST.fields_by_name['parent']._options = None
-_LISTCERTIFICATEREVOCATIONLISTSREQUEST.fields_by_name['page_size']._options = None
-_LISTCERTIFICATEREVOCATIONLISTSREQUEST.fields_by_name['page_token']._options = None
-_LISTCERTIFICATEREVOCATIONLISTSREQUEST.fields_by_name['filter']._options = None
-_LISTCERTIFICATEREVOCATIONLISTSREQUEST.fields_by_name['order_by']._options = None
+_CREATECERTIFICATEREQUEST.fields_by_name['parent']._options = None
+_CREATECERTIFICATEREQUEST.fields_by_name['certificate_id']._options = None
+_CREATECERTIFICATEREQUEST.fields_by_name['certificate']._options = None
+_CREATECERTIFICATEREQUEST.fields_by_name['request_id']._options = None
+_GETCERTIFICATEREQUEST.fields_by_name['name']._options = None
 _LISTCERTIFICATESREQUEST.fields_by_name['parent']._options = None
 _LISTCERTIFICATESREQUEST.fields_by_name['page_size']._options = None
 _LISTCERTIFICATESREQUEST.fields_by_name['page_token']._options = None
 _LISTCERTIFICATESREQUEST.fields_by_name['filter']._options = None
 _LISTCERTIFICATESREQUEST.fields_by_name['order_by']._options = None
+_REVOKECERTIFICATEREQUEST.fields_by_name['name']._options = None
+_REVOKECERTIFICATEREQUEST.fields_by_name['reason']._options = None
+_REVOKECERTIFICATEREQUEST.fields_by_name['request_id']._options = None
+_UPDATECERTIFICATEREQUEST.fields_by_name['certificate']._options = None
+_UPDATECERTIFICATEREQUEST.fields_by_name['update_mask']._options = None
+_UPDATECERTIFICATEREQUEST.fields_by_name['request_id']._options = None
+_ACTIVATECERTIFICATEAUTHORITYREQUEST.fields_by_name['name']._options = None
+_ACTIVATECERTIFICATEAUTHORITYREQUEST.fields_by_name['pem_ca_certificate']._options = None
+_ACTIVATECERTIFICATEAUTHORITYREQUEST.fields_by_name['subordinate_config']._options = None
+_ACTIVATECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
+_CREATECERTIFICATEAUTHORITYREQUEST.fields_by_name['parent']._options = None
+_CREATECERTIFICATEAUTHORITYREQUEST.fields_by_name['certificate_authority_id']._options = None
+_CREATECERTIFICATEAUTHORITYREQUEST.fields_by_name['certificate_authority']._options = None
+_CREATECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
+_DISABLECERTIFICATEAUTHORITYREQUEST.fields_by_name['name']._options = None
+_DISABLECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
+_ENABLECERTIFICATEAUTHORITYREQUEST.fields_by_name['name']._options = None
+_ENABLECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
+_FETCHCERTIFICATEAUTHORITYCSRREQUEST.fields_by_name['name']._options = None
+_FETCHCERTIFICATEAUTHORITYCSRRESPONSE.fields_by_name['pem_csr']._options = None
+_GETCERTIFICATEAUTHORITYREQUEST.fields_by_name['name']._options = None
+_LISTCERTIFICATEAUTHORITIESREQUEST.fields_by_name['parent']._options = None
+_LISTCERTIFICATEAUTHORITIESREQUEST.fields_by_name['page_size']._options = None
+_LISTCERTIFICATEAUTHORITIESREQUEST.fields_by_name['page_token']._options = None
+_LISTCERTIFICATEAUTHORITIESREQUEST.fields_by_name['filter']._options = None
+_LISTCERTIFICATEAUTHORITIESREQUEST.fields_by_name['order_by']._options = None
+_RESTORECERTIFICATEAUTHORITYREQUEST.fields_by_name['name']._options = None
+_RESTORECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
+_SCHEDULEDELETECERTIFICATEAUTHORITYREQUEST.fields_by_name['name']._options = None
+_SCHEDULEDELETECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
+_UPDATECERTIFICATEAUTHORITYREQUEST.fields_by_name['certificate_authority']._options = None
+_UPDATECERTIFICATEAUTHORITYREQUEST.fields_by_name['update_mask']._options = None
+_UPDATECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
+_GETCERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['name']._options = None
+_LISTCERTIFICATEREVOCATIONLISTSREQUEST.fields_by_name['parent']._options = None
+_LISTCERTIFICATEREVOCATIONLISTSREQUEST.fields_by_name['page_size']._options = None
+_LISTCERTIFICATEREVOCATIONLISTSREQUEST.fields_by_name['page_token']._options = None
+_LISTCERTIFICATEREVOCATIONLISTSREQUEST.fields_by_name['filter']._options = None
+_LISTCERTIFICATEREVOCATIONLISTSREQUEST.fields_by_name['order_by']._options = None
+_UPDATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['certificate_revocation_list']._options = None
+_UPDATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['update_mask']._options = None
+_UPDATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['request_id']._options = None
+_GETREUSABLECONFIGREQUEST.fields_by_name['name']._options = None
 _LISTREUSABLECONFIGSREQUEST.fields_by_name['parent']._options = None
 _LISTREUSABLECONFIGSREQUEST.fields_by_name['page_size']._options = None
 _LISTREUSABLECONFIGSREQUEST.fields_by_name['page_token']._options = None
 _LISTREUSABLECONFIGSREQUEST.fields_by_name['filter']._options = None
 _LISTREUSABLECONFIGSREQUEST.fields_by_name['order_by']._options = None
-_GETCERTIFICATEAUTHORITYREQUEST.fields_by_name['name']._options = None
-_GETCERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['name']._options = None
-_GETCERTIFICATEREQUEST.fields_by_name['name']._options = None
-_GETREUSABLECONFIGREQUEST.fields_by_name['name']._options = None
-_CREATECERTIFICATEAUTHORITYREQUEST.fields_by_name['parent']._options = None
-_CREATECERTIFICATEAUTHORITYREQUEST.fields_by_name['certificate_authority_id']._options = None
-_CREATECERTIFICATEAUTHORITYREQUEST.fields_by_name['certificate_authority']._options = None
-_CREATECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
-_CREATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['parent']._options = None
-_CREATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['certificate_revocation_list_id']._options = None
-_CREATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['certificate_revocation_list']._options = None
-_CREATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['request_id']._options = None
-_CREATECERTIFICATEREQUEST.fields_by_name['parent']._options = None
-_CREATECERTIFICATEREQUEST.fields_by_name['certificate_id']._options = None
-_CREATECERTIFICATEREQUEST.fields_by_name['certificate']._options = None
-_CREATECERTIFICATEREQUEST.fields_by_name['request_id']._options = None
-_CREATEREUSABLECONFIGREQUEST.fields_by_name['parent']._options = None
-_CREATEREUSABLECONFIGREQUEST.fields_by_name['reusable_config_id']._options = None
-_CREATEREUSABLECONFIGREQUEST.fields_by_name['reusable_config']._options = None
-_CREATEREUSABLECONFIGREQUEST.fields_by_name['request_id']._options = None
-_UPDATECERTIFICATEAUTHORITYREQUEST.fields_by_name['certificate_authority']._options = None
-_UPDATECERTIFICATEAUTHORITYREQUEST.fields_by_name['update_mask']._options = None
-_UPDATECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
-_UPDATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['certificate_revocation_list']._options = None
-_UPDATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['update_mask']._options = None
-_UPDATECERTIFICATEREVOCATIONLISTREQUEST.fields_by_name['request_id']._options = None
-_UPDATECERTIFICATEREQUEST.fields_by_name['certificate']._options = None
-_UPDATECERTIFICATEREQUEST.fields_by_name['update_mask']._options = None
-_UPDATECERTIFICATEREQUEST.fields_by_name['request_id']._options = None
-_UPDATEREUSABLECONFIGREQUEST.fields_by_name['reusable_config']._options = None
-_UPDATEREUSABLECONFIGREQUEST.fields_by_name['update_mask']._options = None
-_UPDATEREUSABLECONFIGREQUEST.fields_by_name['request_id']._options = None
-_GETCERTIFICATEAUTHORITYCSRREQUEST.fields_by_name['name']._options = None
-_GETCERTIFICATEAUTHORITYCSRRESPONSE.fields_by_name['pem_csr']._options = None
-_ACTIVATECERTIFICATEAUTHORITYREQUEST.fields_by_name['name']._options = None
-_ACTIVATECERTIFICATEAUTHORITYREQUEST.fields_by_name['pem_ca_certificate']._options = None
-_ACTIVATECERTIFICATEAUTHORITYREQUEST.fields_by_name['pem_ca_certificate_chain']._options = None
-_ACTIVATECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
-_DISABLECERTIFICATEAUTHORITYREQUEST.fields_by_name['name']._options = None
-_DISABLECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
-_ENABLECERTIFICATEAUTHORITYREQUEST.fields_by_name['name']._options = None
-_ENABLECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
-_SCHEDULEDELETECERTIFICATEAUTHORITYREQUEST.fields_by_name['name']._options = None
-_SCHEDULEDELETECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
-_RESTORECERTIFICATEAUTHORITYREQUEST.fields_by_name['name']._options = None
-_RESTORECERTIFICATEAUTHORITYREQUEST.fields_by_name['request_id']._options = None
-_REVOKECERTIFICATEREQUEST.fields_by_name['name']._options = None
-_REVOKECERTIFICATEREQUEST.fields_by_name['reason']._options = None
-_REVOKECERTIFICATEREQUEST.fields_by_name['request_id']._options = None
 _OPERATIONMETADATA.fields_by_name['create_time']._options = None
 _OPERATIONMETADATA.fields_by_name['end_time']._options = None
 _OPERATIONMETADATA.fields_by_name['target']._options = None
@@ -1713,27 +1524,27 @@ _CERTIFICATEAUTHORITYSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\030privateca.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=5447,
-  serialized_end=12138,
+  serialized_start=4809,
+  serialized_end=10522,
   methods=[
   _descriptor.MethodDescriptor(
-    name='ListCertificateAuthorities',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.ListCertificateAuthorities',
+    name='CreateCertificate',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.CreateCertificate',
     index=0,
     containing_service=None,
-    input_type=_LISTCERTIFICATEAUTHORITIESREQUEST,
-    output_type=_LISTCERTIFICATEAUTHORITIESRESPONSE,
-    serialized_options=b'\202\323\344\223\002A\022?/v1beta1/{parent=projects/*/locations/*}/certificateAuthorities\332A\006parent',
+    input_type=_CREATECERTIFICATEREQUEST,
+    output_type=google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATE,
+    serialized_options=b'\202\323\344\223\002]\"N/v1beta1/{parent=projects/*/locations/*/certificateAuthorities/*}/certificates:\013certificate\332A!parent,certificate,certificate_id',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='ListCertificateRevocationLists',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.ListCertificateRevocationLists',
+    name='GetCertificate',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.GetCertificate',
     index=1,
     containing_service=None,
-    input_type=_LISTCERTIFICATEREVOCATIONLISTSREQUEST,
-    output_type=_LISTCERTIFICATEREVOCATIONLISTSRESPONSE,
-    serialized_options=b'\202\323\344\223\002^\022\\/v1beta1/{parent=projects/*/locations/*/certificateAuthorities/*}/certificateRevocationLists\332A\006parent',
+    input_type=_GETCERTIFICATEREQUEST,
+    output_type=google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATE,
+    serialized_options=b'\202\323\344\223\002P\022N/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*/certificates/*}\332A\004name',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -1747,119 +1558,19 @@ _CERTIFICATEAUTHORITYSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='ListReusableConfigs',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.ListReusableConfigs',
+    name='RevokeCertificate',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.RevokeCertificate',
     index=3,
     containing_service=None,
-    input_type=_LISTREUSABLECONFIGSREQUEST,
-    output_type=_LISTREUSABLECONFIGSRESPONSE,
-    serialized_options=b'\202\323\344\223\002:\0228/v1beta1/{parent=projects/*/locations/*}/reusableConfigs\332A\006parent',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetCertificateAuthority',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.GetCertificateAuthority',
-    index=4,
-    containing_service=None,
-    input_type=_GETCERTIFICATEAUTHORITYREQUEST,
-    output_type=google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEAUTHORITY,
-    serialized_options=b'\202\323\344\223\002A\022?/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}\332A\004name',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetCertificateRevocationList',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.GetCertificateRevocationList',
-    index=5,
-    containing_service=None,
-    input_type=_GETCERTIFICATEREVOCATIONLISTREQUEST,
-    output_type=google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEREVOCATIONLIST,
-    serialized_options=b'\202\323\344\223\002^\022\\/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*/certificateRevocationLists/*}\332A\004name',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetCertificate',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.GetCertificate',
-    index=6,
-    containing_service=None,
-    input_type=_GETCERTIFICATEREQUEST,
+    input_type=_REVOKECERTIFICATEREQUEST,
     output_type=google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATE,
-    serialized_options=b'\202\323\344\223\002P\022N/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*/certificates/*}\332A\004name',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetReusableConfig',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.GetReusableConfig',
-    index=7,
-    containing_service=None,
-    input_type=_GETREUSABLECONFIGREQUEST,
-    output_type=google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._REUSABLECONFIG,
-    serialized_options=b'\202\323\344\223\002:\0228/v1beta1/{name=projects/*/locations/*/reusableConfigs/*}\332A\004name',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='CreateCertificateAuthority',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.CreateCertificateAuthority',
-    index=8,
-    containing_service=None,
-    input_type=_CREATECERTIFICATEAUTHORITYREQUEST,
-    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
-    serialized_options=b'\202\323\344\223\002X\"?/v1beta1/{parent=projects/*/locations/*}/certificateAuthorities:\025certificate_authority\332A5parent,certificate_authority,certificate_authority_id\312A)\n\024CertificateAuthority\022\021OperationMetadata',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='CreateCertificateRevocationList',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.CreateCertificateRevocationList',
-    index=9,
-    containing_service=None,
-    input_type=_CREATECERTIFICATEREVOCATIONLISTREQUEST,
-    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
-    serialized_options=b'\202\323\344\223\002{\"\\/v1beta1/{parent=projects/*/locations/*/certificateAuthorities/*}/certificateRevocationLists:\033certificate_revocation_list\332AAparent,certificate_revocation_list,certificate_revocation_list_id\312A.\n\031CertificateRevocationList\022\021OperationMetadata',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='CreateCertificate',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.CreateCertificate',
-    index=10,
-    containing_service=None,
-    input_type=_CREATECERTIFICATEREQUEST,
-    output_type=google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATE,
-    serialized_options=b'\202\323\344\223\002]\"N/v1beta1/{parent=projects/*/locations/*/certificateAuthorities/*}/certificates:\013certificate\332A!parent,certificate,certificate_id',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='CreateReusableConfig',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.CreateReusableConfig',
-    index=11,
-    containing_service=None,
-    input_type=_CREATEREUSABLECONFIGREQUEST,
-    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
-    serialized_options=b'\202\323\344\223\002K\"8/v1beta1/{parent=projects/*/locations/*}/reusableConfigs:\017reusable_config\332A)parent,reusable_config,reusable_config_id\312A#\n\016ReusableConfig\022\021OperationMetadata',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='UpdateCertificateAuthority',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.UpdateCertificateAuthority',
-    index=12,
-    containing_service=None,
-    input_type=_UPDATECERTIFICATEAUTHORITYREQUEST,
-    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
-    serialized_options=b'\202\323\344\223\002n2U/v1beta1/{certificate_authority.name=projects/*/locations/*/certificateAuthorities/*}:\025certificate_authority\332A!certificate_authority,update_mask\312A)\n\024CertificateAuthority\022\021OperationMetadata',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='UpdateCertificateRevocationList',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.UpdateCertificateRevocationList',
-    index=13,
-    containing_service=None,
-    input_type=_UPDATECERTIFICATEREVOCATIONLISTREQUEST,
-    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
-    serialized_options=b'\202\323\344\223\002\227\0012x/v1beta1/{certificate_revocation_list.name=projects/*/locations/*/certificateAuthorities/*/certificateRevocationLists/*}:\033certificate_revocation_list\332A\'certificate_revocation_list,update_mask\312A.\n\031CertificateRevocationList\022\021OperationMetadata',
+    serialized_options=b'\202\323\344\223\002Z\"U/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*/certificates/*}:revoke:\001*\332A\004name',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='UpdateCertificate',
     full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.UpdateCertificate',
-    index=14,
+    index=4,
     containing_service=None,
     input_type=_UPDATECERTIFICATEREQUEST,
     output_type=google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATE,
@@ -1867,29 +1578,9 @@ _CERTIFICATEAUTHORITYSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='UpdateReusableConfig',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.UpdateReusableConfig',
-    index=15,
-    containing_service=None,
-    input_type=_UPDATEREUSABLECONFIGREQUEST,
-    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
-    serialized_options=b'\202\323\344\223\002[2H/v1beta1/{reusable_config.name=projects/*/locations/*/reusableConfigs/*}:\017reusable_config\332A\033reusable_config,update_mask\312A#\n\016ReusableConfig\022\021OperationMetadata',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetCertificateAuthorityCsr',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.GetCertificateAuthorityCsr',
-    index=16,
-    containing_service=None,
-    input_type=_GETCERTIFICATEAUTHORITYCSRREQUEST,
-    output_type=_GETCERTIFICATEAUTHORITYCSRRESPONSE,
-    serialized_options=b'\202\323\344\223\002H\022F/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:getCsr\332A\004name',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
     name='ActivateCertificateAuthority',
     full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.ActivateCertificateAuthority',
-    index=17,
+    index=5,
     containing_service=None,
     input_type=_ACTIVATECERTIFICATEAUTHORITYREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -1897,9 +1588,19 @@ _CERTIFICATEAUTHORITYSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='CreateCertificateAuthority',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.CreateCertificateAuthority',
+    index=6,
+    containing_service=None,
+    input_type=_CREATECERTIFICATEAUTHORITYREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002X\"?/v1beta1/{parent=projects/*/locations/*}/certificateAuthorities:\025certificate_authority\332A5parent,certificate_authority,certificate_authority_id\312A)\n\024CertificateAuthority\022\021OperationMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='DisableCertificateAuthority',
     full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.DisableCertificateAuthority',
-    index=18,
+    index=7,
     containing_service=None,
     input_type=_DISABLECERTIFICATEAUTHORITYREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -1909,7 +1610,7 @@ _CERTIFICATEAUTHORITYSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='EnableCertificateAuthority',
     full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.EnableCertificateAuthority',
-    index=19,
+    index=8,
     containing_service=None,
     input_type=_ENABLECERTIFICATEAUTHORITYREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -1917,19 +1618,39 @@ _CERTIFICATEAUTHORITYSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='ScheduleDeleteCertificateAuthority',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.ScheduleDeleteCertificateAuthority',
-    index=20,
+    name='FetchCertificateAuthorityCsr',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.FetchCertificateAuthorityCsr',
+    index=9,
     containing_service=None,
-    input_type=_SCHEDULEDELETECERTIFICATEAUTHORITYREQUEST,
-    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
-    serialized_options=b'\202\323\344\223\002S\"N/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:scheduleDelete:\001*\332A\004name\312A)\n\024CertificateAuthority\022\021OperationMetadata',
+    input_type=_FETCHCERTIFICATEAUTHORITYCSRREQUEST,
+    output_type=_FETCHCERTIFICATEAUTHORITYCSRRESPONSE,
+    serialized_options=b'\202\323\344\223\002G\022E/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:fetch\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetCertificateAuthority',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.GetCertificateAuthority',
+    index=10,
+    containing_service=None,
+    input_type=_GETCERTIFICATEAUTHORITYREQUEST,
+    output_type=google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEAUTHORITY,
+    serialized_options=b'\202\323\344\223\002A\022?/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListCertificateAuthorities',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.ListCertificateAuthorities',
+    index=11,
+    containing_service=None,
+    input_type=_LISTCERTIFICATEAUTHORITIESREQUEST,
+    output_type=_LISTCERTIFICATEAUTHORITIESRESPONSE,
+    serialized_options=b'\202\323\344\223\002A\022?/v1beta1/{parent=projects/*/locations/*}/certificateAuthorities\332A\006parent',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='RestoreCertificateAuthority',
     full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.RestoreCertificateAuthority',
-    index=21,
+    index=12,
     containing_service=None,
     input_type=_RESTORECERTIFICATEAUTHORITYREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -1937,13 +1658,73 @@ _CERTIFICATEAUTHORITYSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='RevokeCertificate',
-    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.RevokeCertificate',
-    index=22,
+    name='ScheduleDeleteCertificateAuthority',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.ScheduleDeleteCertificateAuthority',
+    index=13,
     containing_service=None,
-    input_type=_REVOKECERTIFICATEREQUEST,
-    output_type=google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATE,
-    serialized_options=b'\202\323\344\223\002Z\"U/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*/certificates/*}:revoke:\001*\332A\004name',
+    input_type=_SCHEDULEDELETECERTIFICATEAUTHORITYREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002S\"N/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*}:scheduleDelete:\001*\332A\004name\312A)\n\024CertificateAuthority\022\021OperationMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UpdateCertificateAuthority',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.UpdateCertificateAuthority',
+    index=14,
+    containing_service=None,
+    input_type=_UPDATECERTIFICATEAUTHORITYREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002n2U/v1beta1/{certificate_authority.name=projects/*/locations/*/certificateAuthorities/*}:\025certificate_authority\332A!certificate_authority,update_mask\312A)\n\024CertificateAuthority\022\021OperationMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetCertificateRevocationList',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.GetCertificateRevocationList',
+    index=15,
+    containing_service=None,
+    input_type=_GETCERTIFICATEREVOCATIONLISTREQUEST,
+    output_type=google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._CERTIFICATEREVOCATIONLIST,
+    serialized_options=b'\202\323\344\223\002^\022\\/v1beta1/{name=projects/*/locations/*/certificateAuthorities/*/certificateRevocationLists/*}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListCertificateRevocationLists',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.ListCertificateRevocationLists',
+    index=16,
+    containing_service=None,
+    input_type=_LISTCERTIFICATEREVOCATIONLISTSREQUEST,
+    output_type=_LISTCERTIFICATEREVOCATIONLISTSRESPONSE,
+    serialized_options=b'\202\323\344\223\002^\022\\/v1beta1/{parent=projects/*/locations/*/certificateAuthorities/*}/certificateRevocationLists\332A\006parent',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UpdateCertificateRevocationList',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.UpdateCertificateRevocationList',
+    index=17,
+    containing_service=None,
+    input_type=_UPDATECERTIFICATEREVOCATIONLISTREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002\227\0012x/v1beta1/{certificate_revocation_list.name=projects/*/locations/*/certificateAuthorities/*/certificateRevocationLists/*}:\033certificate_revocation_list\332A\'certificate_revocation_list,update_mask\312A.\n\031CertificateRevocationList\022\021OperationMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetReusableConfig',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.GetReusableConfig',
+    index=18,
+    containing_service=None,
+    input_type=_GETREUSABLECONFIGREQUEST,
+    output_type=google_dot_cloud_dot_security_dot_privateca_dot_v1beta1_dot_resources__pb2._REUSABLECONFIG,
+    serialized_options=b'\202\323\344\223\002:\0228/v1beta1/{name=projects/*/locations/*/reusableConfigs/*}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListReusableConfigs',
+    full_name='google.cloud.security.privateca.v1beta1.CertificateAuthorityService.ListReusableConfigs',
+    index=19,
+    containing_service=None,
+    input_type=_LISTREUSABLECONFIGSREQUEST,
+    output_type=_LISTREUSABLECONFIGSRESPONSE,
+    serialized_options=b'\202\323\344\223\002:\0228/v1beta1/{parent=projects/*/locations/*}/reusableConfigs\332A\006parent',
     create_key=_descriptor._internal_create_key,
   ),
 ])

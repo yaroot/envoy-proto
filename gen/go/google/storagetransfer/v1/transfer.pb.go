@@ -22,11 +22,11 @@ package storagetransfer
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -167,7 +167,7 @@ type UpdateTransferJobRequest struct {
 	// of the job, a complete transfer specification has to be provided. An
 	// incomplete specification which misses any required fields will be rejected
 	// with the error `INVALID_ARGUMENT`.
-	UpdateTransferJobFieldMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_transfer_job_field_mask,json=updateTransferJobFieldMask,proto3" json:"update_transfer_job_field_mask,omitempty"`
+	UpdateTransferJobFieldMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=update_transfer_job_field_mask,json=updateTransferJobFieldMask,proto3" json:"update_transfer_job_field_mask,omitempty"`
 }
 
 func (x *UpdateTransferJobRequest) Reset() {
@@ -223,7 +223,7 @@ func (x *UpdateTransferJobRequest) GetTransferJob() *TransferJob {
 	return nil
 }
 
-func (x *UpdateTransferJobRequest) GetUpdateTransferJobFieldMask() *fieldmaskpb.FieldMask {
+func (x *UpdateTransferJobRequest) GetUpdateTransferJobFieldMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateTransferJobFieldMask
 	}
@@ -704,9 +704,9 @@ var file_google_storagetransfer_v1_transfer_proto_goTypes = []interface{}{
 	(*PauseTransferOperationRequest)(nil),  // 6: google.storagetransfer.v1.PauseTransferOperationRequest
 	(*ResumeTransferOperationRequest)(nil), // 7: google.storagetransfer.v1.ResumeTransferOperationRequest
 	(*TransferJob)(nil),                    // 8: google.storagetransfer.v1.TransferJob
-	(*fieldmaskpb.FieldMask)(nil),          // 9: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),           // 9: google.protobuf.FieldMask
 	(*GoogleServiceAccount)(nil),           // 10: google.storagetransfer.v1.GoogleServiceAccount
-	(*emptypb.Empty)(nil),                  // 11: google.protobuf.Empty
+	(*empty.Empty)(nil),                    // 11: google.protobuf.Empty
 }
 var file_google_storagetransfer_v1_transfer_proto_depIdxs = []int32{
 	8,  // 0: google.storagetransfer.v1.CreateTransferJobRequest.transfer_job:type_name -> google.storagetransfer.v1.TransferJob

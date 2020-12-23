@@ -22,14 +22,14 @@ package genomics
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
 	code "google.golang.org/genproto/googleapis/rpc/code"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -469,7 +469,7 @@ type RunPipelineArgs struct {
 	// How long to keep the VM up after a failure (for example docker command
 	// failed, copying input or output files failed, etc). While the VM is up, one
 	// can ssh into the VM to debug. Default is 0; maximum allowed value is 1 day.
-	KeepVmAliveOnFailureDuration *durationpb.Duration `protobuf:"bytes,8,opt,name=keep_vm_alive_on_failure_duration,json=keepVmAliveOnFailureDuration,proto3" json:"keep_vm_alive_on_failure_duration,omitempty"`
+	KeepVmAliveOnFailureDuration *duration.Duration `protobuf:"bytes,8,opt,name=keep_vm_alive_on_failure_duration,json=keepVmAliveOnFailureDuration,proto3" json:"keep_vm_alive_on_failure_duration,omitempty"`
 	// Labels to apply to this pipeline run. Labels will also be applied to
 	// compute resources (VM, disks) created by this pipeline run. When listing
 	// operations, operations can [filtered by labels]
@@ -566,7 +566,7 @@ func (x *RunPipelineArgs) GetLogging() *LoggingOptions {
 	return nil
 }
 
-func (x *RunPipelineArgs) GetKeepVmAliveOnFailureDuration() *durationpb.Duration {
+func (x *RunPipelineArgs) GetKeepVmAliveOnFailureDuration() *duration.Duration {
 	if x != nil {
 		return x.KeepVmAliveOnFailureDuration
 	}
@@ -1100,7 +1100,7 @@ type TimestampEvent struct {
 	// String indicating the type of event
 	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
 	// The time this event occured.
-	Timestamp *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Timestamp *timestamp.Timestamp `protobuf:"bytes,2,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 }
 
 func (x *TimestampEvent) Reset() {
@@ -1142,7 +1142,7 @@ func (x *TimestampEvent) GetDescription() string {
 	return ""
 }
 
-func (x *TimestampEvent) GetTimestamp() *timestamppb.Timestamp {
+func (x *TimestampEvent) GetTimestamp() *timestamp.Timestamp {
 	if x != nil {
 		return x.Timestamp
 	}
@@ -2352,11 +2352,11 @@ var file_google_genomics_v1alpha2_pipelines_proto_goTypes = []interface{}{
 	nil,                                     // 27: google.genomics.v1alpha2.ControllerConfig.GcsSinksEntry
 	(*PipelineResources_Disk)(nil),          // 28: google.genomics.v1alpha2.PipelineResources.Disk
 	(*PipelineParameter_LocalCopy)(nil),     // 29: google.genomics.v1alpha2.PipelineParameter.LocalCopy
-	(*durationpb.Duration)(nil),             // 30: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil),           // 31: google.protobuf.Timestamp
+	(*duration.Duration)(nil),               // 30: google.protobuf.Duration
+	(*timestamp.Timestamp)(nil),             // 31: google.protobuf.Timestamp
 	(code.Code)(0),                          // 32: google.rpc.Code
 	(*longrunning.Operation)(nil),           // 33: google.longrunning.Operation
-	(*emptypb.Empty)(nil),                   // 34: google.protobuf.Empty
+	(*empty.Empty)(nil),                     // 34: google.protobuf.Empty
 }
 var file_google_genomics_v1alpha2_pipelines_proto_depIdxs = []int32{
 	1,  // 0: google.genomics.v1alpha2.RuntimeMetadata.compute_engine:type_name -> google.genomics.v1alpha2.ComputeEngine

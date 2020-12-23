@@ -9,10 +9,10 @@ package envoy_extensions_filters_network_rocketmq_proxy_v4alpha
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/any"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/anypb"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -39,7 +39,7 @@ type RocketmqProxy struct {
 	// The route table for the connection manager is specified in this property.
 	RouteConfig *RouteConfiguration `protobuf:"bytes,2,opt,name=route_config,json=routeConfig,proto3" json:"route_config,omitempty"`
 	// The largest duration transient object expected to live, more than 10s is recommended.
-	TransientObjectLifeSpan *durationpb.Duration `protobuf:"bytes,3,opt,name=transient_object_life_span,json=transientObjectLifeSpan,proto3" json:"transient_object_life_span,omitempty"`
+	TransientObjectLifeSpan *duration.Duration `protobuf:"bytes,3,opt,name=transient_object_life_span,json=transientObjectLifeSpan,proto3" json:"transient_object_life_span,omitempty"`
 	// If develop_mode is enabled, this proxy plugin may work without dedicated traffic intercepting
 	// facility without considering backward compatibility of exiting RocketMQ client SDK.
 	DevelopMode bool `protobuf:"varint,4,opt,name=develop_mode,json=developMode,proto3" json:"develop_mode,omitempty"`
@@ -91,7 +91,7 @@ func (x *RocketmqProxy) GetRouteConfig() *RouteConfiguration {
 	return nil
 }
 
-func (x *RocketmqProxy) GetTransientObjectLifeSpan() *durationpb.Duration {
+func (x *RocketmqProxy) GetTransientObjectLifeSpan() *duration.Duration {
 	if x != nil {
 		return x.TransientObjectLifeSpan
 	}
@@ -133,7 +133,7 @@ var file_envoy_extensions_filters_network_rocketmq_proxy_v4alpha_rocketmq_proxy_
 	0x74, 0x6f, 0x22, 0xed, 0x02, 0x0a, 0x0d, 0x52, 0x6f, 0x63, 0x6b, 0x65, 0x74, 0x6d, 0x71, 0x50,
 	0x72, 0x6f, 0x78, 0x79, 0x12, 0x28, 0x0a, 0x0b, 0x73, 0x74, 0x61, 0x74, 0x5f, 0x70, 0x72, 0x65,
 	0x66, 0x69, 0x78, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02,
-	0x20, 0x01, 0x52, 0x0a, 0x73, 0x74, 0x61, 0x74, 0x50, 0x72, 0x65, 0x66, 0x69, 0x78, 0x12, 0x6e,
+	0x10, 0x01, 0x52, 0x0a, 0x73, 0x74, 0x61, 0x74, 0x50, 0x72, 0x65, 0x66, 0x69, 0x78, 0x12, 0x6e,
 	0x0a, 0x0c, 0x72, 0x6f, 0x75, 0x74, 0x65, 0x5f, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x18, 0x02,
 	0x20, 0x01, 0x28, 0x0b, 0x32, 0x4b, 0x2e, 0x65, 0x6e, 0x76, 0x6f, 0x79, 0x2e, 0x65, 0x78, 0x74,
 	0x65, 0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x73, 0x2e,
@@ -177,9 +177,9 @@ func file_envoy_extensions_filters_network_rocketmq_proxy_v4alpha_rocketmq_proxy
 
 var file_envoy_extensions_filters_network_rocketmq_proxy_v4alpha_rocketmq_proxy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_envoy_extensions_filters_network_rocketmq_proxy_v4alpha_rocketmq_proxy_proto_goTypes = []interface{}{
-	(*RocketmqProxy)(nil),       // 0: envoy.extensions.filters.network.rocketmq_proxy.v4alpha.RocketmqProxy
-	(*RouteConfiguration)(nil),  // 1: envoy.extensions.filters.network.rocketmq_proxy.v4alpha.RouteConfiguration
-	(*durationpb.Duration)(nil), // 2: google.protobuf.Duration
+	(*RocketmqProxy)(nil),      // 0: envoy.extensions.filters.network.rocketmq_proxy.v4alpha.RocketmqProxy
+	(*RouteConfiguration)(nil), // 1: envoy.extensions.filters.network.rocketmq_proxy.v4alpha.RouteConfiguration
+	(*duration.Duration)(nil),  // 2: google.protobuf.Duration
 }
 var file_envoy_extensions_filters_network_rocketmq_proxy_v4alpha_rocketmq_proxy_proto_depIdxs = []int32{
 	1, // 0: envoy.extensions.filters.network.rocketmq_proxy.v4alpha.RocketmqProxy.route_config:type_name -> envoy.extensions.filters.network.rocketmq_proxy.v4alpha.RouteConfiguration

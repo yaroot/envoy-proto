@@ -22,10 +22,10 @@ package recommendationengine
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -158,7 +158,7 @@ type UserEvent struct {
 	ProductEventDetail *ProductEventDetail `protobuf:"bytes,4,opt,name=product_event_detail,json=productEventDetail,proto3" json:"product_event_detail,omitempty"`
 	// Optional. Only required for ImportUserEvents method. Timestamp of user
 	// event created.
-	EventTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=event_time,json=eventTime,proto3" json:"event_time,omitempty"`
+	EventTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=event_time,json=eventTime,proto3" json:"event_time,omitempty"`
 	// Optional. This field should *not* be set when using JavaScript pixel
 	// or the Recommendations AI Tag. Defaults to `EVENT_SOURCE_UNSPECIFIED`.
 	EventSource UserEvent_EventSource `protobuf:"varint,6,opt,name=event_source,json=eventSource,proto3,enum=google.cloud.recommendationengine.v1beta1.UserEvent_EventSource" json:"event_source,omitempty"`
@@ -224,7 +224,7 @@ func (x *UserEvent) GetProductEventDetail() *ProductEventDetail {
 	return nil
 }
 
-func (x *UserEvent) GetEventTime() *timestamppb.Timestamp {
+func (x *UserEvent) GetEventTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EventTime
 	}
@@ -1049,7 +1049,7 @@ var file_google_cloud_recommendationengine_v1beta1_user_event_proto_goTypes = []
 	(*ProductDetail)(nil),                 // 6: google.cloud.recommendationengine.v1beta1.ProductDetail
 	nil,                                   // 7: google.cloud.recommendationengine.v1beta1.PurchaseTransaction.TaxesEntry
 	nil,                                   // 8: google.cloud.recommendationengine.v1beta1.PurchaseTransaction.CostsEntry
-	(*timestamppb.Timestamp)(nil),         // 9: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),           // 9: google.protobuf.Timestamp
 	(*FeatureMap)(nil),                    // 10: google.cloud.recommendationengine.v1beta1.FeatureMap
 	(*CatalogItem_CategoryHierarchy)(nil), // 11: google.cloud.recommendationengine.v1beta1.CatalogItem.CategoryHierarchy
 	(ProductCatalogItem_StockState)(0),    // 12: google.cloud.recommendationengine.v1beta1.ProductCatalogItem.StockState

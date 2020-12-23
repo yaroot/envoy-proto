@@ -22,10 +22,10 @@ package notebooks
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -67,7 +67,7 @@ type Environment struct {
 	// Cloud Storage path. Example: `"gs://path-to-file/file-name"`
 	PostStartupScript string `protobuf:"bytes,8,opt,name=post_startup_script,json=postStartupScript,proto3" json:"post_startup_script,omitempty"`
 	// Output only. The time at which this environment was created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,9,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 }
 
 func (x *Environment) Reset() {
@@ -151,7 +151,7 @@ func (x *Environment) GetPostStartupScript() string {
 	return ""
 }
 
-func (x *Environment) GetCreateTime() *timestamppb.Timestamp {
+func (x *Environment) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -424,10 +424,10 @@ func file_google_cloud_notebooks_v1beta1_environment_proto_rawDescGZIP() []byte 
 
 var file_google_cloud_notebooks_v1beta1_environment_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_google_cloud_notebooks_v1beta1_environment_proto_goTypes = []interface{}{
-	(*Environment)(nil),           // 0: google.cloud.notebooks.v1beta1.Environment
-	(*VmImage)(nil),               // 1: google.cloud.notebooks.v1beta1.VmImage
-	(*ContainerImage)(nil),        // 2: google.cloud.notebooks.v1beta1.ContainerImage
-	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
+	(*Environment)(nil),         // 0: google.cloud.notebooks.v1beta1.Environment
+	(*VmImage)(nil),             // 1: google.cloud.notebooks.v1beta1.VmImage
+	(*ContainerImage)(nil),      // 2: google.cloud.notebooks.v1beta1.ContainerImage
+	(*timestamp.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_google_cloud_notebooks_v1beta1_environment_proto_depIdxs = []int32{
 	1, // 0: google.cloud.notebooks.v1beta1.Environment.vm_image:type_name -> google.cloud.notebooks.v1beta1.VmImage

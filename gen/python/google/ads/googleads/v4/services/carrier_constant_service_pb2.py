@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v4.servicesB\033CarrierConstantServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V4.Services\312\002 Google\\Ads\\GoogleAds\\V4\\Services\352\002$Google::Ads::GoogleAds::V4::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n?google/ads/googleads/v4/services/carrier_constant_service.proto\x12 google.ads.googleads.v4.services\x1a\x38google/ads/googleads/v4/resources/carrier_constant.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"d\n\x19GetCarrierConstantRequest\x12G\n\rresource_name\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\n(googleads.googleapis.com/CarrierConstant2\xfd\x01\n\x16\x43\x61rrierConstantService\x12\xc5\x01\n\x12GetCarrierConstant\x12;.google.ads.googleads.v4.services.GetCarrierConstantRequest\x1a\x32.google.ads.googleads.v4.resources.CarrierConstant\">\x82\xd3\xe4\x93\x02(\x12&/v4/{resource_name=carrierConstants/*}\xda\x41\rresource_name\x1a\x1b\xca\x41\x18googleads.googleapis.comB\x82\x02\n$com.google.ads.googleads.v4.servicesB\x1b\x43\x61rrierConstantServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V4.Services\xca\x02 Google\\Ads\\GoogleAds\\V4\\Services\xea\x02$Google::Ads::GoogleAds::V4::Servicesb\x06proto3'
+  serialized_pb=b'\n?google/ads/googleads/v4/services/carrier_constant_service.proto\x12 google.ads.googleads.v4.services\x1a\x38google/ads/googleads/v4/resources/carrier_constant.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"d\n\x19GetCarrierConstantRequest\x12G\n\rresource_name\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\n(googleads.googleapis.com/CarrierConstant2\xa7\x02\n\x16\x43\x61rrierConstantService\x12\xc5\x01\n\x12GetCarrierConstant\x12;.google.ads.googleads.v4.services.GetCarrierConstantRequest\x1a\x32.google.ads.googleads.v4.resources.CarrierConstant\">\x82\xd3\xe4\x93\x02(\x12&/v4/{resource_name=carrierConstants/*}\xda\x41\rresource_name\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x82\x02\n$com.google.ads.googleads.v4.servicesB\x1b\x43\x61rrierConstantServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V4.Services\xca\x02 Google\\Ads\\GoogleAds\\V4\\Services\xea\x02$Google::Ads::GoogleAds::V4::Servicesb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v4_dot_resources_dot_carrier__constant__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
 
@@ -81,10 +81,10 @@ _CARRIERCONSTANTSERVICE = _descriptor.ServiceDescriptor(
   full_name='google.ads.googleads.v4.services.CarrierConstantService',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=b'\312A\030googleads.googleapis.com',
+  serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
   serialized_start=377,
-  serialized_end=630,
+  serialized_end=672,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetCarrierConstant',

@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v4.servicesB&ThirdPartyAppAnalyticsLinkServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V4.Services\312\002 Google\\Ads\\GoogleAds\\V4\\Services\352\002$Google::Ads::GoogleAds::V4::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nMgoogle/ads/googleads/v4/services/third_party_app_analytics_link_service.proto\x12 google.ads.googleads.v4.services\x1a\x46google/ads/googleads/v4/resources/third_party_app_analytics_link.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/resource.proto\x1a\x17google/api/client.proto\"w\n$GetThirdPartyAppAnalyticsLinkRequest\x12O\n\rresource_name\x18\x01 \x01(\tB8\xfa\x41\x35\n3googleads.googleapis.com/ThirdPartyAppAnalyticsLink2\xb0\x02\n!ThirdPartyAppAnalyticsLinkService\x12\xed\x01\n\x1dGetThirdPartyAppAnalyticsLink\x12\x46.google.ads.googleads.v4.services.GetThirdPartyAppAnalyticsLinkRequest\x1a=.google.ads.googleads.v4.resources.ThirdPartyAppAnalyticsLink\"E\x82\xd3\xe4\x93\x02?\x12=/v4/{resource_name=customers/*/thirdPartyAppAnalyticsLinks/*}\x1a\x1b\xca\x41\x18googleads.googleapis.comB\x8d\x02\n$com.google.ads.googleads.v4.servicesB&ThirdPartyAppAnalyticsLinkServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V4.Services\xca\x02 Google\\Ads\\GoogleAds\\V4\\Services\xea\x02$Google::Ads::GoogleAds::V4::Servicesb\x06proto3'
+  serialized_pb=b'\nMgoogle/ads/googleads/v4/services/third_party_app_analytics_link_service.proto\x12 google.ads.googleads.v4.services\x1a\x46google/ads/googleads/v4/resources/third_party_app_analytics_link.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/resource.proto\x1a\x17google/api/client.proto\"w\n$GetThirdPartyAppAnalyticsLinkRequest\x12O\n\rresource_name\x18\x01 \x01(\tB8\xfa\x41\x35\n3googleads.googleapis.com/ThirdPartyAppAnalyticsLink2\xda\x02\n!ThirdPartyAppAnalyticsLinkService\x12\xed\x01\n\x1dGetThirdPartyAppAnalyticsLink\x12\x46.google.ads.googleads.v4.services.GetThirdPartyAppAnalyticsLinkRequest\x1a=.google.ads.googleads.v4.resources.ThirdPartyAppAnalyticsLink\"E\x82\xd3\xe4\x93\x02?\x12=/v4/{resource_name=customers/*/thirdPartyAppAnalyticsLinks/*}\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x8d\x02\n$com.google.ads.googleads.v4.servicesB&ThirdPartyAppAnalyticsLinkServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V4.Services\xca\x02 Google\\Ads\\GoogleAds\\V4\\Services\xea\x02$Google::Ads::GoogleAds::V4::Servicesb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v4_dot_resources_dot_third__party__app__analytics__link__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,])
 
@@ -80,10 +80,10 @@ _THIRDPARTYAPPANALYTICSLINKSERVICE = _descriptor.ServiceDescriptor(
   full_name='google.ads.googleads.v4.services.ThirdPartyAppAnalyticsLinkService',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=b'\312A\030googleads.googleapis.com',
+  serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
   serialized_start=391,
-  serialized_end=695,
+  serialized_end=737,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetThirdPartyAppAnalyticsLink',

@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.osconfig.v1 import osconfig_common_pb2 as google_dot_cloud_dot_osconfig_dot_v1_dot_osconfig__common__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
@@ -23,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\034com.google.cloud.osconfig.v1B\tPatchJobsZ@google.golang.org/genproto/googleapis/cloud/osconfig/v1;osconfig\252\002\030Google.Cloud.OsConfig.V1\312\002\030Google\\Cloud\\OsConfig\\V1\352\002\033Google::Cloud::OsConfig::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)google/cloud/osconfig/v1/patch_jobs.proto\x12\x18google.cloud.osconfig.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd0\x02\n\x16\x45xecutePatchJobRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12K\n\x0finstance_filter\x18\x07 \x01(\x0b\x32-.google.cloud.osconfig.v1.PatchInstanceFilterB\x03\xe0\x41\x02\x12;\n\x0cpatch_config\x18\x04 \x01(\x0b\x32%.google.cloud.osconfig.v1.PatchConfig\x12+\n\x08\x64uration\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x0f\n\x07\x64ry_run\x18\x06 \x01(\x08\x12\x14\n\x0c\x64isplay_name\x18\x08 \x01(\t\"L\n\x12GetPatchJobRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n osconfig.googleapis.com/PatchJob\"\x95\x01\n\"ListPatchJobInstanceDetailsRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n osconfig.googleapis.com/PatchJob\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"\x95\x01\n#ListPatchJobInstanceDetailsResponse\x12U\n\x1apatch_job_instance_details\x18\x01 \x03(\x0b\x32\x31.google.cloud.osconfig.v1.PatchJobInstanceDetails\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xd6\x01\n\x17PatchJobInstanceDetails\x12\x32\n\x04name\x18\x01 \x01(\tB$\xfa\x41!\n\x1f\x63ompute.googleapis.com/Instance\x12\x1a\n\x12instance_system_id\x18\x02 \x01(\t\x12<\n\x05state\x18\x03 \x01(\x0e\x32-.google.cloud.osconfig.v1.Instance.PatchState\x12\x16\n\x0e\x66\x61ilure_reason\x18\x04 \x01(\t\x12\x15\n\rattempt_count\x18\x05 \x01(\x03\"\x92\x01\n\x14ListPatchJobsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"h\n\x15ListPatchJobsResponse\x12\x36\n\npatch_jobs\x18\x01 \x03(\x0b\x32\".google.cloud.osconfig.v1.PatchJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xa3\x0b\n\x08PatchJob\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x0e \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x37\n\x05state\x18\x05 \x01(\x0e\x32(.google.cloud.osconfig.v1.PatchJob.State\x12\x46\n\x0finstance_filter\x18\r \x01(\x0b\x32-.google.cloud.osconfig.v1.PatchInstanceFilter\x12;\n\x0cpatch_config\x18\x07 \x01(\x0b\x32%.google.cloud.osconfig.v1.PatchConfig\x12+\n\x08\x64uration\x18\x08 \x01(\x0b\x32\x19.google.protobuf.Duration\x12[\n\x18instance_details_summary\x18\t \x01(\x0b\x32\x39.google.cloud.osconfig.v1.PatchJob.InstanceDetailsSummary\x12\x0f\n\x07\x64ry_run\x18\n \x01(\x08\x12\x15\n\rerror_message\x18\x0b \x01(\t\x12\x18\n\x10percent_complete\x18\x0c \x01(\x01\x12I\n\x10patch_deployment\x18\x0f \x01(\tB/\xe0\x41\x03\xfa\x41)\n\'osconfig.googleapis.com/PatchDeployment\x1a\xbd\x04\n\x16InstanceDetailsSummary\x12\x1e\n\x16pending_instance_count\x18\x01 \x01(\x03\x12\x1f\n\x17inactive_instance_count\x18\x02 \x01(\x03\x12\x1f\n\x17notified_instance_count\x18\x03 \x01(\x03\x12\x1e\n\x16started_instance_count\x18\x04 \x01(\x03\x12*\n\"downloading_patches_instance_count\x18\x05 \x01(\x03\x12\'\n\x1f\x61pplying_patches_instance_count\x18\x06 \x01(\x03\x12 \n\x18rebooting_instance_count\x18\x07 \x01(\x03\x12 \n\x18succeeded_instance_count\x18\x08 \x01(\x03\x12\x30\n(succeeded_reboot_required_instance_count\x18\t \x01(\x03\x12\x1d\n\x15\x66\x61iled_instance_count\x18\n \x01(\x03\x12\x1c\n\x14\x61\x63ked_instance_count\x18\x0b \x01(\x03\x12 \n\x18timed_out_instance_count\x18\x0c \x01(\x03\x12%\n\x1dpre_patch_step_instance_count\x18\r \x01(\x03\x12&\n\x1epost_patch_step_instance_count\x18\x0e \x01(\x03\x12(\n no_agent_detected_instance_count\x18\x0f \x01(\x03\"\x95\x01\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07STARTED\x10\x01\x12\x13\n\x0fINSTANCE_LOOKUP\x10\x02\x12\x0c\n\x08PATCHING\x10\x03\x12\r\n\tSUCCEEDED\x10\x04\x12\x19\n\x15\x43OMPLETED_WITH_ERRORS\x10\x05\x12\x0c\n\x08\x43\x41NCELED\x10\x06\x12\r\n\tTIMED_OUT\x10\x07:O\xea\x41L\n osconfig.googleapis.com/PatchJob\x12(projects/{project}/patchJobs/{patch_job}\"\xb7\x04\n\x0bPatchConfig\x12I\n\rreboot_config\x18\x01 \x01(\x0e\x32\x32.google.cloud.osconfig.v1.PatchConfig.RebootConfig\x12\x32\n\x03\x61pt\x18\x03 \x01(\x0b\x32%.google.cloud.osconfig.v1.AptSettings\x12\x32\n\x03yum\x18\x04 \x01(\x0b\x32%.google.cloud.osconfig.v1.YumSettings\x12\x32\n\x03goo\x18\x05 \x01(\x0b\x32%.google.cloud.osconfig.v1.GooSettings\x12\x38\n\x06zypper\x18\x06 \x01(\x0b\x32(.google.cloud.osconfig.v1.ZypperSettings\x12G\n\x0ewindows_update\x18\x07 \x01(\x0b\x32/.google.cloud.osconfig.v1.WindowsUpdateSettings\x12\x34\n\x08pre_step\x18\x08 \x01(\x0b\x32\".google.cloud.osconfig.v1.ExecStep\x12\x35\n\tpost_step\x18\t \x01(\x0b\x32\".google.cloud.osconfig.v1.ExecStep\"Q\n\x0cRebootConfig\x12\x1d\n\x19REBOOT_CONFIG_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x01\x12\n\n\x06\x41LWAYS\x10\x02\x12\t\n\x05NEVER\x10\x03\"\xce\x02\n\x08Instance\"\xc1\x02\n\nPatchState\x12\x1b\n\x17PATCH_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0c\n\x08INACTIVE\x10\x02\x12\x0c\n\x08NOTIFIED\x10\x03\x12\x0b\n\x07STARTED\x10\x04\x12\x17\n\x13\x44OWNLOADING_PATCHES\x10\x05\x12\x14\n\x10\x41PPLYING_PATCHES\x10\x06\x12\r\n\tREBOOTING\x10\x07\x12\r\n\tSUCCEEDED\x10\x08\x12\x1d\n\x19SUCCEEDED_REBOOT_REQUIRED\x10\t\x12\n\n\x06\x46\x41ILED\x10\n\x12\t\n\x05\x41\x43KED\x10\x0b\x12\r\n\tTIMED_OUT\x10\x0c\x12\x1a\n\x16RUNNING_PRE_PATCH_STEP\x10\r\x12\x1b\n\x17RUNNING_POST_PATCH_STEP\x10\x0e\x12\x15\n\x11NO_AGENT_DETECTED\x10\x0f\"O\n\x15\x43\x61ncelPatchJobRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n osconfig.googleapis.com/PatchJob\"\xaa\x01\n\x0b\x41ptSettings\x12\x38\n\x04type\x18\x01 \x01(\x0e\x32*.google.cloud.osconfig.v1.AptSettings.Type\x12\x10\n\x08\x65xcludes\x18\x02 \x03(\t\x12\x1a\n\x12\x65xclusive_packages\x18\x03 \x03(\t\"3\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x08\n\x04\x44IST\x10\x01\x12\x0b\n\x07UPGRADE\x10\x02\"^\n\x0bYumSettings\x12\x10\n\x08security\x18\x01 \x01(\x08\x12\x0f\n\x07minimal\x18\x02 \x01(\x08\x12\x10\n\x08\x65xcludes\x18\x03 \x03(\t\x12\x1a\n\x12\x65xclusive_packages\x18\x04 \x03(\t\"\r\n\x0bGooSettings\"\x91\x01\n\x0eZypperSettings\x12\x15\n\rwith_optional\x18\x01 \x01(\x08\x12\x13\n\x0bwith_update\x18\x02 \x01(\x08\x12\x12\n\ncategories\x18\x03 \x03(\t\x12\x12\n\nseverities\x18\x04 \x03(\t\x12\x10\n\x08\x65xcludes\x18\x05 \x03(\t\x12\x19\n\x11\x65xclusive_patches\x18\x06 \x03(\t\"\xd5\x02\n\x15WindowsUpdateSettings\x12W\n\x0f\x63lassifications\x18\x01 \x03(\x0e\x32>.google.cloud.osconfig.v1.WindowsUpdateSettings.Classification\x12\x10\n\x08\x65xcludes\x18\x02 \x03(\t\x12\x19\n\x11\x65xclusive_patches\x18\x03 \x03(\t\"\xb5\x01\n\x0e\x43lassification\x12\x1e\n\x1a\x43LASSIFICATION_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43RITICAL\x10\x01\x12\x0c\n\x08SECURITY\x10\x02\x12\x0e\n\nDEFINITION\x10\x03\x12\n\n\x06\x44RIVER\x10\x04\x12\x10\n\x0c\x46\x45\x41TURE_PACK\x10\x05\x12\x10\n\x0cSERVICE_PACK\x10\x06\x12\x08\n\x04TOOL\x10\x07\x12\x11\n\rUPDATE_ROLLUP\x10\x08\x12\n\n\x06UPDATE\x10\t\"\xa0\x01\n\x08\x45xecStep\x12H\n\x16linux_exec_step_config\x18\x01 \x01(\x0b\x32(.google.cloud.osconfig.v1.ExecStepConfig\x12J\n\x18windows_exec_step_config\x18\x02 \x01(\x0b\x32(.google.cloud.osconfig.v1.ExecStepConfig\"\xa0\x02\n\x0e\x45xecStepConfig\x12\x14\n\nlocal_path\x18\x01 \x01(\tH\x00\x12\x39\n\ngcs_object\x18\x02 \x01(\x0b\x32#.google.cloud.osconfig.v1.GcsObjectH\x00\x12\x1d\n\x15\x61llowed_success_codes\x18\x03 \x03(\x05\x12I\n\x0binterpreter\x18\x04 \x01(\x0e\x32\x34.google.cloud.osconfig.v1.ExecStepConfig.Interpreter\"E\n\x0bInterpreter\x12\x1b\n\x17INTERPRETER_UNSPECIFIED\x10\x00\x12\t\n\x05SHELL\x10\x01\x12\x0e\n\nPOWERSHELL\x10\x02\x42\x0c\n\nexecutable\"U\n\tGcsObject\x12\x13\n\x06\x62ucket\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x06object\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x1e\n\x11generation_number\x18\x03 \x01(\x03\x42\x03\xe0\x41\x02\"\xc8\x02\n\x13PatchInstanceFilter\x12\x0b\n\x03\x61ll\x18\x01 \x01(\x08\x12N\n\x0cgroup_labels\x18\x02 \x03(\x0b\x32\x38.google.cloud.osconfig.v1.PatchInstanceFilter.GroupLabel\x12\r\n\x05zones\x18\x03 \x03(\t\x12\x11\n\tinstances\x18\x04 \x03(\t\x12\x1e\n\x16instance_name_prefixes\x18\x05 \x03(\t\x1a\x91\x01\n\nGroupLabel\x12T\n\x06labels\x18\x01 \x03(\x0b\x32\x44.google.cloud.osconfig.v1.PatchInstanceFilter.GroupLabel.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\xbf\x01\n\x1c\x63om.google.cloud.osconfig.v1B\tPatchJobsZ@google.golang.org/genproto/googleapis/cloud/osconfig/v1;osconfig\xaa\x02\x18Google.Cloud.OsConfig.V1\xca\x02\x18Google\\Cloud\\OsConfig\\V1\xea\x02\x1bGoogle::Cloud::OsConfig::V1b\x06proto3'
+  serialized_pb=b'\n)google/cloud/osconfig/v1/patch_jobs.proto\x12\x18google.cloud.osconfig.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.google/cloud/osconfig/v1/osconfig_common.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x89\x03\n\x16\x45xecutePatchJobRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12K\n\x0finstance_filter\x18\x07 \x01(\x0b\x32-.google.cloud.osconfig.v1.PatchInstanceFilterB\x03\xe0\x41\x02\x12;\n\x0cpatch_config\x18\x04 \x01(\x0b\x32%.google.cloud.osconfig.v1.PatchConfig\x12+\n\x08\x64uration\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x0f\n\x07\x64ry_run\x18\x06 \x01(\x08\x12\x14\n\x0c\x64isplay_name\x18\x08 \x01(\t\x12\x37\n\x07rollout\x18\t \x01(\x0b\x32&.google.cloud.osconfig.v1.PatchRollout\"L\n\x12GetPatchJobRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n osconfig.googleapis.com/PatchJob\"\x95\x01\n\"ListPatchJobInstanceDetailsRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n osconfig.googleapis.com/PatchJob\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"\x95\x01\n#ListPatchJobInstanceDetailsResponse\x12U\n\x1apatch_job_instance_details\x18\x01 \x03(\x0b\x32\x31.google.cloud.osconfig.v1.PatchJobInstanceDetails\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xd6\x01\n\x17PatchJobInstanceDetails\x12\x32\n\x04name\x18\x01 \x01(\tB$\xfa\x41!\n\x1f\x63ompute.googleapis.com/Instance\x12\x1a\n\x12instance_system_id\x18\x02 \x01(\t\x12<\n\x05state\x18\x03 \x01(\x0e\x32-.google.cloud.osconfig.v1.Instance.PatchState\x12\x16\n\x0e\x66\x61ilure_reason\x18\x04 \x01(\t\x12\x15\n\rattempt_count\x18\x05 \x01(\x03\"\x92\x01\n\x14ListPatchJobsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"h\n\x15ListPatchJobsResponse\x12\x36\n\npatch_jobs\x18\x01 \x03(\x0b\x32\".google.cloud.osconfig.v1.PatchJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xdc\x0b\n\x08PatchJob\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x0e \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x37\n\x05state\x18\x05 \x01(\x0e\x32(.google.cloud.osconfig.v1.PatchJob.State\x12\x46\n\x0finstance_filter\x18\r \x01(\x0b\x32-.google.cloud.osconfig.v1.PatchInstanceFilter\x12;\n\x0cpatch_config\x18\x07 \x01(\x0b\x32%.google.cloud.osconfig.v1.PatchConfig\x12+\n\x08\x64uration\x18\x08 \x01(\x0b\x32\x19.google.protobuf.Duration\x12[\n\x18instance_details_summary\x18\t \x01(\x0b\x32\x39.google.cloud.osconfig.v1.PatchJob.InstanceDetailsSummary\x12\x0f\n\x07\x64ry_run\x18\n \x01(\x08\x12\x15\n\rerror_message\x18\x0b \x01(\t\x12\x18\n\x10percent_complete\x18\x0c \x01(\x01\x12I\n\x10patch_deployment\x18\x0f \x01(\tB/\xe0\x41\x03\xfa\x41)\n\'osconfig.googleapis.com/PatchDeployment\x12\x37\n\x07rollout\x18\x10 \x01(\x0b\x32&.google.cloud.osconfig.v1.PatchRollout\x1a\xbd\x04\n\x16InstanceDetailsSummary\x12\x1e\n\x16pending_instance_count\x18\x01 \x01(\x03\x12\x1f\n\x17inactive_instance_count\x18\x02 \x01(\x03\x12\x1f\n\x17notified_instance_count\x18\x03 \x01(\x03\x12\x1e\n\x16started_instance_count\x18\x04 \x01(\x03\x12*\n\"downloading_patches_instance_count\x18\x05 \x01(\x03\x12\'\n\x1f\x61pplying_patches_instance_count\x18\x06 \x01(\x03\x12 \n\x18rebooting_instance_count\x18\x07 \x01(\x03\x12 \n\x18succeeded_instance_count\x18\x08 \x01(\x03\x12\x30\n(succeeded_reboot_required_instance_count\x18\t \x01(\x03\x12\x1d\n\x15\x66\x61iled_instance_count\x18\n \x01(\x03\x12\x1c\n\x14\x61\x63ked_instance_count\x18\x0b \x01(\x03\x12 \n\x18timed_out_instance_count\x18\x0c \x01(\x03\x12%\n\x1dpre_patch_step_instance_count\x18\r \x01(\x03\x12&\n\x1epost_patch_step_instance_count\x18\x0e \x01(\x03\x12(\n no_agent_detected_instance_count\x18\x0f \x01(\x03\"\x95\x01\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07STARTED\x10\x01\x12\x13\n\x0fINSTANCE_LOOKUP\x10\x02\x12\x0c\n\x08PATCHING\x10\x03\x12\r\n\tSUCCEEDED\x10\x04\x12\x19\n\x15\x43OMPLETED_WITH_ERRORS\x10\x05\x12\x0c\n\x08\x43\x41NCELED\x10\x06\x12\r\n\tTIMED_OUT\x10\x07:O\xea\x41L\n osconfig.googleapis.com/PatchJob\x12(projects/{project}/patchJobs/{patch_job}\"\xb7\x04\n\x0bPatchConfig\x12I\n\rreboot_config\x18\x01 \x01(\x0e\x32\x32.google.cloud.osconfig.v1.PatchConfig.RebootConfig\x12\x32\n\x03\x61pt\x18\x03 \x01(\x0b\x32%.google.cloud.osconfig.v1.AptSettings\x12\x32\n\x03yum\x18\x04 \x01(\x0b\x32%.google.cloud.osconfig.v1.YumSettings\x12\x32\n\x03goo\x18\x05 \x01(\x0b\x32%.google.cloud.osconfig.v1.GooSettings\x12\x38\n\x06zypper\x18\x06 \x01(\x0b\x32(.google.cloud.osconfig.v1.ZypperSettings\x12G\n\x0ewindows_update\x18\x07 \x01(\x0b\x32/.google.cloud.osconfig.v1.WindowsUpdateSettings\x12\x34\n\x08pre_step\x18\x08 \x01(\x0b\x32\".google.cloud.osconfig.v1.ExecStep\x12\x35\n\tpost_step\x18\t \x01(\x0b\x32\".google.cloud.osconfig.v1.ExecStep\"Q\n\x0cRebootConfig\x12\x1d\n\x19REBOOT_CONFIG_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x01\x12\n\n\x06\x41LWAYS\x10\x02\x12\t\n\x05NEVER\x10\x03\"\xce\x02\n\x08Instance\"\xc1\x02\n\nPatchState\x12\x1b\n\x17PATCH_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0c\n\x08INACTIVE\x10\x02\x12\x0c\n\x08NOTIFIED\x10\x03\x12\x0b\n\x07STARTED\x10\x04\x12\x17\n\x13\x44OWNLOADING_PATCHES\x10\x05\x12\x14\n\x10\x41PPLYING_PATCHES\x10\x06\x12\r\n\tREBOOTING\x10\x07\x12\r\n\tSUCCEEDED\x10\x08\x12\x1d\n\x19SUCCEEDED_REBOOT_REQUIRED\x10\t\x12\n\n\x06\x46\x41ILED\x10\n\x12\t\n\x05\x41\x43KED\x10\x0b\x12\r\n\tTIMED_OUT\x10\x0c\x12\x1a\n\x16RUNNING_PRE_PATCH_STEP\x10\r\x12\x1b\n\x17RUNNING_POST_PATCH_STEP\x10\x0e\x12\x15\n\x11NO_AGENT_DETECTED\x10\x0f\"O\n\x15\x43\x61ncelPatchJobRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n osconfig.googleapis.com/PatchJob\"\xaa\x01\n\x0b\x41ptSettings\x12\x38\n\x04type\x18\x01 \x01(\x0e\x32*.google.cloud.osconfig.v1.AptSettings.Type\x12\x10\n\x08\x65xcludes\x18\x02 \x03(\t\x12\x1a\n\x12\x65xclusive_packages\x18\x03 \x03(\t\"3\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x08\n\x04\x44IST\x10\x01\x12\x0b\n\x07UPGRADE\x10\x02\"^\n\x0bYumSettings\x12\x10\n\x08security\x18\x01 \x01(\x08\x12\x0f\n\x07minimal\x18\x02 \x01(\x08\x12\x10\n\x08\x65xcludes\x18\x03 \x03(\t\x12\x1a\n\x12\x65xclusive_packages\x18\x04 \x03(\t\"\r\n\x0bGooSettings\"\x91\x01\n\x0eZypperSettings\x12\x15\n\rwith_optional\x18\x01 \x01(\x08\x12\x13\n\x0bwith_update\x18\x02 \x01(\x08\x12\x12\n\ncategories\x18\x03 \x03(\t\x12\x12\n\nseverities\x18\x04 \x03(\t\x12\x10\n\x08\x65xcludes\x18\x05 \x03(\t\x12\x19\n\x11\x65xclusive_patches\x18\x06 \x03(\t\"\xd5\x02\n\x15WindowsUpdateSettings\x12W\n\x0f\x63lassifications\x18\x01 \x03(\x0e\x32>.google.cloud.osconfig.v1.WindowsUpdateSettings.Classification\x12\x10\n\x08\x65xcludes\x18\x02 \x03(\t\x12\x19\n\x11\x65xclusive_patches\x18\x03 \x03(\t\"\xb5\x01\n\x0e\x43lassification\x12\x1e\n\x1a\x43LASSIFICATION_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43RITICAL\x10\x01\x12\x0c\n\x08SECURITY\x10\x02\x12\x0e\n\nDEFINITION\x10\x03\x12\n\n\x06\x44RIVER\x10\x04\x12\x10\n\x0c\x46\x45\x41TURE_PACK\x10\x05\x12\x10\n\x0cSERVICE_PACK\x10\x06\x12\x08\n\x04TOOL\x10\x07\x12\x11\n\rUPDATE_ROLLUP\x10\x08\x12\n\n\x06UPDATE\x10\t\"\xa0\x01\n\x08\x45xecStep\x12H\n\x16linux_exec_step_config\x18\x01 \x01(\x0b\x32(.google.cloud.osconfig.v1.ExecStepConfig\x12J\n\x18windows_exec_step_config\x18\x02 \x01(\x0b\x32(.google.cloud.osconfig.v1.ExecStepConfig\"\xa0\x02\n\x0e\x45xecStepConfig\x12\x14\n\nlocal_path\x18\x01 \x01(\tH\x00\x12\x39\n\ngcs_object\x18\x02 \x01(\x0b\x32#.google.cloud.osconfig.v1.GcsObjectH\x00\x12\x1d\n\x15\x61llowed_success_codes\x18\x03 \x03(\x05\x12I\n\x0binterpreter\x18\x04 \x01(\x0e\x32\x34.google.cloud.osconfig.v1.ExecStepConfig.Interpreter\"E\n\x0bInterpreter\x12\x1b\n\x17INTERPRETER_UNSPECIFIED\x10\x00\x12\t\n\x05SHELL\x10\x01\x12\x0e\n\nPOWERSHELL\x10\x02\x42\x0c\n\nexecutable\"U\n\tGcsObject\x12\x13\n\x06\x62ucket\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x06object\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x1e\n\x11generation_number\x18\x03 \x01(\x03\x42\x03\xe0\x41\x02\"\xc8\x02\n\x13PatchInstanceFilter\x12\x0b\n\x03\x61ll\x18\x01 \x01(\x08\x12N\n\x0cgroup_labels\x18\x02 \x03(\x0b\x32\x38.google.cloud.osconfig.v1.PatchInstanceFilter.GroupLabel\x12\r\n\x05zones\x18\x03 \x03(\t\x12\x11\n\tinstances\x18\x04 \x03(\t\x12\x1e\n\x16instance_name_prefixes\x18\x05 \x03(\t\x1a\x91\x01\n\nGroupLabel\x12T\n\x06labels\x18\x01 \x03(\x0b\x32\x44.google.cloud.osconfig.v1.PatchInstanceFilter.GroupLabel.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd4\x01\n\x0cPatchRollout\x12\x39\n\x04mode\x18\x01 \x01(\x0e\x32+.google.cloud.osconfig.v1.PatchRollout.Mode\x12\x43\n\x11\x64isruption_budget\x18\x02 \x01(\x0b\x32(.google.cloud.osconfig.v1.FixedOrPercent\"D\n\x04Mode\x12\x14\n\x10MODE_UNSPECIFIED\x10\x00\x12\x10\n\x0cZONE_BY_ZONE\x10\x01\x12\x14\n\x10\x43ONCURRENT_ZONES\x10\x02\x42\xbf\x01\n\x1c\x63om.google.cloud.osconfig.v1B\tPatchJobsZ@google.golang.org/genproto/googleapis/cloud/osconfig/v1;osconfig\xaa\x02\x18Google.Cloud.OsConfig.V1\xca\x02\x18Google\\Cloud\\OsConfig\\V1\xea\x02\x1bGoogle::Cloud::OsConfig::V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_osconfig_dot_v1_dot_osconfig__common__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
 
@@ -79,8 +80,8 @@ _PATCHJOB_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2603,
-  serialized_end=2752,
+  serialized_start=2765,
+  serialized_end=2914,
 )
 _sym_db.RegisterEnumDescriptor(_PATCHJOB_STATE)
 
@@ -114,8 +115,8 @@ _PATCHCONFIG_REBOOTCONFIG = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3322,
-  serialized_end=3403,
+  serialized_start=3484,
+  serialized_end=3565,
 )
 _sym_db.RegisterEnumDescriptor(_PATCHCONFIG_REBOOTCONFIG)
 
@@ -209,8 +210,8 @@ _INSTANCE_PATCHSTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3419,
-  serialized_end=3740,
+  serialized_start=3581,
+  serialized_end=3902,
 )
 _sym_db.RegisterEnumDescriptor(_INSTANCE_PATCHSTATE)
 
@@ -239,8 +240,8 @@ _APTSETTINGS_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3943,
-  serialized_end=3994,
+  serialized_start=4105,
+  serialized_end=4156,
 )
 _sym_db.RegisterEnumDescriptor(_APTSETTINGS_TYPE)
 
@@ -304,8 +305,8 @@ _WINDOWSUPDATESETTINGS_CLASSIFICATION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4416,
-  serialized_end=4597,
+  serialized_start=4578,
+  serialized_end=4759,
 )
 _sym_db.RegisterEnumDescriptor(_WINDOWSUPDATESETTINGS_CLASSIFICATION)
 
@@ -334,10 +335,40 @@ _EXECSTEPCONFIG_INTERPRETER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4968,
-  serialized_end=5037,
+  serialized_start=5130,
+  serialized_end=5199,
 )
 _sym_db.RegisterEnumDescriptor(_EXECSTEPCONFIG_INTERPRETER)
+
+_PATCHROLLOUT_MODE = _descriptor.EnumDescriptor(
+  name='Mode',
+  full_name='google.cloud.osconfig.v1.PatchRollout.Mode',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='MODE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ZONE_BY_ZONE', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CONCURRENT_ZONES', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=5778,
+  serialized_end=5846,
+)
+_sym_db.RegisterEnumDescriptor(_PATCHROLLOUT_MODE)
 
 
 _EXECUTEPATCHJOBREQUEST = _descriptor.Descriptor(
@@ -397,6 +428,13 @@ _EXECUTEPATCHJOBREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rollout', full_name='google.cloud.osconfig.v1.ExecutePatchJobRequest.rollout', index=7,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -409,8 +447,8 @@ _EXECUTEPATCHJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=197,
-  serialized_end=533,
+  serialized_start=245,
+  serialized_end=638,
 )
 
 
@@ -441,8 +479,8 @@ _GETPATCHJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=535,
-  serialized_end=611,
+  serialized_start=640,
+  serialized_end=716,
 )
 
 
@@ -494,8 +532,8 @@ _LISTPATCHJOBINSTANCEDETAILSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=614,
-  serialized_end=763,
+  serialized_start=719,
+  serialized_end=868,
 )
 
 
@@ -533,8 +571,8 @@ _LISTPATCHJOBINSTANCEDETAILSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=766,
-  serialized_end=915,
+  serialized_start=871,
+  serialized_end=1020,
 )
 
 
@@ -593,8 +631,8 @@ _PATCHJOBINSTANCEDETAILS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=918,
-  serialized_end=1132,
+  serialized_start=1023,
+  serialized_end=1237,
 )
 
 
@@ -646,8 +684,8 @@ _LISTPATCHJOBSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1135,
-  serialized_end=1281,
+  serialized_start=1240,
+  serialized_end=1386,
 )
 
 
@@ -685,8 +723,8 @@ _LISTPATCHJOBSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1283,
-  serialized_end=1387,
+  serialized_start=1388,
+  serialized_end=1492,
 )
 
 
@@ -815,8 +853,8 @@ _PATCHJOB_INSTANCEDETAILSSUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2027,
-  serialized_end=2600,
+  serialized_start=2189,
+  serialized_end=2762,
 )
 
 _PATCHJOB = _descriptor.Descriptor(
@@ -925,6 +963,13 @@ _PATCHJOB = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003\372A)\n\'osconfig.googleapis.com/PatchDeployment', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rollout', full_name='google.cloud.osconfig.v1.PatchJob.rollout', index=14,
+      number=16, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -938,8 +983,8 @@ _PATCHJOB = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1390,
-  serialized_end=2833,
+  serialized_start=1495,
+  serialized_end=2995,
 )
 
 
@@ -1020,8 +1065,8 @@ _PATCHCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2836,
-  serialized_end=3403,
+  serialized_start=2998,
+  serialized_end=3565,
 )
 
 
@@ -1046,8 +1091,8 @@ _INSTANCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3406,
-  serialized_end=3740,
+  serialized_start=3568,
+  serialized_end=3902,
 )
 
 
@@ -1078,8 +1123,8 @@ _CANCELPATCHJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3742,
-  serialized_end=3821,
+  serialized_start=3904,
+  serialized_end=3983,
 )
 
 
@@ -1125,8 +1170,8 @@ _APTSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3824,
-  serialized_end=3994,
+  serialized_start=3986,
+  serialized_end=4156,
 )
 
 
@@ -1178,8 +1223,8 @@ _YUMSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3996,
-  serialized_end=4090,
+  serialized_start=4158,
+  serialized_end=4252,
 )
 
 
@@ -1203,8 +1248,8 @@ _GOOSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4092,
-  serialized_end=4105,
+  serialized_start=4254,
+  serialized_end=4267,
 )
 
 
@@ -1270,8 +1315,8 @@ _ZYPPERSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4108,
-  serialized_end=4253,
+  serialized_start=4270,
+  serialized_end=4415,
 )
 
 
@@ -1317,8 +1362,8 @@ _WINDOWSUPDATESETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4256,
-  serialized_end=4597,
+  serialized_start=4418,
+  serialized_end=4759,
 )
 
 
@@ -1356,8 +1401,8 @@ _EXECSTEP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4600,
-  serialized_end=4760,
+  serialized_start=4762,
+  serialized_end=4922,
 )
 
 
@@ -1415,8 +1460,8 @@ _EXECSTEPCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4763,
-  serialized_end=5051,
+  serialized_start=4925,
+  serialized_end=5213,
 )
 
 
@@ -1461,8 +1506,8 @@ _GCSOBJECT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5053,
-  serialized_end=5138,
+  serialized_start=5215,
+  serialized_end=5300,
 )
 
 
@@ -1500,8 +1545,8 @@ _PATCHINSTANCEFILTER_GROUPLABEL_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5424,
-  serialized_end=5469,
+  serialized_start=5586,
+  serialized_end=5631,
 )
 
 _PATCHINSTANCEFILTER_GROUPLABEL = _descriptor.Descriptor(
@@ -1531,8 +1576,8 @@ _PATCHINSTANCEFILTER_GROUPLABEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5324,
-  serialized_end=5469,
+  serialized_start=5486,
+  serialized_end=5631,
 )
 
 _PATCHINSTANCEFILTER = _descriptor.Descriptor(
@@ -1590,13 +1635,54 @@ _PATCHINSTANCEFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5141,
-  serialized_end=5469,
+  serialized_start=5303,
+  serialized_end=5631,
+)
+
+
+_PATCHROLLOUT = _descriptor.Descriptor(
+  name='PatchRollout',
+  full_name='google.cloud.osconfig.v1.PatchRollout',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='mode', full_name='google.cloud.osconfig.v1.PatchRollout.mode', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='disruption_budget', full_name='google.cloud.osconfig.v1.PatchRollout.disruption_budget', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _PATCHROLLOUT_MODE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5634,
+  serialized_end=5846,
 )
 
 _EXECUTEPATCHJOBREQUEST.fields_by_name['instance_filter'].message_type = _PATCHINSTANCEFILTER
 _EXECUTEPATCHJOBREQUEST.fields_by_name['patch_config'].message_type = _PATCHCONFIG
 _EXECUTEPATCHJOBREQUEST.fields_by_name['duration'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
+_EXECUTEPATCHJOBREQUEST.fields_by_name['rollout'].message_type = _PATCHROLLOUT
 _LISTPATCHJOBINSTANCEDETAILSRESPONSE.fields_by_name['patch_job_instance_details'].message_type = _PATCHJOBINSTANCEDETAILS
 _PATCHJOBINSTANCEDETAILS.fields_by_name['state'].enum_type = _INSTANCE_PATCHSTATE
 _LISTPATCHJOBSRESPONSE.fields_by_name['patch_jobs'].message_type = _PATCHJOB
@@ -1608,6 +1694,7 @@ _PATCHJOB.fields_by_name['instance_filter'].message_type = _PATCHINSTANCEFILTER
 _PATCHJOB.fields_by_name['patch_config'].message_type = _PATCHCONFIG
 _PATCHJOB.fields_by_name['duration'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _PATCHJOB.fields_by_name['instance_details_summary'].message_type = _PATCHJOB_INSTANCEDETAILSSUMMARY
+_PATCHJOB.fields_by_name['rollout'].message_type = _PATCHROLLOUT
 _PATCHJOB_STATE.containing_type = _PATCHJOB
 _PATCHCONFIG.fields_by_name['reboot_config'].enum_type = _PATCHCONFIG_REBOOTCONFIG
 _PATCHCONFIG.fields_by_name['apt'].message_type = _APTSETTINGS
@@ -1638,6 +1725,9 @@ _PATCHINSTANCEFILTER_GROUPLABEL_LABELSENTRY.containing_type = _PATCHINSTANCEFILT
 _PATCHINSTANCEFILTER_GROUPLABEL.fields_by_name['labels'].message_type = _PATCHINSTANCEFILTER_GROUPLABEL_LABELSENTRY
 _PATCHINSTANCEFILTER_GROUPLABEL.containing_type = _PATCHINSTANCEFILTER
 _PATCHINSTANCEFILTER.fields_by_name['group_labels'].message_type = _PATCHINSTANCEFILTER_GROUPLABEL
+_PATCHROLLOUT.fields_by_name['mode'].enum_type = _PATCHROLLOUT_MODE
+_PATCHROLLOUT.fields_by_name['disruption_budget'].message_type = google_dot_cloud_dot_osconfig_dot_v1_dot_osconfig__common__pb2._FIXEDORPERCENT
+_PATCHROLLOUT_MODE.containing_type = _PATCHROLLOUT
 DESCRIPTOR.message_types_by_name['ExecutePatchJobRequest'] = _EXECUTEPATCHJOBREQUEST
 DESCRIPTOR.message_types_by_name['GetPatchJobRequest'] = _GETPATCHJOBREQUEST
 DESCRIPTOR.message_types_by_name['ListPatchJobInstanceDetailsRequest'] = _LISTPATCHJOBINSTANCEDETAILSREQUEST
@@ -1658,6 +1748,7 @@ DESCRIPTOR.message_types_by_name['ExecStep'] = _EXECSTEP
 DESCRIPTOR.message_types_by_name['ExecStepConfig'] = _EXECSTEPCONFIG
 DESCRIPTOR.message_types_by_name['GcsObject'] = _GCSOBJECT
 DESCRIPTOR.message_types_by_name['PatchInstanceFilter'] = _PATCHINSTANCEFILTER
+DESCRIPTOR.message_types_by_name['PatchRollout'] = _PATCHROLLOUT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ExecutePatchJobRequest = _reflection.GeneratedProtocolMessageType('ExecutePatchJobRequest', (_message.Message,), {
@@ -1823,6 +1914,13 @@ PatchInstanceFilter = _reflection.GeneratedProtocolMessageType('PatchInstanceFil
 _sym_db.RegisterMessage(PatchInstanceFilter)
 _sym_db.RegisterMessage(PatchInstanceFilter.GroupLabel)
 _sym_db.RegisterMessage(PatchInstanceFilter.GroupLabel.LabelsEntry)
+
+PatchRollout = _reflection.GeneratedProtocolMessageType('PatchRollout', (_message.Message,), {
+  'DESCRIPTOR' : _PATCHROLLOUT,
+  '__module__' : 'google.cloud.osconfig.v1.patch_jobs_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.osconfig.v1.PatchRollout)
+  })
+_sym_db.RegisterMessage(PatchRollout)
 
 
 DESCRIPTOR._options = None

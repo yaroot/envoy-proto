@@ -12,6 +12,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,8 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\031com.google.maps.routes.v1B\rPolylineProtoP\001Z;google.golang.org/genproto/googleapis/maps/routes/v1;routes\370\001\001\242\002\004GMRS\252\002\025Google.Maps.Routes.V1\312\002\025Google\\Maps\\Routes\\V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n$google/maps/routes/v1/polyline.proto\x12\x15google.maps.routes.v1\"7\n\x08Polyline\x12\x1a\n\x10\x65ncoded_polyline\x18\x01 \x01(\tH\x00\x42\x0f\n\rpolyline_type*S\n\x0fPolylineQuality\x12 \n\x1cPOLYLINE_QUALITY_UNSPECIFIED\x10\x00\x12\x10\n\x0cHIGH_QUALITY\x10\x01\x12\x0c\n\x08OVERVIEW\x10\x02\x42\xa3\x01\n\x19\x63om.google.maps.routes.v1B\rPolylineProtoP\x01Z;google.golang.org/genproto/googleapis/maps/routes/v1;routes\xf8\x01\x01\xa2\x02\x04GMRS\xaa\x02\x15Google.Maps.Routes.V1\xca\x02\x15Google\\Maps\\Routes\\V1b\x06proto3'
-)
+  serialized_pb=b'\n$google/maps/routes/v1/polyline.proto\x12\x15google.maps.routes.v1\x1a\x1cgoogle/protobuf/struct.proto\"o\n\x08Polyline\x12\x1a\n\x10\x65ncoded_polyline\x18\x01 \x01(\tH\x00\x12\x36\n\x13geo_json_linestring\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructH\x00\x42\x0f\n\rpolyline_type*S\n\x0fPolylineQuality\x12 \n\x1cPOLYLINE_QUALITY_UNSPECIFIED\x10\x00\x12\x10\n\x0cHIGH_QUALITY\x10\x01\x12\x0c\n\x08OVERVIEW\x10\x02\x42\xa3\x01\n\x19\x63om.google.maps.routes.v1B\rPolylineProtoP\x01Z;google.golang.org/genproto/googleapis/maps/routes/v1;routes\xf8\x01\x01\xa2\x02\x04GMRS\xaa\x02\x15Google.Maps.Routes.V1\xca\x02\x15Google\\Maps\\Routes\\V1b\x06proto3'
+  ,
+  dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
 _POLYLINEQUALITY = _descriptor.EnumDescriptor(
   name='PolylineQuality',
@@ -48,8 +50,8 @@ _POLYLINEQUALITY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=120,
-  serialized_end=203,
+  serialized_start=206,
+  serialized_end=289,
 )
 _sym_db.RegisterEnumDescriptor(_POLYLINEQUALITY)
 
@@ -75,6 +77,13 @@ _POLYLINE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='geo_json_linestring', full_name='google.maps.routes.v1.Polyline.geo_json_linestring', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -92,13 +101,17 @@ _POLYLINE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=63,
-  serialized_end=118,
+  serialized_start=93,
+  serialized_end=204,
 )
 
+_POLYLINE.fields_by_name['geo_json_linestring'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _POLYLINE.oneofs_by_name['polyline_type'].fields.append(
   _POLYLINE.fields_by_name['encoded_polyline'])
 _POLYLINE.fields_by_name['encoded_polyline'].containing_oneof = _POLYLINE.oneofs_by_name['polyline_type']
+_POLYLINE.oneofs_by_name['polyline_type'].fields.append(
+  _POLYLINE.fields_by_name['geo_json_linestring'])
+_POLYLINE.fields_by_name['geo_json_linestring'].containing_oneof = _POLYLINE.oneofs_by_name['polyline_type']
 DESCRIPTOR.message_types_by_name['Polyline'] = _POLYLINE
 DESCRIPTOR.enum_types_by_name['PolylineQuality'] = _POLYLINEQUALITY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)

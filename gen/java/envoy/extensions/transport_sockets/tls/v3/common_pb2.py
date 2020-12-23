@@ -28,7 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n7io.envoyproxy.envoy.extensions.transport_sockets.tls.v3B\013CommonProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n6envoy/extensions/transport_sockets/tls/v3/common.proto\x12)envoy.extensions.transport_sockets.tls.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\"envoy/type/matcher/v3/string.proto\x1a\x19google/protobuf/any.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a udpa/annotations/sensitive.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xa0\x03\n\rTlsParameters\x12t\n\x1ctls_minimum_protocol_version\x18\x01 \x01(\x0e\x32\x44.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocolB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12t\n\x1ctls_maximum_protocol_version\x18\x02 \x01(\x0e\x32\x44.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocolB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x15\n\rcipher_suites\x18\x03 \x03(\t\x12\x13\n\x0b\x65\x63\x64h_curves\x18\x04 \x03(\t\"O\n\x0bTlsProtocol\x12\x0c\n\x08TLS_AUTO\x10\x00\x12\x0b\n\x07TLSv1_0\x10\x01\x12\x0b\n\x07TLSv1_1\x10\x02\x12\x0b\n\x07TLSv1_2\x10\x03\x12\x0b\n\x07TLSv1_3\x10\x04:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.api.v2.auth.TlsParameters\"\xb4\x01\n\x12PrivateKeyProvider\x12\x1e\n\rprovider_name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x34\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyB\x06\xb8\xb7\x8b\xa4\x02\x01H\x00:+\x9a\xc5\x88\x1e&\n$envoy.api.v2.auth.PrivateKeyProviderB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\"\xcd\x03\n\x0eTlsCertificate\x12;\n\x11\x63\x65rtificate_chain\x18\x01 \x01(\x0b\x32 .envoy.config.core.v3.DataSource\x12=\n\x0bprivate_key\x18\x02 \x01(\x0b\x32 .envoy.config.core.v3.DataSourceB\x06\xb8\xb7\x8b\xa4\x02\x01\x12[\n\x14private_key_provider\x18\x06 \x01(\x0b\x32=.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProvider\x12:\n\x08password\x18\x03 \x01(\x0b\x32 .envoy.config.core.v3.DataSourceB\x06\xb8\xb7\x8b\xa4\x02\x01\x12\x35\n\x0bocsp_staple\x18\x04 \x01(\x0b\x32 .envoy.config.core.v3.DataSource\x12\x46\n\x1csigned_certificate_timestamp\x18\x05 \x03(\x0b\x32 .envoy.config.core.v3.DataSource:\'\x9a\xc5\x88\x1e\"\n envoy.api.v2.auth.TlsCertificate\"\x85\x01\n\x14TlsSessionTicketKeys\x12>\n\x04keys\x18\x01 \x03(\x0b\x32 .envoy.config.core.v3.DataSourceB\x0e\xfa\x42\x05\x92\x01\x02\x08\x01\xb8\xb7\x8b\xa4\x02\x01:-\x9a\xc5\x88\x1e(\n&envoy.api.v2.auth.TlsSessionTicketKeys\"\xfd\x05\n\x1c\x43\x65rtificateValidationContext\x12\x34\n\ntrusted_ca\x18\x01 \x01(\x0b\x32 .envoy.config.core.v3.DataSource\x12/\n\x17verify_certificate_spki\x18\x03 \x03(\tB\x0e\xfa\x42\x0b\x92\x01\x08\"\x06r\x04 ,(,\x12/\n\x17verify_certificate_hash\x18\x02 \x03(\tB\x0e\xfa\x42\x0b\x92\x01\x08\"\x06r\x04 @(_\x12\x45\n\x17match_subject_alt_names\x18\t \x03(\x0b\x32$.envoy.type.matcher.v3.StringMatcher\x12\x37\n\x13require_ocsp_staple\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12H\n$require_signed_certificate_timestamp\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12-\n\x03\x63rl\x18\x07 \x01(\x0b\x32 .envoy.config.core.v3.DataSource\x12!\n\x19\x61llow_expired_certificate\x18\x08 \x01(\x08\x12\x8a\x01\n\x18trust_chain_verification\x18\n \x01(\x0e\x32^.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerificationB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\"F\n\x16TrustChainVerification\x12\x16\n\x12VERIFY_TRUST_CHAIN\x10\x00\x12\x14\n\x10\x41\x43\x43\x45PT_UNTRUSTED\x10\x01:5\x9a\xc5\x88\x1e\x30\n.envoy.api.v2.auth.CertificateValidationContextJ\x04\x08\x04\x10\x05R\x17verify_subject_alt_nameBP\n7io.envoyproxy.envoy.extensions.transport_sockets.tls.v3B\x0b\x43ommonProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n6envoy/extensions/transport_sockets/tls/v3/common.proto\x12)envoy.extensions.transport_sockets.tls.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\"envoy/type/matcher/v3/string.proto\x1a\x19google/protobuf/any.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a udpa/annotations/sensitive.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xa0\x03\n\rTlsParameters\x12t\n\x1ctls_minimum_protocol_version\x18\x01 \x01(\x0e\x32\x44.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocolB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12t\n\x1ctls_maximum_protocol_version\x18\x02 \x01(\x0e\x32\x44.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocolB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x15\n\rcipher_suites\x18\x03 \x03(\t\x12\x13\n\x0b\x65\x63\x64h_curves\x18\x04 \x03(\t\"O\n\x0bTlsProtocol\x12\x0c\n\x08TLS_AUTO\x10\x00\x12\x0b\n\x07TLSv1_0\x10\x01\x12\x0b\n\x07TLSv1_1\x10\x02\x12\x0b\n\x07TLSv1_2\x10\x03\x12\x0b\n\x07TLSv1_3\x10\x04:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.api.v2.auth.TlsParameters\"\xb4\x01\n\x12PrivateKeyProvider\x12\x1e\n\rprovider_name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x34\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyB\x06\xb8\xb7\x8b\xa4\x02\x01H\x00:+\x9a\xc5\x88\x1e&\n$envoy.api.v2.auth.PrivateKeyProviderB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\"\xcd\x03\n\x0eTlsCertificate\x12;\n\x11\x63\x65rtificate_chain\x18\x01 \x01(\x0b\x32 .envoy.config.core.v3.DataSource\x12=\n\x0bprivate_key\x18\x02 \x01(\x0b\x32 .envoy.config.core.v3.DataSourceB\x06\xb8\xb7\x8b\xa4\x02\x01\x12[\n\x14private_key_provider\x18\x06 \x01(\x0b\x32=.envoy.extensions.transport_sockets.tls.v3.PrivateKeyProvider\x12:\n\x08password\x18\x03 \x01(\x0b\x32 .envoy.config.core.v3.DataSourceB\x06\xb8\xb7\x8b\xa4\x02\x01\x12\x35\n\x0bocsp_staple\x18\x04 \x01(\x0b\x32 .envoy.config.core.v3.DataSource\x12\x46\n\x1csigned_certificate_timestamp\x18\x05 \x03(\x0b\x32 .envoy.config.core.v3.DataSource:\'\x9a\xc5\x88\x1e\"\n envoy.api.v2.auth.TlsCertificate\"\x85\x01\n\x14TlsSessionTicketKeys\x12>\n\x04keys\x18\x01 \x03(\x0b\x32 .envoy.config.core.v3.DataSourceB\x0e\xfa\x42\x05\x92\x01\x02\x08\x01\xb8\xb7\x8b\xa4\x02\x01:-\x9a\xc5\x88\x1e(\n&envoy.api.v2.auth.TlsSessionTicketKeys\"\xca\x05\n\x1c\x43\x65rtificateValidationContext\x12\x34\n\ntrusted_ca\x18\x01 \x01(\x0b\x32 .envoy.config.core.v3.DataSource\x12/\n\x17verify_certificate_spki\x18\x03 \x03(\tB\x0e\xfa\x42\x0b\x92\x01\x08\"\x06r\x04\x10,(,\x12/\n\x17verify_certificate_hash\x18\x02 \x03(\tB\x0e\xfa\x42\x0b\x92\x01\x08\"\x06r\x04\x10@(_\x12\x45\n\x17match_subject_alt_names\x18\t \x03(\x0b\x32$.envoy.type.matcher.v3.StringMatcher\x12H\n$require_signed_certificate_timestamp\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12-\n\x03\x63rl\x18\x07 \x01(\x0b\x32 .envoy.config.core.v3.DataSource\x12!\n\x19\x61llow_expired_certificate\x18\x08 \x01(\x08\x12\x8a\x01\n\x18trust_chain_verification\x18\n \x01(\x0e\x32^.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerificationB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\"F\n\x16TrustChainVerification\x12\x16\n\x12VERIFY_TRUST_CHAIN\x10\x00\x12\x14\n\x10\x41\x43\x43\x45PT_UNTRUSTED\x10\x01:5\x9a\xc5\x88\x1e\x30\n.envoy.api.v2.auth.CertificateValidationContextJ\x04\x08\x04\x10\x05J\x04\x08\x05\x10\x06R\x17verify_subject_alt_nameBP\n7io.envoyproxy.envoy.extensions.transport_sockets.tls.v3B\x0b\x43ommonProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_sensitive__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -94,8 +94,8 @@ _CERTIFICATEVALIDATIONCONTEXT_TRUSTCHAINVERIFICATION = _descriptor.EnumDescripto
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2196,
-  serialized_end=2266,
+  serialized_start=2139,
+  serialized_end=2209,
 )
 _sym_db.RegisterEnumDescriptor(_CERTIFICATEVALIDATIONCONTEXT_TRUSTCHAINVERIFICATION)
 
@@ -168,7 +168,7 @@ _PRIVATEKEYPROVIDER = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='typed_config', full_name='envoy.extensions.transport_sockets.tls.v3.PrivateKeyProvider.typed_config', index=1,
       number=3, type=11, cpp_type=10, label=1,
@@ -318,14 +318,14 @@ _CERTIFICATEVALIDATIONCONTEXT = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\013\222\001\010\"\006r\004 ,(,', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\013\222\001\010\"\006r\004\020,(,', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='verify_certificate_hash', full_name='envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.verify_certificate_hash', index=2,
       number=2, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\013\222\001\010\"\006r\004 @(_', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\013\222\001\010\"\006r\004\020@(_', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='match_subject_alt_names', full_name='envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.match_subject_alt_names', index=3,
       number=9, type=11, cpp_type=10, label=3,
@@ -334,35 +334,28 @@ _CERTIFICATEVALIDATIONCONTEXT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='require_ocsp_staple', full_name='envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.require_ocsp_staple', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='require_signed_certificate_timestamp', full_name='envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.require_signed_certificate_timestamp', index=5,
+      name='require_signed_certificate_timestamp', full_name='envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.require_signed_certificate_timestamp', index=4,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='crl', full_name='envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.crl', index=6,
+      name='crl', full_name='envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.crl', index=5,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='allow_expired_certificate', full_name='envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.allow_expired_certificate', index=7,
+      name='allow_expired_certificate', full_name='envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.allow_expired_certificate', index=6,
       number=8, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='trust_chain_verification', full_name='envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.trust_chain_verification', index=8,
+      name='trust_chain_verification', full_name='envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.trust_chain_verification', index=7,
       number=10, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -382,7 +375,7 @@ _CERTIFICATEVALIDATIONCONTEXT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1587,
-  serialized_end=2352,
+  serialized_end=2301,
 )
 
 _TLSPARAMETERS.fields_by_name['tls_minimum_protocol_version'].enum_type = _TLSPARAMETERS_TLSPROTOCOL
@@ -401,7 +394,6 @@ _TLSCERTIFICATE.fields_by_name['signed_certificate_timestamp'].message_type = en
 _TLSSESSIONTICKETKEYS.fields_by_name['keys'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._DATASOURCE
 _CERTIFICATEVALIDATIONCONTEXT.fields_by_name['trusted_ca'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._DATASOURCE
 _CERTIFICATEVALIDATIONCONTEXT.fields_by_name['match_subject_alt_names'].message_type = envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2._STRINGMATCHER
-_CERTIFICATEVALIDATIONCONTEXT.fields_by_name['require_ocsp_staple'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _CERTIFICATEVALIDATIONCONTEXT.fields_by_name['require_signed_certificate_timestamp'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _CERTIFICATEVALIDATIONCONTEXT.fields_by_name['crl'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._DATASOURCE
 _CERTIFICATEVALIDATIONCONTEXT.fields_by_name['trust_chain_verification'].enum_type = _CERTIFICATEVALIDATIONCONTEXT_TRUSTCHAINVERIFICATION

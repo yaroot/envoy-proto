@@ -10,10 +10,10 @@ import (
 	v3 "envoy/config/core/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/any"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/anypb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -37,7 +37,7 @@ type Compressor struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Minimum response length, in bytes, which will trigger compression. The default value is 30.
-	ContentLength *wrapperspb.UInt32Value `protobuf:"bytes,1,opt,name=content_length,json=contentLength,proto3" json:"content_length,omitempty"`
+	ContentLength *wrappers.UInt32Value `protobuf:"bytes,1,opt,name=content_length,json=contentLength,proto3" json:"content_length,omitempty"`
 	// Set of strings that allows specifying which mime-types yield compression; e.g.,
 	// application/json, text/html, etc. When this field is not defined, compression will be applied
 	// to the following mime-types: "application/javascript", "application/json",
@@ -96,7 +96,7 @@ func (*Compressor) Descriptor() ([]byte, []int) {
 	return file_envoy_extensions_filters_http_compressor_v3_compressor_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Compressor) GetContentLength() *wrapperspb.UInt32Value {
+func (x *Compressor) GetContentLength() *wrappers.UInt32Value {
 	if x != nil {
 		return x.ContentLength
 	}
@@ -214,7 +214,7 @@ func file_envoy_extensions_filters_http_compressor_v3_compressor_proto_rawDescGZ
 var file_envoy_extensions_filters_http_compressor_v3_compressor_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_envoy_extensions_filters_http_compressor_v3_compressor_proto_goTypes = []interface{}{
 	(*Compressor)(nil),              // 0: envoy.extensions.filters.http.compressor.v3.Compressor
-	(*wrapperspb.UInt32Value)(nil),  // 1: google.protobuf.UInt32Value
+	(*wrappers.UInt32Value)(nil),    // 1: google.protobuf.UInt32Value
 	(*v3.RuntimeFeatureFlag)(nil),   // 2: envoy.config.core.v3.RuntimeFeatureFlag
 	(*v3.TypedExtensionConfig)(nil), // 3: envoy.config.core.v3.TypedExtensionConfig
 }

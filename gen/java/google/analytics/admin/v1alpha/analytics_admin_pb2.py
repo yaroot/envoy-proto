@@ -26,7 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"com.google.analytics.admin.v1alphaB\023AnalyticsAdminProtoP\001ZCgoogle.golang.org/genproto/googleapis/analytics/admin/v1alpha;admin',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n4google/analytics/admin/v1alpha/analytics_admin.proto\x12\x1egoogle.analytics.admin.v1alpha\x1a.google/analytics/admin/v1alpha/resources.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"P\n\x11GetAccountRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%analyticsadmin.googleapis.com/Account\"R\n\x13ListAccountsRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x14\n\x0cshow_deleted\x18\x03 \x01(\x08\"j\n\x14ListAccountsResponse\x12\x39\n\x08\x61\x63\x63ounts\x18\x01 \x03(\x0b\x32\'.google.analytics.admin.v1alpha.Account\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"S\n\x14\x44\x65leteAccountRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%analyticsadmin.googleapis.com/Account\"\x86\x01\n\x14UpdateAccountRequest\x12=\n\x07\x61\x63\x63ount\x18\x01 \x01(\x0b\x32\'.google.analytics.admin.v1alpha.AccountB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"o\n\x1dProvisionAccountTicketRequest\x12\x38\n\x07\x61\x63\x63ount\x18\x01 \x01(\x0b\x32\'.google.analytics.admin.v1alpha.Account\x12\x14\n\x0credirect_uri\x18\x02 \x01(\t\";\n\x1eProvisionAccountTicketResponse\x12\x19\n\x11\x61\x63\x63ount_ticket_id\x18\x01 \x01(\t\"R\n\x12GetPropertyRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/Property\"i\n\x15ListPropertiesRequest\x12\x13\n\x06\x66ilter\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x14\n\x0cshow_deleted\x18\x04 \x01(\x08\"o\n\x16ListPropertiesResponse\x12<\n\nproperties\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.Property\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x89\x01\n\x15UpdatePropertyRequest\x12?\n\x08property\x18\x01 \x01(\x0b\x32(.google.analytics.admin.v1alpha.PropertyB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"X\n\x15\x43reatePropertyRequest\x12?\n\x08property\x18\x01 \x01(\x0b\x32(.google.analytics.admin.v1alpha.PropertyB\x03\xe0\x41\x02\"U\n\x15\x44\x65letePropertyRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/Property\"R\n\x12GetUserLinkRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/UserLink\"\x99\x01\n\x18\x42\x61tchGetUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12=\n\x05names\x18\x02 \x03(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/UserLink\"Y\n\x19\x42\x61tchGetUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\"}\n\x14ListUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"n\n\x15ListUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"~\n\x15\x41uditUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"t\n\x16\x41uditUserLinksResponse\x12\x41\n\nuser_links\x18\x01 \x03(\x0b\x32-.google.analytics.admin.v1alpha.AuditUserLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb7\x01\n\x15\x43reateUserLinkRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x1c\n\x0fnotify_new_user\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\x12@\n\tuser_link\x18\x03 \x01(\x0b\x32(.google.analytics.admin.v1alpha.UserLinkB\x03\xe0\x41\x02\"\x9a\x01\n\x1b\x42\x61tchCreateUserLinksRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1d\n\x10notify_new_users\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\x12G\n\x08requests\x18\x03 \x03(\x0b\x32\x35.google.analytics.admin.v1alpha.CreateUserLinkRequest\"\\\n\x1c\x42\x61tchCreateUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\"Y\n\x15UpdateUserLinkRequest\x12@\n\tuser_link\x18\x01 \x01(\x0b\x32(.google.analytics.admin.v1alpha.UserLinkB\x03\xe0\x41\x02\"{\n\x1b\x42\x61tchUpdateUserLinksRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12G\n\x08requests\x18\x02 \x03(\x0b\x32\x35.google.analytics.admin.v1alpha.UpdateUserLinkRequest\"\\\n\x1c\x42\x61tchUpdateUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\"U\n\x15\x44\x65leteUserLinkRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/UserLink\"{\n\x1b\x42\x61tchDeleteUserLinksRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12G\n\x08requests\x18\x02 \x03(\x0b\x32\x35.google.analytics.admin.v1alpha.DeleteUserLinkRequest\"\\\n\x17GetWebDataStreamRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/WebDataStream\"_\n\x1a\x44\x65leteWebDataStreamRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/WebDataStream\"\x9a\x01\n\x1aUpdateWebDataStreamRequest\x12K\n\x0fweb_data_stream\x18\x01 \x01(\x0b\x32-.google.analytics.admin.v1alpha.WebDataStreamB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xae\x01\n\x1a\x43reateWebDataStreamRequest\x12K\n\x0fweb_data_stream\x18\x01 \x01(\x0b\x32-.google.analytics.admin.v1alpha.WebDataStreamB\x03\xe0\x41\x02\x12\x43\n\x06parent\x18\x02 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/WebDataStream\"\x87\x01\n\x19ListWebDataStreamsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/WebDataStream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"~\n\x1aListWebDataStreamsResponse\x12G\n\x10web_data_streams\x18\x01 \x03(\x0b\x32-.google.analytics.admin.v1alpha.WebDataStream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"b\n\x1aGetIosAppDataStreamRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.analyticsadmin.googleapis.com/IosAppDataStream\"e\n\x1d\x44\x65leteIosAppDataStreamRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.analyticsadmin.googleapis.com/IosAppDataStream\"\xa4\x01\n\x1dUpdateIosAppDataStreamRequest\x12R\n\x13ios_app_data_stream\x18\x01 \x01(\x0b\x32\x30.google.analytics.admin.v1alpha.IosAppDataStreamB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xbb\x01\n\x1d\x43reateIosAppDataStreamRequest\x12R\n\x13ios_app_data_stream\x18\x01 \x01(\x0b\x32\x30.google.analytics.admin.v1alpha.IosAppDataStreamB\x03\xe0\x41\x02\x12\x46\n\x06parent\x18\x02 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\x12.analyticsadmin.googleapis.com/IosAppDataStream\"\x8d\x01\n\x1cListIosAppDataStreamsRequest\x12\x46\n\x06parent\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\x12.analyticsadmin.googleapis.com/IosAppDataStream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x88\x01\n\x1dListIosAppDataStreamsResponse\x12N\n\x14ios_app_data_streams\x18\x01 \x03(\x0b\x32\x30.google.analytics.admin.v1alpha.IosAppDataStream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"j\n\x1eGetAndroidAppDataStreamRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2analyticsadmin.googleapis.com/AndroidAppDataStream\"m\n!DeleteAndroidAppDataStreamRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2analyticsadmin.googleapis.com/AndroidAppDataStream\"\xb0\x01\n!UpdateAndroidAppDataStreamRequest\x12Z\n\x17\x61ndroid_app_data_stream\x18\x01 \x01(\x0b\x32\x34.google.analytics.admin.v1alpha.AndroidAppDataStreamB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xcb\x01\n!CreateAndroidAppDataStreamRequest\x12Z\n\x17\x61ndroid_app_data_stream\x18\x01 \x01(\x0b\x32\x34.google.analytics.admin.v1alpha.AndroidAppDataStreamB\x03\xe0\x41\x02\x12J\n\x06parent\x18\x02 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\x12\x32\x61nalyticsadmin.googleapis.com/AndroidAppDataStream\"\x95\x01\n ListAndroidAppDataStreamsRequest\x12J\n\x06parent\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\x12\x32\x61nalyticsadmin.googleapis.com/AndroidAppDataStream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x94\x01\n!ListAndroidAppDataStreamsResponse\x12V\n\x18\x61ndroid_app_data_streams\x18\x01 \x03(\x0b\x32\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"x\n%GetEnhancedMeasurementSettingsRequest\x12O\n\x04name\x18\x01 \x01(\tBA\xe0\x41\x02\xfa\x41;\n9analyticsadmin.googleapis.com/EnhancedMeasurementSettings\"\xc4\x01\n(UpdateEnhancedMeasurementSettingsRequest\x12g\n\x1d\x65nhanced_measurement_settings\x18\x01 \x01(\x0b\x32;.google.analytics.admin.v1alpha.EnhancedMeasurementSettingsB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xa9\x01\n\x19\x43reateFirebaseLinkRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*analyticsadmin.googleapis.com/FirebaseLink\x12H\n\rfirebase_link\x18\x02 \x01(\x0b\x32,.google.analytics.admin.v1alpha.FirebaseLinkB\x03\xe0\x41\x02\"\x96\x01\n\x19UpdateFirebaseLinkRequest\x12H\n\rfirebase_link\x18\x01 \x01(\x0b\x32,.google.analytics.admin.v1alpha.FirebaseLinkB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"]\n\x19\x44\x65leteFirebaseLinkRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*analyticsadmin.googleapis.com/FirebaseLink\"^\n\x18ListFirebaseLinksRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*analyticsadmin.googleapis.com/FirebaseLink\"a\n\x19ListFirebaseLinksResponse\x12\x44\n\x0e\x66irebase_links\x18\x01 \x03(\x0b\x32,.google.analytics.admin.v1alpha.FirebaseLink\"\\\n\x17GetGlobalSiteTagRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/GlobalSiteTag\"\xae\x01\n\x1a\x43reateGoogleAdsLinkRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/GoogleAdsLink\x12K\n\x0fgoogle_ads_link\x18\x02 \x01(\x0b\x32-.google.analytics.admin.v1alpha.GoogleAdsLinkB\x03\xe0\x41\x02\"\x95\x01\n\x1aUpdateGoogleAdsLinkRequest\x12\x46\n\x0fgoogle_ads_link\x18\x01 \x01(\x0b\x32-.google.analytics.admin.v1alpha.GoogleAdsLink\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"_\n\x1a\x44\x65leteGoogleAdsLinkRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/GoogleAdsLink\"\x87\x01\n\x19ListGoogleAdsLinksRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/GoogleAdsLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"~\n\x1aListGoogleAdsLinksResponse\x12G\n\x10google_ads_links\x18\x01 \x03(\x0b\x32-.google.analytics.admin.v1alpha.GoogleAdsLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"h\n\x1dGetDataSharingSettingsRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1analyticsadmin.googleapis.com/DataSharingSettings2\xb4Q\n\x15\x41nalyticsAdminService\x12\x93\x01\n\nGetAccount\x12\x31.google.analytics.admin.v1alpha.GetAccountRequest\x1a\'.google.analytics.admin.v1alpha.Account\")\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1alpha/{name=accounts/*}\xda\x41\x04name\x12\x94\x01\n\x0cListAccounts\x12\x33.google.analytics.admin.v1alpha.ListAccountsRequest\x1a\x34.google.analytics.admin.v1alpha.ListAccountsResponse\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/v1alpha/accounts\x12\x88\x01\n\rDeleteAccount\x12\x34.google.analytics.admin.v1alpha.DeleteAccountRequest\x1a\x16.google.protobuf.Empty\")\x82\xd3\xe4\x93\x02\x1c*\x1a/v1alpha/{name=accounts/*}\xda\x41\x04name\x12\xb9\x01\n\rUpdateAccount\x12\x34.google.analytics.admin.v1alpha.UpdateAccountRequest\x1a\'.google.analytics.admin.v1alpha.Account\"I\x82\xd3\xe4\x93\x02-2\"/v1alpha/{account.name=accounts/*}:\x07\x61\x63\x63ount\xda\x41\x13\x61\x63\x63ount,update_mask\x12\xcc\x01\n\x16ProvisionAccountTicket\x12=.google.analytics.admin.v1alpha.ProvisionAccountTicketRequest\x1a>.google.analytics.admin.v1alpha.ProvisionAccountTicketResponse\"3\x82\xd3\xe4\x93\x02-\"(/v1alpha/accounts:provisionAccountTicket:\x01*\x12\x98\x01\n\x0bGetProperty\x12\x32.google.analytics.admin.v1alpha.GetPropertyRequest\x1a(.google.analytics.admin.v1alpha.Property\"+\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1alpha/{name=properties/*}\xda\x41\x04name\x12\x9c\x01\n\x0eListProperties\x12\x35.google.analytics.admin.v1alpha.ListPropertiesRequest\x1a\x36.google.analytics.admin.v1alpha.ListPropertiesResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1alpha/properties\x12\xa3\x01\n\x0e\x43reateProperty\x12\x35.google.analytics.admin.v1alpha.CreatePropertyRequest\x1a(.google.analytics.admin.v1alpha.Property\"0\x82\xd3\xe4\x93\x02\x1f\"\x13/v1alpha/properties:\x08property\xda\x41\x08property\x12\x8c\x01\n\x0e\x44\x65leteProperty\x12\x35.google.analytics.admin.v1alpha.DeletePropertyRequest\x1a\x16.google.protobuf.Empty\"+\x82\xd3\xe4\x93\x02\x1e*\x1c/v1alpha/{name=properties/*}\xda\x41\x04name\x12\xc1\x01\n\x0eUpdateProperty\x12\x35.google.analytics.admin.v1alpha.UpdatePropertyRequest\x1a(.google.analytics.admin.v1alpha.Property\"N\x82\xd3\xe4\x93\x02\x31\x32%/v1alpha/{property.name=properties/*}:\x08property\xda\x41\x14property,update_mask\x12\xce\x01\n\x0bGetUserLink\x12\x32.google.analytics.admin.v1alpha.GetUserLinkRequest\x1a(.google.analytics.admin.v1alpha.UserLink\"a\x82\xd3\xe4\x93\x02T\x12&/v1alpha/{name=accounts/*/userLinks/*}Z*\x12(/v1alpha/{name=properties/*/userLinks/*}\xda\x41\x04name\x12\xf6\x01\n\x11\x42\x61tchGetUserLinks\x12\x38.google.analytics.admin.v1alpha.BatchGetUserLinksRequest\x1a\x39.google.analytics.admin.v1alpha.BatchGetUserLinksResponse\"l\x82\xd3\xe4\x93\x02\x66\x12//v1alpha/{parent=accounts/*}/userLinks:batchGetZ3\x12\x31/v1alpha/{parent=properties/*}/userLinks:batchGet\x12\xe1\x01\n\rListUserLinks\x12\x34.google.analytics.admin.v1alpha.ListUserLinksRequest\x1a\x35.google.analytics.admin.v1alpha.ListUserLinksResponse\"c\x82\xd3\xe4\x93\x02T\x12&/v1alpha/{parent=accounts/*}/userLinksZ*\x12(/v1alpha/{parent=properties/*}/userLinks\xda\x41\x06parent\x12\xed\x01\n\x0e\x41uditUserLinks\x12\x35.google.analytics.admin.v1alpha.AuditUserLinksRequest\x1a\x36.google.analytics.admin.v1alpha.AuditUserLinksResponse\"l\x82\xd3\xe4\x93\x02\x66\",/v1alpha/{parent=accounts/*}/userLinks:audit:\x01*Z3\"./v1alpha/{parent=properties/*}/userLinks:audit:\x01*\x12\xf7\x01\n\x0e\x43reateUserLink\x12\x35.google.analytics.admin.v1alpha.CreateUserLinkRequest\x1a(.google.analytics.admin.v1alpha.UserLink\"\x83\x01\x82\xd3\xe4\x93\x02j\"&/v1alpha/{parent=accounts/*}/userLinks:\tuser_linkZ5\"(/v1alpha/{parent=properties/*}/userLinks:\tuser_link\xda\x41\x10parent,user_link\x12\x8b\x02\n\x14\x42\x61tchCreateUserLinks\x12;.google.analytics.admin.v1alpha.BatchCreateUserLinksRequest\x1a<.google.analytics.admin.v1alpha.BatchCreateUserLinksResponse\"x\x82\xd3\xe4\x93\x02r\"2/v1alpha/{parent=accounts/*}/userLinks:batchCreate:\x01*Z9\"4/v1alpha/{parent=properties/*}/userLinks:batchCreate:\x01*\x12\x84\x02\n\x0eUpdateUserLink\x12\x35.google.analytics.admin.v1alpha.UpdateUserLinkRequest\x1a(.google.analytics.admin.v1alpha.UserLink\"\x90\x01\x82\xd3\xe4\x93\x02~20/v1alpha/{user_link.name=accounts/*/userLinks/*}:\tuser_linkZ?22/v1alpha/{user_link.name=properties/*/userLinks/*}:\tuser_link\xda\x41\tuser_link\x12\x8b\x02\n\x14\x42\x61tchUpdateUserLinks\x12;.google.analytics.admin.v1alpha.BatchUpdateUserLinksRequest\x1a<.google.analytics.admin.v1alpha.BatchUpdateUserLinksResponse\"x\x82\xd3\xe4\x93\x02r\"2/v1alpha/{parent=accounts/*}/userLinks:batchUpdate:\x01*Z9\"4/v1alpha/{parent=properties/*}/userLinks:batchUpdate:\x01*\x12\xc2\x01\n\x0e\x44\x65leteUserLink\x12\x35.google.analytics.admin.v1alpha.DeleteUserLinkRequest\x1a\x16.google.protobuf.Empty\"a\x82\xd3\xe4\x93\x02T*&/v1alpha/{name=accounts/*/userLinks/*}Z**(/v1alpha/{name=properties/*/userLinks/*}\xda\x41\x04name\x12\xe5\x01\n\x14\x42\x61tchDeleteUserLinks\x12;.google.analytics.admin.v1alpha.BatchDeleteUserLinksRequest\x1a\x16.google.protobuf.Empty\"x\x82\xd3\xe4\x93\x02r\"2/v1alpha/{parent=accounts/*}/userLinks:batchDelete:\x01*Z9\"4/v1alpha/{parent=properties/*}/userLinks:batchDelete:\x01*\x12\xb8\x01\n\x10GetWebDataStream\x12\x37.google.analytics.admin.v1alpha.GetWebDataStreamRequest\x1a-.google.analytics.admin.v1alpha.WebDataStream\"<\x82\xd3\xe4\x93\x02/\x12-/v1alpha/{name=properties/*/webDataStreams/*}\xda\x41\x04name\x12\xa7\x01\n\x13\x44\x65leteWebDataStream\x12:.google.analytics.admin.v1alpha.DeleteWebDataStreamRequest\x1a\x16.google.protobuf.Empty\"<\x82\xd3\xe4\x93\x02/*-/v1alpha/{name=properties/*/webDataStreams/*}\xda\x41\x04name\x12\xf6\x01\n\x13UpdateWebDataStream\x12:.google.analytics.admin.v1alpha.UpdateWebDataStreamRequest\x1a-.google.analytics.admin.v1alpha.WebDataStream\"t\x82\xd3\xe4\x93\x02P2=/v1alpha/{web_data_stream.name=properties/*/webDataStreams/*}:\x0fweb_data_stream\xda\x41\x1bweb_data_stream,update_mask\x12\xe1\x01\n\x13\x43reateWebDataStream\x12:.google.analytics.admin.v1alpha.CreateWebDataStreamRequest\x1a-.google.analytics.admin.v1alpha.WebDataStream\"_\x82\xd3\xe4\x93\x02@\"-/v1alpha/{parent=properties/*}/webDataStreams:\x0fweb_data_stream\xda\x41\x16parent,web_data_stream\x12\xcb\x01\n\x12ListWebDataStreams\x12\x39.google.analytics.admin.v1alpha.ListWebDataStreamsRequest\x1a:.google.analytics.admin.v1alpha.ListWebDataStreamsResponse\">\x82\xd3\xe4\x93\x02/\x12-/v1alpha/{parent=properties/*}/webDataStreams\xda\x41\x06parent\x12\xc4\x01\n\x13GetIosAppDataStream\x12:.google.analytics.admin.v1alpha.GetIosAppDataStreamRequest\x1a\x30.google.analytics.admin.v1alpha.IosAppDataStream\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1alpha/{name=properties/*/iosAppDataStreams/*}\xda\x41\x04name\x12\xb0\x01\n\x16\x44\x65leteIosAppDataStream\x12=.google.analytics.admin.v1alpha.DeleteIosAppDataStreamRequest\x1a\x16.google.protobuf.Empty\"?\x82\xd3\xe4\x93\x02\x32*0/v1alpha/{name=properties/*/iosAppDataStreams/*}\xda\x41\x04name\x12\x8f\x02\n\x16UpdateIosAppDataStream\x12=.google.analytics.admin.v1alpha.UpdateIosAppDataStreamRequest\x1a\x30.google.analytics.admin.v1alpha.IosAppDataStream\"\x83\x01\x82\xd3\xe4\x93\x02[2D/v1alpha/{ios_app_data_stream.name=properties/*/iosAppDataStreams/*}:\x13ios_app_data_stream\xda\x41\x1fios_app_data_stream,update_mask\x12\xf5\x01\n\x16\x43reateIosAppDataStream\x12=.google.analytics.admin.v1alpha.CreateIosAppDataStreamRequest\x1a\x30.google.analytics.admin.v1alpha.IosAppDataStream\"j\x82\xd3\xe4\x93\x02G\"0/v1alpha/{parent=properties/*}/iosAppDataStreams:\x13ios_app_data_stream\xda\x41\x1aparent,ios_app_data_stream\x12\xd7\x01\n\x15ListIosAppDataStreams\x12<.google.analytics.admin.v1alpha.ListIosAppDataStreamsRequest\x1a=.google.analytics.admin.v1alpha.ListIosAppDataStreamsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1alpha/{parent=properties/*}/iosAppDataStreams\xda\x41\x06parent\x12\xd4\x01\n\x17GetAndroidAppDataStream\x12>.google.analytics.admin.v1alpha.GetAndroidAppDataStreamRequest\x1a\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\"C\x82\xd3\xe4\x93\x02\x36\x12\x34/v1alpha/{name=properties/*/androidAppDataStreams/*}\xda\x41\x04name\x12\xbc\x01\n\x1a\x44\x65leteAndroidAppDataStream\x12\x41.google.analytics.admin.v1alpha.DeleteAndroidAppDataStreamRequest\x1a\x16.google.protobuf.Empty\"C\x82\xd3\xe4\x93\x02\x36*4/v1alpha/{name=properties/*/androidAppDataStreams/*}\xda\x41\x04name\x12\xab\x02\n\x1aUpdateAndroidAppDataStream\x12\x41.google.analytics.admin.v1alpha.UpdateAndroidAppDataStreamRequest\x1a\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\"\x93\x01\x82\xd3\xe4\x93\x02g2L/v1alpha/{android_app_data_stream.name=properties/*/androidAppDataStreams/*}:\x17\x61ndroid_app_data_stream\xda\x41#android_app_data_stream,update_mask\x12\x8d\x02\n\x1a\x43reateAndroidAppDataStream\x12\x41.google.analytics.admin.v1alpha.CreateAndroidAppDataStreamRequest\x1a\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\"v\x82\xd3\xe4\x93\x02O\"4/v1alpha/{parent=properties/*}/androidAppDataStreams:\x17\x61ndroid_app_data_stream\xda\x41\x1eparent,android_app_data_stream\x12\xe7\x01\n\x19ListAndroidAppDataStreams\x12@.google.analytics.admin.v1alpha.ListAndroidAppDataStreamsRequest\x1a\x41.google.analytics.admin.v1alpha.ListAndroidAppDataStreamsResponse\"E\x82\xd3\xe4\x93\x02\x36\x12\x34/v1alpha/{parent=properties/*}/androidAppDataStreams\xda\x41\x06parent\x12\xfe\x01\n\x1eGetEnhancedMeasurementSettings\x12\x45.google.analytics.admin.v1alpha.GetEnhancedMeasurementSettingsRequest\x1a;.google.analytics.admin.v1alpha.EnhancedMeasurementSettings\"X\x82\xd3\xe4\x93\x02K\x12I/v1alpha/{name=properties/*/webDataStreams/*/enhancedMeasurementSettings}\xda\x41\x04name\x12\xe8\x02\n!UpdateEnhancedMeasurementSettings\x12H.google.analytics.admin.v1alpha.UpdateEnhancedMeasurementSettingsRequest\x1a;.google.analytics.admin.v1alpha.EnhancedMeasurementSettings\"\xbb\x01\x82\xd3\xe4\x93\x02\x88\x01\x32g/v1alpha/{enhanced_measurement_settings.name=properties/*/webDataStreams/*/enhancedMeasurementSettings}:\x1d\x65nhanced_measurement_settings\xda\x41)enhanced_measurement_settings,update_mask\x12\xd9\x01\n\x12\x43reateFirebaseLink\x12\x39.google.analytics.admin.v1alpha.CreateFirebaseLinkRequest\x1a,.google.analytics.admin.v1alpha.FirebaseLink\"Z\x82\xd3\xe4\x93\x02=\",/v1alpha/{parent=properties/*}/firebaseLinks:\rfirebase_link\xda\x41\x14parent,firebase_link\x12\xec\x01\n\x12UpdateFirebaseLink\x12\x39.google.analytics.admin.v1alpha.UpdateFirebaseLinkRequest\x1a,.google.analytics.admin.v1alpha.FirebaseLink\"m\x82\xd3\xe4\x93\x02K2:/v1alpha/{firebase_link.name=properties/*/firebaseLinks/*}:\rfirebase_link\xda\x41\x19\x66irebase_link,update_mask\x12\xa4\x01\n\x12\x44\x65leteFirebaseLink\x12\x39.google.analytics.admin.v1alpha.DeleteFirebaseLinkRequest\x1a\x16.google.protobuf.Empty\";\x82\xd3\xe4\x93\x02.*,/v1alpha/{name=properties/*/firebaseLinks/*}\xda\x41\x04name\x12\xc7\x01\n\x11ListFirebaseLinks\x12\x38.google.analytics.admin.v1alpha.ListFirebaseLinksRequest\x1a\x39.google.analytics.admin.v1alpha.ListFirebaseLinksResponse\"=\x82\xd3\xe4\x93\x02.\x12,/v1alpha/{parent=properties/*}/firebaseLinks\xda\x41\x06parent\x12\xc6\x01\n\x10GetGlobalSiteTag\x12\x37.google.analytics.admin.v1alpha.GetGlobalSiteTagRequest\x1a-.google.analytics.admin.v1alpha.GlobalSiteTag\"J\x82\xd3\xe4\x93\x02=\x12;/v1alpha/{name=properties/*/webDataStreams/*/globalSiteTag}\xda\x41\x04name\x12\xe1\x01\n\x13\x43reateGoogleAdsLink\x12:.google.analytics.admin.v1alpha.CreateGoogleAdsLinkRequest\x1a-.google.analytics.admin.v1alpha.GoogleAdsLink\"_\x82\xd3\xe4\x93\x02@\"-/v1alpha/{parent=properties/*}/googleAdsLinks:\x0fgoogle_ads_link\xda\x41\x16parent,google_ads_link\x12\xf6\x01\n\x13UpdateGoogleAdsLink\x12:.google.analytics.admin.v1alpha.UpdateGoogleAdsLinkRequest\x1a-.google.analytics.admin.v1alpha.GoogleAdsLink\"t\x82\xd3\xe4\x93\x02P2=/v1alpha/{google_ads_link.name=properties/*/googleAdsLinks/*}:\x0fgoogle_ads_link\xda\x41\x1bgoogle_ads_link,update_mask\x12\xa7\x01\n\x13\x44\x65leteGoogleAdsLink\x12:.google.analytics.admin.v1alpha.DeleteGoogleAdsLinkRequest\x1a\x16.google.protobuf.Empty\"<\x82\xd3\xe4\x93\x02/*-/v1alpha/{name=properties/*/googleAdsLinks/*}\xda\x41\x04name\x12\xcb\x01\n\x12ListGoogleAdsLinks\x12\x39.google.analytics.admin.v1alpha.ListGoogleAdsLinksRequest\x1a:.google.analytics.admin.v1alpha.ListGoogleAdsLinksResponse\">\x82\xd3\xe4\x93\x02/\x12-/v1alpha/{parent=properties/*}/googleAdsLinks\xda\x41\x06parent\x12\xcb\x01\n\x16GetDataSharingSettings\x12=.google.analytics.admin.v1alpha.GetDataSharingSettingsRequest\x1a\x33.google.analytics.admin.v1alpha.DataSharingSettings\"=\x82\xd3\xe4\x93\x02\x30\x12./v1alpha/{name=accounts/*/dataSharingSettings}\xda\x41\x04name\x1a\xfc\x01\xca\x41\x1d\x61nalyticsadmin.googleapis.com\xd2\x41\xd8\x01https://www.googleapis.com/auth/analytics.edit,https://www.googleapis.com/auth/analytics.manage.users,https://www.googleapis.com/auth/analytics.manage.users.readonly,https://www.googleapis.com/auth/analytics.readonlyB\x80\x01\n\"com.google.analytics.admin.v1alphaB\x13\x41nalyticsAdminProtoP\x01ZCgoogle.golang.org/genproto/googleapis/analytics/admin/v1alpha;adminb\x06proto3'
+  serialized_pb=b'\n4google/analytics/admin/v1alpha/analytics_admin.proto\x12\x1egoogle.analytics.admin.v1alpha\x1a.google/analytics/admin/v1alpha/resources.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"P\n\x11GetAccountRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%analyticsadmin.googleapis.com/Account\"R\n\x13ListAccountsRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x14\n\x0cshow_deleted\x18\x03 \x01(\x08\"j\n\x14ListAccountsResponse\x12\x39\n\x08\x61\x63\x63ounts\x18\x01 \x03(\x0b\x32\'.google.analytics.admin.v1alpha.Account\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"S\n\x14\x44\x65leteAccountRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%analyticsadmin.googleapis.com/Account\"\x86\x01\n\x14UpdateAccountRequest\x12=\n\x07\x61\x63\x63ount\x18\x01 \x01(\x0b\x32\'.google.analytics.admin.v1alpha.AccountB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"o\n\x1dProvisionAccountTicketRequest\x12\x38\n\x07\x61\x63\x63ount\x18\x01 \x01(\x0b\x32\'.google.analytics.admin.v1alpha.Account\x12\x14\n\x0credirect_uri\x18\x02 \x01(\t\";\n\x1eProvisionAccountTicketResponse\x12\x19\n\x11\x61\x63\x63ount_ticket_id\x18\x01 \x01(\t\"R\n\x12GetPropertyRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/Property\"i\n\x15ListPropertiesRequest\x12\x13\n\x06\x66ilter\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x14\n\x0cshow_deleted\x18\x04 \x01(\x08\"o\n\x16ListPropertiesResponse\x12<\n\nproperties\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.Property\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x89\x01\n\x15UpdatePropertyRequest\x12?\n\x08property\x18\x01 \x01(\x0b\x32(.google.analytics.admin.v1alpha.PropertyB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"X\n\x15\x43reatePropertyRequest\x12?\n\x08property\x18\x01 \x01(\x0b\x32(.google.analytics.admin.v1alpha.PropertyB\x03\xe0\x41\x02\"U\n\x15\x44\x65letePropertyRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/Property\"R\n\x12GetUserLinkRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/UserLink\"\x99\x01\n\x18\x42\x61tchGetUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12=\n\x05names\x18\x02 \x03(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/UserLink\"Y\n\x19\x42\x61tchGetUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\"}\n\x14ListUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"n\n\x15ListUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"~\n\x15\x41uditUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"t\n\x16\x41uditUserLinksResponse\x12\x41\n\nuser_links\x18\x01 \x03(\x0b\x32-.google.analytics.admin.v1alpha.AuditUserLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb7\x01\n\x15\x43reateUserLinkRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x1c\n\x0fnotify_new_user\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\x12@\n\tuser_link\x18\x03 \x01(\x0b\x32(.google.analytics.admin.v1alpha.UserLinkB\x03\xe0\x41\x02\"\xca\x01\n\x1b\x42\x61tchCreateUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x1d\n\x10notify_new_users\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\x12L\n\x08requests\x18\x03 \x03(\x0b\x32\x35.google.analytics.admin.v1alpha.CreateUserLinkRequestB\x03\xe0\x41\x02\"\\\n\x1c\x42\x61tchCreateUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\"Y\n\x15UpdateUserLinkRequest\x12@\n\tuser_link\x18\x01 \x01(\x0b\x32(.google.analytics.admin.v1alpha.UserLinkB\x03\xe0\x41\x02\"\xab\x01\n\x1b\x42\x61tchUpdateUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12L\n\x08requests\x18\x02 \x03(\x0b\x32\x35.google.analytics.admin.v1alpha.UpdateUserLinkRequestB\x03\xe0\x41\x02\"\\\n\x1c\x42\x61tchUpdateUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\"U\n\x15\x44\x65leteUserLinkRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/UserLink\"\xab\x01\n\x1b\x42\x61tchDeleteUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12L\n\x08requests\x18\x02 \x03(\x0b\x32\x35.google.analytics.admin.v1alpha.DeleteUserLinkRequestB\x03\xe0\x41\x02\"\\\n\x17GetWebDataStreamRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/WebDataStream\"_\n\x1a\x44\x65leteWebDataStreamRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/WebDataStream\"\x9a\x01\n\x1aUpdateWebDataStreamRequest\x12K\n\x0fweb_data_stream\x18\x01 \x01(\x0b\x32-.google.analytics.admin.v1alpha.WebDataStreamB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xae\x01\n\x1a\x43reateWebDataStreamRequest\x12K\n\x0fweb_data_stream\x18\x01 \x01(\x0b\x32-.google.analytics.admin.v1alpha.WebDataStreamB\x03\xe0\x41\x02\x12\x43\n\x06parent\x18\x02 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/WebDataStream\"\x87\x01\n\x19ListWebDataStreamsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/WebDataStream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"~\n\x1aListWebDataStreamsResponse\x12G\n\x10web_data_streams\x18\x01 \x03(\x0b\x32-.google.analytics.admin.v1alpha.WebDataStream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"b\n\x1aGetIosAppDataStreamRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.analyticsadmin.googleapis.com/IosAppDataStream\"e\n\x1d\x44\x65leteIosAppDataStreamRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.analyticsadmin.googleapis.com/IosAppDataStream\"\xa4\x01\n\x1dUpdateIosAppDataStreamRequest\x12R\n\x13ios_app_data_stream\x18\x01 \x01(\x0b\x32\x30.google.analytics.admin.v1alpha.IosAppDataStreamB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xbb\x01\n\x1d\x43reateIosAppDataStreamRequest\x12R\n\x13ios_app_data_stream\x18\x01 \x01(\x0b\x32\x30.google.analytics.admin.v1alpha.IosAppDataStreamB\x03\xe0\x41\x02\x12\x46\n\x06parent\x18\x02 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\x12.analyticsadmin.googleapis.com/IosAppDataStream\"\x8d\x01\n\x1cListIosAppDataStreamsRequest\x12\x46\n\x06parent\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\x12.analyticsadmin.googleapis.com/IosAppDataStream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x88\x01\n\x1dListIosAppDataStreamsResponse\x12N\n\x14ios_app_data_streams\x18\x01 \x03(\x0b\x32\x30.google.analytics.admin.v1alpha.IosAppDataStream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"j\n\x1eGetAndroidAppDataStreamRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2analyticsadmin.googleapis.com/AndroidAppDataStream\"m\n!DeleteAndroidAppDataStreamRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2analyticsadmin.googleapis.com/AndroidAppDataStream\"\xb0\x01\n!UpdateAndroidAppDataStreamRequest\x12Z\n\x17\x61ndroid_app_data_stream\x18\x01 \x01(\x0b\x32\x34.google.analytics.admin.v1alpha.AndroidAppDataStreamB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xcb\x01\n!CreateAndroidAppDataStreamRequest\x12Z\n\x17\x61ndroid_app_data_stream\x18\x01 \x01(\x0b\x32\x34.google.analytics.admin.v1alpha.AndroidAppDataStreamB\x03\xe0\x41\x02\x12J\n\x06parent\x18\x02 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\x12\x32\x61nalyticsadmin.googleapis.com/AndroidAppDataStream\"\x95\x01\n ListAndroidAppDataStreamsRequest\x12J\n\x06parent\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\x12\x32\x61nalyticsadmin.googleapis.com/AndroidAppDataStream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x94\x01\n!ListAndroidAppDataStreamsResponse\x12V\n\x18\x61ndroid_app_data_streams\x18\x01 \x03(\x0b\x32\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"x\n%GetEnhancedMeasurementSettingsRequest\x12O\n\x04name\x18\x01 \x01(\tBA\xe0\x41\x02\xfa\x41;\n9analyticsadmin.googleapis.com/EnhancedMeasurementSettings\"\xc4\x01\n(UpdateEnhancedMeasurementSettingsRequest\x12g\n\x1d\x65nhanced_measurement_settings\x18\x01 \x01(\x0b\x32;.google.analytics.admin.v1alpha.EnhancedMeasurementSettingsB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xa9\x01\n\x19\x43reateFirebaseLinkRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*analyticsadmin.googleapis.com/FirebaseLink\x12H\n\rfirebase_link\x18\x02 \x01(\x0b\x32,.google.analytics.admin.v1alpha.FirebaseLinkB\x03\xe0\x41\x02\"\x96\x01\n\x19UpdateFirebaseLinkRequest\x12H\n\rfirebase_link\x18\x01 \x01(\x0b\x32,.google.analytics.admin.v1alpha.FirebaseLinkB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"]\n\x19\x44\x65leteFirebaseLinkRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*analyticsadmin.googleapis.com/FirebaseLink\"^\n\x18ListFirebaseLinksRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*analyticsadmin.googleapis.com/FirebaseLink\"a\n\x19ListFirebaseLinksResponse\x12\x44\n\x0e\x66irebase_links\x18\x01 \x03(\x0b\x32,.google.analytics.admin.v1alpha.FirebaseLink\"\\\n\x17GetGlobalSiteTagRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/GlobalSiteTag\"\xae\x01\n\x1a\x43reateGoogleAdsLinkRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/GoogleAdsLink\x12K\n\x0fgoogle_ads_link\x18\x02 \x01(\x0b\x32-.google.analytics.admin.v1alpha.GoogleAdsLinkB\x03\xe0\x41\x02\"\x95\x01\n\x1aUpdateGoogleAdsLinkRequest\x12\x46\n\x0fgoogle_ads_link\x18\x01 \x01(\x0b\x32-.google.analytics.admin.v1alpha.GoogleAdsLink\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"_\n\x1a\x44\x65leteGoogleAdsLinkRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/GoogleAdsLink\"\x87\x01\n\x19ListGoogleAdsLinksRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/GoogleAdsLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"~\n\x1aListGoogleAdsLinksResponse\x12G\n\x10google_ads_links\x18\x01 \x03(\x0b\x32-.google.analytics.admin.v1alpha.GoogleAdsLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"h\n\x1dGetDataSharingSettingsRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1analyticsadmin.googleapis.com/DataSharingSettings\"D\n\x1bListAccountSummariesRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\"\x82\x01\n\x1cListAccountSummariesResponse\x12I\n\x11\x61\x63\x63ount_summaries\x18\x01 \x03(\x0b\x32..google.analytics.admin.v1alpha.AccountSummary\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xebR\n\x15\x41nalyticsAdminService\x12\x93\x01\n\nGetAccount\x12\x31.google.analytics.admin.v1alpha.GetAccountRequest\x1a\'.google.analytics.admin.v1alpha.Account\")\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1alpha/{name=accounts/*}\xda\x41\x04name\x12\x94\x01\n\x0cListAccounts\x12\x33.google.analytics.admin.v1alpha.ListAccountsRequest\x1a\x34.google.analytics.admin.v1alpha.ListAccountsResponse\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/v1alpha/accounts\x12\x88\x01\n\rDeleteAccount\x12\x34.google.analytics.admin.v1alpha.DeleteAccountRequest\x1a\x16.google.protobuf.Empty\")\x82\xd3\xe4\x93\x02\x1c*\x1a/v1alpha/{name=accounts/*}\xda\x41\x04name\x12\xb9\x01\n\rUpdateAccount\x12\x34.google.analytics.admin.v1alpha.UpdateAccountRequest\x1a\'.google.analytics.admin.v1alpha.Account\"I\x82\xd3\xe4\x93\x02-2\"/v1alpha/{account.name=accounts/*}:\x07\x61\x63\x63ount\xda\x41\x13\x61\x63\x63ount,update_mask\x12\xcc\x01\n\x16ProvisionAccountTicket\x12=.google.analytics.admin.v1alpha.ProvisionAccountTicketRequest\x1a>.google.analytics.admin.v1alpha.ProvisionAccountTicketResponse\"3\x82\xd3\xe4\x93\x02-\"(/v1alpha/accounts:provisionAccountTicket:\x01*\x12\xb4\x01\n\x14ListAccountSummaries\x12;.google.analytics.admin.v1alpha.ListAccountSummariesRequest\x1a<.google.analytics.admin.v1alpha.ListAccountSummariesResponse\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/v1alpha/accountSummaries\x12\x98\x01\n\x0bGetProperty\x12\x32.google.analytics.admin.v1alpha.GetPropertyRequest\x1a(.google.analytics.admin.v1alpha.Property\"+\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1alpha/{name=properties/*}\xda\x41\x04name\x12\x9c\x01\n\x0eListProperties\x12\x35.google.analytics.admin.v1alpha.ListPropertiesRequest\x1a\x36.google.analytics.admin.v1alpha.ListPropertiesResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1alpha/properties\x12\xa3\x01\n\x0e\x43reateProperty\x12\x35.google.analytics.admin.v1alpha.CreatePropertyRequest\x1a(.google.analytics.admin.v1alpha.Property\"0\x82\xd3\xe4\x93\x02\x1f\"\x13/v1alpha/properties:\x08property\xda\x41\x08property\x12\x8c\x01\n\x0e\x44\x65leteProperty\x12\x35.google.analytics.admin.v1alpha.DeletePropertyRequest\x1a\x16.google.protobuf.Empty\"+\x82\xd3\xe4\x93\x02\x1e*\x1c/v1alpha/{name=properties/*}\xda\x41\x04name\x12\xc1\x01\n\x0eUpdateProperty\x12\x35.google.analytics.admin.v1alpha.UpdatePropertyRequest\x1a(.google.analytics.admin.v1alpha.Property\"N\x82\xd3\xe4\x93\x02\x31\x32%/v1alpha/{property.name=properties/*}:\x08property\xda\x41\x14property,update_mask\x12\xce\x01\n\x0bGetUserLink\x12\x32.google.analytics.admin.v1alpha.GetUserLinkRequest\x1a(.google.analytics.admin.v1alpha.UserLink\"a\x82\xd3\xe4\x93\x02T\x12&/v1alpha/{name=accounts/*/userLinks/*}Z*\x12(/v1alpha/{name=properties/*/userLinks/*}\xda\x41\x04name\x12\xf6\x01\n\x11\x42\x61tchGetUserLinks\x12\x38.google.analytics.admin.v1alpha.BatchGetUserLinksRequest\x1a\x39.google.analytics.admin.v1alpha.BatchGetUserLinksResponse\"l\x82\xd3\xe4\x93\x02\x66\x12//v1alpha/{parent=accounts/*}/userLinks:batchGetZ3\x12\x31/v1alpha/{parent=properties/*}/userLinks:batchGet\x12\xe1\x01\n\rListUserLinks\x12\x34.google.analytics.admin.v1alpha.ListUserLinksRequest\x1a\x35.google.analytics.admin.v1alpha.ListUserLinksResponse\"c\x82\xd3\xe4\x93\x02T\x12&/v1alpha/{parent=accounts/*}/userLinksZ*\x12(/v1alpha/{parent=properties/*}/userLinks\xda\x41\x06parent\x12\xed\x01\n\x0e\x41uditUserLinks\x12\x35.google.analytics.admin.v1alpha.AuditUserLinksRequest\x1a\x36.google.analytics.admin.v1alpha.AuditUserLinksResponse\"l\x82\xd3\xe4\x93\x02\x66\",/v1alpha/{parent=accounts/*}/userLinks:audit:\x01*Z3\"./v1alpha/{parent=properties/*}/userLinks:audit:\x01*\x12\xf7\x01\n\x0e\x43reateUserLink\x12\x35.google.analytics.admin.v1alpha.CreateUserLinkRequest\x1a(.google.analytics.admin.v1alpha.UserLink\"\x83\x01\x82\xd3\xe4\x93\x02j\"&/v1alpha/{parent=accounts/*}/userLinks:\tuser_linkZ5\"(/v1alpha/{parent=properties/*}/userLinks:\tuser_link\xda\x41\x10parent,user_link\x12\x8b\x02\n\x14\x42\x61tchCreateUserLinks\x12;.google.analytics.admin.v1alpha.BatchCreateUserLinksRequest\x1a<.google.analytics.admin.v1alpha.BatchCreateUserLinksResponse\"x\x82\xd3\xe4\x93\x02r\"2/v1alpha/{parent=accounts/*}/userLinks:batchCreate:\x01*Z9\"4/v1alpha/{parent=properties/*}/userLinks:batchCreate:\x01*\x12\x84\x02\n\x0eUpdateUserLink\x12\x35.google.analytics.admin.v1alpha.UpdateUserLinkRequest\x1a(.google.analytics.admin.v1alpha.UserLink\"\x90\x01\x82\xd3\xe4\x93\x02~20/v1alpha/{user_link.name=accounts/*/userLinks/*}:\tuser_linkZ?22/v1alpha/{user_link.name=properties/*/userLinks/*}:\tuser_link\xda\x41\tuser_link\x12\x8b\x02\n\x14\x42\x61tchUpdateUserLinks\x12;.google.analytics.admin.v1alpha.BatchUpdateUserLinksRequest\x1a<.google.analytics.admin.v1alpha.BatchUpdateUserLinksResponse\"x\x82\xd3\xe4\x93\x02r\"2/v1alpha/{parent=accounts/*}/userLinks:batchUpdate:\x01*Z9\"4/v1alpha/{parent=properties/*}/userLinks:batchUpdate:\x01*\x12\xc2\x01\n\x0e\x44\x65leteUserLink\x12\x35.google.analytics.admin.v1alpha.DeleteUserLinkRequest\x1a\x16.google.protobuf.Empty\"a\x82\xd3\xe4\x93\x02T*&/v1alpha/{name=accounts/*/userLinks/*}Z**(/v1alpha/{name=properties/*/userLinks/*}\xda\x41\x04name\x12\xe5\x01\n\x14\x42\x61tchDeleteUserLinks\x12;.google.analytics.admin.v1alpha.BatchDeleteUserLinksRequest\x1a\x16.google.protobuf.Empty\"x\x82\xd3\xe4\x93\x02r\"2/v1alpha/{parent=accounts/*}/userLinks:batchDelete:\x01*Z9\"4/v1alpha/{parent=properties/*}/userLinks:batchDelete:\x01*\x12\xb8\x01\n\x10GetWebDataStream\x12\x37.google.analytics.admin.v1alpha.GetWebDataStreamRequest\x1a-.google.analytics.admin.v1alpha.WebDataStream\"<\x82\xd3\xe4\x93\x02/\x12-/v1alpha/{name=properties/*/webDataStreams/*}\xda\x41\x04name\x12\xa7\x01\n\x13\x44\x65leteWebDataStream\x12:.google.analytics.admin.v1alpha.DeleteWebDataStreamRequest\x1a\x16.google.protobuf.Empty\"<\x82\xd3\xe4\x93\x02/*-/v1alpha/{name=properties/*/webDataStreams/*}\xda\x41\x04name\x12\xf6\x01\n\x13UpdateWebDataStream\x12:.google.analytics.admin.v1alpha.UpdateWebDataStreamRequest\x1a-.google.analytics.admin.v1alpha.WebDataStream\"t\x82\xd3\xe4\x93\x02P2=/v1alpha/{web_data_stream.name=properties/*/webDataStreams/*}:\x0fweb_data_stream\xda\x41\x1bweb_data_stream,update_mask\x12\xe1\x01\n\x13\x43reateWebDataStream\x12:.google.analytics.admin.v1alpha.CreateWebDataStreamRequest\x1a-.google.analytics.admin.v1alpha.WebDataStream\"_\x82\xd3\xe4\x93\x02@\"-/v1alpha/{parent=properties/*}/webDataStreams:\x0fweb_data_stream\xda\x41\x16parent,web_data_stream\x12\xcb\x01\n\x12ListWebDataStreams\x12\x39.google.analytics.admin.v1alpha.ListWebDataStreamsRequest\x1a:.google.analytics.admin.v1alpha.ListWebDataStreamsResponse\">\x82\xd3\xe4\x93\x02/\x12-/v1alpha/{parent=properties/*}/webDataStreams\xda\x41\x06parent\x12\xc4\x01\n\x13GetIosAppDataStream\x12:.google.analytics.admin.v1alpha.GetIosAppDataStreamRequest\x1a\x30.google.analytics.admin.v1alpha.IosAppDataStream\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1alpha/{name=properties/*/iosAppDataStreams/*}\xda\x41\x04name\x12\xb0\x01\n\x16\x44\x65leteIosAppDataStream\x12=.google.analytics.admin.v1alpha.DeleteIosAppDataStreamRequest\x1a\x16.google.protobuf.Empty\"?\x82\xd3\xe4\x93\x02\x32*0/v1alpha/{name=properties/*/iosAppDataStreams/*}\xda\x41\x04name\x12\x8f\x02\n\x16UpdateIosAppDataStream\x12=.google.analytics.admin.v1alpha.UpdateIosAppDataStreamRequest\x1a\x30.google.analytics.admin.v1alpha.IosAppDataStream\"\x83\x01\x82\xd3\xe4\x93\x02[2D/v1alpha/{ios_app_data_stream.name=properties/*/iosAppDataStreams/*}:\x13ios_app_data_stream\xda\x41\x1fios_app_data_stream,update_mask\x12\xf5\x01\n\x16\x43reateIosAppDataStream\x12=.google.analytics.admin.v1alpha.CreateIosAppDataStreamRequest\x1a\x30.google.analytics.admin.v1alpha.IosAppDataStream\"j\x82\xd3\xe4\x93\x02G\"0/v1alpha/{parent=properties/*}/iosAppDataStreams:\x13ios_app_data_stream\xda\x41\x1aparent,ios_app_data_stream\x12\xd7\x01\n\x15ListIosAppDataStreams\x12<.google.analytics.admin.v1alpha.ListIosAppDataStreamsRequest\x1a=.google.analytics.admin.v1alpha.ListIosAppDataStreamsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1alpha/{parent=properties/*}/iosAppDataStreams\xda\x41\x06parent\x12\xd4\x01\n\x17GetAndroidAppDataStream\x12>.google.analytics.admin.v1alpha.GetAndroidAppDataStreamRequest\x1a\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\"C\x82\xd3\xe4\x93\x02\x36\x12\x34/v1alpha/{name=properties/*/androidAppDataStreams/*}\xda\x41\x04name\x12\xbc\x01\n\x1a\x44\x65leteAndroidAppDataStream\x12\x41.google.analytics.admin.v1alpha.DeleteAndroidAppDataStreamRequest\x1a\x16.google.protobuf.Empty\"C\x82\xd3\xe4\x93\x02\x36*4/v1alpha/{name=properties/*/androidAppDataStreams/*}\xda\x41\x04name\x12\xab\x02\n\x1aUpdateAndroidAppDataStream\x12\x41.google.analytics.admin.v1alpha.UpdateAndroidAppDataStreamRequest\x1a\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\"\x93\x01\x82\xd3\xe4\x93\x02g2L/v1alpha/{android_app_data_stream.name=properties/*/androidAppDataStreams/*}:\x17\x61ndroid_app_data_stream\xda\x41#android_app_data_stream,update_mask\x12\x8d\x02\n\x1a\x43reateAndroidAppDataStream\x12\x41.google.analytics.admin.v1alpha.CreateAndroidAppDataStreamRequest\x1a\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\"v\x82\xd3\xe4\x93\x02O\"4/v1alpha/{parent=properties/*}/androidAppDataStreams:\x17\x61ndroid_app_data_stream\xda\x41\x1eparent,android_app_data_stream\x12\xe7\x01\n\x19ListAndroidAppDataStreams\x12@.google.analytics.admin.v1alpha.ListAndroidAppDataStreamsRequest\x1a\x41.google.analytics.admin.v1alpha.ListAndroidAppDataStreamsResponse\"E\x82\xd3\xe4\x93\x02\x36\x12\x34/v1alpha/{parent=properties/*}/androidAppDataStreams\xda\x41\x06parent\x12\xfe\x01\n\x1eGetEnhancedMeasurementSettings\x12\x45.google.analytics.admin.v1alpha.GetEnhancedMeasurementSettingsRequest\x1a;.google.analytics.admin.v1alpha.EnhancedMeasurementSettings\"X\x82\xd3\xe4\x93\x02K\x12I/v1alpha/{name=properties/*/webDataStreams/*/enhancedMeasurementSettings}\xda\x41\x04name\x12\xe8\x02\n!UpdateEnhancedMeasurementSettings\x12H.google.analytics.admin.v1alpha.UpdateEnhancedMeasurementSettingsRequest\x1a;.google.analytics.admin.v1alpha.EnhancedMeasurementSettings\"\xbb\x01\x82\xd3\xe4\x93\x02\x88\x01\x32g/v1alpha/{enhanced_measurement_settings.name=properties/*/webDataStreams/*/enhancedMeasurementSettings}:\x1d\x65nhanced_measurement_settings\xda\x41)enhanced_measurement_settings,update_mask\x12\xd9\x01\n\x12\x43reateFirebaseLink\x12\x39.google.analytics.admin.v1alpha.CreateFirebaseLinkRequest\x1a,.google.analytics.admin.v1alpha.FirebaseLink\"Z\x82\xd3\xe4\x93\x02=\",/v1alpha/{parent=properties/*}/firebaseLinks:\rfirebase_link\xda\x41\x14parent,firebase_link\x12\xec\x01\n\x12UpdateFirebaseLink\x12\x39.google.analytics.admin.v1alpha.UpdateFirebaseLinkRequest\x1a,.google.analytics.admin.v1alpha.FirebaseLink\"m\x82\xd3\xe4\x93\x02K2:/v1alpha/{firebase_link.name=properties/*/firebaseLinks/*}:\rfirebase_link\xda\x41\x19\x66irebase_link,update_mask\x12\xa4\x01\n\x12\x44\x65leteFirebaseLink\x12\x39.google.analytics.admin.v1alpha.DeleteFirebaseLinkRequest\x1a\x16.google.protobuf.Empty\";\x82\xd3\xe4\x93\x02.*,/v1alpha/{name=properties/*/firebaseLinks/*}\xda\x41\x04name\x12\xc7\x01\n\x11ListFirebaseLinks\x12\x38.google.analytics.admin.v1alpha.ListFirebaseLinksRequest\x1a\x39.google.analytics.admin.v1alpha.ListFirebaseLinksResponse\"=\x82\xd3\xe4\x93\x02.\x12,/v1alpha/{parent=properties/*}/firebaseLinks\xda\x41\x06parent\x12\xc6\x01\n\x10GetGlobalSiteTag\x12\x37.google.analytics.admin.v1alpha.GetGlobalSiteTagRequest\x1a-.google.analytics.admin.v1alpha.GlobalSiteTag\"J\x82\xd3\xe4\x93\x02=\x12;/v1alpha/{name=properties/*/webDataStreams/*/globalSiteTag}\xda\x41\x04name\x12\xe1\x01\n\x13\x43reateGoogleAdsLink\x12:.google.analytics.admin.v1alpha.CreateGoogleAdsLinkRequest\x1a-.google.analytics.admin.v1alpha.GoogleAdsLink\"_\x82\xd3\xe4\x93\x02@\"-/v1alpha/{parent=properties/*}/googleAdsLinks:\x0fgoogle_ads_link\xda\x41\x16parent,google_ads_link\x12\xf6\x01\n\x13UpdateGoogleAdsLink\x12:.google.analytics.admin.v1alpha.UpdateGoogleAdsLinkRequest\x1a-.google.analytics.admin.v1alpha.GoogleAdsLink\"t\x82\xd3\xe4\x93\x02P2=/v1alpha/{google_ads_link.name=properties/*/googleAdsLinks/*}:\x0fgoogle_ads_link\xda\x41\x1bgoogle_ads_link,update_mask\x12\xa7\x01\n\x13\x44\x65leteGoogleAdsLink\x12:.google.analytics.admin.v1alpha.DeleteGoogleAdsLinkRequest\x1a\x16.google.protobuf.Empty\"<\x82\xd3\xe4\x93\x02/*-/v1alpha/{name=properties/*/googleAdsLinks/*}\xda\x41\x04name\x12\xcb\x01\n\x12ListGoogleAdsLinks\x12\x39.google.analytics.admin.v1alpha.ListGoogleAdsLinksRequest\x1a:.google.analytics.admin.v1alpha.ListGoogleAdsLinksResponse\">\x82\xd3\xe4\x93\x02/\x12-/v1alpha/{parent=properties/*}/googleAdsLinks\xda\x41\x06parent\x12\xcb\x01\n\x16GetDataSharingSettings\x12=.google.analytics.admin.v1alpha.GetDataSharingSettingsRequest\x1a\x33.google.analytics.admin.v1alpha.DataSharingSettings\"=\x82\xd3\xe4\x93\x02\x30\x12./v1alpha/{name=accounts/*/dataSharingSettings}\xda\x41\x04name\x1a\xfc\x01\xca\x41\x1d\x61nalyticsadmin.googleapis.com\xd2\x41\xd8\x01https://www.googleapis.com/auth/analytics.edit,https://www.googleapis.com/auth/analytics.manage.users,https://www.googleapis.com/auth/analytics.manage.users.readonly,https://www.googleapis.com/auth/analytics.readonlyB\x80\x01\n\"com.google.analytics.admin.v1alphaB\x13\x41nalyticsAdminProtoP\x01ZCgoogle.golang.org/genproto/googleapis/analytics/admin/v1alpha;adminb\x06proto3'
   ,
   dependencies=[google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
 
@@ -852,7 +852,7 @@ _BATCHCREATEUSERLINKSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A(\022&analyticsadmin.googleapis.com/UserLink', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='notify_new_users', full_name='google.analytics.admin.v1alpha.BatchCreateUserLinksRequest.notify_new_users', index=1,
       number=2, type=8, cpp_type=7, label=1,
@@ -866,7 +866,7 @@ _BATCHCREATEUSERLINKSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -880,7 +880,7 @@ _BATCHCREATEUSERLINKSREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=2608,
-  serialized_end=2762,
+  serialized_end=2810,
 )
 
 
@@ -911,8 +911,8 @@ _BATCHCREATEUSERLINKSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2764,
-  serialized_end=2856,
+  serialized_start=2812,
+  serialized_end=2904,
 )
 
 
@@ -943,8 +943,8 @@ _UPDATEUSERLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2858,
-  serialized_end=2947,
+  serialized_start=2906,
+  serialized_end=2995,
 )
 
 
@@ -962,14 +962,14 @@ _BATCHUPDATEUSERLINKSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A(\022&analyticsadmin.googleapis.com/UserLink', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='requests', full_name='google.analytics.admin.v1alpha.BatchUpdateUserLinksRequest.requests', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -982,8 +982,8 @@ _BATCHUPDATEUSERLINKSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2949,
-  serialized_end=3072,
+  serialized_start=2998,
+  serialized_end=3169,
 )
 
 
@@ -1014,8 +1014,8 @@ _BATCHUPDATEUSERLINKSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3074,
-  serialized_end=3166,
+  serialized_start=3171,
+  serialized_end=3263,
 )
 
 
@@ -1046,8 +1046,8 @@ _DELETEUSERLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3168,
-  serialized_end=3253,
+  serialized_start=3265,
+  serialized_end=3350,
 )
 
 
@@ -1065,14 +1065,14 @@ _BATCHDELETEUSERLINKSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A(\022&analyticsadmin.googleapis.com/UserLink', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='requests', full_name='google.analytics.admin.v1alpha.BatchDeleteUserLinksRequest.requests', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1085,8 +1085,8 @@ _BATCHDELETEUSERLINKSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3255,
-  serialized_end=3378,
+  serialized_start=3353,
+  serialized_end=3524,
 )
 
 
@@ -1117,8 +1117,8 @@ _GETWEBDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3380,
-  serialized_end=3472,
+  serialized_start=3526,
+  serialized_end=3618,
 )
 
 
@@ -1149,8 +1149,8 @@ _DELETEWEBDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3474,
-  serialized_end=3569,
+  serialized_start=3620,
+  serialized_end=3715,
 )
 
 
@@ -1188,8 +1188,8 @@ _UPDATEWEBDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3572,
-  serialized_end=3726,
+  serialized_start=3718,
+  serialized_end=3872,
 )
 
 
@@ -1227,8 +1227,8 @@ _CREATEWEBDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3729,
-  serialized_end=3903,
+  serialized_start=3875,
+  serialized_end=4049,
 )
 
 
@@ -1273,8 +1273,8 @@ _LISTWEBDATASTREAMSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3906,
-  serialized_end=4041,
+  serialized_start=4052,
+  serialized_end=4187,
 )
 
 
@@ -1312,8 +1312,8 @@ _LISTWEBDATASTREAMSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4043,
-  serialized_end=4169,
+  serialized_start=4189,
+  serialized_end=4315,
 )
 
 
@@ -1344,8 +1344,8 @@ _GETIOSAPPDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4171,
-  serialized_end=4269,
+  serialized_start=4317,
+  serialized_end=4415,
 )
 
 
@@ -1376,8 +1376,8 @@ _DELETEIOSAPPDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4271,
-  serialized_end=4372,
+  serialized_start=4417,
+  serialized_end=4518,
 )
 
 
@@ -1415,8 +1415,8 @@ _UPDATEIOSAPPDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4375,
-  serialized_end=4539,
+  serialized_start=4521,
+  serialized_end=4685,
 )
 
 
@@ -1454,8 +1454,8 @@ _CREATEIOSAPPDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4542,
-  serialized_end=4729,
+  serialized_start=4688,
+  serialized_end=4875,
 )
 
 
@@ -1500,8 +1500,8 @@ _LISTIOSAPPDATASTREAMSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4732,
-  serialized_end=4873,
+  serialized_start=4878,
+  serialized_end=5019,
 )
 
 
@@ -1539,8 +1539,8 @@ _LISTIOSAPPDATASTREAMSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4876,
-  serialized_end=5012,
+  serialized_start=5022,
+  serialized_end=5158,
 )
 
 
@@ -1571,8 +1571,8 @@ _GETANDROIDAPPDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5014,
-  serialized_end=5120,
+  serialized_start=5160,
+  serialized_end=5266,
 )
 
 
@@ -1603,8 +1603,8 @@ _DELETEANDROIDAPPDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5122,
-  serialized_end=5231,
+  serialized_start=5268,
+  serialized_end=5377,
 )
 
 
@@ -1642,8 +1642,8 @@ _UPDATEANDROIDAPPDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5234,
-  serialized_end=5410,
+  serialized_start=5380,
+  serialized_end=5556,
 )
 
 
@@ -1681,8 +1681,8 @@ _CREATEANDROIDAPPDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5413,
-  serialized_end=5616,
+  serialized_start=5559,
+  serialized_end=5762,
 )
 
 
@@ -1727,8 +1727,8 @@ _LISTANDROIDAPPDATASTREAMSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5619,
-  serialized_end=5768,
+  serialized_start=5765,
+  serialized_end=5914,
 )
 
 
@@ -1766,8 +1766,8 @@ _LISTANDROIDAPPDATASTREAMSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5771,
-  serialized_end=5919,
+  serialized_start=5917,
+  serialized_end=6065,
 )
 
 
@@ -1798,8 +1798,8 @@ _GETENHANCEDMEASUREMENTSETTINGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5921,
-  serialized_end=6041,
+  serialized_start=6067,
+  serialized_end=6187,
 )
 
 
@@ -1837,8 +1837,8 @@ _UPDATEENHANCEDMEASUREMENTSETTINGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6044,
-  serialized_end=6240,
+  serialized_start=6190,
+  serialized_end=6386,
 )
 
 
@@ -1876,8 +1876,8 @@ _CREATEFIREBASELINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6243,
-  serialized_end=6412,
+  serialized_start=6389,
+  serialized_end=6558,
 )
 
 
@@ -1915,8 +1915,8 @@ _UPDATEFIREBASELINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6415,
-  serialized_end=6565,
+  serialized_start=6561,
+  serialized_end=6711,
 )
 
 
@@ -1947,8 +1947,8 @@ _DELETEFIREBASELINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6567,
-  serialized_end=6660,
+  serialized_start=6713,
+  serialized_end=6806,
 )
 
 
@@ -1979,8 +1979,8 @@ _LISTFIREBASELINKSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6662,
-  serialized_end=6756,
+  serialized_start=6808,
+  serialized_end=6902,
 )
 
 
@@ -2011,8 +2011,8 @@ _LISTFIREBASELINKSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6758,
-  serialized_end=6855,
+  serialized_start=6904,
+  serialized_end=7001,
 )
 
 
@@ -2043,8 +2043,8 @@ _GETGLOBALSITETAGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6857,
-  serialized_end=6949,
+  serialized_start=7003,
+  serialized_end=7095,
 )
 
 
@@ -2082,8 +2082,8 @@ _CREATEGOOGLEADSLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6952,
-  serialized_end=7126,
+  serialized_start=7098,
+  serialized_end=7272,
 )
 
 
@@ -2121,8 +2121,8 @@ _UPDATEGOOGLEADSLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7129,
-  serialized_end=7278,
+  serialized_start=7275,
+  serialized_end=7424,
 )
 
 
@@ -2153,8 +2153,8 @@ _DELETEGOOGLEADSLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7280,
-  serialized_end=7375,
+  serialized_start=7426,
+  serialized_end=7521,
 )
 
 
@@ -2199,8 +2199,8 @@ _LISTGOOGLEADSLINKSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7378,
-  serialized_end=7513,
+  serialized_start=7524,
+  serialized_end=7659,
 )
 
 
@@ -2238,8 +2238,8 @@ _LISTGOOGLEADSLINKSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7515,
-  serialized_end=7641,
+  serialized_start=7661,
+  serialized_end=7787,
 )
 
 
@@ -2270,8 +2270,86 @@ _GETDATASHARINGSETTINGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7643,
-  serialized_end=7747,
+  serialized_start=7789,
+  serialized_end=7893,
+)
+
+
+_LISTACCOUNTSUMMARIESREQUEST = _descriptor.Descriptor(
+  name='ListAccountSummariesRequest',
+  full_name='google.analytics.admin.v1alpha.ListAccountSummariesRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.analytics.admin.v1alpha.ListAccountSummariesRequest.page_size', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.analytics.admin.v1alpha.ListAccountSummariesRequest.page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7895,
+  serialized_end=7963,
+)
+
+
+_LISTACCOUNTSUMMARIESRESPONSE = _descriptor.Descriptor(
+  name='ListAccountSummariesResponse',
+  full_name='google.analytics.admin.v1alpha.ListAccountSummariesResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='account_summaries', full_name='google.analytics.admin.v1alpha.ListAccountSummariesResponse.account_summaries', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.analytics.admin.v1alpha.ListAccountSummariesResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7966,
+  serialized_end=8096,
 )
 
 _LISTACCOUNTSRESPONSE.fields_by_name['accounts'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ACCOUNT
@@ -2314,6 +2392,7 @@ _CREATEGOOGLEADSLINKREQUEST.fields_by_name['google_ads_link'].message_type = goo
 _UPDATEGOOGLEADSLINKREQUEST.fields_by_name['google_ads_link'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._GOOGLEADSLINK
 _UPDATEGOOGLEADSLINKREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 _LISTGOOGLEADSLINKSRESPONSE.fields_by_name['google_ads_links'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._GOOGLEADSLINK
+_LISTACCOUNTSUMMARIESRESPONSE.fields_by_name['account_summaries'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ACCOUNTSUMMARY
 DESCRIPTOR.message_types_by_name['GetAccountRequest'] = _GETACCOUNTREQUEST
 DESCRIPTOR.message_types_by_name['ListAccountsRequest'] = _LISTACCOUNTSREQUEST
 DESCRIPTOR.message_types_by_name['ListAccountsResponse'] = _LISTACCOUNTSRESPONSE
@@ -2374,6 +2453,8 @@ DESCRIPTOR.message_types_by_name['DeleteGoogleAdsLinkRequest'] = _DELETEGOOGLEAD
 DESCRIPTOR.message_types_by_name['ListGoogleAdsLinksRequest'] = _LISTGOOGLEADSLINKSREQUEST
 DESCRIPTOR.message_types_by_name['ListGoogleAdsLinksResponse'] = _LISTGOOGLEADSLINKSRESPONSE
 DESCRIPTOR.message_types_by_name['GetDataSharingSettingsRequest'] = _GETDATASHARINGSETTINGSREQUEST
+DESCRIPTOR.message_types_by_name['ListAccountSummariesRequest'] = _LISTACCOUNTSUMMARIESREQUEST
+DESCRIPTOR.message_types_by_name['ListAccountSummariesResponse'] = _LISTACCOUNTSUMMARIESRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 GetAccountRequest = _reflection.GeneratedProtocolMessageType('GetAccountRequest', (_message.Message,), {
@@ -2796,6 +2877,20 @@ GetDataSharingSettingsRequest = _reflection.GeneratedProtocolMessageType('GetDat
   })
 _sym_db.RegisterMessage(GetDataSharingSettingsRequest)
 
+ListAccountSummariesRequest = _reflection.GeneratedProtocolMessageType('ListAccountSummariesRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTACCOUNTSUMMARIESREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.ListAccountSummariesRequest)
+  })
+_sym_db.RegisterMessage(ListAccountSummariesRequest)
+
+ListAccountSummariesResponse = _reflection.GeneratedProtocolMessageType('ListAccountSummariesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTACCOUNTSUMMARIESRESPONSE,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.ListAccountSummariesResponse)
+  })
+_sym_db.RegisterMessage(ListAccountSummariesResponse)
+
 
 DESCRIPTOR._options = None
 _GETACCOUNTREQUEST.fields_by_name['name']._options = None
@@ -2816,10 +2911,13 @@ _CREATEUSERLINKREQUEST.fields_by_name['notify_new_user']._options = None
 _CREATEUSERLINKREQUEST.fields_by_name['user_link']._options = None
 _BATCHCREATEUSERLINKSREQUEST.fields_by_name['parent']._options = None
 _BATCHCREATEUSERLINKSREQUEST.fields_by_name['notify_new_users']._options = None
+_BATCHCREATEUSERLINKSREQUEST.fields_by_name['requests']._options = None
 _UPDATEUSERLINKREQUEST.fields_by_name['user_link']._options = None
 _BATCHUPDATEUSERLINKSREQUEST.fields_by_name['parent']._options = None
+_BATCHUPDATEUSERLINKSREQUEST.fields_by_name['requests']._options = None
 _DELETEUSERLINKREQUEST.fields_by_name['name']._options = None
 _BATCHDELETEUSERLINKSREQUEST.fields_by_name['parent']._options = None
+_BATCHDELETEUSERLINKSREQUEST.fields_by_name['requests']._options = None
 _GETWEBDATASTREAMREQUEST.fields_by_name['name']._options = None
 _DELETEWEBDATASTREAMREQUEST.fields_by_name['name']._options = None
 _UPDATEWEBDATASTREAMREQUEST.fields_by_name['web_data_stream']._options = None
@@ -2859,8 +2957,8 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\035analyticsadmin.googleapis.com\322A\330\001https://www.googleapis.com/auth/analytics.edit,https://www.googleapis.com/auth/analytics.manage.users,https://www.googleapis.com/auth/analytics.manage.users.readonly,https://www.googleapis.com/auth/analytics.readonly',
   create_key=_descriptor._internal_create_key,
-  serialized_start=7750,
-  serialized_end=18170,
+  serialized_start=8099,
+  serialized_end=18702,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetAccount',
@@ -2913,9 +3011,19 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='ListAccountSummaries',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListAccountSummaries',
+    index=5,
+    containing_service=None,
+    input_type=_LISTACCOUNTSUMMARIESREQUEST,
+    output_type=_LISTACCOUNTSUMMARIESRESPONSE,
+    serialized_options=b'\202\323\344\223\002\033\022\031/v1alpha/accountSummaries',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetProperty',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetProperty',
-    index=5,
+    index=6,
     containing_service=None,
     input_type=_GETPROPERTYREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._PROPERTY,
@@ -2925,7 +3033,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListProperties',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListProperties',
-    index=6,
+    index=7,
     containing_service=None,
     input_type=_LISTPROPERTIESREQUEST,
     output_type=_LISTPROPERTIESRESPONSE,
@@ -2935,7 +3043,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateProperty',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateProperty',
-    index=7,
+    index=8,
     containing_service=None,
     input_type=_CREATEPROPERTYREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._PROPERTY,
@@ -2945,7 +3053,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteProperty',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.DeleteProperty',
-    index=8,
+    index=9,
     containing_service=None,
     input_type=_DELETEPROPERTYREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -2955,7 +3063,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateProperty',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateProperty',
-    index=9,
+    index=10,
     containing_service=None,
     input_type=_UPDATEPROPERTYREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._PROPERTY,
@@ -2965,7 +3073,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetUserLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetUserLink',
-    index=10,
+    index=11,
     containing_service=None,
     input_type=_GETUSERLINKREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._USERLINK,
@@ -2975,7 +3083,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='BatchGetUserLinks',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.BatchGetUserLinks',
-    index=11,
+    index=12,
     containing_service=None,
     input_type=_BATCHGETUSERLINKSREQUEST,
     output_type=_BATCHGETUSERLINKSRESPONSE,
@@ -2985,7 +3093,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListUserLinks',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListUserLinks',
-    index=12,
+    index=13,
     containing_service=None,
     input_type=_LISTUSERLINKSREQUEST,
     output_type=_LISTUSERLINKSRESPONSE,
@@ -2995,7 +3103,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='AuditUserLinks',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.AuditUserLinks',
-    index=13,
+    index=14,
     containing_service=None,
     input_type=_AUDITUSERLINKSREQUEST,
     output_type=_AUDITUSERLINKSRESPONSE,
@@ -3005,7 +3113,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateUserLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateUserLink',
-    index=14,
+    index=15,
     containing_service=None,
     input_type=_CREATEUSERLINKREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._USERLINK,
@@ -3015,7 +3123,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='BatchCreateUserLinks',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.BatchCreateUserLinks',
-    index=15,
+    index=16,
     containing_service=None,
     input_type=_BATCHCREATEUSERLINKSREQUEST,
     output_type=_BATCHCREATEUSERLINKSRESPONSE,
@@ -3025,7 +3133,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateUserLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateUserLink',
-    index=16,
+    index=17,
     containing_service=None,
     input_type=_UPDATEUSERLINKREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._USERLINK,
@@ -3035,7 +3143,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='BatchUpdateUserLinks',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.BatchUpdateUserLinks',
-    index=17,
+    index=18,
     containing_service=None,
     input_type=_BATCHUPDATEUSERLINKSREQUEST,
     output_type=_BATCHUPDATEUSERLINKSRESPONSE,
@@ -3045,7 +3153,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteUserLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.DeleteUserLink',
-    index=18,
+    index=19,
     containing_service=None,
     input_type=_DELETEUSERLINKREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -3055,7 +3163,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='BatchDeleteUserLinks',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.BatchDeleteUserLinks',
-    index=19,
+    index=20,
     containing_service=None,
     input_type=_BATCHDELETEUSERLINKSREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -3065,7 +3173,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetWebDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetWebDataStream',
-    index=20,
+    index=21,
     containing_service=None,
     input_type=_GETWEBDATASTREAMREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._WEBDATASTREAM,
@@ -3075,7 +3183,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteWebDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.DeleteWebDataStream',
-    index=21,
+    index=22,
     containing_service=None,
     input_type=_DELETEWEBDATASTREAMREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -3085,7 +3193,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateWebDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateWebDataStream',
-    index=22,
+    index=23,
     containing_service=None,
     input_type=_UPDATEWEBDATASTREAMREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._WEBDATASTREAM,
@@ -3095,7 +3203,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateWebDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateWebDataStream',
-    index=23,
+    index=24,
     containing_service=None,
     input_type=_CREATEWEBDATASTREAMREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._WEBDATASTREAM,
@@ -3105,7 +3213,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListWebDataStreams',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListWebDataStreams',
-    index=24,
+    index=25,
     containing_service=None,
     input_type=_LISTWEBDATASTREAMSREQUEST,
     output_type=_LISTWEBDATASTREAMSRESPONSE,
@@ -3115,7 +3223,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetIosAppDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetIosAppDataStream',
-    index=25,
+    index=26,
     containing_service=None,
     input_type=_GETIOSAPPDATASTREAMREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._IOSAPPDATASTREAM,
@@ -3125,7 +3233,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteIosAppDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.DeleteIosAppDataStream',
-    index=26,
+    index=27,
     containing_service=None,
     input_type=_DELETEIOSAPPDATASTREAMREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -3135,7 +3243,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateIosAppDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateIosAppDataStream',
-    index=27,
+    index=28,
     containing_service=None,
     input_type=_UPDATEIOSAPPDATASTREAMREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._IOSAPPDATASTREAM,
@@ -3145,7 +3253,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateIosAppDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateIosAppDataStream',
-    index=28,
+    index=29,
     containing_service=None,
     input_type=_CREATEIOSAPPDATASTREAMREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._IOSAPPDATASTREAM,
@@ -3155,7 +3263,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListIosAppDataStreams',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListIosAppDataStreams',
-    index=29,
+    index=30,
     containing_service=None,
     input_type=_LISTIOSAPPDATASTREAMSREQUEST,
     output_type=_LISTIOSAPPDATASTREAMSRESPONSE,
@@ -3165,7 +3273,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetAndroidAppDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetAndroidAppDataStream',
-    index=30,
+    index=31,
     containing_service=None,
     input_type=_GETANDROIDAPPDATASTREAMREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ANDROIDAPPDATASTREAM,
@@ -3175,7 +3283,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteAndroidAppDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.DeleteAndroidAppDataStream',
-    index=31,
+    index=32,
     containing_service=None,
     input_type=_DELETEANDROIDAPPDATASTREAMREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -3185,7 +3293,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateAndroidAppDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateAndroidAppDataStream',
-    index=32,
+    index=33,
     containing_service=None,
     input_type=_UPDATEANDROIDAPPDATASTREAMREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ANDROIDAPPDATASTREAM,
@@ -3195,7 +3303,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateAndroidAppDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateAndroidAppDataStream',
-    index=33,
+    index=34,
     containing_service=None,
     input_type=_CREATEANDROIDAPPDATASTREAMREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ANDROIDAPPDATASTREAM,
@@ -3205,7 +3313,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListAndroidAppDataStreams',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListAndroidAppDataStreams',
-    index=34,
+    index=35,
     containing_service=None,
     input_type=_LISTANDROIDAPPDATASTREAMSREQUEST,
     output_type=_LISTANDROIDAPPDATASTREAMSRESPONSE,
@@ -3215,7 +3323,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetEnhancedMeasurementSettings',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetEnhancedMeasurementSettings',
-    index=35,
+    index=36,
     containing_service=None,
     input_type=_GETENHANCEDMEASUREMENTSETTINGSREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ENHANCEDMEASUREMENTSETTINGS,
@@ -3225,7 +3333,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateEnhancedMeasurementSettings',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateEnhancedMeasurementSettings',
-    index=36,
+    index=37,
     containing_service=None,
     input_type=_UPDATEENHANCEDMEASUREMENTSETTINGSREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ENHANCEDMEASUREMENTSETTINGS,
@@ -3235,7 +3343,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateFirebaseLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateFirebaseLink',
-    index=37,
+    index=38,
     containing_service=None,
     input_type=_CREATEFIREBASELINKREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._FIREBASELINK,
@@ -3245,7 +3353,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateFirebaseLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateFirebaseLink',
-    index=38,
+    index=39,
     containing_service=None,
     input_type=_UPDATEFIREBASELINKREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._FIREBASELINK,
@@ -3255,7 +3363,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteFirebaseLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.DeleteFirebaseLink',
-    index=39,
+    index=40,
     containing_service=None,
     input_type=_DELETEFIREBASELINKREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -3265,7 +3373,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListFirebaseLinks',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListFirebaseLinks',
-    index=40,
+    index=41,
     containing_service=None,
     input_type=_LISTFIREBASELINKSREQUEST,
     output_type=_LISTFIREBASELINKSRESPONSE,
@@ -3275,7 +3383,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetGlobalSiteTag',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetGlobalSiteTag',
-    index=41,
+    index=42,
     containing_service=None,
     input_type=_GETGLOBALSITETAGREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._GLOBALSITETAG,
@@ -3285,7 +3393,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateGoogleAdsLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateGoogleAdsLink',
-    index=42,
+    index=43,
     containing_service=None,
     input_type=_CREATEGOOGLEADSLINKREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._GOOGLEADSLINK,
@@ -3295,7 +3403,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateGoogleAdsLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateGoogleAdsLink',
-    index=43,
+    index=44,
     containing_service=None,
     input_type=_UPDATEGOOGLEADSLINKREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._GOOGLEADSLINK,
@@ -3305,7 +3413,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteGoogleAdsLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.DeleteGoogleAdsLink',
-    index=44,
+    index=45,
     containing_service=None,
     input_type=_DELETEGOOGLEADSLINKREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -3315,7 +3423,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListGoogleAdsLinks',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListGoogleAdsLinks',
-    index=45,
+    index=46,
     containing_service=None,
     input_type=_LISTGOOGLEADSLINKSREQUEST,
     output_type=_LISTGOOGLEADSLINKSRESPONSE,
@@ -3325,7 +3433,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetDataSharingSettings',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetDataSharingSettings',
-    index=46,
+    index=47,
     containing_service=None,
     input_type=_GETDATASHARINGSETTINGSREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._DATASHARINGSETTINGS,

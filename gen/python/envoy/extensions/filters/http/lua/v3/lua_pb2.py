@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n2io.envoyproxy.envoy.extensions.filters.http.lua.v3B\010LuaProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.envoy/extensions/filters/http/lua/v3/lua.proto\x12$envoy.extensions.filters.http.lua.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xf7\x01\n\x03Lua\x12\x1c\n\x0binline_code\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12P\n\x0csource_codes\x18\x02 \x03(\x0b\x32:.envoy.extensions.filters.http.lua.v3.Lua.SourceCodesEntry\x1aT\n\x10SourceCodesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12/\n\x05value\x18\x02 \x01(\x0b\x32 .envoy.config.core.v3.DataSource:\x02\x38\x01:*\x9a\xc5\x88\x1e%\n#envoy.config.filter.http.lua.v2.Lua\"T\n\x0bLuaPerRoute\x12\x1b\n\x08\x64isabled\x18\x01 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12\x17\n\x04name\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x42\x0f\n\x08override\x12\x03\xf8\x42\x01\x42H\n2io.envoyproxy.envoy.extensions.filters.http.lua.v3B\x08LuaProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n.envoy/extensions/filters/http/lua/v3/lua.proto\x12$envoy.extensions.filters.http.lua.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xf7\x01\n\x03Lua\x12\x1c\n\x0binline_code\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12P\n\x0csource_codes\x18\x02 \x03(\x0b\x32:.envoy.extensions.filters.http.lua.v3.Lua.SourceCodesEntry\x1aT\n\x10SourceCodesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12/\n\x05value\x18\x02 \x01(\x0b\x32 .envoy.config.core.v3.DataSource:\x02\x38\x01:*\x9a\xc5\x88\x1e%\n#envoy.config.filter.http.lua.v2.Lua\"\x8d\x01\n\x0bLuaPerRoute\x12\x1b\n\x08\x64isabled\x18\x01 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12\x17\n\x04name\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\x37\n\x0bsource_code\x18\x03 \x01(\x0b\x32 .envoy.config.core.v3.DataSourceH\x00\x42\x0f\n\x08override\x12\x03\xf8\x42\x01\x42H\n2io.envoyproxy.envoy.extensions.filters.http.lua.v3B\x08LuaProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -82,7 +82,7 @@ _LUA = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='source_codes', full_name='envoy.extensions.filters.http.lua.v3.Lua.source_codes', index=1,
       number=2, type=11, cpp_type=10, label=3,
@@ -129,6 +129,13 @@ _LUAPERROUTE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='source_code', full_name='envoy.extensions.filters.http.lua.v3.LuaPerRoute.source_code', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -146,19 +153,23 @@ _LUAPERROUTE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=462,
-  serialized_end=546,
+  serialized_start=463,
+  serialized_end=604,
 )
 
 _LUA_SOURCECODESENTRY.fields_by_name['value'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._DATASOURCE
 _LUA_SOURCECODESENTRY.containing_type = _LUA
 _LUA.fields_by_name['source_codes'].message_type = _LUA_SOURCECODESENTRY
+_LUAPERROUTE.fields_by_name['source_code'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._DATASOURCE
 _LUAPERROUTE.oneofs_by_name['override'].fields.append(
   _LUAPERROUTE.fields_by_name['disabled'])
 _LUAPERROUTE.fields_by_name['disabled'].containing_oneof = _LUAPERROUTE.oneofs_by_name['override']
 _LUAPERROUTE.oneofs_by_name['override'].fields.append(
   _LUAPERROUTE.fields_by_name['name'])
 _LUAPERROUTE.fields_by_name['name'].containing_oneof = _LUAPERROUTE.oneofs_by_name['override']
+_LUAPERROUTE.oneofs_by_name['override'].fields.append(
+  _LUAPERROUTE.fields_by_name['source_code'])
+_LUAPERROUTE.fields_by_name['source_code'].containing_oneof = _LUAPERROUTE.oneofs_by_name['override']
 DESCRIPTOR.message_types_by_name['Lua'] = _LUA
 DESCRIPTOR.message_types_by_name['LuaPerRoute'] = _LUAPERROUTE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)

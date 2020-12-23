@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from envoy.config.common.matcher.v4alpha import matcher_pb2 as envoy_dot_config_dot_common_dot_matcher_dot_v4alpha_dot_matcher__pb2
 from envoy.config.core.v4alpha import base_pb2 as envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2
 from envoy.config.core.v4alpha import grpc_service_pb2 as envoy_dot_config_dot_core_dot_v4alpha_dot_grpc__service__pb2
 from envoy.config.route.v4alpha import route_components_pb2 as envoy_dot_config_dot_route_dot_v4alpha_dot_route__components__pb2
@@ -26,9 +27,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n&io.envoyproxy.envoy.config.tap.v4alphaB\013CommonProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n%envoy/config/tap/v4alpha/common.proto\x12\x18\x65nvoy.config.tap.v4alpha\x1a$envoy/config/core/v4alpha/base.proto\x1a,envoy/config/core/v4alpha/grpc_service.proto\x1a\x31\x65nvoy/config/route/v4alpha/route_components.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x8e\x02\n\tTapConfig\x12H\n\x0cmatch_config\x18\x01 \x01(\x0b\x32(.envoy.config.tap.v4alpha.MatchPredicateB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12G\n\routput_config\x18\x02 \x01(\x0b\x32&.envoy.config.tap.v4alpha.OutputConfigB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12H\n\x0btap_enabled\x18\x03 \x01(\x0b\x32\x33.envoy.config.core.v4alpha.RuntimeFractionalPercent:$\x9a\xc5\x88\x1e\x1f\n\x1d\x65nvoy.config.tap.v3.TapConfig\"\x84\x06\n\x0eMatchPredicate\x12\x45\n\x08or_match\x18\x01 \x01(\x0b\x32\x31.envoy.config.tap.v4alpha.MatchPredicate.MatchSetH\x00\x12\x46\n\tand_match\x18\x02 \x01(\x0b\x32\x31.envoy.config.tap.v4alpha.MatchPredicate.MatchSetH\x00\x12=\n\tnot_match\x18\x03 \x01(\x0b\x32(.envoy.config.tap.v4alpha.MatchPredicateH\x00\x12\x1c\n\tany_match\x18\x04 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12P\n\x1ahttp_request_headers_match\x18\x05 \x01(\x0b\x32*.envoy.config.tap.v4alpha.HttpHeadersMatchH\x00\x12Q\n\x1bhttp_request_trailers_match\x18\x06 \x01(\x0b\x32*.envoy.config.tap.v4alpha.HttpHeadersMatchH\x00\x12Q\n\x1bhttp_response_headers_match\x18\x07 \x01(\x0b\x32*.envoy.config.tap.v4alpha.HttpHeadersMatchH\x00\x12R\n\x1chttp_response_trailers_match\x18\x08 \x01(\x0b\x32*.envoy.config.tap.v4alpha.HttpHeadersMatchH\x00\x1a\x81\x01\n\x08MatchSet\x12\x41\n\x05rules\x18\x01 \x03(\x0b\x32(.envoy.config.tap.v4alpha.MatchPredicateB\x08\xfa\x42\x05\x92\x01\x02\x08\x02:2\x9a\xc5\x88\x1e-\n+envoy.config.tap.v3.MatchPredicate.MatchSet:)\x9a\xc5\x88\x1e$\n\"envoy.config.tap.v3.MatchPredicateB\x0b\n\x04rule\x12\x03\xf8\x42\x01\"{\n\x10HttpHeadersMatch\x12:\n\x07headers\x18\x01 \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcher:+\x9a\xc5\x88\x1e&\n$envoy.config.tap.v3.HttpHeadersMatch\"\x85\x02\n\x0cOutputConfig\x12?\n\x05sinks\x18\x01 \x03(\x0b\x32$.envoy.config.tap.v4alpha.OutputSinkB\n\xfa\x42\x07\x92\x01\x04\x08\x01\x10\x01\x12;\n\x15max_buffered_rx_bytes\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12;\n\x15max_buffered_tx_bytes\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x11\n\tstreaming\x18\x04 \x01(\x08:\'\x9a\xc5\x88\x1e\"\n envoy.config.tap.v3.OutputConfig\"\xe5\x03\n\nOutputSink\x12\x45\n\x06\x66ormat\x18\x01 \x01(\x0e\x32+.envoy.config.tap.v4alpha.OutputSink.FormatB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12G\n\x0fstreaming_admin\x18\x02 \x01(\x0b\x32,.envoy.config.tap.v4alpha.StreamingAdminSinkH\x00\x12@\n\x0c\x66ile_per_tap\x18\x03 \x01(\x0b\x32(.envoy.config.tap.v4alpha.FilePerTapSinkH\x00\x12\x45\n\x0estreaming_grpc\x18\x04 \x01(\x0b\x32+.envoy.config.tap.v4alpha.StreamingGrpcSinkH\x00\"~\n\x06\x46ormat\x12\x16\n\x12JSON_BODY_AS_BYTES\x10\x00\x12\x17\n\x13JSON_BODY_AS_STRING\x10\x01\x12\x10\n\x0cPROTO_BINARY\x10\x02\x12!\n\x1dPROTO_BINARY_LENGTH_DELIMITED\x10\x03\x12\x0e\n\nPROTO_TEXT\x10\x04:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.config.tap.v3.OutputSinkB\x17\n\x10output_sink_type\x12\x03\xf8\x42\x01\"C\n\x12StreamingAdminSink:-\x9a\xc5\x88\x1e(\n&envoy.config.tap.v3.StreamingAdminSink\"Y\n\x0e\x46ilePerTapSink\x12\x1c\n\x0bpath_prefix\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01:)\x9a\xc5\x88\x1e$\n\"envoy.config.tap.v3.FilePerTapSink\"\x99\x01\n\x11StreamingGrpcSink\x12\x0e\n\x06tap_id\x18\x01 \x01(\t\x12\x46\n\x0cgrpc_service\x18\x02 \x01(\x0b\x32&.envoy.config.core.v4alpha.GrpcServiceB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:,\x9a\xc5\x88\x1e\'\n%envoy.config.tap.v3.StreamingGrpcSinkB?\n&io.envoyproxy.envoy.config.tap.v4alphaB\x0b\x43ommonProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n%envoy/config/tap/v4alpha/common.proto\x12\x18\x65nvoy.config.tap.v4alpha\x1a\x31\x65nvoy/config/common/matcher/v4alpha/matcher.proto\x1a$envoy/config/core/v4alpha/base.proto\x1a,envoy/config/core/v4alpha/grpc_service.proto\x1a\x31\x65nvoy/config/route/v4alpha/route_components.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x9c\x02\n\tTapConfig\x12\x42\n\x05match\x18\x04 \x01(\x0b\x32\x33.envoy.config.common.matcher.v4alpha.MatchPredicate\x12G\n\routput_config\x18\x02 \x01(\x0b\x32&.envoy.config.tap.v4alpha.OutputConfigB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12H\n\x0btap_enabled\x18\x03 \x01(\x0b\x32\x33.envoy.config.core.v4alpha.RuntimeFractionalPercent:$\x9a\xc5\x88\x1e\x1f\n\x1d\x65nvoy.config.tap.v3.TapConfigJ\x04\x08\x01\x10\x02R\x0cmatch_config\"\xbb\x07\n\x0eMatchPredicate\x12\x45\n\x08or_match\x18\x01 \x01(\x0b\x32\x31.envoy.config.tap.v4alpha.MatchPredicate.MatchSetH\x00\x12\x46\n\tand_match\x18\x02 \x01(\x0b\x32\x31.envoy.config.tap.v4alpha.MatchPredicate.MatchSetH\x00\x12=\n\tnot_match\x18\x03 \x01(\x0b\x32(.envoy.config.tap.v4alpha.MatchPredicateH\x00\x12\x1c\n\tany_match\x18\x04 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12P\n\x1ahttp_request_headers_match\x18\x05 \x01(\x0b\x32*.envoy.config.tap.v4alpha.HttpHeadersMatchH\x00\x12Q\n\x1bhttp_request_trailers_match\x18\x06 \x01(\x0b\x32*.envoy.config.tap.v4alpha.HttpHeadersMatchH\x00\x12Q\n\x1bhttp_response_headers_match\x18\x07 \x01(\x0b\x32*.envoy.config.tap.v4alpha.HttpHeadersMatchH\x00\x12R\n\x1chttp_response_trailers_match\x18\x08 \x01(\x0b\x32*.envoy.config.tap.v4alpha.HttpHeadersMatchH\x00\x12Y\n\x1fhttp_request_generic_body_match\x18\t \x01(\x0b\x32..envoy.config.tap.v4alpha.HttpGenericBodyMatchH\x00\x12Z\n http_response_generic_body_match\x18\n \x01(\x0b\x32..envoy.config.tap.v4alpha.HttpGenericBodyMatchH\x00\x1a\x81\x01\n\x08MatchSet\x12\x41\n\x05rules\x18\x01 \x03(\x0b\x32(.envoy.config.tap.v4alpha.MatchPredicateB\x08\xfa\x42\x05\x92\x01\x02\x08\x02:2\x9a\xc5\x88\x1e-\n+envoy.config.tap.v3.MatchPredicate.MatchSet:)\x9a\xc5\x88\x1e$\n\"envoy.config.tap.v3.MatchPredicateB\x0b\n\x04rule\x12\x03\xf8\x42\x01\"{\n\x10HttpHeadersMatch\x12:\n\x07headers\x18\x01 \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcher:+\x9a\xc5\x88\x1e&\n$envoy.config.tap.v3.HttpHeadersMatch\"\xdf\x02\n\x14HttpGenericBodyMatch\x12\x13\n\x0b\x62ytes_limit\x18\x01 \x01(\r\x12[\n\x08patterns\x18\x02 \x03(\x0b\x32?.envoy.config.tap.v4alpha.HttpGenericBodyMatch.GenericTextMatchB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\xa3\x01\n\x10GenericTextMatch\x12\x1f\n\x0cstring_match\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\x1f\n\x0c\x62inary_match\x18\x02 \x01(\x0c\x42\x07\xfa\x42\x04z\x02\x10\x01H\x00:@\x9a\xc5\x88\x1e;\n9envoy.config.tap.v3.HttpGenericBodyMatch.GenericTextMatchB\x0b\n\x04rule\x12\x03\xf8\x42\x01:/\x9a\xc5\x88\x1e*\n(envoy.config.tap.v3.HttpGenericBodyMatch\"\x85\x02\n\x0cOutputConfig\x12?\n\x05sinks\x18\x01 \x03(\x0b\x32$.envoy.config.tap.v4alpha.OutputSinkB\n\xfa\x42\x07\x92\x01\x04\x08\x01\x10\x01\x12;\n\x15max_buffered_rx_bytes\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12;\n\x15max_buffered_tx_bytes\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x11\n\tstreaming\x18\x04 \x01(\x08:\'\x9a\xc5\x88\x1e\"\n envoy.config.tap.v3.OutputConfig\"\xe5\x03\n\nOutputSink\x12\x45\n\x06\x66ormat\x18\x01 \x01(\x0e\x32+.envoy.config.tap.v4alpha.OutputSink.FormatB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12G\n\x0fstreaming_admin\x18\x02 \x01(\x0b\x32,.envoy.config.tap.v4alpha.StreamingAdminSinkH\x00\x12@\n\x0c\x66ile_per_tap\x18\x03 \x01(\x0b\x32(.envoy.config.tap.v4alpha.FilePerTapSinkH\x00\x12\x45\n\x0estreaming_grpc\x18\x04 \x01(\x0b\x32+.envoy.config.tap.v4alpha.StreamingGrpcSinkH\x00\"~\n\x06\x46ormat\x12\x16\n\x12JSON_BODY_AS_BYTES\x10\x00\x12\x17\n\x13JSON_BODY_AS_STRING\x10\x01\x12\x10\n\x0cPROTO_BINARY\x10\x02\x12!\n\x1dPROTO_BINARY_LENGTH_DELIMITED\x10\x03\x12\x0e\n\nPROTO_TEXT\x10\x04:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.config.tap.v3.OutputSinkB\x17\n\x10output_sink_type\x12\x03\xf8\x42\x01\"C\n\x12StreamingAdminSink:-\x9a\xc5\x88\x1e(\n&envoy.config.tap.v3.StreamingAdminSink\"Y\n\x0e\x46ilePerTapSink\x12\x1c\n\x0bpath_prefix\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:)\x9a\xc5\x88\x1e$\n\"envoy.config.tap.v3.FilePerTapSink\"\x99\x01\n\x11StreamingGrpcSink\x12\x0e\n\x06tap_id\x18\x01 \x01(\t\x12\x46\n\x0cgrpc_service\x18\x02 \x01(\x0b\x32&.envoy.config.core.v4alpha.GrpcServiceB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:,\x9a\xc5\x88\x1e\'\n%envoy.config.tap.v3.StreamingGrpcSinkB?\n&io.envoyproxy.envoy.config.tap.v4alphaB\x0b\x43ommonProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_grpc__service__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v4alpha_dot_route__components__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_common_dot_matcher_dot_v4alpha_dot_matcher__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_grpc__service__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v4alpha_dot_route__components__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -67,8 +68,8 @@ _OUTPUTSINK_FORMAT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2058,
-  serialized_end=2184,
+  serialized_start=2660,
+  serialized_end=2786,
 )
 _sym_db.RegisterEnumDescriptor(_OUTPUTSINK_FORMAT)
 
@@ -82,12 +83,12 @@ _TAPCONFIG = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='match_config', full_name='envoy.config.tap.v4alpha.TapConfig.match_config', index=0,
-      number=1, type=11, cpp_type=10, label=1,
+      name='match', full_name='envoy.config.tap.v4alpha.TapConfig.match', index=0,
+      number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\005\212\001\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='output_config', full_name='envoy.config.tap.v4alpha.TapConfig.output_config', index=1,
       number=2, type=11, cpp_type=10, label=1,
@@ -114,8 +115,8 @@ _TAPCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=326,
-  serialized_end=596,
+  serialized_start=377,
+  serialized_end=661,
 )
 
 
@@ -146,8 +147,8 @@ _MATCHPREDICATE_MATCHSET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1186,
-  serialized_end=1315,
+  serialized_start=1434,
+  serialized_end=1563,
 )
 
 _MATCHPREDICATE = _descriptor.Descriptor(
@@ -214,6 +215,20 @@ _MATCHPREDICATE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='http_request_generic_body_match', full_name='envoy.config.tap.v4alpha.MatchPredicate.http_request_generic_body_match', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='http_response_generic_body_match', full_name='envoy.config.tap.v4alpha.MatchPredicate.http_response_generic_body_match', index=9,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -231,8 +246,8 @@ _MATCHPREDICATE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=599,
-  serialized_end=1371,
+  serialized_start=664,
+  serialized_end=1619,
 )
 
 
@@ -263,8 +278,90 @@ _HTTPHEADERSMATCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1373,
-  serialized_end=1496,
+  serialized_start=1621,
+  serialized_end=1744,
+)
+
+
+_HTTPGENERICBODYMATCH_GENERICTEXTMATCH = _descriptor.Descriptor(
+  name='GenericTextMatch',
+  full_name='envoy.config.tap.v4alpha.HttpGenericBodyMatch.GenericTextMatch',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='string_match', full_name='envoy.config.tap.v4alpha.HttpGenericBodyMatch.GenericTextMatch.string_match', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='binary_match', full_name='envoy.config.tap.v4alpha.HttpGenericBodyMatch.GenericTextMatch.binary_match', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\004z\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\232\305\210\036;\n9envoy.config.tap.v3.HttpGenericBodyMatch.GenericTextMatch',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='rule', full_name='envoy.config.tap.v4alpha.HttpGenericBodyMatch.GenericTextMatch.rule',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[], serialized_options=b'\370B\001'),
+  ],
+  serialized_start=1886,
+  serialized_end=2049,
+)
+
+_HTTPGENERICBODYMATCH = _descriptor.Descriptor(
+  name='HttpGenericBodyMatch',
+  full_name='envoy.config.tap.v4alpha.HttpGenericBodyMatch',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='bytes_limit', full_name='envoy.config.tap.v4alpha.HttpGenericBodyMatch.bytes_limit', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='patterns', full_name='envoy.config.tap.v4alpha.HttpGenericBodyMatch.patterns', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\005\222\001\002\010\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_HTTPGENERICBODYMATCH_GENERICTEXTMATCH, ],
+  enum_types=[
+  ],
+  serialized_options=b'\232\305\210\036*\n(envoy.config.tap.v3.HttpGenericBodyMatch',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1747,
+  serialized_end=2098,
 )
 
 
@@ -316,8 +413,8 @@ _OUTPUTCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1499,
-  serialized_end=1760,
+  serialized_start=2101,
+  serialized_end=2362,
 )
 
 
@@ -375,8 +472,8 @@ _OUTPUTSINK = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=1763,
-  serialized_end=2248,
+  serialized_start=2365,
+  serialized_end=2850,
 )
 
 
@@ -400,8 +497,8 @@ _STREAMINGADMINSINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2250,
-  serialized_end=2317,
+  serialized_start=2852,
+  serialized_end=2919,
 )
 
 
@@ -419,7 +516,7 @@ _FILEPERTAPSINK = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -432,8 +529,8 @@ _FILEPERTAPSINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2319,
-  serialized_end=2408,
+  serialized_start=2921,
+  serialized_end=3010,
 )
 
 
@@ -471,11 +568,11 @@ _STREAMINGGRPCSINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2411,
-  serialized_end=2564,
+  serialized_start=3013,
+  serialized_end=3166,
 )
 
-_TAPCONFIG.fields_by_name['match_config'].message_type = _MATCHPREDICATE
+_TAPCONFIG.fields_by_name['match'].message_type = envoy_dot_config_dot_common_dot_matcher_dot_v4alpha_dot_matcher__pb2._MATCHPREDICATE
 _TAPCONFIG.fields_by_name['output_config'].message_type = _OUTPUTCONFIG
 _TAPCONFIG.fields_by_name['tap_enabled'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2._RUNTIMEFRACTIONALPERCENT
 _MATCHPREDICATE_MATCHSET.fields_by_name['rules'].message_type = _MATCHPREDICATE
@@ -487,6 +584,8 @@ _MATCHPREDICATE.fields_by_name['http_request_headers_match'].message_type = _HTT
 _MATCHPREDICATE.fields_by_name['http_request_trailers_match'].message_type = _HTTPHEADERSMATCH
 _MATCHPREDICATE.fields_by_name['http_response_headers_match'].message_type = _HTTPHEADERSMATCH
 _MATCHPREDICATE.fields_by_name['http_response_trailers_match'].message_type = _HTTPHEADERSMATCH
+_MATCHPREDICATE.fields_by_name['http_request_generic_body_match'].message_type = _HTTPGENERICBODYMATCH
+_MATCHPREDICATE.fields_by_name['http_response_generic_body_match'].message_type = _HTTPGENERICBODYMATCH
 _MATCHPREDICATE.oneofs_by_name['rule'].fields.append(
   _MATCHPREDICATE.fields_by_name['or_match'])
 _MATCHPREDICATE.fields_by_name['or_match'].containing_oneof = _MATCHPREDICATE.oneofs_by_name['rule']
@@ -511,7 +610,21 @@ _MATCHPREDICATE.fields_by_name['http_response_headers_match'].containing_oneof =
 _MATCHPREDICATE.oneofs_by_name['rule'].fields.append(
   _MATCHPREDICATE.fields_by_name['http_response_trailers_match'])
 _MATCHPREDICATE.fields_by_name['http_response_trailers_match'].containing_oneof = _MATCHPREDICATE.oneofs_by_name['rule']
+_MATCHPREDICATE.oneofs_by_name['rule'].fields.append(
+  _MATCHPREDICATE.fields_by_name['http_request_generic_body_match'])
+_MATCHPREDICATE.fields_by_name['http_request_generic_body_match'].containing_oneof = _MATCHPREDICATE.oneofs_by_name['rule']
+_MATCHPREDICATE.oneofs_by_name['rule'].fields.append(
+  _MATCHPREDICATE.fields_by_name['http_response_generic_body_match'])
+_MATCHPREDICATE.fields_by_name['http_response_generic_body_match'].containing_oneof = _MATCHPREDICATE.oneofs_by_name['rule']
 _HTTPHEADERSMATCH.fields_by_name['headers'].message_type = envoy_dot_config_dot_route_dot_v4alpha_dot_route__components__pb2._HEADERMATCHER
+_HTTPGENERICBODYMATCH_GENERICTEXTMATCH.containing_type = _HTTPGENERICBODYMATCH
+_HTTPGENERICBODYMATCH_GENERICTEXTMATCH.oneofs_by_name['rule'].fields.append(
+  _HTTPGENERICBODYMATCH_GENERICTEXTMATCH.fields_by_name['string_match'])
+_HTTPGENERICBODYMATCH_GENERICTEXTMATCH.fields_by_name['string_match'].containing_oneof = _HTTPGENERICBODYMATCH_GENERICTEXTMATCH.oneofs_by_name['rule']
+_HTTPGENERICBODYMATCH_GENERICTEXTMATCH.oneofs_by_name['rule'].fields.append(
+  _HTTPGENERICBODYMATCH_GENERICTEXTMATCH.fields_by_name['binary_match'])
+_HTTPGENERICBODYMATCH_GENERICTEXTMATCH.fields_by_name['binary_match'].containing_oneof = _HTTPGENERICBODYMATCH_GENERICTEXTMATCH.oneofs_by_name['rule']
+_HTTPGENERICBODYMATCH.fields_by_name['patterns'].message_type = _HTTPGENERICBODYMATCH_GENERICTEXTMATCH
 _OUTPUTCONFIG.fields_by_name['sinks'].message_type = _OUTPUTSINK
 _OUTPUTCONFIG.fields_by_name['max_buffered_rx_bytes'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _OUTPUTCONFIG.fields_by_name['max_buffered_tx_bytes'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
@@ -533,6 +646,7 @@ _STREAMINGGRPCSINK.fields_by_name['grpc_service'].message_type = envoy_dot_confi
 DESCRIPTOR.message_types_by_name['TapConfig'] = _TAPCONFIG
 DESCRIPTOR.message_types_by_name['MatchPredicate'] = _MATCHPREDICATE
 DESCRIPTOR.message_types_by_name['HttpHeadersMatch'] = _HTTPHEADERSMATCH
+DESCRIPTOR.message_types_by_name['HttpGenericBodyMatch'] = _HTTPGENERICBODYMATCH
 DESCRIPTOR.message_types_by_name['OutputConfig'] = _OUTPUTCONFIG
 DESCRIPTOR.message_types_by_name['OutputSink'] = _OUTPUTSINK
 DESCRIPTOR.message_types_by_name['StreamingAdminSink'] = _STREAMINGADMINSINK
@@ -568,6 +682,21 @@ HttpHeadersMatch = _reflection.GeneratedProtocolMessageType('HttpHeadersMatch', 
   # @@protoc_insertion_point(class_scope:envoy.config.tap.v4alpha.HttpHeadersMatch)
   })
 _sym_db.RegisterMessage(HttpHeadersMatch)
+
+HttpGenericBodyMatch = _reflection.GeneratedProtocolMessageType('HttpGenericBodyMatch', (_message.Message,), {
+
+  'GenericTextMatch' : _reflection.GeneratedProtocolMessageType('GenericTextMatch', (_message.Message,), {
+    'DESCRIPTOR' : _HTTPGENERICBODYMATCH_GENERICTEXTMATCH,
+    '__module__' : 'envoy.config.tap.v4alpha.common_pb2'
+    # @@protoc_insertion_point(class_scope:envoy.config.tap.v4alpha.HttpGenericBodyMatch.GenericTextMatch)
+    })
+  ,
+  'DESCRIPTOR' : _HTTPGENERICBODYMATCH,
+  '__module__' : 'envoy.config.tap.v4alpha.common_pb2'
+  # @@protoc_insertion_point(class_scope:envoy.config.tap.v4alpha.HttpGenericBodyMatch)
+  })
+_sym_db.RegisterMessage(HttpGenericBodyMatch)
+_sym_db.RegisterMessage(HttpGenericBodyMatch.GenericTextMatch)
 
 OutputConfig = _reflection.GeneratedProtocolMessageType('OutputConfig', (_message.Message,), {
   'DESCRIPTOR' : _OUTPUTCONFIG,
@@ -606,7 +735,6 @@ _sym_db.RegisterMessage(StreamingGrpcSink)
 
 
 DESCRIPTOR._options = None
-_TAPCONFIG.fields_by_name['match_config']._options = None
 _TAPCONFIG.fields_by_name['output_config']._options = None
 _TAPCONFIG._options = None
 _MATCHPREDICATE_MATCHSET.fields_by_name['rules']._options = None
@@ -615,6 +743,12 @@ _MATCHPREDICATE.oneofs_by_name['rule']._options = None
 _MATCHPREDICATE.fields_by_name['any_match']._options = None
 _MATCHPREDICATE._options = None
 _HTTPHEADERSMATCH._options = None
+_HTTPGENERICBODYMATCH_GENERICTEXTMATCH.oneofs_by_name['rule']._options = None
+_HTTPGENERICBODYMATCH_GENERICTEXTMATCH.fields_by_name['string_match']._options = None
+_HTTPGENERICBODYMATCH_GENERICTEXTMATCH.fields_by_name['binary_match']._options = None
+_HTTPGENERICBODYMATCH_GENERICTEXTMATCH._options = None
+_HTTPGENERICBODYMATCH.fields_by_name['patterns']._options = None
+_HTTPGENERICBODYMATCH._options = None
 _OUTPUTCONFIG.fields_by_name['sinks']._options = None
 _OUTPUTCONFIG._options = None
 _OUTPUTSINK.oneofs_by_name['output_sink_type']._options = None

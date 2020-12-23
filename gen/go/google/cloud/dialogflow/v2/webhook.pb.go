@@ -22,10 +22,10 @@ package dialogflow
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -167,7 +167,7 @@ type WebhookResponse struct {
 	// for rich response messages.
 	// See the format definition at [Google Assistant Dialogflow webhook
 	// format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
-	Payload *structpb.Struct `protobuf:"bytes,4,opt,name=payload,proto3" json:"payload,omitempty"`
+	Payload *_struct.Struct `protobuf:"bytes,4,opt,name=payload,proto3" json:"payload,omitempty"`
 	// Optional. The collection of output contexts that will overwrite currently
 	// active contexts for the session and reset their lifespans.
 	// When provided, Dialogflow uses this field to populate
@@ -238,7 +238,7 @@ func (x *WebhookResponse) GetSource() string {
 	return ""
 }
 
-func (x *WebhookResponse) GetPayload() *structpb.Struct {
+func (x *WebhookResponse) GetPayload() *_struct.Struct {
 	if x != nil {
 		return x.Payload
 	}
@@ -290,10 +290,10 @@ type OriginalDetectIntentRequest struct {
 	//    "caller_id": "+18558363987"
 	//  }
 	// }</pre>
-	// Note: The caller ID field (`caller_id`) will be redacted for Standard
+	// Note: The caller ID field (`caller_id`) will be redacted for Trial
 	// Edition agents and populated with the caller ID in [E.164
-	// format](https://en.wikipedia.org/wiki/E.164) for Enterprise Edition agents.
-	Payload *structpb.Struct `protobuf:"bytes,3,opt,name=payload,proto3" json:"payload,omitempty"`
+	// format](https://en.wikipedia.org/wiki/E.164) for Essentials Edition agents.
+	Payload *_struct.Struct `protobuf:"bytes,3,opt,name=payload,proto3" json:"payload,omitempty"`
 }
 
 func (x *OriginalDetectIntentRequest) Reset() {
@@ -342,7 +342,7 @@ func (x *OriginalDetectIntentRequest) GetVersion() string {
 	return ""
 }
 
-func (x *OriginalDetectIntentRequest) GetPayload() *structpb.Struct {
+func (x *OriginalDetectIntentRequest) GetPayload() *_struct.Struct {
 	if x != nil {
 		return x.Payload
 	}
@@ -460,7 +460,7 @@ var file_google_cloud_dialogflow_v2_webhook_proto_goTypes = []interface{}{
 	(*OriginalDetectIntentRequest)(nil), // 2: google.cloud.dialogflow.v2.OriginalDetectIntentRequest
 	(*QueryResult)(nil),                 // 3: google.cloud.dialogflow.v2.QueryResult
 	(*Intent_Message)(nil),              // 4: google.cloud.dialogflow.v2.Intent.Message
-	(*structpb.Struct)(nil),             // 5: google.protobuf.Struct
+	(*_struct.Struct)(nil),              // 5: google.protobuf.Struct
 	(*Context)(nil),                     // 6: google.cloud.dialogflow.v2.Context
 	(*EventInput)(nil),                  // 7: google.cloud.dialogflow.v2.EventInput
 	(*SessionEntityType)(nil),           // 8: google.cloud.dialogflow.v2.SessionEntityType

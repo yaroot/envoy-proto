@@ -22,14 +22,14 @@ package instance
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	v1 "google.golang.org/genproto/googleapis/iam/v1"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -651,7 +651,7 @@ type GetInstanceRequest struct {
 	// If field_mask is present, specifies the subset of [Instance][google.spanner.admin.instance.v1.Instance] fields that
 	// should be returned.
 	// If absent, all [Instance][google.spanner.admin.instance.v1.Instance] fields are returned.
-	FieldMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=field_mask,json=fieldMask,proto3" json:"field_mask,omitempty"`
+	FieldMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=field_mask,json=fieldMask,proto3" json:"field_mask,omitempty"`
 }
 
 func (x *GetInstanceRequest) Reset() {
@@ -693,7 +693,7 @@ func (x *GetInstanceRequest) GetName() string {
 	return ""
 }
 
-func (x *GetInstanceRequest) GetFieldMask() *fieldmaskpb.FieldMask {
+func (x *GetInstanceRequest) GetFieldMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.FieldMask
 	}
@@ -942,7 +942,7 @@ type UpdateInstanceRequest struct {
 	// The field mask must always be specified; this prevents any future fields in
 	// [Instance][google.spanner.admin.instance.v1.Instance] from being erased accidentally by clients that do not know
 	// about them.
-	FieldMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=field_mask,json=fieldMask,proto3" json:"field_mask,omitempty"`
+	FieldMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=field_mask,json=fieldMask,proto3" json:"field_mask,omitempty"`
 }
 
 func (x *UpdateInstanceRequest) Reset() {
@@ -984,7 +984,7 @@ func (x *UpdateInstanceRequest) GetInstance() *Instance {
 	return nil
 }
 
-func (x *UpdateInstanceRequest) GetFieldMask() *fieldmaskpb.FieldMask {
+func (x *UpdateInstanceRequest) GetFieldMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.FieldMask
 	}
@@ -1053,13 +1053,13 @@ type CreateInstanceMetadata struct {
 	// The time at which the
 	// [CreateInstance][google.spanner.admin.instance.v1.InstanceAdmin.CreateInstance] request was
 	// received.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// The time at which this operation was cancelled. If set, this operation is
 	// in the process of undoing itself (which is guaranteed to succeed) and
 	// cannot be cancelled again.
-	CancelTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
+	CancelTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
 	// The time at which this operation failed or was completed successfully.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 }
 
 func (x *CreateInstanceMetadata) Reset() {
@@ -1101,21 +1101,21 @@ func (x *CreateInstanceMetadata) GetInstance() *Instance {
 	return nil
 }
 
-func (x *CreateInstanceMetadata) GetStartTime() *timestamppb.Timestamp {
+func (x *CreateInstanceMetadata) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *CreateInstanceMetadata) GetCancelTime() *timestamppb.Timestamp {
+func (x *CreateInstanceMetadata) GetCancelTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CancelTime
 	}
 	return nil
 }
 
-func (x *CreateInstanceMetadata) GetEndTime() *timestamppb.Timestamp {
+func (x *CreateInstanceMetadata) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -1133,13 +1133,13 @@ type UpdateInstanceMetadata struct {
 	Instance *Instance `protobuf:"bytes,1,opt,name=instance,proto3" json:"instance,omitempty"`
 	// The time at which [UpdateInstance][google.spanner.admin.instance.v1.InstanceAdmin.UpdateInstance]
 	// request was received.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// The time at which this operation was cancelled. If set, this operation is
 	// in the process of undoing itself (which is guaranteed to succeed) and
 	// cannot be cancelled again.
-	CancelTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
+	CancelTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
 	// The time at which this operation failed or was completed successfully.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 }
 
 func (x *UpdateInstanceMetadata) Reset() {
@@ -1181,21 +1181,21 @@ func (x *UpdateInstanceMetadata) GetInstance() *Instance {
 	return nil
 }
 
-func (x *UpdateInstanceMetadata) GetStartTime() *timestamppb.Timestamp {
+func (x *UpdateInstanceMetadata) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *UpdateInstanceMetadata) GetCancelTime() *timestamppb.Timestamp {
+func (x *UpdateInstanceMetadata) GetCancelTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CancelTime
 	}
 	return nil
 }
 
-func (x *UpdateInstanceMetadata) GetEndTime() *timestamppb.Timestamp {
+func (x *UpdateInstanceMetadata) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -1600,13 +1600,13 @@ var file_google_spanner_admin_instance_v1_spanner_instance_admin_proto_goTypes =
 	(*CreateInstanceMetadata)(nil),        // 14: google.spanner.admin.instance.v1.CreateInstanceMetadata
 	(*UpdateInstanceMetadata)(nil),        // 15: google.spanner.admin.instance.v1.UpdateInstanceMetadata
 	nil,                                   // 16: google.spanner.admin.instance.v1.Instance.LabelsEntry
-	(*fieldmaskpb.FieldMask)(nil),         // 17: google.protobuf.FieldMask
-	(*timestamppb.Timestamp)(nil),         // 18: google.protobuf.Timestamp
+	(*field_mask.FieldMask)(nil),          // 17: google.protobuf.FieldMask
+	(*timestamp.Timestamp)(nil),           // 18: google.protobuf.Timestamp
 	(*v1.SetIamPolicyRequest)(nil),        // 19: google.iam.v1.SetIamPolicyRequest
 	(*v1.GetIamPolicyRequest)(nil),        // 20: google.iam.v1.GetIamPolicyRequest
 	(*v1.TestIamPermissionsRequest)(nil),  // 21: google.iam.v1.TestIamPermissionsRequest
 	(*longrunning.Operation)(nil),         // 22: google.longrunning.Operation
-	(*emptypb.Empty)(nil),                 // 23: google.protobuf.Empty
+	(*empty.Empty)(nil),                   // 23: google.protobuf.Empty
 	(*v1.Policy)(nil),                     // 24: google.iam.v1.Policy
 	(*v1.TestIamPermissionsResponse)(nil), // 25: google.iam.v1.TestIamPermissionsResponse
 }

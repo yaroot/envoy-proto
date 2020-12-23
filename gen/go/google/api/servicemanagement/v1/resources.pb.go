@@ -23,17 +23,17 @@ package servicemanagement
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/any"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	configchange "google.golang.org/genproto/googleapis/api/configchange"
 	_ "google.golang.org/genproto/googleapis/api/metric"
 	_ "google.golang.org/genproto/googleapis/api/serviceconfig"
 	_ "google.golang.org/genproto/googleapis/longrunning"
 	_ "google.golang.org/genproto/googleapis/rpc/status"
+	_ "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/anypb"
-	_ "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -383,7 +383,7 @@ type OperationMetadata struct {
 	// Percentage of completion of this operation, ranging from 0 to 100.
 	ProgressPercentage int32 `protobuf:"varint,3,opt,name=progress_percentage,json=progressPercentage,proto3" json:"progress_percentage,omitempty"`
 	// The start time of the operation.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 }
 
 func (x *OperationMetadata) Reset() {
@@ -439,7 +439,7 @@ func (x *OperationMetadata) GetProgressPercentage() int32 {
 	return 0
 }
 
-func (x *OperationMetadata) GetStartTime() *timestamppb.Timestamp {
+func (x *OperationMetadata) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
@@ -766,7 +766,7 @@ type Rollout struct {
 	// An example of the generated rollout_id is '2016-02-16r1'
 	RolloutId string `protobuf:"bytes,1,opt,name=rollout_id,json=rolloutId,proto3" json:"rollout_id,omitempty"`
 	// Creation time of the rollout. Readonly.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// The user who created the Rollout. Readonly.
 	CreatedBy string `protobuf:"bytes,3,opt,name=created_by,json=createdBy,proto3" json:"created_by,omitempty"`
 	// The status of this rollout. Readonly. In case of a failed rollout,
@@ -824,7 +824,7 @@ func (x *Rollout) GetRolloutId() string {
 	return ""
 }
 
-func (x *Rollout) GetCreateTime() *timestamppb.Timestamp {
+func (x *Rollout) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -1235,7 +1235,7 @@ var file_google_api_servicemanagement_v1_resources_proto_rawDesc = []byte{
 	0x0b, 0x0a, 0x07, 0x50, 0x45, 0x4e, 0x44, 0x49, 0x4e, 0x47, 0x10, 0x05, 0x12, 0x16, 0x0a, 0x12,
 	0x46, 0x41, 0x49, 0x4c, 0x45, 0x44, 0x5f, 0x52, 0x4f, 0x4c, 0x4c, 0x45, 0x44, 0x5f, 0x42, 0x41,
 	0x43, 0x4b, 0x10, 0x06, 0x42, 0x0a, 0x0a, 0x08, 0x73, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79,
-	0x42, 0xd8, 0x01, 0x0a, 0x23, 0x63, 0x6f, 0x6d, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e,
+	0x42, 0xff, 0x01, 0x0a, 0x23, 0x63, 0x6f, 0x6d, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e,
 	0x61, 0x70, 0x69, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x6d, 0x61, 0x6e, 0x61, 0x67,
 	0x65, 0x6d, 0x65, 0x6e, 0x74, 0x2e, 0x76, 0x31, 0x42, 0x0e, 0x52, 0x65, 0x73, 0x6f, 0x75, 0x72,
 	0x63, 0x65, 0x73, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x50, 0x67, 0x6f, 0x6f, 0x67,
@@ -1248,8 +1248,10 @@ var file_google_api_servicemanagement_v1_resources_proto_rawDesc = []byte{
 	0x75, 0x64, 0x2e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x4d, 0x61, 0x6e, 0x61, 0x67, 0x65,
 	0x6d, 0x65, 0x6e, 0x74, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x21, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
 	0x5c, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x5c, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x4d, 0x61,
-	0x6e, 0x61, 0x67, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x5c, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+	0x6e, 0x61, 0x67, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x5c, 0x56, 0x31, 0xea, 0x02, 0x24, 0x47, 0x6f,
+	0x6f, 0x67, 0x6c, 0x65, 0x3a, 0x3a, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x3a, 0x3a, 0x53, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x4d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x6d, 0x65, 0x6e, 0x74, 0x3a, 0x3a,
+	0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1283,7 +1285,7 @@ var file_google_api_servicemanagement_v1_resources_proto_goTypes = []interface{}
 	(*Rollout_TrafficPercentStrategy)(nil), // 13: google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy
 	(*Rollout_DeleteServiceStrategy)(nil),  // 14: google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy
 	nil,                                    // 15: google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy.PercentagesEntry
-	(*timestamppb.Timestamp)(nil),          // 16: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),            // 16: google.protobuf.Timestamp
 	(*configchange.ConfigChange)(nil),      // 17: google.api.ConfigChange
 }
 var file_google_api_servicemanagement_v1_resources_proto_depIdxs = []int32{

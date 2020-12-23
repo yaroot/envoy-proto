@@ -22,12 +22,12 @@ package dialogflow
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -63,10 +63,16 @@ type Context struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Required. The unique identifier of the context. Format:
-	// `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
-	// or `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
-	// ID>/sessions/<Session ID>/contexts/<Context ID>`.
+	// Required. The unique identifier of the context. Supported formats:
+	// - `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context
+	//   ID>`,
+	// - `projects/<Project ID>/locations/<Location ID>/agent/sessions/<Session
+	//   ID>/contexts/<Context ID>`,
+	// - `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
+	//   ID>/sessions/<Session ID>/contexts/<Context ID>`,
+	// - `projects/<Project ID>/locations/<Location
+	//   ID>/agent/environments/<Environment ID>/users/<User ID>/sessions/<Session
+	//   ID>/contexts/<Context ID>`,
 	//
 	// The `Context ID` is always converted to lowercase, may only contain
 	// characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
@@ -96,12 +102,13 @@ type Context struct {
 	// -   MapKey value: parameter name
 	// -   MapValue type:
 	//     -   If parameter's entity type is a composite entity: map
-	//     -   Else: string or number, depending on parameter value type
+	//     -   Else: depending on parameter value type, could be one of string,
+	//         number, boolean, null, list or map
 	// -   MapValue value:
 	//     -   If parameter's entity type is a composite entity:
 	//         map from composite entity property names to property values
 	//     -   Else: parameter value
-	Parameters *structpb.Struct `protobuf:"bytes,3,opt,name=parameters,proto3" json:"parameters,omitempty"`
+	Parameters *_struct.Struct `protobuf:"bytes,3,opt,name=parameters,proto3" json:"parameters,omitempty"`
 }
 
 func (x *Context) Reset() {
@@ -150,7 +157,7 @@ func (x *Context) GetLifespanCount() int32 {
 	return 0
 }
 
-func (x *Context) GetParameters() *structpb.Struct {
+func (x *Context) GetParameters() *_struct.Struct {
 	if x != nil {
 		return x.Parameters
 	}
@@ -163,12 +170,19 @@ type ListContextsRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Required. The session to list all contexts from.
-	// Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
-	// `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
-	// ID>/sessions/<Session ID>`. If `Environment ID` is not specified, we assume
-	// default 'draft' environment. If `User ID` is not specified, we assume
-	// default '-' user.
+	// Required. The session to list all contexts from. Supported formats:
+	// - `projects/<Project ID>/agent/sessions/<Session ID>,
+	// - `projects/<Project ID>/locations/<Location ID>/agent/sessions/<Session
+	//   ID>`,
+	// - `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
+	//   ID>/sessions/<Session ID>`,
+	// - `projects/<Project ID>/locations/<Location
+	//   ID>/agent/environments/<Environment ID>/users/<User ID>/sessions/<Session
+	//   ID>`,
+	//
+	// If `Location ID` is not specified we assume default 'us' location. If
+	// `Environment ID` is not specified, we assume default 'draft' environment.
+	// If `User ID` is not specified, we assume default '-' user.
 	Parent string `protobuf:"bytes,1,opt,name=parent,proto3" json:"parent,omitempty"`
 	// Optional. The maximum number of items to return in a single page. By
 	// default 100 and at most 1000.
@@ -296,12 +310,20 @@ type GetContextRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Required. The name of the context. Format:
-	// `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
-	// or `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
-	// ID>/sessions/<Session ID>/contexts/<Context ID>`. If `Environment ID` is
-	// not specified, we assume default 'draft' environment. If `User ID` is not
-	// specified, we assume default '-' user.
+	// Required. The name of the context. Supported formats:
+	// - `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context
+	//   ID>`,
+	// - `projects/<Project ID>/locations/<Location ID>/agent/sessions/<Session
+	//   ID>/contexts/<Context ID>`,
+	// - `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
+	//   ID>/sessions/<Session ID>/contexts/<Context ID>`,
+	// - `projects/<Project ID>/locations/<Location
+	//   ID>/agent/environments/<Environment ID>/users/<User ID>/sessions/<Session
+	//   ID>/contexts/<Context ID>`,
+	//
+	// If `Location ID` is not specified we assume default 'us' location. If
+	// `Environment ID` is not specified, we assume default 'draft' environment.
+	// If `User ID` is not specified, we assume default '-' user.
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 }
 
@@ -350,12 +372,19 @@ type CreateContextRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Required. The session to create a context for.
-	// Format: `projects/<Project ID>/agent/sessions/<Session ID>` or
-	// `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
-	// ID>/sessions/<Session ID>`. If `Environment ID` is not specified, we assume
-	// default 'draft' environment. If `User ID` is not specified, we assume
-	// default '-' user.
+	// Required. The session to create a context for. Supported formats:
+	// - `projects/<Project ID>/agent/sessions/<Session ID>,
+	// - `projects/<Project ID>/locations/<Location ID>/agent/sessions/<Session
+	//   ID>`,
+	// - `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
+	//   ID>/sessions/<Session ID>`,
+	// - `projects/<Project ID>/locations/<Location
+	//   ID>/agent/environments/<Environment ID>/users/<User ID>/sessions/<Session
+	//   ID>`,
+	//
+	// If `Location ID` is not specified we assume default 'us' location. If
+	// `Environment ID` is not specified, we assume default 'draft' environment.
+	// If `User ID` is not specified, we assume default '-' user.
 	Parent string `protobuf:"bytes,1,opt,name=parent,proto3" json:"parent,omitempty"`
 	// Required. The context to create.
 	Context *Context `protobuf:"bytes,2,opt,name=context,proto3" json:"context,omitempty"`
@@ -416,7 +445,7 @@ type UpdateContextRequest struct {
 	// Required. The context to update.
 	Context *Context `protobuf:"bytes,1,opt,name=context,proto3" json:"context,omitempty"`
 	// Optional. The mask to control which fields get updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateContextRequest) Reset() {
@@ -458,7 +487,7 @@ func (x *UpdateContextRequest) GetContext() *Context {
 	return nil
 }
 
-func (x *UpdateContextRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateContextRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -471,12 +500,20 @@ type DeleteContextRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Required. The name of the context to delete. Format:
-	// `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`
-	// or `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
-	// ID>/sessions/<Session ID>/contexts/<Context ID>`. If `Environment ID` is
-	// not specified, we assume default 'draft' environment. If `User ID` is not
-	// specified, we assume default '-' user.
+	// Required. The name of the context to delete. Supported formats:
+	// - `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context
+	//   ID>`,
+	// - `projects/<Project ID>/locations/<Location ID>/agent/sessions/<Session
+	//   ID>/contexts/<Context ID>`,
+	// - `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
+	//   ID>/sessions/<Session ID>/contexts/<Context ID>`,
+	// - `projects/<Project ID>/locations/<Location
+	//   ID>/agent/environments/<Environment ID>/users/<User ID>/sessions/<Session
+	//   ID>/contexts/<Context ID>`,
+	//
+	// If `Location ID` is not specified we assume default 'us' location. If
+	// `Environment ID` is not specified, we assume default 'draft' environment.
+	// If `User ID` is not specified, we assume default '-' user.
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 }
 
@@ -525,11 +562,19 @@ type DeleteAllContextsRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Required. The name of the session to delete all contexts from. Format:
-	// `projects/<Project ID>/agent/sessions/<Session ID>` or `projects/<Project
-	// ID>/agent/environments/<Environment ID>/users/<User ID>/sessions/<Session
-	// ID>`. If `Environment ID` is not specified we assume default 'draft'
-	// environment. If `User ID` is not specified, we assume default '-' user.
+	// Required. The name of the session to delete all contexts from. Supported formats:
+	// - `projects/<Project ID>/agent/sessions/<Session ID>,
+	// - `projects/<Project ID>/locations/<Location ID>/agent/sessions/<Session
+	//   ID>`,
+	// - `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
+	//   ID>/sessions/<Session ID>`,
+	// - `projects/<Project ID>/locations/<Location
+	//   ID>/agent/environments/<Environment ID>/users/<User ID>/sessions/<Session
+	//   ID>`,
+	//
+	// If `Location ID` is not specified we assume default 'us' location. If
+	// `Environment ID` is not specified we assume default 'draft' environment. If
+	// `User ID` is not specified, we assume default '-' user.
 	Parent string `protobuf:"bytes,1,opt,name=parent,proto3" json:"parent,omitempty"`
 }
 
@@ -888,9 +933,9 @@ var file_google_cloud_dialogflow_v2beta1_context_proto_goTypes = []interface{}{
 	(*UpdateContextRequest)(nil),     // 5: google.cloud.dialogflow.v2beta1.UpdateContextRequest
 	(*DeleteContextRequest)(nil),     // 6: google.cloud.dialogflow.v2beta1.DeleteContextRequest
 	(*DeleteAllContextsRequest)(nil), // 7: google.cloud.dialogflow.v2beta1.DeleteAllContextsRequest
-	(*structpb.Struct)(nil),          // 8: google.protobuf.Struct
-	(*fieldmaskpb.FieldMask)(nil),    // 9: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),            // 10: google.protobuf.Empty
+	(*_struct.Struct)(nil),           // 8: google.protobuf.Struct
+	(*field_mask.FieldMask)(nil),     // 9: google.protobuf.FieldMask
+	(*empty.Empty)(nil),              // 10: google.protobuf.Empty
 }
 var file_google_cloud_dialogflow_v2beta1_context_proto_depIdxs = []int32{
 	8,  // 0: google.cloud.dialogflow.v2beta1.Context.parameters:type_name -> google.protobuf.Struct

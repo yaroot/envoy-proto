@@ -22,12 +22,12 @@ package database
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -115,7 +115,7 @@ type Backup struct {
 	// from the time the CreateBackup request is processed. Once the `expire_time`
 	// has passed, the backup is eligible to be automatically deleted by Cloud
 	// Spanner to free the resources used by the backup.
-	ExpireTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
+	ExpireTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
 	// Output only for the [CreateBackup][google.spanner.admin.database.v1.DatabaseAdmin.CreateBackup] operation.
 	// Required for the [UpdateBackup][google.spanner.admin.database.v1.DatabaseAdmin.UpdateBackup] operation.
 	//
@@ -134,7 +134,7 @@ type Backup struct {
 	// copy of the database at the timestamp specified by
 	// `create_time`. `create_time` is approximately the time the
 	// [CreateBackup][google.spanner.admin.database.v1.DatabaseAdmin.CreateBackup] request is received.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. Size of the backup in bytes.
 	SizeBytes int64 `protobuf:"varint,5,opt,name=size_bytes,json=sizeBytes,proto3" json:"size_bytes,omitempty"`
 	// Output only. The current state of the backup.
@@ -188,7 +188,7 @@ func (x *Backup) GetDatabase() string {
 	return ""
 }
 
-func (x *Backup) GetExpireTime() *timestamppb.Timestamp {
+func (x *Backup) GetExpireTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ExpireTime
 	}
@@ -202,7 +202,7 @@ func (x *Backup) GetName() string {
 	return ""
 }
 
-func (x *Backup) GetCreateTime() *timestamppb.Timestamp {
+func (x *Backup) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -329,7 +329,7 @@ type CreateBackupMetadata struct {
 	// the operation is not deleted; instead, it becomes an operation with
 	// an [Operation.error][] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
 	// corresponding to `Code.CANCELLED`.
-	CancelTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
+	CancelTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
 }
 
 func (x *CreateBackupMetadata) Reset() {
@@ -385,7 +385,7 @@ func (x *CreateBackupMetadata) GetProgress() *OperationProgress {
 	return nil
 }
 
-func (x *CreateBackupMetadata) GetCancelTime() *timestamppb.Timestamp {
+func (x *CreateBackupMetadata) GetCancelTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CancelTime
 	}
@@ -408,7 +408,7 @@ type UpdateBackupRequest struct {
 	// resource, not to the request message. The field mask must always be
 	// specified; this prevents any future fields from being erased accidentally
 	// by clients that do not know about them.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateBackupRequest) Reset() {
@@ -450,7 +450,7 @@ func (x *UpdateBackupRequest) GetBackup() *Backup {
 	return nil
 }
 
-func (x *UpdateBackupRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateBackupRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -932,7 +932,7 @@ type BackupInfo struct {
 	Backup string `protobuf:"bytes,1,opt,name=backup,proto3" json:"backup,omitempty"`
 	// The backup contains an externally consistent copy of `source_database` at
 	// the timestamp specified by `create_time`.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Name of the database the backup was created from.
 	SourceDatabase string `protobuf:"bytes,3,opt,name=source_database,json=sourceDatabase,proto3" json:"source_database,omitempty"`
 }
@@ -976,7 +976,7 @@ func (x *BackupInfo) GetBackup() string {
 	return ""
 }
 
-func (x *BackupInfo) GetCreateTime() *timestamppb.Timestamp {
+func (x *BackupInfo) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -1187,9 +1187,9 @@ var file_google_spanner_admin_database_v1_backup_proto_goTypes = []interface{}{
 	(*ListBackupOperationsRequest)(nil),  // 9: google.spanner.admin.database.v1.ListBackupOperationsRequest
 	(*ListBackupOperationsResponse)(nil), // 10: google.spanner.admin.database.v1.ListBackupOperationsResponse
 	(*BackupInfo)(nil),                   // 11: google.spanner.admin.database.v1.BackupInfo
-	(*timestamppb.Timestamp)(nil),        // 12: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),          // 12: google.protobuf.Timestamp
 	(*OperationProgress)(nil),            // 13: google.spanner.admin.database.v1.OperationProgress
-	(*fieldmaskpb.FieldMask)(nil),        // 14: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),         // 14: google.protobuf.FieldMask
 	(*longrunning.Operation)(nil),        // 15: google.longrunning.Operation
 }
 var file_google_spanner_admin_database_v1_backup_proto_depIdxs = []int32{

@@ -23,10 +23,10 @@ package library
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -1168,7 +1168,7 @@ var file_google_example_library_v1_library_proto_goTypes = []interface{}{
 	(*UpdateBookRequest)(nil),   // 12: google.example.library.v1.UpdateBookRequest
 	(*DeleteBookRequest)(nil),   // 13: google.example.library.v1.DeleteBookRequest
 	(*MoveBookRequest)(nil),     // 14: google.example.library.v1.MoveBookRequest
-	(*emptypb.Empty)(nil),       // 15: google.protobuf.Empty
+	(*empty.Empty)(nil),         // 15: google.protobuf.Empty
 }
 var file_google_example_library_v1_library_proto_depIdxs = []int32{
 	1,  // 0: google.example.library.v1.CreateShelfRequest.shelf:type_name -> google.example.library.v1.Shelf

@@ -22,11 +22,11 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v3/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -54,13 +54,13 @@ type MobileDeviceConstant struct {
 	// `mobileDeviceConstants/{criterion_id}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. The ID of the mobile device constant.
-	Id *wrapperspb.Int64Value `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	Id *wrappers.Int64Value `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	// Output only. The name of the mobile device.
-	Name *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	Name *wrappers.StringValue `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Output only. The manufacturer of the mobile device.
-	ManufacturerName *wrapperspb.StringValue `protobuf:"bytes,4,opt,name=manufacturer_name,json=manufacturerName,proto3" json:"manufacturer_name,omitempty"`
+	ManufacturerName *wrappers.StringValue `protobuf:"bytes,4,opt,name=manufacturer_name,json=manufacturerName,proto3" json:"manufacturer_name,omitempty"`
 	// Output only. The operating system of the mobile device.
-	OperatingSystemName *wrapperspb.StringValue `protobuf:"bytes,5,opt,name=operating_system_name,json=operatingSystemName,proto3" json:"operating_system_name,omitempty"`
+	OperatingSystemName *wrappers.StringValue `protobuf:"bytes,5,opt,name=operating_system_name,json=operatingSystemName,proto3" json:"operating_system_name,omitempty"`
 	// Output only. The type of mobile device.
 	Type enums.MobileDeviceTypeEnum_MobileDeviceType `protobuf:"varint,6,opt,name=type,proto3,enum=google.ads.googleads.v3.enums.MobileDeviceTypeEnum_MobileDeviceType" json:"type,omitempty"`
 }
@@ -104,28 +104,28 @@ func (x *MobileDeviceConstant) GetResourceName() string {
 	return ""
 }
 
-func (x *MobileDeviceConstant) GetId() *wrapperspb.Int64Value {
+func (x *MobileDeviceConstant) GetId() *wrappers.Int64Value {
 	if x != nil {
 		return x.Id
 	}
 	return nil
 }
 
-func (x *MobileDeviceConstant) GetName() *wrapperspb.StringValue {
+func (x *MobileDeviceConstant) GetName() *wrappers.StringValue {
 	if x != nil {
 		return x.Name
 	}
 	return nil
 }
 
-func (x *MobileDeviceConstant) GetManufacturerName() *wrapperspb.StringValue {
+func (x *MobileDeviceConstant) GetManufacturerName() *wrappers.StringValue {
 	if x != nil {
 		return x.ManufacturerName
 	}
 	return nil
 }
 
-func (x *MobileDeviceConstant) GetOperatingSystemName() *wrapperspb.StringValue {
+func (x *MobileDeviceConstant) GetOperatingSystemName() *wrappers.StringValue {
 	if x != nil {
 		return x.OperatingSystemName
 	}
@@ -230,8 +230,8 @@ func file_google_ads_googleads_v3_resources_mobile_device_constant_proto_rawDesc
 var file_google_ads_googleads_v3_resources_mobile_device_constant_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v3_resources_mobile_device_constant_proto_goTypes = []interface{}{
 	(*MobileDeviceConstant)(nil),                     // 0: google.ads.googleads.v3.resources.MobileDeviceConstant
-	(*wrapperspb.Int64Value)(nil),                    // 1: google.protobuf.Int64Value
-	(*wrapperspb.StringValue)(nil),                   // 2: google.protobuf.StringValue
+	(*wrappers.Int64Value)(nil),                      // 1: google.protobuf.Int64Value
+	(*wrappers.StringValue)(nil),                     // 2: google.protobuf.StringValue
 	(enums.MobileDeviceTypeEnum_MobileDeviceType)(0), // 3: google.ads.googleads.v3.enums.MobileDeviceTypeEnum.MobileDeviceType
 }
 var file_google_ads_googleads_v3_resources_mobile_device_constant_proto_depIdxs = []int32{

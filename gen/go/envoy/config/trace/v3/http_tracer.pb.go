@@ -9,10 +9,10 @@ package envoy_config_trace_v3
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
+	_ "github.com/golang/protobuf/ptypes/struct"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
-	_ "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -168,7 +168,7 @@ func (m *Tracing_Http) GetConfigType() isTracing_Http_ConfigType {
 	return nil
 }
 
-func (x *Tracing_Http) GetTypedConfig() *anypb.Any {
+func (x *Tracing_Http) GetTypedConfig() *any.Any {
 	if x, ok := x.GetConfigType().(*Tracing_Http_TypedConfig); ok {
 		return x.TypedConfig
 	}
@@ -180,7 +180,7 @@ type isTracing_Http_ConfigType interface {
 }
 
 type Tracing_Http_TypedConfig struct {
-	TypedConfig *anypb.Any `protobuf:"bytes,3,opt,name=typed_config,json=typedConfig,proto3,oneof"`
+	TypedConfig *any.Any `protobuf:"bytes,3,opt,name=typed_config,json=typedConfig,proto3,oneof"`
 }
 
 func (*Tracing_Http_TypedConfig) isTracing_Http_ConfigType() {}
@@ -207,7 +207,7 @@ var file_envoy_config_trace_v3_http_tracer_proto_rawDesc = []byte{
 	0x61, 0x63, 0x65, 0x2e, 0x76, 0x33, 0x2e, 0x54, 0x72, 0x61, 0x63, 0x69, 0x6e, 0x67, 0x2e, 0x48,
 	0x74, 0x74, 0x70, 0x52, 0x04, 0x68, 0x74, 0x74, 0x70, 0x1a, 0xa6, 0x01, 0x0a, 0x04, 0x48, 0x74,
 	0x74, 0x70, 0x12, 0x1b, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x20, 0x01, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12,
 	0x39, 0x0a, 0x0c, 0x74, 0x79, 0x70, 0x65, 0x64, 0x5f, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x18,
 	0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70,
 	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x41, 0x6e, 0x79, 0x48, 0x00, 0x52, 0x0b, 0x74,
@@ -242,7 +242,7 @@ var file_envoy_config_trace_v3_http_tracer_proto_msgTypes = make([]protoimpl.Mes
 var file_envoy_config_trace_v3_http_tracer_proto_goTypes = []interface{}{
 	(*Tracing)(nil),      // 0: envoy.config.trace.v3.Tracing
 	(*Tracing_Http)(nil), // 1: envoy.config.trace.v3.Tracing.Http
-	(*anypb.Any)(nil),    // 2: google.protobuf.Any
+	(*any.Any)(nil),      // 2: google.protobuf.Any
 }
 var file_envoy_config_trace_v3_http_tracer_proto_depIdxs = []int32{
 	1, // 0: envoy.config.trace.v3.Tracing.http:type_name -> envoy.config.trace.v3.Tracing.Http

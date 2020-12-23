@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n#io.envoyproxy.envoy.type.tracing.v3B\016CustomTagProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n&envoy/type/tracing/v3/custom_tag.proto\x12\x15\x65nvoy.type.tracing.v3\x1a%envoy/type/metadata/v3/metadata.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xcf\x06\n\tCustomTag\x12\x14\n\x03tag\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12;\n\x07literal\x18\x02 \x01(\x0b\x32(.envoy.type.tracing.v3.CustomTag.LiteralH\x00\x12\x43\n\x0b\x65nvironment\x18\x03 \x01(\x0b\x32,.envoy.type.tracing.v3.CustomTag.EnvironmentH\x00\x12\x41\n\x0erequest_header\x18\x04 \x01(\x0b\x32\'.envoy.type.tracing.v3.CustomTag.HeaderH\x00\x12=\n\x08metadata\x18\x05 \x01(\x0b\x32).envoy.type.tracing.v3.CustomTag.MetadataH\x00\x1aQ\n\x07Literal\x12\x16\n\x05value\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01:.\x9a\xc5\x88\x1e)\n\'envoy.type.tracing.v2.CustomTag.Literal\x1ao\n\x0b\x45nvironment\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x15\n\rdefault_value\x18\x02 \x01(\t:2\x9a\xc5\x88\x1e-\n+envoy.type.tracing.v2.CustomTag.Environment\x1ak\n\x06Header\x12\x1b\n\x04name\x18\x01 \x01(\tB\r\xfa\x42\nr\x08 \x01\xc0\x01\x01\xc8\x01\x00\x12\x15\n\rdefault_value\x18\x02 \x01(\t:-\x9a\xc5\x88\x1e(\n&envoy.type.tracing.v2.CustomTag.Header\x1a\xc1\x01\n\x08Metadata\x12\x32\n\x04kind\x18\x01 \x01(\x0b\x32$.envoy.type.metadata.v3.MetadataKind\x12\x39\n\x0cmetadata_key\x18\x02 \x01(\x0b\x32#.envoy.type.metadata.v3.MetadataKey\x12\x15\n\rdefault_value\x18\x03 \x01(\t:/\x9a\xc5\x88\x1e*\n(envoy.type.tracing.v2.CustomTag.Metadata:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.type.tracing.v2.CustomTagB\x0b\n\x04type\x12\x03\xf8\x42\x01\x42?\n#io.envoyproxy.envoy.type.tracing.v3B\x0e\x43ustomTagProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n&envoy/type/tracing/v3/custom_tag.proto\x12\x15\x65nvoy.type.tracing.v3\x1a%envoy/type/metadata/v3/metadata.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xcf\x06\n\tCustomTag\x12\x14\n\x03tag\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12;\n\x07literal\x18\x02 \x01(\x0b\x32(.envoy.type.tracing.v3.CustomTag.LiteralH\x00\x12\x43\n\x0b\x65nvironment\x18\x03 \x01(\x0b\x32,.envoy.type.tracing.v3.CustomTag.EnvironmentH\x00\x12\x41\n\x0erequest_header\x18\x04 \x01(\x0b\x32\'.envoy.type.tracing.v3.CustomTag.HeaderH\x00\x12=\n\x08metadata\x18\x05 \x01(\x0b\x32).envoy.type.tracing.v3.CustomTag.MetadataH\x00\x1aQ\n\x07Literal\x12\x16\n\x05value\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:.\x9a\xc5\x88\x1e)\n\'envoy.type.tracing.v2.CustomTag.Literal\x1ao\n\x0b\x45nvironment\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x15\n\rdefault_value\x18\x02 \x01(\t:2\x9a\xc5\x88\x1e-\n+envoy.type.tracing.v2.CustomTag.Environment\x1ak\n\x06Header\x12\x1b\n\x04name\x18\x01 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12\x15\n\rdefault_value\x18\x02 \x01(\t:-\x9a\xc5\x88\x1e(\n&envoy.type.tracing.v2.CustomTag.Header\x1a\xc1\x01\n\x08Metadata\x12\x32\n\x04kind\x18\x01 \x01(\x0b\x32$.envoy.type.metadata.v3.MetadataKind\x12\x39\n\x0cmetadata_key\x18\x02 \x01(\x0b\x32#.envoy.type.metadata.v3.MetadataKey\x12\x15\n\rdefault_value\x18\x03 \x01(\t:/\x9a\xc5\x88\x1e*\n(envoy.type.tracing.v2.CustomTag.Metadata:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.type.tracing.v2.CustomTagB\x0b\n\x04type\x12\x03\xf8\x42\x01\x42?\n#io.envoyproxy.envoy.type.tracing.v3B\x0e\x43ustomTagProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_type_dot_metadata_dot_v3_dot_metadata__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -44,7 +44,7 @@ _CUSTOMTAG_LITERAL = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -75,7 +75,7 @@ _CUSTOMTAG_ENVIRONMENT = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='default_value', full_name='envoy.type.tracing.v3.CustomTag.Environment.default_value', index=1,
       number=2, type=9, cpp_type=9, label=1,
@@ -113,7 +113,7 @@ _CUSTOMTAG_HEADER = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\nr\010 \001\300\001\001\310\001\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\nr\010\020\001\300\001\001\310\001\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='default_value', full_name='envoy.type.tracing.v3.CustomTag.Header.default_value', index=1,
       number=2, type=9, cpp_type=9, label=1,
@@ -196,7 +196,7 @@ _CUSTOMTAG = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='literal', full_name='envoy.type.tracing.v3.CustomTag.literal', index=1,
       number=2, type=11, cpp_type=10, label=1,

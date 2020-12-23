@@ -22,11 +22,11 @@ package talent
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -170,7 +170,7 @@ type UpdateTenantRequest struct {
 	//
 	// A field mask to specify the tenant fields to be updated. Only
 	// top level fields of [Tenant][google.cloud.talent.v4beta1.Tenant] are supported.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateTenantRequest) Reset() {
@@ -212,7 +212,7 @@ func (x *UpdateTenantRequest) GetTenant() *Tenant {
 	return nil
 }
 
-func (x *UpdateTenantRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateTenantRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -570,16 +570,16 @@ func file_google_cloud_talent_v4beta1_tenant_service_proto_rawDescGZIP() []byte 
 
 var file_google_cloud_talent_v4beta1_tenant_service_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_google_cloud_talent_v4beta1_tenant_service_proto_goTypes = []interface{}{
-	(*CreateTenantRequest)(nil),   // 0: google.cloud.talent.v4beta1.CreateTenantRequest
-	(*GetTenantRequest)(nil),      // 1: google.cloud.talent.v4beta1.GetTenantRequest
-	(*UpdateTenantRequest)(nil),   // 2: google.cloud.talent.v4beta1.UpdateTenantRequest
-	(*DeleteTenantRequest)(nil),   // 3: google.cloud.talent.v4beta1.DeleteTenantRequest
-	(*ListTenantsRequest)(nil),    // 4: google.cloud.talent.v4beta1.ListTenantsRequest
-	(*ListTenantsResponse)(nil),   // 5: google.cloud.talent.v4beta1.ListTenantsResponse
-	(*Tenant)(nil),                // 6: google.cloud.talent.v4beta1.Tenant
-	(*fieldmaskpb.FieldMask)(nil), // 7: google.protobuf.FieldMask
-	(*ResponseMetadata)(nil),      // 8: google.cloud.talent.v4beta1.ResponseMetadata
-	(*emptypb.Empty)(nil),         // 9: google.protobuf.Empty
+	(*CreateTenantRequest)(nil),  // 0: google.cloud.talent.v4beta1.CreateTenantRequest
+	(*GetTenantRequest)(nil),     // 1: google.cloud.talent.v4beta1.GetTenantRequest
+	(*UpdateTenantRequest)(nil),  // 2: google.cloud.talent.v4beta1.UpdateTenantRequest
+	(*DeleteTenantRequest)(nil),  // 3: google.cloud.talent.v4beta1.DeleteTenantRequest
+	(*ListTenantsRequest)(nil),   // 4: google.cloud.talent.v4beta1.ListTenantsRequest
+	(*ListTenantsResponse)(nil),  // 5: google.cloud.talent.v4beta1.ListTenantsResponse
+	(*Tenant)(nil),               // 6: google.cloud.talent.v4beta1.Tenant
+	(*field_mask.FieldMask)(nil), // 7: google.protobuf.FieldMask
+	(*ResponseMetadata)(nil),     // 8: google.cloud.talent.v4beta1.ResponseMetadata
+	(*empty.Empty)(nil),          // 9: google.protobuf.Empty
 }
 var file_google_cloud_talent_v4beta1_tenant_service_proto_depIdxs = []int32{
 	6,  // 0: google.cloud.talent.v4beta1.CreateTenantRequest.tenant:type_name -> google.cloud.talent.v4beta1.Tenant

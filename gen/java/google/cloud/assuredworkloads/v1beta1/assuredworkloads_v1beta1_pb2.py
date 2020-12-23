@@ -28,7 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n)com.google.cloud.assuredworkloads.v1beta1B\025AssuredworkloadsProtoP\001ZUgoogle.golang.org/genproto/googleapis/cloud/assuredworkloads/v1beta1;assuredworkloads\252\002%Google.Cloud.AssuredWorkloads.V1Beta1\312\002%Google\\Cloud\\AssuredWorkloads\\V1beta1\352\002(Google::Cloud::AssuredWorkloads::V1beta1\352A]\n(assuredworkloads.googleapis.com/Location\0221organizations/{organization}/locations/{location}',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nDgoogle/cloud/assuredworkloads/v1beta1/assuredworkloads_v1beta1.proto\x12%google.cloud.assuredworkloads.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbb\x01\n\x15\x43reateWorkloadRequest\x12@\n\x06parent\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\x12(assuredworkloads.googleapis.com/Workload\x12\x46\n\x08workload\x18\x02 \x01(\x0b\x32/.google.cloud.assuredworkloads.v1beta1.WorkloadB\x03\xe0\x41\x02\x12\x18\n\x0b\x65xternal_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\x95\x01\n\x15UpdateWorkloadRequest\x12\x46\n\x08workload\x18\x01 \x01(\x0b\x32/.google.cloud.assuredworkloads.v1beta1.WorkloadB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"j\n\x15\x44\x65leteWorkloadRequest\x12>\n\x04name\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\n(assuredworkloads.googleapis.com/Workload\x12\x11\n\x04\x65tag\x18\x02 \x01(\tB\x03\xe0\x41\x01\"T\n\x12GetWorkloadRequest\x12>\n\x04name\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\n(assuredworkloads.googleapis.com/Workload\"\x8f\x01\n\x14ListWorkloadsRequest\x12@\n\x06parent\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\x12(assuredworkloads.googleapis.com/Workload\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"t\n\x15ListWorkloadsResponse\x12\x42\n\tworkloads\x18\x01 \x03(\x0b\x32/.google.cloud.assuredworkloads.v1beta1.Workload\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xd9\x0f\n\x08Workload\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12T\n\tresources\x18\x03 \x03(\x0b\x32<.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfoB\x03\xe0\x41\x03\x12\x63\n\x11\x63ompliance_regime\x18\x04 \x01(\x0e\x32@.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegimeB\x06\xe0\x41\x02\xe0\x41\x05\x12\x37\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x06\xe0\x41\x03\xe0\x41\x05\x12\x1f\n\x0f\x62illing_account\x18\x06 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x04\x12^\n\x0cil4_settings\x18\x07 \x01(\x0b\x32;.google.cloud.assuredworkloads.v1beta1.Workload.IL4SettingsB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05H\x00\x12`\n\rcjis_settings\x18\x08 \x01(\x0b\x32<.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettingsB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05H\x00\x12o\n\x15\x66\x65\x64ramp_high_settings\x18\x0b \x01(\x0b\x32\x43.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettingsB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05H\x00\x12w\n\x19\x66\x65\x64ramp_moderate_settings\x18\x0c \x01(\x0b\x32G.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettingsB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05H\x00\x12\x11\n\x04\x65tag\x18\t \x01(\tB\x03\xe0\x41\x01\x12P\n\x06labels\x18\n \x03(\x0b\x32;.google.cloud.assuredworkloads.v1beta1.Workload.LabelsEntryB\x03\xe0\x41\x01\x1a\xe7\x01\n\x0cResourceInfo\x12\x13\n\x0bresource_id\x18\x01 \x01(\x03\x12`\n\rresource_type\x18\x02 \x01(\x0e\x32I.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType\"`\n\x0cResourceType\x12\x1d\n\x19RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10\x43ONSUMER_PROJECT\x10\x01\x12\x1b\n\x17\x45NCRYPTION_KEYS_PROJECT\x10\x02\x1a\x8f\x01\n\x0bKMSSettings\x12\x41\n\x12next_rotation_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05\x12=\n\x0frotation_period\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05\x1ak\n\x0bIL4Settings\x12\\\n\x0ckms_settings\x18\x01 \x01(\x0b\x32;.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05\x1al\n\x0c\x43JISSettings\x12\\\n\x0ckms_settings\x18\x01 \x01(\x0b\x32;.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05\x1as\n\x13\x46\x65\x64rampHighSettings\x12\\\n\x0ckms_settings\x18\x01 \x01(\x0b\x32;.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05\x1aw\n\x17\x46\x65\x64rampModerateSettings\x12\\\n\x0ckms_settings\x18\x01 \x01(\x0b\x32;.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"p\n\x10\x43omplianceRegime\x12!\n\x1d\x43OMPLIANCE_REGIME_UNSPECIFIED\x10\x00\x12\x07\n\x03IL4\x10\x01\x12\x08\n\x04\x43JIS\x10\x02\x12\x10\n\x0c\x46\x45\x44RAMP_HIGH\x10\x03\x12\x14\n\x10\x46\x45\x44RAMP_MODERATE\x10\x04:u\xea\x41r\n(assuredworkloads.googleapis.com/Workload\x12\x46organizations/{organization}/locations/{location}/workloads/{workload}B\x1c\n\x1a\x63ompliance_regime_settings\"\xe9\x01\n\x1f\x43reateWorkloadOperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06parent\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12`\n\x11\x63ompliance_regime\x18\x04 \x01(\x0e\x32@.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegimeB\x03\xe0\x41\x01\x32\xa3\t\n\x17\x41ssuredWorkloadsService\x12\xf9\x01\n\x0e\x43reateWorkload\x12<.google.cloud.assuredworkloads.v1beta1.CreateWorkloadRequest\x1a\x1d.google.longrunning.Operation\"\x89\x01\x82\xd3\xe4\x93\x02\x43\"7/v1beta1/{parent=organizations/*/locations/*}/workloads:\x08workload\xda\x41\x0fparent,workload\xca\x41+\n\x08Workload\x12\x1f\x43reateWorkloadOperationMetadata\x12\xea\x01\n\x0eUpdateWorkload\x12<.google.cloud.assuredworkloads.v1beta1.UpdateWorkloadRequest\x1a/.google.cloud.assuredworkloads.v1beta1.Workload\"i\x82\xd3\xe4\x93\x02L2@/v1beta1/{workload.name=organizations/*/locations/*/workloads/*}:\x08workload\xda\x41\x14workload,update_mask\x12\xae\x01\n\x0e\x44\x65leteWorkload\x12<.google.cloud.assuredworkloads.v1beta1.DeleteWorkloadRequest\x1a\x16.google.protobuf.Empty\"F\x82\xd3\xe4\x93\x02\x39*7/v1beta1/{name=organizations/*/locations/*/workloads/*}\xda\x41\x04name\x12\xc1\x01\n\x0bGetWorkload\x12\x39.google.cloud.assuredworkloads.v1beta1.GetWorkloadRequest\x1a/.google.cloud.assuredworkloads.v1beta1.Workload\"F\x82\xd3\xe4\x93\x02\x39\x12\x37/v1beta1/{name=organizations/*/locations/*/workloads/*}\xda\x41\x04name\x12\xd4\x01\n\rListWorkloads\x12;.google.cloud.assuredworkloads.v1beta1.ListWorkloadsRequest\x1a<.google.cloud.assuredworkloads.v1beta1.ListWorkloadsResponse\"H\x82\xd3\xe4\x93\x02\x39\x12\x37/v1beta1/{parent=organizations/*/locations/*}/workloads\xda\x41\x06parent\x1aS\xca\x41\x1f\x61ssuredworkloads.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xf6\x02\n)com.google.cloud.assuredworkloads.v1beta1B\x15\x41ssuredworkloadsProtoP\x01ZUgoogle.golang.org/genproto/googleapis/cloud/assuredworkloads/v1beta1;assuredworkloads\xaa\x02%Google.Cloud.AssuredWorkloads.V1Beta1\xca\x02%Google\\Cloud\\AssuredWorkloads\\V1beta1\xea\x02(Google::Cloud::AssuredWorkloads::V1beta1\xea\x41]\n(assuredworkloads.googleapis.com/Location\x12\x31organizations/{organization}/locations/{location}b\x06proto3'
+  serialized_pb=b'\nDgoogle/cloud/assuredworkloads/v1beta1/assuredworkloads_v1beta1.proto\x12%google.cloud.assuredworkloads.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbb\x01\n\x15\x43reateWorkloadRequest\x12@\n\x06parent\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\x12(assuredworkloads.googleapis.com/Workload\x12\x46\n\x08workload\x18\x02 \x01(\x0b\x32/.google.cloud.assuredworkloads.v1beta1.WorkloadB\x03\xe0\x41\x02\x12\x18\n\x0b\x65xternal_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\x95\x01\n\x15UpdateWorkloadRequest\x12\x46\n\x08workload\x18\x01 \x01(\x0b\x32/.google.cloud.assuredworkloads.v1beta1.WorkloadB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"j\n\x15\x44\x65leteWorkloadRequest\x12>\n\x04name\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\n(assuredworkloads.googleapis.com/Workload\x12\x11\n\x04\x65tag\x18\x02 \x01(\tB\x03\xe0\x41\x01\"T\n\x12GetWorkloadRequest\x12>\n\x04name\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\n(assuredworkloads.googleapis.com/Workload\"\x8f\x01\n\x14ListWorkloadsRequest\x12@\n\x06parent\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\x12(assuredworkloads.googleapis.com/Workload\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"t\n\x15ListWorkloadsResponse\x12\x42\n\tworkloads\x18\x01 \x03(\x0b\x32/.google.cloud.assuredworkloads.v1beta1.Workload\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xf4\x10\n\x08Workload\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12T\n\tresources\x18\x03 \x03(\x0b\x32<.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfoB\x03\xe0\x41\x03\x12\x63\n\x11\x63ompliance_regime\x18\x04 \x01(\x0e\x32@.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegimeB\x06\xe0\x41\x02\xe0\x41\x05\x12\x37\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x06\xe0\x41\x03\xe0\x41\x05\x12\x1f\n\x0f\x62illing_account\x18\x06 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x04\x12`\n\x0cil4_settings\x18\x07 \x01(\x0b\x32;.google.cloud.assuredworkloads.v1beta1.Workload.IL4SettingsB\x0b\x18\x01\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05H\x00\x12\x62\n\rcjis_settings\x18\x08 \x01(\x0b\x32<.google.cloud.assuredworkloads.v1beta1.Workload.CJISSettingsB\x0b\x18\x01\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05H\x00\x12q\n\x15\x66\x65\x64ramp_high_settings\x18\x0b \x01(\x0b\x32\x43.google.cloud.assuredworkloads.v1beta1.Workload.FedrampHighSettingsB\x0b\x18\x01\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05H\x00\x12y\n\x19\x66\x65\x64ramp_moderate_settings\x18\x0c \x01(\x0b\x32G.google.cloud.assuredworkloads.v1beta1.Workload.FedrampModerateSettingsB\x0b\x18\x01\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05H\x00\x12\x11\n\x04\x65tag\x18\t \x01(\tB\x03\xe0\x41\x01\x12P\n\x06labels\x18\n \x03(\x0b\x32;.google.cloud.assuredworkloads.v1beta1.Workload.LabelsEntryB\x03\xe0\x41\x01\x12)\n\x1cprovisioned_resources_parent\x18\r \x01(\tB\x03\xe0\x41\x04\x12V\n\x0ckms_settings\x18\x0e \x01(\x0b\x32;.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsB\x03\xe0\x41\x04\x1a\xe7\x01\n\x0cResourceInfo\x12\x13\n\x0bresource_id\x18\x01 \x01(\x03\x12`\n\rresource_type\x18\x02 \x01(\x0e\x32I.google.cloud.assuredworkloads.v1beta1.Workload.ResourceInfo.ResourceType\"`\n\x0cResourceType\x12\x1d\n\x19RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10\x43ONSUMER_PROJECT\x10\x01\x12\x1b\n\x17\x45NCRYPTION_KEYS_PROJECT\x10\x02\x1a\x8f\x01\n\x0bKMSSettings\x12\x41\n\x12next_rotation_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05\x12=\n\x0frotation_period\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05\x1ao\n\x0bIL4Settings\x12\\\n\x0ckms_settings\x18\x01 \x01(\x0b\x32;.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05:\x02\x18\x01\x1ap\n\x0c\x43JISSettings\x12\\\n\x0ckms_settings\x18\x01 \x01(\x0b\x32;.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05:\x02\x18\x01\x1aw\n\x13\x46\x65\x64rampHighSettings\x12\\\n\x0ckms_settings\x18\x01 \x01(\x0b\x32;.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05:\x02\x18\x01\x1a{\n\x17\x46\x65\x64rampModerateSettings\x12\\\n\x0ckms_settings\x18\x01 \x01(\x0b\x32;.google.cloud.assuredworkloads.v1beta1.Workload.KMSSettingsB\t\xe0\x41\x02\xe0\x41\x04\xe0\x41\x05:\x02\x18\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"p\n\x10\x43omplianceRegime\x12!\n\x1d\x43OMPLIANCE_REGIME_UNSPECIFIED\x10\x00\x12\x07\n\x03IL4\x10\x01\x12\x08\n\x04\x43JIS\x10\x02\x12\x10\n\x0c\x46\x45\x44RAMP_HIGH\x10\x03\x12\x14\n\x10\x46\x45\x44RAMP_MODERATE\x10\x04:u\xea\x41r\n(assuredworkloads.googleapis.com/Workload\x12\x46organizations/{organization}/locations/{location}/workloads/{workload}B\x1c\n\x1a\x63ompliance_regime_settings\"\xe9\x01\n\x1f\x43reateWorkloadOperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06parent\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12`\n\x11\x63ompliance_regime\x18\x04 \x01(\x0e\x32@.google.cloud.assuredworkloads.v1beta1.Workload.ComplianceRegimeB\x03\xe0\x41\x01\x32\xa3\t\n\x17\x41ssuredWorkloadsService\x12\xf9\x01\n\x0e\x43reateWorkload\x12<.google.cloud.assuredworkloads.v1beta1.CreateWorkloadRequest\x1a\x1d.google.longrunning.Operation\"\x89\x01\x82\xd3\xe4\x93\x02\x43\"7/v1beta1/{parent=organizations/*/locations/*}/workloads:\x08workload\xda\x41\x0fparent,workload\xca\x41+\n\x08Workload\x12\x1f\x43reateWorkloadOperationMetadata\x12\xea\x01\n\x0eUpdateWorkload\x12<.google.cloud.assuredworkloads.v1beta1.UpdateWorkloadRequest\x1a/.google.cloud.assuredworkloads.v1beta1.Workload\"i\x82\xd3\xe4\x93\x02L2@/v1beta1/{workload.name=organizations/*/locations/*/workloads/*}:\x08workload\xda\x41\x14workload,update_mask\x12\xae\x01\n\x0e\x44\x65leteWorkload\x12<.google.cloud.assuredworkloads.v1beta1.DeleteWorkloadRequest\x1a\x16.google.protobuf.Empty\"F\x82\xd3\xe4\x93\x02\x39*7/v1beta1/{name=organizations/*/locations/*/workloads/*}\xda\x41\x04name\x12\xc1\x01\n\x0bGetWorkload\x12\x39.google.cloud.assuredworkloads.v1beta1.GetWorkloadRequest\x1a/.google.cloud.assuredworkloads.v1beta1.Workload\"F\x82\xd3\xe4\x93\x02\x39\x12\x37/v1beta1/{name=organizations/*/locations/*/workloads/*}\xda\x41\x04name\x12\xd4\x01\n\rListWorkloads\x12;.google.cloud.assuredworkloads.v1beta1.ListWorkloadsRequest\x1a<.google.cloud.assuredworkloads.v1beta1.ListWorkloadsResponse\"H\x82\xd3\xe4\x93\x02\x39\x12\x37/v1beta1/{parent=organizations/*/locations/*}/workloads\xda\x41\x06parent\x1aS\xca\x41\x1f\x61ssuredworkloads.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xf6\x02\n)com.google.cloud.assuredworkloads.v1beta1B\x15\x41ssuredworkloadsProtoP\x01ZUgoogle.golang.org/genproto/googleapis/cloud/assuredworkloads/v1beta1;assuredworkloads\xaa\x02%Google.Cloud.AssuredWorkloads.V1Beta1\xca\x02%Google\\Cloud\\AssuredWorkloads\\V1beta1\xea\x02(Google::Cloud::AssuredWorkloads::V1beta1\xea\x41]\n(assuredworkloads.googleapis.com/Location\x12\x31organizations/{organization}/locations/{location}b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -59,8 +59,8 @@ _WORKLOAD_RESOURCEINFO_RESOURCETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2192,
-  serialized_end=2288,
+  serialized_start=2331,
+  serialized_end=2427,
 )
 _sym_db.RegisterEnumDescriptor(_WORKLOAD_RESOURCEINFO_RESOURCETYPE)
 
@@ -99,8 +99,8 @@ _WORKLOAD_COMPLIANCEREGIME = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2940,
-  serialized_end=3052,
+  serialized_start=3095,
+  serialized_end=3207,
 )
 _sym_db.RegisterEnumDescriptor(_WORKLOAD_COMPLIANCEREGIME)
 
@@ -388,8 +388,8 @@ _WORKLOAD_RESOURCEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2057,
-  serialized_end=2288,
+  serialized_start=2196,
+  serialized_end=2427,
 )
 
 _WORKLOAD_KMSSETTINGS = _descriptor.Descriptor(
@@ -426,8 +426,8 @@ _WORKLOAD_KMSSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2291,
-  serialized_end=2434,
+  serialized_start=2430,
+  serialized_end=2573,
 )
 
 _WORKLOAD_IL4SETTINGS = _descriptor.Descriptor(
@@ -451,14 +451,14 @@ _WORKLOAD_IL4SETTINGS = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  serialized_options=b'\030\001',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2436,
-  serialized_end=2543,
+  serialized_start=2575,
+  serialized_end=2686,
 )
 
 _WORKLOAD_CJISSETTINGS = _descriptor.Descriptor(
@@ -482,14 +482,14 @@ _WORKLOAD_CJISSETTINGS = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  serialized_options=b'\030\001',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2545,
-  serialized_end=2653,
+  serialized_start=2688,
+  serialized_end=2800,
 )
 
 _WORKLOAD_FEDRAMPHIGHSETTINGS = _descriptor.Descriptor(
@@ -513,14 +513,14 @@ _WORKLOAD_FEDRAMPHIGHSETTINGS = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  serialized_options=b'\030\001',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2655,
-  serialized_end=2770,
+  serialized_start=2802,
+  serialized_end=2921,
 )
 
 _WORKLOAD_FEDRAMPMODERATESETTINGS = _descriptor.Descriptor(
@@ -544,14 +544,14 @@ _WORKLOAD_FEDRAMPMODERATESETTINGS = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  serialized_options=b'\030\001',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2772,
-  serialized_end=2891,
+  serialized_start=2923,
+  serialized_end=3046,
 )
 
 _WORKLOAD_LABELSENTRY = _descriptor.Descriptor(
@@ -588,8 +588,8 @@ _WORKLOAD_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2893,
-  serialized_end=2938,
+  serialized_start=3048,
+  serialized_end=3093,
 )
 
 _WORKLOAD = _descriptor.Descriptor(
@@ -648,28 +648,28 @@ _WORKLOAD = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\340A\004\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001\340A\002\340A\004\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='cjis_settings', full_name='google.cloud.assuredworkloads.v1beta1.Workload.cjis_settings', index=7,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\340A\004\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001\340A\002\340A\004\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='fedramp_high_settings', full_name='google.cloud.assuredworkloads.v1beta1.Workload.fedramp_high_settings', index=8,
       number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\340A\004\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001\340A\002\340A\004\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='fedramp_moderate_settings', full_name='google.cloud.assuredworkloads.v1beta1.Workload.fedramp_moderate_settings', index=9,
       number=12, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\340A\004\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001\340A\002\340A\004\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='etag', full_name='google.cloud.assuredworkloads.v1beta1.Workload.etag', index=10,
       number=9, type=9, cpp_type=9, label=1,
@@ -684,6 +684,20 @@ _WORKLOAD = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='provisioned_resources_parent', full_name='google.cloud.assuredworkloads.v1beta1.Workload.provisioned_resources_parent', index=12,
+      number=13, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\004', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='kms_settings', full_name='google.cloud.assuredworkloads.v1beta1.Workload.kms_settings', index=13,
+      number=14, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\004', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -703,7 +717,7 @@ _WORKLOAD = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=1192,
-  serialized_end=3201,
+  serialized_end=3356,
 )
 
 
@@ -755,8 +769,8 @@ _CREATEWORKLOADOPERATIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3204,
-  serialized_end=3437,
+  serialized_start=3359,
+  serialized_end=3592,
 )
 
 _CREATEWORKLOADREQUEST.fields_by_name['workload'].message_type = _WORKLOAD
@@ -786,6 +800,7 @@ _WORKLOAD.fields_by_name['cjis_settings'].message_type = _WORKLOAD_CJISSETTINGS
 _WORKLOAD.fields_by_name['fedramp_high_settings'].message_type = _WORKLOAD_FEDRAMPHIGHSETTINGS
 _WORKLOAD.fields_by_name['fedramp_moderate_settings'].message_type = _WORKLOAD_FEDRAMPMODERATESETTINGS
 _WORKLOAD.fields_by_name['labels'].message_type = _WORKLOAD_LABELSENTRY
+_WORKLOAD.fields_by_name['kms_settings'].message_type = _WORKLOAD_KMSSETTINGS
 _WORKLOAD_COMPLIANCEREGIME.containing_type = _WORKLOAD
 _WORKLOAD.oneofs_by_name['compliance_regime_settings'].fields.append(
   _WORKLOAD.fields_by_name['il4_settings'])
@@ -937,9 +952,13 @@ _LISTWORKLOADSREQUEST.fields_by_name['parent']._options = None
 _WORKLOAD_KMSSETTINGS.fields_by_name['next_rotation_time']._options = None
 _WORKLOAD_KMSSETTINGS.fields_by_name['rotation_period']._options = None
 _WORKLOAD_IL4SETTINGS.fields_by_name['kms_settings']._options = None
+_WORKLOAD_IL4SETTINGS._options = None
 _WORKLOAD_CJISSETTINGS.fields_by_name['kms_settings']._options = None
+_WORKLOAD_CJISSETTINGS._options = None
 _WORKLOAD_FEDRAMPHIGHSETTINGS.fields_by_name['kms_settings']._options = None
+_WORKLOAD_FEDRAMPHIGHSETTINGS._options = None
 _WORKLOAD_FEDRAMPMODERATESETTINGS.fields_by_name['kms_settings']._options = None
+_WORKLOAD_FEDRAMPMODERATESETTINGS._options = None
 _WORKLOAD_LABELSENTRY._options = None
 _WORKLOAD.fields_by_name['name']._options = None
 _WORKLOAD.fields_by_name['display_name']._options = None
@@ -953,6 +972,8 @@ _WORKLOAD.fields_by_name['fedramp_high_settings']._options = None
 _WORKLOAD.fields_by_name['fedramp_moderate_settings']._options = None
 _WORKLOAD.fields_by_name['etag']._options = None
 _WORKLOAD.fields_by_name['labels']._options = None
+_WORKLOAD.fields_by_name['provisioned_resources_parent']._options = None
+_WORKLOAD.fields_by_name['kms_settings']._options = None
 _WORKLOAD._options = None
 _CREATEWORKLOADOPERATIONMETADATA.fields_by_name['create_time']._options = None
 _CREATEWORKLOADOPERATIONMETADATA.fields_by_name['display_name']._options = None
@@ -966,8 +987,8 @@ _ASSUREDWORKLOADSSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\037assuredworkloads.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=3440,
-  serialized_end=4627,
+  serialized_start=3595,
+  serialized_end=4782,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateWorkload',

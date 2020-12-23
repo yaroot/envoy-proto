@@ -10,10 +10,10 @@ import (
 	core "envoy/api/v2/core"
 	endpoint "envoy/api/v2/endpoint"
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -498,7 +498,7 @@ type HealthCheckSpecifier struct {
 
 	ClusterHealthChecks []*ClusterHealthCheck `protobuf:"bytes,1,rep,name=cluster_health_checks,json=clusterHealthChecks,proto3" json:"cluster_health_checks,omitempty"`
 	// The default is 1 second.
-	Interval *durationpb.Duration `protobuf:"bytes,2,opt,name=interval,proto3" json:"interval,omitempty"`
+	Interval *duration.Duration `protobuf:"bytes,2,opt,name=interval,proto3" json:"interval,omitempty"`
 }
 
 func (x *HealthCheckSpecifier) Reset() {
@@ -540,7 +540,7 @@ func (x *HealthCheckSpecifier) GetClusterHealthChecks() []*ClusterHealthCheck {
 	return nil
 }
 
-func (x *HealthCheckSpecifier) GetInterval() *durationpb.Duration {
+func (x *HealthCheckSpecifier) GetInterval() *duration.Duration {
 	if x != nil {
 		return x.Interval
 	}
@@ -716,7 +716,7 @@ var file_envoy_service_discovery_v2_hds_proto_goTypes = []interface{}{
 	(core.HealthStatus)(0),                             // 11: envoy.api.v2.core.HealthStatus
 	(*core.Locality)(nil),                              // 12: envoy.api.v2.core.Locality
 	(*core.HealthCheck)(nil),                           // 13: envoy.api.v2.core.HealthCheck
-	(*durationpb.Duration)(nil),                        // 14: google.protobuf.Duration
+	(*duration.Duration)(nil),                          // 14: google.protobuf.Duration
 }
 var file_envoy_service_discovery_v2_hds_proto_depIdxs = []int32{
 	0,  // 0: envoy.service.discovery.v2.Capability.health_check_protocols:type_name -> envoy.service.discovery.v2.Capability.Protocol

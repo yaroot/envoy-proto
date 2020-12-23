@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n%io.envoyproxy.envoy.config.cluster.v3B\013FilterProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n$envoy/config/cluster/v3/filter.proto\x12\x17\x65nvoy.config.cluster.v3\x1a\x19google/protobuf/any.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"o\n\x06\x46ilter\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12*\n\x0ctyped_config\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\"\x9a\xc5\x88\x1e\x1d\n\x1b\x65nvoy.api.v2.cluster.FilterB>\n%io.envoyproxy.envoy.config.cluster.v3B\x0b\x46ilterProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n$envoy/config/cluster/v3/filter.proto\x12\x17\x65nvoy.config.cluster.v3\x1a\x19google/protobuf/any.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"o\n\x06\x46ilter\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12*\n\x0ctyped_config\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\"\x9a\xc5\x88\x1e\x1d\n\x1b\x65nvoy.api.v2.cluster.FilterB>\n%io.envoyproxy.envoy.config.cluster.v3B\x0b\x46ilterProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -44,7 +44,7 @@ _FILTER = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='typed_config', full_name='envoy.config.cluster.v3.Filter.typed_config', index=1,
       number=2, type=11, cpp_type=10, label=1,

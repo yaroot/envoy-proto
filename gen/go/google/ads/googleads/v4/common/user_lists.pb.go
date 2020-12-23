@@ -22,11 +22,11 @@ package common
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v4/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -50,7 +50,7 @@ type SimilarUserListInfo struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Seed UserList from which this list is derived.
-	SeedUserList *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=seed_user_list,json=seedUserList,proto3" json:"seed_user_list,omitempty"`
+	SeedUserList *wrappers.StringValue `protobuf:"bytes,1,opt,name=seed_user_list,json=seedUserList,proto3" json:"seed_user_list,omitempty"`
 }
 
 func (x *SimilarUserListInfo) Reset() {
@@ -85,7 +85,7 @@ func (*SimilarUserListInfo) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v4_common_user_lists_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *SimilarUserListInfo) GetSeedUserList() *wrapperspb.StringValue {
+func (x *SimilarUserListInfo) GetSeedUserList() *wrappers.StringValue {
 	if x != nil {
 		return x.SeedUserList
 	}
@@ -108,7 +108,7 @@ type CrmBasedUserListInfo struct {
 	// https://play.google.com/store/apps/details?id=com.labpixies.colordrips).
 	// Required when creating CrmBasedUserList for uploading mobile advertising
 	// IDs.
-	AppId *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
+	AppId *wrappers.StringValue `protobuf:"bytes,1,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
 	// Matching key type of the list.
 	// Mixed data types are not allowed on the same list.
 	// This field is required for an ADD operation.
@@ -150,7 +150,7 @@ func (*CrmBasedUserListInfo) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v4_common_user_lists_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CrmBasedUserListInfo) GetAppId() *wrapperspb.StringValue {
+func (x *CrmBasedUserListInfo) GetAppId() *wrappers.StringValue {
 	if x != nil {
 		return x.AppId
 	}
@@ -301,7 +301,7 @@ type UserListRuleItemInfo struct {
 	// For websites, there are two built-in variable URL (name = 'url__') and
 	// referrer URL (name = 'ref_url__').
 	// This field must be populated when creating a new rule item.
-	Name *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name *wrappers.StringValue `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// An atomic rule item.
 	//
 	// Types that are assignable to RuleItem:
@@ -343,7 +343,7 @@ func (*UserListRuleItemInfo) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v4_common_user_lists_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *UserListRuleItemInfo) GetName() *wrapperspb.StringValue {
+func (x *UserListRuleItemInfo) GetName() *wrappers.StringValue {
 	if x != nil {
 		return x.Name
 	}
@@ -416,11 +416,11 @@ type UserListDateRuleItemInfo struct {
 	// String representing date value to be compared with the rule variable.
 	// Supported date format is YYYY-MM-DD.
 	// Times are reported in the customer's time zone.
-	Value *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	Value *wrappers.StringValue `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
 	// The relative date value of the right hand side denoted by number of days
 	// offset from now. The value field will override this field when both are
 	// present.
-	OffsetInDays *wrapperspb.Int64Value `protobuf:"bytes,3,opt,name=offset_in_days,json=offsetInDays,proto3" json:"offset_in_days,omitempty"`
+	OffsetInDays *wrappers.Int64Value `protobuf:"bytes,3,opt,name=offset_in_days,json=offsetInDays,proto3" json:"offset_in_days,omitempty"`
 }
 
 func (x *UserListDateRuleItemInfo) Reset() {
@@ -462,14 +462,14 @@ func (x *UserListDateRuleItemInfo) GetOperator() enums.UserListDateRuleItemOpera
 	return enums.UserListDateRuleItemOperatorEnum_UNSPECIFIED
 }
 
-func (x *UserListDateRuleItemInfo) GetValue() *wrapperspb.StringValue {
+func (x *UserListDateRuleItemInfo) GetValue() *wrappers.StringValue {
 	if x != nil {
 		return x.Value
 	}
 	return nil
 }
 
-func (x *UserListDateRuleItemInfo) GetOffsetInDays() *wrapperspb.Int64Value {
+func (x *UserListDateRuleItemInfo) GetOffsetInDays() *wrappers.Int64Value {
 	if x != nil {
 		return x.OffsetInDays
 	}
@@ -489,7 +489,7 @@ type UserListNumberRuleItemInfo struct {
 	// Number value to be compared with the variable.
 	// This field is required and must be populated when creating a new number
 	// rule item.
-	Value *wrapperspb.DoubleValue `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	Value *wrappers.DoubleValue `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
 }
 
 func (x *UserListNumberRuleItemInfo) Reset() {
@@ -531,7 +531,7 @@ func (x *UserListNumberRuleItemInfo) GetOperator() enums.UserListNumberRuleItemO
 	return enums.UserListNumberRuleItemOperatorEnum_UNSPECIFIED
 }
 
-func (x *UserListNumberRuleItemInfo) GetValue() *wrapperspb.DoubleValue {
+func (x *UserListNumberRuleItemInfo) GetValue() *wrappers.DoubleValue {
 	if x != nil {
 		return x.Value
 	}
@@ -552,7 +552,7 @@ type UserListStringRuleItemInfo struct {
 	// the value can not contain illegal URL chars such as newlines, quotes,
 	// tabs, or parentheses. This field is required and must be populated when
 	// creating a new string rule item.
-	Value *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	Value *wrappers.StringValue `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
 }
 
 func (x *UserListStringRuleItemInfo) Reset() {
@@ -594,7 +594,7 @@ func (x *UserListStringRuleItemInfo) GetOperator() enums.UserListStringRuleItemO
 	return enums.UserListStringRuleItemOperatorEnum_UNSPECIFIED
 }
 
-func (x *UserListStringRuleItemInfo) GetValue() *wrapperspb.StringValue {
+func (x *UserListStringRuleItemInfo) GetValue() *wrappers.StringValue {
 	if x != nil {
 		return x.Value
 	}
@@ -690,12 +690,12 @@ type DateSpecificRuleUserListInfo struct {
 	// users before end_date. The date's format should be YYYY-MM-DD.
 	//
 	// Required for creating a data specific rule user list.
-	StartDate *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
+	StartDate *wrappers.StringValue `protobuf:"bytes,2,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
 	// End date of users visit. If set to 2037-12-30, then the list includes all
 	// users after start_date. The date's format should be YYYY-MM-DD.
 	//
 	// Required for creating a data specific rule user list.
-	EndDate *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`
+	EndDate *wrappers.StringValue `protobuf:"bytes,3,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`
 }
 
 func (x *DateSpecificRuleUserListInfo) Reset() {
@@ -737,14 +737,14 @@ func (x *DateSpecificRuleUserListInfo) GetRule() *UserListRuleInfo {
 	return nil
 }
 
-func (x *DateSpecificRuleUserListInfo) GetStartDate() *wrapperspb.StringValue {
+func (x *DateSpecificRuleUserListInfo) GetStartDate() *wrappers.StringValue {
 	if x != nil {
 		return x.StartDate
 	}
 	return nil
 }
 
-func (x *DateSpecificRuleUserListInfo) GetEndDate() *wrapperspb.StringValue {
+func (x *DateSpecificRuleUserListInfo) GetEndDate() *wrappers.StringValue {
 	if x != nil {
 		return x.EndDate
 	}
@@ -1047,7 +1047,7 @@ type LogicalUserListOperandInfo struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Resource name of a user list as an operand.
-	UserList *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=user_list,json=userList,proto3" json:"user_list,omitempty"`
+	UserList *wrappers.StringValue `protobuf:"bytes,1,opt,name=user_list,json=userList,proto3" json:"user_list,omitempty"`
 }
 
 func (x *LogicalUserListOperandInfo) Reset() {
@@ -1082,7 +1082,7 @@ func (*LogicalUserListOperandInfo) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v4_common_user_lists_proto_rawDescGZIP(), []int{14}
 }
 
-func (x *LogicalUserListOperandInfo) GetUserList() *wrapperspb.StringValue {
+func (x *LogicalUserListOperandInfo) GetUserList() *wrappers.StringValue {
 	if x != nil {
 		return x.UserList
 	}
@@ -1191,14 +1191,14 @@ func (m *UserListActionInfo) GetUserListAction() isUserListActionInfo_UserListAc
 	return nil
 }
 
-func (x *UserListActionInfo) GetConversionAction() *wrapperspb.StringValue {
+func (x *UserListActionInfo) GetConversionAction() *wrappers.StringValue {
 	if x, ok := x.GetUserListAction().(*UserListActionInfo_ConversionAction); ok {
 		return x.ConversionAction
 	}
 	return nil
 }
 
-func (x *UserListActionInfo) GetRemarketingAction() *wrapperspb.StringValue {
+func (x *UserListActionInfo) GetRemarketingAction() *wrappers.StringValue {
 	if x, ok := x.GetUserListAction().(*UserListActionInfo_RemarketingAction); ok {
 		return x.RemarketingAction
 	}
@@ -1211,12 +1211,12 @@ type isUserListActionInfo_UserListAction interface {
 
 type UserListActionInfo_ConversionAction struct {
 	// A conversion action that's not generated from remarketing.
-	ConversionAction *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=conversion_action,json=conversionAction,proto3,oneof"`
+	ConversionAction *wrappers.StringValue `protobuf:"bytes,1,opt,name=conversion_action,json=conversionAction,proto3,oneof"`
 }
 
 type UserListActionInfo_RemarketingAction struct {
 	// A remarketing action.
-	RemarketingAction *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=remarketing_action,json=remarketingAction,proto3,oneof"`
+	RemarketingAction *wrappers.StringValue `protobuf:"bytes,2,opt,name=remarketing_action,json=remarketingAction,proto3,oneof"`
 }
 
 func (*UserListActionInfo_ConversionAction) isUserListActionInfo_UserListAction() {}
@@ -1559,14 +1559,14 @@ var file_google_ads_googleads_v4_common_user_lists_proto_goTypes = []interface{}
 	(*LogicalUserListOperandInfo)(nil),                                           // 14: google.ads.googleads.v4.common.LogicalUserListOperandInfo
 	(*BasicUserListInfo)(nil),                                                    // 15: google.ads.googleads.v4.common.BasicUserListInfo
 	(*UserListActionInfo)(nil),                                                   // 16: google.ads.googleads.v4.common.UserListActionInfo
-	(*wrapperspb.StringValue)(nil),                                               // 17: google.protobuf.StringValue
+	(*wrappers.StringValue)(nil),                                                 // 17: google.protobuf.StringValue
 	(enums.CustomerMatchUploadKeyTypeEnum_CustomerMatchUploadKeyType)(0),         // 18: google.ads.googleads.v4.enums.CustomerMatchUploadKeyTypeEnum.CustomerMatchUploadKeyType
 	(enums.UserListCrmDataSourceTypeEnum_UserListCrmDataSourceType)(0),           // 19: google.ads.googleads.v4.enums.UserListCrmDataSourceTypeEnum.UserListCrmDataSourceType
 	(enums.UserListRuleTypeEnum_UserListRuleType)(0),                             // 20: google.ads.googleads.v4.enums.UserListRuleTypeEnum.UserListRuleType
 	(enums.UserListDateRuleItemOperatorEnum_UserListDateRuleItemOperator)(0),     // 21: google.ads.googleads.v4.enums.UserListDateRuleItemOperatorEnum.UserListDateRuleItemOperator
-	(*wrapperspb.Int64Value)(nil),                                                // 22: google.protobuf.Int64Value
+	(*wrappers.Int64Value)(nil),                                                  // 22: google.protobuf.Int64Value
 	(enums.UserListNumberRuleItemOperatorEnum_UserListNumberRuleItemOperator)(0), // 23: google.ads.googleads.v4.enums.UserListNumberRuleItemOperatorEnum.UserListNumberRuleItemOperator
-	(*wrapperspb.DoubleValue)(nil),                                               // 24: google.protobuf.DoubleValue
+	(*wrappers.DoubleValue)(nil),                                                 // 24: google.protobuf.DoubleValue
 	(enums.UserListStringRuleItemOperatorEnum_UserListStringRuleItemOperator)(0), // 25: google.ads.googleads.v4.enums.UserListStringRuleItemOperatorEnum.UserListStringRuleItemOperator
 	(enums.UserListCombinedRuleOperatorEnum_UserListCombinedRuleOperator)(0),     // 26: google.ads.googleads.v4.enums.UserListCombinedRuleOperatorEnum.UserListCombinedRuleOperator
 	(enums.UserListPrepopulationStatusEnum_UserListPrepopulationStatus)(0),       // 27: google.ads.googleads.v4.enums.UserListPrepopulationStatusEnum.UserListPrepopulationStatus

@@ -22,12 +22,12 @@ package ml
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "google.golang.org/genproto/googleapis/api/serviceconfig"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -1319,11 +1319,11 @@ type Job struct {
 	//	*Job_PredictionInput
 	Input isJob_Input `protobuf_oneof:"input"`
 	// Output only. When the job was created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. When the job processing was started.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// Output only. When the job processing was completed.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,6,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	// Output only. The detailed state of a job.
 	State Job_State `protobuf:"varint,7,opt,name=state,proto3,enum=google.cloud.ml.v1.Job_State" json:"state,omitempty"`
 	// Output only. The details of a failure or a cancellation.
@@ -1396,21 +1396,21 @@ func (x *Job) GetPredictionInput() *PredictionInput {
 	return nil
 }
 
-func (x *Job) GetCreateTime() *timestamppb.Timestamp {
+func (x *Job) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *Job) GetStartTime() *timestamppb.Timestamp {
+func (x *Job) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *Job) GetEndTime() *timestamppb.Timestamp {
+func (x *Job) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -2198,9 +2198,9 @@ var file_google_cloud_ml_v1_job_service_proto_goTypes = []interface{}{
 	(*GetJobRequest)(nil),                             // 17: google.cloud.ml.v1.GetJobRequest
 	(*CancelJobRequest)(nil),                          // 18: google.cloud.ml.v1.CancelJobRequest
 	(*HyperparameterOutput_HyperparameterMetric)(nil), // 19: google.cloud.ml.v1.HyperparameterOutput.HyperparameterMetric
-	nil,                           // 20: google.cloud.ml.v1.HyperparameterOutput.HyperparametersEntry
-	(*timestamppb.Timestamp)(nil), // 21: google.protobuf.Timestamp
-	(*emptypb.Empty)(nil),         // 22: google.protobuf.Empty
+	nil,                         // 20: google.cloud.ml.v1.HyperparameterOutput.HyperparametersEntry
+	(*timestamp.Timestamp)(nil), // 21: google.protobuf.Timestamp
+	(*empty.Empty)(nil),         // 22: google.protobuf.Empty
 }
 var file_google_cloud_ml_v1_job_service_proto_depIdxs = []int32{
 	0,  // 0: google.cloud.ml.v1.TrainingInput.scale_tier:type_name -> google.cloud.ml.v1.TrainingInput.ScaleTier

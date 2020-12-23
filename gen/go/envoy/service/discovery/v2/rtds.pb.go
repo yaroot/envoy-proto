@@ -11,10 +11,10 @@ import (
 	v2 "envoy/api/v2"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -79,8 +79,8 @@ type Runtime struct {
 
 	// Runtime resource name. This makes the Runtime a self-describing xDS
 	// resource.
-	Name  string           `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Layer *structpb.Struct `protobuf:"bytes,2,opt,name=layer,proto3" json:"layer,omitempty"`
+	Name  string          `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Layer *_struct.Struct `protobuf:"bytes,2,opt,name=layer,proto3" json:"layer,omitempty"`
 }
 
 func (x *Runtime) Reset() {
@@ -122,7 +122,7 @@ func (x *Runtime) GetName() string {
 	return ""
 }
 
-func (x *Runtime) GetLayer() *structpb.Struct {
+func (x *Runtime) GetLayer() *_struct.Struct {
 	if x != nil {
 		return x.Layer
 	}
@@ -205,7 +205,7 @@ var file_envoy_service_discovery_v2_rtds_proto_msgTypes = make([]protoimpl.Messa
 var file_envoy_service_discovery_v2_rtds_proto_goTypes = []interface{}{
 	(*RtdsDummy)(nil),                 // 0: envoy.service.discovery.v2.RtdsDummy
 	(*Runtime)(nil),                   // 1: envoy.service.discovery.v2.Runtime
-	(*structpb.Struct)(nil),           // 2: google.protobuf.Struct
+	(*_struct.Struct)(nil),            // 2: google.protobuf.Struct
 	(*v2.DiscoveryRequest)(nil),       // 3: envoy.api.v2.DiscoveryRequest
 	(*v2.DeltaDiscoveryRequest)(nil),  // 4: envoy.api.v2.DeltaDiscoveryRequest
 	(*v2.DiscoveryResponse)(nil),      // 5: envoy.api.v2.DiscoveryResponse

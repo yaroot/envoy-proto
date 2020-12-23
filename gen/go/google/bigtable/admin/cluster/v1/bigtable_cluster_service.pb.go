@@ -22,11 +22,11 @@ package cluster
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 )
 
@@ -160,7 +160,7 @@ var file_google_bigtable_admin_cluster_v1_bigtable_cluster_service_proto_goTypes
 	(*UndeleteClusterRequest)(nil), // 6: google.bigtable.admin.cluster.v1.UndeleteClusterRequest
 	(*ListZonesResponse)(nil),      // 7: google.bigtable.admin.cluster.v1.ListZonesResponse
 	(*ListClustersResponse)(nil),   // 8: google.bigtable.admin.cluster.v1.ListClustersResponse
-	(*emptypb.Empty)(nil),          // 9: google.protobuf.Empty
+	(*empty.Empty)(nil),            // 9: google.protobuf.Empty
 	(*longrunning.Operation)(nil),  // 10: google.longrunning.Operation
 }
 var file_google_bigtable_admin_cluster_v1_bigtable_cluster_service_proto_depIdxs = []int32{

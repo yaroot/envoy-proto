@@ -22,13 +22,13 @@ package spanner
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	_struct "github.com/golang/protobuf/ptypes/struct"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	status "google.golang.org/genproto/googleapis/rpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -297,10 +297,10 @@ type Session struct {
 	// See https://goo.gl/xmQnxf for more information on and examples of labels.
 	Labels map[string]string `protobuf:"bytes,2,rep,name=labels,proto3" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// Output only. The timestamp when the session is created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The approximate timestamp when the session is last used. It is
 	// typically earlier than the actual last use time.
-	ApproximateLastUseTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=approximate_last_use_time,json=approximateLastUseTime,proto3" json:"approximate_last_use_time,omitempty"`
+	ApproximateLastUseTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=approximate_last_use_time,json=approximateLastUseTime,proto3" json:"approximate_last_use_time,omitempty"`
 }
 
 func (x *Session) Reset() {
@@ -349,14 +349,14 @@ func (x *Session) GetLabels() map[string]string {
 	return nil
 }
 
-func (x *Session) GetCreateTime() *timestamppb.Timestamp {
+func (x *Session) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *Session) GetApproximateLastUseTime() *timestamppb.Timestamp {
+func (x *Session) GetApproximateLastUseTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ApproximateLastUseTime
 	}
@@ -643,7 +643,7 @@ type ExecuteSqlRequest struct {
 	// `"WHERE id > @msg_id AND id < @msg_id + 100"`
 	//
 	// It is an error to execute a SQL statement with unbound parameters.
-	Params *structpb.Struct `protobuf:"bytes,4,opt,name=params,proto3" json:"params,omitempty"`
+	Params *_struct.Struct `protobuf:"bytes,4,opt,name=params,proto3" json:"params,omitempty"`
 	// It is not always possible for Cloud Spanner to infer the right SQL type
 	// from a JSON value.  For example, values of type `BYTES` and values
 	// of type `STRING` both appear in [params][google.spanner.v1.ExecuteSqlRequest.params] as JSON strings.
@@ -737,7 +737,7 @@ func (x *ExecuteSqlRequest) GetSql() string {
 	return ""
 }
 
-func (x *ExecuteSqlRequest) GetParams() *structpb.Struct {
+func (x *ExecuteSqlRequest) GetParams() *_struct.Struct {
 	if x != nil {
 		return x.Params
 	}
@@ -1071,7 +1071,7 @@ type PartitionQueryRequest struct {
 	// `"WHERE id > @msg_id AND id < @msg_id + 100"`
 	//
 	// It is an error to execute a SQL statement with unbound parameters.
-	Params *structpb.Struct `protobuf:"bytes,4,opt,name=params,proto3" json:"params,omitempty"`
+	Params *_struct.Struct `protobuf:"bytes,4,opt,name=params,proto3" json:"params,omitempty"`
 	// It is not always possible for Cloud Spanner to infer the right SQL type
 	// from a JSON value.  For example, values of type `BYTES` and values
 	// of type `STRING` both appear in [params][google.spanner.v1.PartitionQueryRequest.params] as JSON strings.
@@ -1138,7 +1138,7 @@ func (x *PartitionQueryRequest) GetSql() string {
 	return ""
 }
 
-func (x *PartitionQueryRequest) GetParams() *structpb.Struct {
+func (x *PartitionQueryRequest) GetParams() *_struct.Struct {
 	if x != nil {
 		return x.Params
 	}
@@ -1708,7 +1708,7 @@ type CommitResponse struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The Cloud Spanner timestamp at which the transaction committed.
-	CommitTimestamp *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=commit_timestamp,json=commitTimestamp,proto3" json:"commit_timestamp,omitempty"`
+	CommitTimestamp *timestamp.Timestamp `protobuf:"bytes,1,opt,name=commit_timestamp,json=commitTimestamp,proto3" json:"commit_timestamp,omitempty"`
 }
 
 func (x *CommitResponse) Reset() {
@@ -1743,7 +1743,7 @@ func (*CommitResponse) Descriptor() ([]byte, []int) {
 	return file_google_spanner_v1_spanner_proto_rawDescGZIP(), []int{19}
 }
 
-func (x *CommitResponse) GetCommitTimestamp() *timestamppb.Timestamp {
+func (x *CommitResponse) GetCommitTimestamp() *timestamp.Timestamp {
 	if x != nil {
 		return x.CommitTimestamp
 	}
@@ -1892,7 +1892,7 @@ type ExecuteBatchDmlRequest_Statement struct {
 	// `"WHERE id > @msg_id AND id < @msg_id + 100"`
 	//
 	// It is an error to execute a SQL statement with unbound parameters.
-	Params *structpb.Struct `protobuf:"bytes,2,opt,name=params,proto3" json:"params,omitempty"`
+	Params *_struct.Struct `protobuf:"bytes,2,opt,name=params,proto3" json:"params,omitempty"`
 	// It is not always possible for Cloud Spanner to infer the right SQL type
 	// from a JSON value.  For example, values of type `BYTES` and values
 	// of type `STRING` both appear in [params][google.spanner.v1.ExecuteBatchDmlRequest.Statement.params] as JSON strings.
@@ -1943,7 +1943,7 @@ func (x *ExecuteBatchDmlRequest_Statement) GetSql() string {
 	return ""
 }
 
-func (x *ExecuteBatchDmlRequest_Statement) GetParams() *structpb.Struct {
+func (x *ExecuteBatchDmlRequest_Statement) GetParams() *_struct.Struct {
 	if x != nil {
 		return x.Params
 	}
@@ -2548,9 +2548,9 @@ var file_google_spanner_v1_spanner_proto_goTypes = []interface{}{
 	(*ExecuteBatchDmlRequest_Statement)(nil), // 25: google.spanner.v1.ExecuteBatchDmlRequest.Statement
 	nil,                                      // 26: google.spanner.v1.ExecuteBatchDmlRequest.Statement.ParamTypesEntry
 	nil,                                      // 27: google.spanner.v1.PartitionQueryRequest.ParamTypesEntry
-	(*timestamppb.Timestamp)(nil),            // 28: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),              // 28: google.protobuf.Timestamp
 	(*TransactionSelector)(nil),              // 29: google.spanner.v1.TransactionSelector
-	(*structpb.Struct)(nil),                  // 30: google.protobuf.Struct
+	(*_struct.Struct)(nil),                   // 30: google.protobuf.Struct
 	(*ResultSet)(nil),                        // 31: google.spanner.v1.ResultSet
 	(*status.Status)(nil),                    // 32: google.rpc.Status
 	(*KeySet)(nil),                           // 33: google.spanner.v1.KeySet
@@ -2558,7 +2558,7 @@ var file_google_spanner_v1_spanner_proto_goTypes = []interface{}{
 	(*TransactionOptions)(nil),               // 35: google.spanner.v1.TransactionOptions
 	(*Mutation)(nil),                         // 36: google.spanner.v1.Mutation
 	(*Type)(nil),                             // 37: google.spanner.v1.Type
-	(*emptypb.Empty)(nil),                    // 38: google.protobuf.Empty
+	(*empty.Empty)(nil),                      // 38: google.protobuf.Empty
 	(*PartialResultSet)(nil),                 // 39: google.spanner.v1.PartialResultSet
 }
 var file_google_spanner_v1_spanner_proto_depIdxs = []int32{

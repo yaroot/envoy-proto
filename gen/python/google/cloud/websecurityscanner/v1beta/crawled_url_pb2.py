@@ -17,9 +17,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/websecurityscanner/v1beta/crawled_url.proto',
   package='google.cloud.websecurityscanner.v1beta',
   syntax='proto3',
-  serialized_options=b'\n*com.google.cloud.websecurityscanner.v1betaB\017CrawledUrlProtoP\001ZXgoogle.golang.org/genproto/googleapis/cloud/websecurityscanner/v1beta;websecurityscanner\312\002&Google\\Cloud\\WebSecurityScanner\\V1beta',
+  serialized_options=b'\n*com.google.cloud.websecurityscanner.v1betaB\017CrawledUrlProtoP\001ZXgoogle.golang.org/genproto/googleapis/cloud/websecurityscanner/v1beta;websecurityscanner\252\002&Google.Cloud.WebSecurityScanner.V1Beta\312\002&Google\\Cloud\\WebSecurityScanner\\V1beta\352\002)Google::Cloud::WebSecurityScanner::V1beta',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n8google/cloud/websecurityscanner/v1beta/crawled_url.proto\x12&google.cloud.websecurityscanner.v1beta\"<\n\nCrawledUrl\x12\x13\n\x0bhttp_method\x18\x01 \x01(\t\x12\x0b\n\x03url\x18\x02 \x01(\t\x12\x0c\n\x04\x62ody\x18\x03 \x01(\tB\xc2\x01\n*com.google.cloud.websecurityscanner.v1betaB\x0f\x43rawledUrlProtoP\x01ZXgoogle.golang.org/genproto/googleapis/cloud/websecurityscanner/v1beta;websecurityscanner\xca\x02&Google\\Cloud\\WebSecurityScanner\\V1betab\x06proto3'
+  serialized_pb=b'\n8google/cloud/websecurityscanner/v1beta/crawled_url.proto\x12&google.cloud.websecurityscanner.v1beta\"<\n\nCrawledUrl\x12\x13\n\x0bhttp_method\x18\x01 \x01(\t\x12\x0b\n\x03url\x18\x02 \x01(\t\x12\x0c\n\x04\x62ody\x18\x03 \x01(\tB\x97\x02\n*com.google.cloud.websecurityscanner.v1betaB\x0f\x43rawledUrlProtoP\x01ZXgoogle.golang.org/genproto/googleapis/cloud/websecurityscanner/v1beta;websecurityscanner\xaa\x02&Google.Cloud.WebSecurityScanner.V1Beta\xca\x02&Google\\Cloud\\WebSecurityScanner\\V1beta\xea\x02)Google::Cloud::WebSecurityScanner::V1betab\x06proto3'
 )
 
 

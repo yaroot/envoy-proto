@@ -9,10 +9,10 @@ package envoy_data_cluster_v3
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -179,9 +179,9 @@ type OutlierDetectionEvent struct {
 	// In case of eject represents type of ejection that took place.
 	Type OutlierEjectionType `protobuf:"varint,1,opt,name=type,proto3,enum=envoy.data.cluster.v3.OutlierEjectionType" json:"type,omitempty"`
 	// Timestamp for event.
-	Timestamp *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Timestamp *timestamp.Timestamp `protobuf:"bytes,2,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 	// The time in seconds since the last action (either an ejection or unejection) took place.
-	SecsSinceLastAction *wrapperspb.UInt64Value `protobuf:"bytes,3,opt,name=secs_since_last_action,json=secsSinceLastAction,proto3" json:"secs_since_last_action,omitempty"`
+	SecsSinceLastAction *wrappers.UInt64Value `protobuf:"bytes,3,opt,name=secs_since_last_action,json=secsSinceLastAction,proto3" json:"secs_since_last_action,omitempty"`
 	// The :ref:`cluster <envoy_api_msg_config.cluster.v3.Cluster>` that owns the ejected host.
 	ClusterName string `protobuf:"bytes,4,opt,name=cluster_name,json=clusterName,proto3" json:"cluster_name,omitempty"`
 	// The URL of the ejected host. E.g., ``tcp://1.2.3.4:80``.
@@ -241,14 +241,14 @@ func (x *OutlierDetectionEvent) GetType() OutlierEjectionType {
 	return OutlierEjectionType_CONSECUTIVE_5XX
 }
 
-func (x *OutlierDetectionEvent) GetTimestamp() *timestamppb.Timestamp {
+func (x *OutlierDetectionEvent) GetTimestamp() *timestamp.Timestamp {
 	if x != nil {
 		return x.Timestamp
 	}
 	return nil
 }
 
-func (x *OutlierDetectionEvent) GetSecsSinceLastAction() *wrapperspb.UInt64Value {
+func (x *OutlierDetectionEvent) GetSecsSinceLastAction() *wrappers.UInt64Value {
 	if x != nil {
 		return x.SecsSinceLastAction
 	}
@@ -527,10 +527,10 @@ var file_envoy_data_cluster_v3_outlier_detection_event_proto_rawDesc = []byte{
 	0x61, 0x6c, 0x75, 0x65, 0x52, 0x13, 0x73, 0x65, 0x63, 0x73, 0x53, 0x69, 0x6e, 0x63, 0x65, 0x4c,
 	0x61, 0x73, 0x74, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x2a, 0x0a, 0x0c, 0x63, 0x6c, 0x75,
 	0x73, 0x74, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x20, 0x01, 0x52, 0x0b, 0x63, 0x6c, 0x75, 0x73, 0x74, 0x65,
+	0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0b, 0x63, 0x6c, 0x75, 0x73, 0x74, 0x65,
 	0x72, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x2a, 0x0a, 0x0c, 0x75, 0x70, 0x73, 0x74, 0x72, 0x65, 0x61,
 	0x6d, 0x5f, 0x75, 0x72, 0x6c, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04,
-	0x72, 0x02, 0x20, 0x01, 0x52, 0x0b, 0x75, 0x70, 0x73, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x55, 0x72,
+	0x72, 0x02, 0x10, 0x01, 0x52, 0x0b, 0x75, 0x70, 0x73, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x55, 0x72,
 	0x6c, 0x12, 0x3f, 0x0a, 0x06, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x06, 0x20, 0x01, 0x28,
 	0x0e, 0x32, 0x1d, 0x2e, 0x65, 0x6e, 0x76, 0x6f, 0x79, 0x2e, 0x64, 0x61, 0x74, 0x61, 0x2e, 0x63,
 	0x6c, 0x75, 0x73, 0x74, 0x65, 0x72, 0x2e, 0x76, 0x33, 0x2e, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e,
@@ -644,8 +644,8 @@ var file_envoy_data_cluster_v3_outlier_detection_event_proto_goTypes = []interfa
 	(*OutlierEjectSuccessRate)(nil),       // 3: envoy.data.cluster.v3.OutlierEjectSuccessRate
 	(*OutlierEjectConsecutive)(nil),       // 4: envoy.data.cluster.v3.OutlierEjectConsecutive
 	(*OutlierEjectFailurePercentage)(nil), // 5: envoy.data.cluster.v3.OutlierEjectFailurePercentage
-	(*timestamppb.Timestamp)(nil),         // 6: google.protobuf.Timestamp
-	(*wrapperspb.UInt64Value)(nil),        // 7: google.protobuf.UInt64Value
+	(*timestamp.Timestamp)(nil),           // 6: google.protobuf.Timestamp
+	(*wrappers.UInt64Value)(nil),          // 7: google.protobuf.UInt64Value
 }
 var file_envoy_data_cluster_v3_outlier_detection_event_proto_depIdxs = []int32{
 	0, // 0: envoy.data.cluster.v3.OutlierDetectionEvent.type:type_name -> envoy.data.cluster.v3.OutlierEjectionType

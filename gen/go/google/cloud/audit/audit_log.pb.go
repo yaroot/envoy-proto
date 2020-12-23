@@ -22,12 +22,12 @@ package audit
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	attribute_context "google.golang.org/genproto/googleapis/rpc/context/attribute_context"
 	status "google.golang.org/genproto/googleapis/rpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -75,7 +75,7 @@ type AuditLog struct {
 	// `service_data` fields.
 	// When the JSON object represented here has a proto equivalent,
 	// the proto name will be indicated in the `@type` property.
-	ResourceOriginalState *structpb.Struct `protobuf:"bytes,19,opt,name=resource_original_state,json=resourceOriginalState,proto3" json:"resource_original_state,omitempty"`
+	ResourceOriginalState *_struct.Struct `protobuf:"bytes,19,opt,name=resource_original_state,json=resourceOriginalState,proto3" json:"resource_original_state,omitempty"`
 	// The number of items returned from a List or Query API method,
 	// if applicable.
 	NumResponseItems int64 `protobuf:"varint,12,opt,name=num_response_items,json=numResponseItems,proto3" json:"num_response_items,omitempty"`
@@ -95,21 +95,21 @@ type AuditLog struct {
 	// It should never include user-generated data, such as file contents.
 	// When the JSON object represented here has a proto equivalent, the proto
 	// name will be indicated in the `@type` property.
-	Request *structpb.Struct `protobuf:"bytes,16,opt,name=request,proto3" json:"request,omitempty"`
+	Request *_struct.Struct `protobuf:"bytes,16,opt,name=request,proto3" json:"request,omitempty"`
 	// The operation response. This may not include all response elements,
 	// such as those that are too large, privacy-sensitive, or duplicated
 	// elsewhere in the log record.
 	// It should never include user-generated data, such as file contents.
 	// When the JSON object represented here has a proto equivalent, the proto
 	// name will be indicated in the `@type` property.
-	Response *structpb.Struct `protobuf:"bytes,17,opt,name=response,proto3" json:"response,omitempty"`
+	Response *_struct.Struct `protobuf:"bytes,17,opt,name=response,proto3" json:"response,omitempty"`
 	// Other service-specific data about the request, response, and other
 	// information associated with the current audited event.
-	Metadata *structpb.Struct `protobuf:"bytes,18,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	Metadata *_struct.Struct `protobuf:"bytes,18,opt,name=metadata,proto3" json:"metadata,omitempty"`
 	// Deprecated, use `metadata` field instead.
 	// Other service-specific data about the request, response, and other
 	// activities.
-	ServiceData *anypb.Any `protobuf:"bytes,15,opt,name=service_data,json=serviceData,proto3" json:"service_data,omitempty"`
+	ServiceData *any.Any `protobuf:"bytes,15,opt,name=service_data,json=serviceData,proto3" json:"service_data,omitempty"`
 }
 
 func (x *AuditLog) Reset() {
@@ -172,7 +172,7 @@ func (x *AuditLog) GetResourceLocation() *ResourceLocation {
 	return nil
 }
 
-func (x *AuditLog) GetResourceOriginalState() *structpb.Struct {
+func (x *AuditLog) GetResourceOriginalState() *_struct.Struct {
 	if x != nil {
 		return x.ResourceOriginalState
 	}
@@ -214,28 +214,28 @@ func (x *AuditLog) GetRequestMetadata() *RequestMetadata {
 	return nil
 }
 
-func (x *AuditLog) GetRequest() *structpb.Struct {
+func (x *AuditLog) GetRequest() *_struct.Struct {
 	if x != nil {
 		return x.Request
 	}
 	return nil
 }
 
-func (x *AuditLog) GetResponse() *structpb.Struct {
+func (x *AuditLog) GetResponse() *_struct.Struct {
 	if x != nil {
 		return x.Response
 	}
 	return nil
 }
 
-func (x *AuditLog) GetMetadata() *structpb.Struct {
+func (x *AuditLog) GetMetadata() *_struct.Struct {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *AuditLog) GetServiceData() *anypb.Any {
+func (x *AuditLog) GetServiceData() *any.Any {
 	if x != nil {
 		return x.ServiceData
 	}
@@ -260,7 +260,7 @@ type AuthenticationInfo struct {
 	// the request.
 	// When the JSON object represented here has a proto equivalent, the proto
 	// name will be indicated in the `@type` property.
-	ThirdPartyPrincipal *structpb.Struct `protobuf:"bytes,4,opt,name=third_party_principal,json=thirdPartyPrincipal,proto3" json:"third_party_principal,omitempty"`
+	ThirdPartyPrincipal *_struct.Struct `protobuf:"bytes,4,opt,name=third_party_principal,json=thirdPartyPrincipal,proto3" json:"third_party_principal,omitempty"`
 	// The name of the service account key used to create or exchange
 	// credentials for authenticating the service account making the request.
 	// This is a scheme-less URI full resource name. For example:
@@ -324,7 +324,7 @@ func (x *AuthenticationInfo) GetAuthoritySelector() string {
 	return ""
 }
 
-func (x *AuthenticationInfo) GetThirdPartyPrincipal() *structpb.Struct {
+func (x *AuthenticationInfo) GetThirdPartyPrincipal() *_struct.Struct {
 	if x != nil {
 		return x.ThirdPartyPrincipal
 	}
@@ -725,7 +725,7 @@ type ServiceAccountDelegationInfo_FirstPartyPrincipal struct {
 	// The email address of a Google account.
 	PrincipalEmail string `protobuf:"bytes,1,opt,name=principal_email,json=principalEmail,proto3" json:"principal_email,omitempty"`
 	// Metadata about the service that uses the service account.
-	ServiceMetadata *structpb.Struct `protobuf:"bytes,2,opt,name=service_metadata,json=serviceMetadata,proto3" json:"service_metadata,omitempty"`
+	ServiceMetadata *_struct.Struct `protobuf:"bytes,2,opt,name=service_metadata,json=serviceMetadata,proto3" json:"service_metadata,omitempty"`
 }
 
 func (x *ServiceAccountDelegationInfo_FirstPartyPrincipal) Reset() {
@@ -767,7 +767,7 @@ func (x *ServiceAccountDelegationInfo_FirstPartyPrincipal) GetPrincipalEmail() s
 	return ""
 }
 
-func (x *ServiceAccountDelegationInfo_FirstPartyPrincipal) GetServiceMetadata() *structpb.Struct {
+func (x *ServiceAccountDelegationInfo_FirstPartyPrincipal) GetServiceMetadata() *_struct.Struct {
 	if x != nil {
 		return x.ServiceMetadata
 	}
@@ -781,7 +781,7 @@ type ServiceAccountDelegationInfo_ThirdPartyPrincipal struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Metadata about third party identity.
-	ThirdPartyClaims *structpb.Struct `protobuf:"bytes,1,opt,name=third_party_claims,json=thirdPartyClaims,proto3" json:"third_party_claims,omitempty"`
+	ThirdPartyClaims *_struct.Struct `protobuf:"bytes,1,opt,name=third_party_claims,json=thirdPartyClaims,proto3" json:"third_party_claims,omitempty"`
 }
 
 func (x *ServiceAccountDelegationInfo_ThirdPartyPrincipal) Reset() {
@@ -816,7 +816,7 @@ func (*ServiceAccountDelegationInfo_ThirdPartyPrincipal) Descriptor() ([]byte, [
 	return file_google_cloud_audit_audit_log_proto_rawDescGZIP(), []int{5, 1}
 }
 
-func (x *ServiceAccountDelegationInfo_ThirdPartyPrincipal) GetThirdPartyClaims() *structpb.Struct {
+func (x *ServiceAccountDelegationInfo_ThirdPartyPrincipal) GetThirdPartyClaims() *_struct.Struct {
 	if x != nil {
 		return x.ThirdPartyClaims
 	}
@@ -1021,9 +1021,9 @@ var file_google_cloud_audit_audit_log_proto_goTypes = []interface{}{
 	(*ServiceAccountDelegationInfo)(nil),                     // 5: google.cloud.audit.ServiceAccountDelegationInfo
 	(*ServiceAccountDelegationInfo_FirstPartyPrincipal)(nil), // 6: google.cloud.audit.ServiceAccountDelegationInfo.FirstPartyPrincipal
 	(*ServiceAccountDelegationInfo_ThirdPartyPrincipal)(nil), // 7: google.cloud.audit.ServiceAccountDelegationInfo.ThirdPartyPrincipal
-	(*structpb.Struct)(nil),                                  // 8: google.protobuf.Struct
+	(*_struct.Struct)(nil),                                   // 8: google.protobuf.Struct
 	(*status.Status)(nil),                                    // 9: google.rpc.Status
-	(*anypb.Any)(nil),                                        // 10: google.protobuf.Any
+	(*any.Any)(nil),                                          // 10: google.protobuf.Any
 	(*attribute_context.AttributeContext_Resource)(nil),      // 11: google.rpc.context.AttributeContext.Resource
 	(*attribute_context.AttributeContext_Request)(nil),       // 12: google.rpc.context.AttributeContext.Request
 	(*attribute_context.AttributeContext_Peer)(nil),          // 13: google.rpc.context.AttributeContext.Peer

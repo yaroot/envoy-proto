@@ -22,11 +22,11 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v5/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -56,9 +56,9 @@ type CampaignDraft struct {
 	// Output only. The ID of the draft.
 	//
 	// This field is read-only.
-	DraftId *wrapperspb.Int64Value `protobuf:"bytes,2,opt,name=draft_id,json=draftId,proto3" json:"draft_id,omitempty"`
+	DraftId *wrappers.Int64Value `protobuf:"bytes,2,opt,name=draft_id,json=draftId,proto3" json:"draft_id,omitempty"`
 	// Immutable. The base campaign to which the draft belongs.
-	BaseCampaign *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=base_campaign,json=baseCampaign,proto3" json:"base_campaign,omitempty"`
+	BaseCampaign *wrappers.StringValue `protobuf:"bytes,3,opt,name=base_campaign,json=baseCampaign,proto3" json:"base_campaign,omitempty"`
 	// The name of the campaign draft.
 	//
 	// This field is required and should not be empty when creating new
@@ -66,22 +66,22 @@ type CampaignDraft struct {
 	//
 	// It must not contain any null (code point 0x0), NL line feed
 	// (code point 0xA) or carriage return (code point 0xD) characters.
-	Name *wrapperspb.StringValue `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	Name *wrappers.StringValue `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Output only. Resource name of the Campaign that results from overlaying the draft
 	// changes onto the base campaign.
 	//
 	// This field is read-only.
-	DraftCampaign *wrapperspb.StringValue `protobuf:"bytes,5,opt,name=draft_campaign,json=draftCampaign,proto3" json:"draft_campaign,omitempty"`
+	DraftCampaign *wrappers.StringValue `protobuf:"bytes,5,opt,name=draft_campaign,json=draftCampaign,proto3" json:"draft_campaign,omitempty"`
 	// Output only. The status of the campaign draft. This field is read-only.
 	//
 	// When a new campaign draft is added, the status defaults to PROPOSED.
 	Status enums.CampaignDraftStatusEnum_CampaignDraftStatus `protobuf:"varint,6,opt,name=status,proto3,enum=google.ads.googleads.v5.enums.CampaignDraftStatusEnum_CampaignDraftStatus" json:"status,omitempty"`
 	// Output only. Whether there is an experiment based on this draft currently serving.
-	HasExperimentRunning *wrapperspb.BoolValue `protobuf:"bytes,7,opt,name=has_experiment_running,json=hasExperimentRunning,proto3" json:"has_experiment_running,omitempty"`
+	HasExperimentRunning *wrappers.BoolValue `protobuf:"bytes,7,opt,name=has_experiment_running,json=hasExperimentRunning,proto3" json:"has_experiment_running,omitempty"`
 	// Output only. The resource name of the long-running operation that can be used to poll
 	// for completion of draft promotion. This is only set if the draft promotion
 	// is in progress or finished.
-	LongRunningOperation *wrapperspb.StringValue `protobuf:"bytes,8,opt,name=long_running_operation,json=longRunningOperation,proto3" json:"long_running_operation,omitempty"`
+	LongRunningOperation *wrappers.StringValue `protobuf:"bytes,8,opt,name=long_running_operation,json=longRunningOperation,proto3" json:"long_running_operation,omitempty"`
 }
 
 func (x *CampaignDraft) Reset() {
@@ -123,28 +123,28 @@ func (x *CampaignDraft) GetResourceName() string {
 	return ""
 }
 
-func (x *CampaignDraft) GetDraftId() *wrapperspb.Int64Value {
+func (x *CampaignDraft) GetDraftId() *wrappers.Int64Value {
 	if x != nil {
 		return x.DraftId
 	}
 	return nil
 }
 
-func (x *CampaignDraft) GetBaseCampaign() *wrapperspb.StringValue {
+func (x *CampaignDraft) GetBaseCampaign() *wrappers.StringValue {
 	if x != nil {
 		return x.BaseCampaign
 	}
 	return nil
 }
 
-func (x *CampaignDraft) GetName() *wrapperspb.StringValue {
+func (x *CampaignDraft) GetName() *wrappers.StringValue {
 	if x != nil {
 		return x.Name
 	}
 	return nil
 }
 
-func (x *CampaignDraft) GetDraftCampaign() *wrapperspb.StringValue {
+func (x *CampaignDraft) GetDraftCampaign() *wrappers.StringValue {
 	if x != nil {
 		return x.DraftCampaign
 	}
@@ -158,14 +158,14 @@ func (x *CampaignDraft) GetStatus() enums.CampaignDraftStatusEnum_CampaignDraftS
 	return enums.CampaignDraftStatusEnum_UNSPECIFIED
 }
 
-func (x *CampaignDraft) GetHasExperimentRunning() *wrapperspb.BoolValue {
+func (x *CampaignDraft) GetHasExperimentRunning() *wrappers.BoolValue {
 	if x != nil {
 		return x.HasExperimentRunning
 	}
 	return nil
 }
 
-func (x *CampaignDraft) GetLongRunningOperation() *wrapperspb.StringValue {
+func (x *CampaignDraft) GetLongRunningOperation() *wrappers.StringValue {
 	if x != nil {
 		return x.LongRunningOperation
 	}
@@ -277,10 +277,10 @@ func file_google_ads_googleads_v5_resources_campaign_draft_proto_rawDescGZIP() [
 var file_google_ads_googleads_v5_resources_campaign_draft_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v5_resources_campaign_draft_proto_goTypes = []interface{}{
 	(*CampaignDraft)(nil),                                  // 0: google.ads.googleads.v5.resources.CampaignDraft
-	(*wrapperspb.Int64Value)(nil),                          // 1: google.protobuf.Int64Value
-	(*wrapperspb.StringValue)(nil),                         // 2: google.protobuf.StringValue
+	(*wrappers.Int64Value)(nil),                            // 1: google.protobuf.Int64Value
+	(*wrappers.StringValue)(nil),                           // 2: google.protobuf.StringValue
 	(enums.CampaignDraftStatusEnum_CampaignDraftStatus)(0), // 3: google.ads.googleads.v5.enums.CampaignDraftStatusEnum.CampaignDraftStatus
-	(*wrapperspb.BoolValue)(nil),                           // 4: google.protobuf.BoolValue
+	(*wrappers.BoolValue)(nil),                             // 4: google.protobuf.BoolValue
 }
 var file_google_ads_googleads_v5_resources_campaign_draft_proto_depIdxs = []int32{
 	1, // 0: google.ads.googleads.v5.resources.CampaignDraft.draft_id:type_name -> google.protobuf.Int64Value

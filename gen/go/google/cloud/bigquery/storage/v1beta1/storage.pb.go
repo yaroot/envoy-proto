@@ -22,11 +22,11 @@ package storage
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -275,7 +275,7 @@ type ReadSession struct {
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// Time at which the session becomes invalid. After this time, subsequent
 	// requests to read this Session will return errors.
-	ExpireTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
+	ExpireTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
 	// The schema for the read. If read_options.selected_fields is set, the
 	// schema may be different from the table schema as it will only contain
 	// the selected fields.
@@ -333,7 +333,7 @@ func (x *ReadSession) GetName() string {
 	return ""
 }
 
-func (x *ReadSession) GetExpireTime() *timestamppb.Timestamp {
+func (x *ReadSession) GetExpireTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ExpireTime
 	}
@@ -1556,7 +1556,7 @@ var file_google_cloud_bigquery_storage_v1beta1_storage_proto_goTypes = []interfa
 	(*FinalizeStreamRequest)(nil),                 // 13: google.cloud.bigquery.storage.v1beta1.FinalizeStreamRequest
 	(*SplitReadStreamRequest)(nil),                // 14: google.cloud.bigquery.storage.v1beta1.SplitReadStreamRequest
 	(*SplitReadStreamResponse)(nil),               // 15: google.cloud.bigquery.storage.v1beta1.SplitReadStreamResponse
-	(*timestamppb.Timestamp)(nil),                 // 16: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),                   // 16: google.protobuf.Timestamp
 	(*AvroSchema)(nil),                            // 17: google.cloud.bigquery.storage.v1beta1.AvroSchema
 	(*ArrowSchema)(nil),                           // 18: google.cloud.bigquery.storage.v1beta1.ArrowSchema
 	(*TableReference)(nil),                        // 19: google.cloud.bigquery.storage.v1beta1.TableReference
@@ -1564,7 +1564,7 @@ var file_google_cloud_bigquery_storage_v1beta1_storage_proto_goTypes = []interfa
 	(*TableReadOptions)(nil),                      // 21: google.cloud.bigquery.storage.v1beta1.TableReadOptions
 	(*AvroRows)(nil),                              // 22: google.cloud.bigquery.storage.v1beta1.AvroRows
 	(*ArrowRecordBatch)(nil),                      // 23: google.cloud.bigquery.storage.v1beta1.ArrowRecordBatch
-	(*emptypb.Empty)(nil),                         // 24: google.protobuf.Empty
+	(*empty.Empty)(nil),                           // 24: google.protobuf.Empty
 }
 var file_google_cloud_bigquery_storage_v1beta1_storage_proto_depIdxs = []int32{
 	2,  // 0: google.cloud.bigquery.storage.v1beta1.StreamPosition.stream:type_name -> google.cloud.bigquery.storage.v1beta1.Stream

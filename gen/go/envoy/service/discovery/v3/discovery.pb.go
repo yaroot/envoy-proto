@@ -9,10 +9,10 @@ package envoy_service_discovery_v3
 import (
 	v3 "envoy/config/core/v3"
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
 	status "google.golang.org/genproto/googleapis/rpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -156,7 +156,7 @@ type DiscoveryResponse struct {
 	// The version of the response data.
 	VersionInfo string `protobuf:"bytes,1,opt,name=version_info,json=versionInfo,proto3" json:"version_info,omitempty"`
 	// The response resources. These resources are typed and depend on the API being called.
-	Resources []*anypb.Any `protobuf:"bytes,2,rep,name=resources,proto3" json:"resources,omitempty"`
+	Resources []*any.Any `protobuf:"bytes,2,rep,name=resources,proto3" json:"resources,omitempty"`
 	// [#not-implemented-hide:]
 	// Canary is used to support two Envoy command line flags:
 	//
@@ -228,7 +228,7 @@ func (x *DiscoveryResponse) GetVersionInfo() string {
 	return ""
 }
 
-func (x *DiscoveryResponse) GetResources() []*anypb.Any {
+func (x *DiscoveryResponse) GetResources() []*any.Any {
 	if x != nil {
 		return x.Resources
 	}
@@ -576,7 +576,7 @@ type Resource struct {
 	// resources.
 	Version string `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
 	// The resource being tracked.
-	Resource *anypb.Any `protobuf:"bytes,2,opt,name=resource,proto3" json:"resource,omitempty"`
+	Resource *any.Any `protobuf:"bytes,2,opt,name=resource,proto3" json:"resource,omitempty"`
 }
 
 func (x *Resource) Reset() {
@@ -639,7 +639,7 @@ func (x *Resource) GetVersion() string {
 	return ""
 }
 
-func (x *Resource) GetResource() *anypb.Any {
+func (x *Resource) GetResource() *any.Any {
 	if x != nil {
 		return x.Resource
 	}
@@ -824,7 +824,7 @@ var file_envoy_service_discovery_v3_discovery_proto_goTypes = []interface{}{
 	nil,                            // 5: envoy.service.discovery.v3.DeltaDiscoveryRequest.InitialResourceVersionsEntry
 	(*v3.Node)(nil),                // 6: envoy.config.core.v3.Node
 	(*status.Status)(nil),          // 7: google.rpc.Status
-	(*anypb.Any)(nil),              // 8: google.protobuf.Any
+	(*any.Any)(nil),                // 8: google.protobuf.Any
 	(*v3.ControlPlane)(nil),        // 9: envoy.config.core.v3.ControlPlane
 	(*v1.ResourceLocator)(nil),     // 10: udpa.core.v1.ResourceLocator
 	(*v1.ResourceName)(nil),        // 11: udpa.core.v1.ResourceName

@@ -22,10 +22,10 @@ package appengine
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -134,7 +134,7 @@ type Instance struct {
 	// Time that this instance was started.
 	//
 	// @OutputOnly
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,8,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// Number of requests since this instance was started.
 	//
 	// @OutputOnly
@@ -253,7 +253,7 @@ func (x *Instance) GetVmId() string {
 	return ""
 }
 
-func (x *Instance) GetStartTime() *timestamppb.Timestamp {
+func (x *Instance) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
@@ -391,9 +391,9 @@ func file_google_appengine_v1beta_instance_proto_rawDescGZIP() []byte {
 var file_google_appengine_v1beta_instance_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_google_appengine_v1beta_instance_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_appengine_v1beta_instance_proto_goTypes = []interface{}{
-	(Instance_Availability)(0),    // 0: google.appengine.v1beta.Instance.Availability
-	(*Instance)(nil),              // 1: google.appengine.v1beta.Instance
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(Instance_Availability)(0),  // 0: google.appengine.v1beta.Instance.Availability
+	(*Instance)(nil),            // 1: google.appengine.v1beta.Instance
+	(*timestamp.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_google_appengine_v1beta_instance_proto_depIdxs = []int32{
 	0, // 0: google.appengine.v1beta.Instance.availability:type_name -> google.appengine.v1beta.Instance.Availability

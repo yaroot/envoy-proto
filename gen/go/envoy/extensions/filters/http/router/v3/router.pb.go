@@ -10,9 +10,9 @@ import (
 	v3 "envoy/config/accesslog/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -37,7 +37,7 @@ type Router struct {
 
 	// Whether the router generates dynamic cluster statistics. Defaults to
 	// true. Can be disabled in high performance scenarios.
-	DynamicStats *wrapperspb.BoolValue `protobuf:"bytes,1,opt,name=dynamic_stats,json=dynamicStats,proto3" json:"dynamic_stats,omitempty"`
+	DynamicStats *wrappers.BoolValue `protobuf:"bytes,1,opt,name=dynamic_stats,json=dynamicStats,proto3" json:"dynamic_stats,omitempty"`
 	// Whether to start a child span for egress routed calls. This can be
 	// useful in scenarios where other filters (auth, ratelimit, etc.) make
 	// outbound calls and have child spans rooted at the same ingress
@@ -108,7 +108,7 @@ func (*Router) Descriptor() ([]byte, []int) {
 	return file_envoy_extensions_filters_http_router_v3_router_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Router) GetDynamicStats() *wrapperspb.BoolValue {
+func (x *Router) GetDynamicStats() *wrappers.BoolValue {
 	if x != nil {
 		return x.DynamicStats
 	}
@@ -226,9 +226,9 @@ func file_envoy_extensions_filters_http_router_v3_router_proto_rawDescGZIP() []b
 
 var file_envoy_extensions_filters_http_router_v3_router_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_envoy_extensions_filters_http_router_v3_router_proto_goTypes = []interface{}{
-	(*Router)(nil),               // 0: envoy.extensions.filters.http.router.v3.Router
-	(*wrapperspb.BoolValue)(nil), // 1: google.protobuf.BoolValue
-	(*v3.AccessLog)(nil),         // 2: envoy.config.accesslog.v3.AccessLog
+	(*Router)(nil),             // 0: envoy.extensions.filters.http.router.v3.Router
+	(*wrappers.BoolValue)(nil), // 1: google.protobuf.BoolValue
+	(*v3.AccessLog)(nil),       // 2: envoy.config.accesslog.v3.AccessLog
 }
 var file_envoy_extensions_filters_http_router_v3_router_proto_depIdxs = []int32{
 	1, // 0: envoy.extensions.filters.http.router.v3.Router.dynamic_stats:type_name -> google.protobuf.BoolValue

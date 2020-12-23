@@ -22,12 +22,12 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	common "google.golang.org/genproto/googleapis/ads/googleads/v4/common"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v4/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -55,7 +55,7 @@ type Campaign struct {
 	// `customers/{customer_id}/campaigns/{campaign_id}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. The ID of the campaign.
-	Id *wrapperspb.Int64Value `protobuf:"bytes,3,opt,name=id,proto3" json:"id,omitempty"`
+	Id *wrappers.Int64Value `protobuf:"bytes,3,opt,name=id,proto3" json:"id,omitempty"`
 	// The name of the campaign.
 	//
 	// This field is required and should not be empty when creating new
@@ -63,7 +63,7 @@ type Campaign struct {
 	//
 	// It must not contain any null (code point 0x0), NL line feed
 	// (code point 0xA) or carriage return (code point 0xD) characters.
-	Name *wrapperspb.StringValue `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	Name *wrappers.StringValue `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// The status of the campaign.
 	//
 	// When a new campaign is added, the status defaults to ENABLED.
@@ -88,7 +88,7 @@ type Campaign struct {
 	// After campaign is created, the field can not be changed.
 	AdvertisingChannelSubType enums.AdvertisingChannelSubTypeEnum_AdvertisingChannelSubType `protobuf:"varint,10,opt,name=advertising_channel_sub_type,json=advertisingChannelSubType,proto3,enum=google.ads.googleads.v4.enums.AdvertisingChannelSubTypeEnum_AdvertisingChannelSubType" json:"advertising_channel_sub_type,omitempty"`
 	// The URL template for constructing a tracking URL.
-	TrackingUrlTemplate *wrapperspb.StringValue `protobuf:"bytes,11,opt,name=tracking_url_template,json=trackingUrlTemplate,proto3" json:"tracking_url_template,omitempty"`
+	TrackingUrlTemplate *wrappers.StringValue `protobuf:"bytes,11,opt,name=tracking_url_template,json=trackingUrlTemplate,proto3" json:"tracking_url_template,omitempty"`
 	// The list of mappings used to substitute custom parameter tags in a
 	// `tracking_url_template`, `final_urls`, or `mobile_final_urls`.
 	UrlCustomParameters []*common.CustomParameter `protobuf:"bytes,12,rep,name=url_custom_parameters,json=urlCustomParameters,proto3" json:"url_custom_parameters,omitempty"`
@@ -112,16 +112,16 @@ type Campaign struct {
 	// The setting related to App Campaign.
 	AppCampaignSetting *Campaign_AppCampaignSetting `protobuf:"bytes,51,opt,name=app_campaign_setting,json=appCampaignSetting,proto3" json:"app_campaign_setting,omitempty"`
 	// Output only. The resource names of labels attached to this campaign.
-	Labels []*wrapperspb.StringValue `protobuf:"bytes,53,rep,name=labels,proto3" json:"labels,omitempty"`
+	Labels []*wrappers.StringValue `protobuf:"bytes,53,rep,name=labels,proto3" json:"labels,omitempty"`
 	// Output only. The type of campaign: normal, draft, or experiment.
 	ExperimentType enums.CampaignExperimentTypeEnum_CampaignExperimentType `protobuf:"varint,17,opt,name=experiment_type,json=experimentType,proto3,enum=google.ads.googleads.v4.enums.CampaignExperimentTypeEnum_CampaignExperimentType" json:"experiment_type,omitempty"`
 	// Output only. The resource name of the base campaign of a draft or experiment campaign.
 	// For base campaigns, this is equal to `resource_name`.
 	//
 	// This field is read-only.
-	BaseCampaign *wrapperspb.StringValue `protobuf:"bytes,28,opt,name=base_campaign,json=baseCampaign,proto3" json:"base_campaign,omitempty"`
+	BaseCampaign *wrappers.StringValue `protobuf:"bytes,28,opt,name=base_campaign,json=baseCampaign,proto3" json:"base_campaign,omitempty"`
 	// The budget of the campaign.
-	CampaignBudget *wrapperspb.StringValue `protobuf:"bytes,6,opt,name=campaign_budget,json=campaignBudget,proto3" json:"campaign_budget,omitempty"`
+	CampaignBudget *wrappers.StringValue `protobuf:"bytes,6,opt,name=campaign_budget,json=campaignBudget,proto3" json:"campaign_budget,omitempty"`
 	// Output only. The type of bidding strategy.
 	//
 	// A bidding strategy can be created by setting either the bidding scheme to
@@ -132,13 +132,13 @@ type Campaign struct {
 	BiddingStrategyType enums.BiddingStrategyTypeEnum_BiddingStrategyType `protobuf:"varint,22,opt,name=bidding_strategy_type,json=biddingStrategyType,proto3,enum=google.ads.googleads.v4.enums.BiddingStrategyTypeEnum_BiddingStrategyType" json:"bidding_strategy_type,omitempty"`
 	// The date when campaign started.
 	// This field must not be used in WHERE clauses.
-	StartDate *wrapperspb.StringValue `protobuf:"bytes,19,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
+	StartDate *wrappers.StringValue `protobuf:"bytes,19,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
 	// The date when campaign ended.
 	// This field must not be used in WHERE clauses.
-	EndDate *wrapperspb.StringValue `protobuf:"bytes,20,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`
+	EndDate *wrappers.StringValue `protobuf:"bytes,20,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`
 	// Suffix used to append query parameters to landing pages that are served
 	// with parallel tracking.
-	FinalUrlSuffix *wrapperspb.StringValue `protobuf:"bytes,38,opt,name=final_url_suffix,json=finalUrlSuffix,proto3" json:"final_url_suffix,omitempty"`
+	FinalUrlSuffix *wrappers.StringValue `protobuf:"bytes,38,opt,name=final_url_suffix,json=finalUrlSuffix,proto3" json:"final_url_suffix,omitempty"`
 	// A list that limits how often each user will see this campaign's ads.
 	FrequencyCaps []*common.FrequencyCapEntry `protobuf:"bytes,40,rep,name=frequency_caps,json=frequencyCaps,proto3" json:"frequency_caps,omitempty"`
 	// Output only. 3-Tier Brand Safety setting for the campaign.
@@ -159,13 +159,14 @@ type Campaign struct {
 	//
 	// Optimization score is an estimate of how well a campaign is set to perform.
 	// It ranges from 0% (0.0) to 100% (1.0), with 100% indicating that the
-	// campaign is performing at full potential.
+	// campaign is performing at full potential. This field is null for unscored
+	// campaigns.
 	//
 	// See "About optimization score" at
 	// https://support.google.com/google-ads/answer/9061546.
 	//
 	// This field is read-only.
-	OptimizationScore *wrapperspb.DoubleValue `protobuf:"bytes,55,opt,name=optimization_score,json=optimizationScore,proto3" json:"optimization_score,omitempty"`
+	OptimizationScore *wrappers.DoubleValue `protobuf:"bytes,55,opt,name=optimization_score,json=optimizationScore,proto3" json:"optimization_score,omitempty"`
 	// The bidding strategy for the campaign.
 	//
 	// Must be either portfolio (created via BiddingStrategy service) or
@@ -227,14 +228,14 @@ func (x *Campaign) GetResourceName() string {
 	return ""
 }
 
-func (x *Campaign) GetId() *wrapperspb.Int64Value {
+func (x *Campaign) GetId() *wrappers.Int64Value {
 	if x != nil {
 		return x.Id
 	}
 	return nil
 }
 
-func (x *Campaign) GetName() *wrapperspb.StringValue {
+func (x *Campaign) GetName() *wrappers.StringValue {
 	if x != nil {
 		return x.Name
 	}
@@ -276,7 +277,7 @@ func (x *Campaign) GetAdvertisingChannelSubType() enums.AdvertisingChannelSubTyp
 	return enums.AdvertisingChannelSubTypeEnum_UNSPECIFIED
 }
 
-func (x *Campaign) GetTrackingUrlTemplate() *wrapperspb.StringValue {
+func (x *Campaign) GetTrackingUrlTemplate() *wrappers.StringValue {
 	if x != nil {
 		return x.TrackingUrlTemplate
 	}
@@ -353,7 +354,7 @@ func (x *Campaign) GetAppCampaignSetting() *Campaign_AppCampaignSetting {
 	return nil
 }
 
-func (x *Campaign) GetLabels() []*wrapperspb.StringValue {
+func (x *Campaign) GetLabels() []*wrappers.StringValue {
 	if x != nil {
 		return x.Labels
 	}
@@ -367,14 +368,14 @@ func (x *Campaign) GetExperimentType() enums.CampaignExperimentTypeEnum_Campaign
 	return enums.CampaignExperimentTypeEnum_UNSPECIFIED
 }
 
-func (x *Campaign) GetBaseCampaign() *wrapperspb.StringValue {
+func (x *Campaign) GetBaseCampaign() *wrappers.StringValue {
 	if x != nil {
 		return x.BaseCampaign
 	}
 	return nil
 }
 
-func (x *Campaign) GetCampaignBudget() *wrapperspb.StringValue {
+func (x *Campaign) GetCampaignBudget() *wrappers.StringValue {
 	if x != nil {
 		return x.CampaignBudget
 	}
@@ -388,21 +389,21 @@ func (x *Campaign) GetBiddingStrategyType() enums.BiddingStrategyTypeEnum_Biddin
 	return enums.BiddingStrategyTypeEnum_UNSPECIFIED
 }
 
-func (x *Campaign) GetStartDate() *wrapperspb.StringValue {
+func (x *Campaign) GetStartDate() *wrappers.StringValue {
 	if x != nil {
 		return x.StartDate
 	}
 	return nil
 }
 
-func (x *Campaign) GetEndDate() *wrapperspb.StringValue {
+func (x *Campaign) GetEndDate() *wrappers.StringValue {
 	if x != nil {
 		return x.EndDate
 	}
 	return nil
 }
 
-func (x *Campaign) GetFinalUrlSuffix() *wrapperspb.StringValue {
+func (x *Campaign) GetFinalUrlSuffix() *wrappers.StringValue {
 	if x != nil {
 		return x.FinalUrlSuffix
 	}
@@ -458,7 +459,7 @@ func (x *Campaign) GetPaymentMode() enums.PaymentModeEnum_PaymentMode {
 	return enums.PaymentModeEnum_UNSPECIFIED
 }
 
-func (x *Campaign) GetOptimizationScore() *wrapperspb.DoubleValue {
+func (x *Campaign) GetOptimizationScore() *wrappers.DoubleValue {
 	if x != nil {
 		return x.OptimizationScore
 	}
@@ -472,7 +473,7 @@ func (m *Campaign) GetCampaignBiddingStrategy() isCampaign_CampaignBiddingStrate
 	return nil
 }
 
-func (x *Campaign) GetBiddingStrategy() *wrapperspb.StringValue {
+func (x *Campaign) GetBiddingStrategy() *wrappers.StringValue {
 	if x, ok := x.GetCampaignBiddingStrategy().(*Campaign_BiddingStrategy); ok {
 		return x.BiddingStrategy
 	}
@@ -569,7 +570,7 @@ type isCampaign_CampaignBiddingStrategy interface {
 
 type Campaign_BiddingStrategy struct {
 	// Portfolio bidding strategy used by campaign.
-	BiddingStrategy *wrapperspb.StringValue `protobuf:"bytes,23,opt,name=bidding_strategy,json=biddingStrategy,proto3,oneof"`
+	BiddingStrategy *wrappers.StringValue `protobuf:"bytes,23,opt,name=bidding_strategy,json=biddingStrategy,proto3,oneof"`
 }
 
 type Campaign_Commission struct {
@@ -598,7 +599,7 @@ type Campaign_ManualCpv struct {
 
 type Campaign_MaximizeConversions struct {
 	// Standard Maximize Conversions bidding strategy that automatically
-	// maximizes number of conversions given a daily budget.
+	// maximizes number of conversions while spending your budget.
 	MaximizeConversions *common.MaximizeConversions `protobuf:"bytes,30,opt,name=maximize_conversions,json=maximizeConversions,proto3,oneof"`
 }
 
@@ -678,16 +679,16 @@ type Campaign_NetworkSettings struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Whether ads will be served with google.com search results.
-	TargetGoogleSearch *wrapperspb.BoolValue `protobuf:"bytes,1,opt,name=target_google_search,json=targetGoogleSearch,proto3" json:"target_google_search,omitempty"`
+	TargetGoogleSearch *wrappers.BoolValue `protobuf:"bytes,1,opt,name=target_google_search,json=targetGoogleSearch,proto3" json:"target_google_search,omitempty"`
 	// Whether ads will be served on partner sites in the Google Search Network
 	// (requires `target_google_search` to also be `true`).
-	TargetSearchNetwork *wrapperspb.BoolValue `protobuf:"bytes,2,opt,name=target_search_network,json=targetSearchNetwork,proto3" json:"target_search_network,omitempty"`
+	TargetSearchNetwork *wrappers.BoolValue `protobuf:"bytes,2,opt,name=target_search_network,json=targetSearchNetwork,proto3" json:"target_search_network,omitempty"`
 	// Whether ads will be served on specified placements in the Google Display
 	// Network. Placements are specified using the Placement criterion.
-	TargetContentNetwork *wrapperspb.BoolValue `protobuf:"bytes,3,opt,name=target_content_network,json=targetContentNetwork,proto3" json:"target_content_network,omitempty"`
+	TargetContentNetwork *wrappers.BoolValue `protobuf:"bytes,3,opt,name=target_content_network,json=targetContentNetwork,proto3" json:"target_content_network,omitempty"`
 	// Whether ads will be served on the Google Partner Network.
 	// This is available only to some select Google partner accounts.
-	TargetPartnerSearchNetwork *wrapperspb.BoolValue `protobuf:"bytes,4,opt,name=target_partner_search_network,json=targetPartnerSearchNetwork,proto3" json:"target_partner_search_network,omitempty"`
+	TargetPartnerSearchNetwork *wrappers.BoolValue `protobuf:"bytes,4,opt,name=target_partner_search_network,json=targetPartnerSearchNetwork,proto3" json:"target_partner_search_network,omitempty"`
 }
 
 func (x *Campaign_NetworkSettings) Reset() {
@@ -722,28 +723,28 @@ func (*Campaign_NetworkSettings) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 0}
 }
 
-func (x *Campaign_NetworkSettings) GetTargetGoogleSearch() *wrapperspb.BoolValue {
+func (x *Campaign_NetworkSettings) GetTargetGoogleSearch() *wrappers.BoolValue {
 	if x != nil {
 		return x.TargetGoogleSearch
 	}
 	return nil
 }
 
-func (x *Campaign_NetworkSettings) GetTargetSearchNetwork() *wrapperspb.BoolValue {
+func (x *Campaign_NetworkSettings) GetTargetSearchNetwork() *wrappers.BoolValue {
 	if x != nil {
 		return x.TargetSearchNetwork
 	}
 	return nil
 }
 
-func (x *Campaign_NetworkSettings) GetTargetContentNetwork() *wrapperspb.BoolValue {
+func (x *Campaign_NetworkSettings) GetTargetContentNetwork() *wrappers.BoolValue {
 	if x != nil {
 		return x.TargetContentNetwork
 	}
 	return nil
 }
 
-func (x *Campaign_NetworkSettings) GetTargetPartnerSearchNetwork() *wrapperspb.BoolValue {
+func (x *Campaign_NetworkSettings) GetTargetPartnerSearchNetwork() *wrappers.BoolValue {
 	if x != nil {
 		return x.TargetPartnerSearchNetwork
 	}
@@ -757,7 +758,7 @@ type Campaign_HotelSettingInfo struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Immutable. The linked Hotel Center account.
-	HotelCenterId *wrapperspb.Int64Value `protobuf:"bytes,1,opt,name=hotel_center_id,json=hotelCenterId,proto3" json:"hotel_center_id,omitempty"`
+	HotelCenterId *wrappers.Int64Value `protobuf:"bytes,1,opt,name=hotel_center_id,json=hotelCenterId,proto3" json:"hotel_center_id,omitempty"`
 }
 
 func (x *Campaign_HotelSettingInfo) Reset() {
@@ -792,7 +793,7 @@ func (*Campaign_HotelSettingInfo) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 1}
 }
 
-func (x *Campaign_HotelSettingInfo) GetHotelCenterId() *wrapperspb.Int64Value {
+func (x *Campaign_HotelSettingInfo) GetHotelCenterId() *wrappers.Int64Value {
 	if x != nil {
 		return x.HotelCenterId
 	}
@@ -807,13 +808,13 @@ type Campaign_DynamicSearchAdsSetting struct {
 
 	// The Internet domain name that this setting represents, e.g., "google.com"
 	// or "www.google.com".
-	DomainName *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=domain_name,json=domainName,proto3" json:"domain_name,omitempty"`
+	DomainName *wrappers.StringValue `protobuf:"bytes,1,opt,name=domain_name,json=domainName,proto3" json:"domain_name,omitempty"`
 	// The language code specifying the language of the domain, e.g., "en".
-	LanguageCode *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty"`
+	LanguageCode *wrappers.StringValue `protobuf:"bytes,2,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty"`
 	// Whether the campaign uses advertiser supplied URLs exclusively.
-	UseSuppliedUrlsOnly *wrapperspb.BoolValue `protobuf:"bytes,3,opt,name=use_supplied_urls_only,json=useSuppliedUrlsOnly,proto3" json:"use_supplied_urls_only,omitempty"`
+	UseSuppliedUrlsOnly *wrappers.BoolValue `protobuf:"bytes,3,opt,name=use_supplied_urls_only,json=useSuppliedUrlsOnly,proto3" json:"use_supplied_urls_only,omitempty"`
 	// Output only. The list of page feeds associated with the campaign.
-	Feeds []*wrapperspb.StringValue `protobuf:"bytes,5,rep,name=feeds,proto3" json:"feeds,omitempty"`
+	Feeds []*wrappers.StringValue `protobuf:"bytes,5,rep,name=feeds,proto3" json:"feeds,omitempty"`
 }
 
 func (x *Campaign_DynamicSearchAdsSetting) Reset() {
@@ -848,30 +849,217 @@ func (*Campaign_DynamicSearchAdsSetting) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 2}
 }
 
-func (x *Campaign_DynamicSearchAdsSetting) GetDomainName() *wrapperspb.StringValue {
+func (x *Campaign_DynamicSearchAdsSetting) GetDomainName() *wrappers.StringValue {
 	if x != nil {
 		return x.DomainName
 	}
 	return nil
 }
 
-func (x *Campaign_DynamicSearchAdsSetting) GetLanguageCode() *wrapperspb.StringValue {
+func (x *Campaign_DynamicSearchAdsSetting) GetLanguageCode() *wrappers.StringValue {
 	if x != nil {
 		return x.LanguageCode
 	}
 	return nil
 }
 
-func (x *Campaign_DynamicSearchAdsSetting) GetUseSuppliedUrlsOnly() *wrapperspb.BoolValue {
+func (x *Campaign_DynamicSearchAdsSetting) GetUseSuppliedUrlsOnly() *wrappers.BoolValue {
 	if x != nil {
 		return x.UseSuppliedUrlsOnly
 	}
 	return nil
 }
 
-func (x *Campaign_DynamicSearchAdsSetting) GetFeeds() []*wrapperspb.StringValue {
+func (x *Campaign_DynamicSearchAdsSetting) GetFeeds() []*wrappers.StringValue {
 	if x != nil {
 		return x.Feeds
+	}
+	return nil
+}
+
+// The setting for Shopping campaigns. Defines the universe of products that
+// can be advertised by the campaign, and how this campaign interacts with
+// other Shopping campaigns.
+type Campaign_ShoppingSetting struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Immutable. ID of the Merchant Center account.
+	// This field is required for create operations. This field is immutable for
+	// Shopping campaigns.
+	MerchantId *wrappers.Int64Value `protobuf:"bytes,1,opt,name=merchant_id,json=merchantId,proto3" json:"merchant_id,omitempty"`
+	// Immutable. Sales country of products to include in the campaign.
+	// This field is required for Shopping campaigns. This field is immutable.
+	// This field is optional for non-Shopping campaigns, but it must be equal
+	// to 'ZZ' if set.
+	SalesCountry *wrappers.StringValue `protobuf:"bytes,2,opt,name=sales_country,json=salesCountry,proto3" json:"sales_country,omitempty"`
+	// Priority of the campaign. Campaigns with numerically higher priorities
+	// take precedence over those with lower priorities.
+	// This field is required for Shopping campaigns, with values between 0 and
+	// 2, inclusive.
+	// This field is optional for Smart Shopping campaigns, but must be equal to
+	// 3 if set.
+	CampaignPriority *wrappers.Int32Value `protobuf:"bytes,3,opt,name=campaign_priority,json=campaignPriority,proto3" json:"campaign_priority,omitempty"`
+	// Whether to include local products.
+	EnableLocal *wrappers.BoolValue `protobuf:"bytes,4,opt,name=enable_local,json=enableLocal,proto3" json:"enable_local,omitempty"`
+}
+
+func (x *Campaign_ShoppingSetting) Reset() {
+	*x = Campaign_ShoppingSetting{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Campaign_ShoppingSetting) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Campaign_ShoppingSetting) ProtoMessage() {}
+
+func (x *Campaign_ShoppingSetting) ProtoReflect() protoreflect.Message {
+	mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Campaign_ShoppingSetting.ProtoReflect.Descriptor instead.
+func (*Campaign_ShoppingSetting) Descriptor() ([]byte, []int) {
+	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 3}
+}
+
+func (x *Campaign_ShoppingSetting) GetMerchantId() *wrappers.Int64Value {
+	if x != nil {
+		return x.MerchantId
+	}
+	return nil
+}
+
+func (x *Campaign_ShoppingSetting) GetSalesCountry() *wrappers.StringValue {
+	if x != nil {
+		return x.SalesCountry
+	}
+	return nil
+}
+
+func (x *Campaign_ShoppingSetting) GetCampaignPriority() *wrappers.Int32Value {
+	if x != nil {
+		return x.CampaignPriority
+	}
+	return nil
+}
+
+func (x *Campaign_ShoppingSetting) GetEnableLocal() *wrappers.BoolValue {
+	if x != nil {
+		return x.EnableLocal
+	}
+	return nil
+}
+
+// Selective optimization setting for this campaign, which includes a set of
+// conversion actions to optimize this campaign towards.
+type Campaign_SelectiveOptimization struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// The selected set of conversion actions for optimizing this campaign.
+	ConversionActions []*wrappers.StringValue `protobuf:"bytes,1,rep,name=conversion_actions,json=conversionActions,proto3" json:"conversion_actions,omitempty"`
+}
+
+func (x *Campaign_SelectiveOptimization) Reset() {
+	*x = Campaign_SelectiveOptimization{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Campaign_SelectiveOptimization) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Campaign_SelectiveOptimization) ProtoMessage() {}
+
+func (x *Campaign_SelectiveOptimization) ProtoReflect() protoreflect.Message {
+	mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Campaign_SelectiveOptimization.ProtoReflect.Descriptor instead.
+func (*Campaign_SelectiveOptimization) Descriptor() ([]byte, []int) {
+	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 4}
+}
+
+func (x *Campaign_SelectiveOptimization) GetConversionActions() []*wrappers.StringValue {
+	if x != nil {
+		return x.ConversionActions
+	}
+	return nil
+}
+
+// Campaign-level settings for tracking information.
+type Campaign_TrackingSetting struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Output only. The url used for dynamic tracking.
+	TrackingUrl *wrappers.StringValue `protobuf:"bytes,1,opt,name=tracking_url,json=trackingUrl,proto3" json:"tracking_url,omitempty"`
+}
+
+func (x *Campaign_TrackingSetting) Reset() {
+	*x = Campaign_TrackingSetting{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Campaign_TrackingSetting) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Campaign_TrackingSetting) ProtoMessage() {}
+
+func (x *Campaign_TrackingSetting) ProtoReflect() protoreflect.Message {
+	mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Campaign_TrackingSetting.ProtoReflect.Descriptor instead.
+func (*Campaign_TrackingSetting) Descriptor() ([]byte, []int) {
+	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 5}
+}
+
+func (x *Campaign_TrackingSetting) GetTrackingUrl() *wrappers.StringValue {
+	if x != nil {
+		return x.TrackingUrl
 	}
 	return nil
 }
@@ -891,7 +1079,7 @@ type Campaign_GeoTargetTypeSetting struct {
 func (x *Campaign_GeoTargetTypeSetting) Reset() {
 	*x = Campaign_GeoTargetTypeSetting{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[4]
+		mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -904,7 +1092,7 @@ func (x *Campaign_GeoTargetTypeSetting) String() string {
 func (*Campaign_GeoTargetTypeSetting) ProtoMessage() {}
 
 func (x *Campaign_GeoTargetTypeSetting) ProtoReflect() protoreflect.Message {
-	mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[4]
+	mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -917,7 +1105,7 @@ func (x *Campaign_GeoTargetTypeSetting) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Campaign_GeoTargetTypeSetting.ProtoReflect.Descriptor instead.
 func (*Campaign_GeoTargetTypeSetting) Descriptor() ([]byte, []int) {
-	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 3}
+	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 6}
 }
 
 func (x *Campaign_GeoTargetTypeSetting) GetPositiveGeoTargetType() enums.PositiveGeoTargetTypeEnum_PositiveGeoTargetType {
@@ -934,261 +1122,6 @@ func (x *Campaign_GeoTargetTypeSetting) GetNegativeGeoTargetType() enums.Negativ
 	return enums.NegativeGeoTargetTypeEnum_UNSPECIFIED
 }
 
-// Campaign-level settings for App Campaigns.
-type Campaign_AppCampaignSetting struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	// Represents the goal which the bidding strategy of this app campaign
-	// should optimize towards.
-	BiddingStrategyGoalType enums.AppCampaignBiddingStrategyGoalTypeEnum_AppCampaignBiddingStrategyGoalType `protobuf:"varint,1,opt,name=bidding_strategy_goal_type,json=biddingStrategyGoalType,proto3,enum=google.ads.googleads.v4.enums.AppCampaignBiddingStrategyGoalTypeEnum_AppCampaignBiddingStrategyGoalType" json:"bidding_strategy_goal_type,omitempty"`
-	// Immutable. A string that uniquely identifies a mobile application.
-	AppId *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
-	// Immutable. The application store that distributes this specific app.
-	AppStore enums.AppCampaignAppStoreEnum_AppCampaignAppStore `protobuf:"varint,3,opt,name=app_store,json=appStore,proto3,enum=google.ads.googleads.v4.enums.AppCampaignAppStoreEnum_AppCampaignAppStore" json:"app_store,omitempty"`
-}
-
-func (x *Campaign_AppCampaignSetting) Reset() {
-	*x = Campaign_AppCampaignSetting{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *Campaign_AppCampaignSetting) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Campaign_AppCampaignSetting) ProtoMessage() {}
-
-func (x *Campaign_AppCampaignSetting) ProtoReflect() protoreflect.Message {
-	mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Campaign_AppCampaignSetting.ProtoReflect.Descriptor instead.
-func (*Campaign_AppCampaignSetting) Descriptor() ([]byte, []int) {
-	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 4}
-}
-
-func (x *Campaign_AppCampaignSetting) GetBiddingStrategyGoalType() enums.AppCampaignBiddingStrategyGoalTypeEnum_AppCampaignBiddingStrategyGoalType {
-	if x != nil {
-		return x.BiddingStrategyGoalType
-	}
-	return enums.AppCampaignBiddingStrategyGoalTypeEnum_UNSPECIFIED
-}
-
-func (x *Campaign_AppCampaignSetting) GetAppId() *wrapperspb.StringValue {
-	if x != nil {
-		return x.AppId
-	}
-	return nil
-}
-
-func (x *Campaign_AppCampaignSetting) GetAppStore() enums.AppCampaignAppStoreEnum_AppCampaignAppStore {
-	if x != nil {
-		return x.AppStore
-	}
-	return enums.AppCampaignAppStoreEnum_UNSPECIFIED
-}
-
-// Optimization goal setting for this campaign, which includes a set of
-// optimization goal types.
-type Campaign_OptimizationGoalSetting struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	// The list of optimization goal types.
-	OptimizationGoalTypes []enums.OptimizationGoalTypeEnum_OptimizationGoalType `protobuf:"varint,1,rep,packed,name=optimization_goal_types,json=optimizationGoalTypes,proto3,enum=google.ads.googleads.v4.enums.OptimizationGoalTypeEnum_OptimizationGoalType" json:"optimization_goal_types,omitempty"`
-}
-
-func (x *Campaign_OptimizationGoalSetting) Reset() {
-	*x = Campaign_OptimizationGoalSetting{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[6]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *Campaign_OptimizationGoalSetting) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Campaign_OptimizationGoalSetting) ProtoMessage() {}
-
-func (x *Campaign_OptimizationGoalSetting) ProtoReflect() protoreflect.Message {
-	mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[6]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Campaign_OptimizationGoalSetting.ProtoReflect.Descriptor instead.
-func (*Campaign_OptimizationGoalSetting) Descriptor() ([]byte, []int) {
-	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 5}
-}
-
-func (x *Campaign_OptimizationGoalSetting) GetOptimizationGoalTypes() []enums.OptimizationGoalTypeEnum_OptimizationGoalType {
-	if x != nil {
-		return x.OptimizationGoalTypes
-	}
-	return nil
-}
-
-// The setting for Shopping campaigns. Defines the universe of products that
-// can be advertised by the campaign, and how this campaign interacts with
-// other Shopping campaigns.
-type Campaign_ShoppingSetting struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	// Immutable. ID of the Merchant Center account.
-	// This field is required for create operations. This field is immutable for
-	// Shopping campaigns.
-	MerchantId *wrapperspb.Int64Value `protobuf:"bytes,1,opt,name=merchant_id,json=merchantId,proto3" json:"merchant_id,omitempty"`
-	// Immutable. Sales country of products to include in the campaign.
-	// This field is required for Shopping campaigns. This field is immutable.
-	// This field is optional for non-Shopping campaigns, but it must be equal
-	// to 'ZZ' if set.
-	SalesCountry *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=sales_country,json=salesCountry,proto3" json:"sales_country,omitempty"`
-	// Priority of the campaign. Campaigns with numerically higher priorities
-	// take precedence over those with lower priorities.
-	// This field is required for Shopping campaigns, with values between 0 and
-	// 2, inclusive.
-	// This field is optional for Smart Shopping campaigns, but must be equal to
-	// 3 if set.
-	CampaignPriority *wrapperspb.Int32Value `protobuf:"bytes,3,opt,name=campaign_priority,json=campaignPriority,proto3" json:"campaign_priority,omitempty"`
-	// Whether to include local products.
-	EnableLocal *wrapperspb.BoolValue `protobuf:"bytes,4,opt,name=enable_local,json=enableLocal,proto3" json:"enable_local,omitempty"`
-}
-
-func (x *Campaign_ShoppingSetting) Reset() {
-	*x = Campaign_ShoppingSetting{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[7]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *Campaign_ShoppingSetting) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Campaign_ShoppingSetting) ProtoMessage() {}
-
-func (x *Campaign_ShoppingSetting) ProtoReflect() protoreflect.Message {
-	mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[7]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Campaign_ShoppingSetting.ProtoReflect.Descriptor instead.
-func (*Campaign_ShoppingSetting) Descriptor() ([]byte, []int) {
-	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 6}
-}
-
-func (x *Campaign_ShoppingSetting) GetMerchantId() *wrapperspb.Int64Value {
-	if x != nil {
-		return x.MerchantId
-	}
-	return nil
-}
-
-func (x *Campaign_ShoppingSetting) GetSalesCountry() *wrapperspb.StringValue {
-	if x != nil {
-		return x.SalesCountry
-	}
-	return nil
-}
-
-func (x *Campaign_ShoppingSetting) GetCampaignPriority() *wrapperspb.Int32Value {
-	if x != nil {
-		return x.CampaignPriority
-	}
-	return nil
-}
-
-func (x *Campaign_ShoppingSetting) GetEnableLocal() *wrapperspb.BoolValue {
-	if x != nil {
-		return x.EnableLocal
-	}
-	return nil
-}
-
-// Campaign-level settings for tracking information.
-type Campaign_TrackingSetting struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	// Output only. The url used for dynamic tracking.
-	TrackingUrl *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=tracking_url,json=trackingUrl,proto3" json:"tracking_url,omitempty"`
-}
-
-func (x *Campaign_TrackingSetting) Reset() {
-	*x = Campaign_TrackingSetting{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[8]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *Campaign_TrackingSetting) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Campaign_TrackingSetting) ProtoMessage() {}
-
-func (x *Campaign_TrackingSetting) ProtoReflect() protoreflect.Message {
-	mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[8]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Campaign_TrackingSetting.ProtoReflect.Descriptor instead.
-func (*Campaign_TrackingSetting) Descriptor() ([]byte, []int) {
-	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 7}
-}
-
-func (x *Campaign_TrackingSetting) GetTrackingUrl() *wrapperspb.StringValue {
-	if x != nil {
-		return x.TrackingUrl
-	}
-	return nil
-}
-
 // Campaign setting for local campaigns.
 type Campaign_LocalCampaignSetting struct {
 	state         protoimpl.MessageState
@@ -1202,7 +1135,7 @@ type Campaign_LocalCampaignSetting struct {
 func (x *Campaign_LocalCampaignSetting) Reset() {
 	*x = Campaign_LocalCampaignSetting{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[9]
+		mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1215,7 +1148,7 @@ func (x *Campaign_LocalCampaignSetting) String() string {
 func (*Campaign_LocalCampaignSetting) ProtoMessage() {}
 
 func (x *Campaign_LocalCampaignSetting) ProtoReflect() protoreflect.Message {
-	mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[9]
+	mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1228,7 +1161,7 @@ func (x *Campaign_LocalCampaignSetting) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Campaign_LocalCampaignSetting.ProtoReflect.Descriptor instead.
 func (*Campaign_LocalCampaignSetting) Descriptor() ([]byte, []int) {
-	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 8}
+	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 7}
 }
 
 func (x *Campaign_LocalCampaignSetting) GetLocationSourceType() enums.LocationSourceTypeEnum_LocationSourceType {
@@ -1236,6 +1169,74 @@ func (x *Campaign_LocalCampaignSetting) GetLocationSourceType() enums.LocationSo
 		return x.LocationSourceType
 	}
 	return enums.LocationSourceTypeEnum_UNSPECIFIED
+}
+
+// Campaign-level settings for App Campaigns.
+type Campaign_AppCampaignSetting struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Represents the goal which the bidding strategy of this app campaign
+	// should optimize towards.
+	BiddingStrategyGoalType enums.AppCampaignBiddingStrategyGoalTypeEnum_AppCampaignBiddingStrategyGoalType `protobuf:"varint,1,opt,name=bidding_strategy_goal_type,json=biddingStrategyGoalType,proto3,enum=google.ads.googleads.v4.enums.AppCampaignBiddingStrategyGoalTypeEnum_AppCampaignBiddingStrategyGoalType" json:"bidding_strategy_goal_type,omitempty"`
+	// Immutable. A string that uniquely identifies a mobile application.
+	AppId *wrappers.StringValue `protobuf:"bytes,2,opt,name=app_id,json=appId,proto3" json:"app_id,omitempty"`
+	// Immutable. The application store that distributes this specific app.
+	AppStore enums.AppCampaignAppStoreEnum_AppCampaignAppStore `protobuf:"varint,3,opt,name=app_store,json=appStore,proto3,enum=google.ads.googleads.v4.enums.AppCampaignAppStoreEnum_AppCampaignAppStore" json:"app_store,omitempty"`
+}
+
+func (x *Campaign_AppCampaignSetting) Reset() {
+	*x = Campaign_AppCampaignSetting{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Campaign_AppCampaignSetting) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Campaign_AppCampaignSetting) ProtoMessage() {}
+
+func (x *Campaign_AppCampaignSetting) ProtoReflect() protoreflect.Message {
+	mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Campaign_AppCampaignSetting.ProtoReflect.Descriptor instead.
+func (*Campaign_AppCampaignSetting) Descriptor() ([]byte, []int) {
+	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 8}
+}
+
+func (x *Campaign_AppCampaignSetting) GetBiddingStrategyGoalType() enums.AppCampaignBiddingStrategyGoalTypeEnum_AppCampaignBiddingStrategyGoalType {
+	if x != nil {
+		return x.BiddingStrategyGoalType
+	}
+	return enums.AppCampaignBiddingStrategyGoalTypeEnum_UNSPECIFIED
+}
+
+func (x *Campaign_AppCampaignSetting) GetAppId() *wrappers.StringValue {
+	if x != nil {
+		return x.AppId
+	}
+	return nil
+}
+
+func (x *Campaign_AppCampaignSetting) GetAppStore() enums.AppCampaignAppStoreEnum_AppCampaignAppStore {
+	if x != nil {
+		return x.AppStore
+	}
+	return enums.AppCampaignAppStoreEnum_UNSPECIFIED
 }
 
 // Describes how unbranded pharma ads will be displayed.
@@ -1297,19 +1298,19 @@ func (x *Campaign_VanityPharma) GetVanityPharmaText() enums.VanityPharmaTextEnum
 	return enums.VanityPharmaTextEnum_UNSPECIFIED
 }
 
-// Selective optimization setting for this campaign, which includes a set of
-// conversion actions to optimize this campaign towards.
-type Campaign_SelectiveOptimization struct {
+// Optimization goal setting for this campaign, which includes a set of
+// optimization goal types.
+type Campaign_OptimizationGoalSetting struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// The selected set of conversion actions for optimizing this campaign.
-	ConversionActions []*wrapperspb.StringValue `protobuf:"bytes,1,rep,name=conversion_actions,json=conversionActions,proto3" json:"conversion_actions,omitempty"`
+	// The list of optimization goal types.
+	OptimizationGoalTypes []enums.OptimizationGoalTypeEnum_OptimizationGoalType `protobuf:"varint,1,rep,packed,name=optimization_goal_types,json=optimizationGoalTypes,proto3,enum=google.ads.googleads.v4.enums.OptimizationGoalTypeEnum_OptimizationGoalType" json:"optimization_goal_types,omitempty"`
 }
 
-func (x *Campaign_SelectiveOptimization) Reset() {
-	*x = Campaign_SelectiveOptimization{}
+func (x *Campaign_OptimizationGoalSetting) Reset() {
+	*x = Campaign_OptimizationGoalSetting{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1317,13 +1318,13 @@ func (x *Campaign_SelectiveOptimization) Reset() {
 	}
 }
 
-func (x *Campaign_SelectiveOptimization) String() string {
+func (x *Campaign_OptimizationGoalSetting) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Campaign_SelectiveOptimization) ProtoMessage() {}
+func (*Campaign_OptimizationGoalSetting) ProtoMessage() {}
 
-func (x *Campaign_SelectiveOptimization) ProtoReflect() protoreflect.Message {
+func (x *Campaign_OptimizationGoalSetting) ProtoReflect() protoreflect.Message {
 	mi := &file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1335,14 +1336,14 @@ func (x *Campaign_SelectiveOptimization) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Campaign_SelectiveOptimization.ProtoReflect.Descriptor instead.
-func (*Campaign_SelectiveOptimization) Descriptor() ([]byte, []int) {
+// Deprecated: Use Campaign_OptimizationGoalSetting.ProtoReflect.Descriptor instead.
+func (*Campaign_OptimizationGoalSetting) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v4_resources_campaign_proto_rawDescGZIP(), []int{0, 10}
 }
 
-func (x *Campaign_SelectiveOptimization) GetConversionActions() []*wrapperspb.StringValue {
+func (x *Campaign_OptimizationGoalSetting) GetOptimizationGoalTypes() []enums.OptimizationGoalTypeEnum_OptimizationGoalType {
 	if x != nil {
-		return x.ConversionActions
+		return x.OptimizationGoalTypes
 	}
 	return nil
 }
@@ -1799,119 +1800,119 @@ var file_google_ads_googleads_v4_resources_campaign_proto_rawDesc = []byte{
 	0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x25, 0xe0, 0x41, 0x03,
 	0xfa, 0x41, 0x1f, 0x0a, 0x1d, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x67,
 	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x70, 0x69, 0x73, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x46, 0x65,
-	0x65, 0x64, 0x52, 0x05, 0x66, 0x65, 0x65, 0x64, 0x73, 0x1a, 0xaa, 0x02, 0x0a, 0x14, 0x47, 0x65,
-	0x6f, 0x54, 0x61, 0x72, 0x67, 0x65, 0x74, 0x54, 0x79, 0x70, 0x65, 0x53, 0x65, 0x74, 0x74, 0x69,
-	0x6e, 0x67, 0x12, 0x87, 0x01, 0x0a, 0x18, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x69, 0x76, 0x65, 0x5f,
-	0x67, 0x65, 0x6f, 0x5f, 0x74, 0x61, 0x72, 0x67, 0x65, 0x74, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x4e, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61,
-	0x64, 0x73, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x34, 0x2e,
-	0x65, 0x6e, 0x75, 0x6d, 0x73, 0x2e, 0x50, 0x6f, 0x73, 0x69, 0x74, 0x69, 0x76, 0x65, 0x47, 0x65,
-	0x6f, 0x54, 0x61, 0x72, 0x67, 0x65, 0x74, 0x54, 0x79, 0x70, 0x65, 0x45, 0x6e, 0x75, 0x6d, 0x2e,
-	0x50, 0x6f, 0x73, 0x69, 0x74, 0x69, 0x76, 0x65, 0x47, 0x65, 0x6f, 0x54, 0x61, 0x72, 0x67, 0x65,
-	0x74, 0x54, 0x79, 0x70, 0x65, 0x52, 0x15, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x69, 0x76, 0x65, 0x47,
-	0x65, 0x6f, 0x54, 0x61, 0x72, 0x67, 0x65, 0x74, 0x54, 0x79, 0x70, 0x65, 0x12, 0x87, 0x01, 0x0a,
-	0x18, 0x6e, 0x65, 0x67, 0x61, 0x74, 0x69, 0x76, 0x65, 0x5f, 0x67, 0x65, 0x6f, 0x5f, 0x74, 0x61,
-	0x72, 0x67, 0x65, 0x74, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0e, 0x32,
-	0x4e, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x64, 0x73, 0x2e, 0x67, 0x6f, 0x6f,
-	0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x34, 0x2e, 0x65, 0x6e, 0x75, 0x6d, 0x73, 0x2e,
-	0x4e, 0x65, 0x67, 0x61, 0x74, 0x69, 0x76, 0x65, 0x47, 0x65, 0x6f, 0x54, 0x61, 0x72, 0x67, 0x65,
-	0x74, 0x54, 0x79, 0x70, 0x65, 0x45, 0x6e, 0x75, 0x6d, 0x2e, 0x4e, 0x65, 0x67, 0x61, 0x74, 0x69,
-	0x76, 0x65, 0x47, 0x65, 0x6f, 0x54, 0x61, 0x72, 0x67, 0x65, 0x74, 0x54, 0x79, 0x70, 0x65, 0x52,
-	0x15, 0x6e, 0x65, 0x67, 0x61, 0x74, 0x69, 0x76, 0x65, 0x47, 0x65, 0x6f, 0x54, 0x61, 0x72, 0x67,
-	0x65, 0x74, 0x54, 0x79, 0x70, 0x65, 0x1a, 0xe4, 0x02, 0x0a, 0x12, 0x41, 0x70, 0x70, 0x43, 0x61,
-	0x6d, 0x70, 0x61, 0x69, 0x67, 0x6e, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x12, 0xa5, 0x01,
-	0x0a, 0x1a, 0x62, 0x69, 0x64, 0x64, 0x69, 0x6e, 0x67, 0x5f, 0x73, 0x74, 0x72, 0x61, 0x74, 0x65,
-	0x67, 0x79, 0x5f, 0x67, 0x6f, 0x61, 0x6c, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x0e, 0x32, 0x68, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x64, 0x73, 0x2e,
-	0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x34, 0x2e, 0x65, 0x6e, 0x75,
-	0x6d, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x43, 0x61, 0x6d, 0x70, 0x61, 0x69, 0x67, 0x6e, 0x42, 0x69,
-	0x64, 0x64, 0x69, 0x6e, 0x67, 0x53, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79, 0x47, 0x6f, 0x61,
-	0x6c, 0x54, 0x79, 0x70, 0x65, 0x45, 0x6e, 0x75, 0x6d, 0x2e, 0x41, 0x70, 0x70, 0x43, 0x61, 0x6d,
-	0x70, 0x61, 0x69, 0x67, 0x6e, 0x42, 0x69, 0x64, 0x64, 0x69, 0x6e, 0x67, 0x53, 0x74, 0x72, 0x61,
-	0x74, 0x65, 0x67, 0x79, 0x47, 0x6f, 0x61, 0x6c, 0x54, 0x79, 0x70, 0x65, 0x52, 0x17, 0x62, 0x69,
-	0x64, 0x64, 0x69, 0x6e, 0x67, 0x53, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79, 0x47, 0x6f, 0x61,
-	0x6c, 0x54, 0x79, 0x70, 0x65, 0x12, 0x38, 0x0a, 0x06, 0x61, 0x70, 0x70, 0x5f, 0x69, 0x64, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61,
-	0x6c, 0x75, 0x65, 0x42, 0x03, 0xe0, 0x41, 0x05, 0x52, 0x05, 0x61, 0x70, 0x70, 0x49, 0x64, 0x12,
-	0x6c, 0x0a, 0x09, 0x61, 0x70, 0x70, 0x5f, 0x73, 0x74, 0x6f, 0x72, 0x65, 0x18, 0x03, 0x20, 0x01,
-	0x28, 0x0e, 0x32, 0x4a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x64, 0x73, 0x2e,
-	0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x34, 0x2e, 0x65, 0x6e, 0x75,
-	0x6d, 0x73, 0x2e, 0x41, 0x70, 0x70, 0x43, 0x61, 0x6d, 0x70, 0x61, 0x69, 0x67, 0x6e, 0x41, 0x70,
-	0x70, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x45, 0x6e, 0x75, 0x6d, 0x2e, 0x41, 0x70, 0x70, 0x43, 0x61,
-	0x6d, 0x70, 0x61, 0x69, 0x67, 0x6e, 0x41, 0x70, 0x70, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x42, 0x03,
-	0xe0, 0x41, 0x05, 0x52, 0x08, 0x61, 0x70, 0x70, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x1a, 0xa0, 0x01,
-	0x0a, 0x17, 0x4f, 0x70, 0x74, 0x69, 0x6d, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x47, 0x6f,
-	0x61, 0x6c, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x12, 0x84, 0x01, 0x0a, 0x17, 0x6f, 0x70,
-	0x74, 0x69, 0x6d, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x67, 0x6f, 0x61, 0x6c, 0x5f,
-	0x74, 0x79, 0x70, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0e, 0x32, 0x4c, 0x2e, 0x67, 0x6f,
-	0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x64, 0x73, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61,
-	0x64, 0x73, 0x2e, 0x76, 0x34, 0x2e, 0x65, 0x6e, 0x75, 0x6d, 0x73, 0x2e, 0x4f, 0x70, 0x74, 0x69,
-	0x6d, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x47, 0x6f, 0x61, 0x6c, 0x54, 0x79, 0x70, 0x65,
-	0x45, 0x6e, 0x75, 0x6d, 0x2e, 0x4f, 0x70, 0x74, 0x69, 0x6d, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f,
-	0x6e, 0x47, 0x6f, 0x61, 0x6c, 0x54, 0x79, 0x70, 0x65, 0x52, 0x15, 0x6f, 0x70, 0x74, 0x69, 0x6d,
-	0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x47, 0x6f, 0x61, 0x6c, 0x54, 0x79, 0x70, 0x65, 0x73,
-	0x1a, 0xa5, 0x02, 0x0a, 0x0f, 0x53, 0x68, 0x6f, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x53, 0x65, 0x74,
-	0x74, 0x69, 0x6e, 0x67, 0x12, 0x41, 0x0a, 0x0b, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x74,
-	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x67, 0x6f, 0x6f, 0x67,
-	0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x49, 0x6e, 0x74, 0x36,
-	0x34, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x03, 0xe0, 0x41, 0x05, 0x52, 0x0a, 0x6d, 0x65, 0x72,
-	0x63, 0x68, 0x61, 0x6e, 0x74, 0x49, 0x64, 0x12, 0x46, 0x0a, 0x0d, 0x73, 0x61, 0x6c, 0x65, 0x73,
-	0x5f, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x72, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c,
-	0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66,
-	0x2e, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x03, 0xe0, 0x41,
-	0x05, 0x52, 0x0c, 0x73, 0x61, 0x6c, 0x65, 0x73, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x72, 0x79, 0x12,
-	0x48, 0x0a, 0x11, 0x63, 0x61, 0x6d, 0x70, 0x61, 0x69, 0x67, 0x6e, 0x5f, 0x70, 0x72, 0x69, 0x6f,
-	0x72, 0x69, 0x74, 0x79, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x67, 0x6f, 0x6f,
-	0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x49, 0x6e, 0x74,
-	0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x10, 0x63, 0x61, 0x6d, 0x70, 0x61, 0x69, 0x67,
-	0x6e, 0x50, 0x72, 0x69, 0x6f, 0x72, 0x69, 0x74, 0x79, 0x12, 0x3d, 0x0a, 0x0c, 0x65, 0x6e, 0x61,
-	0x62, 0x6c, 0x65, 0x5f, 0x6c, 0x6f, 0x63, 0x61, 0x6c, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
-	0x66, 0x2e, 0x42, 0x6f, 0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x0b, 0x65, 0x6e, 0x61,
-	0x62, 0x6c, 0x65, 0x4c, 0x6f, 0x63, 0x61, 0x6c, 0x1a, 0x57, 0x0a, 0x0f, 0x54, 0x72, 0x61, 0x63,
+	0x65, 0x64, 0x52, 0x05, 0x66, 0x65, 0x65, 0x64, 0x73, 0x1a, 0xa5, 0x02, 0x0a, 0x0f, 0x53, 0x68,
+	0x6f, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x12, 0x41, 0x0a,
+	0x0b, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x62, 0x75, 0x66, 0x2e, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x42,
+	0x03, 0xe0, 0x41, 0x05, 0x52, 0x0a, 0x6d, 0x65, 0x72, 0x63, 0x68, 0x61, 0x6e, 0x74, 0x49, 0x64,
+	0x12, 0x46, 0x0a, 0x0d, 0x73, 0x61, 0x6c, 0x65, 0x73, 0x5f, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x72,
+	0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67,
+	0x56, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x03, 0xe0, 0x41, 0x05, 0x52, 0x0c, 0x73, 0x61, 0x6c, 0x65,
+	0x73, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x48, 0x0a, 0x11, 0x63, 0x61, 0x6d, 0x70,
+	0x61, 0x69, 0x67, 0x6e, 0x5f, 0x70, 0x72, 0x69, 0x6f, 0x72, 0x69, 0x74, 0x79, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x49, 0x6e, 0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65,
+	0x52, 0x10, 0x63, 0x61, 0x6d, 0x70, 0x61, 0x69, 0x67, 0x6e, 0x50, 0x72, 0x69, 0x6f, 0x72, 0x69,
+	0x74, 0x79, 0x12, 0x3d, 0x0a, 0x0c, 0x65, 0x6e, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x6c, 0x6f, 0x63,
+	0x61, 0x6c, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c,
+	0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x42, 0x6f, 0x6f, 0x6c, 0x56,
+	0x61, 0x6c, 0x75, 0x65, 0x52, 0x0b, 0x65, 0x6e, 0x61, 0x62, 0x6c, 0x65, 0x4c, 0x6f, 0x63, 0x61,
+	0x6c, 0x1a, 0x94, 0x01, 0x0a, 0x15, 0x53, 0x65, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x76, 0x65, 0x4f,
+	0x70, 0x74, 0x69, 0x6d, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x7b, 0x0a, 0x12, 0x63,
+	0x6f, 0x6e, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x5f, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e,
+	0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67,
+	0x56, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x2e, 0xfa, 0x41, 0x2b, 0x0a, 0x29, 0x67, 0x6f, 0x6f, 0x67,
+	0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x70, 0x69, 0x73,
+	0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x43, 0x6f, 0x6e, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x41,
+	0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x11, 0x63, 0x6f, 0x6e, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f,
+	0x6e, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x1a, 0x57, 0x0a, 0x0f, 0x54, 0x72, 0x61, 0x63,
 	0x6b, 0x69, 0x6e, 0x67, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x12, 0x44, 0x0a, 0x0c, 0x74,
 	0x72, 0x61, 0x63, 0x6b, 0x69, 0x6e, 0x67, 0x5f, 0x75, 0x72, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x0b, 0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
 	0x62, 0x75, 0x66, 0x2e, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x42,
 	0x03, 0xe0, 0x41, 0x03, 0x52, 0x0b, 0x74, 0x72, 0x61, 0x63, 0x6b, 0x69, 0x6e, 0x67, 0x55, 0x72,
-	0x6c, 0x1a, 0x92, 0x01, 0x0a, 0x14, 0x4c, 0x6f, 0x63, 0x61, 0x6c, 0x43, 0x61, 0x6d, 0x70, 0x61,
-	0x69, 0x67, 0x6e, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x12, 0x7a, 0x0a, 0x14, 0x6c, 0x6f,
-	0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x5f, 0x74, 0x79,
-	0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x48, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c,
-	0x65, 0x2e, 0x61, 0x64, 0x73, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e,
-	0x76, 0x34, 0x2e, 0x65, 0x6e, 0x75, 0x6d, 0x73, 0x2e, 0x4c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f,
-	0x6e, 0x53, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x45, 0x6e, 0x75, 0x6d, 0x2e,
-	0x4c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x54, 0x79,
-	0x70, 0x65, 0x52, 0x12, 0x6c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x6f, 0x75, 0x72,
-	0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x1a, 0xa1, 0x02, 0x0a, 0x0c, 0x56, 0x61, 0x6e, 0x69, 0x74,
-	0x79, 0x50, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x12, 0x9c, 0x01, 0x0a, 0x1e, 0x76, 0x61, 0x6e, 0x69,
-	0x74, 0x79, 0x5f, 0x70, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x5f, 0x64, 0x69, 0x73, 0x70, 0x6c, 0x61,
-	0x79, 0x5f, 0x75, 0x72, 0x6c, 0x5f, 0x6d, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e,
-	0x32, 0x58, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x64, 0x73, 0x2e, 0x67, 0x6f,
-	0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x34, 0x2e, 0x65, 0x6e, 0x75, 0x6d, 0x73,
-	0x2e, 0x56, 0x61, 0x6e, 0x69, 0x74, 0x79, 0x50, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x44, 0x69, 0x73,
-	0x70, 0x6c, 0x61, 0x79, 0x55, 0x72, 0x6c, 0x4d, 0x6f, 0x64, 0x65, 0x45, 0x6e, 0x75, 0x6d, 0x2e,
-	0x56, 0x61, 0x6e, 0x69, 0x74, 0x79, 0x50, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x44, 0x69, 0x73, 0x70,
-	0x6c, 0x61, 0x79, 0x55, 0x72, 0x6c, 0x4d, 0x6f, 0x64, 0x65, 0x52, 0x1a, 0x76, 0x61, 0x6e, 0x69,
-	0x74, 0x79, 0x50, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x44, 0x69, 0x73, 0x70, 0x6c, 0x61, 0x79, 0x55,
-	0x72, 0x6c, 0x4d, 0x6f, 0x64, 0x65, 0x12, 0x72, 0x0a, 0x12, 0x76, 0x61, 0x6e, 0x69, 0x74, 0x79,
-	0x5f, 0x70, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x5f, 0x74, 0x65, 0x78, 0x74, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x0e, 0x32, 0x44, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x64, 0x73, 0x2e,
-	0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x34, 0x2e, 0x65, 0x6e, 0x75,
-	0x6d, 0x73, 0x2e, 0x56, 0x61, 0x6e, 0x69, 0x74, 0x79, 0x50, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x54,
-	0x65, 0x78, 0x74, 0x45, 0x6e, 0x75, 0x6d, 0x2e, 0x56, 0x61, 0x6e, 0x69, 0x74, 0x79, 0x50, 0x68,
-	0x61, 0x72, 0x6d, 0x61, 0x54, 0x65, 0x78, 0x74, 0x52, 0x10, 0x76, 0x61, 0x6e, 0x69, 0x74, 0x79,
-	0x50, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x54, 0x65, 0x78, 0x74, 0x1a, 0x94, 0x01, 0x0a, 0x15, 0x53,
-	0x65, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x76, 0x65, 0x4f, 0x70, 0x74, 0x69, 0x6d, 0x69, 0x7a, 0x61,
-	0x74, 0x69, 0x6f, 0x6e, 0x12, 0x7b, 0x0a, 0x12, 0x63, 0x6f, 0x6e, 0x76, 0x65, 0x72, 0x73, 0x69,
-	0x6f, 0x6e, 0x5f, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b,
-	0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
-	0x75, 0x66, 0x2e, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x2e,
-	0xfa, 0x41, 0x2b, 0x0a, 0x29, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x67,
-	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x70, 0x69, 0x73, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x43, 0x6f,
-	0x6e, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x11,
-	0x63, 0x6f, 0x6e, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x41, 0x63, 0x74, 0x69, 0x6f, 0x6e,
+	0x6c, 0x1a, 0xaa, 0x02, 0x0a, 0x14, 0x47, 0x65, 0x6f, 0x54, 0x61, 0x72, 0x67, 0x65, 0x74, 0x54,
+	0x79, 0x70, 0x65, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x12, 0x87, 0x01, 0x0a, 0x18, 0x70,
+	0x6f, 0x73, 0x69, 0x74, 0x69, 0x76, 0x65, 0x5f, 0x67, 0x65, 0x6f, 0x5f, 0x74, 0x61, 0x72, 0x67,
+	0x65, 0x74, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x4e, 0x2e,
+	0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x64, 0x73, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c,
+	0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x34, 0x2e, 0x65, 0x6e, 0x75, 0x6d, 0x73, 0x2e, 0x50, 0x6f,
+	0x73, 0x69, 0x74, 0x69, 0x76, 0x65, 0x47, 0x65, 0x6f, 0x54, 0x61, 0x72, 0x67, 0x65, 0x74, 0x54,
+	0x79, 0x70, 0x65, 0x45, 0x6e, 0x75, 0x6d, 0x2e, 0x50, 0x6f, 0x73, 0x69, 0x74, 0x69, 0x76, 0x65,
+	0x47, 0x65, 0x6f, 0x54, 0x61, 0x72, 0x67, 0x65, 0x74, 0x54, 0x79, 0x70, 0x65, 0x52, 0x15, 0x70,
+	0x6f, 0x73, 0x69, 0x74, 0x69, 0x76, 0x65, 0x47, 0x65, 0x6f, 0x54, 0x61, 0x72, 0x67, 0x65, 0x74,
+	0x54, 0x79, 0x70, 0x65, 0x12, 0x87, 0x01, 0x0a, 0x18, 0x6e, 0x65, 0x67, 0x61, 0x74, 0x69, 0x76,
+	0x65, 0x5f, 0x67, 0x65, 0x6f, 0x5f, 0x74, 0x61, 0x72, 0x67, 0x65, 0x74, 0x5f, 0x74, 0x79, 0x70,
+	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x4e, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
+	0x2e, 0x61, 0x64, 0x73, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76,
+	0x34, 0x2e, 0x65, 0x6e, 0x75, 0x6d, 0x73, 0x2e, 0x4e, 0x65, 0x67, 0x61, 0x74, 0x69, 0x76, 0x65,
+	0x47, 0x65, 0x6f, 0x54, 0x61, 0x72, 0x67, 0x65, 0x74, 0x54, 0x79, 0x70, 0x65, 0x45, 0x6e, 0x75,
+	0x6d, 0x2e, 0x4e, 0x65, 0x67, 0x61, 0x74, 0x69, 0x76, 0x65, 0x47, 0x65, 0x6f, 0x54, 0x61, 0x72,
+	0x67, 0x65, 0x74, 0x54, 0x79, 0x70, 0x65, 0x52, 0x15, 0x6e, 0x65, 0x67, 0x61, 0x74, 0x69, 0x76,
+	0x65, 0x47, 0x65, 0x6f, 0x54, 0x61, 0x72, 0x67, 0x65, 0x74, 0x54, 0x79, 0x70, 0x65, 0x1a, 0x92,
+	0x01, 0x0a, 0x14, 0x4c, 0x6f, 0x63, 0x61, 0x6c, 0x43, 0x61, 0x6d, 0x70, 0x61, 0x69, 0x67, 0x6e,
+	0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x12, 0x7a, 0x0a, 0x14, 0x6c, 0x6f, 0x63, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x5f, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x48, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61,
+	0x64, 0x73, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x34, 0x2e,
+	0x65, 0x6e, 0x75, 0x6d, 0x73, 0x2e, 0x4c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x6f,
+	0x75, 0x72, 0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x45, 0x6e, 0x75, 0x6d, 0x2e, 0x4c, 0x6f, 0x63,
+	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x54, 0x79, 0x70, 0x65, 0x52,
+	0x12, 0x6c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x54,
+	0x79, 0x70, 0x65, 0x1a, 0xe4, 0x02, 0x0a, 0x12, 0x41, 0x70, 0x70, 0x43, 0x61, 0x6d, 0x70, 0x61,
+	0x69, 0x67, 0x6e, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x12, 0xa5, 0x01, 0x0a, 0x1a, 0x62,
+	0x69, 0x64, 0x64, 0x69, 0x6e, 0x67, 0x5f, 0x73, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79, 0x5f,
+	0x67, 0x6f, 0x61, 0x6c, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32,
+	0x68, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x64, 0x73, 0x2e, 0x67, 0x6f, 0x6f,
+	0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x34, 0x2e, 0x65, 0x6e, 0x75, 0x6d, 0x73, 0x2e,
+	0x41, 0x70, 0x70, 0x43, 0x61, 0x6d, 0x70, 0x61, 0x69, 0x67, 0x6e, 0x42, 0x69, 0x64, 0x64, 0x69,
+	0x6e, 0x67, 0x53, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79, 0x47, 0x6f, 0x61, 0x6c, 0x54, 0x79,
+	0x70, 0x65, 0x45, 0x6e, 0x75, 0x6d, 0x2e, 0x41, 0x70, 0x70, 0x43, 0x61, 0x6d, 0x70, 0x61, 0x69,
+	0x67, 0x6e, 0x42, 0x69, 0x64, 0x64, 0x69, 0x6e, 0x67, 0x53, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67,
+	0x79, 0x47, 0x6f, 0x61, 0x6c, 0x54, 0x79, 0x70, 0x65, 0x52, 0x17, 0x62, 0x69, 0x64, 0x64, 0x69,
+	0x6e, 0x67, 0x53, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79, 0x47, 0x6f, 0x61, 0x6c, 0x54, 0x79,
+	0x70, 0x65, 0x12, 0x38, 0x0a, 0x06, 0x61, 0x70, 0x70, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x62, 0x75, 0x66, 0x2e, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75, 0x65,
+	0x42, 0x03, 0xe0, 0x41, 0x05, 0x52, 0x05, 0x61, 0x70, 0x70, 0x49, 0x64, 0x12, 0x6c, 0x0a, 0x09,
+	0x61, 0x70, 0x70, 0x5f, 0x73, 0x74, 0x6f, 0x72, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32,
+	0x4a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x64, 0x73, 0x2e, 0x67, 0x6f, 0x6f,
+	0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x34, 0x2e, 0x65, 0x6e, 0x75, 0x6d, 0x73, 0x2e,
+	0x41, 0x70, 0x70, 0x43, 0x61, 0x6d, 0x70, 0x61, 0x69, 0x67, 0x6e, 0x41, 0x70, 0x70, 0x53, 0x74,
+	0x6f, 0x72, 0x65, 0x45, 0x6e, 0x75, 0x6d, 0x2e, 0x41, 0x70, 0x70, 0x43, 0x61, 0x6d, 0x70, 0x61,
+	0x69, 0x67, 0x6e, 0x41, 0x70, 0x70, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x42, 0x03, 0xe0, 0x41, 0x05,
+	0x52, 0x08, 0x61, 0x70, 0x70, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x1a, 0xa1, 0x02, 0x0a, 0x0c, 0x56,
+	0x61, 0x6e, 0x69, 0x74, 0x79, 0x50, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x12, 0x9c, 0x01, 0x0a, 0x1e,
+	0x76, 0x61, 0x6e, 0x69, 0x74, 0x79, 0x5f, 0x70, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x5f, 0x64, 0x69,
+	0x73, 0x70, 0x6c, 0x61, 0x79, 0x5f, 0x75, 0x72, 0x6c, 0x5f, 0x6d, 0x6f, 0x64, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0e, 0x32, 0x58, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x64,
+	0x73, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x34, 0x2e, 0x65,
+	0x6e, 0x75, 0x6d, 0x73, 0x2e, 0x56, 0x61, 0x6e, 0x69, 0x74, 0x79, 0x50, 0x68, 0x61, 0x72, 0x6d,
+	0x61, 0x44, 0x69, 0x73, 0x70, 0x6c, 0x61, 0x79, 0x55, 0x72, 0x6c, 0x4d, 0x6f, 0x64, 0x65, 0x45,
+	0x6e, 0x75, 0x6d, 0x2e, 0x56, 0x61, 0x6e, 0x69, 0x74, 0x79, 0x50, 0x68, 0x61, 0x72, 0x6d, 0x61,
+	0x44, 0x69, 0x73, 0x70, 0x6c, 0x61, 0x79, 0x55, 0x72, 0x6c, 0x4d, 0x6f, 0x64, 0x65, 0x52, 0x1a,
+	0x76, 0x61, 0x6e, 0x69, 0x74, 0x79, 0x50, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x44, 0x69, 0x73, 0x70,
+	0x6c, 0x61, 0x79, 0x55, 0x72, 0x6c, 0x4d, 0x6f, 0x64, 0x65, 0x12, 0x72, 0x0a, 0x12, 0x76, 0x61,
+	0x6e, 0x69, 0x74, 0x79, 0x5f, 0x70, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x5f, 0x74, 0x65, 0x78, 0x74,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x44, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e,
+	0x61, 0x64, 0x73, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x34,
+	0x2e, 0x65, 0x6e, 0x75, 0x6d, 0x73, 0x2e, 0x56, 0x61, 0x6e, 0x69, 0x74, 0x79, 0x50, 0x68, 0x61,
+	0x72, 0x6d, 0x61, 0x54, 0x65, 0x78, 0x74, 0x45, 0x6e, 0x75, 0x6d, 0x2e, 0x56, 0x61, 0x6e, 0x69,
+	0x74, 0x79, 0x50, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x54, 0x65, 0x78, 0x74, 0x52, 0x10, 0x76, 0x61,
+	0x6e, 0x69, 0x74, 0x79, 0x50, 0x68, 0x61, 0x72, 0x6d, 0x61, 0x54, 0x65, 0x78, 0x74, 0x1a, 0xa0,
+	0x01, 0x0a, 0x17, 0x4f, 0x70, 0x74, 0x69, 0x6d, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x47,
+	0x6f, 0x61, 0x6c, 0x53, 0x65, 0x74, 0x74, 0x69, 0x6e, 0x67, 0x12, 0x84, 0x01, 0x0a, 0x17, 0x6f,
+	0x70, 0x74, 0x69, 0x6d, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x67, 0x6f, 0x61, 0x6c,
+	0x5f, 0x74, 0x79, 0x70, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0e, 0x32, 0x4c, 0x2e, 0x67,
+	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x64, 0x73, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
+	0x61, 0x64, 0x73, 0x2e, 0x76, 0x34, 0x2e, 0x65, 0x6e, 0x75, 0x6d, 0x73, 0x2e, 0x4f, 0x70, 0x74,
+	0x69, 0x6d, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x47, 0x6f, 0x61, 0x6c, 0x54, 0x79, 0x70,
+	0x65, 0x45, 0x6e, 0x75, 0x6d, 0x2e, 0x4f, 0x70, 0x74, 0x69, 0x6d, 0x69, 0x7a, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x47, 0x6f, 0x61, 0x6c, 0x54, 0x79, 0x70, 0x65, 0x52, 0x15, 0x6f, 0x70, 0x74, 0x69,
+	0x6d, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x47, 0x6f, 0x61, 0x6c, 0x54, 0x79, 0x70, 0x65,
 	0x73, 0x3a, 0x51, 0xea, 0x41, 0x4e, 0x0a, 0x21, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64,
 	0x73, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x70, 0x69, 0x73, 0x2e, 0x63, 0x6f, 0x6d,
 	0x2f, 0x43, 0x61, 0x6d, 0x70, 0x61, 0x69, 0x67, 0x6e, 0x12, 0x29, 0x63, 0x75, 0x73, 0x74, 0x6f,
@@ -1956,16 +1957,16 @@ var file_google_ads_googleads_v4_resources_campaign_proto_goTypes = []interface{
 	(*Campaign_NetworkSettings)(nil),                                                     // 1: google.ads.googleads.v4.resources.Campaign.NetworkSettings
 	(*Campaign_HotelSettingInfo)(nil),                                                    // 2: google.ads.googleads.v4.resources.Campaign.HotelSettingInfo
 	(*Campaign_DynamicSearchAdsSetting)(nil),                                             // 3: google.ads.googleads.v4.resources.Campaign.DynamicSearchAdsSetting
-	(*Campaign_GeoTargetTypeSetting)(nil),                                                // 4: google.ads.googleads.v4.resources.Campaign.GeoTargetTypeSetting
-	(*Campaign_AppCampaignSetting)(nil),                                                  // 5: google.ads.googleads.v4.resources.Campaign.AppCampaignSetting
-	(*Campaign_OptimizationGoalSetting)(nil),                                             // 6: google.ads.googleads.v4.resources.Campaign.OptimizationGoalSetting
-	(*Campaign_ShoppingSetting)(nil),                                                     // 7: google.ads.googleads.v4.resources.Campaign.ShoppingSetting
-	(*Campaign_TrackingSetting)(nil),                                                     // 8: google.ads.googleads.v4.resources.Campaign.TrackingSetting
-	(*Campaign_LocalCampaignSetting)(nil),                                                // 9: google.ads.googleads.v4.resources.Campaign.LocalCampaignSetting
+	(*Campaign_ShoppingSetting)(nil),                                                     // 4: google.ads.googleads.v4.resources.Campaign.ShoppingSetting
+	(*Campaign_SelectiveOptimization)(nil),                                               // 5: google.ads.googleads.v4.resources.Campaign.SelectiveOptimization
+	(*Campaign_TrackingSetting)(nil),                                                     // 6: google.ads.googleads.v4.resources.Campaign.TrackingSetting
+	(*Campaign_GeoTargetTypeSetting)(nil),                                                // 7: google.ads.googleads.v4.resources.Campaign.GeoTargetTypeSetting
+	(*Campaign_LocalCampaignSetting)(nil),                                                // 8: google.ads.googleads.v4.resources.Campaign.LocalCampaignSetting
+	(*Campaign_AppCampaignSetting)(nil),                                                  // 9: google.ads.googleads.v4.resources.Campaign.AppCampaignSetting
 	(*Campaign_VanityPharma)(nil),                                                        // 10: google.ads.googleads.v4.resources.Campaign.VanityPharma
-	(*Campaign_SelectiveOptimization)(nil),                                               // 11: google.ads.googleads.v4.resources.Campaign.SelectiveOptimization
-	(*wrapperspb.Int64Value)(nil),                                                        // 12: google.protobuf.Int64Value
-	(*wrapperspb.StringValue)(nil),                                                       // 13: google.protobuf.StringValue
+	(*Campaign_OptimizationGoalSetting)(nil),                                             // 11: google.ads.googleads.v4.resources.Campaign.OptimizationGoalSetting
+	(*wrappers.Int64Value)(nil),                                                          // 12: google.protobuf.Int64Value
+	(*wrappers.StringValue)(nil),                                                         // 13: google.protobuf.StringValue
 	(enums.CampaignStatusEnum_CampaignStatus)(0),                                         // 14: google.ads.googleads.v4.enums.CampaignStatusEnum.CampaignStatus
 	(enums.CampaignServingStatusEnum_CampaignServingStatus)(0),                           // 15: google.ads.googleads.v4.enums.CampaignServingStatusEnum.CampaignServingStatus
 	(enums.AdServingOptimizationStatusEnum_AdServingOptimizationStatus)(0),               // 16: google.ads.googleads.v4.enums.AdServingOptimizationStatusEnum.AdServingOptimizationStatus
@@ -1979,7 +1980,7 @@ var file_google_ads_googleads_v4_resources_campaign_proto_goTypes = []interface{
 	(*common.FrequencyCapEntry)(nil),                                                     // 24: google.ads.googleads.v4.common.FrequencyCapEntry
 	(enums.BrandSafetySuitabilityEnum_BrandSafetySuitability)(0),                         // 25: google.ads.googleads.v4.enums.BrandSafetySuitabilityEnum.BrandSafetySuitability
 	(enums.PaymentModeEnum_PaymentMode)(0),                                               // 26: google.ads.googleads.v4.enums.PaymentModeEnum.PaymentMode
-	(*wrapperspb.DoubleValue)(nil),                                                       // 27: google.protobuf.DoubleValue
+	(*wrappers.DoubleValue)(nil),                                                         // 27: google.protobuf.DoubleValue
 	(*common.Commission)(nil),                                                            // 28: google.ads.googleads.v4.common.Commission
 	(*common.ManualCpc)(nil),                                                             // 29: google.ads.googleads.v4.common.ManualCpc
 	(*common.ManualCpm)(nil),                                                             // 30: google.ads.googleads.v4.common.ManualCpm
@@ -1992,16 +1993,16 @@ var file_google_ads_googleads_v4_resources_campaign_proto_goTypes = []interface{
 	(*common.TargetSpend)(nil),                                                           // 37: google.ads.googleads.v4.common.TargetSpend
 	(*common.PercentCpc)(nil),                                                            // 38: google.ads.googleads.v4.common.PercentCpc
 	(*common.TargetCpm)(nil),                                                             // 39: google.ads.googleads.v4.common.TargetCpm
-	(*wrapperspb.BoolValue)(nil),                                                         // 40: google.protobuf.BoolValue
-	(enums.PositiveGeoTargetTypeEnum_PositiveGeoTargetType)(0),                           // 41: google.ads.googleads.v4.enums.PositiveGeoTargetTypeEnum.PositiveGeoTargetType
-	(enums.NegativeGeoTargetTypeEnum_NegativeGeoTargetType)(0),                           // 42: google.ads.googleads.v4.enums.NegativeGeoTargetTypeEnum.NegativeGeoTargetType
-	(enums.AppCampaignBiddingStrategyGoalTypeEnum_AppCampaignBiddingStrategyGoalType)(0), // 43: google.ads.googleads.v4.enums.AppCampaignBiddingStrategyGoalTypeEnum.AppCampaignBiddingStrategyGoalType
-	(enums.AppCampaignAppStoreEnum_AppCampaignAppStore)(0),                               // 44: google.ads.googleads.v4.enums.AppCampaignAppStoreEnum.AppCampaignAppStore
-	(enums.OptimizationGoalTypeEnum_OptimizationGoalType)(0),                             // 45: google.ads.googleads.v4.enums.OptimizationGoalTypeEnum.OptimizationGoalType
-	(*wrapperspb.Int32Value)(nil),                                                        // 46: google.protobuf.Int32Value
-	(enums.LocationSourceTypeEnum_LocationSourceType)(0),                                 // 47: google.ads.googleads.v4.enums.LocationSourceTypeEnum.LocationSourceType
-	(enums.VanityPharmaDisplayUrlModeEnum_VanityPharmaDisplayUrlMode)(0),                 // 48: google.ads.googleads.v4.enums.VanityPharmaDisplayUrlModeEnum.VanityPharmaDisplayUrlMode
-	(enums.VanityPharmaTextEnum_VanityPharmaText)(0),                                     // 49: google.ads.googleads.v4.enums.VanityPharmaTextEnum.VanityPharmaText
+	(*wrappers.BoolValue)(nil),                                                           // 40: google.protobuf.BoolValue
+	(*wrappers.Int32Value)(nil),                                                          // 41: google.protobuf.Int32Value
+	(enums.PositiveGeoTargetTypeEnum_PositiveGeoTargetType)(0),                           // 42: google.ads.googleads.v4.enums.PositiveGeoTargetTypeEnum.PositiveGeoTargetType
+	(enums.NegativeGeoTargetTypeEnum_NegativeGeoTargetType)(0),                           // 43: google.ads.googleads.v4.enums.NegativeGeoTargetTypeEnum.NegativeGeoTargetType
+	(enums.LocationSourceTypeEnum_LocationSourceType)(0),                                 // 44: google.ads.googleads.v4.enums.LocationSourceTypeEnum.LocationSourceType
+	(enums.AppCampaignBiddingStrategyGoalTypeEnum_AppCampaignBiddingStrategyGoalType)(0), // 45: google.ads.googleads.v4.enums.AppCampaignBiddingStrategyGoalTypeEnum.AppCampaignBiddingStrategyGoalType
+	(enums.AppCampaignAppStoreEnum_AppCampaignAppStore)(0),                               // 46: google.ads.googleads.v4.enums.AppCampaignAppStoreEnum.AppCampaignAppStore
+	(enums.VanityPharmaDisplayUrlModeEnum_VanityPharmaDisplayUrlMode)(0),                 // 47: google.ads.googleads.v4.enums.VanityPharmaDisplayUrlModeEnum.VanityPharmaDisplayUrlMode
+	(enums.VanityPharmaTextEnum_VanityPharmaText)(0),                                     // 48: google.ads.googleads.v4.enums.VanityPharmaTextEnum.VanityPharmaText
+	(enums.OptimizationGoalTypeEnum_OptimizationGoalType)(0),                             // 49: google.ads.googleads.v4.enums.OptimizationGoalTypeEnum.OptimizationGoalType
 }
 var file_google_ads_googleads_v4_resources_campaign_proto_depIdxs = []int32{
 	12, // 0: google.ads.googleads.v4.resources.Campaign.id:type_name -> google.protobuf.Int64Value
@@ -2017,11 +2018,11 @@ var file_google_ads_googleads_v4_resources_campaign_proto_depIdxs = []int32{
 	1,  // 10: google.ads.googleads.v4.resources.Campaign.network_settings:type_name -> google.ads.googleads.v4.resources.Campaign.NetworkSettings
 	2,  // 11: google.ads.googleads.v4.resources.Campaign.hotel_setting:type_name -> google.ads.googleads.v4.resources.Campaign.HotelSettingInfo
 	3,  // 12: google.ads.googleads.v4.resources.Campaign.dynamic_search_ads_setting:type_name -> google.ads.googleads.v4.resources.Campaign.DynamicSearchAdsSetting
-	7,  // 13: google.ads.googleads.v4.resources.Campaign.shopping_setting:type_name -> google.ads.googleads.v4.resources.Campaign.ShoppingSetting
+	4,  // 13: google.ads.googleads.v4.resources.Campaign.shopping_setting:type_name -> google.ads.googleads.v4.resources.Campaign.ShoppingSetting
 	21, // 14: google.ads.googleads.v4.resources.Campaign.targeting_setting:type_name -> google.ads.googleads.v4.common.TargetingSetting
-	4,  // 15: google.ads.googleads.v4.resources.Campaign.geo_target_type_setting:type_name -> google.ads.googleads.v4.resources.Campaign.GeoTargetTypeSetting
-	9,  // 16: google.ads.googleads.v4.resources.Campaign.local_campaign_setting:type_name -> google.ads.googleads.v4.resources.Campaign.LocalCampaignSetting
-	5,  // 17: google.ads.googleads.v4.resources.Campaign.app_campaign_setting:type_name -> google.ads.googleads.v4.resources.Campaign.AppCampaignSetting
+	7,  // 15: google.ads.googleads.v4.resources.Campaign.geo_target_type_setting:type_name -> google.ads.googleads.v4.resources.Campaign.GeoTargetTypeSetting
+	8,  // 16: google.ads.googleads.v4.resources.Campaign.local_campaign_setting:type_name -> google.ads.googleads.v4.resources.Campaign.LocalCampaignSetting
+	9,  // 17: google.ads.googleads.v4.resources.Campaign.app_campaign_setting:type_name -> google.ads.googleads.v4.resources.Campaign.AppCampaignSetting
 	13, // 18: google.ads.googleads.v4.resources.Campaign.labels:type_name -> google.protobuf.StringValue
 	22, // 19: google.ads.googleads.v4.resources.Campaign.experiment_type:type_name -> google.ads.googleads.v4.enums.CampaignExperimentTypeEnum.CampaignExperimentType
 	13, // 20: google.ads.googleads.v4.resources.Campaign.base_campaign:type_name -> google.protobuf.StringValue
@@ -2033,9 +2034,9 @@ var file_google_ads_googleads_v4_resources_campaign_proto_depIdxs = []int32{
 	24, // 26: google.ads.googleads.v4.resources.Campaign.frequency_caps:type_name -> google.ads.googleads.v4.common.FrequencyCapEntry
 	25, // 27: google.ads.googleads.v4.resources.Campaign.video_brand_safety_suitability:type_name -> google.ads.googleads.v4.enums.BrandSafetySuitabilityEnum.BrandSafetySuitability
 	10, // 28: google.ads.googleads.v4.resources.Campaign.vanity_pharma:type_name -> google.ads.googleads.v4.resources.Campaign.VanityPharma
-	11, // 29: google.ads.googleads.v4.resources.Campaign.selective_optimization:type_name -> google.ads.googleads.v4.resources.Campaign.SelectiveOptimization
-	6,  // 30: google.ads.googleads.v4.resources.Campaign.optimization_goal_setting:type_name -> google.ads.googleads.v4.resources.Campaign.OptimizationGoalSetting
-	8,  // 31: google.ads.googleads.v4.resources.Campaign.tracking_setting:type_name -> google.ads.googleads.v4.resources.Campaign.TrackingSetting
+	5,  // 29: google.ads.googleads.v4.resources.Campaign.selective_optimization:type_name -> google.ads.googleads.v4.resources.Campaign.SelectiveOptimization
+	11, // 30: google.ads.googleads.v4.resources.Campaign.optimization_goal_setting:type_name -> google.ads.googleads.v4.resources.Campaign.OptimizationGoalSetting
+	6,  // 31: google.ads.googleads.v4.resources.Campaign.tracking_setting:type_name -> google.ads.googleads.v4.resources.Campaign.TrackingSetting
 	26, // 32: google.ads.googleads.v4.resources.Campaign.payment_mode:type_name -> google.ads.googleads.v4.enums.PaymentModeEnum.PaymentMode
 	27, // 33: google.ads.googleads.v4.resources.Campaign.optimization_score:type_name -> google.protobuf.DoubleValue
 	13, // 34: google.ads.googleads.v4.resources.Campaign.bidding_strategy:type_name -> google.protobuf.StringValue
@@ -2060,21 +2061,21 @@ var file_google_ads_googleads_v4_resources_campaign_proto_depIdxs = []int32{
 	13, // 53: google.ads.googleads.v4.resources.Campaign.DynamicSearchAdsSetting.language_code:type_name -> google.protobuf.StringValue
 	40, // 54: google.ads.googleads.v4.resources.Campaign.DynamicSearchAdsSetting.use_supplied_urls_only:type_name -> google.protobuf.BoolValue
 	13, // 55: google.ads.googleads.v4.resources.Campaign.DynamicSearchAdsSetting.feeds:type_name -> google.protobuf.StringValue
-	41, // 56: google.ads.googleads.v4.resources.Campaign.GeoTargetTypeSetting.positive_geo_target_type:type_name -> google.ads.googleads.v4.enums.PositiveGeoTargetTypeEnum.PositiveGeoTargetType
-	42, // 57: google.ads.googleads.v4.resources.Campaign.GeoTargetTypeSetting.negative_geo_target_type:type_name -> google.ads.googleads.v4.enums.NegativeGeoTargetTypeEnum.NegativeGeoTargetType
-	43, // 58: google.ads.googleads.v4.resources.Campaign.AppCampaignSetting.bidding_strategy_goal_type:type_name -> google.ads.googleads.v4.enums.AppCampaignBiddingStrategyGoalTypeEnum.AppCampaignBiddingStrategyGoalType
-	13, // 59: google.ads.googleads.v4.resources.Campaign.AppCampaignSetting.app_id:type_name -> google.protobuf.StringValue
-	44, // 60: google.ads.googleads.v4.resources.Campaign.AppCampaignSetting.app_store:type_name -> google.ads.googleads.v4.enums.AppCampaignAppStoreEnum.AppCampaignAppStore
-	45, // 61: google.ads.googleads.v4.resources.Campaign.OptimizationGoalSetting.optimization_goal_types:type_name -> google.ads.googleads.v4.enums.OptimizationGoalTypeEnum.OptimizationGoalType
-	12, // 62: google.ads.googleads.v4.resources.Campaign.ShoppingSetting.merchant_id:type_name -> google.protobuf.Int64Value
-	13, // 63: google.ads.googleads.v4.resources.Campaign.ShoppingSetting.sales_country:type_name -> google.protobuf.StringValue
-	46, // 64: google.ads.googleads.v4.resources.Campaign.ShoppingSetting.campaign_priority:type_name -> google.protobuf.Int32Value
-	40, // 65: google.ads.googleads.v4.resources.Campaign.ShoppingSetting.enable_local:type_name -> google.protobuf.BoolValue
-	13, // 66: google.ads.googleads.v4.resources.Campaign.TrackingSetting.tracking_url:type_name -> google.protobuf.StringValue
-	47, // 67: google.ads.googleads.v4.resources.Campaign.LocalCampaignSetting.location_source_type:type_name -> google.ads.googleads.v4.enums.LocationSourceTypeEnum.LocationSourceType
-	48, // 68: google.ads.googleads.v4.resources.Campaign.VanityPharma.vanity_pharma_display_url_mode:type_name -> google.ads.googleads.v4.enums.VanityPharmaDisplayUrlModeEnum.VanityPharmaDisplayUrlMode
-	49, // 69: google.ads.googleads.v4.resources.Campaign.VanityPharma.vanity_pharma_text:type_name -> google.ads.googleads.v4.enums.VanityPharmaTextEnum.VanityPharmaText
-	13, // 70: google.ads.googleads.v4.resources.Campaign.SelectiveOptimization.conversion_actions:type_name -> google.protobuf.StringValue
+	12, // 56: google.ads.googleads.v4.resources.Campaign.ShoppingSetting.merchant_id:type_name -> google.protobuf.Int64Value
+	13, // 57: google.ads.googleads.v4.resources.Campaign.ShoppingSetting.sales_country:type_name -> google.protobuf.StringValue
+	41, // 58: google.ads.googleads.v4.resources.Campaign.ShoppingSetting.campaign_priority:type_name -> google.protobuf.Int32Value
+	40, // 59: google.ads.googleads.v4.resources.Campaign.ShoppingSetting.enable_local:type_name -> google.protobuf.BoolValue
+	13, // 60: google.ads.googleads.v4.resources.Campaign.SelectiveOptimization.conversion_actions:type_name -> google.protobuf.StringValue
+	13, // 61: google.ads.googleads.v4.resources.Campaign.TrackingSetting.tracking_url:type_name -> google.protobuf.StringValue
+	42, // 62: google.ads.googleads.v4.resources.Campaign.GeoTargetTypeSetting.positive_geo_target_type:type_name -> google.ads.googleads.v4.enums.PositiveGeoTargetTypeEnum.PositiveGeoTargetType
+	43, // 63: google.ads.googleads.v4.resources.Campaign.GeoTargetTypeSetting.negative_geo_target_type:type_name -> google.ads.googleads.v4.enums.NegativeGeoTargetTypeEnum.NegativeGeoTargetType
+	44, // 64: google.ads.googleads.v4.resources.Campaign.LocalCampaignSetting.location_source_type:type_name -> google.ads.googleads.v4.enums.LocationSourceTypeEnum.LocationSourceType
+	45, // 65: google.ads.googleads.v4.resources.Campaign.AppCampaignSetting.bidding_strategy_goal_type:type_name -> google.ads.googleads.v4.enums.AppCampaignBiddingStrategyGoalTypeEnum.AppCampaignBiddingStrategyGoalType
+	13, // 66: google.ads.googleads.v4.resources.Campaign.AppCampaignSetting.app_id:type_name -> google.protobuf.StringValue
+	46, // 67: google.ads.googleads.v4.resources.Campaign.AppCampaignSetting.app_store:type_name -> google.ads.googleads.v4.enums.AppCampaignAppStoreEnum.AppCampaignAppStore
+	47, // 68: google.ads.googleads.v4.resources.Campaign.VanityPharma.vanity_pharma_display_url_mode:type_name -> google.ads.googleads.v4.enums.VanityPharmaDisplayUrlModeEnum.VanityPharmaDisplayUrlMode
+	48, // 69: google.ads.googleads.v4.resources.Campaign.VanityPharma.vanity_pharma_text:type_name -> google.ads.googleads.v4.enums.VanityPharmaTextEnum.VanityPharmaText
+	49, // 70: google.ads.googleads.v4.resources.Campaign.OptimizationGoalSetting.optimization_goal_types:type_name -> google.ads.googleads.v4.enums.OptimizationGoalTypeEnum.OptimizationGoalType
 	71, // [71:71] is the sub-list for method output_type
 	71, // [71:71] is the sub-list for method input_type
 	71, // [71:71] is the sub-list for extension type_name
@@ -2137,42 +2138,6 @@ func file_google_ads_googleads_v4_resources_campaign_proto_init() {
 			}
 		}
 		file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Campaign_GeoTargetTypeSetting); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Campaign_AppCampaignSetting); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Campaign_OptimizationGoalSetting); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Campaign_ShoppingSetting); i {
 			case 0:
 				return &v.state
@@ -2184,7 +2149,19 @@ func file_google_ads_googleads_v4_resources_campaign_proto_init() {
 				return nil
 			}
 		}
-		file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+		file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Campaign_SelectiveOptimization); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Campaign_TrackingSetting); i {
 			case 0:
 				return &v.state
@@ -2196,8 +2173,32 @@ func file_google_ads_googleads_v4_resources_campaign_proto_init() {
 				return nil
 			}
 		}
-		file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+		file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Campaign_GeoTargetTypeSetting); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Campaign_LocalCampaignSetting); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Campaign_AppCampaignSetting); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2221,7 +2222,7 @@ func file_google_ads_googleads_v4_resources_campaign_proto_init() {
 			}
 		}
 		file_google_ads_googleads_v4_resources_campaign_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Campaign_SelectiveOptimization); i {
+			switch v := v.(*Campaign_OptimizationGoalSetting); i {
 			case 0:
 				return &v.state
 			case 1:

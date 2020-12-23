@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from google.cloud.osconfig.agentendpoint.v1 import inventory_pb2 as google_dot_cloud_dot_osconfig_dot_agentendpoint_dot_v1_dot_inventory__pb2
 from google.cloud.osconfig.agentendpoint.v1 import tasks_pb2 as google_dot_cloud_dot_osconfig_dot_agentendpoint_dot_v1_dot_tasks__pb2
 
 
@@ -22,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n*com.google.cloud.osconfig.agentendpoint.v1B\022AgentEndpointProtoP\001ZSgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1;agentendpoint',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n:google/cloud/osconfig/agentendpoint/v1/agentendpoint.proto\x12&google.cloud.osconfig.agentendpoint.v1\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x32google/cloud/osconfig/agentendpoint/v1/tasks.proto\"\\\n\x1eReceiveTaskNotificationRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\ragent_version\x18\x02 \x01(\tB\x03\xe0\x41\x02\"!\n\x1fReceiveTaskNotificationResponse\"6\n\x14StartNextTaskRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\"S\n\x15StartNextTaskResponse\x12:\n\x04task\x18\x01 \x01(\x0b\x32,.google.cloud.osconfig.agentendpoint.v1.Task\"\xf1\x02\n\x19ReportTaskProgressRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07task_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12H\n\ttask_type\x18\x03 \x01(\x0e\x32\x30.google.cloud.osconfig.agentendpoint.v1.TaskTypeB\x03\xe0\x41\x02\x12g\n\x1b\x61pply_patches_task_progress\x18\x04 \x01(\x0b\x32@.google.cloud.osconfig.agentendpoint.v1.ApplyPatchesTaskProgressH\x00\x12_\n\x17\x65xec_step_task_progress\x18\x05 \x01(\x0b\x32<.google.cloud.osconfig.agentendpoint.v1.ExecStepTaskProgressH\x00\x42\n\n\x08progress\"k\n\x1aReportTaskProgressResponse\x12M\n\x0etask_directive\x18\x01 \x01(\x0e\x32\x35.google.cloud.osconfig.agentendpoint.v1.TaskDirective\"\xfe\x02\n\x19ReportTaskCompleteRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07task_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12H\n\ttask_type\x18\x03 \x01(\x0e\x32\x30.google.cloud.osconfig.agentendpoint.v1.TaskTypeB\x03\xe0\x41\x02\x12\x15\n\rerror_message\x18\x04 \x01(\t\x12\x63\n\x19\x61pply_patches_task_output\x18\x05 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1.ApplyPatchesTaskOutputH\x00\x12[\n\x15\x65xec_step_task_output\x18\x06 \x01(\x0b\x32:.google.cloud.osconfig.agentendpoint.v1.ExecStepTaskOutputH\x00\x42\x08\n\x06output\"\x1c\n\x1aReportTaskCompleteResponse\"w\n\x14RegisterAgentRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\ragent_version\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12#\n\x16supported_capabilities\x18\x03 \x03(\tB\x03\xe0\x41\x02\"\x17\n\x15RegisterAgentResponse2\x8e\x08\n\x14\x41gentEndpointService\x12\xd0\x01\n\x17ReceiveTaskNotification\x12\x46.google.cloud.osconfig.agentendpoint.v1.ReceiveTaskNotificationRequest\x1aG.google.cloud.osconfig.agentendpoint.v1.ReceiveTaskNotificationResponse\"\"\xda\x41\x1finstance_id_token,agent_version0\x01\x12\xa2\x01\n\rStartNextTask\x12<.google.cloud.osconfig.agentendpoint.v1.StartNextTaskRequest\x1a=.google.cloud.osconfig.agentendpoint.v1.StartNextTaskResponse\"\x14\xda\x41\x11instance_id_token\x12\xc3\x01\n\x12ReportTaskProgress\x12\x41.google.cloud.osconfig.agentendpoint.v1.ReportTaskProgressRequest\x1a\x42.google.cloud.osconfig.agentendpoint.v1.ReportTaskProgressResponse\"&\xda\x41#instance_id_token,task_id,task_type\x12\xd1\x01\n\x12ReportTaskComplete\x12\x41.google.cloud.osconfig.agentendpoint.v1.ReportTaskCompleteRequest\x1a\x42.google.cloud.osconfig.agentendpoint.v1.ReportTaskCompleteResponse\"4\xda\x41\x31instance_id_token,task_id,task_type,error_message\x12\xc7\x01\n\rRegisterAgent\x12<.google.cloud.osconfig.agentendpoint.v1.RegisterAgentRequest\x1a=.google.cloud.osconfig.agentendpoint.v1.RegisterAgentResponse\"9\xda\x41\x36instance_id_token,agent_version,supported_capabilities\x1a\x1a\xca\x41\x17osconfig.googleapis.comB\x97\x01\n*com.google.cloud.osconfig.agentendpoint.v1B\x12\x41gentEndpointProtoP\x01ZSgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1;agentendpointb\x06proto3'
+  serialized_pb=b'\n:google/cloud/osconfig/agentendpoint/v1/agentendpoint.proto\x12&google.cloud.osconfig.agentendpoint.v1\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x36google/cloud/osconfig/agentendpoint/v1/inventory.proto\x1a\x32google/cloud/osconfig/agentendpoint/v1/tasks.proto\"\\\n\x1eReceiveTaskNotificationRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\ragent_version\x18\x02 \x01(\tB\x03\xe0\x41\x02\"!\n\x1fReceiveTaskNotificationResponse\"6\n\x14StartNextTaskRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\"S\n\x15StartNextTaskResponse\x12:\n\x04task\x18\x01 \x01(\x0b\x32,.google.cloud.osconfig.agentendpoint.v1.Task\"\xf1\x02\n\x19ReportTaskProgressRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07task_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12H\n\ttask_type\x18\x03 \x01(\x0e\x32\x30.google.cloud.osconfig.agentendpoint.v1.TaskTypeB\x03\xe0\x41\x02\x12g\n\x1b\x61pply_patches_task_progress\x18\x04 \x01(\x0b\x32@.google.cloud.osconfig.agentendpoint.v1.ApplyPatchesTaskProgressH\x00\x12_\n\x17\x65xec_step_task_progress\x18\x05 \x01(\x0b\x32<.google.cloud.osconfig.agentendpoint.v1.ExecStepTaskProgressH\x00\x42\n\n\x08progress\"k\n\x1aReportTaskProgressResponse\x12M\n\x0etask_directive\x18\x01 \x01(\x0e\x32\x35.google.cloud.osconfig.agentendpoint.v1.TaskDirective\"\xfe\x02\n\x19ReportTaskCompleteRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07task_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12H\n\ttask_type\x18\x03 \x01(\x0e\x32\x30.google.cloud.osconfig.agentendpoint.v1.TaskTypeB\x03\xe0\x41\x02\x12\x15\n\rerror_message\x18\x04 \x01(\t\x12\x63\n\x19\x61pply_patches_task_output\x18\x05 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1.ApplyPatchesTaskOutputH\x00\x12[\n\x15\x65xec_step_task_output\x18\x06 \x01(\x0b\x32:.google.cloud.osconfig.agentendpoint.v1.ExecStepTaskOutputH\x00\x42\x08\n\x06output\"\x1c\n\x1aReportTaskCompleteResponse\"w\n\x14RegisterAgentRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\ragent_version\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12#\n\x16supported_capabilities\x18\x03 \x03(\tB\x03\xe0\x41\x02\"\x17\n\x15RegisterAgentResponse\"\xa4\x01\n\x16ReportInventoryRequest\x12\x1e\n\x11instance_id_token\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1f\n\x12inventory_checksum\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12I\n\tinventory\x18\x03 \x01(\x0b\x32\x31.google.cloud.osconfig.agentendpoint.v1.InventoryB\x03\xe0\x41\x01\"8\n\x17ReportInventoryResponse\x12\x1d\n\x15report_full_inventory\x18\x01 \x01(\x08\x32\xd6\t\n\x14\x41gentEndpointService\x12\xd0\x01\n\x17ReceiveTaskNotification\x12\x46.google.cloud.osconfig.agentendpoint.v1.ReceiveTaskNotificationRequest\x1aG.google.cloud.osconfig.agentendpoint.v1.ReceiveTaskNotificationResponse\"\"\xda\x41\x1finstance_id_token,agent_version0\x01\x12\xa2\x01\n\rStartNextTask\x12<.google.cloud.osconfig.agentendpoint.v1.StartNextTaskRequest\x1a=.google.cloud.osconfig.agentendpoint.v1.StartNextTaskResponse\"\x14\xda\x41\x11instance_id_token\x12\xc3\x01\n\x12ReportTaskProgress\x12\x41.google.cloud.osconfig.agentendpoint.v1.ReportTaskProgressRequest\x1a\x42.google.cloud.osconfig.agentendpoint.v1.ReportTaskProgressResponse\"&\xda\x41#instance_id_token,task_id,task_type\x12\xd1\x01\n\x12ReportTaskComplete\x12\x41.google.cloud.osconfig.agentendpoint.v1.ReportTaskCompleteRequest\x1a\x42.google.cloud.osconfig.agentendpoint.v1.ReportTaskCompleteResponse\"4\xda\x41\x31instance_id_token,task_id,task_type,error_message\x12\xc7\x01\n\rRegisterAgent\x12<.google.cloud.osconfig.agentendpoint.v1.RegisterAgentRequest\x1a=.google.cloud.osconfig.agentendpoint.v1.RegisterAgentResponse\"9\xda\x41\x36instance_id_token,agent_version,supported_capabilities\x12\xc5\x01\n\x0fReportInventory\x12>.google.cloud.osconfig.agentendpoint.v1.ReportInventoryRequest\x1a?.google.cloud.osconfig.agentendpoint.v1.ReportInventoryResponse\"1\xda\x41.instance_id_token,inventory_checksum,inventory\x1a\x1a\xca\x41\x17osconfig.googleapis.comB\x97\x01\n*com.google.cloud.osconfig.agentendpoint.v1B\x12\x41gentEndpointProtoP\x01ZSgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1;agentendpointb\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_cloud_dot_osconfig_dot_agentendpoint_dot_v1_dot_tasks__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_cloud_dot_osconfig_dot_agentendpoint_dot_v1_dot_inventory__pb2.DESCRIPTOR,google_dot_cloud_dot_osconfig_dot_agentendpoint_dot_v1_dot_tasks__pb2.DESCRIPTOR,])
 
 
 
@@ -63,8 +64,8 @@ _RECEIVETASKNOTIFICATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=212,
-  serialized_end=304,
+  serialized_start=268,
+  serialized_end=360,
 )
 
 
@@ -88,8 +89,8 @@ _RECEIVETASKNOTIFICATIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=306,
-  serialized_end=339,
+  serialized_start=362,
+  serialized_end=395,
 )
 
 
@@ -120,8 +121,8 @@ _STARTNEXTTASKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=341,
-  serialized_end=395,
+  serialized_start=397,
+  serialized_end=451,
 )
 
 
@@ -152,8 +153,8 @@ _STARTNEXTTASKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=397,
-  serialized_end=480,
+  serialized_start=453,
+  serialized_end=536,
 )
 
 
@@ -217,8 +218,8 @@ _REPORTTASKPROGRESSREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=483,
-  serialized_end=852,
+  serialized_start=539,
+  serialized_end=908,
 )
 
 
@@ -249,8 +250,8 @@ _REPORTTASKPROGRESSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=854,
-  serialized_end=961,
+  serialized_start=910,
+  serialized_end=1017,
 )
 
 
@@ -321,8 +322,8 @@ _REPORTTASKCOMPLETEREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=964,
-  serialized_end=1346,
+  serialized_start=1020,
+  serialized_end=1402,
 )
 
 
@@ -346,8 +347,8 @@ _REPORTTASKCOMPLETERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1348,
-  serialized_end=1376,
+  serialized_start=1404,
+  serialized_end=1432,
 )
 
 
@@ -392,8 +393,8 @@ _REGISTERAGENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1378,
-  serialized_end=1497,
+  serialized_start=1434,
+  serialized_end=1553,
 )
 
 
@@ -417,8 +418,86 @@ _REGISTERAGENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1499,
-  serialized_end=1522,
+  serialized_start=1555,
+  serialized_end=1578,
+)
+
+
+_REPORTINVENTORYREQUEST = _descriptor.Descriptor(
+  name='ReportInventoryRequest',
+  full_name='google.cloud.osconfig.agentendpoint.v1.ReportInventoryRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='instance_id_token', full_name='google.cloud.osconfig.agentendpoint.v1.ReportInventoryRequest.instance_id_token', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='inventory_checksum', full_name='google.cloud.osconfig.agentendpoint.v1.ReportInventoryRequest.inventory_checksum', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='inventory', full_name='google.cloud.osconfig.agentendpoint.v1.ReportInventoryRequest.inventory', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1581,
+  serialized_end=1745,
+)
+
+
+_REPORTINVENTORYRESPONSE = _descriptor.Descriptor(
+  name='ReportInventoryResponse',
+  full_name='google.cloud.osconfig.agentendpoint.v1.ReportInventoryResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='report_full_inventory', full_name='google.cloud.osconfig.agentendpoint.v1.ReportInventoryResponse.report_full_inventory', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1747,
+  serialized_end=1803,
 )
 
 _STARTNEXTTASKRESPONSE.fields_by_name['task'].message_type = google_dot_cloud_dot_osconfig_dot_agentendpoint_dot_v1_dot_tasks__pb2._TASK
@@ -441,6 +520,7 @@ _REPORTTASKCOMPLETEREQUEST.fields_by_name['apply_patches_task_output'].containin
 _REPORTTASKCOMPLETEREQUEST.oneofs_by_name['output'].fields.append(
   _REPORTTASKCOMPLETEREQUEST.fields_by_name['exec_step_task_output'])
 _REPORTTASKCOMPLETEREQUEST.fields_by_name['exec_step_task_output'].containing_oneof = _REPORTTASKCOMPLETEREQUEST.oneofs_by_name['output']
+_REPORTINVENTORYREQUEST.fields_by_name['inventory'].message_type = google_dot_cloud_dot_osconfig_dot_agentendpoint_dot_v1_dot_inventory__pb2._INVENTORY
 DESCRIPTOR.message_types_by_name['ReceiveTaskNotificationRequest'] = _RECEIVETASKNOTIFICATIONREQUEST
 DESCRIPTOR.message_types_by_name['ReceiveTaskNotificationResponse'] = _RECEIVETASKNOTIFICATIONRESPONSE
 DESCRIPTOR.message_types_by_name['StartNextTaskRequest'] = _STARTNEXTTASKREQUEST
@@ -451,6 +531,8 @@ DESCRIPTOR.message_types_by_name['ReportTaskCompleteRequest'] = _REPORTTASKCOMPL
 DESCRIPTOR.message_types_by_name['ReportTaskCompleteResponse'] = _REPORTTASKCOMPLETERESPONSE
 DESCRIPTOR.message_types_by_name['RegisterAgentRequest'] = _REGISTERAGENTREQUEST
 DESCRIPTOR.message_types_by_name['RegisterAgentResponse'] = _REGISTERAGENTRESPONSE
+DESCRIPTOR.message_types_by_name['ReportInventoryRequest'] = _REPORTINVENTORYREQUEST
+DESCRIPTOR.message_types_by_name['ReportInventoryResponse'] = _REPORTINVENTORYRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ReceiveTaskNotificationRequest = _reflection.GeneratedProtocolMessageType('ReceiveTaskNotificationRequest', (_message.Message,), {
@@ -523,6 +605,20 @@ RegisterAgentResponse = _reflection.GeneratedProtocolMessageType('RegisterAgentR
   })
 _sym_db.RegisterMessage(RegisterAgentResponse)
 
+ReportInventoryRequest = _reflection.GeneratedProtocolMessageType('ReportInventoryRequest', (_message.Message,), {
+  'DESCRIPTOR' : _REPORTINVENTORYREQUEST,
+  '__module__' : 'google.cloud.osconfig.agentendpoint.v1.agentendpoint_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.osconfig.agentendpoint.v1.ReportInventoryRequest)
+  })
+_sym_db.RegisterMessage(ReportInventoryRequest)
+
+ReportInventoryResponse = _reflection.GeneratedProtocolMessageType('ReportInventoryResponse', (_message.Message,), {
+  'DESCRIPTOR' : _REPORTINVENTORYRESPONSE,
+  '__module__' : 'google.cloud.osconfig.agentendpoint.v1.agentendpoint_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.osconfig.agentendpoint.v1.ReportInventoryResponse)
+  })
+_sym_db.RegisterMessage(ReportInventoryResponse)
+
 
 DESCRIPTOR._options = None
 _RECEIVETASKNOTIFICATIONREQUEST.fields_by_name['instance_id_token']._options = None
@@ -537,6 +633,9 @@ _REPORTTASKCOMPLETEREQUEST.fields_by_name['task_type']._options = None
 _REGISTERAGENTREQUEST.fields_by_name['instance_id_token']._options = None
 _REGISTERAGENTREQUEST.fields_by_name['agent_version']._options = None
 _REGISTERAGENTREQUEST.fields_by_name['supported_capabilities']._options = None
+_REPORTINVENTORYREQUEST.fields_by_name['instance_id_token']._options = None
+_REPORTINVENTORYREQUEST.fields_by_name['inventory_checksum']._options = None
+_REPORTINVENTORYREQUEST.fields_by_name['inventory']._options = None
 
 _AGENTENDPOINTSERVICE = _descriptor.ServiceDescriptor(
   name='AgentEndpointService',
@@ -545,8 +644,8 @@ _AGENTENDPOINTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\027osconfig.googleapis.com',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1525,
-  serialized_end=2563,
+  serialized_start=1806,
+  serialized_end=3044,
   methods=[
   _descriptor.MethodDescriptor(
     name='ReceiveTaskNotification',
@@ -596,6 +695,16 @@ _AGENTENDPOINTSERVICE = _descriptor.ServiceDescriptor(
     input_type=_REGISTERAGENTREQUEST,
     output_type=_REGISTERAGENTRESPONSE,
     serialized_options=b'\332A6instance_id_token,agent_version,supported_capabilities',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ReportInventory',
+    full_name='google.cloud.osconfig.agentendpoint.v1.AgentEndpointService.ReportInventory',
+    index=5,
+    containing_service=None,
+    input_type=_REPORTINVENTORYREQUEST,
+    output_type=_REPORTINVENTORYRESPONSE,
+    serialized_options=b'\332A.instance_id_token,inventory_checksum,inventory',
     create_key=_descriptor._internal_create_key,
   ),
 ])

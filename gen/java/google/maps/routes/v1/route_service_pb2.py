@@ -12,8 +12,10 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
+from google.maps.routes.v1 import compute_route_matrix_request_pb2 as google_dot_maps_dot_routes_dot_v1_dot_compute__route__matrix__request__pb2
 from google.maps.routes.v1 import compute_routes_request_pb2 as google_dot_maps_dot_routes_dot_v1_dot_compute__routes__request__pb2
 from google.maps.routes.v1 import compute_routes_response_pb2 as google_dot_maps_dot_routes_dot_v1_dot_compute__routes__response__pb2
+from google.maps.routes.v1 import route_matrix_element_pb2 as google_dot_maps_dot_routes_dot_v1_dot_route__matrix__element__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 
 
@@ -23,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\031com.google.maps.routes.v1B\022RoutesServiceProtoP\001Z;google.golang.org/genproto/googleapis/maps/routes/v1;routes\370\001\001\242\002\004GMRS\252\002\025Google.Maps.Routes.V1\312\002\025Google\\Maps\\Routes\\V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)google/maps/routes/v1/route_service.proto\x12\x15google.maps.routes.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x32google/maps/routes/v1/compute_routes_request.proto\x1a\x33google/maps/routes/v1/compute_routes_response.proto\x1a\x17google/api/client.proto2\xbf\x01\n\x0fRoutesPreferred\x12\x88\x01\n\rComputeRoutes\x12+.google.maps.routes.v1.ComputeRoutesRequest\x1a,.google.maps.routes.v1.ComputeRoutesResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x11/v1:computeRoutes:\x01*\x1a!\xca\x41\x1eroutespreferred.googleapis.comB\xa8\x01\n\x19\x63om.google.maps.routes.v1B\x12RoutesServiceProtoP\x01Z;google.golang.org/genproto/googleapis/maps/routes/v1;routes\xf8\x01\x01\xa2\x02\x04GMRS\xaa\x02\x15Google.Maps.Routes.V1\xca\x02\x15Google\\Maps\\Routes\\V1b\x06proto3'
+  serialized_pb=b'\n)google/maps/routes/v1/route_service.proto\x12\x15google.maps.routes.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x38google/maps/routes/v1/compute_route_matrix_request.proto\x1a\x32google/maps/routes/v1/compute_routes_request.proto\x1a\x33google/maps/routes/v1/compute_routes_response.proto\x1a\x30google/maps/routes/v1/route_matrix_element.proto\x1a\x17google/api/client.proto2\xd8\x02\n\x0fRoutesPreferred\x12\x88\x01\n\rComputeRoutes\x12+.google.maps.routes.v1.ComputeRoutesRequest\x1a,.google.maps.routes.v1.ComputeRoutesResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x11/v1:computeRoutes:\x01*\x12\x96\x01\n\x12\x43omputeRouteMatrix\x12\x30.google.maps.routes.v1.ComputeRouteMatrixRequest\x1a).google.maps.routes.v1.RouteMatrixElement\"!\x82\xd3\xe4\x93\x02\x1b\"\x16/v1:computeRouteMatrix:\x01*0\x01\x1a!\xca\x41\x1eroutespreferred.googleapis.comB\xa8\x01\n\x19\x63om.google.maps.routes.v1B\x12RoutesServiceProtoP\x01Z;google.golang.org/genproto/googleapis/maps/routes/v1;routes\xf8\x01\x01\xa2\x02\x04GMRS\xaa\x02\x15Google.Maps.Routes.V1\xca\x02\x15Google\\Maps\\Routes\\V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_maps_dot_routes_dot_v1_dot_compute__routes__request__pb2.DESCRIPTOR,google_dot_maps_dot_routes_dot_v1_dot_compute__routes__response__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_maps_dot_routes_dot_v1_dot_compute__route__matrix__request__pb2.DESCRIPTOR,google_dot_maps_dot_routes_dot_v1_dot_compute__routes__request__pb2.DESCRIPTOR,google_dot_maps_dot_routes_dot_v1_dot_compute__routes__response__pb2.DESCRIPTOR,google_dot_maps_dot_routes_dot_v1_dot_route__matrix__element__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,])
 
 
 
@@ -41,8 +43,8 @@ _ROUTESPREFERRED = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\036routespreferred.googleapis.com',
   create_key=_descriptor._internal_create_key,
-  serialized_start=229,
-  serialized_end=420,
+  serialized_start=337,
+  serialized_end=681,
   methods=[
   _descriptor.MethodDescriptor(
     name='ComputeRoutes',
@@ -52,6 +54,16 @@ _ROUTESPREFERRED = _descriptor.ServiceDescriptor(
     input_type=google_dot_maps_dot_routes_dot_v1_dot_compute__routes__request__pb2._COMPUTEROUTESREQUEST,
     output_type=google_dot_maps_dot_routes_dot_v1_dot_compute__routes__response__pb2._COMPUTEROUTESRESPONSE,
     serialized_options=b'\202\323\344\223\002\026\"\021/v1:computeRoutes:\001*',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ComputeRouteMatrix',
+    full_name='google.maps.routes.v1.RoutesPreferred.ComputeRouteMatrix',
+    index=1,
+    containing_service=None,
+    input_type=google_dot_maps_dot_routes_dot_v1_dot_compute__route__matrix__request__pb2._COMPUTEROUTEMATRIXREQUEST,
+    output_type=google_dot_maps_dot_routes_dot_v1_dot_route__matrix__element__pb2._ROUTEMATRIXELEMENT,
+    serialized_options=b'\202\323\344\223\002\033\"\026/v1:computeRouteMatrix:\001*',
     create_key=_descriptor._internal_create_key,
   ),
 ])

@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.analytics.data.v1alphaB\025AnalyticsDataApiProtoP\001ZAgoogle.golang.org/genproto/googleapis/analytics/data/v1alpha;data',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n6google/analytics/data/v1alpha/analytics_data_api.proto\x12\x1dgoogle.analytics.data.v1alpha\x1a(google/analytics/data/v1alpha/data.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"\xf4\x01\n\x08Metadata\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x44\n\ndimensions\x18\x01 \x03(\x0b\x32\x30.google.analytics.data.v1alpha.DimensionMetadata\x12>\n\x07metrics\x18\x02 \x03(\x0b\x32-.google.analytics.data.v1alpha.MetricMetadata:T\xea\x41Q\n%analyticsdata.googleapis.com/Metadata\x12\x08metadata\x12\x1eproperties/{property}/metadata\"\xc9\x05\n\x10RunReportRequest\x12\x35\n\x06\x65ntity\x18\x01 \x01(\x0b\x32%.google.analytics.data.v1alpha.Entity\x12<\n\ndimensions\x18\x02 \x03(\x0b\x32(.google.analytics.data.v1alpha.Dimension\x12\x36\n\x07metrics\x18\x03 \x03(\x0b\x32%.google.analytics.data.v1alpha.Metric\x12=\n\x0b\x64\x61te_ranges\x18\x04 \x03(\x0b\x32(.google.analytics.data.v1alpha.DateRange\x12\x0e\n\x06offset\x18\x05 \x01(\x03\x12\r\n\x05limit\x18\x06 \x01(\x03\x12M\n\x13metric_aggregations\x18\x07 \x03(\x0e\x32\x30.google.analytics.data.v1alpha.MetricAggregation\x12I\n\x10\x64imension_filter\x18\x08 \x01(\x0b\x32/.google.analytics.data.v1alpha.FilterExpression\x12\x46\n\rmetric_filter\x18\t \x01(\x0b\x32/.google.analytics.data.v1alpha.FilterExpression\x12\x39\n\torder_bys\x18\n \x03(\x0b\x32&.google.analytics.data.v1alpha.OrderBy\x12\x15\n\rcurrency_code\x18\x0b \x01(\t\x12>\n\x0b\x63ohort_spec\x18\x0c \x01(\x0b\x32).google.analytics.data.v1alpha.CohortSpec\x12\x17\n\x0fkeep_empty_rows\x18\r \x01(\x08\x12\x1d\n\x15return_property_quota\x18\x0e \x01(\x08\"\xfe\x03\n\x11RunReportResponse\x12I\n\x11\x64imension_headers\x18\x0b \x03(\x0b\x32..google.analytics.data.v1alpha.DimensionHeader\x12\x43\n\x0emetric_headers\x18\x01 \x03(\x0b\x32+.google.analytics.data.v1alpha.MetricHeader\x12\x30\n\x04rows\x18\x02 \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x32\n\x06totals\x18\x08 \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x34\n\x08maximums\x18\t \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x34\n\x08minimums\x18\n \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x41\n\x08metadata\x18\x06 \x01(\x0b\x32/.google.analytics.data.v1alpha.ResponseMetaData\x12\x44\n\x0eproperty_quota\x18\x07 \x01(\x0b\x32,.google.analytics.data.v1alpha.PropertyQuota\"\xdb\x04\n\x15RunPivotReportRequest\x12\x35\n\x06\x65ntity\x18\x01 \x01(\x0b\x32%.google.analytics.data.v1alpha.Entity\x12<\n\ndimensions\x18\x02 \x03(\x0b\x32(.google.analytics.data.v1alpha.Dimension\x12\x36\n\x07metrics\x18\x03 \x03(\x0b\x32%.google.analytics.data.v1alpha.Metric\x12I\n\x10\x64imension_filter\x18\x04 \x01(\x0b\x32/.google.analytics.data.v1alpha.FilterExpression\x12\x46\n\rmetric_filter\x18\x05 \x01(\x0b\x32/.google.analytics.data.v1alpha.FilterExpression\x12\x34\n\x06pivots\x18\x06 \x03(\x0b\x32$.google.analytics.data.v1alpha.Pivot\x12=\n\x0b\x64\x61te_ranges\x18\x07 \x03(\x0b\x32(.google.analytics.data.v1alpha.DateRange\x12\x15\n\rcurrency_code\x18\x08 \x01(\t\x12>\n\x0b\x63ohort_spec\x18\t \x01(\x0b\x32).google.analytics.data.v1alpha.CohortSpec\x12\x17\n\x0fkeep_empty_rows\x18\n \x01(\x08\x12\x1d\n\x15return_property_quota\x18\x0b \x01(\x08\"\xde\x03\n\x16RunPivotReportResponse\x12\x41\n\rpivot_headers\x18\x01 \x03(\x0b\x32*.google.analytics.data.v1alpha.PivotHeader\x12I\n\x11\x64imension_headers\x18\x07 \x03(\x0b\x32..google.analytics.data.v1alpha.DimensionHeader\x12\x43\n\x0emetric_headers\x18\x02 \x03(\x0b\x32+.google.analytics.data.v1alpha.MetricHeader\x12\x30\n\x04rows\x18\x03 \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x36\n\naggregates\x18\x04 \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x41\n\x08metadata\x18\x05 \x01(\x0b\x32/.google.analytics.data.v1alpha.ResponseMetaData\x12\x44\n\x0eproperty_quota\x18\x06 \x01(\x0b\x32,.google.analytics.data.v1alpha.PropertyQuota\"\x92\x01\n\x16\x42\x61tchRunReportsRequest\x12\x35\n\x06\x65ntity\x18\x01 \x01(\x0b\x32%.google.analytics.data.v1alpha.Entity\x12\x41\n\x08requests\x18\x02 \x03(\x0b\x32/.google.analytics.data.v1alpha.RunReportRequest\"\\\n\x17\x42\x61tchRunReportsResponse\x12\x41\n\x07reports\x18\x01 \x03(\x0b\x32\x30.google.analytics.data.v1alpha.RunReportResponse\"\x9c\x01\n\x1b\x42\x61tchRunPivotReportsRequest\x12\x35\n\x06\x65ntity\x18\x01 \x01(\x0b\x32%.google.analytics.data.v1alpha.Entity\x12\x46\n\x08requests\x18\x02 \x03(\x0b\x32\x34.google.analytics.data.v1alpha.RunPivotReportRequest\"l\n\x1c\x42\x61tchRunPivotReportsResponse\x12L\n\rpivot_reports\x18\x01 \x03(\x0b\x32\x35.google.analytics.data.v1alpha.RunPivotReportResponse\"Q\n\x12GetMetadataRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%analyticsdata.googleapis.com/Metadata2\xea\x07\n\x12\x41lphaAnalyticsData\x12\x8d\x01\n\tRunReport\x12/.google.analytics.data.v1alpha.RunReportRequest\x1a\x30.google.analytics.data.v1alpha.RunReportResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\"\x12/v1alpha:runReport:\x01*\x12\xa1\x01\n\x0eRunPivotReport\x12\x34.google.analytics.data.v1alpha.RunPivotReportRequest\x1a\x35.google.analytics.data.v1alpha.RunPivotReportResponse\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/v1alpha:runPivotReport:\x01*\x12\xa5\x01\n\x0f\x42\x61tchRunReports\x12\x35.google.analytics.data.v1alpha.BatchRunReportsRequest\x1a\x36.google.analytics.data.v1alpha.BatchRunReportsResponse\"#\x82\xd3\xe4\x93\x02\x1d\"\x18/v1alpha:batchRunReports:\x01*\x12\xb9\x01\n\x14\x42\x61tchRunPivotReports\x12:.google.analytics.data.v1alpha.BatchRunPivotReportsRequest\x1a;.google.analytics.data.v1alpha.BatchRunPivotReportsResponse\"(\x82\xd3\xe4\x93\x02\"\"\x1d/v1alpha:batchRunPivotReports:\x01*\x12\xbb\x01\n\x0bGetMetadata\x12\x31.google.analytics.data.v1alpha.GetMetadataRequest\x1a\'.google.analytics.data.v1alpha.Metadata\"P\x82\xd3\xe4\x93\x02\x43\x12\x18/v1alpha/{name=metadata}Z\'\x12%/v1alpha/{name=properties/*/metadata}\xda\x41\x04name\x1a~\xca\x41\x1c\x61nalyticsdata.googleapis.com\xd2\x41\\https://www.googleapis.com/auth/analytics,https://www.googleapis.com/auth/analytics.readonlyB\x7f\n!com.google.analytics.data.v1alphaB\x15\x41nalyticsDataApiProtoP\x01ZAgoogle.golang.org/genproto/googleapis/analytics/data/v1alpha;datab\x06proto3'
+  serialized_pb=b'\n6google/analytics/data/v1alpha/analytics_data_api.proto\x12\x1dgoogle.analytics.data.v1alpha\x1a(google/analytics/data/v1alpha/data.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"\xea\x01\n\x08Metadata\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x44\n\ndimensions\x18\x01 \x03(\x0b\x32\x30.google.analytics.data.v1alpha.DimensionMetadata\x12>\n\x07metrics\x18\x02 \x03(\x0b\x32-.google.analytics.data.v1alpha.MetricMetadata:J\xea\x41G\n%analyticsdata.googleapis.com/Metadata\x12\x1eproperties/{property}/metadata\"\xc9\x05\n\x10RunReportRequest\x12\x35\n\x06\x65ntity\x18\x01 \x01(\x0b\x32%.google.analytics.data.v1alpha.Entity\x12<\n\ndimensions\x18\x02 \x03(\x0b\x32(.google.analytics.data.v1alpha.Dimension\x12\x36\n\x07metrics\x18\x03 \x03(\x0b\x32%.google.analytics.data.v1alpha.Metric\x12=\n\x0b\x64\x61te_ranges\x18\x04 \x03(\x0b\x32(.google.analytics.data.v1alpha.DateRange\x12\x0e\n\x06offset\x18\x05 \x01(\x03\x12\r\n\x05limit\x18\x06 \x01(\x03\x12M\n\x13metric_aggregations\x18\x07 \x03(\x0e\x32\x30.google.analytics.data.v1alpha.MetricAggregation\x12I\n\x10\x64imension_filter\x18\x08 \x01(\x0b\x32/.google.analytics.data.v1alpha.FilterExpression\x12\x46\n\rmetric_filter\x18\t \x01(\x0b\x32/.google.analytics.data.v1alpha.FilterExpression\x12\x39\n\torder_bys\x18\n \x03(\x0b\x32&.google.analytics.data.v1alpha.OrderBy\x12\x15\n\rcurrency_code\x18\x0b \x01(\t\x12>\n\x0b\x63ohort_spec\x18\x0c \x01(\x0b\x32).google.analytics.data.v1alpha.CohortSpec\x12\x17\n\x0fkeep_empty_rows\x18\r \x01(\x08\x12\x1d\n\x15return_property_quota\x18\x0e \x01(\x08\"\x91\x04\n\x11RunReportResponse\x12I\n\x11\x64imension_headers\x18\x0b \x03(\x0b\x32..google.analytics.data.v1alpha.DimensionHeader\x12\x43\n\x0emetric_headers\x18\x01 \x03(\x0b\x32+.google.analytics.data.v1alpha.MetricHeader\x12\x30\n\x04rows\x18\x02 \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x32\n\x06totals\x18\x08 \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x34\n\x08maximums\x18\t \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x34\n\x08minimums\x18\n \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x11\n\trow_count\x18\x0c \x01(\x05\x12\x41\n\x08metadata\x18\x06 \x01(\x0b\x32/.google.analytics.data.v1alpha.ResponseMetaData\x12\x44\n\x0eproperty_quota\x18\x07 \x01(\x0b\x32,.google.analytics.data.v1alpha.PropertyQuota\"\xdb\x04\n\x15RunPivotReportRequest\x12\x35\n\x06\x65ntity\x18\x01 \x01(\x0b\x32%.google.analytics.data.v1alpha.Entity\x12<\n\ndimensions\x18\x02 \x03(\x0b\x32(.google.analytics.data.v1alpha.Dimension\x12\x36\n\x07metrics\x18\x03 \x03(\x0b\x32%.google.analytics.data.v1alpha.Metric\x12I\n\x10\x64imension_filter\x18\x04 \x01(\x0b\x32/.google.analytics.data.v1alpha.FilterExpression\x12\x46\n\rmetric_filter\x18\x05 \x01(\x0b\x32/.google.analytics.data.v1alpha.FilterExpression\x12\x34\n\x06pivots\x18\x06 \x03(\x0b\x32$.google.analytics.data.v1alpha.Pivot\x12=\n\x0b\x64\x61te_ranges\x18\x07 \x03(\x0b\x32(.google.analytics.data.v1alpha.DateRange\x12\x15\n\rcurrency_code\x18\x08 \x01(\t\x12>\n\x0b\x63ohort_spec\x18\t \x01(\x0b\x32).google.analytics.data.v1alpha.CohortSpec\x12\x17\n\x0fkeep_empty_rows\x18\n \x01(\x08\x12\x1d\n\x15return_property_quota\x18\x0b \x01(\x08\"\xde\x03\n\x16RunPivotReportResponse\x12\x41\n\rpivot_headers\x18\x01 \x03(\x0b\x32*.google.analytics.data.v1alpha.PivotHeader\x12I\n\x11\x64imension_headers\x18\x07 \x03(\x0b\x32..google.analytics.data.v1alpha.DimensionHeader\x12\x43\n\x0emetric_headers\x18\x02 \x03(\x0b\x32+.google.analytics.data.v1alpha.MetricHeader\x12\x30\n\x04rows\x18\x03 \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x36\n\naggregates\x18\x04 \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x41\n\x08metadata\x18\x05 \x01(\x0b\x32/.google.analytics.data.v1alpha.ResponseMetaData\x12\x44\n\x0eproperty_quota\x18\x06 \x01(\x0b\x32,.google.analytics.data.v1alpha.PropertyQuota\"\x92\x01\n\x16\x42\x61tchRunReportsRequest\x12\x35\n\x06\x65ntity\x18\x01 \x01(\x0b\x32%.google.analytics.data.v1alpha.Entity\x12\x41\n\x08requests\x18\x02 \x03(\x0b\x32/.google.analytics.data.v1alpha.RunReportRequest\"\\\n\x17\x42\x61tchRunReportsResponse\x12\x41\n\x07reports\x18\x01 \x03(\x0b\x32\x30.google.analytics.data.v1alpha.RunReportResponse\"\x9c\x01\n\x1b\x42\x61tchRunPivotReportsRequest\x12\x35\n\x06\x65ntity\x18\x01 \x01(\x0b\x32%.google.analytics.data.v1alpha.Entity\x12\x46\n\x08requests\x18\x02 \x03(\x0b\x32\x34.google.analytics.data.v1alpha.RunPivotReportRequest\"l\n\x1c\x42\x61tchRunPivotReportsResponse\x12L\n\rpivot_reports\x18\x01 \x03(\x0b\x32\x35.google.analytics.data.v1alpha.RunPivotReportResponse\"Q\n\x12GetMetadataRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%analyticsdata.googleapis.com/Metadata\"\xed\x03\n\x18RunRealtimeReportRequest\x12\x10\n\x08property\x18\x01 \x01(\t\x12<\n\ndimensions\x18\x02 \x03(\x0b\x32(.google.analytics.data.v1alpha.Dimension\x12\x36\n\x07metrics\x18\x03 \x03(\x0b\x32%.google.analytics.data.v1alpha.Metric\x12\r\n\x05limit\x18\x04 \x01(\x03\x12I\n\x10\x64imension_filter\x18\x05 \x01(\x0b\x32/.google.analytics.data.v1alpha.FilterExpression\x12\x46\n\rmetric_filter\x18\x06 \x01(\x0b\x32/.google.analytics.data.v1alpha.FilterExpression\x12M\n\x13metric_aggregations\x18\x07 \x03(\x0e\x32\x30.google.analytics.data.v1alpha.MetricAggregation\x12\x39\n\torder_bys\x18\x08 \x03(\x0b\x32&.google.analytics.data.v1alpha.OrderBy\x12\x1d\n\x15return_property_quota\x18\t \x01(\x08\"\xd6\x03\n\x19RunRealtimeReportResponse\x12I\n\x11\x64imension_headers\x18\x01 \x03(\x0b\x32..google.analytics.data.v1alpha.DimensionHeader\x12\x43\n\x0emetric_headers\x18\x02 \x03(\x0b\x32+.google.analytics.data.v1alpha.MetricHeader\x12\x30\n\x04rows\x18\x03 \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x32\n\x06totals\x18\x04 \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x34\n\x08maximums\x18\x05 \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x34\n\x08minimums\x18\x06 \x03(\x0b\x32\".google.analytics.data.v1alpha.Row\x12\x11\n\trow_count\x18\x07 \x01(\x05\x12\x44\n\x0eproperty_quota\x18\x08 \x01(\x0b\x32,.google.analytics.data.v1alpha.PropertyQuota2\x96\t\n\x12\x41lphaAnalyticsData\x12\x8d\x01\n\tRunReport\x12/.google.analytics.data.v1alpha.RunReportRequest\x1a\x30.google.analytics.data.v1alpha.RunReportResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\"\x12/v1alpha:runReport:\x01*\x12\xa1\x01\n\x0eRunPivotReport\x12\x34.google.analytics.data.v1alpha.RunPivotReportRequest\x1a\x35.google.analytics.data.v1alpha.RunPivotReportResponse\"\"\x82\xd3\xe4\x93\x02\x1c\"\x17/v1alpha:runPivotReport:\x01*\x12\xa5\x01\n\x0f\x42\x61tchRunReports\x12\x35.google.analytics.data.v1alpha.BatchRunReportsRequest\x1a\x36.google.analytics.data.v1alpha.BatchRunReportsResponse\"#\x82\xd3\xe4\x93\x02\x1d\"\x18/v1alpha:batchRunReports:\x01*\x12\xb9\x01\n\x14\x42\x61tchRunPivotReports\x12:.google.analytics.data.v1alpha.BatchRunPivotReportsRequest\x1a;.google.analytics.data.v1alpha.BatchRunPivotReportsResponse\"(\x82\xd3\xe4\x93\x02\"\"\x1d/v1alpha:batchRunPivotReports:\x01*\x12\x9f\x01\n\x0bGetMetadata\x12\x31.google.analytics.data.v1alpha.GetMetadataRequest\x1a\'.google.analytics.data.v1alpha.Metadata\"4\x82\xd3\xe4\x93\x02\'\x12%/v1alpha/{name=properties/*/metadata}\xda\x41\x04name\x12\xc5\x01\n\x11RunRealtimeReport\x12\x37.google.analytics.data.v1alpha.RunRealtimeReportRequest\x1a\x38.google.analytics.data.v1alpha.RunRealtimeReportResponse\"=\x82\xd3\xe4\x93\x02\x37\"2/v1alpha/{property=properties/*}:runRealtimeReport:\x01*\x1a~\xca\x41\x1c\x61nalyticsdata.googleapis.com\xd2\x41\\https://www.googleapis.com/auth/analytics,https://www.googleapis.com/auth/analytics.readonlyB\x7f\n!com.google.analytics.data.v1alphaB\x15\x41nalyticsDataApiProtoP\x01ZAgoogle.golang.org/genproto/googleapis/analytics/data/v1alpha;datab\x06proto3'
   ,
   dependencies=[google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
 
@@ -66,14 +66,14 @@ _METADATA = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=b'\352AQ\n%analyticsdata.googleapis.com/Metadata\022\010metadata\022\036properties/{property}/metadata',
+  serialized_options=b'\352AG\n%analyticsdata.googleapis.com/Metadata\022\036properties/{property}/metadata',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=247,
-  serialized_end=491,
+  serialized_end=481,
 )
 
 
@@ -195,8 +195,8 @@ _RUNREPORTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=494,
-  serialized_end=1207,
+  serialized_start=484,
+  serialized_end=1197,
 )
 
 
@@ -251,14 +251,21 @@ _RUNREPORTRESPONSE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='metadata', full_name='google.analytics.data.v1alpha.RunReportResponse.metadata', index=6,
+      name='row_count', full_name='google.analytics.data.v1alpha.RunReportResponse.row_count', index=6,
+      number=12, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='metadata', full_name='google.analytics.data.v1alpha.RunReportResponse.metadata', index=7,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='property_quota', full_name='google.analytics.data.v1alpha.RunReportResponse.property_quota', index=7,
+      name='property_quota', full_name='google.analytics.data.v1alpha.RunReportResponse.property_quota', index=8,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -276,8 +283,8 @@ _RUNREPORTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1210,
-  serialized_end=1720,
+  serialized_start=1200,
+  serialized_end=1729,
 )
 
 
@@ -378,8 +385,8 @@ _RUNPIVOTREPORTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1723,
-  serialized_end=2326,
+  serialized_start=1732,
+  serialized_end=2335,
 )
 
 
@@ -452,8 +459,8 @@ _RUNPIVOTREPORTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2329,
-  serialized_end=2807,
+  serialized_start=2338,
+  serialized_end=2816,
 )
 
 
@@ -491,8 +498,8 @@ _BATCHRUNREPORTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2810,
-  serialized_end=2956,
+  serialized_start=2819,
+  serialized_end=2965,
 )
 
 
@@ -523,8 +530,8 @@ _BATCHRUNREPORTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2958,
-  serialized_end=3050,
+  serialized_start=2967,
+  serialized_end=3059,
 )
 
 
@@ -562,8 +569,8 @@ _BATCHRUNPIVOTREPORTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3053,
-  serialized_end=3209,
+  serialized_start=3062,
+  serialized_end=3218,
 )
 
 
@@ -594,8 +601,8 @@ _BATCHRUNPIVOTREPORTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3211,
-  serialized_end=3319,
+  serialized_start=3220,
+  serialized_end=3328,
 )
 
 
@@ -626,8 +633,177 @@ _GETMETADATAREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3321,
-  serialized_end=3402,
+  serialized_start=3330,
+  serialized_end=3411,
+)
+
+
+_RUNREALTIMEREPORTREQUEST = _descriptor.Descriptor(
+  name='RunRealtimeReportRequest',
+  full_name='google.analytics.data.v1alpha.RunRealtimeReportRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='property', full_name='google.analytics.data.v1alpha.RunRealtimeReportRequest.property', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dimensions', full_name='google.analytics.data.v1alpha.RunRealtimeReportRequest.dimensions', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='metrics', full_name='google.analytics.data.v1alpha.RunRealtimeReportRequest.metrics', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='limit', full_name='google.analytics.data.v1alpha.RunRealtimeReportRequest.limit', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dimension_filter', full_name='google.analytics.data.v1alpha.RunRealtimeReportRequest.dimension_filter', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='metric_filter', full_name='google.analytics.data.v1alpha.RunRealtimeReportRequest.metric_filter', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='metric_aggregations', full_name='google.analytics.data.v1alpha.RunRealtimeReportRequest.metric_aggregations', index=6,
+      number=7, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='order_bys', full_name='google.analytics.data.v1alpha.RunRealtimeReportRequest.order_bys', index=7,
+      number=8, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='return_property_quota', full_name='google.analytics.data.v1alpha.RunRealtimeReportRequest.return_property_quota', index=8,
+      number=9, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3414,
+  serialized_end=3907,
+)
+
+
+_RUNREALTIMEREPORTRESPONSE = _descriptor.Descriptor(
+  name='RunRealtimeReportResponse',
+  full_name='google.analytics.data.v1alpha.RunRealtimeReportResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dimension_headers', full_name='google.analytics.data.v1alpha.RunRealtimeReportResponse.dimension_headers', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='metric_headers', full_name='google.analytics.data.v1alpha.RunRealtimeReportResponse.metric_headers', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rows', full_name='google.analytics.data.v1alpha.RunRealtimeReportResponse.rows', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='totals', full_name='google.analytics.data.v1alpha.RunRealtimeReportResponse.totals', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='maximums', full_name='google.analytics.data.v1alpha.RunRealtimeReportResponse.maximums', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='minimums', full_name='google.analytics.data.v1alpha.RunRealtimeReportResponse.minimums', index=5,
+      number=6, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='row_count', full_name='google.analytics.data.v1alpha.RunRealtimeReportResponse.row_count', index=6,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='property_quota', full_name='google.analytics.data.v1alpha.RunRealtimeReportResponse.property_quota', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3910,
+  serialized_end=4380,
 )
 
 _METADATA.fields_by_name['dimensions'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._DIMENSIONMETADATA
@@ -670,6 +846,19 @@ _BATCHRUNREPORTSRESPONSE.fields_by_name['reports'].message_type = _RUNREPORTRESP
 _BATCHRUNPIVOTREPORTSREQUEST.fields_by_name['entity'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._ENTITY
 _BATCHRUNPIVOTREPORTSREQUEST.fields_by_name['requests'].message_type = _RUNPIVOTREPORTREQUEST
 _BATCHRUNPIVOTREPORTSRESPONSE.fields_by_name['pivot_reports'].message_type = _RUNPIVOTREPORTRESPONSE
+_RUNREALTIMEREPORTREQUEST.fields_by_name['dimensions'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._DIMENSION
+_RUNREALTIMEREPORTREQUEST.fields_by_name['metrics'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._METRIC
+_RUNREALTIMEREPORTREQUEST.fields_by_name['dimension_filter'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._FILTEREXPRESSION
+_RUNREALTIMEREPORTREQUEST.fields_by_name['metric_filter'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._FILTEREXPRESSION
+_RUNREALTIMEREPORTREQUEST.fields_by_name['metric_aggregations'].enum_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._METRICAGGREGATION
+_RUNREALTIMEREPORTREQUEST.fields_by_name['order_bys'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._ORDERBY
+_RUNREALTIMEREPORTRESPONSE.fields_by_name['dimension_headers'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._DIMENSIONHEADER
+_RUNREALTIMEREPORTRESPONSE.fields_by_name['metric_headers'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._METRICHEADER
+_RUNREALTIMEREPORTRESPONSE.fields_by_name['rows'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._ROW
+_RUNREALTIMEREPORTRESPONSE.fields_by_name['totals'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._ROW
+_RUNREALTIMEREPORTRESPONSE.fields_by_name['maximums'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._ROW
+_RUNREALTIMEREPORTRESPONSE.fields_by_name['minimums'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._ROW
+_RUNREALTIMEREPORTRESPONSE.fields_by_name['property_quota'].message_type = google_dot_analytics_dot_data_dot_v1alpha_dot_data__pb2._PROPERTYQUOTA
 DESCRIPTOR.message_types_by_name['Metadata'] = _METADATA
 DESCRIPTOR.message_types_by_name['RunReportRequest'] = _RUNREPORTREQUEST
 DESCRIPTOR.message_types_by_name['RunReportResponse'] = _RUNREPORTRESPONSE
@@ -680,6 +869,8 @@ DESCRIPTOR.message_types_by_name['BatchRunReportsResponse'] = _BATCHRUNREPORTSRE
 DESCRIPTOR.message_types_by_name['BatchRunPivotReportsRequest'] = _BATCHRUNPIVOTREPORTSREQUEST
 DESCRIPTOR.message_types_by_name['BatchRunPivotReportsResponse'] = _BATCHRUNPIVOTREPORTSRESPONSE
 DESCRIPTOR.message_types_by_name['GetMetadataRequest'] = _GETMETADATAREQUEST
+DESCRIPTOR.message_types_by_name['RunRealtimeReportRequest'] = _RUNREALTIMEREPORTREQUEST
+DESCRIPTOR.message_types_by_name['RunRealtimeReportResponse'] = _RUNREALTIMEREPORTRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Metadata = _reflection.GeneratedProtocolMessageType('Metadata', (_message.Message,), {
@@ -752,6 +943,20 @@ GetMetadataRequest = _reflection.GeneratedProtocolMessageType('GetMetadataReques
   })
 _sym_db.RegisterMessage(GetMetadataRequest)
 
+RunRealtimeReportRequest = _reflection.GeneratedProtocolMessageType('RunRealtimeReportRequest', (_message.Message,), {
+  'DESCRIPTOR' : _RUNREALTIMEREPORTREQUEST,
+  '__module__' : 'google.analytics.data.v1alpha.analytics_data_api_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.data.v1alpha.RunRealtimeReportRequest)
+  })
+_sym_db.RegisterMessage(RunRealtimeReportRequest)
+
+RunRealtimeReportResponse = _reflection.GeneratedProtocolMessageType('RunRealtimeReportResponse', (_message.Message,), {
+  'DESCRIPTOR' : _RUNREALTIMEREPORTRESPONSE,
+  '__module__' : 'google.analytics.data.v1alpha.analytics_data_api_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.data.v1alpha.RunRealtimeReportResponse)
+  })
+_sym_db.RegisterMessage(RunRealtimeReportResponse)
+
 
 DESCRIPTOR._options = None
 _METADATA._options = None
@@ -764,8 +969,8 @@ _ALPHAANALYTICSDATA = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\034analyticsdata.googleapis.com\322A\\https://www.googleapis.com/auth/analytics,https://www.googleapis.com/auth/analytics.readonly',
   create_key=_descriptor._internal_create_key,
-  serialized_start=3405,
-  serialized_end=4407,
+  serialized_start=4383,
+  serialized_end=5557,
   methods=[
   _descriptor.MethodDescriptor(
     name='RunReport',
@@ -814,7 +1019,17 @@ _ALPHAANALYTICSDATA = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETMETADATAREQUEST,
     output_type=_METADATA,
-    serialized_options=b'\202\323\344\223\002C\022\030/v1alpha/{name=metadata}Z\'\022%/v1alpha/{name=properties/*/metadata}\332A\004name',
+    serialized_options=b'\202\323\344\223\002\'\022%/v1alpha/{name=properties/*/metadata}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='RunRealtimeReport',
+    full_name='google.analytics.data.v1alpha.AlphaAnalyticsData.RunRealtimeReport',
+    index=5,
+    containing_service=None,
+    input_type=_RUNREALTIMEREPORTREQUEST,
+    output_type=_RUNREALTIMEREPORTRESPONSE,
+    serialized_options=b'\202\323\344\223\0027\"2/v1alpha/{property=properties/*}:runRealtimeReport:\001*',
     create_key=_descriptor._internal_create_key,
   ),
 ])

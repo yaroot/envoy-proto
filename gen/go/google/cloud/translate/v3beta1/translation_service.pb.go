@@ -23,11 +23,11 @@ package translate
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -1572,7 +1572,7 @@ type BatchTranslateMetadata struct {
 	// target languages and appears here shortly after the call is submitted.
 	TotalCharacters int64 `protobuf:"varint,4,opt,name=total_characters,json=totalCharacters,proto3" json:"total_characters,omitempty"`
 	// Time when the operation was submitted.
-	SubmitTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
+	SubmitTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
 }
 
 func (x *BatchTranslateMetadata) Reset() {
@@ -1635,7 +1635,7 @@ func (x *BatchTranslateMetadata) GetTotalCharacters() int64 {
 	return 0
 }
 
-func (x *BatchTranslateMetadata) GetSubmitTime() *timestamppb.Timestamp {
+func (x *BatchTranslateMetadata) GetSubmitTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.SubmitTime
 	}
@@ -1656,10 +1656,10 @@ type BatchTranslateResponse struct {
 	// Number of characters that have failed to process (Unicode codepoints).
 	FailedCharacters int64 `protobuf:"varint,3,opt,name=failed_characters,json=failedCharacters,proto3" json:"failed_characters,omitempty"`
 	// Time when the operation was submitted.
-	SubmitTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
+	SubmitTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
 	// The time when the operation is finished and
 	// [google.longrunning.Operation.done][google.longrunning.Operation.done] is set to true.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 }
 
 func (x *BatchTranslateResponse) Reset() {
@@ -1715,14 +1715,14 @@ func (x *BatchTranslateResponse) GetFailedCharacters() int64 {
 	return 0
 }
 
-func (x *BatchTranslateResponse) GetSubmitTime() *timestamppb.Timestamp {
+func (x *BatchTranslateResponse) GetSubmitTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.SubmitTime
 	}
 	return nil
 }
 
-func (x *BatchTranslateResponse) GetEndTime() *timestamppb.Timestamp {
+func (x *BatchTranslateResponse) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -1841,9 +1841,9 @@ type Glossary struct {
 	// Output only. The number of entries defined in the glossary.
 	EntryCount int32 `protobuf:"varint,6,opt,name=entry_count,json=entryCount,proto3" json:"entry_count,omitempty"`
 	// Output only. When CreateGlossary was called.
-	SubmitTime *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
+	SubmitTime *timestamp.Timestamp `protobuf:"bytes,7,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
 	// Output only. When the glossary creation was finished.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,8,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 }
 
 func (x *Glossary) Reset() {
@@ -1920,14 +1920,14 @@ func (x *Glossary) GetEntryCount() int32 {
 	return 0
 }
 
-func (x *Glossary) GetSubmitTime() *timestamppb.Timestamp {
+func (x *Glossary) GetSubmitTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.SubmitTime
 	}
 	return nil
 }
 
-func (x *Glossary) GetEndTime() *timestamppb.Timestamp {
+func (x *Glossary) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -2262,7 +2262,7 @@ type CreateGlossaryMetadata struct {
 	// The current state of the glossary creation operation.
 	State CreateGlossaryMetadata_State `protobuf:"varint,2,opt,name=state,proto3,enum=google.cloud.translation.v3beta1.CreateGlossaryMetadata_State" json:"state,omitempty"`
 	// The time when the operation was submitted to the server.
-	SubmitTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
+	SubmitTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
 }
 
 func (x *CreateGlossaryMetadata) Reset() {
@@ -2311,7 +2311,7 @@ func (x *CreateGlossaryMetadata) GetState() CreateGlossaryMetadata_State {
 	return CreateGlossaryMetadata_STATE_UNSPECIFIED
 }
 
-func (x *CreateGlossaryMetadata) GetSubmitTime() *timestamppb.Timestamp {
+func (x *CreateGlossaryMetadata) GetSubmitTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.SubmitTime
 	}
@@ -2330,7 +2330,7 @@ type DeleteGlossaryMetadata struct {
 	// The current state of the glossary deletion operation.
 	State DeleteGlossaryMetadata_State `protobuf:"varint,2,opt,name=state,proto3,enum=google.cloud.translation.v3beta1.DeleteGlossaryMetadata_State" json:"state,omitempty"`
 	// The time when the operation was submitted to the server.
-	SubmitTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
+	SubmitTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
 }
 
 func (x *DeleteGlossaryMetadata) Reset() {
@@ -2379,7 +2379,7 @@ func (x *DeleteGlossaryMetadata) GetState() DeleteGlossaryMetadata_State {
 	return DeleteGlossaryMetadata_STATE_UNSPECIFIED
 }
 
-func (x *DeleteGlossaryMetadata) GetSubmitTime() *timestamppb.Timestamp {
+func (x *DeleteGlossaryMetadata) GetSubmitTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.SubmitTime
 	}
@@ -2396,10 +2396,10 @@ type DeleteGlossaryResponse struct {
 	// The name of the deleted glossary.
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// The time when the operation was submitted to the server.
-	SubmitTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
+	SubmitTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
 	// The time when the glossary deletion is finished and
 	// [google.longrunning.Operation.done][google.longrunning.Operation.done] is set to true.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 }
 
 func (x *DeleteGlossaryResponse) Reset() {
@@ -2441,14 +2441,14 @@ func (x *DeleteGlossaryResponse) GetName() string {
 	return ""
 }
 
-func (x *DeleteGlossaryResponse) GetSubmitTime() *timestamppb.Timestamp {
+func (x *DeleteGlossaryResponse) GetSubmitTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.SubmitTime
 	}
 	return nil
 }
 
-func (x *DeleteGlossaryResponse) GetEndTime() *timestamppb.Timestamp {
+func (x *DeleteGlossaryResponse) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -3191,7 +3191,7 @@ var file_google_cloud_translate_v3beta1_translation_service_proto_goTypes = []in
 	nil,                                  // 34: google.cloud.translation.v3beta1.BatchTranslateTextRequest.LabelsEntry
 	(*Glossary_LanguageCodePair)(nil),    // 35: google.cloud.translation.v3beta1.Glossary.LanguageCodePair
 	(*Glossary_LanguageCodesSet)(nil),    // 36: google.cloud.translation.v3beta1.Glossary.LanguageCodesSet
-	(*timestamppb.Timestamp)(nil),        // 37: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),          // 37: google.protobuf.Timestamp
 	(*longrunning.Operation)(nil),        // 38: google.longrunning.Operation
 }
 var file_google_cloud_translate_v3beta1_translation_service_proto_depIdxs = []int32{

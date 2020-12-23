@@ -17,7 +17,12 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.bigquery.storage.v1beta2 import arrow_pb2 as google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_arrow__pb2
 from google.cloud.bigquery.storage.v1beta2 import avro_pb2 as google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_avro__pb2
+from google.cloud.bigquery.storage.v1beta2 import protobuf_pb2 as google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_protobuf__pb2
 from google.cloud.bigquery.storage.v1beta2 import stream_pb2 as google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_stream__pb2
+from google.cloud.bigquery.storage.v1beta2 import table_pb2 as google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_table__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
+from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -26,11 +31,56 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n)com.google.cloud.bigquery.storage.v1beta2B\014StorageProtoP\001ZLgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1beta2;storage',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n3google/cloud/bigquery/storage/v1beta2/storage.proto\x12%google.cloud.bigquery.storage.v1beta2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x31google/cloud/bigquery/storage/v1beta2/arrow.proto\x1a\x30google/cloud/bigquery/storage/v1beta2/avro.proto\x1a\x32google/cloud/bigquery/storage/v1beta2/stream.proto\"\xc8\x01\n\x18\x43reateReadSessionRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12M\n\x0cread_session\x18\x02 \x01(\x0b\x32\x32.google.cloud.bigquery.storage.v1beta2.ReadSessionB\x03\xe0\x41\x02\x12\x18\n\x10max_stream_count\x18\x03 \x01(\x05\"i\n\x0fReadRowsRequest\x12\x46\n\x0bread_stream\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41+\n)bigquerystorage.googleapis.com/ReadStream\x12\x0e\n\x06offset\x18\x02 \x01(\x03\")\n\rThrottleState\x12\x18\n\x10throttle_percent\x18\x01 \x01(\x05\"\x9c\x01\n\x0bStreamStats\x12M\n\x08progress\x18\x02 \x01(\x0b\x32;.google.cloud.bigquery.storage.v1beta2.StreamStats.Progress\x1a>\n\x08Progress\x12\x19\n\x11\x61t_response_start\x18\x01 \x01(\x01\x12\x17\n\x0f\x61t_response_end\x18\x02 \x01(\x01\"\xdb\x02\n\x10ReadRowsResponse\x12\x44\n\tavro_rows\x18\x03 \x01(\x0b\x32/.google.cloud.bigquery.storage.v1beta2.AvroRowsH\x00\x12U\n\x12\x61rrow_record_batch\x18\x04 \x01(\x0b\x32\x37.google.cloud.bigquery.storage.v1beta2.ArrowRecordBatchH\x00\x12\x11\n\trow_count\x18\x06 \x01(\x03\x12\x41\n\x05stats\x18\x02 \x01(\x0b\x32\x32.google.cloud.bigquery.storage.v1beta2.StreamStats\x12L\n\x0ethrottle_state\x18\x05 \x01(\x0b\x32\x34.google.cloud.bigquery.storage.v1beta2.ThrottleStateB\x06\n\x04rows\"k\n\x16SplitReadStreamRequest\x12?\n\x04name\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41+\n)bigquerystorage.googleapis.com/ReadStream\x12\x10\n\x08\x66raction\x18\x02 \x01(\x01\"\xb1\x01\n\x17SplitReadStreamResponse\x12I\n\x0eprimary_stream\x18\x01 \x01(\x0b\x32\x31.google.cloud.bigquery.storage.v1beta2.ReadStream\x12K\n\x10remainder_stream\x18\x02 \x01(\x0b\x32\x31.google.cloud.bigquery.storage.v1beta2.ReadStream2\xf3\x06\n\x0c\x42igQueryRead\x12\xf8\x01\n\x11\x43reateReadSession\x12?.google.cloud.bigquery.storage.v1beta2.CreateReadSessionRequest\x1a\x32.google.cloud.bigquery.storage.v1beta2.ReadSession\"n\x82\xd3\xe4\x93\x02\x41\"</v1beta2/{read_session.table=projects/*/datasets/*/tables/*}:\x01*\xda\x41$parent,read_session,max_stream_count\x12\xde\x01\n\x08ReadRows\x12\x36.google.cloud.bigquery.storage.v1beta2.ReadRowsRequest\x1a\x37.google.cloud.bigquery.storage.v1beta2.ReadRowsResponse\"_\x82\xd3\xe4\x93\x02\x44\x12\x42/v1beta2/{read_stream=projects/*/locations/*/sessions/*/streams/*}\xda\x41\x12read_stream,offset0\x01\x12\xd5\x01\n\x0fSplitReadStream\x12=.google.cloud.bigquery.storage.v1beta2.SplitReadStreamRequest\x1a>.google.cloud.bigquery.storage.v1beta2.SplitReadStreamResponse\"C\x82\xd3\xe4\x93\x02=\x12;/v1beta2/{name=projects/*/locations/*/sessions/*/streams/*}\x1a\xae\x01\xca\x41\x1e\x62igquerystorage.googleapis.com\xd2\x41\x89\x01https://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/bigquery.readonly,https://www.googleapis.com/auth/cloud-platformB\x89\x01\n)com.google.cloud.bigquery.storage.v1beta2B\x0cStorageProtoP\x01ZLgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1beta2;storageb\x06proto3'
+  serialized_pb=b'\n3google/cloud/bigquery/storage/v1beta2/storage.proto\x12%google.cloud.bigquery.storage.v1beta2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x31google/cloud/bigquery/storage/v1beta2/arrow.proto\x1a\x30google/cloud/bigquery/storage/v1beta2/avro.proto\x1a\x34google/cloud/bigquery/storage/v1beta2/protobuf.proto\x1a\x32google/cloud/bigquery/storage/v1beta2/stream.proto\x1a\x31google/cloud/bigquery/storage/v1beta2/table.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x17google/rpc/status.proto\"\xc8\x01\n\x18\x43reateReadSessionRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12M\n\x0cread_session\x18\x02 \x01(\x0b\x32\x32.google.cloud.bigquery.storage.v1beta2.ReadSessionB\x03\xe0\x41\x02\x12\x18\n\x10max_stream_count\x18\x03 \x01(\x05\"i\n\x0fReadRowsRequest\x12\x46\n\x0bread_stream\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41+\n)bigquerystorage.googleapis.com/ReadStream\x12\x0e\n\x06offset\x18\x02 \x01(\x03\")\n\rThrottleState\x12\x18\n\x10throttle_percent\x18\x01 \x01(\x05\"\x9c\x01\n\x0bStreamStats\x12M\n\x08progress\x18\x02 \x01(\x0b\x32;.google.cloud.bigquery.storage.v1beta2.StreamStats.Progress\x1a>\n\x08Progress\x12\x19\n\x11\x61t_response_start\x18\x01 \x01(\x01\x12\x17\n\x0f\x61t_response_end\x18\x02 \x01(\x01\"\xdb\x02\n\x10ReadRowsResponse\x12\x44\n\tavro_rows\x18\x03 \x01(\x0b\x32/.google.cloud.bigquery.storage.v1beta2.AvroRowsH\x00\x12U\n\x12\x61rrow_record_batch\x18\x04 \x01(\x0b\x32\x37.google.cloud.bigquery.storage.v1beta2.ArrowRecordBatchH\x00\x12\x11\n\trow_count\x18\x06 \x01(\x03\x12\x41\n\x05stats\x18\x02 \x01(\x0b\x32\x32.google.cloud.bigquery.storage.v1beta2.StreamStats\x12L\n\x0ethrottle_state\x18\x05 \x01(\x0b\x32\x34.google.cloud.bigquery.storage.v1beta2.ThrottleStateB\x06\n\x04rows\"k\n\x16SplitReadStreamRequest\x12?\n\x04name\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41+\n)bigquerystorage.googleapis.com/ReadStream\x12\x10\n\x08\x66raction\x18\x02 \x01(\x01\"\xb1\x01\n\x17SplitReadStreamResponse\x12I\n\x0eprimary_stream\x18\x01 \x01(\x0b\x32\x31.google.cloud.bigquery.storage.v1beta2.ReadStream\x12K\n\x10remainder_stream\x18\x02 \x01(\x0b\x32\x31.google.cloud.bigquery.storage.v1beta2.ReadStream\"\xa0\x01\n\x18\x43reateWriteStreamRequest\x12\x35\n\x06parent\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igquery.googleapis.com/Table\x12M\n\x0cwrite_stream\x18\x02 \x01(\x0b\x32\x32.google.cloud.bigquery.storage.v1beta2.WriteStreamB\x03\xe0\x41\x02\"\x97\x03\n\x11\x41ppendRowsRequest\x12H\n\x0cwrite_stream\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*bigquerystorage.googleapis.com/WriteStream\x12+\n\x06offset\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12X\n\nproto_rows\x18\x04 \x01(\x0b\x32\x42.google.cloud.bigquery.storage.v1beta2.AppendRowsRequest.ProtoDataH\x00\x12\x10\n\x08trace_id\x18\x06 \x01(\t\x1a\x96\x01\n\tProtoData\x12I\n\rwriter_schema\x18\x01 \x01(\x0b\x32\x32.google.cloud.bigquery.storage.v1beta2.ProtoSchema\x12>\n\x04rows\x18\x02 \x01(\x0b\x32\x30.google.cloud.bigquery.storage.v1beta2.ProtoRowsB\x06\n\x04rows\"\xaf\x02\n\x12\x41ppendRowsResponse\x12_\n\rappend_result\x18\x01 \x01(\x0b\x32\x46.google.cloud.bigquery.storage.v1beta2.AppendRowsResponse.AppendResultH\x00\x12#\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x12.google.rpc.StatusH\x00\x12J\n\x0eupdated_schema\x18\x03 \x01(\x0b\x32\x32.google.cloud.bigquery.storage.v1beta2.TableSchema\x1a;\n\x0c\x41ppendResult\x12+\n\x06offset\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueB\n\n\x08response\"Y\n\x15GetWriteStreamRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*bigquerystorage.googleapis.com/WriteStream\"Q\n\x1e\x42\x61tchCommitWriteStreamsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rwrite_streams\x18\x02 \x03(\tB\x03\xe0\x41\x02\"\x9e\x01\n\x1f\x42\x61tchCommitWriteStreamsResponse\x12/\n\x0b\x63ommit_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12J\n\rstream_errors\x18\x02 \x03(\x0b\x32\x33.google.cloud.bigquery.storage.v1beta2.StorageError\"^\n\x1a\x46inalizeWriteStreamRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*bigquerystorage.googleapis.com/WriteStream\"0\n\x1b\x46inalizeWriteStreamResponse\x12\x11\n\trow_count\x18\x01 \x01(\x03\"\x89\x01\n\x10\x46lushRowsRequest\x12H\n\x0cwrite_stream\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*bigquerystorage.googleapis.com/WriteStream\x12+\n\x06offset\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\"#\n\x11\x46lushRowsResponse\x12\x0e\n\x06offset\x18\x01 \x01(\x03\"\xbe\x02\n\x0cStorageError\x12R\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x44.google.cloud.bigquery.storage.v1beta2.StorageError.StorageErrorCode\x12\x0e\n\x06\x65ntity\x18\x02 \x01(\t\x12\x15\n\rerror_message\x18\x03 \x01(\t\"\xb2\x01\n\x10StorageErrorCode\x12\"\n\x1eSTORAGE_ERROR_CODE_UNSPECIFIED\x10\x00\x12\x13\n\x0fTABLE_NOT_FOUND\x10\x01\x12\x1c\n\x18STREAM_ALREADY_COMMITTED\x10\x02\x12\x14\n\x10STREAM_NOT_FOUND\x10\x03\x12\x17\n\x13INVALID_STREAM_TYPE\x10\x04\x12\x18\n\x14INVALID_STREAM_STATE\x10\x05\x32\xf3\x06\n\x0c\x42igQueryRead\x12\xf8\x01\n\x11\x43reateReadSession\x12?.google.cloud.bigquery.storage.v1beta2.CreateReadSessionRequest\x1a\x32.google.cloud.bigquery.storage.v1beta2.ReadSession\"n\x82\xd3\xe4\x93\x02\x41\"</v1beta2/{read_session.table=projects/*/datasets/*/tables/*}:\x01*\xda\x41$parent,read_session,max_stream_count\x12\xde\x01\n\x08ReadRows\x12\x36.google.cloud.bigquery.storage.v1beta2.ReadRowsRequest\x1a\x37.google.cloud.bigquery.storage.v1beta2.ReadRowsResponse\"_\x82\xd3\xe4\x93\x02\x44\x12\x42/v1beta2/{read_stream=projects/*/locations/*/sessions/*/streams/*}\xda\x41\x12read_stream,offset0\x01\x12\xd5\x01\n\x0fSplitReadStream\x12=.google.cloud.bigquery.storage.v1beta2.SplitReadStreamRequest\x1a>.google.cloud.bigquery.storage.v1beta2.SplitReadStreamResponse\"C\x82\xd3\xe4\x93\x02=\x12;/v1beta2/{name=projects/*/locations/*/sessions/*/streams/*}\x1a\xae\x01\xca\x41\x1e\x62igquerystorage.googleapis.com\xd2\x41\x89\x01https://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/bigquery.readonly,https://www.googleapis.com/auth/cloud-platform2\x96\x0c\n\rBigQueryWrite\x12\xe6\x01\n\x11\x43reateWriteStream\x12?.google.cloud.bigquery.storage.v1beta2.CreateWriteStreamRequest\x1a\x32.google.cloud.bigquery.storage.v1beta2.WriteStream\"\\\x82\xd3\xe4\x93\x02@\"0/v1beta2/{parent=projects/*/datasets/*/tables/*}:\x0cwrite_stream\xda\x41\x13parent,write_stream\x12\xe1\x01\n\nAppendRows\x12\x38.google.cloud.bigquery.storage.v1beta2.AppendRowsRequest\x1a\x39.google.cloud.bigquery.storage.v1beta2.AppendRowsResponse\"Z\x82\xd3\xe4\x93\x02\x45\"@/v1beta2/{write_stream=projects/*/datasets/*/tables/*/streams/*}:\x01*\xda\x41\x0cwrite_stream(\x01\x30\x01\x12\xce\x01\n\x0eGetWriteStream\x12<.google.cloud.bigquery.storage.v1beta2.GetWriteStreamRequest\x1a\x32.google.cloud.bigquery.storage.v1beta2.WriteStream\"J\x82\xd3\xe4\x93\x02=\"8/v1beta2/{name=projects/*/datasets/*/tables/*/streams/*}:\x01*\xda\x41\x04name\x12\xe8\x01\n\x13\x46inalizeWriteStream\x12\x41.google.cloud.bigquery.storage.v1beta2.FinalizeWriteStreamRequest\x1a\x42.google.cloud.bigquery.storage.v1beta2.FinalizeWriteStreamResponse\"J\x82\xd3\xe4\x93\x02=\"8/v1beta2/{name=projects/*/datasets/*/tables/*/streams/*}:\x01*\xda\x41\x04name\x12\xeb\x01\n\x17\x42\x61tchCommitWriteStreams\x12\x45.google.cloud.bigquery.storage.v1beta2.BatchCommitWriteStreamsRequest\x1a\x46.google.cloud.bigquery.storage.v1beta2.BatchCommitWriteStreamsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta2/{parent=projects/*/datasets/*/tables/*}\xda\x41\x06parent\x12\xda\x01\n\tFlushRows\x12\x37.google.cloud.bigquery.storage.v1beta2.FlushRowsRequest\x1a\x38.google.cloud.bigquery.storage.v1beta2.FlushRowsResponse\"Z\x82\xd3\xe4\x93\x02\x45\"@/v1beta2/{write_stream=projects/*/datasets/*/tables/*/streams/*}:\x01*\xda\x41\x0cwrite_stream\x1a\xb0\x01\xca\x41\x1e\x62igquerystorage.googleapis.com\xd2\x41\x8b\x01https://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/bigquery.insertdata,https://www.googleapis.com/auth/cloud-platformB\x89\x01\n)com.google.cloud.bigquery.storage.v1beta2B\x0cStorageProtoP\x01ZLgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1beta2;storageb\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_arrow__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_avro__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_stream__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_arrow__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_avro__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_protobuf__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_stream__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_table__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
 
+
+_STORAGEERROR_STORAGEERRORCODE = _descriptor.EnumDescriptor(
+  name='StorageErrorCode',
+  full_name='google.cloud.bigquery.storage.v1beta2.StorageError.StorageErrorCode',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='STORAGE_ERROR_CODE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TABLE_NOT_FOUND', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='STREAM_ALREADY_COMMITTED', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='STREAM_NOT_FOUND', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='INVALID_STREAM_TYPE', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='INVALID_STREAM_STATE', index=5, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3386,
+  serialized_end=3564,
+)
+_sym_db.RegisterEnumDescriptor(_STORAGEERROR_STORAGEERRORCODE)
 
 
 _CREATEREADSESSIONREQUEST = _descriptor.Descriptor(
@@ -74,8 +124,8 @@ _CREATEREADSESSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=363,
-  serialized_end=563,
+  serialized_start=558,
+  serialized_end=758,
 )
 
 
@@ -113,8 +163,8 @@ _READROWSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=565,
-  serialized_end=670,
+  serialized_start=760,
+  serialized_end=865,
 )
 
 
@@ -145,8 +195,8 @@ _THROTTLESTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=672,
-  serialized_end=713,
+  serialized_start=867,
+  serialized_end=908,
 )
 
 
@@ -184,8 +234,8 @@ _STREAMSTATS_PROGRESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=810,
-  serialized_end=872,
+  serialized_start=1005,
+  serialized_end=1067,
 )
 
 _STREAMSTATS = _descriptor.Descriptor(
@@ -215,8 +265,8 @@ _STREAMSTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=716,
-  serialized_end=872,
+  serialized_start=911,
+  serialized_end=1067,
 )
 
 
@@ -280,8 +330,8 @@ _READROWSRESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=875,
-  serialized_end=1222,
+  serialized_start=1070,
+  serialized_end=1417,
 )
 
 
@@ -319,8 +369,8 @@ _SPLITREADSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1224,
-  serialized_end=1331,
+  serialized_start=1419,
+  serialized_end=1526,
 )
 
 
@@ -358,8 +408,517 @@ _SPLITREADSTREAMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1334,
-  serialized_end=1511,
+  serialized_start=1529,
+  serialized_end=1706,
+)
+
+
+_CREATEWRITESTREAMREQUEST = _descriptor.Descriptor(
+  name='CreateWriteStreamRequest',
+  full_name='google.cloud.bigquery.storage.v1beta2.CreateWriteStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.bigquery.storage.v1beta2.CreateWriteStreamRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\037\n\035bigquery.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='write_stream', full_name='google.cloud.bigquery.storage.v1beta2.CreateWriteStreamRequest.write_stream', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1709,
+  serialized_end=1869,
+)
+
+
+_APPENDROWSREQUEST_PROTODATA = _descriptor.Descriptor(
+  name='ProtoData',
+  full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsRequest.ProtoData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='writer_schema', full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsRequest.ProtoData.writer_schema', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rows', full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsRequest.ProtoData.rows', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2121,
+  serialized_end=2271,
+)
+
+_APPENDROWSREQUEST = _descriptor.Descriptor(
+  name='AppendRowsRequest',
+  full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='write_stream', full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsRequest.write_stream', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A,\n*bigquerystorage.googleapis.com/WriteStream', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='offset', full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsRequest.offset', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='proto_rows', full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsRequest.proto_rows', index=2,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='trace_id', full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsRequest.trace_id', index=3,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_APPENDROWSREQUEST_PROTODATA, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='rows', full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsRequest.rows',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=1872,
+  serialized_end=2279,
+)
+
+
+_APPENDROWSRESPONSE_APPENDRESULT = _descriptor.Descriptor(
+  name='AppendResult',
+  full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsResponse.AppendResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='offset', full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsResponse.AppendResult.offset', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2514,
+  serialized_end=2573,
+)
+
+_APPENDROWSRESPONSE = _descriptor.Descriptor(
+  name='AppendRowsResponse',
+  full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='append_result', full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsResponse.append_result', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsResponse.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='updated_schema', full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsResponse.updated_schema', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_APPENDROWSRESPONSE_APPENDRESULT, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='response', full_name='google.cloud.bigquery.storage.v1beta2.AppendRowsResponse.response',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2282,
+  serialized_end=2585,
+)
+
+
+_GETWRITESTREAMREQUEST = _descriptor.Descriptor(
+  name='GetWriteStreamRequest',
+  full_name='google.cloud.bigquery.storage.v1beta2.GetWriteStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.bigquery.storage.v1beta2.GetWriteStreamRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A,\n*bigquerystorage.googleapis.com/WriteStream', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2587,
+  serialized_end=2676,
+)
+
+
+_BATCHCOMMITWRITESTREAMSREQUEST = _descriptor.Descriptor(
+  name='BatchCommitWriteStreamsRequest',
+  full_name='google.cloud.bigquery.storage.v1beta2.BatchCommitWriteStreamsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.bigquery.storage.v1beta2.BatchCommitWriteStreamsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='write_streams', full_name='google.cloud.bigquery.storage.v1beta2.BatchCommitWriteStreamsRequest.write_streams', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2678,
+  serialized_end=2759,
+)
+
+
+_BATCHCOMMITWRITESTREAMSRESPONSE = _descriptor.Descriptor(
+  name='BatchCommitWriteStreamsResponse',
+  full_name='google.cloud.bigquery.storage.v1beta2.BatchCommitWriteStreamsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='commit_time', full_name='google.cloud.bigquery.storage.v1beta2.BatchCommitWriteStreamsResponse.commit_time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='stream_errors', full_name='google.cloud.bigquery.storage.v1beta2.BatchCommitWriteStreamsResponse.stream_errors', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2762,
+  serialized_end=2920,
+)
+
+
+_FINALIZEWRITESTREAMREQUEST = _descriptor.Descriptor(
+  name='FinalizeWriteStreamRequest',
+  full_name='google.cloud.bigquery.storage.v1beta2.FinalizeWriteStreamRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.bigquery.storage.v1beta2.FinalizeWriteStreamRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A,\n*bigquerystorage.googleapis.com/WriteStream', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2922,
+  serialized_end=3016,
+)
+
+
+_FINALIZEWRITESTREAMRESPONSE = _descriptor.Descriptor(
+  name='FinalizeWriteStreamResponse',
+  full_name='google.cloud.bigquery.storage.v1beta2.FinalizeWriteStreamResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='row_count', full_name='google.cloud.bigquery.storage.v1beta2.FinalizeWriteStreamResponse.row_count', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3018,
+  serialized_end=3066,
+)
+
+
+_FLUSHROWSREQUEST = _descriptor.Descriptor(
+  name='FlushRowsRequest',
+  full_name='google.cloud.bigquery.storage.v1beta2.FlushRowsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='write_stream', full_name='google.cloud.bigquery.storage.v1beta2.FlushRowsRequest.write_stream', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A,\n*bigquerystorage.googleapis.com/WriteStream', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='offset', full_name='google.cloud.bigquery.storage.v1beta2.FlushRowsRequest.offset', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3069,
+  serialized_end=3206,
+)
+
+
+_FLUSHROWSRESPONSE = _descriptor.Descriptor(
+  name='FlushRowsResponse',
+  full_name='google.cloud.bigquery.storage.v1beta2.FlushRowsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='offset', full_name='google.cloud.bigquery.storage.v1beta2.FlushRowsResponse.offset', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3208,
+  serialized_end=3243,
+)
+
+
+_STORAGEERROR = _descriptor.Descriptor(
+  name='StorageError',
+  full_name='google.cloud.bigquery.storage.v1beta2.StorageError',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='google.cloud.bigquery.storage.v1beta2.StorageError.code', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='entity', full_name='google.cloud.bigquery.storage.v1beta2.StorageError.entity', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error_message', full_name='google.cloud.bigquery.storage.v1beta2.StorageError.error_message', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _STORAGEERROR_STORAGEERRORCODE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3246,
+  serialized_end=3564,
 )
 
 _CREATEREADSESSIONREQUEST.fields_by_name['read_session'].message_type = google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_stream__pb2._READSESSION
@@ -377,6 +936,31 @@ _READROWSRESPONSE.oneofs_by_name['rows'].fields.append(
 _READROWSRESPONSE.fields_by_name['arrow_record_batch'].containing_oneof = _READROWSRESPONSE.oneofs_by_name['rows']
 _SPLITREADSTREAMRESPONSE.fields_by_name['primary_stream'].message_type = google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_stream__pb2._READSTREAM
 _SPLITREADSTREAMRESPONSE.fields_by_name['remainder_stream'].message_type = google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_stream__pb2._READSTREAM
+_CREATEWRITESTREAMREQUEST.fields_by_name['write_stream'].message_type = google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_stream__pb2._WRITESTREAM
+_APPENDROWSREQUEST_PROTODATA.fields_by_name['writer_schema'].message_type = google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_protobuf__pb2._PROTOSCHEMA
+_APPENDROWSREQUEST_PROTODATA.fields_by_name['rows'].message_type = google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_protobuf__pb2._PROTOROWS
+_APPENDROWSREQUEST_PROTODATA.containing_type = _APPENDROWSREQUEST
+_APPENDROWSREQUEST.fields_by_name['offset'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT64VALUE
+_APPENDROWSREQUEST.fields_by_name['proto_rows'].message_type = _APPENDROWSREQUEST_PROTODATA
+_APPENDROWSREQUEST.oneofs_by_name['rows'].fields.append(
+  _APPENDROWSREQUEST.fields_by_name['proto_rows'])
+_APPENDROWSREQUEST.fields_by_name['proto_rows'].containing_oneof = _APPENDROWSREQUEST.oneofs_by_name['rows']
+_APPENDROWSRESPONSE_APPENDRESULT.fields_by_name['offset'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT64VALUE
+_APPENDROWSRESPONSE_APPENDRESULT.containing_type = _APPENDROWSRESPONSE
+_APPENDROWSRESPONSE.fields_by_name['append_result'].message_type = _APPENDROWSRESPONSE_APPENDRESULT
+_APPENDROWSRESPONSE.fields_by_name['error'].message_type = google_dot_rpc_dot_status__pb2._STATUS
+_APPENDROWSRESPONSE.fields_by_name['updated_schema'].message_type = google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_table__pb2._TABLESCHEMA
+_APPENDROWSRESPONSE.oneofs_by_name['response'].fields.append(
+  _APPENDROWSRESPONSE.fields_by_name['append_result'])
+_APPENDROWSRESPONSE.fields_by_name['append_result'].containing_oneof = _APPENDROWSRESPONSE.oneofs_by_name['response']
+_APPENDROWSRESPONSE.oneofs_by_name['response'].fields.append(
+  _APPENDROWSRESPONSE.fields_by_name['error'])
+_APPENDROWSRESPONSE.fields_by_name['error'].containing_oneof = _APPENDROWSRESPONSE.oneofs_by_name['response']
+_BATCHCOMMITWRITESTREAMSRESPONSE.fields_by_name['commit_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_BATCHCOMMITWRITESTREAMSRESPONSE.fields_by_name['stream_errors'].message_type = _STORAGEERROR
+_FLUSHROWSREQUEST.fields_by_name['offset'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT64VALUE
+_STORAGEERROR.fields_by_name['code'].enum_type = _STORAGEERROR_STORAGEERRORCODE
+_STORAGEERROR_STORAGEERRORCODE.containing_type = _STORAGEERROR
 DESCRIPTOR.message_types_by_name['CreateReadSessionRequest'] = _CREATEREADSESSIONREQUEST
 DESCRIPTOR.message_types_by_name['ReadRowsRequest'] = _READROWSREQUEST
 DESCRIPTOR.message_types_by_name['ThrottleState'] = _THROTTLESTATE
@@ -384,6 +968,17 @@ DESCRIPTOR.message_types_by_name['StreamStats'] = _STREAMSTATS
 DESCRIPTOR.message_types_by_name['ReadRowsResponse'] = _READROWSRESPONSE
 DESCRIPTOR.message_types_by_name['SplitReadStreamRequest'] = _SPLITREADSTREAMREQUEST
 DESCRIPTOR.message_types_by_name['SplitReadStreamResponse'] = _SPLITREADSTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['CreateWriteStreamRequest'] = _CREATEWRITESTREAMREQUEST
+DESCRIPTOR.message_types_by_name['AppendRowsRequest'] = _APPENDROWSREQUEST
+DESCRIPTOR.message_types_by_name['AppendRowsResponse'] = _APPENDROWSRESPONSE
+DESCRIPTOR.message_types_by_name['GetWriteStreamRequest'] = _GETWRITESTREAMREQUEST
+DESCRIPTOR.message_types_by_name['BatchCommitWriteStreamsRequest'] = _BATCHCOMMITWRITESTREAMSREQUEST
+DESCRIPTOR.message_types_by_name['BatchCommitWriteStreamsResponse'] = _BATCHCOMMITWRITESTREAMSRESPONSE
+DESCRIPTOR.message_types_by_name['FinalizeWriteStreamRequest'] = _FINALIZEWRITESTREAMREQUEST
+DESCRIPTOR.message_types_by_name['FinalizeWriteStreamResponse'] = _FINALIZEWRITESTREAMRESPONSE
+DESCRIPTOR.message_types_by_name['FlushRowsRequest'] = _FLUSHROWSREQUEST
+DESCRIPTOR.message_types_by_name['FlushRowsResponse'] = _FLUSHROWSRESPONSE
+DESCRIPTOR.message_types_by_name['StorageError'] = _STORAGEERROR
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateReadSessionRequest = _reflection.GeneratedProtocolMessageType('CreateReadSessionRequest', (_message.Message,), {
@@ -443,12 +1038,113 @@ SplitReadStreamResponse = _reflection.GeneratedProtocolMessageType('SplitReadStr
   })
 _sym_db.RegisterMessage(SplitReadStreamResponse)
 
+CreateWriteStreamRequest = _reflection.GeneratedProtocolMessageType('CreateWriteStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEWRITESTREAMREQUEST,
+  '__module__' : 'google.cloud.bigquery.storage.v1beta2.storage_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.storage.v1beta2.CreateWriteStreamRequest)
+  })
+_sym_db.RegisterMessage(CreateWriteStreamRequest)
+
+AppendRowsRequest = _reflection.GeneratedProtocolMessageType('AppendRowsRequest', (_message.Message,), {
+
+  'ProtoData' : _reflection.GeneratedProtocolMessageType('ProtoData', (_message.Message,), {
+    'DESCRIPTOR' : _APPENDROWSREQUEST_PROTODATA,
+    '__module__' : 'google.cloud.bigquery.storage.v1beta2.storage_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.bigquery.storage.v1beta2.AppendRowsRequest.ProtoData)
+    })
+  ,
+  'DESCRIPTOR' : _APPENDROWSREQUEST,
+  '__module__' : 'google.cloud.bigquery.storage.v1beta2.storage_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.storage.v1beta2.AppendRowsRequest)
+  })
+_sym_db.RegisterMessage(AppendRowsRequest)
+_sym_db.RegisterMessage(AppendRowsRequest.ProtoData)
+
+AppendRowsResponse = _reflection.GeneratedProtocolMessageType('AppendRowsResponse', (_message.Message,), {
+
+  'AppendResult' : _reflection.GeneratedProtocolMessageType('AppendResult', (_message.Message,), {
+    'DESCRIPTOR' : _APPENDROWSRESPONSE_APPENDRESULT,
+    '__module__' : 'google.cloud.bigquery.storage.v1beta2.storage_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.bigquery.storage.v1beta2.AppendRowsResponse.AppendResult)
+    })
+  ,
+  'DESCRIPTOR' : _APPENDROWSRESPONSE,
+  '__module__' : 'google.cloud.bigquery.storage.v1beta2.storage_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.storage.v1beta2.AppendRowsResponse)
+  })
+_sym_db.RegisterMessage(AppendRowsResponse)
+_sym_db.RegisterMessage(AppendRowsResponse.AppendResult)
+
+GetWriteStreamRequest = _reflection.GeneratedProtocolMessageType('GetWriteStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETWRITESTREAMREQUEST,
+  '__module__' : 'google.cloud.bigquery.storage.v1beta2.storage_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.storage.v1beta2.GetWriteStreamRequest)
+  })
+_sym_db.RegisterMessage(GetWriteStreamRequest)
+
+BatchCommitWriteStreamsRequest = _reflection.GeneratedProtocolMessageType('BatchCommitWriteStreamsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _BATCHCOMMITWRITESTREAMSREQUEST,
+  '__module__' : 'google.cloud.bigquery.storage.v1beta2.storage_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.storage.v1beta2.BatchCommitWriteStreamsRequest)
+  })
+_sym_db.RegisterMessage(BatchCommitWriteStreamsRequest)
+
+BatchCommitWriteStreamsResponse = _reflection.GeneratedProtocolMessageType('BatchCommitWriteStreamsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _BATCHCOMMITWRITESTREAMSRESPONSE,
+  '__module__' : 'google.cloud.bigquery.storage.v1beta2.storage_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.storage.v1beta2.BatchCommitWriteStreamsResponse)
+  })
+_sym_db.RegisterMessage(BatchCommitWriteStreamsResponse)
+
+FinalizeWriteStreamRequest = _reflection.GeneratedProtocolMessageType('FinalizeWriteStreamRequest', (_message.Message,), {
+  'DESCRIPTOR' : _FINALIZEWRITESTREAMREQUEST,
+  '__module__' : 'google.cloud.bigquery.storage.v1beta2.storage_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.storage.v1beta2.FinalizeWriteStreamRequest)
+  })
+_sym_db.RegisterMessage(FinalizeWriteStreamRequest)
+
+FinalizeWriteStreamResponse = _reflection.GeneratedProtocolMessageType('FinalizeWriteStreamResponse', (_message.Message,), {
+  'DESCRIPTOR' : _FINALIZEWRITESTREAMRESPONSE,
+  '__module__' : 'google.cloud.bigquery.storage.v1beta2.storage_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.storage.v1beta2.FinalizeWriteStreamResponse)
+  })
+_sym_db.RegisterMessage(FinalizeWriteStreamResponse)
+
+FlushRowsRequest = _reflection.GeneratedProtocolMessageType('FlushRowsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _FLUSHROWSREQUEST,
+  '__module__' : 'google.cloud.bigquery.storage.v1beta2.storage_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.storage.v1beta2.FlushRowsRequest)
+  })
+_sym_db.RegisterMessage(FlushRowsRequest)
+
+FlushRowsResponse = _reflection.GeneratedProtocolMessageType('FlushRowsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _FLUSHROWSRESPONSE,
+  '__module__' : 'google.cloud.bigquery.storage.v1beta2.storage_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.storage.v1beta2.FlushRowsResponse)
+  })
+_sym_db.RegisterMessage(FlushRowsResponse)
+
+StorageError = _reflection.GeneratedProtocolMessageType('StorageError', (_message.Message,), {
+  'DESCRIPTOR' : _STORAGEERROR,
+  '__module__' : 'google.cloud.bigquery.storage.v1beta2.storage_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.storage.v1beta2.StorageError)
+  })
+_sym_db.RegisterMessage(StorageError)
+
 
 DESCRIPTOR._options = None
 _CREATEREADSESSIONREQUEST.fields_by_name['parent']._options = None
 _CREATEREADSESSIONREQUEST.fields_by_name['read_session']._options = None
 _READROWSREQUEST.fields_by_name['read_stream']._options = None
 _SPLITREADSTREAMREQUEST.fields_by_name['name']._options = None
+_CREATEWRITESTREAMREQUEST.fields_by_name['parent']._options = None
+_CREATEWRITESTREAMREQUEST.fields_by_name['write_stream']._options = None
+_APPENDROWSREQUEST.fields_by_name['write_stream']._options = None
+_GETWRITESTREAMREQUEST.fields_by_name['name']._options = None
+_BATCHCOMMITWRITESTREAMSREQUEST.fields_by_name['parent']._options = None
+_BATCHCOMMITWRITESTREAMSREQUEST.fields_by_name['write_streams']._options = None
+_FINALIZEWRITESTREAMREQUEST.fields_by_name['name']._options = None
+_FLUSHROWSREQUEST.fields_by_name['write_stream']._options = None
 
 _BIGQUERYREAD = _descriptor.ServiceDescriptor(
   name='BigQueryRead',
@@ -457,8 +1153,8 @@ _BIGQUERYREAD = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\036bigquerystorage.googleapis.com\322A\211\001https://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/bigquery.readonly,https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1514,
-  serialized_end=2397,
+  serialized_start=3567,
+  serialized_end=4450,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateReadSession',
@@ -494,5 +1190,81 @@ _BIGQUERYREAD = _descriptor.ServiceDescriptor(
 _sym_db.RegisterServiceDescriptor(_BIGQUERYREAD)
 
 DESCRIPTOR.services_by_name['BigQueryRead'] = _BIGQUERYREAD
+
+
+_BIGQUERYWRITE = _descriptor.ServiceDescriptor(
+  name='BigQueryWrite',
+  full_name='google.cloud.bigquery.storage.v1beta2.BigQueryWrite',
+  file=DESCRIPTOR,
+  index=1,
+  serialized_options=b'\312A\036bigquerystorage.googleapis.com\322A\213\001https://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/bigquery.insertdata,https://www.googleapis.com/auth/cloud-platform',
+  create_key=_descriptor._internal_create_key,
+  serialized_start=4453,
+  serialized_end=6011,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='CreateWriteStream',
+    full_name='google.cloud.bigquery.storage.v1beta2.BigQueryWrite.CreateWriteStream',
+    index=0,
+    containing_service=None,
+    input_type=_CREATEWRITESTREAMREQUEST,
+    output_type=google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_stream__pb2._WRITESTREAM,
+    serialized_options=b'\202\323\344\223\002@\"0/v1beta2/{parent=projects/*/datasets/*/tables/*}:\014write_stream\332A\023parent,write_stream',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='AppendRows',
+    full_name='google.cloud.bigquery.storage.v1beta2.BigQueryWrite.AppendRows',
+    index=1,
+    containing_service=None,
+    input_type=_APPENDROWSREQUEST,
+    output_type=_APPENDROWSRESPONSE,
+    serialized_options=b'\202\323\344\223\002E\"@/v1beta2/{write_stream=projects/*/datasets/*/tables/*/streams/*}:\001*\332A\014write_stream',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetWriteStream',
+    full_name='google.cloud.bigquery.storage.v1beta2.BigQueryWrite.GetWriteStream',
+    index=2,
+    containing_service=None,
+    input_type=_GETWRITESTREAMREQUEST,
+    output_type=google_dot_cloud_dot_bigquery_dot_storage_dot_v1beta2_dot_stream__pb2._WRITESTREAM,
+    serialized_options=b'\202\323\344\223\002=\"8/v1beta2/{name=projects/*/datasets/*/tables/*/streams/*}:\001*\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='FinalizeWriteStream',
+    full_name='google.cloud.bigquery.storage.v1beta2.BigQueryWrite.FinalizeWriteStream',
+    index=3,
+    containing_service=None,
+    input_type=_FINALIZEWRITESTREAMREQUEST,
+    output_type=_FINALIZEWRITESTREAMRESPONSE,
+    serialized_options=b'\202\323\344\223\002=\"8/v1beta2/{name=projects/*/datasets/*/tables/*/streams/*}:\001*\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='BatchCommitWriteStreams',
+    full_name='google.cloud.bigquery.storage.v1beta2.BigQueryWrite.BatchCommitWriteStreams',
+    index=4,
+    containing_service=None,
+    input_type=_BATCHCOMMITWRITESTREAMSREQUEST,
+    output_type=_BATCHCOMMITWRITESTREAMSRESPONSE,
+    serialized_options=b'\202\323\344\223\0022\0220/v1beta2/{parent=projects/*/datasets/*/tables/*}\332A\006parent',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='FlushRows',
+    full_name='google.cloud.bigquery.storage.v1beta2.BigQueryWrite.FlushRows',
+    index=5,
+    containing_service=None,
+    input_type=_FLUSHROWSREQUEST,
+    output_type=_FLUSHROWSRESPONSE,
+    serialized_options=b'\202\323\344\223\002E\"@/v1beta2/{write_stream=projects/*/datasets/*/tables/*/streams/*}:\001*\332A\014write_stream',
+    create_key=_descriptor._internal_create_key,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_BIGQUERYWRITE)
+
+DESCRIPTOR.services_by_name['BigQueryWrite'] = _BIGQUERYWRITE
 
 # @@protoc_insertion_point(module_scope)

@@ -22,11 +22,11 @@ package graph
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -374,11 +374,11 @@ type ReportStateAndNotificationDevice struct {
 	// States of devices to update. See the **Device STATES** section
 	// of the individual trait [reference
 	// guides](https://developers.google.com/assistant/smarthome/traits).
-	States *structpb.Struct `protobuf:"bytes,1,opt,name=states,proto3" json:"states,omitempty"`
+	States *_struct.Struct `protobuf:"bytes,1,opt,name=states,proto3" json:"states,omitempty"`
 	// Notifications metadata for devices. See the **Device NOTIFICATIONS**
 	// section of the individual trait [reference
 	// guides](https://developers.google.com/assistant/smarthome/traits).
-	Notifications *structpb.Struct `protobuf:"bytes,2,opt,name=notifications,proto3" json:"notifications,omitempty"`
+	Notifications *_struct.Struct `protobuf:"bytes,2,opt,name=notifications,proto3" json:"notifications,omitempty"`
 }
 
 func (x *ReportStateAndNotificationDevice) Reset() {
@@ -413,14 +413,14 @@ func (*ReportStateAndNotificationDevice) Descriptor() ([]byte, []int) {
 	return file_google_home_graph_v1_homegraph_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *ReportStateAndNotificationDevice) GetStates() *structpb.Struct {
+func (x *ReportStateAndNotificationDevice) GetStates() *_struct.Struct {
 	if x != nil {
 		return x.States
 	}
 	return nil
 }
 
-func (x *ReportStateAndNotificationDevice) GetNotifications() *structpb.Struct {
+func (x *ReportStateAndNotificationDevice) GetNotifications() *_struct.Struct {
 	if x != nil {
 		return x.Notifications
 	}
@@ -797,7 +797,7 @@ type QueryResponsePayload struct {
 
 	// States of the devices. Map of third-party device ID to struct of device
 	// states.
-	Devices map[string]*structpb.Struct `protobuf:"bytes,1,rep,name=devices,proto3" json:"devices,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Devices map[string]*_struct.Struct `protobuf:"bytes,1,rep,name=devices,proto3" json:"devices,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *QueryResponsePayload) Reset() {
@@ -832,7 +832,7 @@ func (*QueryResponsePayload) Descriptor() ([]byte, []int) {
 	return file_google_home_graph_v1_homegraph_proto_rawDescGZIP(), []int{12}
 }
 
-func (x *QueryResponsePayload) GetDevices() map[string]*structpb.Struct {
+func (x *QueryResponsePayload) GetDevices() map[string]*_struct.Struct {
 	if x != nil {
 		return x.Devices
 	}
@@ -1291,9 +1291,9 @@ var file_google_home_graph_v1_homegraph_proto_goTypes = []interface{}{
 	(*SyncResponse)(nil),                       // 14: google.home.graph.v1.SyncResponse
 	(*SyncResponsePayload)(nil),                // 15: google.home.graph.v1.SyncResponsePayload
 	nil,                                        // 16: google.home.graph.v1.QueryResponsePayload.DevicesEntry
-	(*structpb.Struct)(nil),                    // 17: google.protobuf.Struct
+	(*_struct.Struct)(nil),                     // 17: google.protobuf.Struct
 	(*Device)(nil),                             // 18: google.home.graph.v1.Device
-	(*emptypb.Empty)(nil),                      // 19: google.protobuf.Empty
+	(*empty.Empty)(nil),                        // 19: google.protobuf.Empty
 }
 var file_google_home_graph_v1_homegraph_proto_depIdxs = []int32{
 	4,  // 0: google.home.graph.v1.ReportStateAndNotificationRequest.payload:type_name -> google.home.graph.v1.StateAndNotificationPayload

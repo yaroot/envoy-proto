@@ -22,12 +22,12 @@ package servicedirectory
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	v1 "google.golang.org/genproto/googleapis/iam/v1"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -350,7 +350,7 @@ type UpdateNamespaceRequest struct {
 	// Required. The updated namespace.
 	Namespace *Namespace `protobuf:"bytes,1,opt,name=namespace,proto3" json:"namespace,omitempty"`
 	// Required. List of fields to be updated in this request.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateNamespaceRequest) Reset() {
@@ -392,7 +392,7 @@ func (x *UpdateNamespaceRequest) GetNamespace() *Namespace {
 	return nil
 }
 
-func (x *UpdateNamespaceRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateNamespaceRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -749,7 +749,7 @@ type UpdateServiceRequest struct {
 	// Required. The updated service.
 	Service *Service `protobuf:"bytes,1,opt,name=service,proto3" json:"service,omitempty"`
 	// Required. List of fields to be updated in this request.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateServiceRequest) Reset() {
@@ -791,7 +791,7 @@ func (x *UpdateServiceRequest) GetService() *Service {
 	return nil
 }
 
-func (x *UpdateServiceRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateServiceRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1150,7 +1150,7 @@ type UpdateEndpointRequest struct {
 	// Required. The updated endpoint.
 	Endpoint *Endpoint `protobuf:"bytes,1,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
 	// Required. List of fields to be updated in this request.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateEndpointRequest) Reset() {
@@ -1192,7 +1192,7 @@ func (x *UpdateEndpointRequest) GetEndpoint() *Endpoint {
 	return nil
 }
 
-func (x *UpdateEndpointRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateEndpointRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1776,13 +1776,13 @@ var file_google_cloud_servicedirectory_v1beta1_registration_service_proto_goType
 	(*UpdateEndpointRequest)(nil),         // 16: google.cloud.servicedirectory.v1beta1.UpdateEndpointRequest
 	(*DeleteEndpointRequest)(nil),         // 17: google.cloud.servicedirectory.v1beta1.DeleteEndpointRequest
 	(*Namespace)(nil),                     // 18: google.cloud.servicedirectory.v1beta1.Namespace
-	(*fieldmaskpb.FieldMask)(nil),         // 19: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),          // 19: google.protobuf.FieldMask
 	(*Service)(nil),                       // 20: google.cloud.servicedirectory.v1beta1.Service
 	(*Endpoint)(nil),                      // 21: google.cloud.servicedirectory.v1beta1.Endpoint
 	(*v1.GetIamPolicyRequest)(nil),        // 22: google.iam.v1.GetIamPolicyRequest
 	(*v1.SetIamPolicyRequest)(nil),        // 23: google.iam.v1.SetIamPolicyRequest
 	(*v1.TestIamPermissionsRequest)(nil),  // 24: google.iam.v1.TestIamPermissionsRequest
-	(*emptypb.Empty)(nil),                 // 25: google.protobuf.Empty
+	(*empty.Empty)(nil),                   // 25: google.protobuf.Empty
 	(*v1.Policy)(nil),                     // 26: google.iam.v1.Policy
 	(*v1.TestIamPermissionsResponse)(nil), // 27: google.iam.v1.TestIamPermissionsResponse
 }

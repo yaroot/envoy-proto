@@ -22,10 +22,10 @@ package dlp
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -427,7 +427,7 @@ type StoredType struct {
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// Timestamp indicating when the version of the `StoredInfoType` used for
 	// inspection was created. Output-only field, populated by the system.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 }
 
 func (x *StoredType) Reset() {
@@ -469,7 +469,7 @@ func (x *StoredType) GetName() string {
 	return ""
 }
 
-func (x *StoredType) GetCreateTime() *timestamppb.Timestamp {
+func (x *StoredType) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -2649,25 +2649,29 @@ type StorageConfig_TimespanConfig struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// Exclude files or rows older than this value.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
-	// Exclude files or rows newer than this value.
-	// If set to zero, no upper time limit is applied.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	// Exclude files, tables, or rows older than this value.
+	// If not set, no lower time limit is applied.
+	StartTime *timestamp.Timestamp `protobuf:"bytes,1,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	// Exclude files, tables, or rows newer than this value.
+	// If not set, no upper time limit is applied.
+	EndTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	// Specification of the field containing the timestamp of scanned items.
 	// Used for data sources like Datastore and BigQuery.
 	//
 	// For BigQuery:
-	// Required to filter out rows based on the given start and
-	// end times. If not specified and the table was modified between the given
-	// start and end times, the entire table will be scanned.
-	// The valid data types of the timestamp field are: `INTEGER`, `DATE`,
-	// `TIMESTAMP`, or `DATETIME` BigQuery column.
+	// If this value is not specified and the table was modified between the
+	// given start and end times, the entire table will be scanned. If this
+	// value is specified, then rows are filtered based on the given start and
+	// end times. Rows with a `NULL` value in the provided BigQuery column are
+	// skipped.
+	// Valid data types of the provided BigQuery column are: `INTEGER`, `DATE`,
+	// `TIMESTAMP`, and `DATETIME`.
 	//
-	// For Datastore.
-	// Valid data types of the timestamp field are: `TIMESTAMP`.
-	// Datastore entity will be scanned if the timestamp property does not
-	// exist or its value is empty or invalid.
+	// For Datastore:
+	// If this value is specified, then entities are filtered based on the given
+	// start and end times. If an entity does not contain the provided timestamp
+	// property or contains empty or invalid values, then it is included.
+	// Valid data types of the provided timestamp property are: `TIMESTAMP`.
 	TimestampField *FieldId `protobuf:"bytes,3,opt,name=timestamp_field,json=timestampField,proto3" json:"timestamp_field,omitempty"`
 	// When the job is started by a JobTrigger we will automatically figure out
 	// a valid start_time to avoid scanning files that have not been modified
@@ -2708,14 +2712,14 @@ func (*StorageConfig_TimespanConfig) Descriptor() ([]byte, []int) {
 	return file_google_privacy_dlp_v2_storage_proto_rawDescGZIP(), []int{12, 0}
 }
 
-func (x *StorageConfig_TimespanConfig) GetStartTime() *timestamppb.Timestamp {
+func (x *StorageConfig_TimespanConfig) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *StorageConfig_TimespanConfig) GetEndTime() *timestamppb.Timestamp {
+func (x *StorageConfig_TimespanConfig) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -3288,7 +3292,7 @@ var file_google_privacy_dlp_v2_storage_proto_goTypes = []interface{}{
 	(*StorageConfig_TimespanConfig)(nil),                      // 36: google.privacy.dlp.v2.StorageConfig.TimespanConfig
 	nil,                                                       // 37: google.privacy.dlp.v2.HybridOptions.LabelsEntry
 	(*Key_PathElement)(nil),                                   // 38: google.privacy.dlp.v2.Key.PathElement
-	(*timestamppb.Timestamp)(nil),                             // 39: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),                               // 39: google.protobuf.Timestamp
 }
 var file_google_privacy_dlp_v2_storage_proto_depIdxs = []int32{
 	39, // 0: google.privacy.dlp.v2.StoredType.create_time:type_name -> google.protobuf.Timestamp

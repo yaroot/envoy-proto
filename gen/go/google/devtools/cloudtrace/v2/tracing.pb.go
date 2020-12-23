@@ -22,11 +22,11 @@ package cloudtrace
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	_ "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -193,7 +193,7 @@ var file_google_devtools_cloudtrace_v2_tracing_proto_msgTypes = make([]protoimpl
 var file_google_devtools_cloudtrace_v2_tracing_proto_goTypes = []interface{}{
 	(*BatchWriteSpansRequest)(nil), // 0: google.devtools.cloudtrace.v2.BatchWriteSpansRequest
 	(*Span)(nil),                   // 1: google.devtools.cloudtrace.v2.Span
-	(*emptypb.Empty)(nil),          // 2: google.protobuf.Empty
+	(*empty.Empty)(nil),            // 2: google.protobuf.Empty
 }
 var file_google_devtools_cloudtrace_v2_tracing_proto_depIdxs = []int32{
 	1, // 0: google.devtools.cloudtrace.v2.BatchWriteSpansRequest.spans:type_name -> google.devtools.cloudtrace.v2.Span

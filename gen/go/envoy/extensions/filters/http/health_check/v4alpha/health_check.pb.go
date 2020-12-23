@@ -11,10 +11,10 @@ import (
 	v3 "envoy/type/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -38,10 +38,10 @@ type HealthCheck struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Specifies whether the filter operates in pass through mode or not.
-	PassThroughMode *wrapperspb.BoolValue `protobuf:"bytes,1,opt,name=pass_through_mode,json=passThroughMode,proto3" json:"pass_through_mode,omitempty"`
+	PassThroughMode *wrappers.BoolValue `protobuf:"bytes,1,opt,name=pass_through_mode,json=passThroughMode,proto3" json:"pass_through_mode,omitempty"`
 	// If operating in pass through mode, the amount of time in milliseconds
 	// that the filter should cache the upstream response.
-	CacheTime *durationpb.Duration `protobuf:"bytes,3,opt,name=cache_time,json=cacheTime,proto3" json:"cache_time,omitempty"`
+	CacheTime *duration.Duration `protobuf:"bytes,3,opt,name=cache_time,json=cacheTime,proto3" json:"cache_time,omitempty"`
 	// If operating in non-pass-through mode, specifies a set of upstream cluster
 	// names and the minimum percentage of servers in each of those clusters that
 	// must be healthy or degraded in order for the filter to return a 200.
@@ -89,14 +89,14 @@ func (*HealthCheck) Descriptor() ([]byte, []int) {
 	return file_envoy_extensions_filters_http_health_check_v4alpha_health_check_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *HealthCheck) GetPassThroughMode() *wrapperspb.BoolValue {
+func (x *HealthCheck) GetPassThroughMode() *wrappers.BoolValue {
 	if x != nil {
 		return x.PassThroughMode
 	}
 	return nil
 }
 
-func (x *HealthCheck) GetCacheTime() *durationpb.Duration {
+func (x *HealthCheck) GetCacheTime() *duration.Duration {
 	if x != nil {
 		return x.CacheTime
 	}
@@ -203,8 +203,8 @@ var file_envoy_extensions_filters_http_health_check_v4alpha_health_check_proto_m
 var file_envoy_extensions_filters_http_health_check_v4alpha_health_check_proto_goTypes = []interface{}{
 	(*HealthCheck)(nil),           // 0: envoy.extensions.filters.http.health_check.v4alpha.HealthCheck
 	nil,                           // 1: envoy.extensions.filters.http.health_check.v4alpha.HealthCheck.ClusterMinHealthyPercentagesEntry
-	(*wrapperspb.BoolValue)(nil),  // 2: google.protobuf.BoolValue
-	(*durationpb.Duration)(nil),   // 3: google.protobuf.Duration
+	(*wrappers.BoolValue)(nil),    // 2: google.protobuf.BoolValue
+	(*duration.Duration)(nil),     // 3: google.protobuf.Duration
 	(*v4alpha.HeaderMatcher)(nil), // 4: envoy.config.route.v4alpha.HeaderMatcher
 	(*v3.Percent)(nil),            // 5: envoy.type.v3.Percent
 }

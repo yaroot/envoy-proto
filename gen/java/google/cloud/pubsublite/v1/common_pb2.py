@@ -20,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/pubsublite/v1/common.proto',
   package='google.cloud.pubsublite.v1',
   syntax='proto3',
-  serialized_options=b'\n!com.google.cloud.pubsublite.protoB\013CommonProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\370\001\001',
+  serialized_options=b'\n!com.google.cloud.pubsublite.protoB\013CommonProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\370\001\001\252\002\032Google.Cloud.PubSubLite.V1\312\002\032Google\\Cloud\\PubSubLite\\V1\352\002\035Google::Cloud::PubSubLite::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'google/cloud/pubsublite/v1/common.proto\x12\x1agoogle.cloud.pubsublite.v1\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"!\n\x0f\x41ttributeValues\x12\x0e\n\x06values\x18\x01 \x03(\x0c\"\x89\x02\n\rPubSubMessage\x12\x0b\n\x03key\x18\x01 \x01(\x0c\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\x12M\n\nattributes\x18\x03 \x03(\x0b\x32\x39.google.cloud.pubsublite.v1.PubSubMessage.AttributesEntry\x12.\n\nevent_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a^\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\x05value\x18\x02 \x01(\x0b\x32+.google.cloud.pubsublite.v1.AttributeValues:\x02\x38\x01\"\x18\n\x06\x43ursor\x12\x0e\n\x06offset\x18\x01 \x01(\x03\"\xc8\x01\n\x10SequencedMessage\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\x12\x30\n\x0cpublish_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12:\n\x07message\x18\x03 \x01(\x0b\x32).google.cloud.pubsublite.v1.PubSubMessage\x12\x12\n\nsize_bytes\x18\x04 \x01(\x03\"\xc1\x04\n\x05Topic\x12\x0c\n\x04name\x18\x01 \x01(\t\x12K\n\x10partition_config\x18\x02 \x01(\x0b\x32\x31.google.cloud.pubsublite.v1.Topic.PartitionConfig\x12K\n\x10retention_config\x18\x03 \x01(\x0b\x32\x31.google.cloud.pubsublite.v1.Topic.RetentionConfig\x1a\xd6\x01\n\x0fPartitionConfig\x12\r\n\x05\x63ount\x18\x01 \x01(\x03\x12\x0f\n\x05scale\x18\x02 \x01(\x05H\x00\x12N\n\x08\x63\x61pacity\x18\x03 \x01(\x0b\x32:.google.cloud.pubsublite.v1.Topic.PartitionConfig.CapacityH\x00\x1a\x46\n\x08\x43\x61pacity\x12\x1b\n\x13publish_mib_per_sec\x18\x01 \x01(\x05\x12\x1d\n\x15subscribe_mib_per_sec\x18\x02 \x01(\x05\x42\x0b\n\tdimension\x1aY\n\x0fRetentionConfig\x12\x1b\n\x13per_partition_bytes\x18\x01 \x01(\x03\x12)\n\x06period\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration:\\\xea\x41Y\n\x1fpubsublite.googleapis.com/Topic\x12\x36projects/{project}/locations/{location}/topics/{topic}\"\x84\x04\n\x0cSubscription\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x33\n\x05topic\x18\x02 \x01(\tB$\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\x12P\n\x0f\x64\x65livery_config\x18\x03 \x01(\x0b\x32\x37.google.cloud.pubsublite.v1.Subscription.DeliveryConfig\x1a\xeb\x01\n\x0e\x44\x65liveryConfig\x12i\n\x14\x64\x65livery_requirement\x18\x03 \x01(\x0e\x32K.google.cloud.pubsublite.v1.Subscription.DeliveryConfig.DeliveryRequirement\"n\n\x13\x44\x65liveryRequirement\x12$\n DELIVERY_REQUIREMENT_UNSPECIFIED\x10\x00\x12\x17\n\x13\x44\x45LIVER_IMMEDIATELY\x10\x01\x12\x18\n\x14\x44\x45LIVER_AFTER_STORED\x10\x02:q\xea\x41n\n&pubsublite.googleapis.com/Subscription\x12\x44projects/{project}/locations/{location}/subscriptions/{subscription}B{\n!com.google.cloud.pubsublite.protoB\x0b\x43ommonProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\xf8\x01\x01\x62\x06proto3'
+  serialized_pb=b'\n\'google/cloud/pubsublite/v1/common.proto\x12\x1agoogle.cloud.pubsublite.v1\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"!\n\x0f\x41ttributeValues\x12\x0e\n\x06values\x18\x01 \x03(\x0c\"\x89\x02\n\rPubSubMessage\x12\x0b\n\x03key\x18\x01 \x01(\x0c\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\x12M\n\nattributes\x18\x03 \x03(\x0b\x32\x39.google.cloud.pubsublite.v1.PubSubMessage.AttributesEntry\x12.\n\nevent_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a^\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\x05value\x18\x02 \x01(\x0b\x32+.google.cloud.pubsublite.v1.AttributeValues:\x02\x38\x01\"\x18\n\x06\x43ursor\x12\x0e\n\x06offset\x18\x01 \x01(\x03\"\xc8\x01\n\x10SequencedMessage\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\x12\x30\n\x0cpublish_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12:\n\x07message\x18\x03 \x01(\x0b\x32).google.cloud.pubsublite.v1.PubSubMessage\x12\x12\n\nsize_bytes\x18\x04 \x01(\x03\"\xc5\x04\n\x05Topic\x12\x0c\n\x04name\x18\x01 \x01(\t\x12K\n\x10partition_config\x18\x02 \x01(\x0b\x32\x31.google.cloud.pubsublite.v1.Topic.PartitionConfig\x12K\n\x10retention_config\x18\x03 \x01(\x0b\x32\x31.google.cloud.pubsublite.v1.Topic.RetentionConfig\x1a\xda\x01\n\x0fPartitionConfig\x12\r\n\x05\x63ount\x18\x01 \x01(\x03\x12\x13\n\x05scale\x18\x02 \x01(\x05\x42\x02\x18\x01H\x00\x12N\n\x08\x63\x61pacity\x18\x03 \x01(\x0b\x32:.google.cloud.pubsublite.v1.Topic.PartitionConfig.CapacityH\x00\x1a\x46\n\x08\x43\x61pacity\x12\x1b\n\x13publish_mib_per_sec\x18\x01 \x01(\x05\x12\x1d\n\x15subscribe_mib_per_sec\x18\x02 \x01(\x05\x42\x0b\n\tdimension\x1aY\n\x0fRetentionConfig\x12\x1b\n\x13per_partition_bytes\x18\x01 \x01(\x03\x12)\n\x06period\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration:\\\xea\x41Y\n\x1fpubsublite.googleapis.com/Topic\x12\x36projects/{project}/locations/{location}/topics/{topic}\"\x84\x04\n\x0cSubscription\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x33\n\x05topic\x18\x02 \x01(\tB$\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\x12P\n\x0f\x64\x65livery_config\x18\x03 \x01(\x0b\x32\x37.google.cloud.pubsublite.v1.Subscription.DeliveryConfig\x1a\xeb\x01\n\x0e\x44\x65liveryConfig\x12i\n\x14\x64\x65livery_requirement\x18\x03 \x01(\x0e\x32K.google.cloud.pubsublite.v1.Subscription.DeliveryConfig.DeliveryRequirement\"n\n\x13\x44\x65liveryRequirement\x12$\n DELIVERY_REQUIREMENT_UNSPECIFIED\x10\x00\x12\x17\n\x13\x44\x45LIVER_IMMEDIATELY\x10\x01\x12\x18\n\x14\x44\x45LIVER_AFTER_STORED\x10\x02:q\xea\x41n\n&pubsublite.googleapis.com/Subscription\x12\x44projects/{project}/locations/{location}/subscriptions/{subscription}B\xd5\x01\n!com.google.cloud.pubsublite.protoB\x0b\x43ommonProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\xf8\x01\x01\xaa\x02\x1aGoogle.Cloud.PubSubLite.V1\xca\x02\x1aGoogle\\Cloud\\PubSubLite\\V1\xea\x02\x1dGoogle::Cloud::PubSubLite::V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -53,8 +53,8 @@ _SUBSCRIPTION_DELIVERYCONFIG_DELIVERYREQUIREMENT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1567,
-  serialized_end=1677,
+  serialized_start=1571,
+  serialized_end=1681,
 )
 _sym_db.RegisterEnumDescriptor(_SUBSCRIPTION_DELIVERYCONFIG_DELIVERYREQUIREMENT)
 
@@ -301,8 +301,8 @@ _TOPIC_PARTITIONCONFIG_CAPACITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1005,
-  serialized_end=1075,
+  serialized_start=1009,
+  serialized_end=1079,
 )
 
 _TOPIC_PARTITIONCONFIG = _descriptor.Descriptor(
@@ -326,7 +326,7 @@ _TOPIC_PARTITIONCONFIG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='capacity', full_name='google.cloud.pubsublite.v1.Topic.PartitionConfig.capacity', index=2,
       number=3, type=11, cpp_type=10, label=1,
@@ -352,7 +352,7 @@ _TOPIC_PARTITIONCONFIG = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=874,
-  serialized_end=1088,
+  serialized_end=1092,
 )
 
 _TOPIC_RETENTIONCONFIG = _descriptor.Descriptor(
@@ -389,8 +389,8 @@ _TOPIC_RETENTIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1090,
-  serialized_end=1179,
+  serialized_start=1094,
+  serialized_end=1183,
 )
 
 _TOPIC = _descriptor.Descriptor(
@@ -435,7 +435,7 @@ _TOPIC = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=696,
-  serialized_end=1273,
+  serialized_end=1277,
 )
 
 
@@ -467,8 +467,8 @@ _SUBSCRIPTION_DELIVERYCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1442,
-  serialized_end=1677,
+  serialized_start=1446,
+  serialized_end=1681,
 )
 
 _SUBSCRIPTION = _descriptor.Descriptor(
@@ -512,8 +512,8 @@ _SUBSCRIPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1276,
-  serialized_end=1792,
+  serialized_start=1280,
+  serialized_end=1796,
 )
 
 _PUBSUBMESSAGE_ATTRIBUTESENTRY.fields_by_name['value'].message_type = _ATTRIBUTEVALUES
@@ -633,6 +633,7 @@ _sym_db.RegisterMessage(Subscription.DeliveryConfig)
 
 DESCRIPTOR._options = None
 _PUBSUBMESSAGE_ATTRIBUTESENTRY._options = None
+_TOPIC_PARTITIONCONFIG.fields_by_name['scale']._options = None
 _TOPIC._options = None
 _SUBSCRIPTION.fields_by_name['topic']._options = None
 _SUBSCRIPTION._options = None

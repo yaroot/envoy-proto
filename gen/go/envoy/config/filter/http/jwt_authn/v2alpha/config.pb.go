@@ -11,10 +11,10 @@ import (
 	route "envoy/api/v2/route"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -328,7 +328,7 @@ type RemoteJwks struct {
 	HttpUri *core.HttpUri `protobuf:"bytes,1,opt,name=http_uri,json=httpUri,proto3" json:"http_uri,omitempty"`
 	// Duration after which the cached JWKS should be expired. If not specified, default cache
 	// duration is 5 minutes.
-	CacheDuration *durationpb.Duration `protobuf:"bytes,2,opt,name=cache_duration,json=cacheDuration,proto3" json:"cache_duration,omitempty"`
+	CacheDuration *duration.Duration `protobuf:"bytes,2,opt,name=cache_duration,json=cacheDuration,proto3" json:"cache_duration,omitempty"`
 }
 
 func (x *RemoteJwks) Reset() {
@@ -370,7 +370,7 @@ func (x *RemoteJwks) GetHttpUri() *core.HttpUri {
 	return nil
 }
 
-func (x *RemoteJwks) GetCacheDuration() *durationpb.Duration {
+func (x *RemoteJwks) GetCacheDuration() *duration.Duration {
 	if x != nil {
 		return x.CacheDuration
 	}
@@ -634,14 +634,14 @@ func (x *JwtRequirement) GetRequiresAll() *JwtRequirementAndList {
 	return nil
 }
 
-func (x *JwtRequirement) GetAllowMissingOrFailed() *emptypb.Empty {
+func (x *JwtRequirement) GetAllowMissingOrFailed() *empty.Empty {
 	if x, ok := x.GetRequiresType().(*JwtRequirement_AllowMissingOrFailed); ok {
 		return x.AllowMissingOrFailed
 	}
 	return nil
 }
 
-func (x *JwtRequirement) GetAllowMissing() *emptypb.Empty {
+func (x *JwtRequirement) GetAllowMissing() *empty.Empty {
 	if x, ok := x.GetRequiresType().(*JwtRequirement_AllowMissing); ok {
 		return x.AllowMissing
 	}
@@ -679,7 +679,7 @@ type JwtRequirement_AllowMissingOrFailed struct {
 	// verification fails. A typical usage is: this filter is used to only verify
 	// JWTs and pass the verified JWT payloads to another filter, the other filter
 	// will make decision. In this mode, all JWT tokens will be verified.
-	AllowMissingOrFailed *emptypb.Empty `protobuf:"bytes,5,opt,name=allow_missing_or_failed,json=allowMissingOrFailed,proto3,oneof"`
+	AllowMissingOrFailed *empty.Empty `protobuf:"bytes,5,opt,name=allow_missing_or_failed,json=allowMissingOrFailed,proto3,oneof"`
 }
 
 type JwtRequirement_AllowMissing struct {
@@ -687,7 +687,7 @@ type JwtRequirement_AllowMissing struct {
 	// presented but invalid. Similar to allow_missing_or_failed, this is used
 	// to only verify JWTs and pass the verified payload to another filter. The
 	// different is this mode will reject requests with invalid tokens.
-	AllowMissing *emptypb.Empty `protobuf:"bytes,6,opt,name=allow_missing,json=allowMissing,proto3,oneof"`
+	AllowMissing *empty.Empty `protobuf:"bytes,6,opt,name=allow_missing,json=allowMissing,proto3,oneof"`
 }
 
 func (*JwtRequirement_ProviderName) isJwtRequirement_RequiresType() {}
@@ -1356,8 +1356,8 @@ var file_envoy_config_filter_http_jwt_authn_v2alpha_config_proto_goTypes = []int
 	nil,                           // 11: envoy.config.filter.http.jwt_authn.v2alpha.JwtAuthentication.ProvidersEntry
 	(*core.DataSource)(nil),       // 12: envoy.api.v2.core.DataSource
 	(*core.HttpUri)(nil),          // 13: envoy.api.v2.core.HttpUri
-	(*durationpb.Duration)(nil),   // 14: google.protobuf.Duration
-	(*emptypb.Empty)(nil),         // 15: google.protobuf.Empty
+	(*duration.Duration)(nil),     // 14: google.protobuf.Duration
+	(*empty.Empty)(nil),           // 15: google.protobuf.Empty
 	(*route.RouteMatch)(nil),      // 16: envoy.api.v2.route.RouteMatch
 }
 var file_envoy_config_filter_http_jwt_authn_v2alpha_config_proto_depIdxs = []int32{

@@ -22,10 +22,10 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -55,12 +55,12 @@ type CustomerLabel struct {
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. The resource name of the customer to which the label is attached.
 	// Read only.
-	Customer *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=customer,proto3" json:"customer,omitempty"`
+	Customer *wrappers.StringValue `protobuf:"bytes,2,opt,name=customer,proto3" json:"customer,omitempty"`
 	// Output only. The resource name of the label assigned to the customer.
 	//
 	// Note: the Customer ID portion of the label resource name is not
 	// validated when creating a new CustomerLabel.
-	Label *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=label,proto3" json:"label,omitempty"`
+	Label *wrappers.StringValue `protobuf:"bytes,3,opt,name=label,proto3" json:"label,omitempty"`
 }
 
 func (x *CustomerLabel) Reset() {
@@ -102,14 +102,14 @@ func (x *CustomerLabel) GetResourceName() string {
 	return ""
 }
 
-func (x *CustomerLabel) GetCustomer() *wrapperspb.StringValue {
+func (x *CustomerLabel) GetCustomer() *wrappers.StringValue {
 	if x != nil {
 		return x.Customer
 	}
 	return nil
 }
 
-func (x *CustomerLabel) GetLabel() *wrapperspb.StringValue {
+func (x *CustomerLabel) GetLabel() *wrappers.StringValue {
 	if x != nil {
 		return x.Label
 	}
@@ -186,8 +186,8 @@ func file_google_ads_googleads_v3_resources_customer_label_proto_rawDescGZIP() [
 
 var file_google_ads_googleads_v3_resources_customer_label_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v3_resources_customer_label_proto_goTypes = []interface{}{
-	(*CustomerLabel)(nil),          // 0: google.ads.googleads.v3.resources.CustomerLabel
-	(*wrapperspb.StringValue)(nil), // 1: google.protobuf.StringValue
+	(*CustomerLabel)(nil),        // 0: google.ads.googleads.v3.resources.CustomerLabel
+	(*wrappers.StringValue)(nil), // 1: google.protobuf.StringValue
 }
 var file_google_ads_googleads_v3_resources_customer_label_proto_depIdxs = []int32{
 	1, // 0: google.ads.googleads.v3.resources.CustomerLabel.customer:type_name -> google.protobuf.StringValue

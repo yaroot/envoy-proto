@@ -10,9 +10,9 @@ import (
 	v3 "envoy/config/ratelimit/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -49,7 +49,7 @@ type RateLimit struct {
 	Stage uint32 `protobuf:"varint,2,opt,name=stage,proto3" json:"stage,omitempty"`
 	// The timeout in milliseconds for the rate limit service RPC. If not
 	// set, this defaults to 20ms.
-	Timeout *durationpb.Duration `protobuf:"bytes,3,opt,name=timeout,proto3" json:"timeout,omitempty"`
+	Timeout *duration.Duration `protobuf:"bytes,3,opt,name=timeout,proto3" json:"timeout,omitempty"`
 	// The filter's behaviour in case the rate limiting service does
 	// not respond back. When it is set to true, Envoy will not allow traffic in case of
 	// communication failure between rate limiting service and the proxy.
@@ -107,7 +107,7 @@ func (x *RateLimit) GetStage() uint32 {
 	return 0
 }
 
-func (x *RateLimit) GetTimeout() *durationpb.Duration {
+func (x *RateLimit) GetTimeout() *duration.Duration {
 	if x != nil {
 		return x.Timeout
 	}
@@ -152,7 +152,7 @@ var file_envoy_extensions_filters_network_thrift_proxy_filters_ratelimit_v3_rate
 	0x1a, 0x17, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64,
 	0x61, 0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xd8, 0x02, 0x0a, 0x09, 0x52, 0x61,
 	0x74, 0x65, 0x4c, 0x69, 0x6d, 0x69, 0x74, 0x12, 0x1f, 0x0a, 0x06, 0x64, 0x6f, 0x6d, 0x61, 0x69,
-	0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x20, 0x01,
+	0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01,
 	0x52, 0x06, 0x64, 0x6f, 0x6d, 0x61, 0x69, 0x6e, 0x12, 0x1d, 0x0a, 0x05, 0x73, 0x74, 0x61, 0x67,
 	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x2a, 0x02, 0x18, 0x0a,
 	0x52, 0x05, 0x73, 0x74, 0x61, 0x67, 0x65, 0x12, 0x33, 0x0a, 0x07, 0x74, 0x69, 0x6d, 0x65, 0x6f,
@@ -197,7 +197,7 @@ func file_envoy_extensions_filters_network_thrift_proxy_filters_ratelimit_v3_rat
 var file_envoy_extensions_filters_network_thrift_proxy_filters_ratelimit_v3_rate_limit_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_envoy_extensions_filters_network_thrift_proxy_filters_ratelimit_v3_rate_limit_proto_goTypes = []interface{}{
 	(*RateLimit)(nil),                 // 0: envoy.extensions.filters.network.thrift_proxy.filters.ratelimit.v3.RateLimit
-	(*durationpb.Duration)(nil),       // 1: google.protobuf.Duration
+	(*duration.Duration)(nil),         // 1: google.protobuf.Duration
 	(*v3.RateLimitServiceConfig)(nil), // 2: envoy.config.ratelimit.v3.RateLimitServiceConfig
 }
 var file_envoy_extensions_filters_network_thrift_proxy_filters_ratelimit_v3_rate_limit_proto_depIdxs = []int32{

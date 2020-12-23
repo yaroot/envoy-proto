@@ -23,10 +23,10 @@ package v1
 import (
 	v1 "github.com/census-instrumentation/opencensus-proto/gen-go/resource/v1"
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -272,7 +272,7 @@ type Span struct {
 	// keep end_time > start_time for consistency.
 	//
 	// This field is required.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// The end time of the span. On the client side, this is the time kept by
 	// the local machine where the span execution ends. On the server side, this
 	// is the time when the server application handler stops running.
@@ -282,7 +282,7 @@ type Span struct {
 	// keep end_time > start_time for consistency.
 	//
 	// This field is required.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,6,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	// A set of attributes on the span.
 	Attributes *Span_Attributes `protobuf:"bytes,7,opt,name=attributes,proto3" json:"attributes,omitempty"`
 	// A stack trace captured at the start of the span.
@@ -304,10 +304,10 @@ type Span struct {
 	// to the same process as the current span. This flag is most commonly
 	// used to indicate the need to adjust time as clocks in different
 	// processes may not be synchronized.
-	SameProcessAsParentSpan *wrapperspb.BoolValue `protobuf:"bytes,12,opt,name=same_process_as_parent_span,json=sameProcessAsParentSpan,proto3" json:"same_process_as_parent_span,omitempty"`
+	SameProcessAsParentSpan *wrappers.BoolValue `protobuf:"bytes,12,opt,name=same_process_as_parent_span,json=sameProcessAsParentSpan,proto3" json:"same_process_as_parent_span,omitempty"`
 	// An optional number of child spans that were generated while this span
 	// was active. If set, allows an implementation to detect missing child spans.
-	ChildSpanCount *wrapperspb.UInt32Value `protobuf:"bytes,13,opt,name=child_span_count,json=childSpanCount,proto3" json:"child_span_count,omitempty"`
+	ChildSpanCount *wrappers.UInt32Value `protobuf:"bytes,13,opt,name=child_span_count,json=childSpanCount,proto3" json:"child_span_count,omitempty"`
 }
 
 func (x *Span) Reset() {
@@ -384,14 +384,14 @@ func (x *Span) GetKind() Span_SpanKind {
 	return Span_SPAN_KIND_UNSPECIFIED
 }
 
-func (x *Span) GetStartTime() *timestamppb.Timestamp {
+func (x *Span) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *Span) GetEndTime() *timestamppb.Timestamp {
+func (x *Span) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -440,14 +440,14 @@ func (x *Span) GetResource() *v1.Resource {
 	return nil
 }
 
-func (x *Span) GetSameProcessAsParentSpan() *wrapperspb.BoolValue {
+func (x *Span) GetSameProcessAsParentSpan() *wrappers.BoolValue {
 	if x != nil {
 		return x.SameProcessAsParentSpan
 	}
 	return nil
 }
 
-func (x *Span) GetChildSpanCount() *wrapperspb.UInt32Value {
+func (x *Span) GetChildSpanCount() *wrappers.UInt32Value {
 	if x != nil {
 		return x.ChildSpanCount
 	}
@@ -952,7 +952,7 @@ type Span_TimeEvent struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The time the event occurred.
-	Time *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=time,proto3" json:"time,omitempty"`
+	Time *timestamp.Timestamp `protobuf:"bytes,1,opt,name=time,proto3" json:"time,omitempty"`
 	// A `TimeEvent` can contain either an `Annotation` object or a
 	// `MessageEvent` object, but not both.
 	//
@@ -994,7 +994,7 @@ func (*Span_TimeEvent) Descriptor() ([]byte, []int) {
 	return file_opencensus_proto_trace_v1_trace_proto_rawDescGZIP(), []int{0, 2}
 }
 
-func (x *Span_TimeEvent) GetTime() *timestamppb.Timestamp {
+func (x *Span_TimeEvent) GetTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.Time
 	}
@@ -1947,10 +1947,10 @@ var file_opencensus_proto_trace_v1_trace_proto_goTypes = []interface{}{
 	(*Span_TimeEvent_MessageEvent)(nil),   // 18: opencensus.proto.trace.v1.Span.TimeEvent.MessageEvent
 	(*StackTrace_StackFrame)(nil),         // 19: opencensus.proto.trace.v1.StackTrace.StackFrame
 	(*StackTrace_StackFrames)(nil),        // 20: opencensus.proto.trace.v1.StackTrace.StackFrames
-	(*timestamppb.Timestamp)(nil),         // 21: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),           // 21: google.protobuf.Timestamp
 	(*v1.Resource)(nil),                   // 22: opencensus.proto.resource.v1.Resource
-	(*wrapperspb.BoolValue)(nil),          // 23: google.protobuf.BoolValue
-	(*wrapperspb.UInt32Value)(nil),        // 24: google.protobuf.UInt32Value
+	(*wrappers.BoolValue)(nil),            // 23: google.protobuf.BoolValue
+	(*wrappers.UInt32Value)(nil),          // 24: google.protobuf.UInt32Value
 }
 var file_opencensus_proto_trace_v1_trace_proto_depIdxs = []int32{
 	9,  // 0: opencensus.proto.trace.v1.Span.tracestate:type_name -> opencensus.proto.trace.v1.Span.Tracestate

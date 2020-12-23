@@ -27,7 +27,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n%io.envoyproxy.envoy.config.metrics.v3B\nStatsProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n#envoy/config/metrics/v3/stats.proto\x12\x17\x65nvoy.config.metrics.v3\x1a\"envoy/config/core/v3/address.proto\x1a\"envoy/type/matcher/v3/string.proto\x1a\x19google/protobuf/any.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x8e\x01\n\tStatsSink\x12\x0c\n\x04name\x18\x01 \x01(\t\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:(\x9a\xc5\x88\x1e#\n!envoy.config.metrics.v2.StatsSinkB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\"\xec\x01\n\x0bStatsConfig\x12\x39\n\nstats_tags\x18\x01 \x03(\x0b\x32%.envoy.config.metrics.v3.TagSpecifier\x12\x38\n\x14use_all_default_tags\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12<\n\rstats_matcher\x18\x03 \x01(\x0b\x32%.envoy.config.metrics.v3.StatsMatcher:*\x9a\xc5\x88\x1e%\n#envoy.config.metrics.v2.StatsConfig\"\xef\x01\n\x0cStatsMatcher\x12\x14\n\nreject_all\x18\x01 \x01(\x08H\x00\x12\x42\n\x0e\x65xclusion_list\x18\x02 \x01(\x0b\x32(.envoy.type.matcher.v3.ListStringMatcherH\x00\x12\x42\n\x0einclusion_list\x18\x03 \x01(\x0b\x32(.envoy.type.matcher.v3.ListStringMatcherH\x00:+\x9a\xc5\x88\x1e&\n$envoy.config.metrics.v2.StatsMatcherB\x14\n\rstats_matcher\x12\x03\xf8\x42\x01\"\x8c\x01\n\x0cTagSpecifier\x12\x10\n\x08tag_name\x18\x01 \x01(\t\x12\x19\n\x05regex\x18\x02 \x01(\tB\x08\xfa\x42\x05r\x03(\x80\x08H\x00\x12\x15\n\x0b\x66ixed_value\x18\x03 \x01(\tH\x00:+\x9a\xc5\x88\x1e&\n$envoy.config.metrics.v2.TagSpecifierB\x0b\n\ttag_value\"\xae\x01\n\nStatsdSink\x12\x30\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0b\x32\x1d.envoy.config.core.v3.AddressH\x00\x12\x1a\n\x10tcp_cluster_name\x18\x02 \x01(\tH\x00\x12\x0e\n\x06prefix\x18\x03 \x01(\t:)\x9a\xc5\x88\x1e$\n\"envoy.config.metrics.v2.StatsdSinkB\x17\n\x10statsd_specifier\x12\x03\xf8\x42\x01\"\xa2\x01\n\rDogStatsdSink\x12\x30\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0b\x32\x1d.envoy.config.core.v3.AddressH\x00\x12\x0e\n\x06prefix\x18\x03 \x01(\t:,\x9a\xc5\x88\x1e\'\n%envoy.config.metrics.v2.DogStatsdSinkB\x1b\n\x14\x64og_statsd_specifier\x12\x03\xf8\x42\x01J\x04\x08\x02\x10\x03\"N\n\x0bHystrixSink\x12\x13\n\x0bnum_buckets\x18\x01 \x01(\x03:*\x9a\xc5\x88\x1e%\n#envoy.config.metrics.v2.HystrixSinkB=\n%io.envoyproxy.envoy.config.metrics.v3B\nStatsProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n#envoy/config/metrics/v3/stats.proto\x12\x17\x65nvoy.config.metrics.v3\x1a\"envoy/config/core/v3/address.proto\x1a\"envoy/type/matcher/v3/string.proto\x1a\x19google/protobuf/any.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x8e\x01\n\tStatsSink\x12\x0c\n\x04name\x18\x01 \x01(\t\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:(\x9a\xc5\x88\x1e#\n!envoy.config.metrics.v2.StatsSinkB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\"\xc1\x02\n\x0bStatsConfig\x12\x39\n\nstats_tags\x18\x01 \x03(\x0b\x32%.envoy.config.metrics.v3.TagSpecifier\x12\x38\n\x14use_all_default_tags\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12<\n\rstats_matcher\x18\x03 \x01(\x0b\x32%.envoy.config.metrics.v3.StatsMatcher\x12S\n\x19histogram_bucket_settings\x18\x04 \x03(\x0b\x32\x30.envoy.config.metrics.v3.HistogramBucketSettings:*\x9a\xc5\x88\x1e%\n#envoy.config.metrics.v2.StatsConfig\"\xef\x01\n\x0cStatsMatcher\x12\x14\n\nreject_all\x18\x01 \x01(\x08H\x00\x12\x42\n\x0e\x65xclusion_list\x18\x02 \x01(\x0b\x32(.envoy.type.matcher.v3.ListStringMatcherH\x00\x12\x42\n\x0einclusion_list\x18\x03 \x01(\x0b\x32(.envoy.type.matcher.v3.ListStringMatcherH\x00:+\x9a\xc5\x88\x1e&\n$envoy.config.metrics.v2.StatsMatcherB\x14\n\rstats_matcher\x12\x03\xf8\x42\x01\"\x8c\x01\n\x0cTagSpecifier\x12\x10\n\x08tag_name\x18\x01 \x01(\t\x12\x19\n\x05regex\x18\x02 \x01(\tB\x08\xfa\x42\x05r\x03(\x80\x08H\x00\x12\x15\n\x0b\x66ixed_value\x18\x03 \x01(\tH\x00:+\x9a\xc5\x88\x1e&\n$envoy.config.metrics.v2.TagSpecifierB\x0b\n\ttag_value\"\x82\x01\n\x17HistogramBucketSettings\x12=\n\x05match\x18\x01 \x01(\x0b\x32$.envoy.type.matcher.v3.StringMatcherB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12(\n\x07\x62uckets\x18\x02 \x03(\x01\x42\x17\xfa\x42\x14\x92\x01\x11\x08\x01\x18\x01\"\x0b\x12\t!\x00\x00\x00\x00\x00\x00\x00\x00\"\xae\x01\n\nStatsdSink\x12\x30\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0b\x32\x1d.envoy.config.core.v3.AddressH\x00\x12\x1a\n\x10tcp_cluster_name\x18\x02 \x01(\tH\x00\x12\x0e\n\x06prefix\x18\x03 \x01(\t:)\x9a\xc5\x88\x1e$\n\"envoy.config.metrics.v2.StatsdSinkB\x17\n\x10statsd_specifier\x12\x03\xf8\x42\x01\"\xe9\x01\n\rDogStatsdSink\x12\x30\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0b\x32\x1d.envoy.config.core.v3.AddressH\x00\x12\x0e\n\x06prefix\x18\x03 \x01(\t\x12\x45\n\x16max_bytes_per_datagram\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt64ValueB\x07\xfa\x42\x04\x32\x02 \x00:,\x9a\xc5\x88\x1e\'\n%envoy.config.metrics.v2.DogStatsdSinkB\x1b\n\x14\x64og_statsd_specifier\x12\x03\xf8\x42\x01J\x04\x08\x02\x10\x03\"N\n\x0bHystrixSink\x12\x13\n\x0bnum_buckets\x18\x01 \x01(\x03:*\x9a\xc5\x88\x1e%\n#envoy.config.metrics.v2.HystrixSinkB=\n%io.envoyproxy.envoy.config.metrics.v3B\nStatsProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -107,6 +107,13 @@ _STATSCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='histogram_bucket_settings', full_name='envoy.config.metrics.v3.StatsConfig.histogram_bucket_settings', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -120,7 +127,7 @@ _STATSCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=462,
-  serialized_end=698,
+  serialized_end=783,
 )
 
 
@@ -170,8 +177,8 @@ _STATSMATCHER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=701,
-  serialized_end=940,
+  serialized_start=786,
+  serialized_end=1025,
 )
 
 
@@ -221,8 +228,47 @@ _TAGSPECIFIER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=943,
-  serialized_end=1083,
+  serialized_start=1028,
+  serialized_end=1168,
+)
+
+
+_HISTOGRAMBUCKETSETTINGS = _descriptor.Descriptor(
+  name='HistogramBucketSettings',
+  full_name='envoy.config.metrics.v3.HistogramBucketSettings',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='match', full_name='envoy.config.metrics.v3.HistogramBucketSettings.match', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\005\212\001\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='buckets', full_name='envoy.config.metrics.v3.HistogramBucketSettings.buckets', index=1,
+      number=2, type=1, cpp_type=5, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\024\222\001\021\010\001\030\001\"\013\022\t!\000\000\000\000\000\000\000\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1171,
+  serialized_end=1301,
 )
 
 
@@ -272,8 +318,8 @@ _STATSDSINK = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=1086,
-  serialized_end=1260,
+  serialized_start=1304,
+  serialized_end=1478,
 )
 
 
@@ -299,6 +345,13 @@ _DOGSTATSDSINK = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='max_bytes_per_datagram', full_name='envoy.config.metrics.v3.DogStatsdSink.max_bytes_per_datagram', index=2,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\0042\002 \000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -316,8 +369,8 @@ _DOGSTATSDSINK = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=1263,
-  serialized_end=1425,
+  serialized_start=1481,
+  serialized_end=1714,
 )
 
 
@@ -348,8 +401,8 @@ _HYSTRIXSINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1427,
-  serialized_end=1505,
+  serialized_start=1716,
+  serialized_end=1794,
 )
 
 _STATSSINK.fields_by_name['typed_config'].message_type = google_dot_protobuf_dot_any__pb2._ANY
@@ -359,6 +412,7 @@ _STATSSINK.fields_by_name['typed_config'].containing_oneof = _STATSSINK.oneofs_b
 _STATSCONFIG.fields_by_name['stats_tags'].message_type = _TAGSPECIFIER
 _STATSCONFIG.fields_by_name['use_all_default_tags'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _STATSCONFIG.fields_by_name['stats_matcher'].message_type = _STATSMATCHER
+_STATSCONFIG.fields_by_name['histogram_bucket_settings'].message_type = _HISTOGRAMBUCKETSETTINGS
 _STATSMATCHER.fields_by_name['exclusion_list'].message_type = envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2._LISTSTRINGMATCHER
 _STATSMATCHER.fields_by_name['inclusion_list'].message_type = envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2._LISTSTRINGMATCHER
 _STATSMATCHER.oneofs_by_name['stats_matcher'].fields.append(
@@ -376,6 +430,7 @@ _TAGSPECIFIER.fields_by_name['regex'].containing_oneof = _TAGSPECIFIER.oneofs_by
 _TAGSPECIFIER.oneofs_by_name['tag_value'].fields.append(
   _TAGSPECIFIER.fields_by_name['fixed_value'])
 _TAGSPECIFIER.fields_by_name['fixed_value'].containing_oneof = _TAGSPECIFIER.oneofs_by_name['tag_value']
+_HISTOGRAMBUCKETSETTINGS.fields_by_name['match'].message_type = envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2._STRINGMATCHER
 _STATSDSINK.fields_by_name['address'].message_type = envoy_dot_config_dot_core_dot_v3_dot_address__pb2._ADDRESS
 _STATSDSINK.oneofs_by_name['statsd_specifier'].fields.append(
   _STATSDSINK.fields_by_name['address'])
@@ -384,6 +439,7 @@ _STATSDSINK.oneofs_by_name['statsd_specifier'].fields.append(
   _STATSDSINK.fields_by_name['tcp_cluster_name'])
 _STATSDSINK.fields_by_name['tcp_cluster_name'].containing_oneof = _STATSDSINK.oneofs_by_name['statsd_specifier']
 _DOGSTATSDSINK.fields_by_name['address'].message_type = envoy_dot_config_dot_core_dot_v3_dot_address__pb2._ADDRESS
+_DOGSTATSDSINK.fields_by_name['max_bytes_per_datagram'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT64VALUE
 _DOGSTATSDSINK.oneofs_by_name['dog_statsd_specifier'].fields.append(
   _DOGSTATSDSINK.fields_by_name['address'])
 _DOGSTATSDSINK.fields_by_name['address'].containing_oneof = _DOGSTATSDSINK.oneofs_by_name['dog_statsd_specifier']
@@ -391,6 +447,7 @@ DESCRIPTOR.message_types_by_name['StatsSink'] = _STATSSINK
 DESCRIPTOR.message_types_by_name['StatsConfig'] = _STATSCONFIG
 DESCRIPTOR.message_types_by_name['StatsMatcher'] = _STATSMATCHER
 DESCRIPTOR.message_types_by_name['TagSpecifier'] = _TAGSPECIFIER
+DESCRIPTOR.message_types_by_name['HistogramBucketSettings'] = _HISTOGRAMBUCKETSETTINGS
 DESCRIPTOR.message_types_by_name['StatsdSink'] = _STATSDSINK
 DESCRIPTOR.message_types_by_name['DogStatsdSink'] = _DOGSTATSDSINK
 DESCRIPTOR.message_types_by_name['HystrixSink'] = _HYSTRIXSINK
@@ -424,6 +481,13 @@ TagSpecifier = _reflection.GeneratedProtocolMessageType('TagSpecifier', (_messag
   })
 _sym_db.RegisterMessage(TagSpecifier)
 
+HistogramBucketSettings = _reflection.GeneratedProtocolMessageType('HistogramBucketSettings', (_message.Message,), {
+  'DESCRIPTOR' : _HISTOGRAMBUCKETSETTINGS,
+  '__module__' : 'envoy.config.metrics.v3.stats_pb2'
+  # @@protoc_insertion_point(class_scope:envoy.config.metrics.v3.HistogramBucketSettings)
+  })
+_sym_db.RegisterMessage(HistogramBucketSettings)
+
 StatsdSink = _reflection.GeneratedProtocolMessageType('StatsdSink', (_message.Message,), {
   'DESCRIPTOR' : _STATSDSINK,
   '__module__' : 'envoy.config.metrics.v3.stats_pb2'
@@ -453,9 +517,12 @@ _STATSMATCHER.oneofs_by_name['stats_matcher']._options = None
 _STATSMATCHER._options = None
 _TAGSPECIFIER.fields_by_name['regex']._options = None
 _TAGSPECIFIER._options = None
+_HISTOGRAMBUCKETSETTINGS.fields_by_name['match']._options = None
+_HISTOGRAMBUCKETSETTINGS.fields_by_name['buckets']._options = None
 _STATSDSINK.oneofs_by_name['statsd_specifier']._options = None
 _STATSDSINK._options = None
 _DOGSTATSDSINK.oneofs_by_name['dog_statsd_specifier']._options = None
+_DOGSTATSDSINK.fields_by_name['max_bytes_per_datagram']._options = None
 _DOGSTATSDSINK._options = None
 _HYSTRIXSINK._options = None
 # @@protoc_insertion_point(module_scope)

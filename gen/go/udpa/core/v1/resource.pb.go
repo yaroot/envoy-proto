@@ -8,9 +8,9 @@ package udpa_core_v1
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -40,7 +40,7 @@ type Resource struct {
 	// resource name at a given version with different resource payloads.
 	Version string `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
 	// The resource payload, including type URL.
-	Resource *anypb.Any `protobuf:"bytes,3,opt,name=resource,proto3" json:"resource,omitempty"`
+	Resource *any.Any `protobuf:"bytes,3,opt,name=resource,proto3" json:"resource,omitempty"`
 }
 
 func (x *Resource) Reset() {
@@ -89,7 +89,7 @@ func (x *Resource) GetVersion() string {
 	return ""
 }
 
-func (x *Resource) GetResource() *anypb.Any {
+func (x *Resource) GetResource() *any.Any {
 	if x != nil {
 		return x.Resource
 	}
@@ -139,7 +139,7 @@ var file_udpa_core_v1_resource_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_udpa_core_v1_resource_proto_goTypes = []interface{}{
 	(*Resource)(nil),     // 0: udpa.core.v1.Resource
 	(*ResourceName)(nil), // 1: udpa.core.v1.ResourceName
-	(*anypb.Any)(nil),    // 2: google.protobuf.Any
+	(*any.Any)(nil),      // 2: google.protobuf.Any
 }
 var file_udpa_core_v1_resource_proto_depIdxs = []int32{
 	1, // 0: udpa.core.v1.Resource.name:type_name -> udpa.core.v1.ResourceName

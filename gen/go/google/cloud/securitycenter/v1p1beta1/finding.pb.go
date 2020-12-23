@@ -22,11 +22,11 @@ package securitycenter
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_struct "github.com/golang/protobuf/ptypes/struct"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	structpb "google.golang.org/protobuf/types/known/structpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -96,7 +96,8 @@ func (Finding_State) EnumDescriptor() ([]byte, []int) {
 	return file_google_cloud_securitycenter_v1p1beta1_finding_proto_rawDescGZIP(), []int{0, 0}
 }
 
-// The severity of the finding.
+// The severity of the finding. This field is managed by the source that
+// writes the finding.
 type Finding_Severity int32
 
 const (
@@ -200,7 +201,7 @@ type Finding struct {
 	// that writes the finding. The key names in the source_properties map must be
 	// between 1 and 255 characters, and must start with a letter and contain
 	// alphanumeric characters or underscores only.
-	SourceProperties map[string]*structpb.Value `protobuf:"bytes,7,rep,name=source_properties,json=sourceProperties,proto3" json:"source_properties,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	SourceProperties map[string]*_struct.Value `protobuf:"bytes,7,rep,name=source_properties,json=sourceProperties,proto3" json:"source_properties,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// Output only. User specified security marks. These marks are entirely
 	// managed by the user and come from the SecurityMarks resource that belongs
 	// to the finding.
@@ -210,10 +211,11 @@ type Finding struct {
 	// capture the time the detector believes the firewall became open. The
 	// accuracy is determined by the detector. If the finding were to be resolved
 	// afterward, this time would reflect when the finding was resolved.
-	EventTime *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=event_time,json=eventTime,proto3" json:"event_time,omitempty"`
+	EventTime *timestamp.Timestamp `protobuf:"bytes,9,opt,name=event_time,json=eventTime,proto3" json:"event_time,omitempty"`
 	// The time at which the finding was created in Security Command Center.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
-	// The severity of the finding.
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,10,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	// The severity of the finding. This field is managed by the source that
+	// writes the finding.
 	Severity Finding_Severity `protobuf:"varint,13,opt,name=severity,proto3,enum=google.cloud.securitycenter.v1p1beta1.Finding_Severity" json:"severity,omitempty"`
 }
 
@@ -291,7 +293,7 @@ func (x *Finding) GetExternalUri() string {
 	return ""
 }
 
-func (x *Finding) GetSourceProperties() map[string]*structpb.Value {
+func (x *Finding) GetSourceProperties() map[string]*_struct.Value {
 	if x != nil {
 		return x.SourceProperties
 	}
@@ -305,14 +307,14 @@ func (x *Finding) GetSecurityMarks() *SecurityMarks {
 	return nil
 }
 
-func (x *Finding) GetEventTime() *timestamppb.Timestamp {
+func (x *Finding) GetEventTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EventTime
 	}
 	return nil
 }
 
-func (x *Finding) GetCreateTime() *timestamppb.Timestamp {
+func (x *Finding) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -444,13 +446,13 @@ func file_google_cloud_securitycenter_v1p1beta1_finding_proto_rawDescGZIP() []by
 var file_google_cloud_securitycenter_v1p1beta1_finding_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_google_cloud_securitycenter_v1p1beta1_finding_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_google_cloud_securitycenter_v1p1beta1_finding_proto_goTypes = []interface{}{
-	(Finding_State)(0),            // 0: google.cloud.securitycenter.v1p1beta1.Finding.State
-	(Finding_Severity)(0),         // 1: google.cloud.securitycenter.v1p1beta1.Finding.Severity
-	(*Finding)(nil),               // 2: google.cloud.securitycenter.v1p1beta1.Finding
-	nil,                           // 3: google.cloud.securitycenter.v1p1beta1.Finding.SourcePropertiesEntry
-	(*SecurityMarks)(nil),         // 4: google.cloud.securitycenter.v1p1beta1.SecurityMarks
-	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
-	(*structpb.Value)(nil),        // 6: google.protobuf.Value
+	(Finding_State)(0),          // 0: google.cloud.securitycenter.v1p1beta1.Finding.State
+	(Finding_Severity)(0),       // 1: google.cloud.securitycenter.v1p1beta1.Finding.Severity
+	(*Finding)(nil),             // 2: google.cloud.securitycenter.v1p1beta1.Finding
+	nil,                         // 3: google.cloud.securitycenter.v1p1beta1.Finding.SourcePropertiesEntry
+	(*SecurityMarks)(nil),       // 4: google.cloud.securitycenter.v1p1beta1.SecurityMarks
+	(*timestamp.Timestamp)(nil), // 5: google.protobuf.Timestamp
+	(*_struct.Value)(nil),       // 6: google.protobuf.Value
 }
 var file_google_cloud_securitycenter_v1p1beta1_finding_proto_depIdxs = []int32{
 	0, // 0: google.cloud.securitycenter.v1p1beta1.Finding.state:type_name -> google.cloud.securitycenter.v1p1beta1.Finding.State

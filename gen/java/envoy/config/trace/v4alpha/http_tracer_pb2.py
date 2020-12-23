@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n(io.envoyproxy.envoy.config.trace.v4alphaB\017HttpTracerProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,envoy/config/trace/v4alpha/http_tracer.proto\x12\x1a\x65nvoy.config.trace.v4alpha\x1a\x19google/protobuf/any.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xfd\x01\n\x07Tracing\x12\x36\n\x04http\x18\x01 \x01(\x0b\x32(.envoy.config.trace.v4alpha.Tracing.Http\x1a\x93\x01\n\x04Http\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:)\x9a\xc5\x88\x1e$\n\"envoy.config.trace.v3.Tracing.HttpB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig:$\x9a\xc5\x88\x1e\x1f\n\x1d\x65nvoy.config.trace.v3.TracingBE\n(io.envoyproxy.envoy.config.trace.v4alphaB\x0fHttpTracerProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n,envoy/config/trace/v4alpha/http_tracer.proto\x12\x1a\x65nvoy.config.trace.v4alpha\x1a\x19google/protobuf/any.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xfd\x01\n\x07Tracing\x12\x36\n\x04http\x18\x01 \x01(\x0b\x32(.envoy.config.trace.v4alpha.Tracing.Http\x1a\x93\x01\n\x04Http\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:)\x9a\xc5\x88\x1e$\n\"envoy.config.trace.v3.Tracing.HttpB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig:$\x9a\xc5\x88\x1e\x1f\n\x1d\x65nvoy.config.trace.v3.TracingBE\n(io.envoyproxy.envoy.config.trace.v4alphaB\x0fHttpTracerProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -45,7 +45,7 @@ _TRACING_HTTP = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='typed_config', full_name='envoy.config.trace.v4alpha.Tracing.Http.typed_config', index=1,
       number=3, type=11, cpp_type=10, label=1,

@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='envoy/extensions/upstreams/http/http/v3/http_connection_pool.proto',
   package='envoy.extensions.upstreams.http.http.v3',
   syntax='proto3',
-  serialized_options=b'\n5io.envoyproxy.envoy.extensions.upstreams.http.http.v3B\027HttpConnectionPoolProtoP\001\272\200\310\321\006\002\020\002',
+  serialized_options=b'\n5io.envoyproxy.envoy.extensions.upstreams.http.http.v3B!HttpConnectionPoolProtoOuterClassP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nBenvoy/extensions/upstreams/http/http/v3/http_connection_pool.proto\x12\'envoy.extensions.upstreams.http.http.v3\x1a\x1dudpa/annotations/status.proto\"\x19\n\x17HttpConnectionPoolProtoBZ\n5io.envoyproxy.envoy.extensions.upstreams.http.http.v3B\x17HttpConnectionPoolProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\nBenvoy/extensions/upstreams/http/http/v3/http_connection_pool.proto\x12\'envoy.extensions.upstreams.http.http.v3\x1a\x1dudpa/annotations/status.proto\"\x19\n\x17HttpConnectionPoolProtoBd\n5io.envoyproxy.envoy.extensions.upstreams.http.http.v3B!HttpConnectionPoolProtoOuterClassP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,])
 

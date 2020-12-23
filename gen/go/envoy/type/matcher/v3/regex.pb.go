@@ -9,9 +9,9 @@ package envoy_type_matcher_v3
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -207,7 +207,7 @@ type RegexMatcher_GoogleRE2 struct {
 	// instead of being done by each individual client.
 	//
 	// Deprecated: Do not use.
-	MaxProgramSize *wrapperspb.UInt32Value `protobuf:"bytes,1,opt,name=max_program_size,json=maxProgramSize,proto3" json:"max_program_size,omitempty"`
+	MaxProgramSize *wrappers.UInt32Value `protobuf:"bytes,1,opt,name=max_program_size,json=maxProgramSize,proto3" json:"max_program_size,omitempty"`
 }
 
 func (x *RegexMatcher_GoogleRE2) Reset() {
@@ -243,7 +243,7 @@ func (*RegexMatcher_GoogleRE2) Descriptor() ([]byte, []int) {
 }
 
 // Deprecated: Do not use.
-func (x *RegexMatcher_GoogleRE2) GetMaxProgramSize() *wrapperspb.UInt32Value {
+func (x *RegexMatcher_GoogleRE2) GetMaxProgramSize() *wrappers.UInt32Value {
 	if x != nil {
 		return x.MaxProgramSize
 	}
@@ -272,7 +272,7 @@ var file_envoy_type_matcher_v3_regex_proto_rawDesc = []byte{
 	0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x52, 0x45, 0x32, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x8a, 0x01,
 	0x02, 0x10, 0x01, 0x48, 0x00, 0x52, 0x09, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x52, 0x65, 0x32,
 	0x12, 0x1d, 0x0a, 0x05, 0x72, 0x65, 0x67, 0x65, 0x78, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x20, 0x01, 0x52, 0x05, 0x72, 0x65, 0x67, 0x65, 0x78, 0x1a,
+	0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x05, 0x72, 0x65, 0x67, 0x65, 0x78, 0x1a,
 	0x89, 0x01, 0x0a, 0x09, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x52, 0x45, 0x32, 0x12, 0x4a, 0x0a,
 	0x10, 0x6d, 0x61, 0x78, 0x5f, 0x70, 0x72, 0x6f, 0x67, 0x72, 0x61, 0x6d, 0x5f, 0x73, 0x69, 0x7a,
 	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
@@ -321,7 +321,7 @@ var file_envoy_type_matcher_v3_regex_proto_goTypes = []interface{}{
 	(*RegexMatcher)(nil),            // 0: envoy.type.matcher.v3.RegexMatcher
 	(*RegexMatchAndSubstitute)(nil), // 1: envoy.type.matcher.v3.RegexMatchAndSubstitute
 	(*RegexMatcher_GoogleRE2)(nil),  // 2: envoy.type.matcher.v3.RegexMatcher.GoogleRE2
-	(*wrapperspb.UInt32Value)(nil),  // 3: google.protobuf.UInt32Value
+	(*wrappers.UInt32Value)(nil),    // 3: google.protobuf.UInt32Value
 }
 var file_envoy_type_matcher_v3_regex_proto_depIdxs = []int32{
 	2, // 0: envoy.type.matcher.v3.RegexMatcher.google_re2:type_name -> envoy.type.matcher.v3.RegexMatcher.GoogleRE2

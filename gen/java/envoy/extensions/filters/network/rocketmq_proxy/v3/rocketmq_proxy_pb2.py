@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n@io.envoyproxy.envoy.extensions.filters.network.rocketmq_proxy.v3B\022RocketmqProxyProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nGenvoy/extensions/filters/network/rocketmq_proxy/v3/rocketmq_proxy.proto\x12\x32\x65nvoy.extensions.filters.network.rocketmq_proxy.v3\x1a>envoy/extensions/filters/network/rocketmq_proxy/v3/route.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xe0\x01\n\rRocketmqProxy\x12\x1c\n\x0bstat_prefix\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\\\n\x0croute_config\x18\x02 \x01(\x0b\x32\x46.envoy.extensions.filters.network.rocketmq_proxy.v3.RouteConfiguration\x12=\n\x1atransient_object_life_span\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x14\n\x0c\x64\x65velop_mode\x18\x04 \x01(\x08\x42`\n@io.envoyproxy.envoy.extensions.filters.network.rocketmq_proxy.v3B\x12RocketmqProxyProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\nGenvoy/extensions/filters/network/rocketmq_proxy/v3/rocketmq_proxy.proto\x12\x32\x65nvoy.extensions.filters.network.rocketmq_proxy.v3\x1a>envoy/extensions/filters/network/rocketmq_proxy/v3/route.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xe0\x01\n\rRocketmqProxy\x12\x1c\n\x0bstat_prefix\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\\\n\x0croute_config\x18\x02 \x01(\x0b\x32\x46.envoy.extensions.filters.network.rocketmq_proxy.v3.RouteConfiguration\x12=\n\x1atransient_object_life_span\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x14\n\x0c\x64\x65velop_mode\x18\x04 \x01(\x08\x42`\n@io.envoyproxy.envoy.extensions.filters.network.rocketmq_proxy.v3B\x12RocketmqProxyProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_extensions_dot_filters_dot_network_dot_rocketmq__proxy_dot_v3_dot_route__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -46,7 +46,7 @@ _ROCKETMQPROXY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='route_config', full_name='envoy.extensions.filters.network.rocketmq_proxy.v3.RocketmqProxy.route_config', index=1,
       number=2, type=11, cpp_type=10, label=1,

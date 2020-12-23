@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n&io.envoyproxy.envoy.extensions.wasm.v3B\tWasmProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n#envoy/extensions/wasm/v3/wasm.proto\x12\x18\x65nvoy.extensions.wasm.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x19google/protobuf/any.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xb0\x01\n\x08VmConfig\x12\r\n\x05vm_id\x18\x01 \x01(\t\x12\x18\n\x07runtime\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x33\n\x04\x63ode\x18\x03 \x01(\x0b\x32%.envoy.config.core.v3.AsyncDataSource\x12+\n\rconfiguration\x18\x04 \x01(\x0b\x32\x14.google.protobuf.Any\x12\x19\n\x11\x61llow_precompiled\x18\x05 \x01(\x08\"\xaa\x01\n\x0cPluginConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\ngroup_name\x18\x02 \x01(\t\x12>\n\x10inline_vm_config\x18\x03 \x01(\x0b\x32\".envoy.extensions.wasm.v3.VmConfigH\x00\x12+\n\rconfiguration\x18\x05 \x01(\x0b\x32\x14.google.protobuf.AnyB\x0b\n\tvm_config\"X\n\x0bWasmService\x12\x36\n\x06\x63onfig\x18\x01 \x01(\x0b\x32&.envoy.extensions.wasm.v3.PluginConfig\x12\x11\n\tsingleton\x18\x02 \x01(\x08\x42=\n&io.envoyproxy.envoy.extensions.wasm.v3B\tWasmProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n#envoy/extensions/wasm/v3/wasm.proto\x12\x18\x65nvoy.extensions.wasm.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x19google/protobuf/any.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xd1\x01\n\x08VmConfig\x12\r\n\x05vm_id\x18\x01 \x01(\t\x12\x18\n\x07runtime\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x33\n\x04\x63ode\x18\x03 \x01(\x0b\x32%.envoy.config.core.v3.AsyncDataSource\x12+\n\rconfiguration\x18\x04 \x01(\x0b\x32\x14.google.protobuf.Any\x12\x19\n\x11\x61llow_precompiled\x18\x05 \x01(\x08\x12\x1f\n\x17nack_on_code_cache_miss\x18\x06 \x01(\x08\"\xba\x01\n\x0cPluginConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07root_id\x18\x02 \x01(\t\x12>\n\x10inline_vm_config\x18\x03 \x01(\x0b\x32\".envoy.extensions.wasm.v3.VmConfigH\x00\x12+\n\rconfiguration\x18\x04 \x01(\x0b\x32\x14.google.protobuf.Any\x12\x11\n\tfail_open\x18\x05 \x01(\x08\x42\x0b\n\tvm_config\"X\n\x0bWasmService\x12\x36\n\x06\x63onfig\x18\x01 \x01(\x0b\x32&.envoy.extensions.wasm.v3.PluginConfig\x12\x11\n\tsingleton\x18\x02 \x01(\x08\x42=\n&io.envoyproxy.envoy.extensions.wasm.v3B\tWasmProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -52,7 +52,7 @@ _VMCONFIG = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='code', full_name='envoy.extensions.wasm.v3.VmConfig.code', index=2,
       number=3, type=11, cpp_type=10, label=1,
@@ -74,6 +74,13 @@ _VMCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='nack_on_code_cache_miss', full_name='envoy.extensions.wasm.v3.VmConfig.nack_on_code_cache_miss', index=5,
+      number=6, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -87,7 +94,7 @@ _VMCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=217,
-  serialized_end=393,
+  serialized_end=426,
 )
 
 
@@ -107,7 +114,7 @@ _PLUGINCONFIG = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='group_name', full_name='envoy.extensions.wasm.v3.PluginConfig.group_name', index=1,
+      name='root_id', full_name='envoy.extensions.wasm.v3.PluginConfig.root_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -122,8 +129,15 @@ _PLUGINCONFIG = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='configuration', full_name='envoy.extensions.wasm.v3.PluginConfig.configuration', index=3,
-      number=5, type=11, cpp_type=10, label=1,
+      number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='fail_open', full_name='envoy.extensions.wasm.v3.PluginConfig.fail_open', index=4,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -144,8 +158,8 @@ _PLUGINCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=396,
-  serialized_end=566,
+  serialized_start=429,
+  serialized_end=615,
 )
 
 
@@ -183,8 +197,8 @@ _WASMSERVICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=568,
-  serialized_end=656,
+  serialized_start=617,
+  serialized_end=705,
 )
 
 _VMCONFIG.fields_by_name['code'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._ASYNCDATASOURCE

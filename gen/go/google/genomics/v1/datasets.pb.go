@@ -22,13 +22,13 @@ package genomics
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	v1 "google.golang.org/genproto/googleapis/iam/v1"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -60,7 +60,7 @@ type Dataset struct {
 	// The dataset name.
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// The time this dataset was created, in seconds from the epoch.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 }
 
 func (x *Dataset) Reset() {
@@ -116,7 +116,7 @@ func (x *Dataset) GetName() string {
 	return ""
 }
 
-func (x *Dataset) GetCreateTime() *timestamppb.Timestamp {
+func (x *Dataset) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -314,7 +314,7 @@ type UpdateDatasetRequest struct {
 	// mutable field is [name][google.genomics.v1.Dataset.name]. The only
 	// acceptable value is "name". If unspecified, all mutable fields will be
 	// updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateDatasetRequest) Reset() {
@@ -363,7 +363,7 @@ func (x *UpdateDatasetRequest) GetDataset() *Dataset {
 	return nil
 }
 
-func (x *UpdateDatasetRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateDatasetRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -687,12 +687,12 @@ var file_google_genomics_v1_datasets_proto_goTypes = []interface{}{
 	(*DeleteDatasetRequest)(nil),          // 5: google.genomics.v1.DeleteDatasetRequest
 	(*UndeleteDatasetRequest)(nil),        // 6: google.genomics.v1.UndeleteDatasetRequest
 	(*GetDatasetRequest)(nil),             // 7: google.genomics.v1.GetDatasetRequest
-	(*timestamppb.Timestamp)(nil),         // 8: google.protobuf.Timestamp
-	(*fieldmaskpb.FieldMask)(nil),         // 9: google.protobuf.FieldMask
+	(*timestamp.Timestamp)(nil),           // 8: google.protobuf.Timestamp
+	(*field_mask.FieldMask)(nil),          // 9: google.protobuf.FieldMask
 	(*v1.SetIamPolicyRequest)(nil),        // 10: google.iam.v1.SetIamPolicyRequest
 	(*v1.GetIamPolicyRequest)(nil),        // 11: google.iam.v1.GetIamPolicyRequest
 	(*v1.TestIamPermissionsRequest)(nil),  // 12: google.iam.v1.TestIamPermissionsRequest
-	(*emptypb.Empty)(nil),                 // 13: google.protobuf.Empty
+	(*empty.Empty)(nil),                   // 13: google.protobuf.Empty
 	(*v1.Policy)(nil),                     // 14: google.iam.v1.Policy
 	(*v1.TestIamPermissionsResponse)(nil), // 15: google.iam.v1.TestIamPermissionsResponse
 }

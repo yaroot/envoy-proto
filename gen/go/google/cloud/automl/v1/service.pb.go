@@ -24,9 +24,9 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -303,7 +303,7 @@ type UpdateDatasetRequest struct {
 	// Required. The dataset which replaces the resource on the server.
 	Dataset *Dataset `protobuf:"bytes,1,opt,name=dataset,proto3" json:"dataset,omitempty"`
 	// Required. The update mask applies to the resource.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateDatasetRequest) Reset() {
@@ -345,7 +345,7 @@ func (x *UpdateDatasetRequest) GetDataset() *Dataset {
 	return nil
 }
 
-func (x *UpdateDatasetRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateDatasetRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -879,7 +879,7 @@ type UpdateModelRequest struct {
 	// Required. The model which replaces the resource on the server.
 	Model *Model `protobuf:"bytes,1,opt,name=model,proto3" json:"model,omitempty"`
 	// Required. The update mask applies to the resource.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateModelRequest) Reset() {
@@ -921,7 +921,7 @@ func (x *UpdateModelRequest) GetModel() *Model {
 	return nil
 }
 
-func (x *UpdateModelRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateModelRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1837,7 +1837,7 @@ var file_google_cloud_automl_v1_service_proto_goTypes = []interface{}{
 	(*ListModelEvaluationsRequest)(nil),                 // 19: google.cloud.automl.v1.ListModelEvaluationsRequest
 	(*ListModelEvaluationsResponse)(nil),                // 20: google.cloud.automl.v1.ListModelEvaluationsResponse
 	(*Dataset)(nil),                                     // 21: google.cloud.automl.v1.Dataset
-	(*fieldmaskpb.FieldMask)(nil),                       // 22: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),                        // 22: google.protobuf.FieldMask
 	(*InputConfig)(nil),                                 // 23: google.cloud.automl.v1.InputConfig
 	(*OutputConfig)(nil),                                // 24: google.cloud.automl.v1.OutputConfig
 	(*Model)(nil),                                       // 25: google.cloud.automl.v1.Model

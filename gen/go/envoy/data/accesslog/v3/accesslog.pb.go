@@ -10,12 +10,12 @@ import (
 	v3 "envoy/config/core/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -401,38 +401,38 @@ type AccessLogCommon struct {
 	TlsProperties *TLSProperties `protobuf:"bytes,4,opt,name=tls_properties,json=tlsProperties,proto3" json:"tls_properties,omitempty"`
 	// The time that Envoy started servicing this request. This is effectively the time that the first
 	// downstream byte is received.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// Interval between the first downstream byte received and the last
 	// downstream byte received (i.e. time it takes to receive a request).
-	TimeToLastRxByte *durationpb.Duration `protobuf:"bytes,6,opt,name=time_to_last_rx_byte,json=timeToLastRxByte,proto3" json:"time_to_last_rx_byte,omitempty"`
+	TimeToLastRxByte *duration.Duration `protobuf:"bytes,6,opt,name=time_to_last_rx_byte,json=timeToLastRxByte,proto3" json:"time_to_last_rx_byte,omitempty"`
 	// Interval between the first downstream byte received and the first upstream byte sent. There may
 	// by considerable delta between *time_to_last_rx_byte* and this value due to filters.
 	// Additionally, the same caveats apply as documented in *time_to_last_downstream_tx_byte* about
 	// not accounting for kernel socket buffer time, etc.
-	TimeToFirstUpstreamTxByte *durationpb.Duration `protobuf:"bytes,7,opt,name=time_to_first_upstream_tx_byte,json=timeToFirstUpstreamTxByte,proto3" json:"time_to_first_upstream_tx_byte,omitempty"`
+	TimeToFirstUpstreamTxByte *duration.Duration `protobuf:"bytes,7,opt,name=time_to_first_upstream_tx_byte,json=timeToFirstUpstreamTxByte,proto3" json:"time_to_first_upstream_tx_byte,omitempty"`
 	// Interval between the first downstream byte received and the last upstream byte sent. There may
 	// by considerable delta between *time_to_last_rx_byte* and this value due to filters.
 	// Additionally, the same caveats apply as documented in *time_to_last_downstream_tx_byte* about
 	// not accounting for kernel socket buffer time, etc.
-	TimeToLastUpstreamTxByte *durationpb.Duration `protobuf:"bytes,8,opt,name=time_to_last_upstream_tx_byte,json=timeToLastUpstreamTxByte,proto3" json:"time_to_last_upstream_tx_byte,omitempty"`
+	TimeToLastUpstreamTxByte *duration.Duration `protobuf:"bytes,8,opt,name=time_to_last_upstream_tx_byte,json=timeToLastUpstreamTxByte,proto3" json:"time_to_last_upstream_tx_byte,omitempty"`
 	// Interval between the first downstream byte received and the first upstream
 	// byte received (i.e. time it takes to start receiving a response).
-	TimeToFirstUpstreamRxByte *durationpb.Duration `protobuf:"bytes,9,opt,name=time_to_first_upstream_rx_byte,json=timeToFirstUpstreamRxByte,proto3" json:"time_to_first_upstream_rx_byte,omitempty"`
+	TimeToFirstUpstreamRxByte *duration.Duration `protobuf:"bytes,9,opt,name=time_to_first_upstream_rx_byte,json=timeToFirstUpstreamRxByte,proto3" json:"time_to_first_upstream_rx_byte,omitempty"`
 	// Interval between the first downstream byte received and the last upstream
 	// byte received (i.e. time it takes to receive a complete response).
-	TimeToLastUpstreamRxByte *durationpb.Duration `protobuf:"bytes,10,opt,name=time_to_last_upstream_rx_byte,json=timeToLastUpstreamRxByte,proto3" json:"time_to_last_upstream_rx_byte,omitempty"`
+	TimeToLastUpstreamRxByte *duration.Duration `protobuf:"bytes,10,opt,name=time_to_last_upstream_rx_byte,json=timeToLastUpstreamRxByte,proto3" json:"time_to_last_upstream_rx_byte,omitempty"`
 	// Interval between the first downstream byte received and the first downstream byte sent.
 	// There may be a considerable delta between the *time_to_first_upstream_rx_byte* and this field
 	// due to filters. Additionally, the same caveats apply as documented in
 	// *time_to_last_downstream_tx_byte* about not accounting for kernel socket buffer time, etc.
-	TimeToFirstDownstreamTxByte *durationpb.Duration `protobuf:"bytes,11,opt,name=time_to_first_downstream_tx_byte,json=timeToFirstDownstreamTxByte,proto3" json:"time_to_first_downstream_tx_byte,omitempty"`
+	TimeToFirstDownstreamTxByte *duration.Duration `protobuf:"bytes,11,opt,name=time_to_first_downstream_tx_byte,json=timeToFirstDownstreamTxByte,proto3" json:"time_to_first_downstream_tx_byte,omitempty"`
 	// Interval between the first downstream byte received and the last downstream byte sent.
 	// Depending on protocol, buffering, windowing, filters, etc. there may be a considerable delta
 	// between *time_to_last_upstream_rx_byte* and this field. Note also that this is an approximate
 	// time. In the current implementation it does not include kernel socket buffer time. In the
 	// current implementation it also does not include send window buffering inside the HTTP/2 codec.
 	// In the future it is likely that work will be done to make this duration more accurate.
-	TimeToLastDownstreamTxByte *durationpb.Duration `protobuf:"bytes,12,opt,name=time_to_last_downstream_tx_byte,json=timeToLastDownstreamTxByte,proto3" json:"time_to_last_downstream_tx_byte,omitempty"`
+	TimeToLastDownstreamTxByte *duration.Duration `protobuf:"bytes,12,opt,name=time_to_last_downstream_tx_byte,json=timeToLastDownstreamTxByte,proto3" json:"time_to_last_downstream_tx_byte,omitempty"`
 	// The upstream remote/destination address that handles this exchange. This does not include
 	// retries.
 	UpstreamRemoteAddress *v3.Address `protobuf:"bytes,13,opt,name=upstream_remote_address,json=upstreamRemoteAddress,proto3" json:"upstream_remote_address,omitempty"`
@@ -465,7 +465,7 @@ type AccessLogCommon struct {
 	// Map of filter state in stream info that have been configured to be logged. If the filter
 	// state serialized to any message other than `google.protobuf.Any` it will be packed into
 	// `google.protobuf.Any`.
-	FilterStateObjects map[string]*anypb.Any `protobuf:"bytes,21,rep,name=filter_state_objects,json=filterStateObjects,proto3" json:"filter_state_objects,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	FilterStateObjects map[string]*any.Any `protobuf:"bytes,21,rep,name=filter_state_objects,json=filterStateObjects,proto3" json:"filter_state_objects,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *AccessLogCommon) Reset() {
@@ -528,56 +528,56 @@ func (x *AccessLogCommon) GetTlsProperties() *TLSProperties {
 	return nil
 }
 
-func (x *AccessLogCommon) GetStartTime() *timestamppb.Timestamp {
+func (x *AccessLogCommon) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *AccessLogCommon) GetTimeToLastRxByte() *durationpb.Duration {
+func (x *AccessLogCommon) GetTimeToLastRxByte() *duration.Duration {
 	if x != nil {
 		return x.TimeToLastRxByte
 	}
 	return nil
 }
 
-func (x *AccessLogCommon) GetTimeToFirstUpstreamTxByte() *durationpb.Duration {
+func (x *AccessLogCommon) GetTimeToFirstUpstreamTxByte() *duration.Duration {
 	if x != nil {
 		return x.TimeToFirstUpstreamTxByte
 	}
 	return nil
 }
 
-func (x *AccessLogCommon) GetTimeToLastUpstreamTxByte() *durationpb.Duration {
+func (x *AccessLogCommon) GetTimeToLastUpstreamTxByte() *duration.Duration {
 	if x != nil {
 		return x.TimeToLastUpstreamTxByte
 	}
 	return nil
 }
 
-func (x *AccessLogCommon) GetTimeToFirstUpstreamRxByte() *durationpb.Duration {
+func (x *AccessLogCommon) GetTimeToFirstUpstreamRxByte() *duration.Duration {
 	if x != nil {
 		return x.TimeToFirstUpstreamRxByte
 	}
 	return nil
 }
 
-func (x *AccessLogCommon) GetTimeToLastUpstreamRxByte() *durationpb.Duration {
+func (x *AccessLogCommon) GetTimeToLastUpstreamRxByte() *duration.Duration {
 	if x != nil {
 		return x.TimeToLastUpstreamRxByte
 	}
 	return nil
 }
 
-func (x *AccessLogCommon) GetTimeToFirstDownstreamTxByte() *durationpb.Duration {
+func (x *AccessLogCommon) GetTimeToFirstDownstreamTxByte() *duration.Duration {
 	if x != nil {
 		return x.TimeToFirstDownstreamTxByte
 	}
 	return nil
 }
 
-func (x *AccessLogCommon) GetTimeToLastDownstreamTxByte() *durationpb.Duration {
+func (x *AccessLogCommon) GetTimeToLastDownstreamTxByte() *duration.Duration {
 	if x != nil {
 		return x.TimeToLastDownstreamTxByte
 	}
@@ -640,7 +640,7 @@ func (x *AccessLogCommon) GetDownstreamDirectRemoteAddress() *v3.Address {
 	return nil
 }
 
-func (x *AccessLogCommon) GetFilterStateObjects() map[string]*anypb.Any {
+func (x *AccessLogCommon) GetFilterStateObjects() map[string]*any.Any {
 	if x != nil {
 		return x.FilterStateObjects
 	}
@@ -648,7 +648,7 @@ func (x *AccessLogCommon) GetFilterStateObjects() map[string]*anypb.Any {
 }
 
 // Flags indicating occurrences during request/response processing.
-// [#next-free-field: 22]
+// [#next-free-field: 24]
 type ResponseFlags struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -697,6 +697,10 @@ type ResponseFlags struct {
 	UpstreamMaxStreamDurationReached bool `protobuf:"varint,20,opt,name=upstream_max_stream_duration_reached,json=upstreamMaxStreamDurationReached,proto3" json:"upstream_max_stream_duration_reached,omitempty"`
 	// Indicates the response was served from a cache filter.
 	ResponseFromCacheFilter bool `protobuf:"varint,21,opt,name=response_from_cache_filter,json=responseFromCacheFilter,proto3" json:"response_from_cache_filter,omitempty"`
+	// Indicates that a filter configuration is not available.
+	NoFilterConfigFound bool `protobuf:"varint,22,opt,name=no_filter_config_found,json=noFilterConfigFound,proto3" json:"no_filter_config_found,omitempty"`
+	// Indicates that request or connection exceeded the downstream connection duration.
+	DurationTimeout bool `protobuf:"varint,23,opt,name=duration_timeout,json=durationTimeout,proto3" json:"duration_timeout,omitempty"`
 }
 
 func (x *ResponseFlags) Reset() {
@@ -878,6 +882,20 @@ func (x *ResponseFlags) GetResponseFromCacheFilter() bool {
 	return false
 }
 
+func (x *ResponseFlags) GetNoFilterConfigFound() bool {
+	if x != nil {
+		return x.NoFilterConfigFound
+	}
+	return false
+}
+
+func (x *ResponseFlags) GetDurationTimeout() bool {
+	if x != nil {
+		return x.DurationTimeout
+	}
+	return false
+}
+
 // Properties of a negotiated TLS connection.
 // [#next-free-field: 7]
 type TLSProperties struct {
@@ -892,7 +910,7 @@ type TLSProperties struct {
 	// (e.g. ``009C`` for ``TLS_RSA_WITH_AES_128_GCM_SHA256``).
 	//
 	// Here it is expressed as an integer.
-	TlsCipherSuite *wrapperspb.UInt32Value `protobuf:"bytes,2,opt,name=tls_cipher_suite,json=tlsCipherSuite,proto3" json:"tls_cipher_suite,omitempty"`
+	TlsCipherSuite *wrappers.UInt32Value `protobuf:"bytes,2,opt,name=tls_cipher_suite,json=tlsCipherSuite,proto3" json:"tls_cipher_suite,omitempty"`
 	// SNI hostname from handshake.
 	TlsSniHostname string `protobuf:"bytes,3,opt,name=tls_sni_hostname,json=tlsSniHostname,proto3" json:"tls_sni_hostname,omitempty"`
 	// Properties of the local certificate used to negotiate TLS.
@@ -942,7 +960,7 @@ func (x *TLSProperties) GetTlsVersion() TLSProperties_TLSVersion {
 	return TLSProperties_VERSION_UNSPECIFIED
 }
 
-func (x *TLSProperties) GetTlsCipherSuite() *wrapperspb.UInt32Value {
+func (x *TLSProperties) GetTlsCipherSuite() *wrappers.UInt32Value {
 	if x != nil {
 		return x.TlsCipherSuite
 	}
@@ -991,7 +1009,7 @@ type HTTPRequestProperties struct {
 	Authority string `protobuf:"bytes,3,opt,name=authority,proto3" json:"authority,omitempty"`
 	// The port of the incoming request URI
 	// (unused currently, as port is composed onto authority).
-	Port *wrapperspb.UInt32Value `protobuf:"bytes,4,opt,name=port,proto3" json:"port,omitempty"`
+	Port *wrappers.UInt32Value `protobuf:"bytes,4,opt,name=port,proto3" json:"port,omitempty"`
 	// The path portion from the incoming request URI.
 	Path string `protobuf:"bytes,5,opt,name=path,proto3" json:"path,omitempty"`
 	// Value of the ``User-Agent`` request header.
@@ -1075,7 +1093,7 @@ func (x *HTTPRequestProperties) GetAuthority() string {
 	return ""
 }
 
-func (x *HTTPRequestProperties) GetPort() *wrapperspb.UInt32Value {
+func (x *HTTPRequestProperties) GetPort() *wrappers.UInt32Value {
 	if x != nil {
 		return x.Port
 	}
@@ -1152,7 +1170,7 @@ type HTTPResponseProperties struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The HTTP response code returned by Envoy.
-	ResponseCode *wrapperspb.UInt32Value `protobuf:"bytes,1,opt,name=response_code,json=responseCode,proto3" json:"response_code,omitempty"`
+	ResponseCode *wrappers.UInt32Value `protobuf:"bytes,1,opt,name=response_code,json=responseCode,proto3" json:"response_code,omitempty"`
 	// Size of the HTTP response headers in bytes.
 	//
 	// This value is captured from the OSI layer 7 perspective, i.e. it does not
@@ -1203,7 +1221,7 @@ func (*HTTPResponseProperties) Descriptor() ([]byte, []int) {
 	return file_envoy_data_accesslog_v3_accesslog_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *HTTPResponseProperties) GetResponseCode() *wrapperspb.UInt32Value {
+func (x *HTTPResponseProperties) GetResponseCode() *wrappers.UInt32Value {
 	if x != nil {
 		return x.ResponseCode
 	}
@@ -1629,7 +1647,7 @@ var file_envoy_data_accesslog_v3_accesslog_proto_rawDesc = []byte{
 	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x3a, 0x2e, 0x9a, 0xc5, 0x88, 0x1e,
 	0x29, 0x0a, 0x27, 0x65, 0x6e, 0x76, 0x6f, 0x79, 0x2e, 0x64, 0x61, 0x74, 0x61, 0x2e, 0x61, 0x63,
 	0x63, 0x65, 0x73, 0x73, 0x6c, 0x6f, 0x67, 0x2e, 0x76, 0x32, 0x2e, 0x41, 0x63, 0x63, 0x65, 0x73,
-	0x73, 0x4c, 0x6f, 0x67, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x22, 0xc6, 0x0b, 0x0a, 0x0d, 0x52,
+	0x73, 0x4c, 0x6f, 0x67, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x22, 0xa6, 0x0c, 0x0a, 0x0d, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x46, 0x6c, 0x61, 0x67, 0x73, 0x12, 0x38, 0x0a, 0x18,
 	0x66, 0x61, 0x69, 0x6c, 0x65, 0x64, 0x5f, 0x6c, 0x6f, 0x63, 0x61, 0x6c, 0x5f, 0x68, 0x65, 0x61,
 	0x6c, 0x74, 0x68, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x16,
@@ -1705,7 +1723,13 @@ var file_envoy_data_accesslog_v3_accesslog_proto_rawDesc = []byte{
 	0x12, 0x3b, 0x0a, 0x1a, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x5f, 0x66, 0x72, 0x6f,
 	0x6d, 0x5f, 0x63, 0x61, 0x63, 0x68, 0x65, 0x5f, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x18, 0x15,
 	0x20, 0x01, 0x28, 0x08, 0x52, 0x17, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x46, 0x72,
-	0x6f, 0x6d, 0x43, 0x61, 0x63, 0x68, 0x65, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x1a, 0xd5, 0x01,
+	0x6f, 0x6d, 0x43, 0x61, 0x63, 0x68, 0x65, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x12, 0x33, 0x0a,
+	0x16, 0x6e, 0x6f, 0x5f, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x5f, 0x63, 0x6f, 0x6e, 0x66, 0x69,
+	0x67, 0x5f, 0x66, 0x6f, 0x75, 0x6e, 0x64, 0x18, 0x16, 0x20, 0x01, 0x28, 0x08, 0x52, 0x13, 0x6e,
+	0x6f, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x46, 0x6f, 0x75,
+	0x6e, 0x64, 0x12, 0x29, 0x0a, 0x10, 0x64, 0x75, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x74,
+	0x69, 0x6d, 0x65, 0x6f, 0x75, 0x74, 0x18, 0x17, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0f, 0x64, 0x75,
+	0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x54, 0x69, 0x6d, 0x65, 0x6f, 0x75, 0x74, 0x1a, 0xd5, 0x01,
 	0x0a, 0x0c, 0x55, 0x6e, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x69, 0x7a, 0x65, 0x64, 0x12, 0x52,
 	0x0a, 0x06, 0x72, 0x65, 0x61, 0x73, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x3a,
 	0x2e, 0x65, 0x6e, 0x76, 0x6f, 0x79, 0x2e, 0x64, 0x61, 0x74, 0x61, 0x2e, 0x61, 0x63, 0x63, 0x65,
@@ -1911,16 +1935,16 @@ var file_envoy_data_accesslog_v3_accesslog_proto_goTypes = []interface{}{
 	(*ResponseFlags_Unauthorized)(nil),                         // 12: envoy.data.accesslog.v3.ResponseFlags.Unauthorized
 	(*TLSProperties_CertificateProperties)(nil),                // 13: envoy.data.accesslog.v3.TLSProperties.CertificateProperties
 	(*TLSProperties_CertificateProperties_SubjectAltName)(nil), // 14: envoy.data.accesslog.v3.TLSProperties.CertificateProperties.SubjectAltName
-	nil,                            // 15: envoy.data.accesslog.v3.HTTPRequestProperties.RequestHeadersEntry
-	nil,                            // 16: envoy.data.accesslog.v3.HTTPResponseProperties.ResponseHeadersEntry
-	nil,                            // 17: envoy.data.accesslog.v3.HTTPResponseProperties.ResponseTrailersEntry
-	(*v3.Address)(nil),             // 18: envoy.config.core.v3.Address
-	(*timestamppb.Timestamp)(nil),  // 19: google.protobuf.Timestamp
-	(*durationpb.Duration)(nil),    // 20: google.protobuf.Duration
-	(*v3.Metadata)(nil),            // 21: envoy.config.core.v3.Metadata
-	(*wrapperspb.UInt32Value)(nil), // 22: google.protobuf.UInt32Value
-	(v3.RequestMethod)(0),          // 23: envoy.config.core.v3.RequestMethod
-	(*anypb.Any)(nil),              // 24: google.protobuf.Any
+	nil,                          // 15: envoy.data.accesslog.v3.HTTPRequestProperties.RequestHeadersEntry
+	nil,                          // 16: envoy.data.accesslog.v3.HTTPResponseProperties.ResponseHeadersEntry
+	nil,                          // 17: envoy.data.accesslog.v3.HTTPResponseProperties.ResponseTrailersEntry
+	(*v3.Address)(nil),           // 18: envoy.config.core.v3.Address
+	(*timestamp.Timestamp)(nil),  // 19: google.protobuf.Timestamp
+	(*duration.Duration)(nil),    // 20: google.protobuf.Duration
+	(*v3.Metadata)(nil),          // 21: envoy.config.core.v3.Metadata
+	(*wrappers.UInt32Value)(nil), // 22: google.protobuf.UInt32Value
+	(v3.RequestMethod)(0),        // 23: envoy.config.core.v3.RequestMethod
+	(*any.Any)(nil),              // 24: google.protobuf.Any
 }
 var file_envoy_data_accesslog_v3_accesslog_proto_depIdxs = []int32{
 	6,  // 0: envoy.data.accesslog.v3.TCPAccessLogEntry.common_properties:type_name -> envoy.data.accesslog.v3.AccessLogCommon

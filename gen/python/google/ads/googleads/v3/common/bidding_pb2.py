@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"com.google.ads.googleads.v3.commonB\014BiddingProtoP\001ZDgoogle.golang.org/genproto/googleapis/ads/googleads/v3/common;common\242\002\003GAA\252\002\036Google.Ads.GoogleAds.V3.Common\312\002\036Google\\Ads\\GoogleAds\\V3\\Common\352\002\"Google::Ads::GoogleAds::V3::Common',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,google/ads/googleads/v3/common/bidding.proto\x12\x1egoogle.ads.googleads.v3.common\x1a\x44google/ads/googleads/v3/enums/target_impression_share_location.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1cgoogle/api/annotations.proto\"I\n\nCommission\x12;\n\x16\x63ommission_rate_micros\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\"\r\n\x0b\x45nhancedCpc\"E\n\tManualCpc\x12\x38\n\x14\x65nhanced_cpc_enabled\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\x0b\n\tManualCpm\"\x0b\n\tManualCpv\"\x15\n\x13MaximizeConversions\"L\n\x17MaximizeConversionValue\x12\x31\n\x0btarget_roas\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\"\xbb\x01\n\tTargetCpa\x12\x36\n\x11target_cpa_micros\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12;\n\x16\x63pc_bid_ceiling_micros\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x39\n\x14\x63pc_bid_floor_micros\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\"\x0b\n\tTargetCpm\"\x85\x02\n\x15TargetImpressionShare\x12p\n\x08location\x18\x01 \x01(\x0e\x32^.google.ads.googleads.v3.enums.TargetImpressionShareLocationEnum.TargetImpressionShareLocation\x12=\n\x18location_fraction_micros\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12;\n\x16\x63pc_bid_ceiling_micros\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\"\xb7\x01\n\nTargetRoas\x12\x31\n\x0btarget_roas\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12;\n\x16\x63pc_bid_ceiling_micros\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x39\n\x14\x63pc_bid_floor_micros\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\"\x84\x01\n\x0bTargetSpend\x12\x38\n\x13target_spend_micros\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12;\n\x16\x63pc_bid_ceiling_micros\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\"\x83\x01\n\nPercentCpc\x12;\n\x16\x63pc_bid_ceiling_micros\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x38\n\x14\x65nhanced_cpc_enabled\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\xe7\x01\n\"com.google.ads.googleads.v3.commonB\x0c\x42iddingProtoP\x01ZDgoogle.golang.org/genproto/googleapis/ads/googleads/v3/common;common\xa2\x02\x03GAA\xaa\x02\x1eGoogle.Ads.GoogleAds.V3.Common\xca\x02\x1eGoogle\\Ads\\GoogleAds\\V3\\Common\xea\x02\"Google::Ads::GoogleAds::V3::Commonb\x06proto3'
+  serialized_pb=b'\n,google/ads/googleads/v3/common/bidding.proto\x12\x1egoogle.ads.googleads.v3.common\x1a\x44google/ads/googleads/v3/enums/target_impression_share_location.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1cgoogle/api/annotations.proto\"I\n\nCommission\x12;\n\x16\x63ommission_rate_micros\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\"\r\n\x0b\x45nhancedCpc\"E\n\tManualCpc\x12\x38\n\x14\x65nhanced_cpc_enabled\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\x0b\n\tManualCpm\"\x0b\n\tManualCpv\"\x15\n\x13MaximizeConversions\"L\n\x17MaximizeConversionValue\x12\x31\n\x0btarget_roas\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\"\xbb\x01\n\tTargetCpa\x12\x36\n\x11target_cpa_micros\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12;\n\x16\x63pc_bid_ceiling_micros\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x39\n\x14\x63pc_bid_floor_micros\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\"\x0b\n\tTargetCpm\"\x85\x02\n\x15TargetImpressionShare\x12p\n\x08location\x18\x01 \x01(\x0e\x32^.google.ads.googleads.v3.enums.TargetImpressionShareLocationEnum.TargetImpressionShareLocation\x12=\n\x18location_fraction_micros\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12;\n\x16\x63pc_bid_ceiling_micros\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\"\xb7\x01\n\nTargetRoas\x12\x31\n\x0btarget_roas\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12;\n\x16\x63pc_bid_ceiling_micros\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x39\n\x14\x63pc_bid_floor_micros\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\"\x88\x01\n\x0bTargetSpend\x12<\n\x13target_spend_micros\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueB\x02\x18\x01\x12;\n\x16\x63pc_bid_ceiling_micros\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\"\x83\x01\n\nPercentCpc\x12;\n\x16\x63pc_bid_ceiling_micros\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x38\n\x14\x65nhanced_cpc_enabled\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\xe7\x01\n\"com.google.ads.googleads.v3.commonB\x0c\x42iddingProtoP\x01ZDgoogle.golang.org/genproto/googleapis/ads/googleads/v3/common;common\xa2\x02\x03GAA\xaa\x02\x1eGoogle.Ads.GoogleAds.V3.Common\xca\x02\x1eGoogle\\Ads\\GoogleAds\\V3\\Common\xea\x02\"Google::Ads::GoogleAds::V3::Commonb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v3_dot_enums_dot_target__impression__share__location__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -402,7 +402,7 @@ _TARGETSPEND = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='cpc_bid_ceiling_micros', full_name='google.ads.googleads.v3.common.TargetSpend.cpc_bid_ceiling_micros', index=1,
       number=2, type=11, cpp_type=10, label=1,
@@ -423,7 +423,7 @@ _TARGETSPEND = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1154,
-  serialized_end=1286,
+  serialized_end=1290,
 )
 
 
@@ -461,8 +461,8 @@ _PERCENTCPC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1289,
-  serialized_end=1420,
+  serialized_start=1293,
+  serialized_end=1424,
 )
 
 _COMMISSION.fields_by_name['commission_rate_micros'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT64VALUE
@@ -589,4 +589,5 @@ _sym_db.RegisterMessage(PercentCpc)
 
 
 DESCRIPTOR._options = None
+_TARGETSPEND.fields_by_name['target_spend_micros']._options = None
 # @@protoc_insertion_point(module_scope)

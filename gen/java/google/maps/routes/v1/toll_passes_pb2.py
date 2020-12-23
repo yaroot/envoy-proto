@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\031com.google.maps.routes.v1B\017TollPassesProtoP\001Z;google.golang.org/genproto/googleapis/maps/routes/v1;routes\370\001\001\242\002\004GMRS\252\002\025Google.Maps.Routes.V1\312\002\025Google\\Maps\\Routes\\V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'google/maps/routes/v1/toll_passes.proto\x12\x15google.maps.routes.v1*I\n\x08TollPass\x12\x19\n\x15TOLL_PASS_UNSPECIFIED\x10\x00\x12\x14\n\x10US_WA_GOOD_TO_GO\x10\x01\x12\x0c\n\x08\x41U_LINKT\x10\x02\x42\xa5\x01\n\x19\x63om.google.maps.routes.v1B\x0fTollPassesProtoP\x01Z;google.golang.org/genproto/googleapis/maps/routes/v1;routes\xf8\x01\x01\xa2\x02\x04GMRS\xaa\x02\x15Google.Maps.Routes.V1\xca\x02\x15Google\\Maps\\Routes\\V1b\x06proto3'
+  serialized_pb=b'\n\'google/maps/routes/v1/toll_passes.proto\x12\x15google.maps.routes.v1*Z\n\x08TollPass\x12\x19\n\x15TOLL_PASS_UNSPECIFIED\x10\x00\x12\x14\n\x10US_WA_GOOD_TO_GO\x10\x01\x12\x0c\n\x08\x41U_LINKT\x10\x02\x12\x0f\n\x0b\x41R_TELEPASE\x10\x03\x42\xa5\x01\n\x19\x63om.google.maps.routes.v1B\x0fTollPassesProtoP\x01Z;google.golang.org/genproto/googleapis/maps/routes/v1;routes\xf8\x01\x01\xa2\x02\x04GMRS\xaa\x02\x15Google.Maps.Routes.V1\xca\x02\x15Google\\Maps\\Routes\\V1b\x06proto3'
 )
 
 _TOLLPASS = _descriptor.EnumDescriptor(
@@ -45,11 +45,16 @@ _TOLLPASS = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='AR_TELEPASE', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=66,
-  serialized_end=139,
+  serialized_end=156,
 )
 _sym_db.RegisterEnumDescriptor(_TOLLPASS)
 
@@ -57,6 +62,7 @@ TollPass = enum_type_wrapper.EnumTypeWrapper(_TOLLPASS)
 TOLL_PASS_UNSPECIFIED = 0
 US_WA_GOOD_TO_GO = 1
 AU_LINKT = 2
+AR_TELEPASE = 3
 
 
 DESCRIPTOR.enum_types_by_name['TollPass'] = _TOLLPASS

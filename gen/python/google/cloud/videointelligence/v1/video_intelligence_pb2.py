@@ -27,7 +27,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n%com.google.cloud.videointelligence.v1B\035VideoIntelligenceServiceProtoP\001ZRgoogle.golang.org/genproto/googleapis/cloud/videointelligence/v1;videointelligence\252\002!Google.Cloud.VideoIntelligence.V1\312\002!Google\\Cloud\\VideoIntelligence\\V1\352\002$Google::Cloud::VideoIntelligence::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n:google/cloud/videointelligence/v1/video_intelligence.proto\x12!google.cloud.videointelligence.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xfe\x01\n\x14\x41nnotateVideoRequest\x12\x11\n\tinput_uri\x18\x01 \x01(\t\x12\x15\n\rinput_content\x18\x06 \x01(\x0c\x12\x41\n\x08\x66\x65\x61tures\x18\x02 \x03(\x0e\x32*.google.cloud.videointelligence.v1.FeatureB\x03\xe0\x41\x02\x12\x46\n\rvideo_context\x18\x03 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoContext\x12\x17\n\noutput_uri\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x18\n\x0blocation_id\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xe6\x05\n\x0cVideoContext\x12\x41\n\x08segments\x18\x01 \x03(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\x12W\n\x16label_detection_config\x18\x02 \x01(\x0b\x32\x37.google.cloud.videointelligence.v1.LabelDetectionConfig\x12\x62\n\x1cshot_change_detection_config\x18\x03 \x01(\x0b\x32<.google.cloud.videointelligence.v1.ShotChangeDetectionConfig\x12l\n!explicit_content_detection_config\x18\x04 \x01(\x0b\x32\x41.google.cloud.videointelligence.v1.ExplicitContentDetectionConfig\x12U\n\x15\x66\x61\x63\x65_detection_config\x18\x05 \x01(\x0b\x32\x36.google.cloud.videointelligence.v1.FaceDetectionConfig\x12\x61\n\x1bspeech_transcription_config\x18\x06 \x01(\x0b\x32<.google.cloud.videointelligence.v1.SpeechTranscriptionConfig\x12U\n\x15text_detection_config\x18\x08 \x01(\x0b\x32\x36.google.cloud.videointelligence.v1.TextDetectionConfig\x12W\n\x16object_tracking_config\x18\r \x01(\x0b\x32\x37.google.cloud.videointelligence.v1.ObjectTrackingConfig\"\xdd\x01\n\x14LabelDetectionConfig\x12S\n\x14label_detection_mode\x18\x01 \x01(\x0e\x32\x35.google.cloud.videointelligence.v1.LabelDetectionMode\x12\x19\n\x11stationary_camera\x18\x02 \x01(\x08\x12\r\n\x05model\x18\x03 \x01(\t\x12\"\n\x1a\x66rame_confidence_threshold\x18\x04 \x01(\x02\x12\"\n\x1avideo_confidence_threshold\x18\x05 \x01(\x02\"*\n\x19ShotChangeDetectionConfig\x12\r\n\x05model\x18\x01 \x01(\t\"%\n\x14ObjectTrackingConfig\x12\r\n\x05model\x18\x01 \x01(\t\"D\n\x13\x46\x61\x63\x65\x44\x65tectionConfig\x12\r\n\x05model\x18\x01 \x01(\t\x12\x1e\n\x16include_bounding_boxes\x18\x02 \x01(\x08\"/\n\x1e\x45xplicitContentDetectionConfig\x12\r\n\x05model\x18\x01 \x01(\t\"<\n\x13TextDetectionConfig\x12\x16\n\x0elanguage_hints\x18\x01 \x03(\t\x12\r\n\x05model\x18\x02 \x01(\t\"x\n\x0cVideoSegment\x12\x34\n\x11start_time_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x32\n\x0f\x65nd_time_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\"d\n\x0cLabelSegment\x12@\n\x07segment\x18\x01 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\x12\x12\n\nconfidence\x18\x02 \x01(\x02\"P\n\nLabelFrame\x12.\n\x0btime_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x12\n\nconfidence\x18\x02 \x01(\x02\"G\n\x06\x45ntity\x12\x11\n\tentity_id\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x15\n\rlanguage_code\x18\x03 \x01(\t\"\x94\x02\n\x0fLabelAnnotation\x12\x39\n\x06\x65ntity\x18\x01 \x01(\x0b\x32).google.cloud.videointelligence.v1.Entity\x12\x44\n\x11\x63\x61tegory_entities\x18\x02 \x03(\x0b\x32).google.cloud.videointelligence.v1.Entity\x12\x41\n\x08segments\x18\x03 \x03(\x0b\x32/.google.cloud.videointelligence.v1.LabelSegment\x12=\n\x06\x66rames\x18\x04 \x03(\x0b\x32-.google.cloud.videointelligence.v1.LabelFrame\"\x95\x01\n\x14\x45xplicitContentFrame\x12.\n\x0btime_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12M\n\x16pornography_likelihood\x18\x02 \x01(\x0e\x32-.google.cloud.videointelligence.v1.Likelihood\"d\n\x19\x45xplicitContentAnnotation\x12G\n\x06\x66rames\x18\x01 \x03(\x0b\x32\x37.google.cloud.videointelligence.v1.ExplicitContentFrame\"Q\n\x15NormalizedBoundingBox\x12\x0c\n\x04left\x18\x01 \x01(\x02\x12\x0b\n\x03top\x18\x02 \x01(\x02\x12\r\n\x05right\x18\x03 \x01(\x02\x12\x0e\n\x06\x62ottom\x18\x04 \x01(\x02\"O\n\x0b\x46\x61\x63\x65Segment\x12@\n\x07segment\x18\x01 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\"\x98\x01\n\tFaceFrame\x12[\n\x19normalized_bounding_boxes\x18\x01 \x03(\x0b\x32\x38.google.cloud.videointelligence.v1.NormalizedBoundingBox\x12.\n\x0btime_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\"\xa3\x01\n\x0e\x46\x61\x63\x65\x41nnotation\x12\x11\n\tthumbnail\x18\x01 \x01(\x0c\x12@\n\x08segments\x18\x02 \x03(\x0b\x32..google.cloud.videointelligence.v1.FaceSegment\x12<\n\x06\x66rames\x18\x03 \x03(\x0b\x32,.google.cloud.videointelligence.v1.FaceFrame\"\xba\x02\n\x11TimestampedObject\x12Y\n\x17normalized_bounding_box\x18\x01 \x01(\x0b\x32\x38.google.cloud.videointelligence.v1.NormalizedBoundingBox\x12.\n\x0btime_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12M\n\nattributes\x18\x03 \x03(\x0b\x32\x34.google.cloud.videointelligence.v1.DetectedAttributeB\x03\xe0\x41\x01\x12K\n\tlandmarks\x18\x04 \x03(\x0b\x32\x33.google.cloud.videointelligence.v1.DetectedLandmarkB\x03\xe0\x41\x01\"\x84\x02\n\x05Track\x12@\n\x07segment\x18\x01 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\x12Q\n\x13timestamped_objects\x18\x02 \x03(\x0b\x32\x34.google.cloud.videointelligence.v1.TimestampedObject\x12M\n\nattributes\x18\x03 \x03(\x0b\x32\x34.google.cloud.videointelligence.v1.DetectedAttributeB\x03\xe0\x41\x01\x12\x17\n\nconfidence\x18\x04 \x01(\x02\x42\x03\xe0\x41\x01\"D\n\x11\x44\x65tectedAttribute\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\r\n\x05value\x18\x03 \x01(\t\"x\n\x10\x44\x65tectedLandmark\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x42\n\x05point\x18\x02 \x01(\x0b\x32\x33.google.cloud.videointelligence.v1.NormalizedVertex\x12\x12\n\nconfidence\x18\x03 \x01(\x02\"\xa1\t\n\x16VideoAnnotationResults\x12\x11\n\tinput_uri\x18\x01 \x01(\t\x12@\n\x07segment\x18\n \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\x12U\n\x19segment_label_annotations\x18\x02 \x03(\x0b\x32\x32.google.cloud.videointelligence.v1.LabelAnnotation\x12^\n\"segment_presence_label_annotations\x18\x17 \x03(\x0b\x32\x32.google.cloud.videointelligence.v1.LabelAnnotation\x12R\n\x16shot_label_annotations\x18\x03 \x03(\x0b\x32\x32.google.cloud.videointelligence.v1.LabelAnnotation\x12[\n\x1fshot_presence_label_annotations\x18\x18 \x03(\x0b\x32\x32.google.cloud.videointelligence.v1.LabelAnnotation\x12S\n\x17\x66rame_label_annotations\x18\x04 \x03(\x0b\x32\x32.google.cloud.videointelligence.v1.LabelAnnotation\x12K\n\x10\x66\x61\x63\x65_annotations\x18\x05 \x03(\x0b\x32\x31.google.cloud.videointelligence.v1.FaceAnnotation\x12I\n\x10shot_annotations\x18\x06 \x03(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\x12Y\n\x13\x65xplicit_annotation\x18\x07 \x01(\x0b\x32<.google.cloud.videointelligence.v1.ExplicitContentAnnotation\x12U\n\x15speech_transcriptions\x18\x0b \x03(\x0b\x32\x36.google.cloud.videointelligence.v1.SpeechTranscription\x12K\n\x10text_annotations\x18\x0c \x03(\x0b\x32\x31.google.cloud.videointelligence.v1.TextAnnotation\x12W\n\x12object_annotations\x18\x0e \x03(\x0b\x32;.google.cloud.videointelligence.v1.ObjectTrackingAnnotation\x12\x62\n\x1clogo_recognition_annotations\x18\x13 \x03(\x0b\x32<.google.cloud.videointelligence.v1.LogoRecognitionAnnotation\x12!\n\x05\x65rror\x18\t \x01(\x0b\x32\x12.google.rpc.Status\"n\n\x15\x41nnotateVideoResponse\x12U\n\x12\x61nnotation_results\x18\x01 \x03(\x0b\x32\x39.google.cloud.videointelligence.v1.VideoAnnotationResults\"\xa6\x02\n\x17VideoAnnotationProgress\x12\x11\n\tinput_uri\x18\x01 \x01(\t\x12\x18\n\x10progress_percent\x18\x02 \x01(\x05\x12.\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12;\n\x07\x66\x65\x61ture\x18\x05 \x01(\x0e\x32*.google.cloud.videointelligence.v1.Feature\x12@\n\x07segment\x18\x06 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\"p\n\x15\x41nnotateVideoProgress\x12W\n\x13\x61nnotation_progress\x18\x01 \x03(\x0b\x32:.google.cloud.videointelligence.v1.VideoAnnotationProgress\"\x81\x03\n\x19SpeechTranscriptionConfig\x12\x1a\n\rlanguage_code\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1d\n\x10max_alternatives\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x1d\n\x10\x66ilter_profanity\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\x12N\n\x0fspeech_contexts\x18\x04 \x03(\x0b\x32\x30.google.cloud.videointelligence.v1.SpeechContextB\x03\xe0\x41\x01\x12)\n\x1c\x65nable_automatic_punctuation\x18\x05 \x01(\x08\x42\x03\xe0\x41\x01\x12\x19\n\x0c\x61udio_tracks\x18\x06 \x03(\x05\x42\x03\xe0\x41\x01\x12\'\n\x1a\x65nable_speaker_diarization\x18\x07 \x01(\x08\x42\x03\xe0\x41\x01\x12&\n\x19\x64iarization_speaker_count\x18\x08 \x01(\x05\x42\x03\xe0\x41\x01\x12#\n\x16\x65nable_word_confidence\x18\t \x01(\x08\x42\x03\xe0\x41\x01\"%\n\rSpeechContext\x12\x14\n\x07phrases\x18\x01 \x03(\tB\x03\xe0\x41\x01\"\x88\x01\n\x13SpeechTranscription\x12U\n\x0c\x61lternatives\x18\x01 \x03(\x0b\x32?.google.cloud.videointelligence.v1.SpeechRecognitionAlternative\x12\x1a\n\rlanguage_code\x18\x02 \x01(\tB\x03\xe0\x41\x03\"\x8c\x01\n\x1cSpeechRecognitionAlternative\x12\x12\n\ntranscript\x18\x01 \x01(\t\x12\x17\n\nconfidence\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03\x12?\n\x05words\x18\x03 \x03(\x0b\x32+.google.cloud.videointelligence.v1.WordInfoB\x03\xe0\x41\x03\"\xa7\x01\n\x08WordInfo\x12-\n\nstart_time\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12+\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x0c\n\x04word\x18\x03 \x01(\t\x12\x17\n\nconfidence\x18\x04 \x01(\x02\x42\x03\xe0\x41\x03\x12\x18\n\x0bspeaker_tag\x18\x05 \x01(\x05\x42\x03\xe0\x41\x03\"(\n\x10NormalizedVertex\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"_\n\x16NormalizedBoundingPoly\x12\x45\n\x08vertices\x18\x01 \x03(\x0b\x32\x33.google.cloud.videointelligence.v1.NormalizedVertex\"\xa1\x01\n\x0bTextSegment\x12@\n\x07segment\x18\x01 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12<\n\x06\x66rames\x18\x03 \x03(\x0b\x32,.google.cloud.videointelligence.v1.TextFrame\"\x94\x01\n\tTextFrame\x12W\n\x14rotated_bounding_box\x18\x01 \x01(\x0b\x32\x39.google.cloud.videointelligence.v1.NormalizedBoundingPoly\x12.\n\x0btime_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\"`\n\x0eTextAnnotation\x12\x0c\n\x04text\x18\x01 \x01(\t\x12@\n\x08segments\x18\x02 \x03(\x0b\x32..google.cloud.videointelligence.v1.TextSegment\"\xa0\x01\n\x13ObjectTrackingFrame\x12Y\n\x17normalized_bounding_box\x18\x01 \x01(\x0b\x32\x38.google.cloud.videointelligence.v1.NormalizedBoundingBox\x12.\n\x0btime_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\"\x97\x02\n\x18ObjectTrackingAnnotation\x12\x42\n\x07segment\x18\x03 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegmentH\x00\x12\x12\n\x08track_id\x18\x05 \x01(\x03H\x00\x12\x39\n\x06\x65ntity\x18\x01 \x01(\x0b\x32).google.cloud.videointelligence.v1.Entity\x12\x12\n\nconfidence\x18\x04 \x01(\x02\x12\x46\n\x06\x66rames\x18\x02 \x03(\x0b\x32\x36.google.cloud.videointelligence.v1.ObjectTrackingFrameB\x0c\n\ntrack_info\"\xd3\x01\n\x19LogoRecognitionAnnotation\x12\x39\n\x06\x65ntity\x18\x01 \x01(\x0b\x32).google.cloud.videointelligence.v1.Entity\x12\x38\n\x06tracks\x18\x02 \x03(\x0b\x32(.google.cloud.videointelligence.v1.Track\x12\x41\n\x08segments\x18\x03 \x03(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment*\xdf\x01\n\x07\x46\x65\x61ture\x12\x17\n\x13\x46\x45\x41TURE_UNSPECIFIED\x10\x00\x12\x13\n\x0fLABEL_DETECTION\x10\x01\x12\x19\n\x15SHOT_CHANGE_DETECTION\x10\x02\x12\x1e\n\x1a\x45XPLICIT_CONTENT_DETECTION\x10\x03\x12\x12\n\x0e\x46\x41\x43\x45_DETECTION\x10\x04\x12\x18\n\x14SPEECH_TRANSCRIPTION\x10\x06\x12\x12\n\x0eTEXT_DETECTION\x10\x07\x12\x13\n\x0fOBJECT_TRACKING\x10\t\x12\x14\n\x10LOGO_RECOGNITION\x10\x0c*r\n\x12LabelDetectionMode\x12$\n LABEL_DETECTION_MODE_UNSPECIFIED\x10\x00\x12\r\n\tSHOT_MODE\x10\x01\x12\x0e\n\nFRAME_MODE\x10\x02\x12\x17\n\x13SHOT_AND_FRAME_MODE\x10\x03*t\n\nLikelihood\x12\x1a\n\x16LIKELIHOOD_UNSPECIFIED\x10\x00\x12\x11\n\rVERY_UNLIKELY\x10\x01\x12\x0c\n\x08UNLIKELY\x10\x02\x12\x0c\n\x08POSSIBLE\x10\x03\x12\n\n\x06LIKELY\x10\x04\x12\x0f\n\x0bVERY_LIKELY\x10\x05\x32\xc0\x02\n\x18VideoIntelligenceService\x12\xcd\x01\n\rAnnotateVideo\x12\x37.google.cloud.videointelligence.v1.AnnotateVideoRequest\x1a\x1d.google.longrunning.Operation\"d\x82\xd3\xe4\x93\x02\x18\"\x13/v1/videos:annotate:\x01*\xda\x41\x12input_uri,features\xca\x41.\n\x15\x41nnotateVideoResponse\x12\x15\x41nnotateVideoProgress\x1aT\xca\x41 videointelligence.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x8b\x02\n%com.google.cloud.videointelligence.v1B\x1dVideoIntelligenceServiceProtoP\x01ZRgoogle.golang.org/genproto/googleapis/cloud/videointelligence/v1;videointelligence\xaa\x02!Google.Cloud.VideoIntelligence.V1\xca\x02!Google\\Cloud\\VideoIntelligence\\V1\xea\x02$Google::Cloud::VideoIntelligence::V1b\x06proto3'
+  serialized_pb=b'\n:google/cloud/videointelligence/v1/video_intelligence.proto\x12!google.cloud.videointelligence.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xfe\x01\n\x14\x41nnotateVideoRequest\x12\x11\n\tinput_uri\x18\x01 \x01(\t\x12\x15\n\rinput_content\x18\x06 \x01(\x0c\x12\x41\n\x08\x66\x65\x61tures\x18\x02 \x03(\x0e\x32*.google.cloud.videointelligence.v1.FeatureB\x03\xe0\x41\x02\x12\x46\n\rvideo_context\x18\x03 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoContext\x12\x17\n\noutput_uri\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x18\n\x0blocation_id\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xc1\x06\n\x0cVideoContext\x12\x41\n\x08segments\x18\x01 \x03(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\x12W\n\x16label_detection_config\x18\x02 \x01(\x0b\x32\x37.google.cloud.videointelligence.v1.LabelDetectionConfig\x12\x62\n\x1cshot_change_detection_config\x18\x03 \x01(\x0b\x32<.google.cloud.videointelligence.v1.ShotChangeDetectionConfig\x12l\n!explicit_content_detection_config\x18\x04 \x01(\x0b\x32\x41.google.cloud.videointelligence.v1.ExplicitContentDetectionConfig\x12U\n\x15\x66\x61\x63\x65_detection_config\x18\x05 \x01(\x0b\x32\x36.google.cloud.videointelligence.v1.FaceDetectionConfig\x12\x61\n\x1bspeech_transcription_config\x18\x06 \x01(\x0b\x32<.google.cloud.videointelligence.v1.SpeechTranscriptionConfig\x12U\n\x15text_detection_config\x18\x08 \x01(\x0b\x32\x36.google.cloud.videointelligence.v1.TextDetectionConfig\x12Y\n\x17person_detection_config\x18\x0b \x01(\x0b\x32\x38.google.cloud.videointelligence.v1.PersonDetectionConfig\x12W\n\x16object_tracking_config\x18\r \x01(\x0b\x32\x37.google.cloud.videointelligence.v1.ObjectTrackingConfig\"\xdd\x01\n\x14LabelDetectionConfig\x12S\n\x14label_detection_mode\x18\x01 \x01(\x0e\x32\x35.google.cloud.videointelligence.v1.LabelDetectionMode\x12\x19\n\x11stationary_camera\x18\x02 \x01(\x08\x12\r\n\x05model\x18\x03 \x01(\t\x12\"\n\x1a\x66rame_confidence_threshold\x18\x04 \x01(\x02\x12\"\n\x1avideo_confidence_threshold\x18\x05 \x01(\x02\"*\n\x19ShotChangeDetectionConfig\x12\r\n\x05model\x18\x01 \x01(\t\"%\n\x14ObjectTrackingConfig\x12\r\n\x05model\x18\x01 \x01(\t\"`\n\x13\x46\x61\x63\x65\x44\x65tectionConfig\x12\r\n\x05model\x18\x01 \x01(\t\x12\x1e\n\x16include_bounding_boxes\x18\x02 \x01(\x08\x12\x1a\n\x12include_attributes\x18\x05 \x01(\x08\"s\n\x15PersonDetectionConfig\x12\x1e\n\x16include_bounding_boxes\x18\x01 \x01(\x08\x12\x1e\n\x16include_pose_landmarks\x18\x02 \x01(\x08\x12\x1a\n\x12include_attributes\x18\x03 \x01(\x08\"/\n\x1e\x45xplicitContentDetectionConfig\x12\r\n\x05model\x18\x01 \x01(\t\"<\n\x13TextDetectionConfig\x12\x16\n\x0elanguage_hints\x18\x01 \x03(\t\x12\r\n\x05model\x18\x02 \x01(\t\"x\n\x0cVideoSegment\x12\x34\n\x11start_time_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x32\n\x0f\x65nd_time_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\"d\n\x0cLabelSegment\x12@\n\x07segment\x18\x01 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\x12\x12\n\nconfidence\x18\x02 \x01(\x02\"P\n\nLabelFrame\x12.\n\x0btime_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x12\n\nconfidence\x18\x02 \x01(\x02\"G\n\x06\x45ntity\x12\x11\n\tentity_id\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x15\n\rlanguage_code\x18\x03 \x01(\t\"\xa5\x02\n\x0fLabelAnnotation\x12\x39\n\x06\x65ntity\x18\x01 \x01(\x0b\x32).google.cloud.videointelligence.v1.Entity\x12\x44\n\x11\x63\x61tegory_entities\x18\x02 \x03(\x0b\x32).google.cloud.videointelligence.v1.Entity\x12\x41\n\x08segments\x18\x03 \x03(\x0b\x32/.google.cloud.videointelligence.v1.LabelSegment\x12=\n\x06\x66rames\x18\x04 \x03(\x0b\x32-.google.cloud.videointelligence.v1.LabelFrame\x12\x0f\n\x07version\x18\x05 \x01(\t\"\x95\x01\n\x14\x45xplicitContentFrame\x12.\n\x0btime_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12M\n\x16pornography_likelihood\x18\x02 \x01(\x0e\x32-.google.cloud.videointelligence.v1.Likelihood\"u\n\x19\x45xplicitContentAnnotation\x12G\n\x06\x66rames\x18\x01 \x03(\x0b\x32\x37.google.cloud.videointelligence.v1.ExplicitContentFrame\x12\x0f\n\x07version\x18\x02 \x01(\t\"Q\n\x15NormalizedBoundingBox\x12\x0c\n\x04left\x18\x01 \x01(\x02\x12\x0b\n\x03top\x18\x02 \x01(\x02\x12\r\n\x05right\x18\x03 \x01(\x02\x12\x0e\n\x06\x62ottom\x18\x04 \x01(\x02\"w\n\x17\x46\x61\x63\x65\x44\x65tectionAnnotation\x12\x38\n\x06tracks\x18\x03 \x03(\x0b\x32(.google.cloud.videointelligence.v1.Track\x12\x11\n\tthumbnail\x18\x04 \x01(\x0c\x12\x0f\n\x07version\x18\x05 \x01(\t\"f\n\x19PersonDetectionAnnotation\x12\x38\n\x06tracks\x18\x01 \x03(\x0b\x32(.google.cloud.videointelligence.v1.Track\x12\x0f\n\x07version\x18\x02 \x01(\t\"O\n\x0b\x46\x61\x63\x65Segment\x12@\n\x07segment\x18\x01 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\"\x9c\x01\n\tFaceFrame\x12[\n\x19normalized_bounding_boxes\x18\x01 \x03(\x0b\x32\x38.google.cloud.videointelligence.v1.NormalizedBoundingBox\x12.\n\x0btime_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration:\x02\x18\x01\"\xa7\x01\n\x0e\x46\x61\x63\x65\x41nnotation\x12\x11\n\tthumbnail\x18\x01 \x01(\x0c\x12@\n\x08segments\x18\x02 \x03(\x0b\x32..google.cloud.videointelligence.v1.FaceSegment\x12<\n\x06\x66rames\x18\x03 \x03(\x0b\x32,.google.cloud.videointelligence.v1.FaceFrame:\x02\x18\x01\"\xba\x02\n\x11TimestampedObject\x12Y\n\x17normalized_bounding_box\x18\x01 \x01(\x0b\x32\x38.google.cloud.videointelligence.v1.NormalizedBoundingBox\x12.\n\x0btime_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12M\n\nattributes\x18\x03 \x03(\x0b\x32\x34.google.cloud.videointelligence.v1.DetectedAttributeB\x03\xe0\x41\x01\x12K\n\tlandmarks\x18\x04 \x03(\x0b\x32\x33.google.cloud.videointelligence.v1.DetectedLandmarkB\x03\xe0\x41\x01\"\x84\x02\n\x05Track\x12@\n\x07segment\x18\x01 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\x12Q\n\x13timestamped_objects\x18\x02 \x03(\x0b\x32\x34.google.cloud.videointelligence.v1.TimestampedObject\x12M\n\nattributes\x18\x03 \x03(\x0b\x32\x34.google.cloud.videointelligence.v1.DetectedAttributeB\x03\xe0\x41\x01\x12\x17\n\nconfidence\x18\x04 \x01(\x02\x42\x03\xe0\x41\x01\"D\n\x11\x44\x65tectedAttribute\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\r\n\x05value\x18\x03 \x01(\t\"x\n\x10\x44\x65tectedLandmark\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x42\n\x05point\x18\x02 \x01(\x0b\x32\x33.google.cloud.videointelligence.v1.NormalizedVertex\x12\x12\n\nconfidence\x18\x03 \x01(\x02\"\xe9\n\n\x16VideoAnnotationResults\x12\x11\n\tinput_uri\x18\x01 \x01(\t\x12@\n\x07segment\x18\n \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\x12U\n\x19segment_label_annotations\x18\x02 \x03(\x0b\x32\x32.google.cloud.videointelligence.v1.LabelAnnotation\x12^\n\"segment_presence_label_annotations\x18\x17 \x03(\x0b\x32\x32.google.cloud.videointelligence.v1.LabelAnnotation\x12R\n\x16shot_label_annotations\x18\x03 \x03(\x0b\x32\x32.google.cloud.videointelligence.v1.LabelAnnotation\x12[\n\x1fshot_presence_label_annotations\x18\x18 \x03(\x0b\x32\x32.google.cloud.videointelligence.v1.LabelAnnotation\x12S\n\x17\x66rame_label_annotations\x18\x04 \x03(\x0b\x32\x32.google.cloud.videointelligence.v1.LabelAnnotation\x12O\n\x10\x66\x61\x63\x65_annotations\x18\x05 \x03(\x0b\x32\x31.google.cloud.videointelligence.v1.FaceAnnotationB\x02\x18\x01\x12^\n\x1a\x66\x61\x63\x65_detection_annotations\x18\r \x03(\x0b\x32:.google.cloud.videointelligence.v1.FaceDetectionAnnotation\x12I\n\x10shot_annotations\x18\x06 \x03(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\x12Y\n\x13\x65xplicit_annotation\x18\x07 \x01(\x0b\x32<.google.cloud.videointelligence.v1.ExplicitContentAnnotation\x12U\n\x15speech_transcriptions\x18\x0b \x03(\x0b\x32\x36.google.cloud.videointelligence.v1.SpeechTranscription\x12K\n\x10text_annotations\x18\x0c \x03(\x0b\x32\x31.google.cloud.videointelligence.v1.TextAnnotation\x12W\n\x12object_annotations\x18\x0e \x03(\x0b\x32;.google.cloud.videointelligence.v1.ObjectTrackingAnnotation\x12\x62\n\x1clogo_recognition_annotations\x18\x13 \x03(\x0b\x32<.google.cloud.videointelligence.v1.LogoRecognitionAnnotation\x12\x62\n\x1cperson_detection_annotations\x18\x14 \x03(\x0b\x32<.google.cloud.videointelligence.v1.PersonDetectionAnnotation\x12!\n\x05\x65rror\x18\t \x01(\x0b\x32\x12.google.rpc.Status\"n\n\x15\x41nnotateVideoResponse\x12U\n\x12\x61nnotation_results\x18\x01 \x03(\x0b\x32\x39.google.cloud.videointelligence.v1.VideoAnnotationResults\"\xa6\x02\n\x17VideoAnnotationProgress\x12\x11\n\tinput_uri\x18\x01 \x01(\t\x12\x18\n\x10progress_percent\x18\x02 \x01(\x05\x12.\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12;\n\x07\x66\x65\x61ture\x18\x05 \x01(\x0e\x32*.google.cloud.videointelligence.v1.Feature\x12@\n\x07segment\x18\x06 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\"p\n\x15\x41nnotateVideoProgress\x12W\n\x13\x61nnotation_progress\x18\x01 \x03(\x0b\x32:.google.cloud.videointelligence.v1.VideoAnnotationProgress\"\x81\x03\n\x19SpeechTranscriptionConfig\x12\x1a\n\rlanguage_code\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1d\n\x10max_alternatives\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x1d\n\x10\x66ilter_profanity\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\x12N\n\x0fspeech_contexts\x18\x04 \x03(\x0b\x32\x30.google.cloud.videointelligence.v1.SpeechContextB\x03\xe0\x41\x01\x12)\n\x1c\x65nable_automatic_punctuation\x18\x05 \x01(\x08\x42\x03\xe0\x41\x01\x12\x19\n\x0c\x61udio_tracks\x18\x06 \x03(\x05\x42\x03\xe0\x41\x01\x12\'\n\x1a\x65nable_speaker_diarization\x18\x07 \x01(\x08\x42\x03\xe0\x41\x01\x12&\n\x19\x64iarization_speaker_count\x18\x08 \x01(\x05\x42\x03\xe0\x41\x01\x12#\n\x16\x65nable_word_confidence\x18\t \x01(\x08\x42\x03\xe0\x41\x01\"%\n\rSpeechContext\x12\x14\n\x07phrases\x18\x01 \x03(\tB\x03\xe0\x41\x01\"\x88\x01\n\x13SpeechTranscription\x12U\n\x0c\x61lternatives\x18\x01 \x03(\x0b\x32?.google.cloud.videointelligence.v1.SpeechRecognitionAlternative\x12\x1a\n\rlanguage_code\x18\x02 \x01(\tB\x03\xe0\x41\x03\"\x8c\x01\n\x1cSpeechRecognitionAlternative\x12\x12\n\ntranscript\x18\x01 \x01(\t\x12\x17\n\nconfidence\x18\x02 \x01(\x02\x42\x03\xe0\x41\x03\x12?\n\x05words\x18\x03 \x03(\x0b\x32+.google.cloud.videointelligence.v1.WordInfoB\x03\xe0\x41\x03\"\xa7\x01\n\x08WordInfo\x12-\n\nstart_time\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12+\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x0c\n\x04word\x18\x03 \x01(\t\x12\x17\n\nconfidence\x18\x04 \x01(\x02\x42\x03\xe0\x41\x03\x12\x18\n\x0bspeaker_tag\x18\x05 \x01(\x05\x42\x03\xe0\x41\x03\"(\n\x10NormalizedVertex\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"_\n\x16NormalizedBoundingPoly\x12\x45\n\x08vertices\x18\x01 \x03(\x0b\x32\x33.google.cloud.videointelligence.v1.NormalizedVertex\"\xa1\x01\n\x0bTextSegment\x12@\n\x07segment\x18\x01 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12<\n\x06\x66rames\x18\x03 \x03(\x0b\x32,.google.cloud.videointelligence.v1.TextFrame\"\x94\x01\n\tTextFrame\x12W\n\x14rotated_bounding_box\x18\x01 \x01(\x0b\x32\x39.google.cloud.videointelligence.v1.NormalizedBoundingPoly\x12.\n\x0btime_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\"q\n\x0eTextAnnotation\x12\x0c\n\x04text\x18\x01 \x01(\t\x12@\n\x08segments\x18\x02 \x03(\x0b\x32..google.cloud.videointelligence.v1.TextSegment\x12\x0f\n\x07version\x18\x03 \x01(\t\"\xa0\x01\n\x13ObjectTrackingFrame\x12Y\n\x17normalized_bounding_box\x18\x01 \x01(\x0b\x32\x38.google.cloud.videointelligence.v1.NormalizedBoundingBox\x12.\n\x0btime_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\"\xa8\x02\n\x18ObjectTrackingAnnotation\x12\x42\n\x07segment\x18\x03 \x01(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegmentH\x00\x12\x12\n\x08track_id\x18\x05 \x01(\x03H\x00\x12\x39\n\x06\x65ntity\x18\x01 \x01(\x0b\x32).google.cloud.videointelligence.v1.Entity\x12\x12\n\nconfidence\x18\x04 \x01(\x02\x12\x46\n\x06\x66rames\x18\x02 \x03(\x0b\x32\x36.google.cloud.videointelligence.v1.ObjectTrackingFrame\x12\x0f\n\x07version\x18\x06 \x01(\tB\x0c\n\ntrack_info\"\xd3\x01\n\x19LogoRecognitionAnnotation\x12\x39\n\x06\x65ntity\x18\x01 \x01(\x0b\x32).google.cloud.videointelligence.v1.Entity\x12\x38\n\x06tracks\x18\x02 \x03(\x0b\x32(.google.cloud.videointelligence.v1.Track\x12\x41\n\x08segments\x18\x03 \x03(\x0b\x32/.google.cloud.videointelligence.v1.VideoSegment*\xf5\x01\n\x07\x46\x65\x61ture\x12\x17\n\x13\x46\x45\x41TURE_UNSPECIFIED\x10\x00\x12\x13\n\x0fLABEL_DETECTION\x10\x01\x12\x19\n\x15SHOT_CHANGE_DETECTION\x10\x02\x12\x1e\n\x1a\x45XPLICIT_CONTENT_DETECTION\x10\x03\x12\x12\n\x0e\x46\x41\x43\x45_DETECTION\x10\x04\x12\x18\n\x14SPEECH_TRANSCRIPTION\x10\x06\x12\x12\n\x0eTEXT_DETECTION\x10\x07\x12\x13\n\x0fOBJECT_TRACKING\x10\t\x12\x14\n\x10LOGO_RECOGNITION\x10\x0c\x12\x14\n\x10PERSON_DETECTION\x10\x0e*r\n\x12LabelDetectionMode\x12$\n LABEL_DETECTION_MODE_UNSPECIFIED\x10\x00\x12\r\n\tSHOT_MODE\x10\x01\x12\x0e\n\nFRAME_MODE\x10\x02\x12\x17\n\x13SHOT_AND_FRAME_MODE\x10\x03*t\n\nLikelihood\x12\x1a\n\x16LIKELIHOOD_UNSPECIFIED\x10\x00\x12\x11\n\rVERY_UNLIKELY\x10\x01\x12\x0c\n\x08UNLIKELY\x10\x02\x12\x0c\n\x08POSSIBLE\x10\x03\x12\n\n\x06LIKELY\x10\x04\x12\x0f\n\x0bVERY_LIKELY\x10\x05\x32\xc0\x02\n\x18VideoIntelligenceService\x12\xcd\x01\n\rAnnotateVideo\x12\x37.google.cloud.videointelligence.v1.AnnotateVideoRequest\x1a\x1d.google.longrunning.Operation\"d\x82\xd3\xe4\x93\x02\x18\"\x13/v1/videos:annotate:\x01*\xda\x41\x12input_uri,features\xca\x41.\n\x15\x41nnotateVideoResponse\x12\x15\x41nnotateVideoProgress\x1aT\xca\x41 videointelligence.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x8b\x02\n%com.google.cloud.videointelligence.v1B\x1dVideoIntelligenceServiceProtoP\x01ZRgoogle.golang.org/genproto/googleapis/cloud/videointelligence/v1;videointelligence\xaa\x02!Google.Cloud.VideoIntelligence.V1\xca\x02!Google\\Cloud\\VideoIntelligence\\V1\xea\x02$Google::Cloud::VideoIntelligence::V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
@@ -83,11 +83,16 @@ _FEATURE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PERSON_DETECTION', index=9, number=14,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7773,
-  serialized_end=7996,
+  serialized_start=8510,
+  serialized_end=8755,
 )
 _sym_db.RegisterEnumDescriptor(_FEATURE)
 
@@ -122,8 +127,8 @@ _LABELDETECTIONMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7998,
-  serialized_end=8112,
+  serialized_start=8757,
+  serialized_end=8871,
 )
 _sym_db.RegisterEnumDescriptor(_LABELDETECTIONMODE)
 
@@ -168,8 +173,8 @@ _LIKELIHOOD = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=8114,
-  serialized_end=8230,
+  serialized_start=8873,
+  serialized_end=8989,
 )
 _sym_db.RegisterEnumDescriptor(_LIKELIHOOD)
 
@@ -183,6 +188,7 @@ SPEECH_TRANSCRIPTION = 6
 TEXT_DETECTION = 7
 OBJECT_TRACKING = 9
 LOGO_RECOGNITION = 12
+PERSON_DETECTION = 14
 LABEL_DETECTION_MODE_UNSPECIFIED = 0
 SHOT_MODE = 1
 FRAME_MODE = 2
@@ -321,7 +327,14 @@ _VIDEOCONTEXT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='object_tracking_config', full_name='google.cloud.videointelligence.v1.VideoContext.object_tracking_config', index=7,
+      name='person_detection_config', full_name='google.cloud.videointelligence.v1.VideoContext.person_detection_config', index=7,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='object_tracking_config', full_name='google.cloud.videointelligence.v1.VideoContext.object_tracking_config', index=8,
       number=13, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -340,7 +353,7 @@ _VIDEOCONTEXT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=570,
-  serialized_end=1312,
+  serialized_end=1403,
 )
 
 
@@ -399,8 +412,8 @@ _LABELDETECTIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1315,
-  serialized_end=1536,
+  serialized_start=1406,
+  serialized_end=1627,
 )
 
 
@@ -431,8 +444,8 @@ _SHOTCHANGEDETECTIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1538,
-  serialized_end=1580,
+  serialized_start=1629,
+  serialized_end=1671,
 )
 
 
@@ -463,8 +476,8 @@ _OBJECTTRACKINGCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1582,
-  serialized_end=1619,
+  serialized_start=1673,
+  serialized_end=1710,
 )
 
 
@@ -490,6 +503,13 @@ _FACEDETECTIONCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='include_attributes', full_name='google.cloud.videointelligence.v1.FaceDetectionConfig.include_attributes', index=2,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -502,8 +522,54 @@ _FACEDETECTIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1621,
-  serialized_end=1689,
+  serialized_start=1712,
+  serialized_end=1808,
+)
+
+
+_PERSONDETECTIONCONFIG = _descriptor.Descriptor(
+  name='PersonDetectionConfig',
+  full_name='google.cloud.videointelligence.v1.PersonDetectionConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='include_bounding_boxes', full_name='google.cloud.videointelligence.v1.PersonDetectionConfig.include_bounding_boxes', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='include_pose_landmarks', full_name='google.cloud.videointelligence.v1.PersonDetectionConfig.include_pose_landmarks', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='include_attributes', full_name='google.cloud.videointelligence.v1.PersonDetectionConfig.include_attributes', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1810,
+  serialized_end=1925,
 )
 
 
@@ -534,8 +600,8 @@ _EXPLICITCONTENTDETECTIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1691,
-  serialized_end=1738,
+  serialized_start=1927,
+  serialized_end=1974,
 )
 
 
@@ -573,8 +639,8 @@ _TEXTDETECTIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1740,
-  serialized_end=1800,
+  serialized_start=1976,
+  serialized_end=2036,
 )
 
 
@@ -612,8 +678,8 @@ _VIDEOSEGMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1802,
-  serialized_end=1922,
+  serialized_start=2038,
+  serialized_end=2158,
 )
 
 
@@ -651,8 +717,8 @@ _LABELSEGMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1924,
-  serialized_end=2024,
+  serialized_start=2160,
+  serialized_end=2260,
 )
 
 
@@ -690,8 +756,8 @@ _LABELFRAME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2026,
-  serialized_end=2106,
+  serialized_start=2262,
+  serialized_end=2342,
 )
 
 
@@ -736,8 +802,8 @@ _ENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2108,
-  serialized_end=2179,
+  serialized_start=2344,
+  serialized_end=2415,
 )
 
 
@@ -777,6 +843,13 @@ _LABELANNOTATION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='version', full_name='google.cloud.videointelligence.v1.LabelAnnotation.version', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -789,8 +862,8 @@ _LABELANNOTATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2182,
-  serialized_end=2458,
+  serialized_start=2418,
+  serialized_end=2711,
 )
 
 
@@ -828,8 +901,8 @@ _EXPLICITCONTENTFRAME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2461,
-  serialized_end=2610,
+  serialized_start=2714,
+  serialized_end=2863,
 )
 
 
@@ -848,6 +921,13 @@ _EXPLICITCONTENTANNOTATION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='version', full_name='google.cloud.videointelligence.v1.ExplicitContentAnnotation.version', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -860,8 +940,8 @@ _EXPLICITCONTENTANNOTATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2612,
-  serialized_end=2712,
+  serialized_start=2865,
+  serialized_end=2982,
 )
 
 
@@ -913,8 +993,93 @@ _NORMALIZEDBOUNDINGBOX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2714,
-  serialized_end=2795,
+  serialized_start=2984,
+  serialized_end=3065,
+)
+
+
+_FACEDETECTIONANNOTATION = _descriptor.Descriptor(
+  name='FaceDetectionAnnotation',
+  full_name='google.cloud.videointelligence.v1.FaceDetectionAnnotation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tracks', full_name='google.cloud.videointelligence.v1.FaceDetectionAnnotation.tracks', index=0,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='thumbnail', full_name='google.cloud.videointelligence.v1.FaceDetectionAnnotation.thumbnail', index=1,
+      number=4, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='version', full_name='google.cloud.videointelligence.v1.FaceDetectionAnnotation.version', index=2,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3067,
+  serialized_end=3186,
+)
+
+
+_PERSONDETECTIONANNOTATION = _descriptor.Descriptor(
+  name='PersonDetectionAnnotation',
+  full_name='google.cloud.videointelligence.v1.PersonDetectionAnnotation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tracks', full_name='google.cloud.videointelligence.v1.PersonDetectionAnnotation.tracks', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='version', full_name='google.cloud.videointelligence.v1.PersonDetectionAnnotation.version', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3188,
+  serialized_end=3290,
 )
 
 
@@ -945,8 +1110,8 @@ _FACESEGMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2797,
-  serialized_end=2876,
+  serialized_start=3292,
+  serialized_end=3371,
 )
 
 
@@ -978,14 +1143,14 @@ _FACEFRAME = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  serialized_options=b'\030\001',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2879,
-  serialized_end=3031,
+  serialized_start=3374,
+  serialized_end=3530,
 )
 
 
@@ -1024,14 +1189,14 @@ _FACEANNOTATION = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  serialized_options=b'\030\001',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3034,
-  serialized_end=3197,
+  serialized_start=3533,
+  serialized_end=3700,
 )
 
 
@@ -1083,8 +1248,8 @@ _TIMESTAMPEDOBJECT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3200,
-  serialized_end=3514,
+  serialized_start=3703,
+  serialized_end=4017,
 )
 
 
@@ -1136,8 +1301,8 @@ _TRACK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3517,
-  serialized_end=3777,
+  serialized_start=4020,
+  serialized_end=4280,
 )
 
 
@@ -1182,8 +1347,8 @@ _DETECTEDATTRIBUTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3779,
-  serialized_end=3847,
+  serialized_start=4282,
+  serialized_end=4350,
 )
 
 
@@ -1228,8 +1393,8 @@ _DETECTEDLANDMARK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3849,
-  serialized_end=3969,
+  serialized_start=4352,
+  serialized_end=4472,
 )
 
 
@@ -1296,51 +1461,65 @@ _VIDEOANNOTATIONRESULTS = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='face_detection_annotations', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.face_detection_annotations', index=8,
+      number=13, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='shot_annotations', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.shot_annotations', index=8,
+      name='shot_annotations', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.shot_annotations', index=9,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='explicit_annotation', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.explicit_annotation', index=9,
+      name='explicit_annotation', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.explicit_annotation', index=10,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='speech_transcriptions', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.speech_transcriptions', index=10,
+      name='speech_transcriptions', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.speech_transcriptions', index=11,
       number=11, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='text_annotations', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.text_annotations', index=11,
+      name='text_annotations', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.text_annotations', index=12,
       number=12, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='object_annotations', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.object_annotations', index=12,
+      name='object_annotations', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.object_annotations', index=13,
       number=14, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='logo_recognition_annotations', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.logo_recognition_annotations', index=13,
+      name='logo_recognition_annotations', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.logo_recognition_annotations', index=14,
       number=19, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='error', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.error', index=14,
+      name='person_detection_annotations', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.person_detection_annotations', index=15,
+      number=20, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='google.cloud.videointelligence.v1.VideoAnnotationResults.error', index=16,
       number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1358,8 +1537,8 @@ _VIDEOANNOTATIONRESULTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3972,
-  serialized_end=5157,
+  serialized_start=4475,
+  serialized_end=5860,
 )
 
 
@@ -1390,8 +1569,8 @@ _ANNOTATEVIDEORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5159,
-  serialized_end=5269,
+  serialized_start=5862,
+  serialized_end=5972,
 )
 
 
@@ -1457,8 +1636,8 @@ _VIDEOANNOTATIONPROGRESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5272,
-  serialized_end=5566,
+  serialized_start=5975,
+  serialized_end=6269,
 )
 
 
@@ -1489,8 +1668,8 @@ _ANNOTATEVIDEOPROGRESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5568,
-  serialized_end=5680,
+  serialized_start=6271,
+  serialized_end=6383,
 )
 
 
@@ -1577,8 +1756,8 @@ _SPEECHTRANSCRIPTIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5683,
-  serialized_end=6068,
+  serialized_start=6386,
+  serialized_end=6771,
 )
 
 
@@ -1609,8 +1788,8 @@ _SPEECHCONTEXT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6070,
-  serialized_end=6107,
+  serialized_start=6773,
+  serialized_end=6810,
 )
 
 
@@ -1648,8 +1827,8 @@ _SPEECHTRANSCRIPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6110,
-  serialized_end=6246,
+  serialized_start=6813,
+  serialized_end=6949,
 )
 
 
@@ -1694,8 +1873,8 @@ _SPEECHRECOGNITIONALTERNATIVE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6249,
-  serialized_end=6389,
+  serialized_start=6952,
+  serialized_end=7092,
 )
 
 
@@ -1754,8 +1933,8 @@ _WORDINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6392,
-  serialized_end=6559,
+  serialized_start=7095,
+  serialized_end=7262,
 )
 
 
@@ -1793,8 +1972,8 @@ _NORMALIZEDVERTEX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6561,
-  serialized_end=6601,
+  serialized_start=7264,
+  serialized_end=7304,
 )
 
 
@@ -1825,8 +2004,8 @@ _NORMALIZEDBOUNDINGPOLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6603,
-  serialized_end=6698,
+  serialized_start=7306,
+  serialized_end=7401,
 )
 
 
@@ -1871,8 +2050,8 @@ _TEXTSEGMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6701,
-  serialized_end=6862,
+  serialized_start=7404,
+  serialized_end=7565,
 )
 
 
@@ -1910,8 +2089,8 @@ _TEXTFRAME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6865,
-  serialized_end=7013,
+  serialized_start=7568,
+  serialized_end=7716,
 )
 
 
@@ -1937,6 +2116,13 @@ _TEXTANNOTATION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='version', full_name='google.cloud.videointelligence.v1.TextAnnotation.version', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1949,8 +2135,8 @@ _TEXTANNOTATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7015,
-  serialized_end=7111,
+  serialized_start=7718,
+  serialized_end=7831,
 )
 
 
@@ -1988,8 +2174,8 @@ _OBJECTTRACKINGFRAME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7114,
-  serialized_end=7274,
+  serialized_start=7834,
+  serialized_end=7994,
 )
 
 
@@ -2036,6 +2222,13 @@ _OBJECTTRACKINGANNOTATION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='version', full_name='google.cloud.videointelligence.v1.ObjectTrackingAnnotation.version', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -2053,8 +2246,8 @@ _OBJECTTRACKINGANNOTATION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=7277,
-  serialized_end=7556,
+  serialized_start=7997,
+  serialized_end=8293,
 )
 
 
@@ -2099,8 +2292,8 @@ _LOGORECOGNITIONANNOTATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7559,
-  serialized_end=7770,
+  serialized_start=8296,
+  serialized_end=8507,
 )
 
 _ANNOTATEVIDEOREQUEST.fields_by_name['features'].enum_type = _FEATURE
@@ -2112,6 +2305,7 @@ _VIDEOCONTEXT.fields_by_name['explicit_content_detection_config'].message_type =
 _VIDEOCONTEXT.fields_by_name['face_detection_config'].message_type = _FACEDETECTIONCONFIG
 _VIDEOCONTEXT.fields_by_name['speech_transcription_config'].message_type = _SPEECHTRANSCRIPTIONCONFIG
 _VIDEOCONTEXT.fields_by_name['text_detection_config'].message_type = _TEXTDETECTIONCONFIG
+_VIDEOCONTEXT.fields_by_name['person_detection_config'].message_type = _PERSONDETECTIONCONFIG
 _VIDEOCONTEXT.fields_by_name['object_tracking_config'].message_type = _OBJECTTRACKINGCONFIG
 _LABELDETECTIONCONFIG.fields_by_name['label_detection_mode'].enum_type = _LABELDETECTIONMODE
 _VIDEOSEGMENT.fields_by_name['start_time_offset'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
@@ -2125,6 +2319,8 @@ _LABELANNOTATION.fields_by_name['frames'].message_type = _LABELFRAME
 _EXPLICITCONTENTFRAME.fields_by_name['time_offset'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _EXPLICITCONTENTFRAME.fields_by_name['pornography_likelihood'].enum_type = _LIKELIHOOD
 _EXPLICITCONTENTANNOTATION.fields_by_name['frames'].message_type = _EXPLICITCONTENTFRAME
+_FACEDETECTIONANNOTATION.fields_by_name['tracks'].message_type = _TRACK
+_PERSONDETECTIONANNOTATION.fields_by_name['tracks'].message_type = _TRACK
 _FACESEGMENT.fields_by_name['segment'].message_type = _VIDEOSEGMENT
 _FACEFRAME.fields_by_name['normalized_bounding_boxes'].message_type = _NORMALIZEDBOUNDINGBOX
 _FACEFRAME.fields_by_name['time_offset'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
@@ -2145,12 +2341,14 @@ _VIDEOANNOTATIONRESULTS.fields_by_name['shot_label_annotations'].message_type = 
 _VIDEOANNOTATIONRESULTS.fields_by_name['shot_presence_label_annotations'].message_type = _LABELANNOTATION
 _VIDEOANNOTATIONRESULTS.fields_by_name['frame_label_annotations'].message_type = _LABELANNOTATION
 _VIDEOANNOTATIONRESULTS.fields_by_name['face_annotations'].message_type = _FACEANNOTATION
+_VIDEOANNOTATIONRESULTS.fields_by_name['face_detection_annotations'].message_type = _FACEDETECTIONANNOTATION
 _VIDEOANNOTATIONRESULTS.fields_by_name['shot_annotations'].message_type = _VIDEOSEGMENT
 _VIDEOANNOTATIONRESULTS.fields_by_name['explicit_annotation'].message_type = _EXPLICITCONTENTANNOTATION
 _VIDEOANNOTATIONRESULTS.fields_by_name['speech_transcriptions'].message_type = _SPEECHTRANSCRIPTION
 _VIDEOANNOTATIONRESULTS.fields_by_name['text_annotations'].message_type = _TEXTANNOTATION
 _VIDEOANNOTATIONRESULTS.fields_by_name['object_annotations'].message_type = _OBJECTTRACKINGANNOTATION
 _VIDEOANNOTATIONRESULTS.fields_by_name['logo_recognition_annotations'].message_type = _LOGORECOGNITIONANNOTATION
+_VIDEOANNOTATIONRESULTS.fields_by_name['person_detection_annotations'].message_type = _PERSONDETECTIONANNOTATION
 _VIDEOANNOTATIONRESULTS.fields_by_name['error'].message_type = google_dot_rpc_dot_status__pb2._STATUS
 _ANNOTATEVIDEORESPONSE.fields_by_name['annotation_results'].message_type = _VIDEOANNOTATIONRESULTS
 _VIDEOANNOTATIONPROGRESS.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -2189,6 +2387,7 @@ DESCRIPTOR.message_types_by_name['LabelDetectionConfig'] = _LABELDETECTIONCONFIG
 DESCRIPTOR.message_types_by_name['ShotChangeDetectionConfig'] = _SHOTCHANGEDETECTIONCONFIG
 DESCRIPTOR.message_types_by_name['ObjectTrackingConfig'] = _OBJECTTRACKINGCONFIG
 DESCRIPTOR.message_types_by_name['FaceDetectionConfig'] = _FACEDETECTIONCONFIG
+DESCRIPTOR.message_types_by_name['PersonDetectionConfig'] = _PERSONDETECTIONCONFIG
 DESCRIPTOR.message_types_by_name['ExplicitContentDetectionConfig'] = _EXPLICITCONTENTDETECTIONCONFIG
 DESCRIPTOR.message_types_by_name['TextDetectionConfig'] = _TEXTDETECTIONCONFIG
 DESCRIPTOR.message_types_by_name['VideoSegment'] = _VIDEOSEGMENT
@@ -2199,6 +2398,8 @@ DESCRIPTOR.message_types_by_name['LabelAnnotation'] = _LABELANNOTATION
 DESCRIPTOR.message_types_by_name['ExplicitContentFrame'] = _EXPLICITCONTENTFRAME
 DESCRIPTOR.message_types_by_name['ExplicitContentAnnotation'] = _EXPLICITCONTENTANNOTATION
 DESCRIPTOR.message_types_by_name['NormalizedBoundingBox'] = _NORMALIZEDBOUNDINGBOX
+DESCRIPTOR.message_types_by_name['FaceDetectionAnnotation'] = _FACEDETECTIONANNOTATION
+DESCRIPTOR.message_types_by_name['PersonDetectionAnnotation'] = _PERSONDETECTIONANNOTATION
 DESCRIPTOR.message_types_by_name['FaceSegment'] = _FACESEGMENT
 DESCRIPTOR.message_types_by_name['FaceFrame'] = _FACEFRAME
 DESCRIPTOR.message_types_by_name['FaceAnnotation'] = _FACEANNOTATION
@@ -2270,6 +2471,13 @@ FaceDetectionConfig = _reflection.GeneratedProtocolMessageType('FaceDetectionCon
   })
 _sym_db.RegisterMessage(FaceDetectionConfig)
 
+PersonDetectionConfig = _reflection.GeneratedProtocolMessageType('PersonDetectionConfig', (_message.Message,), {
+  'DESCRIPTOR' : _PERSONDETECTIONCONFIG,
+  '__module__' : 'google.cloud.videointelligence.v1.video_intelligence_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.videointelligence.v1.PersonDetectionConfig)
+  })
+_sym_db.RegisterMessage(PersonDetectionConfig)
+
 ExplicitContentDetectionConfig = _reflection.GeneratedProtocolMessageType('ExplicitContentDetectionConfig', (_message.Message,), {
   'DESCRIPTOR' : _EXPLICITCONTENTDETECTIONCONFIG,
   '__module__' : 'google.cloud.videointelligence.v1.video_intelligence_pb2'
@@ -2339,6 +2547,20 @@ NormalizedBoundingBox = _reflection.GeneratedProtocolMessageType('NormalizedBoun
   # @@protoc_insertion_point(class_scope:google.cloud.videointelligence.v1.NormalizedBoundingBox)
   })
 _sym_db.RegisterMessage(NormalizedBoundingBox)
+
+FaceDetectionAnnotation = _reflection.GeneratedProtocolMessageType('FaceDetectionAnnotation', (_message.Message,), {
+  'DESCRIPTOR' : _FACEDETECTIONANNOTATION,
+  '__module__' : 'google.cloud.videointelligence.v1.video_intelligence_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.videointelligence.v1.FaceDetectionAnnotation)
+  })
+_sym_db.RegisterMessage(FaceDetectionAnnotation)
+
+PersonDetectionAnnotation = _reflection.GeneratedProtocolMessageType('PersonDetectionAnnotation', (_message.Message,), {
+  'DESCRIPTOR' : _PERSONDETECTIONANNOTATION,
+  '__module__' : 'google.cloud.videointelligence.v1.video_intelligence_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.videointelligence.v1.PersonDetectionAnnotation)
+  })
+_sym_db.RegisterMessage(PersonDetectionAnnotation)
 
 FaceSegment = _reflection.GeneratedProtocolMessageType('FaceSegment', (_message.Message,), {
   'DESCRIPTOR' : _FACESEGMENT,
@@ -2513,10 +2735,13 @@ DESCRIPTOR._options = None
 _ANNOTATEVIDEOREQUEST.fields_by_name['features']._options = None
 _ANNOTATEVIDEOREQUEST.fields_by_name['output_uri']._options = None
 _ANNOTATEVIDEOREQUEST.fields_by_name['location_id']._options = None
+_FACEFRAME._options = None
+_FACEANNOTATION._options = None
 _TIMESTAMPEDOBJECT.fields_by_name['attributes']._options = None
 _TIMESTAMPEDOBJECT.fields_by_name['landmarks']._options = None
 _TRACK.fields_by_name['attributes']._options = None
 _TRACK.fields_by_name['confidence']._options = None
+_VIDEOANNOTATIONRESULTS.fields_by_name['face_annotations']._options = None
 _SPEECHTRANSCRIPTIONCONFIG.fields_by_name['language_code']._options = None
 _SPEECHTRANSCRIPTIONCONFIG.fields_by_name['max_alternatives']._options = None
 _SPEECHTRANSCRIPTIONCONFIG.fields_by_name['filter_profanity']._options = None
@@ -2540,8 +2765,8 @@ _VIDEOINTELLIGENCESERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A videointelligence.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=8233,
-  serialized_end=8553,
+  serialized_start=8992,
+  serialized_end=9312,
   methods=[
   _descriptor.MethodDescriptor(
     name='AnnotateVideo',

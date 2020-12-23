@@ -22,12 +22,12 @@ package datacatalog
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	v1 "google.golang.org/genproto/googleapis/iam/v1"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -403,7 +403,7 @@ type UpdateTaxonomyRequest struct {
 	// see
 	// https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
 	// If not set, defaults to all of the fields that are allowed to update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateTaxonomyRequest) Reset() {
@@ -445,7 +445,7 @@ func (x *UpdateTaxonomyRequest) GetTaxonomy() *Taxonomy {
 	return nil
 }
 
-func (x *UpdateTaxonomyRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateTaxonomyRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -759,7 +759,7 @@ type UpdatePolicyTagRequest struct {
 	// `FieldMask` definition, see
 	// https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
 	// If not set, defaults to all of the fields that are allowed to update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdatePolicyTagRequest) Reset() {
@@ -801,7 +801,7 @@ func (x *UpdatePolicyTagRequest) GetPolicyTag() *PolicyTag {
 	return nil
 }
 
-func (x *UpdatePolicyTagRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdatePolicyTagRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1394,11 +1394,11 @@ var file_google_cloud_datacatalog_v1beta1_policytagmanager_proto_goTypes = []int
 	(*ListPolicyTagsRequest)(nil),         // 12: google.cloud.datacatalog.v1beta1.ListPolicyTagsRequest
 	(*ListPolicyTagsResponse)(nil),        // 13: google.cloud.datacatalog.v1beta1.ListPolicyTagsResponse
 	(*GetPolicyTagRequest)(nil),           // 14: google.cloud.datacatalog.v1beta1.GetPolicyTagRequest
-	(*fieldmaskpb.FieldMask)(nil),         // 15: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),          // 15: google.protobuf.FieldMask
 	(*v1.GetIamPolicyRequest)(nil),        // 16: google.iam.v1.GetIamPolicyRequest
 	(*v1.SetIamPolicyRequest)(nil),        // 17: google.iam.v1.SetIamPolicyRequest
 	(*v1.TestIamPermissionsRequest)(nil),  // 18: google.iam.v1.TestIamPermissionsRequest
-	(*emptypb.Empty)(nil),                 // 19: google.protobuf.Empty
+	(*empty.Empty)(nil),                   // 19: google.protobuf.Empty
 	(*v1.Policy)(nil),                     // 20: google.iam.v1.Policy
 	(*v1.TestIamPermissionsResponse)(nil), // 21: google.iam.v1.TestIamPermissionsResponse
 }

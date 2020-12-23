@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v5.servicesB%MobileAppCategoryConstantServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v5/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V5.Services\312\002 Google\\Ads\\GoogleAds\\V5\\Services\352\002$Google::Ads::GoogleAds::V5::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nKgoogle/ads/googleads/v5/services/mobile_app_category_constant_service.proto\x12 google.ads.googleads.v5.services\x1a\x44google/ads/googleads/v5/resources/mobile_app_category_constant.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"x\n#GetMobileAppCategoryConstantRequest\x12Q\n\rresource_name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2googleads.googleapis.com/MobileAppCategoryConstant2\xaf\x02\n MobileAppCategoryConstantService\x12\xed\x01\n\x1cGetMobileAppCategoryConstant\x12\x45.google.ads.googleads.v5.services.GetMobileAppCategoryConstantRequest\x1a<.google.ads.googleads.v5.resources.MobileAppCategoryConstant\"H\x82\xd3\xe4\x93\x02\x32\x12\x30/v5/{resource_name=mobileAppCategoryConstants/*}\xda\x41\rresource_name\x1a\x1b\xca\x41\x18googleads.googleapis.comB\x8c\x02\n$com.google.ads.googleads.v5.servicesB%MobileAppCategoryConstantServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v5/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V5.Services\xca\x02 Google\\Ads\\GoogleAds\\V5\\Services\xea\x02$Google::Ads::GoogleAds::V5::Servicesb\x06proto3'
+  serialized_pb=b'\nKgoogle/ads/googleads/v5/services/mobile_app_category_constant_service.proto\x12 google.ads.googleads.v5.services\x1a\x44google/ads/googleads/v5/resources/mobile_app_category_constant.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"x\n#GetMobileAppCategoryConstantRequest\x12Q\n\rresource_name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2googleads.googleapis.com/MobileAppCategoryConstant2\xd9\x02\n MobileAppCategoryConstantService\x12\xed\x01\n\x1cGetMobileAppCategoryConstant\x12\x45.google.ads.googleads.v5.services.GetMobileAppCategoryConstantRequest\x1a<.google.ads.googleads.v5.resources.MobileAppCategoryConstant\"H\x82\xd3\xe4\x93\x02\x32\x12\x30/v5/{resource_name=mobileAppCategoryConstants/*}\xda\x41\rresource_name\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x8c\x02\n$com.google.ads.googleads.v5.servicesB%MobileAppCategoryConstantServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v5/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V5.Services\xca\x02 Google\\Ads\\GoogleAds\\V5\\Services\xea\x02$Google::Ads::GoogleAds::V5::Servicesb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v5_dot_resources_dot_mobile__app__category__constant__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
 
@@ -81,10 +81,10 @@ _MOBILEAPPCATEGORYCONSTANTSERVICE = _descriptor.ServiceDescriptor(
   full_name='google.ads.googleads.v5.services.MobileAppCategoryConstantService',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=b'\312A\030googleads.googleapis.com',
+  serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
   serialized_start=421,
-  serialized_end=724,
+  serialized_end=766,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetMobileAppCategoryConstant',

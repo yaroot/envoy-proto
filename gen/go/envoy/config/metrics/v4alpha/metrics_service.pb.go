@@ -10,9 +10,9 @@ import (
 	v4alpha "envoy/config/core/v4alpha"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -46,8 +46,8 @@ type MetricsServiceConfig struct {
 	// If true, counters are reported as the delta between flushing intervals. Otherwise, the current
 	// counter value is reported. Defaults to false.
 	// Eventually (https://github.com/envoyproxy/envoy/issues/10968) if this value is not set, the
-	// sink will take updates from the :ref:`MetricsResponse <envoy_api_msg_service.metrics.v3.StreamMetricsResponse>`.
-	ReportCountersAsDeltas *wrapperspb.BoolValue `protobuf:"bytes,2,opt,name=report_counters_as_deltas,json=reportCountersAsDeltas,proto3" json:"report_counters_as_deltas,omitempty"`
+	// sink will take updates from the :ref:`MetricsResponse <envoy_api_msg_service.metrics.v4alpha.StreamMetricsResponse>`.
+	ReportCountersAsDeltas *wrappers.BoolValue `protobuf:"bytes,2,opt,name=report_counters_as_deltas,json=reportCountersAsDeltas,proto3" json:"report_counters_as_deltas,omitempty"`
 }
 
 func (x *MetricsServiceConfig) Reset() {
@@ -96,7 +96,7 @@ func (x *MetricsServiceConfig) GetTransportApiVersion() v4alpha.ApiVersion {
 	return v4alpha.ApiVersion_AUTO
 }
 
-func (x *MetricsServiceConfig) GetReportCountersAsDeltas() *wrapperspb.BoolValue {
+func (x *MetricsServiceConfig) GetReportCountersAsDeltas() *wrappers.BoolValue {
 	if x != nil {
 		return x.ReportCountersAsDeltas
 	}
@@ -171,7 +171,7 @@ var file_envoy_config_metrics_v4alpha_metrics_service_proto_goTypes = []interfac
 	(*MetricsServiceConfig)(nil), // 0: envoy.config.metrics.v4alpha.MetricsServiceConfig
 	(*v4alpha.GrpcService)(nil),  // 1: envoy.config.core.v4alpha.GrpcService
 	(v4alpha.ApiVersion)(0),      // 2: envoy.config.core.v4alpha.ApiVersion
-	(*wrapperspb.BoolValue)(nil), // 3: google.protobuf.BoolValue
+	(*wrappers.BoolValue)(nil),   // 3: google.protobuf.BoolValue
 }
 var file_envoy_config_metrics_v4alpha_metrics_service_proto_depIdxs = []int32{
 	1, // 0: envoy.config.metrics.v4alpha.MetricsServiceConfig.grpc_service:type_name -> envoy.config.core.v4alpha.GrpcService

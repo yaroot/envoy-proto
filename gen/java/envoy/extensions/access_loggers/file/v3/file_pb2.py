@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n5io.envoyproxy.envoy.extensions.access_loggers.file.v3B\tFileProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n2envoy/extensions/access_loggers/file/v3/file.proto\x12\'envoy.extensions.access_loggers.file.v3\x1a\x35\x65nvoy/config/core/v3/substitution_format_string.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xbf\x02\n\rFileAccessLog\x12\x15\n\x04path\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x14\n\x06\x66ormat\x18\x02 \x01(\tB\x02\x18\x01H\x00\x12\x32\n\x0bjson_format\x18\x03 \x01(\x0b\x32\x17.google.protobuf.StructB\x02\x18\x01H\x00\x12\x38\n\x11typed_json_format\x18\x04 \x01(\x0b\x32\x17.google.protobuf.StructB\x02\x18\x01H\x00\x12N\n\nlog_format\x18\x05 \x01(\x0b\x32..envoy.config.core.v3.SubstitutionFormatStringB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01H\x00:.\x9a\xc5\x88\x1e)\n\'envoy.config.accesslog.v2.FileAccessLogB\x13\n\x11\x61\x63\x63\x65ss_log_formatBL\n5io.envoyproxy.envoy.extensions.access_loggers.file.v3B\tFileProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n2envoy/extensions/access_loggers/file/v3/file.proto\x12\'envoy.extensions.access_loggers.file.v3\x1a\x35\x65nvoy/config/core/v3/substitution_format_string.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xbf\x02\n\rFileAccessLog\x12\x15\n\x04path\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x14\n\x06\x66ormat\x18\x02 \x01(\tB\x02\x18\x01H\x00\x12\x32\n\x0bjson_format\x18\x03 \x01(\x0b\x32\x17.google.protobuf.StructB\x02\x18\x01H\x00\x12\x38\n\x11typed_json_format\x18\x04 \x01(\x0b\x32\x17.google.protobuf.StructB\x02\x18\x01H\x00\x12N\n\nlog_format\x18\x05 \x01(\x0b\x32..envoy.config.core.v3.SubstitutionFormatStringB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01H\x00:.\x9a\xc5\x88\x1e)\n\'envoy.config.accesslog.v2.FileAccessLogB\x13\n\x11\x61\x63\x63\x65ss_log_formatBL\n5io.envoyproxy.envoy.extensions.access_loggers.file.v3B\tFileProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_substitution__format__string__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -45,7 +45,7 @@ _FILEACCESSLOG = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='format', full_name='envoy.extensions.access_loggers.file.v3.FileAccessLog.format', index=1,
       number=2, type=9, cpp_type=9, label=1,

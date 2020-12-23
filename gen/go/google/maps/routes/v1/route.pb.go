@@ -22,11 +22,11 @@ package routes
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	viewport "google.golang.org/genproto/googleapis/geo/type/viewport"
 	money "google.golang.org/genproto/googleapis/type/money"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -239,10 +239,10 @@ type Route struct {
 	// `static_duration`. If you set the `route_preference` to either
 	// `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
 	// taking traffic conditions into account.
-	Duration *durationpb.Duration `protobuf:"bytes,3,opt,name=duration,proto3" json:"duration,omitempty"`
+	Duration *duration.Duration `protobuf:"bytes,3,opt,name=duration,proto3" json:"duration,omitempty"`
 	// The duration of traveling through the route without taking traffic
 	// conditions into consideration.
-	StaticDuration *durationpb.Duration `protobuf:"bytes,4,opt,name=static_duration,json=staticDuration,proto3" json:"static_duration,omitempty"`
+	StaticDuration *duration.Duration `protobuf:"bytes,4,opt,name=static_duration,json=staticDuration,proto3" json:"static_duration,omitempty"`
 	// The overall route polyline. This polyline will be the combined polyline of
 	// all `legs`.
 	Polyline *Polyline `protobuf:"bytes,5,opt,name=polyline,proto3" json:"polyline,omitempty"`
@@ -302,14 +302,14 @@ func (x *Route) GetDistanceMeters() int32 {
 	return 0
 }
 
-func (x *Route) GetDuration() *durationpb.Duration {
+func (x *Route) GetDuration() *duration.Duration {
 	if x != nil {
 		return x.Duration
 	}
 	return nil
 }
 
-func (x *Route) GetStaticDuration() *durationpb.Duration {
+func (x *Route) GetStaticDuration() *duration.Duration {
 	if x != nil {
 		return x.StaticDuration
 	}
@@ -601,10 +601,10 @@ type RouteLeg struct {
 	// `static_duration`. If the `route_preference` is either `TRAFFIC_AWARE` or
 	// `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated taking traffic
 	// conditions into account.
-	Duration *durationpb.Duration `protobuf:"bytes,2,opt,name=duration,proto3" json:"duration,omitempty"`
+	Duration *duration.Duration `protobuf:"bytes,2,opt,name=duration,proto3" json:"duration,omitempty"`
 	// The duration of traveling through the leg, calculated without taking
 	// traffic conditions into consideration.
-	StaticDuration *durationpb.Duration `protobuf:"bytes,3,opt,name=static_duration,json=staticDuration,proto3" json:"static_duration,omitempty"`
+	StaticDuration *duration.Duration `protobuf:"bytes,3,opt,name=static_duration,json=staticDuration,proto3" json:"static_duration,omitempty"`
 	// The overall polyline for this leg. This includes that each `step`'s
 	// polyline.
 	Polyline *Polyline `protobuf:"bytes,4,opt,name=polyline,proto3" json:"polyline,omitempty"`
@@ -663,14 +663,14 @@ func (x *RouteLeg) GetDistanceMeters() int32 {
 	return 0
 }
 
-func (x *RouteLeg) GetDuration() *durationpb.Duration {
+func (x *RouteLeg) GetDuration() *duration.Duration {
 	if x != nil {
 		return x.Duration
 	}
 	return nil
 }
 
-func (x *RouteLeg) GetStaticDuration() *durationpb.Duration {
+func (x *RouteLeg) GetStaticDuration() *duration.Duration {
 	if x != nil {
 		return x.StaticDuration
 	}
@@ -779,7 +779,7 @@ type RouteLegStep struct {
 	// The duration of travel through this step without taking traffic conditions
 	// into consideration. In some circumstances, this field might not have a
 	// value.
-	StaticDuration *durationpb.Duration `protobuf:"bytes,2,opt,name=static_duration,json=staticDuration,proto3" json:"static_duration,omitempty"`
+	StaticDuration *duration.Duration `protobuf:"bytes,2,opt,name=static_duration,json=staticDuration,proto3" json:"static_duration,omitempty"`
 	// The polyline associated with this step.
 	Polyline *Polyline `protobuf:"bytes,3,opt,name=polyline,proto3" json:"polyline,omitempty"`
 	// The start location of this step.
@@ -829,7 +829,7 @@ func (x *RouteLegStep) GetDistanceMeters() int32 {
 	return 0
 }
 
-func (x *RouteLegStep) GetStaticDuration() *durationpb.Duration {
+func (x *RouteLegStep) GetStaticDuration() *duration.Duration {
 	if x != nil {
 		return x.StaticDuration
 	}
@@ -922,25 +922,22 @@ func (x *NavigationInstruction) GetInstructions() string {
 	return ""
 }
 
-// Traffic density indicator on a contiguous segment of a polyline.
-// Given a polyline with polyline points P_0, P_1, ... , P_N
-// (the indexing is zero-based), the SpeedReadingInterval defines an
-// interval (including the start, exclusing the end point) and describes the
-// traffic density on the respective interval using the below style categories.
+// Traffic density indicator on a contiguous segment of a polyline or path.
+// Given a path with points P_0, P_1, ... , P_N (zero-based index), the
+// SpeedReadingInterval defines an interval and describes its traffic using the
+// following categories.
 type SpeedReadingInterval struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	// The index of the starting polyline point of the interval
-	// in the ordered list of polyline points.
+	// The starting index of this interval in the polyline.
 	// In JSON, when the index is 0, the field will appear to be unpopulated.
 	StartPolylinePointIndex int32 `protobuf:"varint,1,opt,name=start_polyline_point_index,json=startPolylinePointIndex,proto3" json:"start_polyline_point_index,omitempty"`
-	// The index of the ending polyline point of the interval
-	// (with off-by-one ending) in the ordered list of polyline points.
+	// The ending index of this interval in the polyline.
 	// In JSON, when the index is 0, the field will appear to be unpopulated.
 	EndPolylinePointIndex int32 `protobuf:"varint,2,opt,name=end_polyline_point_index,json=endPolylinePointIndex,proto3" json:"end_polyline_point_index,omitempty"`
-	// Traffic information speed at the interval.
+	// Traffic speed in this interval.
 	Speed SpeedReadingInterval_Speed `protobuf:"varint,3,opt,name=speed,proto3,enum=google.maps.routes.v1.SpeedReadingInterval_Speed" json:"speed,omitempty"`
 }
 
@@ -1236,7 +1233,7 @@ var file_google_maps_routes_v1_route_proto_goTypes = []interface{}{
 	(*RouteLegStep)(nil),                         // 9: google.maps.routes.v1.RouteLegStep
 	(*NavigationInstruction)(nil),                // 10: google.maps.routes.v1.NavigationInstruction
 	(*SpeedReadingInterval)(nil),                 // 11: google.maps.routes.v1.SpeedReadingInterval
-	(*durationpb.Duration)(nil),                  // 12: google.protobuf.Duration
+	(*duration.Duration)(nil),                    // 12: google.protobuf.Duration
 	(*Polyline)(nil),                             // 13: google.maps.routes.v1.Polyline
 	(*viewport.Viewport)(nil),                    // 14: google.geo.type.Viewport
 	(*Location)(nil),                             // 15: google.maps.routes.v1.Location

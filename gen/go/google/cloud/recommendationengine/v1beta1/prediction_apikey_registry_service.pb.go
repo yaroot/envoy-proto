@@ -22,11 +22,10 @@ package recommendationengine
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	_ "google/cloud/recommendationengine/v1beta1"
 	reflect "reflect"
 	sync "sync"
 )
@@ -515,7 +514,7 @@ var file_google_cloud_recommendationengine_v1beta1_prediction_apikey_registry_se
 	(*ListPredictionApiKeyRegistrationsRequest)(nil),  // 2: google.cloud.recommendationengine.v1beta1.ListPredictionApiKeyRegistrationsRequest
 	(*ListPredictionApiKeyRegistrationsResponse)(nil), // 3: google.cloud.recommendationengine.v1beta1.ListPredictionApiKeyRegistrationsResponse
 	(*DeletePredictionApiKeyRegistrationRequest)(nil), // 4: google.cloud.recommendationengine.v1beta1.DeletePredictionApiKeyRegistrationRequest
-	(*emptypb.Empty)(nil),                             // 5: google.protobuf.Empty
+	(*empty.Empty)(nil),                               // 5: google.protobuf.Empty
 }
 var file_google_cloud_recommendationengine_v1beta1_prediction_apikey_registry_service_proto_depIdxs = []int32{
 	0, // 0: google.cloud.recommendationengine.v1beta1.CreatePredictionApiKeyRegistrationRequest.prediction_api_key_registration:type_name -> google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistration
@@ -540,6 +539,7 @@ func file_google_cloud_recommendationengine_v1beta1_prediction_apikey_registry_s
 	if File_google_cloud_recommendationengine_v1beta1_prediction_apikey_registry_service_proto != nil {
 		return
 	}
+	file_google_cloud_recommendationengine_v1beta1_recommendationengine_resources_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_google_cloud_recommendationengine_v1beta1_prediction_apikey_registry_service_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*PredictionApiKeyRegistration); i {

@@ -22,10 +22,10 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -54,7 +54,7 @@ type LandingPageView struct {
 	// `customers/{customer_id}/landingPageViews/{unexpanded_final_url_fingerprint}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. The advertiser-specified final URL.
-	UnexpandedFinalUrl *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=unexpanded_final_url,json=unexpandedFinalUrl,proto3" json:"unexpanded_final_url,omitempty"`
+	UnexpandedFinalUrl *wrappers.StringValue `protobuf:"bytes,2,opt,name=unexpanded_final_url,json=unexpandedFinalUrl,proto3" json:"unexpanded_final_url,omitempty"`
 }
 
 func (x *LandingPageView) Reset() {
@@ -96,7 +96,7 @@ func (x *LandingPageView) GetResourceName() string {
 	return ""
 }
 
-func (x *LandingPageView) GetUnexpandedFinalUrl() *wrapperspb.StringValue {
+func (x *LandingPageView) GetUnexpandedFinalUrl() *wrappers.StringValue {
 	if x != nil {
 		return x.UnexpandedFinalUrl
 	}
@@ -171,8 +171,8 @@ func file_google_ads_googleads_v5_resources_landing_page_view_proto_rawDescGZIP(
 
 var file_google_ads_googleads_v5_resources_landing_page_view_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v5_resources_landing_page_view_proto_goTypes = []interface{}{
-	(*LandingPageView)(nil),        // 0: google.ads.googleads.v5.resources.LandingPageView
-	(*wrapperspb.StringValue)(nil), // 1: google.protobuf.StringValue
+	(*LandingPageView)(nil),      // 0: google.ads.googleads.v5.resources.LandingPageView
+	(*wrappers.StringValue)(nil), // 1: google.protobuf.StringValue
 }
 var file_google_ads_googleads_v5_resources_landing_page_view_proto_depIdxs = []int32{
 	1, // 0: google.ads.googleads.v5.resources.LandingPageView.unexpanded_final_url:type_name -> google.protobuf.StringValue

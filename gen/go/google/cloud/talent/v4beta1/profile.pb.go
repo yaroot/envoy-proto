@@ -22,14 +22,14 @@ package talent
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/duration"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	date "google.golang.org/genproto/googleapis/type/date"
 	postaladdress "google.golang.org/genproto/googleapis/type/postaladdress"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/durationpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -233,11 +233,11 @@ type Profile struct {
 	// indicating these two profiles are referring to the same candidate.
 	GroupId string `protobuf:"bytes,5,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"`
 	// Indicates the hirable status of the candidate.
-	IsHirable *wrapperspb.BoolValue `protobuf:"bytes,6,opt,name=is_hirable,json=isHirable,proto3" json:"is_hirable,omitempty"`
+	IsHirable *wrappers.BoolValue `protobuf:"bytes,6,opt,name=is_hirable,json=isHirable,proto3" json:"is_hirable,omitempty"`
 	// The timestamp when the profile was first created at this source.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// The timestamp when the profile was last updated at this source.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,8,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// The timestamp when the profile was last updated as a result of a direct or
 	// indirect action by a candidate.
 	//
@@ -256,7 +256,7 @@ type Profile struct {
 	//
 	// Note: [candidate_update_time][google.cloud.talent.v4beta1.Profile.candidate_update_time] must be greater than or equal to
 	// [resume_update_time][google.cloud.talent.v4beta1.Profile.resume_update_time] or an error is thrown.
-	CandidateUpdateTime *timestamppb.Timestamp `protobuf:"bytes,67,opt,name=candidate_update_time,json=candidateUpdateTime,proto3" json:"candidate_update_time,omitempty"`
+	CandidateUpdateTime *timestamp.Timestamp `protobuf:"bytes,67,opt,name=candidate_update_time,json=candidateUpdateTime,proto3" json:"candidate_update_time,omitempty"`
 	// The timestamp when the candidate's resume was added or updated on the
 	// candidate's profile. Whether that resume was directly uploaded by a
 	// candidate, pulled from a 3rd party job board feed, added by a recruiter,
@@ -264,7 +264,7 @@ type Profile struct {
 	//
 	// If this field is updated, it's expected that [resume][google.cloud.talent.v4beta1.Profile.resume] is provided in
 	// the create or update calls.
-	ResumeUpdateTime *timestamppb.Timestamp `protobuf:"bytes,68,opt,name=resume_update_time,json=resumeUpdateTime,proto3" json:"resume_update_time,omitempty"`
+	ResumeUpdateTime *timestamp.Timestamp `protobuf:"bytes,68,opt,name=resume_update_time,json=resumeUpdateTime,proto3" json:"resume_update_time,omitempty"`
 	// The resume representing this profile.
 	Resume *Resume `protobuf:"bytes,53,opt,name=resume,proto3" json:"resume,omitempty"`
 	// The names of the candidate this profile references.
@@ -455,35 +455,35 @@ func (x *Profile) GetGroupId() string {
 	return ""
 }
 
-func (x *Profile) GetIsHirable() *wrapperspb.BoolValue {
+func (x *Profile) GetIsHirable() *wrappers.BoolValue {
 	if x != nil {
 		return x.IsHirable
 	}
 	return nil
 }
 
-func (x *Profile) GetCreateTime() *timestamppb.Timestamp {
+func (x *Profile) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *Profile) GetUpdateTime() *timestamppb.Timestamp {
+func (x *Profile) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
 	return nil
 }
 
-func (x *Profile) GetCandidateUpdateTime() *timestamppb.Timestamp {
+func (x *Profile) GetCandidateUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CandidateUpdateTime
 	}
 	return nil
 }
 
-func (x *Profile) GetResumeUpdateTime() *timestamppb.Timestamp {
+func (x *Profile) GetResumeUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ResumeUpdateTime
 	}
@@ -646,14 +646,14 @@ type AvailabilitySignal struct {
 	// Type of signal.
 	Type AvailabilitySignalType `protobuf:"varint,1,opt,name=type,proto3,enum=google.cloud.talent.v4beta1.AvailabilitySignalType" json:"type,omitempty"`
 	// Timestamp of when the given availability activity last happened.
-	LastUpdateTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=last_update_time,json=lastUpdateTime,proto3" json:"last_update_time,omitempty"`
+	LastUpdateTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=last_update_time,json=lastUpdateTime,proto3" json:"last_update_time,omitempty"`
 	// Indicates if the [last_update_time][google.cloud.talent.v4beta1.AvailabilitySignal.last_update_time] is within
 	// [AvailabilityFilter.range][google.cloud.talent.v4beta1.AvailabilityFilter.range].
 	//
 	// Returned only in a search response when there is an [AvailabilityFilter][google.cloud.talent.v4beta1.AvailabilityFilter]
 	// in [ProfileQuery.availability_filters][google.cloud.talent.v4beta1.ProfileQuery.availability_filters] where
 	// [signal_type][google.cloud.talent.v4beta1.AvailabilityFilter.signal_type] matches [type][google.cloud.talent.v4beta1.AvailabilitySignal.type].
-	FilterSatisfied *wrapperspb.BoolValue `protobuf:"bytes,3,opt,name=filter_satisfied,json=filterSatisfied,proto3" json:"filter_satisfied,omitempty"`
+	FilterSatisfied *wrappers.BoolValue `protobuf:"bytes,3,opt,name=filter_satisfied,json=filterSatisfied,proto3" json:"filter_satisfied,omitempty"`
 }
 
 func (x *AvailabilitySignal) Reset() {
@@ -695,14 +695,14 @@ func (x *AvailabilitySignal) GetType() AvailabilitySignalType {
 	return AvailabilitySignalType_AVAILABILITY_SIGNAL_TYPE_UNSPECIFIED
 }
 
-func (x *AvailabilitySignal) GetLastUpdateTime() *timestamppb.Timestamp {
+func (x *AvailabilitySignal) GetLastUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.LastUpdateTime
 	}
 	return nil
 }
 
-func (x *AvailabilitySignal) GetFilterSatisfied() *wrapperspb.BoolValue {
+func (x *AvailabilitySignal) GetFilterSatisfied() *wrappers.BoolValue {
 	if x != nil {
 		return x.FilterSatisfied
 	}
@@ -895,7 +895,7 @@ type Address struct {
 	//	*Address_StructuredAddress
 	Address isAddress_Address `protobuf_oneof:"address"`
 	// Indicates if it's the person's current address.
-	Current *wrapperspb.BoolValue `protobuf:"bytes,4,opt,name=current,proto3" json:"current,omitempty"`
+	Current *wrappers.BoolValue `protobuf:"bytes,4,opt,name=current,proto3" json:"current,omitempty"`
 }
 
 func (x *Address) Reset() {
@@ -958,7 +958,7 @@ func (x *Address) GetStructuredAddress() *postaladdress.PostalAddress {
 	return nil
 }
 
-func (x *Address) GetCurrent() *wrapperspb.BoolValue {
+func (x *Address) GetCurrent() *wrappers.BoolValue {
 	if x != nil {
 		return x.Current
 	}
@@ -1294,11 +1294,11 @@ type EmploymentRecord struct {
 	// Number of characters allowed is 100,000.
 	JobDescription string `protobuf:"bytes,7,opt,name=job_description,json=jobDescription,proto3" json:"job_description,omitempty"`
 	// If the jobs is a supervisor position.
-	IsSupervisor *wrapperspb.BoolValue `protobuf:"bytes,8,opt,name=is_supervisor,json=isSupervisor,proto3" json:"is_supervisor,omitempty"`
+	IsSupervisor *wrappers.BoolValue `protobuf:"bytes,8,opt,name=is_supervisor,json=isSupervisor,proto3" json:"is_supervisor,omitempty"`
 	// If this employment is self-employed.
-	IsSelfEmployed *wrapperspb.BoolValue `protobuf:"bytes,9,opt,name=is_self_employed,json=isSelfEmployed,proto3" json:"is_self_employed,omitempty"`
+	IsSelfEmployed *wrappers.BoolValue `protobuf:"bytes,9,opt,name=is_self_employed,json=isSelfEmployed,proto3" json:"is_self_employed,omitempty"`
 	// If this employment is current.
-	IsCurrent *wrapperspb.BoolValue `protobuf:"bytes,10,opt,name=is_current,json=isCurrent,proto3" json:"is_current,omitempty"`
+	IsCurrent *wrappers.BoolValue `protobuf:"bytes,10,opt,name=is_current,json=isCurrent,proto3" json:"is_current,omitempty"`
 	// Output only. The job title snippet shows how the [job_title][google.cloud.talent.v4beta1.EmploymentRecord.job_title] is related
 	// to a search query. It's empty if the [job_title][google.cloud.talent.v4beta1.EmploymentRecord.job_title] isn't related to the
 	// search query.
@@ -1394,21 +1394,21 @@ func (x *EmploymentRecord) GetJobDescription() string {
 	return ""
 }
 
-func (x *EmploymentRecord) GetIsSupervisor() *wrapperspb.BoolValue {
+func (x *EmploymentRecord) GetIsSupervisor() *wrappers.BoolValue {
 	if x != nil {
 		return x.IsSupervisor
 	}
 	return nil
 }
 
-func (x *EmploymentRecord) GetIsSelfEmployed() *wrapperspb.BoolValue {
+func (x *EmploymentRecord) GetIsSelfEmployed() *wrappers.BoolValue {
 	if x != nil {
 		return x.IsSelfEmployed
 	}
 	return nil
 }
 
-func (x *EmploymentRecord) GetIsCurrent() *wrapperspb.BoolValue {
+func (x *EmploymentRecord) GetIsCurrent() *wrappers.BoolValue {
 	if x != nil {
 		return x.IsCurrent
 	}
@@ -1469,7 +1469,7 @@ type EducationRecord struct {
 	// Number of characters allowed is 100,000.
 	Description string `protobuf:"bytes,8,opt,name=description,proto3" json:"description,omitempty"`
 	// If this education is current.
-	IsCurrent *wrapperspb.BoolValue `protobuf:"bytes,9,opt,name=is_current,json=isCurrent,proto3" json:"is_current,omitempty"`
+	IsCurrent *wrappers.BoolValue `protobuf:"bytes,9,opt,name=is_current,json=isCurrent,proto3" json:"is_current,omitempty"`
 	// Output only. The school name snippet shows how the [school_name][google.cloud.talent.v4beta1.EducationRecord.school_name] is related to a
 	// search query in search result. It's empty if the [school_name][google.cloud.talent.v4beta1.EducationRecord.school_name] isn't
 	// related to the search query.
@@ -1575,7 +1575,7 @@ func (x *EducationRecord) GetDescription() string {
 	return ""
 }
 
-func (x *EducationRecord) GetIsCurrent() *wrapperspb.BoolValue {
+func (x *EducationRecord) GetIsCurrent() *wrappers.BoolValue {
 	if x != nil {
 		return x.IsCurrent
 	}
@@ -2717,8 +2717,8 @@ var file_google_cloud_talent_v4beta1_profile_proto_goTypes = []interface{}{
 	(*Patent)(nil),                          // 16: google.cloud.talent.v4beta1.Patent
 	nil,                                     // 17: google.cloud.talent.v4beta1.Profile.CustomAttributesEntry
 	(*PersonName_PersonStructuredName)(nil), // 18: google.cloud.talent.v4beta1.PersonName.PersonStructuredName
-	(*wrapperspb.BoolValue)(nil),            // 19: google.protobuf.BoolValue
-	(*timestamppb.Timestamp)(nil),           // 20: google.protobuf.Timestamp
+	(*wrappers.BoolValue)(nil),              // 19: google.protobuf.BoolValue
+	(*timestamp.Timestamp)(nil),             // 20: google.protobuf.Timestamp
 	(*Skill)(nil),                           // 21: google.cloud.talent.v4beta1.Skill
 	(*Certification)(nil),                   // 22: google.cloud.talent.v4beta1.Certification
 	(*Location)(nil),                        // 23: google.cloud.talent.v4beta1.Location

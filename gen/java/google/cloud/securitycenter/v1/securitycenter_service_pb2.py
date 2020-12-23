@@ -39,7 +39,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"com.google.cloud.securitycenter.v1P\001ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\252\002\036Google.Cloud.SecurityCenter.V1\312\002\036Google\\Cloud\\SecurityCenter\\V1\352\002!Google::Cloud::SecurityCenter::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n;google/cloud/securitycenter/v1/securitycenter_service.proto\x12\x1egoogle.cloud.securitycenter.v1\x1a\x41google/cloud/securitycenter/v1/run_asset_discovery_response.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a*google/cloud/securitycenter/v1/asset.proto\x1a,google/cloud/securitycenter/v1/finding.proto\x1a\x38google/cloud/securitycenter/v1/notification_config.proto\x1a:google/cloud/securitycenter/v1/organization_settings.proto\x1a\x33google/cloud/securitycenter/v1/security_marks.proto\x1a+google/cloud/securitycenter/v1/source.proto\x1a\x1egoogle/iam/v1/iam_policy.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xac\x01\n\x14\x43reateFindingRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$securitycenter.googleapis.com/Source\x12\x17\n\nfinding_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12=\n\x07\x66inding\x18\x03 \x01(\x0b\x32\'.google.cloud.securitycenter.v1.FindingB\x03\xe0\x41\x02\"\xd9\x01\n\x1f\x43reateNotificationConfigRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\x12\x16\n\tconfig_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12T\n\x13notification_config\x18\x03 \x01(\x0b\x32\x32.google.cloud.securitycenter.v1.NotificationConfigB\x03\xe0\x41\x02\"\x9c\x01\n\x13\x43reateSourceRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\x12;\n\x06source\x18\x02 \x01(\x0b\x32&.google.cloud.securitycenter.v1.SourceB\x03\xe0\x41\x02\"i\n\x1f\x44\x65leteNotificationConfigRequest\x12\x46\n\x04name\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0securitycenter.googleapis.com/NotificationConfig\"f\n\x1cGetNotificationConfigRequest\x12\x46\n\x04name\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0securitycenter.googleapis.com/NotificationConfig\"j\n\x1eGetOrganizationSettingsRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2securitycenter.googleapis.com/OrganizationSettings\"N\n\x10GetSourceRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$securitycenter.googleapis.com/Source\"\x90\x02\n\x12GroupAssetsRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x15\n\x08group_by\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x33\n\x10\x63ompare_duration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12-\n\tread_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x12\n\npage_token\x18\x07 \x01(\t\x12\x11\n\tpage_size\x18\x08 \x01(\x05\"\xb8\x01\n\x13GroupAssetsResponse\x12\x45\n\x10group_by_results\x18\x01 \x03(\x0b\x32+.google.cloud.securitycenter.v1.GroupResult\x12-\n\tread_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x17\n\x0fnext_page_token\x18\x03 \x01(\t\x12\x12\n\ntotal_size\x18\x04 \x01(\x05\"\x86\x02\n\x14GroupFindingsRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$securitycenter.googleapis.com/Source\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x15\n\x08group_by\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12-\n\tread_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x33\n\x10\x63ompare_duration\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x12\n\npage_token\x18\x07 \x01(\t\x12\x11\n\tpage_size\x18\x08 \x01(\x05\"\xba\x01\n\x15GroupFindingsResponse\x12\x45\n\x10group_by_results\x18\x01 \x03(\x0b\x32+.google.cloud.securitycenter.v1.GroupResult\x12-\n\tread_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x17\n\x0fnext_page_token\x18\x03 \x01(\t\x12\x12\n\ntotal_size\x18\x04 \x01(\x05\"\xb8\x01\n\x0bGroupResult\x12O\n\nproperties\x18\x01 \x03(\x0b\x32;.google.cloud.securitycenter.v1.GroupResult.PropertiesEntry\x12\r\n\x05\x63ount\x18\x02 \x01(\x03\x1aI\n\x0fPropertiesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value:\x02\x38\x01\"\x91\x01\n\x1eListNotificationConfigsRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\"\x8c\x01\n\x1fListNotificationConfigsResponse\x12P\n\x14notification_configs\x18\x01 \x03(\x0b\x32\x32.google.cloud.securitycenter.v1.NotificationConfig\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x85\x01\n\x12ListSourcesRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x07 \x01(\x05\"g\n\x13ListSourcesResponse\x12\x37\n\x07sources\x18\x01 \x03(\x0b\x32&.google.cloud.securitycenter.v1.Source\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xbf\x02\n\x11ListAssetsRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x10\n\x08order_by\x18\x03 \x01(\t\x12-\n\tread_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x33\n\x10\x63ompare_duration\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x33\n\nfield_mask\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\x12\x12\n\npage_token\x18\x08 \x01(\t\x12\x11\n\tpage_size\x18\t \x01(\x05\"\xc3\x03\n\x12ListAssetsResponse\x12`\n\x13list_assets_results\x18\x01 \x03(\x0b\x32\x43.google.cloud.securitycenter.v1.ListAssetsResponse.ListAssetsResult\x12-\n\tread_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x17\n\x0fnext_page_token\x18\x03 \x01(\t\x12\x12\n\ntotal_size\x18\x04 \x01(\x05\x1a\xee\x01\n\x10ListAssetsResult\x12\x34\n\x05\x61sset\x18\x01 \x01(\x0b\x32%.google.cloud.securitycenter.v1.Asset\x12\x65\n\x0cstate_change\x18\x02 \x01(\x0e\x32O.google.cloud.securitycenter.v1.ListAssetsResponse.ListAssetsResult.StateChange\"=\n\x0bStateChange\x12\n\n\x06UNUSED\x10\x00\x12\t\n\x05\x41\x44\x44\x45\x44\x10\x01\x12\x0b\n\x07REMOVED\x10\x02\x12\n\n\x06\x41\x43TIVE\x10\x03\"\xb5\x02\n\x13ListFindingsRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$securitycenter.googleapis.com/Source\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x10\n\x08order_by\x18\x03 \x01(\t\x12-\n\tread_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x33\n\x10\x63ompare_duration\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x33\n\nfield_mask\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\x12\x12\n\npage_token\x18\x08 \x01(\t\x12\x11\n\tpage_size\x18\t \x01(\x05\"\xc9\x05\n\x14ListFindingsResponse\x12\x66\n\x15list_findings_results\x18\x01 \x03(\x0b\x32G.google.cloud.securitycenter.v1.ListFindingsResponse.ListFindingsResult\x12-\n\tread_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x17\n\x0fnext_page_token\x18\x03 \x01(\t\x12\x12\n\ntotal_size\x18\x04 \x01(\x05\x1a\xec\x03\n\x12ListFindingsResult\x12\x38\n\x07\x66inding\x18\x01 \x01(\x0b\x32\'.google.cloud.securitycenter.v1.Finding\x12i\n\x0cstate_change\x18\x02 \x01(\x0e\x32S.google.cloud.securitycenter.v1.ListFindingsResponse.ListFindingsResult.StateChange\x12\x62\n\x08resource\x18\x03 \x01(\x0b\x32P.google.cloud.securitycenter.v1.ListFindingsResponse.ListFindingsResult.Resource\x1a~\n\x08Resource\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0cproject_name\x18\x02 \x01(\t\x12\x1c\n\x14project_display_name\x18\x03 \x01(\t\x12\x13\n\x0bparent_name\x18\x04 \x01(\t\x12\x1b\n\x13parent_display_name\x18\x05 \x01(\t\"M\n\x0bStateChange\x12\n\n\x06UNUSED\x10\x00\x12\x0b\n\x07\x43HANGED\x10\x01\x12\r\n\tUNCHANGED\x10\x02\x12\t\n\x05\x41\x44\x44\x45\x44\x10\x03\x12\x0b\n\x07REMOVED\x10\x04\"\xcd\x01\n\x16SetFindingStateRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%securitycenter.googleapis.com/Finding\x12\x41\n\x05state\x18\x02 \x01(\x0e\x32-.google.cloud.securitycenter.v1.Finding.StateB\x03\xe0\x41\x02\x12\x33\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02\"d\n\x18RunAssetDiscoveryRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\"\x86\x01\n\x14UpdateFindingRequest\x12=\n\x07\x66inding\x18\x01 \x01(\x0b\x32\'.google.cloud.securitycenter.v1.FindingB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xa8\x01\n\x1fUpdateNotificationConfigRequest\x12T\n\x13notification_config\x18\x01 \x01(\x0b\x32\x32.google.cloud.securitycenter.v1.NotificationConfigB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xae\x01\n!UpdateOrganizationSettingsRequest\x12X\n\x15organization_settings\x18\x01 \x01(\x0b\x32\x34.google.cloud.securitycenter.v1.OrganizationSettingsB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\x83\x01\n\x13UpdateSourceRequest\x12;\n\x06source\x18\x01 \x01(\x0b\x32&.google.cloud.securitycenter.v1.SourceB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xc9\x01\n\x1aUpdateSecurityMarksRequest\x12J\n\x0esecurity_marks\x18\x01 \x01(\x0b\x32-.google.cloud.securitycenter.v1.SecurityMarksB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12.\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xd6&\n\x0eSecurityCenter\x12\xb1\x01\n\x0c\x43reateSource\x12\x33.google.cloud.securitycenter.v1.CreateSourceRequest\x1a&.google.cloud.securitycenter.v1.Source\"D\x82\xd3\xe4\x93\x02.\"$/v1/{parent=organizations/*}/sources:\x06source\xda\x41\rparent,source\x12\xcc\x01\n\rCreateFinding\x12\x34.google.cloud.securitycenter.v1.CreateFindingRequest\x1a\'.google.cloud.securitycenter.v1.Finding\"\\\x82\xd3\xe4\x93\x02:\"//v1/{parent=organizations/*/sources/*}/findings:\x07\x66inding\xda\x41\x19parent,finding_id,finding\x12\xa3\x02\n\x18\x43reateNotificationConfig\x12?.google.cloud.securitycenter.v1.CreateNotificationConfigRequest\x1a\x32.google.cloud.securitycenter.v1.NotificationConfig\"\x91\x01\x82\xd3\xe4\x93\x02G\"0/v1/{parent=organizations/*}/notificationConfigs:\x13notification_config\xda\x41$parent,config_id,notification_config\xda\x41\x1aparent,notification_config\x12\xb4\x01\n\x18\x44\x65leteNotificationConfig\x12?.google.cloud.securitycenter.v1.DeleteNotificationConfigRequest\x1a\x16.google.protobuf.Empty\"?\x82\xd3\xe4\x93\x02\x32*0/v1/{name=organizations/*/notificationConfigs/*}\xda\x41\x04name\x12\x96\x01\n\x0cGetIamPolicy\x12\".google.iam.v1.GetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"K\x82\xd3\xe4\x93\x02:\"5/v1/{resource=organizations/*/sources/*}:getIamPolicy:\x01*\xda\x41\x08resource\x12\xca\x01\n\x15GetNotificationConfig\x12<.google.cloud.securitycenter.v1.GetNotificationConfigRequest\x1a\x32.google.cloud.securitycenter.v1.NotificationConfig\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{name=organizations/*/notificationConfigs/*}\xda\x41\x04name\x12\xcf\x01\n\x17GetOrganizationSettings\x12>.google.cloud.securitycenter.v1.GetOrganizationSettingsRequest\x1a\x34.google.cloud.securitycenter.v1.OrganizationSettings\">\x82\xd3\xe4\x93\x02\x31\x12//v1/{name=organizations/*/organizationSettings}\xda\x41\x04name\x12\x9a\x01\n\tGetSource\x12\x30.google.cloud.securitycenter.v1.GetSourceRequest\x1a&.google.cloud.securitycenter.v1.Source\"3\x82\xd3\xe4\x93\x02&\x12$/v1/{name=organizations/*/sources/*}\xda\x41\x04name\x12\xac\x01\n\x0bGroupAssets\x12\x32.google.cloud.securitycenter.v1.GroupAssetsRequest\x1a\x33.google.cloud.securitycenter.v1.GroupAssetsResponse\"4\x82\xd3\xe4\x93\x02.\")/v1/{parent=organizations/*}/assets:group:\x01*\x12\xd0\x01\n\rGroupFindings\x12\x34.google.cloud.securitycenter.v1.GroupFindingsRequest\x1a\x35.google.cloud.securitycenter.v1.GroupFindingsResponse\"R\x82\xd3\xe4\x93\x02:\"5/v1/{parent=organizations/*/sources/*}/findings:group:\x01*\xda\x41\x0fparent,group_by\x12\xa0\x01\n\nListAssets\x12\x31.google.cloud.securitycenter.v1.ListAssetsRequest\x1a\x32.google.cloud.securitycenter.v1.ListAssetsResponse\"+\x82\xd3\xe4\x93\x02%\x12#/v1/{parent=organizations/*}/assets\x12\xb2\x01\n\x0cListFindings\x12\x33.google.cloud.securitycenter.v1.ListFindingsRequest\x1a\x34.google.cloud.securitycenter.v1.ListFindingsResponse\"7\x82\xd3\xe4\x93\x02\x31\x12//v1/{parent=organizations/*/sources/*}/findings\x12\xdd\x01\n\x17ListNotificationConfigs\x12>.google.cloud.securitycenter.v1.ListNotificationConfigsRequest\x1a?.google.cloud.securitycenter.v1.ListNotificationConfigsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{parent=organizations/*}/notificationConfigs\xda\x41\x06parent\x12\xad\x01\n\x0bListSources\x12\x32.google.cloud.securitycenter.v1.ListSourcesRequest\x1a\x33.google.cloud.securitycenter.v1.ListSourcesResponse\"5\x82\xd3\xe4\x93\x02&\x12$/v1/{parent=organizations/*}/sources\xda\x41\x06parent\x12\x87\x02\n\x11RunAssetDiscovery\x12\x38.google.cloud.securitycenter.v1.RunAssetDiscoveryRequest\x1a\x1d.google.longrunning.Operation\"\x98\x01\x82\xd3\xe4\x93\x02\x35\"0/v1/{parent=organizations/*}/assets:runDiscovery:\x01*\xda\x41\x06parent\xca\x41Q\n8google.cloud.securitycenter.v1.RunAssetDiscoveryResponse\x12\x15google.protobuf.Empty\x12\xcf\x01\n\x0fSetFindingState\x12\x36.google.cloud.securitycenter.v1.SetFindingStateRequest\x1a\'.google.cloud.securitycenter.v1.Finding\"[\x82\xd3\xe4\x93\x02=\"8/v1/{name=organizations/*/sources/*/findings/*}:setState:\x01*\xda\x41\x15name,state,start_time\x12\x9d\x01\n\x0cSetIamPolicy\x12\".google.iam.v1.SetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"R\x82\xd3\xe4\x93\x02:\"5/v1/{resource=organizations/*/sources/*}:setIamPolicy:\x01*\xda\x41\x0fresource,policy\x12\xc8\x01\n\x12TestIamPermissions\x12(.google.iam.v1.TestIamPermissionsRequest\x1a).google.iam.v1.TestIamPermissionsResponse\"]\x82\xd3\xe4\x93\x02@\";/v1/{resource=organizations/*/sources/*}:testIamPermissions:\x01*\xda\x41\x14resource,permissions\x12\xc2\x01\n\rUpdateFinding\x12\x34.google.cloud.securitycenter.v1.UpdateFindingRequest\x1a\'.google.cloud.securitycenter.v1.Finding\"R\x82\xd3\xe4\x93\x02\x42\x32\x37/v1/{finding.name=organizations/*/sources/*/findings/*}:\x07\x66inding\xda\x41\x07\x66inding\x12\xab\x02\n\x18UpdateNotificationConfig\x12?.google.cloud.securitycenter.v1.UpdateNotificationConfigRequest\x1a\x32.google.cloud.securitycenter.v1.NotificationConfig\"\x99\x01\x82\xd3\xe4\x93\x02[2D/v1/{notification_config.name=organizations/*/notificationConfigs/*}:\x13notification_config\xda\x41\x13notification_config\xda\x41\x1fnotification_config,update_mask\x12\x93\x02\n\x1aUpdateOrganizationSettings\x12\x41.google.cloud.securitycenter.v1.UpdateOrganizationSettingsRequest\x1a\x34.google.cloud.securitycenter.v1.OrganizationSettings\"|\x82\xd3\xe4\x93\x02^2E/v1/{organization_settings.name=organizations/*/organizationSettings}:\x15organization_settings\xda\x41\x15organization_settings\x12\xb1\x01\n\x0cUpdateSource\x12\x33.google.cloud.securitycenter.v1.UpdateSourceRequest\x1a&.google.cloud.securitycenter.v1.Source\"D\x82\xd3\xe4\x93\x02\x35\x32+/v1/{source.name=organizations/*/sources/*}:\x06source\xda\x41\x06source\x12\xcd\x02\n\x13UpdateSecurityMarks\x12:.google.cloud.securitycenter.v1.UpdateSecurityMarksRequest\x1a-.google.cloud.securitycenter.v1.SecurityMarks\"\xca\x01\x82\xd3\xe4\x93\x02\xb2\x01\x32@/v1/{security_marks.name=organizations/*/assets/*/securityMarks}:\x0esecurity_marksZ^2L/v1/{security_marks.name=organizations/*/sources/*/findings/*/securityMarks}:\x0esecurity_marks\xda\x41\x0esecurity_marks\x1aQ\xca\x41\x1dsecuritycenter.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xda\x01\n\"com.google.cloud.securitycenter.v1P\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1P\x00\x62\x06proto3'
+  serialized_pb=b'\n;google/cloud/securitycenter/v1/securitycenter_service.proto\x12\x1egoogle.cloud.securitycenter.v1\x1a\x41google/cloud/securitycenter/v1/run_asset_discovery_response.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a*google/cloud/securitycenter/v1/asset.proto\x1a,google/cloud/securitycenter/v1/finding.proto\x1a\x38google/cloud/securitycenter/v1/notification_config.proto\x1a:google/cloud/securitycenter/v1/organization_settings.proto\x1a\x33google/cloud/securitycenter/v1/security_marks.proto\x1a+google/cloud/securitycenter/v1/source.proto\x1a\x1egoogle/iam/v1/iam_policy.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xac\x01\n\x14\x43reateFindingRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$securitycenter.googleapis.com/Source\x12\x17\n\nfinding_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12=\n\x07\x66inding\x18\x03 \x01(\x0b\x32\'.google.cloud.securitycenter.v1.FindingB\x03\xe0\x41\x02\"\xd9\x01\n\x1f\x43reateNotificationConfigRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\x12\x16\n\tconfig_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12T\n\x13notification_config\x18\x03 \x01(\x0b\x32\x32.google.cloud.securitycenter.v1.NotificationConfigB\x03\xe0\x41\x02\"\x9c\x01\n\x13\x43reateSourceRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\x12;\n\x06source\x18\x02 \x01(\x0b\x32&.google.cloud.securitycenter.v1.SourceB\x03\xe0\x41\x02\"i\n\x1f\x44\x65leteNotificationConfigRequest\x12\x46\n\x04name\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0securitycenter.googleapis.com/NotificationConfig\"f\n\x1cGetNotificationConfigRequest\x12\x46\n\x04name\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0securitycenter.googleapis.com/NotificationConfig\"j\n\x1eGetOrganizationSettingsRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2securitycenter.googleapis.com/OrganizationSettings\"N\n\x10GetSourceRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$securitycenter.googleapis.com/Source\"\x90\x02\n\x12GroupAssetsRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x15\n\x08group_by\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x33\n\x10\x63ompare_duration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12-\n\tread_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x12\n\npage_token\x18\x07 \x01(\t\x12\x11\n\tpage_size\x18\x08 \x01(\x05\"\xb8\x01\n\x13GroupAssetsResponse\x12\x45\n\x10group_by_results\x18\x01 \x03(\x0b\x32+.google.cloud.securitycenter.v1.GroupResult\x12-\n\tread_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x17\n\x0fnext_page_token\x18\x03 \x01(\t\x12\x12\n\ntotal_size\x18\x04 \x01(\x05\"\x86\x02\n\x14GroupFindingsRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$securitycenter.googleapis.com/Source\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x15\n\x08group_by\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12-\n\tread_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x33\n\x10\x63ompare_duration\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x12\n\npage_token\x18\x07 \x01(\t\x12\x11\n\tpage_size\x18\x08 \x01(\x05\"\xba\x01\n\x15GroupFindingsResponse\x12\x45\n\x10group_by_results\x18\x01 \x03(\x0b\x32+.google.cloud.securitycenter.v1.GroupResult\x12-\n\tread_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x17\n\x0fnext_page_token\x18\x03 \x01(\t\x12\x12\n\ntotal_size\x18\x04 \x01(\x05\"\xb8\x01\n\x0bGroupResult\x12O\n\nproperties\x18\x01 \x03(\x0b\x32;.google.cloud.securitycenter.v1.GroupResult.PropertiesEntry\x12\r\n\x05\x63ount\x18\x02 \x01(\x03\x1aI\n\x0fPropertiesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value:\x02\x38\x01\"\x91\x01\n\x1eListNotificationConfigsRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\"\x8c\x01\n\x1fListNotificationConfigsResponse\x12P\n\x14notification_configs\x18\x01 \x03(\x0b\x32\x32.google.cloud.securitycenter.v1.NotificationConfig\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x85\x01\n\x12ListSourcesRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x07 \x01(\x05\"g\n\x13ListSourcesResponse\x12\x37\n\x07sources\x18\x01 \x03(\x0b\x32&.google.cloud.securitycenter.v1.Source\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xba\x02\n\x11ListAssetsRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x10\n\x08order_by\x18\x03 \x01(\t\x12-\n\tread_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x33\n\x10\x63ompare_duration\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12.\n\nfield_mask\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12\x12\n\npage_token\x18\x08 \x01(\t\x12\x11\n\tpage_size\x18\t \x01(\x05\"\xc3\x03\n\x12ListAssetsResponse\x12`\n\x13list_assets_results\x18\x01 \x03(\x0b\x32\x43.google.cloud.securitycenter.v1.ListAssetsResponse.ListAssetsResult\x12-\n\tread_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x17\n\x0fnext_page_token\x18\x03 \x01(\t\x12\x12\n\ntotal_size\x18\x04 \x01(\x05\x1a\xee\x01\n\x10ListAssetsResult\x12\x34\n\x05\x61sset\x18\x01 \x01(\x0b\x32%.google.cloud.securitycenter.v1.Asset\x12\x65\n\x0cstate_change\x18\x02 \x01(\x0e\x32O.google.cloud.securitycenter.v1.ListAssetsResponse.ListAssetsResult.StateChange\"=\n\x0bStateChange\x12\n\n\x06UNUSED\x10\x00\x12\t\n\x05\x41\x44\x44\x45\x44\x10\x01\x12\x0b\n\x07REMOVED\x10\x02\x12\n\n\x06\x41\x43TIVE\x10\x03\"\xb0\x02\n\x13ListFindingsRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$securitycenter.googleapis.com/Source\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x10\n\x08order_by\x18\x03 \x01(\t\x12-\n\tread_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x33\n\x10\x63ompare_duration\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12.\n\nfield_mask\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12\x12\n\npage_token\x18\x08 \x01(\t\x12\x11\n\tpage_size\x18\t \x01(\x05\"\xce\x05\n\x14ListFindingsResponse\x12\x66\n\x15list_findings_results\x18\x01 \x03(\x0b\x32G.google.cloud.securitycenter.v1.ListFindingsResponse.ListFindingsResult\x12-\n\tread_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x17\n\x0fnext_page_token\x18\x03 \x01(\t\x12\x12\n\ntotal_size\x18\x04 \x01(\x05\x1a\xf1\x03\n\x12ListFindingsResult\x12\x38\n\x07\x66inding\x18\x01 \x01(\x0b\x32\'.google.cloud.securitycenter.v1.Finding\x12i\n\x0cstate_change\x18\x02 \x01(\x0e\x32S.google.cloud.securitycenter.v1.ListFindingsResponse.ListFindingsResult.StateChange\x12g\n\x08resource\x18\x03 \x01(\x0b\x32P.google.cloud.securitycenter.v1.ListFindingsResponse.ListFindingsResult.ResourceB\x03\xe0\x41\x03\x1a~\n\x08Resource\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0cproject_name\x18\x02 \x01(\t\x12\x1c\n\x14project_display_name\x18\x03 \x01(\t\x12\x13\n\x0bparent_name\x18\x04 \x01(\t\x12\x1b\n\x13parent_display_name\x18\x05 \x01(\t\"M\n\x0bStateChange\x12\n\n\x06UNUSED\x10\x00\x12\x0b\n\x07\x43HANGED\x10\x01\x12\r\n\tUNCHANGED\x10\x02\x12\t\n\x05\x41\x44\x44\x45\x44\x10\x03\x12\x0b\n\x07REMOVED\x10\x04\"\xcd\x01\n\x16SetFindingStateRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%securitycenter.googleapis.com/Finding\x12\x41\n\x05state\x18\x02 \x01(\x0e\x32-.google.cloud.securitycenter.v1.Finding.StateB\x03\xe0\x41\x02\x12\x33\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02\"d\n\x18RunAssetDiscoveryRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0cloudresourcemanager.googleapis.com/Organization\"\x86\x01\n\x14UpdateFindingRequest\x12=\n\x07\x66inding\x18\x01 \x01(\x0b\x32\'.google.cloud.securitycenter.v1.FindingB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xa8\x01\n\x1fUpdateNotificationConfigRequest\x12T\n\x13notification_config\x18\x01 \x01(\x0b\x32\x32.google.cloud.securitycenter.v1.NotificationConfigB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xae\x01\n!UpdateOrganizationSettingsRequest\x12X\n\x15organization_settings\x18\x01 \x01(\x0b\x32\x34.google.cloud.securitycenter.v1.OrganizationSettingsB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\x83\x01\n\x13UpdateSourceRequest\x12;\n\x06source\x18\x01 \x01(\x0b\x32&.google.cloud.securitycenter.v1.SourceB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xc9\x01\n\x1aUpdateSecurityMarksRequest\x12J\n\x0esecurity_marks\x18\x01 \x01(\x0b\x32-.google.cloud.securitycenter.v1.SecurityMarksB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12.\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xd6&\n\x0eSecurityCenter\x12\xb1\x01\n\x0c\x43reateSource\x12\x33.google.cloud.securitycenter.v1.CreateSourceRequest\x1a&.google.cloud.securitycenter.v1.Source\"D\x82\xd3\xe4\x93\x02.\"$/v1/{parent=organizations/*}/sources:\x06source\xda\x41\rparent,source\x12\xcc\x01\n\rCreateFinding\x12\x34.google.cloud.securitycenter.v1.CreateFindingRequest\x1a\'.google.cloud.securitycenter.v1.Finding\"\\\x82\xd3\xe4\x93\x02:\"//v1/{parent=organizations/*/sources/*}/findings:\x07\x66inding\xda\x41\x19parent,finding_id,finding\x12\xa3\x02\n\x18\x43reateNotificationConfig\x12?.google.cloud.securitycenter.v1.CreateNotificationConfigRequest\x1a\x32.google.cloud.securitycenter.v1.NotificationConfig\"\x91\x01\x82\xd3\xe4\x93\x02G\"0/v1/{parent=organizations/*}/notificationConfigs:\x13notification_config\xda\x41$parent,config_id,notification_config\xda\x41\x1aparent,notification_config\x12\xb4\x01\n\x18\x44\x65leteNotificationConfig\x12?.google.cloud.securitycenter.v1.DeleteNotificationConfigRequest\x1a\x16.google.protobuf.Empty\"?\x82\xd3\xe4\x93\x02\x32*0/v1/{name=organizations/*/notificationConfigs/*}\xda\x41\x04name\x12\x96\x01\n\x0cGetIamPolicy\x12\".google.iam.v1.GetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"K\x82\xd3\xe4\x93\x02:\"5/v1/{resource=organizations/*/sources/*}:getIamPolicy:\x01*\xda\x41\x08resource\x12\xca\x01\n\x15GetNotificationConfig\x12<.google.cloud.securitycenter.v1.GetNotificationConfigRequest\x1a\x32.google.cloud.securitycenter.v1.NotificationConfig\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{name=organizations/*/notificationConfigs/*}\xda\x41\x04name\x12\xcf\x01\n\x17GetOrganizationSettings\x12>.google.cloud.securitycenter.v1.GetOrganizationSettingsRequest\x1a\x34.google.cloud.securitycenter.v1.OrganizationSettings\">\x82\xd3\xe4\x93\x02\x31\x12//v1/{name=organizations/*/organizationSettings}\xda\x41\x04name\x12\x9a\x01\n\tGetSource\x12\x30.google.cloud.securitycenter.v1.GetSourceRequest\x1a&.google.cloud.securitycenter.v1.Source\"3\x82\xd3\xe4\x93\x02&\x12$/v1/{name=organizations/*/sources/*}\xda\x41\x04name\x12\xac\x01\n\x0bGroupAssets\x12\x32.google.cloud.securitycenter.v1.GroupAssetsRequest\x1a\x33.google.cloud.securitycenter.v1.GroupAssetsResponse\"4\x82\xd3\xe4\x93\x02.\")/v1/{parent=organizations/*}/assets:group:\x01*\x12\xd0\x01\n\rGroupFindings\x12\x34.google.cloud.securitycenter.v1.GroupFindingsRequest\x1a\x35.google.cloud.securitycenter.v1.GroupFindingsResponse\"R\x82\xd3\xe4\x93\x02:\"5/v1/{parent=organizations/*/sources/*}/findings:group:\x01*\xda\x41\x0fparent,group_by\x12\xa0\x01\n\nListAssets\x12\x31.google.cloud.securitycenter.v1.ListAssetsRequest\x1a\x32.google.cloud.securitycenter.v1.ListAssetsResponse\"+\x82\xd3\xe4\x93\x02%\x12#/v1/{parent=organizations/*}/assets\x12\xb2\x01\n\x0cListFindings\x12\x33.google.cloud.securitycenter.v1.ListFindingsRequest\x1a\x34.google.cloud.securitycenter.v1.ListFindingsResponse\"7\x82\xd3\xe4\x93\x02\x31\x12//v1/{parent=organizations/*/sources/*}/findings\x12\xdd\x01\n\x17ListNotificationConfigs\x12>.google.cloud.securitycenter.v1.ListNotificationConfigsRequest\x1a?.google.cloud.securitycenter.v1.ListNotificationConfigsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{parent=organizations/*}/notificationConfigs\xda\x41\x06parent\x12\xad\x01\n\x0bListSources\x12\x32.google.cloud.securitycenter.v1.ListSourcesRequest\x1a\x33.google.cloud.securitycenter.v1.ListSourcesResponse\"5\x82\xd3\xe4\x93\x02&\x12$/v1/{parent=organizations/*}/sources\xda\x41\x06parent\x12\x87\x02\n\x11RunAssetDiscovery\x12\x38.google.cloud.securitycenter.v1.RunAssetDiscoveryRequest\x1a\x1d.google.longrunning.Operation\"\x98\x01\x82\xd3\xe4\x93\x02\x35\"0/v1/{parent=organizations/*}/assets:runDiscovery:\x01*\xda\x41\x06parent\xca\x41Q\n8google.cloud.securitycenter.v1.RunAssetDiscoveryResponse\x12\x15google.protobuf.Empty\x12\xcf\x01\n\x0fSetFindingState\x12\x36.google.cloud.securitycenter.v1.SetFindingStateRequest\x1a\'.google.cloud.securitycenter.v1.Finding\"[\x82\xd3\xe4\x93\x02=\"8/v1/{name=organizations/*/sources/*/findings/*}:setState:\x01*\xda\x41\x15name,state,start_time\x12\x9d\x01\n\x0cSetIamPolicy\x12\".google.iam.v1.SetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"R\x82\xd3\xe4\x93\x02:\"5/v1/{resource=organizations/*/sources/*}:setIamPolicy:\x01*\xda\x41\x0fresource,policy\x12\xc8\x01\n\x12TestIamPermissions\x12(.google.iam.v1.TestIamPermissionsRequest\x1a).google.iam.v1.TestIamPermissionsResponse\"]\x82\xd3\xe4\x93\x02@\";/v1/{resource=organizations/*/sources/*}:testIamPermissions:\x01*\xda\x41\x14resource,permissions\x12\xc2\x01\n\rUpdateFinding\x12\x34.google.cloud.securitycenter.v1.UpdateFindingRequest\x1a\'.google.cloud.securitycenter.v1.Finding\"R\x82\xd3\xe4\x93\x02\x42\x32\x37/v1/{finding.name=organizations/*/sources/*/findings/*}:\x07\x66inding\xda\x41\x07\x66inding\x12\xab\x02\n\x18UpdateNotificationConfig\x12?.google.cloud.securitycenter.v1.UpdateNotificationConfigRequest\x1a\x32.google.cloud.securitycenter.v1.NotificationConfig\"\x99\x01\x82\xd3\xe4\x93\x02[2D/v1/{notification_config.name=organizations/*/notificationConfigs/*}:\x13notification_config\xda\x41\x13notification_config\xda\x41\x1fnotification_config,update_mask\x12\x93\x02\n\x1aUpdateOrganizationSettings\x12\x41.google.cloud.securitycenter.v1.UpdateOrganizationSettingsRequest\x1a\x34.google.cloud.securitycenter.v1.OrganizationSettings\"|\x82\xd3\xe4\x93\x02^2E/v1/{organization_settings.name=organizations/*/organizationSettings}:\x15organization_settings\xda\x41\x15organization_settings\x12\xb1\x01\n\x0cUpdateSource\x12\x33.google.cloud.securitycenter.v1.UpdateSourceRequest\x1a&.google.cloud.securitycenter.v1.Source\"D\x82\xd3\xe4\x93\x02\x35\x32+/v1/{source.name=organizations/*/sources/*}:\x06source\xda\x41\x06source\x12\xcd\x02\n\x13UpdateSecurityMarks\x12:.google.cloud.securitycenter.v1.UpdateSecurityMarksRequest\x1a-.google.cloud.securitycenter.v1.SecurityMarks\"\xca\x01\x82\xd3\xe4\x93\x02\xb2\x01\x32@/v1/{security_marks.name=organizations/*/assets/*/securityMarks}:\x0esecurity_marksZ^2L/v1/{security_marks.name=organizations/*/sources/*/findings/*/securityMarks}:\x0esecurity_marks\xda\x41\x0esecurity_marks\x1aQ\xca\x41\x1dsecuritycenter.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xda\x01\n\"com.google.cloud.securitycenter.v1P\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1P\x00\x62\x06proto3'
   ,
   dependencies=[google_dot_cloud_dot_securitycenter_dot_v1_dot_run__asset__discovery__response__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_securitycenter_dot_v1_dot_asset__pb2.DESCRIPTOR,google_dot_cloud_dot_securitycenter_dot_v1_dot_finding__pb2.DESCRIPTOR,google_dot_cloud_dot_securitycenter_dot_v1_dot_notification__config__pb2.DESCRIPTOR,google_dot_cloud_dot_securitycenter_dot_v1_dot_organization__settings__pb2.DESCRIPTOR,google_dot_cloud_dot_securitycenter_dot_v1_dot_security__marks__pb2.DESCRIPTOR,google_dot_cloud_dot_securitycenter_dot_v1_dot_source__pb2.DESCRIPTOR,google_dot_iam_dot_v1_dot_iam__policy__pb2.DESCRIPTOR,google_dot_iam_dot_v1_dot_policy__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,],
   public_dependencies=[google_dot_cloud_dot_securitycenter_dot_v1_dot_run__asset__discovery__response__pb2.DESCRIPTOR,])
@@ -76,8 +76,8 @@ _LISTASSETSRESPONSE_LISTASSETSRESULT_STATECHANGE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4139,
-  serialized_end=4200,
+  serialized_start=4134,
+  serialized_end=4195,
 )
 _sym_db.RegisterEnumDescriptor(_LISTASSETSRESPONSE_LISTASSETSRESULT_STATECHANGE)
 
@@ -116,8 +116,8 @@ _LISTFINDINGSRESPONSE_LISTFINDINGSRESULT_STATECHANGE = _descriptor.EnumDescripto
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5151,
-  serialized_end=5228,
+  serialized_start=5146,
+  serialized_end=5223,
 )
 _sym_db.RegisterEnumDescriptor(_LISTFINDINGSRESPONSE_LISTFINDINGSRESULT_STATECHANGE)
 
@@ -931,7 +931,7 @@ _LISTASSETSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='page_token', full_name='google.cloud.securitycenter.v1.ListAssetsRequest.page_token', index=6,
       number=8, type=9, cpp_type=9, label=1,
@@ -959,7 +959,7 @@ _LISTASSETSREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=3427,
-  serialized_end=3746,
+  serialized_end=3741,
 )
 
 
@@ -998,8 +998,8 @@ _LISTASSETSRESPONSE_LISTASSETSRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3962,
-  serialized_end=4200,
+  serialized_start=3957,
+  serialized_end=4195,
 )
 
 _LISTASSETSRESPONSE = _descriptor.Descriptor(
@@ -1050,8 +1050,8 @@ _LISTASSETSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3749,
-  serialized_end=4200,
+  serialized_start=3744,
+  serialized_end=4195,
 )
 
 
@@ -1104,7 +1104,7 @@ _LISTFINDINGSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='page_token', full_name='google.cloud.securitycenter.v1.ListFindingsRequest.page_token', index=6,
       number=8, type=9, cpp_type=9, label=1,
@@ -1131,8 +1131,8 @@ _LISTFINDINGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4203,
-  serialized_end=4512,
+  serialized_start=4198,
+  serialized_end=4502,
 )
 
 
@@ -1191,8 +1191,8 @@ _LISTFINDINGSRESPONSE_LISTFINDINGSRESULT_RESOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5023,
-  serialized_end=5149,
+  serialized_start=5018,
+  serialized_end=5144,
 )
 
 _LISTFINDINGSRESPONSE_LISTFINDINGSRESULT = _descriptor.Descriptor(
@@ -1223,7 +1223,7 @@ _LISTFINDINGSRESPONSE_LISTFINDINGSRESULT = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1237,8 +1237,8 @@ _LISTFINDINGSRESPONSE_LISTFINDINGSRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4736,
-  serialized_end=5228,
+  serialized_start=4726,
+  serialized_end=5223,
 )
 
 _LISTFINDINGSRESPONSE = _descriptor.Descriptor(
@@ -1289,8 +1289,8 @@ _LISTFINDINGSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4515,
-  serialized_end=5228,
+  serialized_start=4505,
+  serialized_end=5223,
 )
 
 
@@ -1335,8 +1335,8 @@ _SETFINDINGSTATEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5231,
-  serialized_end=5436,
+  serialized_start=5226,
+  serialized_end=5431,
 )
 
 
@@ -1367,8 +1367,8 @@ _RUNASSETDISCOVERYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5438,
-  serialized_end=5538,
+  serialized_start=5433,
+  serialized_end=5533,
 )
 
 
@@ -1406,8 +1406,8 @@ _UPDATEFINDINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5541,
-  serialized_end=5675,
+  serialized_start=5536,
+  serialized_end=5670,
 )
 
 
@@ -1445,8 +1445,8 @@ _UPDATENOTIFICATIONCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5678,
-  serialized_end=5846,
+  serialized_start=5673,
+  serialized_end=5841,
 )
 
 
@@ -1484,8 +1484,8 @@ _UPDATEORGANIZATIONSETTINGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5849,
-  serialized_end=6023,
+  serialized_start=5844,
+  serialized_end=6018,
 )
 
 
@@ -1523,8 +1523,8 @@ _UPDATESOURCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6026,
-  serialized_end=6157,
+  serialized_start=6021,
+  serialized_end=6152,
 )
 
 
@@ -1569,8 +1569,8 @@ _UPDATESECURITYMARKSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6160,
-  serialized_end=6361,
+  serialized_start=6155,
+  serialized_end=6356,
 )
 
 _CREATEFINDINGREQUEST.fields_by_name['finding'].message_type = google_dot_cloud_dot_securitycenter_dot_v1_dot_finding__pb2._FINDING
@@ -1894,9 +1894,8 @@ _GROUPRESULT_PROPERTIESENTRY._options = None
 _LISTNOTIFICATIONCONFIGSREQUEST.fields_by_name['parent']._options = None
 _LISTSOURCESREQUEST.fields_by_name['parent']._options = None
 _LISTASSETSREQUEST.fields_by_name['parent']._options = None
-_LISTASSETSREQUEST.fields_by_name['field_mask']._options = None
 _LISTFINDINGSREQUEST.fields_by_name['parent']._options = None
-_LISTFINDINGSREQUEST.fields_by_name['field_mask']._options = None
+_LISTFINDINGSRESPONSE_LISTFINDINGSRESULT.fields_by_name['resource']._options = None
 _SETFINDINGSTATEREQUEST.fields_by_name['name']._options = None
 _SETFINDINGSTATEREQUEST.fields_by_name['state']._options = None
 _SETFINDINGSTATEREQUEST.fields_by_name['start_time']._options = None
@@ -1914,8 +1913,8 @@ _SECURITYCENTER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\035securitycenter.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=6364,
-  serialized_end=11314,
+  serialized_start=6359,
+  serialized_end=11309,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateSource',

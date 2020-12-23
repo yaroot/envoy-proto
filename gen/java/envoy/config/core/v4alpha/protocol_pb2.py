@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from envoy.type.v3 import percent_pb2 as envoy_dot_type_dot_v3_dot_percent__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
@@ -24,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\'io.envoyproxy.envoy.config.core.v4alphaB\rProtocolProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n(envoy/config/core/v4alpha/protocol.proto\x12\x19\x65nvoy.config.core.v4alpha\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"D\n\x12TcpProtocolOptions:.\x9a\xc5\x88\x1e)\n\'envoy.config.core.v3.TcpProtocolOptions\"\x85\x01\n\x1bUpstreamHttpProtocolOptions\x12\x10\n\x08\x61uto_sni\x18\x01 \x01(\x08\x12\x1b\n\x13\x61uto_san_validation\x18\x02 \x01(\x08:7\x9a\xc5\x88\x1e\x32\n0envoy.config.core.v3.UpstreamHttpProtocolOptions\"\xf3\x03\n\x13HttpProtocolOptions\x12/\n\x0cidle_timeout\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12:\n\x17max_connection_duration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12@\n\x11max_headers_count\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12\x36\n\x13max_stream_duration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12t\n\x1fheaders_with_underscores_action\x18\x05 \x01(\x0e\x32K.envoy.config.core.v4alpha.HttpProtocolOptions.HeadersWithUnderscoresAction\"N\n\x1cHeadersWithUnderscoresAction\x12\t\n\x05\x41LLOW\x10\x00\x12\x12\n\x0eREJECT_REQUEST\x10\x01\x12\x0f\n\x0b\x44ROP_HEADER\x10\x02:/\x9a\xc5\x88\x1e*\n(envoy.config.core.v3.HttpProtocolOptions\"\xee\x04\n\x14Http1ProtocolOptions\x12\x36\n\x12\x61llow_absolute_url\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x16\n\x0e\x61\x63\x63\x65pt_http_10\x18\x02 \x01(\x08\x12 \n\x18\x64\x65\x66\x61ult_host_for_http_10\x18\x03 \x01(\t\x12Z\n\x11header_key_format\x18\x04 \x01(\x0b\x32?.envoy.config.core.v4alpha.Http1ProtocolOptions.HeaderKeyFormat\x12\x17\n\x0f\x65nable_trailers\x18\x05 \x01(\x08\x1a\xbc\x02\n\x0fHeaderKeyFormat\x12l\n\x11proper_case_words\x18\x01 \x01(\x0b\x32O.envoy.config.core.v4alpha.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWordsH\x00\x1a\x63\n\x0fProperCaseWords:P\x9a\xc5\x88\x1eK\nIenvoy.config.core.v3.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWords:@\x9a\xc5\x88\x1e;\n9envoy.config.core.v3.Http1ProtocolOptions.HeaderKeyFormatB\x14\n\rheader_format\x12\x03\xf8\x42\x01:0\x9a\xc5\x88\x1e+\n)envoy.config.core.v3.Http1ProtocolOptions\"\xb1\t\n\x14Http2ProtocolOptions\x12\x36\n\x10hpack_table_size\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12K\n\x16max_concurrent_streams\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\r\xfa\x42\n*\x08\x18\xff\xff\xff\xff\x07(\x01\x12Q\n\x1ainitial_stream_window_size\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x0f\xfa\x42\x0c*\n\x18\xff\xff\xff\xff\x07(\xff\xff\x03\x12U\n\x1einitial_connection_window_size\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x0f\xfa\x42\x0c*\n\x18\xff\xff\xff\xff\x07(\xff\xff\x03\x12\x15\n\rallow_connect\x18\x05 \x01(\x08\x12\x16\n\x0e\x61llow_metadata\x18\x06 \x01(\x08\x12\x42\n\x13max_outbound_frames\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12J\n\x1bmax_outbound_control_frames\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12W\n1max_consecutive_inbound_frames_with_empty_payload\x18\t \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12L\n&max_inbound_priority_frames_per_stream\x18\n \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x63\n4max_inbound_window_update_frames_per_data_frame_sent\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12.\n&stream_error_on_invalid_http_messaging\x18\x0c \x01(\x08\x12\x65\n\x1a\x63ustom_settings_parameters\x18\r \x03(\x0b\x32\x41.envoy.config.core.v4alpha.Http2ProtocolOptions.SettingsParameter\x1a\xd5\x01\n\x11SettingsParameter\x12\x45\n\nidentifier\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x13\xfa\x42\x08*\x06\x18\xff\xff\x03(\x00\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x35\n\x05value\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:B\x9a\xc5\x88\x1e=\n;envoy.config.core.v3.Http2ProtocolOptions.SettingsParameter:0\x9a\xc5\x88\x1e+\n)envoy.config.core.v3.Http2ProtocolOptions\"\x97\x01\n\x13GrpcProtocolOptions\x12O\n\x16http2_protocol_options\x18\x01 \x01(\x0b\x32/.envoy.config.core.v4alpha.Http2ProtocolOptions:/\x9a\xc5\x88\x1e*\n(envoy.config.core.v3.GrpcProtocolOptionsBB\n\'io.envoyproxy.envoy.config.core.v4alphaB\rProtocolProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n(envoy/config/core/v4alpha/protocol.proto\x12\x19\x65nvoy.config.core.v4alpha\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"D\n\x12TcpProtocolOptions:.\x9a\xc5\x88\x1e)\n\'envoy.config.core.v3.TcpProtocolOptions\"\x85\x01\n\x1bUpstreamHttpProtocolOptions\x12\x10\n\x08\x61uto_sni\x18\x01 \x01(\x08\x12\x1b\n\x13\x61uto_san_validation\x18\x02 \x01(\x08:7\x9a\xc5\x88\x1e\x32\n0envoy.config.core.v3.UpstreamHttpProtocolOptions\"\xf3\x03\n\x13HttpProtocolOptions\x12/\n\x0cidle_timeout\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12:\n\x17max_connection_duration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12@\n\x11max_headers_count\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12\x36\n\x13max_stream_duration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12t\n\x1fheaders_with_underscores_action\x18\x05 \x01(\x0e\x32K.envoy.config.core.v4alpha.HttpProtocolOptions.HeadersWithUnderscoresAction\"N\n\x1cHeadersWithUnderscoresAction\x12\t\n\x05\x41LLOW\x10\x00\x12\x12\n\x0eREJECT_REQUEST\x10\x01\x12\x0f\n\x0b\x44ROP_HEADER\x10\x02:/\x9a\xc5\x88\x1e*\n(envoy.config.core.v3.HttpProtocolOptions\"\xdf\x05\n\x14Http1ProtocolOptions\x12\x36\n\x12\x61llow_absolute_url\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x16\n\x0e\x61\x63\x63\x65pt_http_10\x18\x02 \x01(\x08\x12 \n\x18\x64\x65\x66\x61ult_host_for_http_10\x18\x03 \x01(\t\x12Z\n\x11header_key_format\x18\x04 \x01(\x0b\x32?.envoy.config.core.v4alpha.Http1ProtocolOptions.HeaderKeyFormat\x12\x17\n\x0f\x65nable_trailers\x18\x05 \x01(\x08\x12\x1c\n\x14\x61llow_chunked_length\x18\x06 \x01(\x08\x12Q\n-override_stream_error_on_invalid_http_message\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x1a\xbc\x02\n\x0fHeaderKeyFormat\x12l\n\x11proper_case_words\x18\x01 \x01(\x0b\x32O.envoy.config.core.v4alpha.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWordsH\x00\x1a\x63\n\x0fProperCaseWords:P\x9a\xc5\x88\x1eK\nIenvoy.config.core.v3.Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWords:@\x9a\xc5\x88\x1e;\n9envoy.config.core.v3.Http1ProtocolOptions.HeaderKeyFormatB\x14\n\rheader_format\x12\x03\xf8\x42\x01:0\x9a\xc5\x88\x1e+\n)envoy.config.core.v3.Http1ProtocolOptions\"\xec\x01\n\x11KeepaliveSettings\x12;\n\x08interval\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0e\xfa\x42\x0b\xaa\x01\x08\x08\x01\x32\x04\x10\xc0\x84=\x12:\n\x07timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0e\xfa\x42\x0b\xaa\x01\x08\x08\x01\x32\x04\x10\xc0\x84=\x12/\n\x0finterval_jitter\x18\x03 \x01(\x0b\x32\x16.envoy.type.v3.Percent:-\x9a\xc5\x88\x1e(\n&envoy.config.core.v3.KeepaliveSettings\"\xce\n\n\x14Http2ProtocolOptions\x12\x36\n\x10hpack_table_size\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12K\n\x16max_concurrent_streams\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\r\xfa\x42\n*\x08\x18\xff\xff\xff\xff\x07(\x01\x12Q\n\x1ainitial_stream_window_size\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x0f\xfa\x42\x0c*\n\x18\xff\xff\xff\xff\x07(\xff\xff\x03\x12U\n\x1einitial_connection_window_size\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x0f\xfa\x42\x0c*\n\x18\xff\xff\xff\xff\x07(\xff\xff\x03\x12\x15\n\rallow_connect\x18\x05 \x01(\x08\x12\x16\n\x0e\x61llow_metadata\x18\x06 \x01(\x08\x12\x42\n\x13max_outbound_frames\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12J\n\x1bmax_outbound_control_frames\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12W\n1max_consecutive_inbound_frames_with_empty_payload\x18\t \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12L\n&max_inbound_priority_frames_per_stream\x18\n \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x63\n4max_inbound_window_update_frames_per_data_frame_sent\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12Q\n-override_stream_error_on_invalid_http_message\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x65\n\x1a\x63ustom_settings_parameters\x18\r \x03(\x0b\x32\x41.envoy.config.core.v4alpha.Http2ProtocolOptions.SettingsParameter\x12J\n\x14\x63onnection_keepalive\x18\x0f \x01(\x0b\x32,.envoy.config.core.v4alpha.KeepaliveSettings\x1a\xd5\x01\n\x11SettingsParameter\x12\x45\n\nidentifier\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x13\xfa\x42\x08*\x06\x18\xff\xff\x03(\x00\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x35\n\x05value\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:B\x9a\xc5\x88\x1e=\n;envoy.config.core.v3.Http2ProtocolOptions.SettingsParameter:0\x9a\xc5\x88\x1e+\n)envoy.config.core.v3.Http2ProtocolOptionsJ\x04\x08\x0c\x10\rR&stream_error_on_invalid_http_messaging\"\x97\x01\n\x13GrpcProtocolOptions\x12O\n\x16http2_protocol_options\x18\x01 \x01(\x0b\x32/.envoy.config.core.v4alpha.Http2ProtocolOptions:/\x9a\xc5\x88\x1e*\n(envoy.config.core.v3.GrpcProtocolOptionsBB\n\'io.envoyproxy.envoy.config.core.v4alphaB\rProtocolProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
-  dependencies=[google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -55,8 +56,8 @@ _HTTPPROTOCOLOPTIONS_HEADERSWITHUNDERSCORESACTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=805,
-  serialized_end=883,
+  serialized_start=834,
+  serialized_end=912,
 )
 _sym_db.RegisterEnumDescriptor(_HTTPPROTOCOLOPTIONS_HEADERSWITHUNDERSCORESACTION)
 
@@ -81,8 +82,8 @@ _TCPPROTOCOLOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=226,
-  serialized_end=294,
+  serialized_start=255,
+  serialized_end=323,
 )
 
 
@@ -120,8 +121,8 @@ _UPSTREAMHTTPPROTOCOLOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=297,
-  serialized_end=430,
+  serialized_start=326,
+  serialized_end=459,
 )
 
 
@@ -181,8 +182,8 @@ _HTTPPROTOCOLOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=433,
-  serialized_end=932,
+  serialized_start=462,
+  serialized_end=961,
 )
 
 
@@ -206,8 +207,8 @@ _HTTP1PROTOCOLOPTIONS_HEADERKEYFORMAT_PROPERCASEWORDS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1320,
-  serialized_end=1419,
+  serialized_start=1462,
+  serialized_end=1561,
 )
 
 _HTTP1PROTOCOLOPTIONS_HEADERKEYFORMAT = _descriptor.Descriptor(
@@ -242,8 +243,8 @@ _HTTP1PROTOCOLOPTIONS_HEADERKEYFORMAT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=1191,
-  serialized_end=1507,
+  serialized_start=1333,
+  serialized_end=1649,
 )
 
 _HTTP1PROTOCOLOPTIONS = _descriptor.Descriptor(
@@ -289,6 +290,20 @@ _HTTP1PROTOCOLOPTIONS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allow_chunked_length', full_name='envoy.config.core.v4alpha.Http1ProtocolOptions.allow_chunked_length', index=5,
+      number=6, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='override_stream_error_on_invalid_http_message', full_name='envoy.config.core.v4alpha.Http1ProtocolOptions.override_stream_error_on_invalid_http_message', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -301,8 +316,54 @@ _HTTP1PROTOCOLOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=935,
-  serialized_end=1557,
+  serialized_start=964,
+  serialized_end=1699,
+)
+
+
+_KEEPALIVESETTINGS = _descriptor.Descriptor(
+  name='KeepaliveSettings',
+  full_name='envoy.config.core.v4alpha.KeepaliveSettings',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='interval', full_name='envoy.config.core.v4alpha.KeepaliveSettings.interval', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\013\252\001\010\010\0012\004\020\300\204=', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='timeout', full_name='envoy.config.core.v4alpha.KeepaliveSettings.timeout', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\013\252\001\010\010\0012\004\020\300\204=', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='interval_jitter', full_name='envoy.config.core.v4alpha.KeepaliveSettings.interval_jitter', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\232\305\210\036(\n&envoy.config.core.v3.KeepaliveSettings',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1702,
+  serialized_end=1938,
 )
 
 
@@ -340,8 +401,8 @@ _HTTP2PROTOCOLOPTIONS_SETTINGSPARAMETER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2498,
-  serialized_end=2711,
+  serialized_start=2990,
+  serialized_end=3203,
 )
 
 _HTTP2PROTOCOLOPTIONS = _descriptor.Descriptor(
@@ -430,9 +491,9 @@ _HTTP2PROTOCOLOPTIONS = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\004*\002(\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='stream_error_on_invalid_http_messaging', full_name='envoy.config.core.v4alpha.Http2ProtocolOptions.stream_error_on_invalid_http_messaging', index=11,
-      number=12, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
+      name='override_stream_error_on_invalid_http_message', full_name='envoy.config.core.v4alpha.Http2ProtocolOptions.override_stream_error_on_invalid_http_message', index=11,
+      number=14, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -440,6 +501,13 @@ _HTTP2PROTOCOLOPTIONS = _descriptor.Descriptor(
       name='custom_settings_parameters', full_name='envoy.config.core.v4alpha.Http2ProtocolOptions.custom_settings_parameters', index=12,
       number=13, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='connection_keepalive', full_name='envoy.config.core.v4alpha.Http2ProtocolOptions.connection_keepalive', index=13,
+      number=15, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -455,8 +523,8 @@ _HTTP2PROTOCOLOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1560,
-  serialized_end=2761,
+  serialized_start=1941,
+  serialized_end=3299,
 )
 
 
@@ -487,8 +555,8 @@ _GRPCPROTOCOLOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2764,
-  serialized_end=2915,
+  serialized_start=3302,
+  serialized_end=3453,
 )
 
 _HTTPPROTOCOLOPTIONS.fields_by_name['idle_timeout'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
@@ -505,6 +573,10 @@ _HTTP1PROTOCOLOPTIONS_HEADERKEYFORMAT.oneofs_by_name['header_format'].fields.app
 _HTTP1PROTOCOLOPTIONS_HEADERKEYFORMAT.fields_by_name['proper_case_words'].containing_oneof = _HTTP1PROTOCOLOPTIONS_HEADERKEYFORMAT.oneofs_by_name['header_format']
 _HTTP1PROTOCOLOPTIONS.fields_by_name['allow_absolute_url'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _HTTP1PROTOCOLOPTIONS.fields_by_name['header_key_format'].message_type = _HTTP1PROTOCOLOPTIONS_HEADERKEYFORMAT
+_HTTP1PROTOCOLOPTIONS.fields_by_name['override_stream_error_on_invalid_http_message'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
+_KEEPALIVESETTINGS.fields_by_name['interval'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
+_KEEPALIVESETTINGS.fields_by_name['timeout'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
+_KEEPALIVESETTINGS.fields_by_name['interval_jitter'].message_type = envoy_dot_type_dot_v3_dot_percent__pb2._PERCENT
 _HTTP2PROTOCOLOPTIONS_SETTINGSPARAMETER.fields_by_name['identifier'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _HTTP2PROTOCOLOPTIONS_SETTINGSPARAMETER.fields_by_name['value'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _HTTP2PROTOCOLOPTIONS_SETTINGSPARAMETER.containing_type = _HTTP2PROTOCOLOPTIONS
@@ -517,12 +589,15 @@ _HTTP2PROTOCOLOPTIONS.fields_by_name['max_outbound_control_frames'].message_type
 _HTTP2PROTOCOLOPTIONS.fields_by_name['max_consecutive_inbound_frames_with_empty_payload'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _HTTP2PROTOCOLOPTIONS.fields_by_name['max_inbound_priority_frames_per_stream'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _HTTP2PROTOCOLOPTIONS.fields_by_name['max_inbound_window_update_frames_per_data_frame_sent'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
+_HTTP2PROTOCOLOPTIONS.fields_by_name['override_stream_error_on_invalid_http_message'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _HTTP2PROTOCOLOPTIONS.fields_by_name['custom_settings_parameters'].message_type = _HTTP2PROTOCOLOPTIONS_SETTINGSPARAMETER
+_HTTP2PROTOCOLOPTIONS.fields_by_name['connection_keepalive'].message_type = _KEEPALIVESETTINGS
 _GRPCPROTOCOLOPTIONS.fields_by_name['http2_protocol_options'].message_type = _HTTP2PROTOCOLOPTIONS
 DESCRIPTOR.message_types_by_name['TcpProtocolOptions'] = _TCPPROTOCOLOPTIONS
 DESCRIPTOR.message_types_by_name['UpstreamHttpProtocolOptions'] = _UPSTREAMHTTPPROTOCOLOPTIONS
 DESCRIPTOR.message_types_by_name['HttpProtocolOptions'] = _HTTPPROTOCOLOPTIONS
 DESCRIPTOR.message_types_by_name['Http1ProtocolOptions'] = _HTTP1PROTOCOLOPTIONS
+DESCRIPTOR.message_types_by_name['KeepaliveSettings'] = _KEEPALIVESETTINGS
 DESCRIPTOR.message_types_by_name['Http2ProtocolOptions'] = _HTTP2PROTOCOLOPTIONS
 DESCRIPTOR.message_types_by_name['GrpcProtocolOptions'] = _GRPCPROTOCOLOPTIONS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -571,6 +646,13 @@ _sym_db.RegisterMessage(Http1ProtocolOptions)
 _sym_db.RegisterMessage(Http1ProtocolOptions.HeaderKeyFormat)
 _sym_db.RegisterMessage(Http1ProtocolOptions.HeaderKeyFormat.ProperCaseWords)
 
+KeepaliveSettings = _reflection.GeneratedProtocolMessageType('KeepaliveSettings', (_message.Message,), {
+  'DESCRIPTOR' : _KEEPALIVESETTINGS,
+  '__module__' : 'envoy.config.core.v4alpha.protocol_pb2'
+  # @@protoc_insertion_point(class_scope:envoy.config.core.v4alpha.KeepaliveSettings)
+  })
+_sym_db.RegisterMessage(KeepaliveSettings)
+
 Http2ProtocolOptions = _reflection.GeneratedProtocolMessageType('Http2ProtocolOptions', (_message.Message,), {
 
   'SettingsParameter' : _reflection.GeneratedProtocolMessageType('SettingsParameter', (_message.Message,), {
@@ -603,6 +685,9 @@ _HTTP1PROTOCOLOPTIONS_HEADERKEYFORMAT_PROPERCASEWORDS._options = None
 _HTTP1PROTOCOLOPTIONS_HEADERKEYFORMAT.oneofs_by_name['header_format']._options = None
 _HTTP1PROTOCOLOPTIONS_HEADERKEYFORMAT._options = None
 _HTTP1PROTOCOLOPTIONS._options = None
+_KEEPALIVESETTINGS.fields_by_name['interval']._options = None
+_KEEPALIVESETTINGS.fields_by_name['timeout']._options = None
+_KEEPALIVESETTINGS._options = None
 _HTTP2PROTOCOLOPTIONS_SETTINGSPARAMETER.fields_by_name['identifier']._options = None
 _HTTP2PROTOCOLOPTIONS_SETTINGSPARAMETER.fields_by_name['value']._options = None
 _HTTP2PROTOCOLOPTIONS_SETTINGSPARAMETER._options = None

@@ -22,14 +22,14 @@ package dialogflow
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/duration"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/durationpb"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -1095,7 +1095,7 @@ type UpdateIntentRequest struct {
 	// data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
 	LanguageCode string `protobuf:"bytes,2,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty"`
 	// Optional. The mask to control which fields get updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// Optional. The resource view to apply to the returned intent.
 	IntentView IntentView `protobuf:"varint,4,opt,name=intent_view,json=intentView,proto3,enum=google.cloud.dialogflow.v2.IntentView" json:"intent_view,omitempty"`
 }
@@ -1146,7 +1146,7 @@ func (x *UpdateIntentRequest) GetLanguageCode() string {
 	return ""
 }
 
-func (x *UpdateIntentRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateIntentRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1232,7 +1232,7 @@ type BatchUpdateIntentsRequest struct {
 	// data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
 	LanguageCode string `protobuf:"bytes,4,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty"`
 	// Optional. The mask to control which fields get updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,5,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,5,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// Optional. The resource view to apply to the returned intent.
 	IntentView IntentView `protobuf:"varint,6,opt,name=intent_view,json=intentView,proto3,enum=google.cloud.dialogflow.v2.IntentView" json:"intent_view,omitempty"`
 }
@@ -1304,7 +1304,7 @@ func (x *BatchUpdateIntentsRequest) GetLanguageCode() string {
 	return ""
 }
 
-func (x *BatchUpdateIntentsRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *BatchUpdateIntentsRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1817,7 +1817,7 @@ func (x *Intent_Message) GetCard() *Intent_Message_Card {
 	return nil
 }
 
-func (x *Intent_Message) GetPayload() *structpb.Struct {
+func (x *Intent_Message) GetPayload() *_struct.Struct {
 	if x, ok := x.GetMessage().(*Intent_Message_Payload); ok {
 		return x.Payload
 	}
@@ -1920,7 +1920,7 @@ type Intent_Message_Card_ struct {
 
 type Intent_Message_Payload struct {
 	// A custom platform-specific response.
-	Payload *structpb.Struct `protobuf:"bytes,5,opt,name=payload,proto3,oneof"`
+	Payload *_struct.Struct `protobuf:"bytes,5,opt,name=payload,proto3,oneof"`
 }
 
 type Intent_Message_SimpleResponses_ struct {
@@ -4748,9 +4748,9 @@ var file_google_cloud_dialogflow_v2_intent_proto_goTypes = []interface{}{
 	(*Intent_Message_BrowseCarouselCard_BrowseCarouselCardItem)(nil),               // 49: google.cloud.dialogflow.v2.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem
 	(*Intent_Message_BrowseCarouselCard_BrowseCarouselCardItem_OpenUrlAction)(nil), // 50: google.cloud.dialogflow.v2.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem.OpenUrlAction
 	(*Context)(nil),                                                                // 51: google.cloud.dialogflow.v2.Context
-	(*fieldmaskpb.FieldMask)(nil),                                                  // 52: google.protobuf.FieldMask
-	(*structpb.Struct)(nil),                                                        // 53: google.protobuf.Struct
-	(*emptypb.Empty)(nil),                                                          // 54: google.protobuf.Empty
+	(*field_mask.FieldMask)(nil),                                                   // 52: google.protobuf.FieldMask
+	(*_struct.Struct)(nil),                                                         // 53: google.protobuf.Struct
+	(*empty.Empty)(nil),                                                            // 54: google.protobuf.Empty
 	(*longrunning.Operation)(nil),                                                  // 55: google.longrunning.Operation
 }
 var file_google_cloud_dialogflow_v2_intent_proto_depIdxs = []int32{

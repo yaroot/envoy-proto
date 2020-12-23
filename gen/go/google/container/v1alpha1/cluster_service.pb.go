@@ -22,10 +22,10 @@ package container
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -7300,8 +7300,8 @@ var file_google_container_v1alpha1_cluster_service_proto_goTypes = []interface{}
 	nil,                                              // 65: google.container.v1alpha1.NodeConfig.MetadataEntry
 	nil,                                              // 66: google.container.v1alpha1.NodeConfig.LabelsEntry
 	(*MasterAuthorizedNetworksConfig_CidrBlock)(nil), // 67: google.container.v1alpha1.MasterAuthorizedNetworksConfig.CidrBlock
-	nil,                   // 68: google.container.v1alpha1.SetLabelsRequest.ResourceLabelsEntry
-	(*emptypb.Empty)(nil), // 69: google.protobuf.Empty
+	nil,                 // 68: google.container.v1alpha1.SetLabelsRequest.ResourceLabelsEntry
+	(*empty.Empty)(nil), // 69: google.protobuf.Empty
 }
 var file_google_container_v1alpha1_cluster_service_proto_depIdxs = []int32{
 	65, // 0: google.container.v1alpha1.NodeConfig.metadata:type_name -> google.container.v1alpha1.NodeConfig.MetadataEntry

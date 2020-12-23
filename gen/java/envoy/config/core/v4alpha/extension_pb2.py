@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from envoy.config.core.v4alpha import config_source_pb2 as envoy_dot_config_dot_core_dot_v4alpha_dot_config__source__pb2
 from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from udpa.annotations import versioning_pb2 as udpa_dot_annotations_dot_versioning__pb2
@@ -23,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\'io.envoyproxy.envoy.config.core.v4alphaB\016ExtensionProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)envoy/config/core/v4alpha/extension.proto\x12\x19\x65nvoy.config.core.v4alpha\x1a\x19google/protobuf/any.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x95\x01\n\x14TypedExtensionConfig\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x34\n\x0ctyped_config\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyB\x08\xfa\x42\x05\xa2\x01\x02\x08\x01:0\x9a\xc5\x88\x1e+\n)envoy.config.core.v3.TypedExtensionConfigBC\n\'io.envoyproxy.envoy.config.core.v4alphaB\x0e\x45xtensionProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n)envoy/config/core/v4alpha/extension.proto\x12\x19\x65nvoy.config.core.v4alpha\x1a-envoy/config/core/v4alpha/config_source.proto\x1a\x19google/protobuf/any.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x95\x01\n\x14TypedExtensionConfig\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x34\n\x0ctyped_config\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyB\x08\xfa\x42\x05\xa2\x01\x02\x08\x01:0\x9a\xc5\x88\x1e+\n)envoy.config.core.v3.TypedExtensionConfig\"\x8d\x02\n\x15\x45xtensionConfigSource\x12H\n\rconfig_source\x18\x01 \x01(\x0b\x32\'.envoy.config.core.v4alpha.ConfigSourceB\x08\xfa\x42\x05\xa2\x01\x02\x08\x01\x12,\n\x0e\x64\x65\x66\x61ult_config\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any\x12,\n$apply_default_config_without_warming\x18\x03 \x01(\x08\x12\x1b\n\ttype_urls\x18\x04 \x03(\tB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:1\x9a\xc5\x88\x1e,\n*envoy.config.core.v3.ExtensionConfigSourceBC\n\'io.envoyproxy.envoy.config.core.v4alphaB\x0e\x45xtensionProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
-  dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_core_dot_v4alpha_dot_config__source__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -64,12 +65,68 @@ _TYPEDEXTENSIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=191,
-  serialized_end=340,
+  serialized_start=238,
+  serialized_end=387,
+)
+
+
+_EXTENSIONCONFIGSOURCE = _descriptor.Descriptor(
+  name='ExtensionConfigSource',
+  full_name='envoy.config.core.v4alpha.ExtensionConfigSource',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='config_source', full_name='envoy.config.core.v4alpha.ExtensionConfigSource.config_source', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\005\242\001\002\010\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='default_config', full_name='envoy.config.core.v4alpha.ExtensionConfigSource.default_config', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='apply_default_config_without_warming', full_name='envoy.config.core.v4alpha.ExtensionConfigSource.apply_default_config_without_warming', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type_urls', full_name='envoy.config.core.v4alpha.ExtensionConfigSource.type_urls', index=3,
+      number=4, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\005\222\001\002\010\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\232\305\210\036,\n*envoy.config.core.v3.ExtensionConfigSource',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=390,
+  serialized_end=659,
 )
 
 _TYPEDEXTENSIONCONFIG.fields_by_name['typed_config'].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_EXTENSIONCONFIGSOURCE.fields_by_name['config_source'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_config__source__pb2._CONFIGSOURCE
+_EXTENSIONCONFIGSOURCE.fields_by_name['default_config'].message_type = google_dot_protobuf_dot_any__pb2._ANY
 DESCRIPTOR.message_types_by_name['TypedExtensionConfig'] = _TYPEDEXTENSIONCONFIG
+DESCRIPTOR.message_types_by_name['ExtensionConfigSource'] = _EXTENSIONCONFIGSOURCE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 TypedExtensionConfig = _reflection.GeneratedProtocolMessageType('TypedExtensionConfig', (_message.Message,), {
@@ -79,9 +136,19 @@ TypedExtensionConfig = _reflection.GeneratedProtocolMessageType('TypedExtensionC
   })
 _sym_db.RegisterMessage(TypedExtensionConfig)
 
+ExtensionConfigSource = _reflection.GeneratedProtocolMessageType('ExtensionConfigSource', (_message.Message,), {
+  'DESCRIPTOR' : _EXTENSIONCONFIGSOURCE,
+  '__module__' : 'envoy.config.core.v4alpha.extension_pb2'
+  # @@protoc_insertion_point(class_scope:envoy.config.core.v4alpha.ExtensionConfigSource)
+  })
+_sym_db.RegisterMessage(ExtensionConfigSource)
+
 
 DESCRIPTOR._options = None
 _TYPEDEXTENSIONCONFIG.fields_by_name['name']._options = None
 _TYPEDEXTENSIONCONFIG.fields_by_name['typed_config']._options = None
 _TYPEDEXTENSIONCONFIG._options = None
+_EXTENSIONCONFIGSOURCE.fields_by_name['config_source']._options = None
+_EXTENSIONCONFIGSOURCE.fields_by_name['type_urls']._options = None
+_EXTENSIONCONFIGSOURCE._options = None
 # @@protoc_insertion_point(module_scope)

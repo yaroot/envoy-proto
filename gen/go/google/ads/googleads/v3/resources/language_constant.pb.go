@@ -22,10 +22,10 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -53,14 +53,14 @@ type LanguageConstant struct {
 	// `languageConstants/{criterion_id}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. The ID of the language constant.
-	Id *wrapperspb.Int64Value `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	Id *wrappers.Int64Value `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	// Output only. The language code, e.g. "en_US", "en_AU", "es", "fr", etc.
-	Code *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=code,proto3" json:"code,omitempty"`
+	Code *wrappers.StringValue `protobuf:"bytes,3,opt,name=code,proto3" json:"code,omitempty"`
 	// Output only. The full name of the language in English, e.g., "English (US)", "Spanish",
 	// etc.
-	Name *wrapperspb.StringValue `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	Name *wrappers.StringValue `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Output only. Whether the language is targetable.
-	Targetable *wrapperspb.BoolValue `protobuf:"bytes,5,opt,name=targetable,proto3" json:"targetable,omitempty"`
+	Targetable *wrappers.BoolValue `protobuf:"bytes,5,opt,name=targetable,proto3" json:"targetable,omitempty"`
 }
 
 func (x *LanguageConstant) Reset() {
@@ -102,28 +102,28 @@ func (x *LanguageConstant) GetResourceName() string {
 	return ""
 }
 
-func (x *LanguageConstant) GetId() *wrapperspb.Int64Value {
+func (x *LanguageConstant) GetId() *wrappers.Int64Value {
 	if x != nil {
 		return x.Id
 	}
 	return nil
 }
 
-func (x *LanguageConstant) GetCode() *wrapperspb.StringValue {
+func (x *LanguageConstant) GetCode() *wrappers.StringValue {
 	if x != nil {
 		return x.Code
 	}
 	return nil
 }
 
-func (x *LanguageConstant) GetName() *wrapperspb.StringValue {
+func (x *LanguageConstant) GetName() *wrappers.StringValue {
 	if x != nil {
 		return x.Name
 	}
 	return nil
 }
 
-func (x *LanguageConstant) GetTargetable() *wrapperspb.BoolValue {
+func (x *LanguageConstant) GetTargetable() *wrappers.BoolValue {
 	if x != nil {
 		return x.Targetable
 	}
@@ -206,10 +206,10 @@ func file_google_ads_googleads_v3_resources_language_constant_proto_rawDescGZIP(
 
 var file_google_ads_googleads_v3_resources_language_constant_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v3_resources_language_constant_proto_goTypes = []interface{}{
-	(*LanguageConstant)(nil),       // 0: google.ads.googleads.v3.resources.LanguageConstant
-	(*wrapperspb.Int64Value)(nil),  // 1: google.protobuf.Int64Value
-	(*wrapperspb.StringValue)(nil), // 2: google.protobuf.StringValue
-	(*wrapperspb.BoolValue)(nil),   // 3: google.protobuf.BoolValue
+	(*LanguageConstant)(nil),     // 0: google.ads.googleads.v3.resources.LanguageConstant
+	(*wrappers.Int64Value)(nil),  // 1: google.protobuf.Int64Value
+	(*wrappers.StringValue)(nil), // 2: google.protobuf.StringValue
+	(*wrappers.BoolValue)(nil),   // 3: google.protobuf.BoolValue
 }
 var file_google_ads_googleads_v3_resources_language_constant_proto_depIdxs = []int32{
 	1, // 0: google.ads.googleads.v3.resources.LanguageConstant.id:type_name -> google.protobuf.Int64Value

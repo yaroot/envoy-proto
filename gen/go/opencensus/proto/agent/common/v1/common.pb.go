@@ -25,9 +25,9 @@ package v1
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -207,7 +207,7 @@ type ProcessIdentifier struct {
 	// Process id.
 	Pid uint32 `protobuf:"varint,2,opt,name=pid,proto3" json:"pid,omitempty"`
 	// Start time of this ProcessIdentifier. Represented in epoch time.
-	StartTimestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=start_timestamp,json=startTimestamp,proto3" json:"start_timestamp,omitempty"`
+	StartTimestamp *timestamp.Timestamp `protobuf:"bytes,3,opt,name=start_timestamp,json=startTimestamp,proto3" json:"start_timestamp,omitempty"`
 }
 
 func (x *ProcessIdentifier) Reset() {
@@ -256,7 +256,7 @@ func (x *ProcessIdentifier) GetPid() uint32 {
 	return 0
 }
 
-func (x *ProcessIdentifier) GetStartTimestamp() *timestamppb.Timestamp {
+func (x *ProcessIdentifier) GetStartTimestamp() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTimestamp
 	}
@@ -475,13 +475,13 @@ func file_opencensus_proto_agent_common_v1_common_proto_rawDescGZIP() []byte {
 var file_opencensus_proto_agent_common_v1_common_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_opencensus_proto_agent_common_v1_common_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_opencensus_proto_agent_common_v1_common_proto_goTypes = []interface{}{
-	(LibraryInfo_Language)(0),     // 0: opencensus.proto.agent.common.v1.LibraryInfo.Language
-	(*Node)(nil),                  // 1: opencensus.proto.agent.common.v1.Node
-	(*ProcessIdentifier)(nil),     // 2: opencensus.proto.agent.common.v1.ProcessIdentifier
-	(*LibraryInfo)(nil),           // 3: opencensus.proto.agent.common.v1.LibraryInfo
-	(*ServiceInfo)(nil),           // 4: opencensus.proto.agent.common.v1.ServiceInfo
-	nil,                           // 5: opencensus.proto.agent.common.v1.Node.AttributesEntry
-	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
+	(LibraryInfo_Language)(0),   // 0: opencensus.proto.agent.common.v1.LibraryInfo.Language
+	(*Node)(nil),                // 1: opencensus.proto.agent.common.v1.Node
+	(*ProcessIdentifier)(nil),   // 2: opencensus.proto.agent.common.v1.ProcessIdentifier
+	(*LibraryInfo)(nil),         // 3: opencensus.proto.agent.common.v1.LibraryInfo
+	(*ServiceInfo)(nil),         // 4: opencensus.proto.agent.common.v1.ServiceInfo
+	nil,                         // 5: opencensus.proto.agent.common.v1.Node.AttributesEntry
+	(*timestamp.Timestamp)(nil), // 6: google.protobuf.Timestamp
 }
 var file_opencensus_proto_agent_common_v1_common_proto_depIdxs = []int32{
 	2, // 0: opencensus.proto.agent.common.v1.Node.identifier:type_name -> opencensus.proto.agent.common.v1.ProcessIdentifier

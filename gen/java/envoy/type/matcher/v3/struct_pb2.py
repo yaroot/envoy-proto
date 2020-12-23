@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n#io.envoyproxy.envoy.type.matcher.v3B\013StructProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\"envoy/type/matcher/v3/struct.proto\x12\x15\x65nvoy.type.matcher.v3\x1a!envoy/type/matcher/v3/value.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xac\x02\n\rStructMatcher\x12H\n\x04path\x18\x02 \x03(\x0b\x32\x30.envoy.type.matcher.v3.StructMatcher.PathSegmentB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12<\n\x05value\x18\x03 \x01(\x0b\x32#.envoy.type.matcher.v3.ValueMatcherB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x1aj\n\x0bPathSegment\x12\x16\n\x03key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01H\x00:3\x9a\xc5\x88\x1e.\n,envoy.type.matcher.StructMatcher.PathSegmentB\x0e\n\x07segment\x12\x03\xf8\x42\x01:\'\x9a\xc5\x88\x1e\"\n envoy.type.matcher.StructMatcherB<\n#io.envoyproxy.envoy.type.matcher.v3B\x0bStructProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n\"envoy/type/matcher/v3/struct.proto\x12\x15\x65nvoy.type.matcher.v3\x1a!envoy/type/matcher/v3/value.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xac\x02\n\rStructMatcher\x12H\n\x04path\x18\x02 \x03(\x0b\x32\x30.envoy.type.matcher.v3.StructMatcher.PathSegmentB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12<\n\x05value\x18\x03 \x01(\x0b\x32#.envoy.type.matcher.v3.ValueMatcherB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x1aj\n\x0bPathSegment\x12\x16\n\x03key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00:3\x9a\xc5\x88\x1e.\n,envoy.type.matcher.StructMatcher.PathSegmentB\x0e\n\x07segment\x12\x03\xf8\x42\x01:\'\x9a\xc5\x88\x1e\"\n envoy.type.matcher.StructMatcherB<\n#io.envoyproxy.envoy.type.matcher.v3B\x0bStructProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_type_dot_matcher_dot_v3_dot_value__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -44,7 +44,7 @@ _STRUCTMATCHER_PATHSEGMENT = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],

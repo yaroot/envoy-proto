@@ -12,6 +12,8 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.type import date_pb2 as google_dot_type_dot_date__pb2
 
 
@@ -19,11 +21,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/ads/admob/v1/admob_resources.proto',
   package='google.ads.admob.v1',
   syntax='proto3',
-  serialized_options=b'\n\027com.google.ads.admob.v1B\022AdMobResourceProtoZ8google.golang.org/genproto/googleapis/ads/admob/v1;admob',
+  serialized_options=b'\n\027com.google.ads.admob.v1B\023AdMobResourcesProtoZ8google.golang.org/genproto/googleapis/ads/admob/v1;admob',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)google/ads/admob/v1/admob_resources.proto\x12\x13google.ads.admob.v1\x1a\x16google/type/date.proto\"j\n\x10PublisherAccount\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0cpublisher_id\x18\x02 \x01(\t\x12\x1b\n\x13reporting_time_zone\x18\x03 \x01(\t\x12\x15\n\rcurrency_code\x18\x04 \x01(\t\"\xae\t\n\x11NetworkReportSpec\x12\x32\n\ndate_range\x18\x01 \x01(\x0b\x32\x1e.google.ads.admob.v1.DateRange\x12\x44\n\ndimensions\x18\x02 \x03(\x0e\x32\x30.google.ads.admob.v1.NetworkReportSpec.Dimension\x12>\n\x07metrics\x18\x03 \x03(\x0e\x32-.google.ads.admob.v1.NetworkReportSpec.Metric\x12Q\n\x11\x64imension_filters\x18\x04 \x03(\x0b\x32\x36.google.ads.admob.v1.NetworkReportSpec.DimensionFilter\x12M\n\x0fsort_conditions\x18\x05 \x03(\x0b\x32\x34.google.ads.admob.v1.NetworkReportSpec.SortCondition\x12H\n\x15localization_settings\x18\x06 \x01(\x0b\x32).google.ads.admob.v1.LocalizationSettings\x12\x17\n\x0fmax_report_rows\x18\x07 \x01(\x05\x12\x11\n\ttime_zone\x18\x08 \x01(\t\x1a\x9a\x01\n\x0f\x44imensionFilter\x12\x43\n\tdimension\x18\x01 \x01(\x0e\x32\x30.google.ads.admob.v1.NetworkReportSpec.Dimension\x12\x36\n\x0bmatches_any\x18\x02 \x01(\x0b\x32\x1f.google.ads.admob.v1.StringListH\x00\x42\n\n\x08operator\x1a\xd1\x01\n\rSortCondition\x12\x45\n\tdimension\x18\x01 \x01(\x0e\x32\x30.google.ads.admob.v1.NetworkReportSpec.DimensionH\x00\x12?\n\x06metric\x18\x02 \x01(\x0e\x32-.google.ads.admob.v1.NetworkReportSpec.MetricH\x00\x12-\n\x05order\x18\x03 \x01(\x0e\x32\x1e.google.ads.admob.v1.SortOrderB\t\n\x07sort_on\"\x8f\x01\n\tDimension\x12\x19\n\x15\x44IMENSION_UNSPECIFIED\x10\x00\x12\x08\n\x04\x44\x41TE\x10\x01\x12\t\n\x05MONTH\x10\x02\x12\x08\n\x04WEEK\x10\x03\x12\x0b\n\x07\x41\x44_UNIT\x10\x04\x12\x07\n\x03\x41PP\x10\x05\x12\x0b\n\x07\x41\x44_TYPE\x10\x06\x12\x0b\n\x07\x43OUNTRY\x10\x07\x12\n\n\x06\x46ORMAT\x10\x08\x12\x0c\n\x08PLATFORM\x10\t\"\xc3\x01\n\x06Metric\x12\x16\n\x12METRIC_UNSPECIFIED\x10\x00\x12\x0f\n\x0b\x41\x44_REQUESTS\x10\x01\x12\n\n\x06\x43LICKS\x10\x02\x12\x16\n\x12\x45STIMATED_EARNINGS\x10\x03\x12\x0f\n\x0bIMPRESSIONS\x10\x04\x12\x12\n\x0eIMPRESSION_CTR\x10\x05\x12\x12\n\x0eIMPRESSION_RPM\x10\x06\x12\x14\n\x10MATCHED_REQUESTS\x10\x07\x12\x0e\n\nMATCH_RATE\x10\x08\x12\r\n\tSHOW_RATE\x10\t\"\xdd\t\n\x13MediationReportSpec\x12\x32\n\ndate_range\x18\x01 \x01(\x0b\x32\x1e.google.ads.admob.v1.DateRange\x12\x46\n\ndimensions\x18\x02 \x03(\x0e\x32\x32.google.ads.admob.v1.MediationReportSpec.Dimension\x12@\n\x07metrics\x18\x03 \x03(\x0e\x32/.google.ads.admob.v1.MediationReportSpec.Metric\x12S\n\x11\x64imension_filters\x18\x04 \x03(\x0b\x32\x38.google.ads.admob.v1.MediationReportSpec.DimensionFilter\x12O\n\x0fsort_conditions\x18\x05 \x03(\x0b\x32\x36.google.ads.admob.v1.MediationReportSpec.SortCondition\x12H\n\x15localization_settings\x18\x06 \x01(\x0b\x32).google.ads.admob.v1.LocalizationSettings\x12\x17\n\x0fmax_report_rows\x18\x07 \x01(\x05\x12\x11\n\ttime_zone\x18\x08 \x01(\t\x1a\x9c\x01\n\x0f\x44imensionFilter\x12\x45\n\tdimension\x18\x01 \x01(\x0e\x32\x32.google.ads.admob.v1.MediationReportSpec.Dimension\x12\x36\n\x0bmatches_any\x18\x02 \x01(\x0b\x32\x1f.google.ads.admob.v1.StringListH\x00\x42\n\n\x08operator\x1a\xd5\x01\n\rSortCondition\x12G\n\tdimension\x18\x01 \x01(\x0e\x32\x32.google.ads.admob.v1.MediationReportSpec.DimensionH\x00\x12\x41\n\x06metric\x18\x02 \x01(\x0e\x32/.google.ads.admob.v1.MediationReportSpec.MetricH\x00\x12-\n\x05order\x18\x03 \x01(\x0e\x32\x1e.google.ads.admob.v1.SortOrderB\t\n\x07sort_on\"\xbe\x01\n\tDimension\x12\x19\n\x15\x44IMENSION_UNSPECIFIED\x10\x00\x12\x08\n\x04\x44\x41TE\x10\x01\x12\t\n\x05MONTH\x10\x02\x12\x08\n\x04WEEK\x10\x03\x12\r\n\tAD_SOURCE\x10\x04\x12\x16\n\x12\x41\x44_SOURCE_INSTANCE\x10\x05\x12\x0b\n\x07\x41\x44_UNIT\x10\x06\x12\x07\n\x03\x41PP\x10\x07\x12\x13\n\x0fMEDIATION_GROUP\x10\x0b\x12\x0b\n\x07\x43OUNTRY\x10\x08\x12\n\n\x06\x46ORMAT\x10\t\x12\x0c\n\x08PLATFORM\x10\n\"\xb3\x01\n\x06Metric\x12\x16\n\x12METRIC_UNSPECIFIED\x10\x00\x12\x0f\n\x0b\x41\x44_REQUESTS\x10\x01\x12\n\n\x06\x43LICKS\x10\x02\x12\x16\n\x12\x45STIMATED_EARNINGS\x10\x03\x12\x0f\n\x0bIMPRESSIONS\x10\x04\x12\x12\n\x0eIMPRESSION_CTR\x10\x05\x12\x14\n\x10MATCHED_REQUESTS\x10\x06\x12\x0e\n\nMATCH_RATE\x10\x07\x12\x11\n\rOBSERVED_ECPM\x10\x08\"\x84\x04\n\tReportRow\x12M\n\x10\x64imension_values\x18\x01 \x03(\x0b\x32\x33.google.ads.admob.v1.ReportRow.DimensionValuesEntry\x12G\n\rmetric_values\x18\x02 \x03(\x0b\x32\x30.google.ads.admob.v1.ReportRow.MetricValuesEntry\x1a\x36\n\x0e\x44imensionValue\x12\r\n\x05value\x18\x01 \x01(\t\x12\x15\n\rdisplay_label\x18\x02 \x01(\t\x1a_\n\x0bMetricValue\x12\x17\n\rinteger_value\x18\x01 \x01(\x03H\x00\x12\x16\n\x0c\x64ouble_value\x18\x02 \x01(\x01H\x00\x12\x16\n\x0cmicros_value\x18\x03 \x01(\x03H\x00\x42\x07\n\x05value\x1a\x65\n\x14\x44imensionValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12<\n\x05value\x18\x02 \x01(\x0b\x32-.google.ads.admob.v1.ReportRow.DimensionValue:\x02\x38\x01\x1a_\n\x11MetricValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.google.ads.admob.v1.ReportRow.MetricValue:\x02\x38\x01\"\xea\x01\n\rReportWarning\x12\x35\n\x04type\x18\x01 \x01(\x0e\x32\'.google.ads.admob.v1.ReportWarning.Type\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\"\x8c\x01\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\'\n#DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE\x10\x01\x12\x10\n\x0c\x44\x41TA_DELAYED\x10\x02\x12\t\n\x05OTHER\x10\x03\x12(\n$REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY\x10\x04\"\xa9\x01\n\x0cReportHeader\x12\x32\n\ndate_range\x18\x01 \x01(\x0b\x32\x1e.google.ads.admob.v1.DateRange\x12H\n\x15localization_settings\x18\x02 \x01(\x0b\x32).google.ads.admob.v1.LocalizationSettings\x12\x1b\n\x13reporting_time_zone\x18\x03 \x01(\t\"`\n\x0cReportFooter\x12\x34\n\x08warnings\x18\x01 \x03(\x0b\x32\".google.ads.admob.v1.ReportWarning\x12\x1a\n\x12matching_row_count\x18\x02 \x01(\x03\"W\n\tDateRange\x12%\n\nstart_date\x18\x01 \x01(\x0b\x32\x11.google.type.Date\x12#\n\x08\x65nd_date\x18\x02 \x01(\x0b\x32\x11.google.type.Date\"D\n\x14LocalizationSettings\x12\x15\n\rcurrency_code\x18\x01 \x01(\t\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\"\x1c\n\nStringList\x12\x0e\n\x06values\x18\x01 \x03(\t*F\n\tSortOrder\x12\x1a\n\x16SORT_ORDER_UNSPECIFIED\x10\x00\x12\r\n\tASCENDING\x10\x01\x12\x0e\n\nDESCENDING\x10\x02\x42g\n\x17\x63om.google.ads.admob.v1B\x12\x41\x64MobResourceProtoZ8google.golang.org/genproto/googleapis/ads/admob/v1;admobb\x06proto3'
+  serialized_pb=b'\n)google/ads/admob/v1/admob_resources.proto\x12\x13google.ads.admob.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x16google/type/date.proto\"\xac\x01\n\x10PublisherAccount\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0cpublisher_id\x18\x02 \x01(\t\x12\x1b\n\x13reporting_time_zone\x18\x03 \x01(\t\x12\x15\n\rcurrency_code\x18\x04 \x01(\t:@\xea\x41=\n%admob.googleapis.com/PublisherAccount\x12\x14\x61\x63\x63ounts/{publisher}\"\xae\t\n\x11NetworkReportSpec\x12\x32\n\ndate_range\x18\x01 \x01(\x0b\x32\x1e.google.ads.admob.v1.DateRange\x12\x44\n\ndimensions\x18\x02 \x03(\x0e\x32\x30.google.ads.admob.v1.NetworkReportSpec.Dimension\x12>\n\x07metrics\x18\x03 \x03(\x0e\x32-.google.ads.admob.v1.NetworkReportSpec.Metric\x12Q\n\x11\x64imension_filters\x18\x04 \x03(\x0b\x32\x36.google.ads.admob.v1.NetworkReportSpec.DimensionFilter\x12M\n\x0fsort_conditions\x18\x05 \x03(\x0b\x32\x34.google.ads.admob.v1.NetworkReportSpec.SortCondition\x12H\n\x15localization_settings\x18\x06 \x01(\x0b\x32).google.ads.admob.v1.LocalizationSettings\x12\x17\n\x0fmax_report_rows\x18\x07 \x01(\x05\x12\x11\n\ttime_zone\x18\x08 \x01(\t\x1a\x9a\x01\n\x0f\x44imensionFilter\x12\x36\n\x0bmatches_any\x18\x02 \x01(\x0b\x32\x1f.google.ads.admob.v1.StringListH\x00\x12\x43\n\tdimension\x18\x01 \x01(\x0e\x32\x30.google.ads.admob.v1.NetworkReportSpec.DimensionB\n\n\x08operator\x1a\xd1\x01\n\rSortCondition\x12\x45\n\tdimension\x18\x01 \x01(\x0e\x32\x30.google.ads.admob.v1.NetworkReportSpec.DimensionH\x00\x12?\n\x06metric\x18\x02 \x01(\x0e\x32-.google.ads.admob.v1.NetworkReportSpec.MetricH\x00\x12-\n\x05order\x18\x03 \x01(\x0e\x32\x1e.google.ads.admob.v1.SortOrderB\t\n\x07sort_on\"\x8f\x01\n\tDimension\x12\x19\n\x15\x44IMENSION_UNSPECIFIED\x10\x00\x12\x08\n\x04\x44\x41TE\x10\x01\x12\t\n\x05MONTH\x10\x02\x12\x08\n\x04WEEK\x10\x03\x12\x0b\n\x07\x41\x44_UNIT\x10\x04\x12\x07\n\x03\x41PP\x10\x05\x12\x0b\n\x07\x41\x44_TYPE\x10\x06\x12\x0b\n\x07\x43OUNTRY\x10\x07\x12\n\n\x06\x46ORMAT\x10\x08\x12\x0c\n\x08PLATFORM\x10\t\"\xc3\x01\n\x06Metric\x12\x16\n\x12METRIC_UNSPECIFIED\x10\x00\x12\x0f\n\x0b\x41\x44_REQUESTS\x10\x01\x12\n\n\x06\x43LICKS\x10\x02\x12\x16\n\x12\x45STIMATED_EARNINGS\x10\x03\x12\x0f\n\x0bIMPRESSIONS\x10\x04\x12\x12\n\x0eIMPRESSION_CTR\x10\x05\x12\x12\n\x0eIMPRESSION_RPM\x10\x06\x12\x14\n\x10MATCHED_REQUESTS\x10\x07\x12\x0e\n\nMATCH_RATE\x10\x08\x12\r\n\tSHOW_RATE\x10\t\"\xdd\t\n\x13MediationReportSpec\x12\x32\n\ndate_range\x18\x01 \x01(\x0b\x32\x1e.google.ads.admob.v1.DateRange\x12\x46\n\ndimensions\x18\x02 \x03(\x0e\x32\x32.google.ads.admob.v1.MediationReportSpec.Dimension\x12@\n\x07metrics\x18\x03 \x03(\x0e\x32/.google.ads.admob.v1.MediationReportSpec.Metric\x12S\n\x11\x64imension_filters\x18\x04 \x03(\x0b\x32\x38.google.ads.admob.v1.MediationReportSpec.DimensionFilter\x12O\n\x0fsort_conditions\x18\x05 \x03(\x0b\x32\x36.google.ads.admob.v1.MediationReportSpec.SortCondition\x12H\n\x15localization_settings\x18\x06 \x01(\x0b\x32).google.ads.admob.v1.LocalizationSettings\x12\x17\n\x0fmax_report_rows\x18\x07 \x01(\x05\x12\x11\n\ttime_zone\x18\x08 \x01(\t\x1a\x9c\x01\n\x0f\x44imensionFilter\x12\x36\n\x0bmatches_any\x18\x02 \x01(\x0b\x32\x1f.google.ads.admob.v1.StringListH\x00\x12\x45\n\tdimension\x18\x01 \x01(\x0e\x32\x32.google.ads.admob.v1.MediationReportSpec.DimensionB\n\n\x08operator\x1a\xd5\x01\n\rSortCondition\x12G\n\tdimension\x18\x01 \x01(\x0e\x32\x32.google.ads.admob.v1.MediationReportSpec.DimensionH\x00\x12\x41\n\x06metric\x18\x02 \x01(\x0e\x32/.google.ads.admob.v1.MediationReportSpec.MetricH\x00\x12-\n\x05order\x18\x03 \x01(\x0e\x32\x1e.google.ads.admob.v1.SortOrderB\t\n\x07sort_on\"\xbe\x01\n\tDimension\x12\x19\n\x15\x44IMENSION_UNSPECIFIED\x10\x00\x12\x08\n\x04\x44\x41TE\x10\x01\x12\t\n\x05MONTH\x10\x02\x12\x08\n\x04WEEK\x10\x03\x12\r\n\tAD_SOURCE\x10\x04\x12\x16\n\x12\x41\x44_SOURCE_INSTANCE\x10\x05\x12\x0b\n\x07\x41\x44_UNIT\x10\x06\x12\x07\n\x03\x41PP\x10\x07\x12\x13\n\x0fMEDIATION_GROUP\x10\x0b\x12\x0b\n\x07\x43OUNTRY\x10\x08\x12\n\n\x06\x46ORMAT\x10\t\x12\x0c\n\x08PLATFORM\x10\n\"\xb3\x01\n\x06Metric\x12\x16\n\x12METRIC_UNSPECIFIED\x10\x00\x12\x0f\n\x0b\x41\x44_REQUESTS\x10\x01\x12\n\n\x06\x43LICKS\x10\x02\x12\x16\n\x12\x45STIMATED_EARNINGS\x10\x03\x12\x0f\n\x0bIMPRESSIONS\x10\x04\x12\x12\n\x0eIMPRESSION_CTR\x10\x05\x12\x14\n\x10MATCHED_REQUESTS\x10\x06\x12\x0e\n\nMATCH_RATE\x10\x07\x12\x11\n\rOBSERVED_ECPM\x10\x08\"\x84\x04\n\tReportRow\x12M\n\x10\x64imension_values\x18\x01 \x03(\x0b\x32\x33.google.ads.admob.v1.ReportRow.DimensionValuesEntry\x12G\n\rmetric_values\x18\x02 \x03(\x0b\x32\x30.google.ads.admob.v1.ReportRow.MetricValuesEntry\x1a\x36\n\x0e\x44imensionValue\x12\r\n\x05value\x18\x01 \x01(\t\x12\x15\n\rdisplay_label\x18\x02 \x01(\t\x1a_\n\x0bMetricValue\x12\x17\n\rinteger_value\x18\x01 \x01(\x03H\x00\x12\x16\n\x0c\x64ouble_value\x18\x02 \x01(\x01H\x00\x12\x16\n\x0cmicros_value\x18\x03 \x01(\x03H\x00\x42\x07\n\x05value\x1a\x65\n\x14\x44imensionValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12<\n\x05value\x18\x02 \x01(\x0b\x32-.google.ads.admob.v1.ReportRow.DimensionValue:\x02\x38\x01\x1a_\n\x11MetricValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.google.ads.admob.v1.ReportRow.MetricValue:\x02\x38\x01\"\xea\x01\n\rReportWarning\x12\x35\n\x04type\x18\x01 \x01(\x0e\x32\'.google.ads.admob.v1.ReportWarning.Type\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\"\x8c\x01\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\'\n#DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE\x10\x01\x12\x10\n\x0c\x44\x41TA_DELAYED\x10\x02\x12\t\n\x05OTHER\x10\x03\x12(\n$REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY\x10\x04\"\xa9\x01\n\x0cReportHeader\x12\x32\n\ndate_range\x18\x01 \x01(\x0b\x32\x1e.google.ads.admob.v1.DateRange\x12H\n\x15localization_settings\x18\x02 \x01(\x0b\x32).google.ads.admob.v1.LocalizationSettings\x12\x1b\n\x13reporting_time_zone\x18\x03 \x01(\t\"`\n\x0cReportFooter\x12\x34\n\x08warnings\x18\x01 \x03(\x0b\x32\".google.ads.admob.v1.ReportWarning\x12\x1a\n\x12matching_row_count\x18\x02 \x01(\x03\"W\n\tDateRange\x12%\n\nstart_date\x18\x01 \x01(\x0b\x32\x11.google.type.Date\x12#\n\x08\x65nd_date\x18\x02 \x01(\x0b\x32\x11.google.type.Date\"D\n\x14LocalizationSettings\x12\x15\n\rcurrency_code\x18\x01 \x01(\t\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\"\x1c\n\nStringList\x12\x0e\n\x06values\x18\x01 \x03(\t*F\n\tSortOrder\x12\x1a\n\x16SORT_ORDER_UNSPECIFIED\x10\x00\x12\r\n\tASCENDING\x10\x01\x12\x0e\n\nDESCENDING\x10\x02\x42h\n\x17\x63om.google.ads.admob.v1B\x13\x41\x64MobResourcesProtoZ8google.golang.org/genproto/googleapis/ads/admob/v1;admobb\x06proto3'
   ,
-  dependencies=[google_dot_type_dot_date__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_type_dot_date__pb2.DESCRIPTOR,])
 
 _SORTORDER = _descriptor.EnumDescriptor(
   name='SortOrder',
@@ -50,8 +52,8 @@ _SORTORDER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3862,
-  serialized_end=3932,
+  serialized_start=3989,
+  serialized_end=4059,
 )
 _sym_db.RegisterEnumDescriptor(_SORTORDER)
 
@@ -121,8 +123,8 @@ _NETWORKREPORTSPEC_DIMENSION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1056,
-  serialized_end=1199,
+  serialized_start=1183,
+  serialized_end=1326,
 )
 _sym_db.RegisterEnumDescriptor(_NETWORKREPORTSPEC_DIMENSION)
 
@@ -186,8 +188,8 @@ _NETWORKREPORTSPEC_METRIC = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1202,
-  serialized_end=1397,
+  serialized_start=1329,
+  serialized_end=1524,
 )
 _sym_db.RegisterEnumDescriptor(_NETWORKREPORTSPEC_METRIC)
 
@@ -261,8 +263,8 @@ _MEDIATIONREPORTSPEC_DIMENSION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2273,
-  serialized_end=2463,
+  serialized_start=2400,
+  serialized_end=2590,
 )
 _sym_db.RegisterEnumDescriptor(_MEDIATIONREPORTSPEC_DIMENSION)
 
@@ -321,8 +323,8 @@ _MEDIATIONREPORTSPEC_METRIC = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2466,
-  serialized_end=2645,
+  serialized_start=2593,
+  serialized_end=2772,
 )
 _sym_db.RegisterEnumDescriptor(_MEDIATIONREPORTSPEC_METRIC)
 
@@ -361,8 +363,8 @@ _REPORTWARNING_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3261,
-  serialized_end=3401,
+  serialized_start=3388,
+  serialized_end=3528,
 )
 _sym_db.RegisterEnumDescriptor(_REPORTWARNING_TYPE)
 
@@ -409,14 +411,14 @@ _PUBLISHERACCOUNT = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  serialized_options=b'\352A=\n%admob.googleapis.com/PublisherAccount\022\024accounts/{publisher}',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=90,
-  serialized_end=196,
+  serialized_start=151,
+  serialized_end=323,
 )
 
 
@@ -429,16 +431,16 @@ _NETWORKREPORTSPEC_DIMENSIONFILTER = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='dimension', full_name='google.ads.admob.v1.NetworkReportSpec.DimensionFilter.dimension', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      name='matches_any', full_name='google.ads.admob.v1.NetworkReportSpec.DimensionFilter.matches_any', index=0,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='matches_any', full_name='google.ads.admob.v1.NetworkReportSpec.DimensionFilter.matches_any', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='dimension', full_name='google.ads.admob.v1.NetworkReportSpec.DimensionFilter.dimension', index=1,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -459,8 +461,8 @@ _NETWORKREPORTSPEC_DIMENSIONFILTER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=687,
-  serialized_end=841,
+  serialized_start=814,
+  serialized_end=968,
 )
 
 _NETWORKREPORTSPEC_SORTCONDITION = _descriptor.Descriptor(
@@ -509,8 +511,8 @@ _NETWORKREPORTSPEC_SORTCONDITION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=844,
-  serialized_end=1053,
+  serialized_start=971,
+  serialized_end=1180,
 )
 
 _NETWORKREPORTSPEC = _descriptor.Descriptor(
@@ -591,8 +593,8 @@ _NETWORKREPORTSPEC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=199,
-  serialized_end=1397,
+  serialized_start=326,
+  serialized_end=1524,
 )
 
 
@@ -605,16 +607,16 @@ _MEDIATIONREPORTSPEC_DIMENSIONFILTER = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='dimension', full_name='google.ads.admob.v1.MediationReportSpec.DimensionFilter.dimension', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
+      name='matches_any', full_name='google.ads.admob.v1.MediationReportSpec.DimensionFilter.matches_any', index=0,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='matches_any', full_name='google.ads.admob.v1.MediationReportSpec.DimensionFilter.matches_any', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='dimension', full_name='google.ads.admob.v1.MediationReportSpec.DimensionFilter.dimension', index=1,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -635,8 +637,8 @@ _MEDIATIONREPORTSPEC_DIMENSIONFILTER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1898,
-  serialized_end=2054,
+  serialized_start=2025,
+  serialized_end=2181,
 )
 
 _MEDIATIONREPORTSPEC_SORTCONDITION = _descriptor.Descriptor(
@@ -685,8 +687,8 @@ _MEDIATIONREPORTSPEC_SORTCONDITION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2057,
-  serialized_end=2270,
+  serialized_start=2184,
+  serialized_end=2397,
 )
 
 _MEDIATIONREPORTSPEC = _descriptor.Descriptor(
@@ -767,8 +769,8 @@ _MEDIATIONREPORTSPEC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1400,
-  serialized_end=2645,
+  serialized_start=1527,
+  serialized_end=2772,
 )
 
 
@@ -806,8 +808,8 @@ _REPORTROW_DIMENSIONVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2813,
-  serialized_end=2867,
+  serialized_start=2940,
+  serialized_end=2994,
 )
 
 _REPORTROW_METRICVALUE = _descriptor.Descriptor(
@@ -856,8 +858,8 @@ _REPORTROW_METRICVALUE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2869,
-  serialized_end=2964,
+  serialized_start=2996,
+  serialized_end=3091,
 )
 
 _REPORTROW_DIMENSIONVALUESENTRY = _descriptor.Descriptor(
@@ -894,8 +896,8 @@ _REPORTROW_DIMENSIONVALUESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2966,
-  serialized_end=3067,
+  serialized_start=3093,
+  serialized_end=3194,
 )
 
 _REPORTROW_METRICVALUESENTRY = _descriptor.Descriptor(
@@ -932,8 +934,8 @@ _REPORTROW_METRICVALUESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3069,
-  serialized_end=3164,
+  serialized_start=3196,
+  serialized_end=3291,
 )
 
 _REPORTROW = _descriptor.Descriptor(
@@ -970,8 +972,8 @@ _REPORTROW = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2648,
-  serialized_end=3164,
+  serialized_start=2775,
+  serialized_end=3291,
 )
 
 
@@ -1010,8 +1012,8 @@ _REPORTWARNING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3167,
-  serialized_end=3401,
+  serialized_start=3294,
+  serialized_end=3528,
 )
 
 
@@ -1056,8 +1058,8 @@ _REPORTHEADER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3404,
-  serialized_end=3573,
+  serialized_start=3531,
+  serialized_end=3700,
 )
 
 
@@ -1095,8 +1097,8 @@ _REPORTFOOTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3575,
-  serialized_end=3671,
+  serialized_start=3702,
+  serialized_end=3798,
 )
 
 
@@ -1134,8 +1136,8 @@ _DATERANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3673,
-  serialized_end=3760,
+  serialized_start=3800,
+  serialized_end=3887,
 )
 
 
@@ -1173,8 +1175,8 @@ _LOCALIZATIONSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3762,
-  serialized_end=3830,
+  serialized_start=3889,
+  serialized_end=3957,
 )
 
 
@@ -1205,12 +1207,12 @@ _STRINGLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3832,
-  serialized_end=3860,
+  serialized_start=3959,
+  serialized_end=3987,
 )
 
-_NETWORKREPORTSPEC_DIMENSIONFILTER.fields_by_name['dimension'].enum_type = _NETWORKREPORTSPEC_DIMENSION
 _NETWORKREPORTSPEC_DIMENSIONFILTER.fields_by_name['matches_any'].message_type = _STRINGLIST
+_NETWORKREPORTSPEC_DIMENSIONFILTER.fields_by_name['dimension'].enum_type = _NETWORKREPORTSPEC_DIMENSION
 _NETWORKREPORTSPEC_DIMENSIONFILTER.containing_type = _NETWORKREPORTSPEC
 _NETWORKREPORTSPEC_DIMENSIONFILTER.oneofs_by_name['operator'].fields.append(
   _NETWORKREPORTSPEC_DIMENSIONFILTER.fields_by_name['matches_any'])
@@ -1233,8 +1235,8 @@ _NETWORKREPORTSPEC.fields_by_name['sort_conditions'].message_type = _NETWORKREPO
 _NETWORKREPORTSPEC.fields_by_name['localization_settings'].message_type = _LOCALIZATIONSETTINGS
 _NETWORKREPORTSPEC_DIMENSION.containing_type = _NETWORKREPORTSPEC
 _NETWORKREPORTSPEC_METRIC.containing_type = _NETWORKREPORTSPEC
-_MEDIATIONREPORTSPEC_DIMENSIONFILTER.fields_by_name['dimension'].enum_type = _MEDIATIONREPORTSPEC_DIMENSION
 _MEDIATIONREPORTSPEC_DIMENSIONFILTER.fields_by_name['matches_any'].message_type = _STRINGLIST
+_MEDIATIONREPORTSPEC_DIMENSIONFILTER.fields_by_name['dimension'].enum_type = _MEDIATIONREPORTSPEC_DIMENSION
 _MEDIATIONREPORTSPEC_DIMENSIONFILTER.containing_type = _MEDIATIONREPORTSPEC
 _MEDIATIONREPORTSPEC_DIMENSIONFILTER.oneofs_by_name['operator'].fields.append(
   _MEDIATIONREPORTSPEC_DIMENSIONFILTER.fields_by_name['matches_any'])
@@ -1430,6 +1432,7 @@ _sym_db.RegisterMessage(StringList)
 
 
 DESCRIPTOR._options = None
+_PUBLISHERACCOUNT._options = None
 _REPORTROW_DIMENSIONVALUESENTRY._options = None
 _REPORTROW_METRICVALUESENTRY._options = None
 # @@protoc_insertion_point(module_scope)

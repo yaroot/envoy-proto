@@ -22,14 +22,14 @@ package talent
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/any"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "google.golang.org/genproto/googleapis/longrunning"
 	_ "google.golang.org/genproto/googleapis/rpc/status"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/anypb"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -89,7 +89,7 @@ type ListProfilesRequest struct {
 	// Valid values are:
 	//
 	// * name
-	ReadMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=read_mask,json=readMask,proto3" json:"read_mask,omitempty"`
+	ReadMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=read_mask,json=readMask,proto3" json:"read_mask,omitempty"`
 }
 
 func (x *ListProfilesRequest) Reset() {
@@ -152,7 +152,7 @@ func (x *ListProfilesRequest) GetPageSize() int32 {
 	return 0
 }
 
-func (x *ListProfilesRequest) GetReadMask() *fieldmaskpb.FieldMask {
+func (x *ListProfilesRequest) GetReadMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.ReadMask
 	}
@@ -343,7 +343,7 @@ type UpdateProfileRequest struct {
 	// A field mask to specify the profile fields to update.
 	//
 	// A full update is performed if it is unset.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateProfileRequest) Reset() {
@@ -385,7 +385,7 @@ func (x *UpdateProfileRequest) GetProfile() *Profile {
 	return nil
 }
 
-func (x *UpdateProfileRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateProfileRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1199,7 +1199,7 @@ var file_google_cloud_talent_v4beta1_profile_service_proto_goTypes = []interface
 	(*SearchProfilesRequest)(nil),  // 6: google.cloud.talent.v4beta1.SearchProfilesRequest
 	(*SearchProfilesResponse)(nil), // 7: google.cloud.talent.v4beta1.SearchProfilesResponse
 	(*SummarizedProfile)(nil),      // 8: google.cloud.talent.v4beta1.SummarizedProfile
-	(*fieldmaskpb.FieldMask)(nil),  // 9: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),   // 9: google.protobuf.FieldMask
 	(*Profile)(nil),                // 10: google.cloud.talent.v4beta1.Profile
 	(*RequestMetadata)(nil),        // 11: google.cloud.talent.v4beta1.RequestMetadata
 	(*ProfileQuery)(nil),           // 12: google.cloud.talent.v4beta1.ProfileQuery
@@ -1207,7 +1207,7 @@ var file_google_cloud_talent_v4beta1_profile_service_proto_goTypes = []interface
 	(*SpellingCorrection)(nil),     // 14: google.cloud.talent.v4beta1.SpellingCorrection
 	(*ResponseMetadata)(nil),       // 15: google.cloud.talent.v4beta1.ResponseMetadata
 	(*HistogramQueryResult)(nil),   // 16: google.cloud.talent.v4beta1.HistogramQueryResult
-	(*emptypb.Empty)(nil),          // 17: google.protobuf.Empty
+	(*empty.Empty)(nil),            // 17: google.protobuf.Empty
 }
 var file_google_cloud_talent_v4beta1_profile_service_proto_depIdxs = []int32{
 	9,  // 0: google.cloud.talent.v4beta1.ListProfilesRequest.read_mask:type_name -> google.protobuf.FieldMask

@@ -22,11 +22,11 @@ package cloudtrace
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -305,9 +305,9 @@ type TraceSpan struct {
 	// cross-trace spans.
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Start time of the span in nanoseconds from the UNIX epoch.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// End time of the span in nanoseconds from the UNIX epoch.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	// Optional. ID of the parent span, if any.
 	ParentSpanId uint64 `protobuf:"fixed64,6,opt,name=parent_span_id,json=parentSpanId,proto3" json:"parent_span_id,omitempty"`
 	// Collection of labels associated with the span. Label keys must be less than
@@ -401,14 +401,14 @@ func (x *TraceSpan) GetName() string {
 	return ""
 }
 
-func (x *TraceSpan) GetStartTime() *timestamppb.Timestamp {
+func (x *TraceSpan) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *TraceSpan) GetEndTime() *timestamppb.Timestamp {
+func (x *TraceSpan) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -450,10 +450,10 @@ type ListTracesRequest struct {
 	PageToken string `protobuf:"bytes,4,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
 	// Start of the time interval (inclusive) during which the trace data was
 	// collected from the application.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// End of the time interval (inclusive) during which the trace data was
 	// collected from the application.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,6,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	// Optional. A filter against labels for the request.
 	//
 	// By default, searches use prefix matching. To specify exact match, prepend
@@ -561,14 +561,14 @@ func (x *ListTracesRequest) GetPageToken() string {
 	return ""
 }
 
-func (x *ListTracesRequest) GetStartTime() *timestamppb.Timestamp {
+func (x *ListTracesRequest) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *ListTracesRequest) GetEndTime() *timestamppb.Timestamp {
+func (x *ListTracesRequest) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -961,8 +961,8 @@ var file_google_devtools_cloudtrace_v1_trace_proto_goTypes = []interface{}{
 	(*GetTraceRequest)(nil),         // 7: google.devtools.cloudtrace.v1.GetTraceRequest
 	(*PatchTracesRequest)(nil),      // 8: google.devtools.cloudtrace.v1.PatchTracesRequest
 	nil,                             // 9: google.devtools.cloudtrace.v1.TraceSpan.LabelsEntry
-	(*timestamppb.Timestamp)(nil),   // 10: google.protobuf.Timestamp
-	(*emptypb.Empty)(nil),           // 11: google.protobuf.Empty
+	(*timestamp.Timestamp)(nil),     // 10: google.protobuf.Timestamp
+	(*empty.Empty)(nil),             // 11: google.protobuf.Empty
 }
 var file_google_devtools_cloudtrace_v1_trace_proto_depIdxs = []int32{
 	4,  // 0: google.devtools.cloudtrace.v1.Trace.spans:type_name -> google.devtools.cloudtrace.v1.TraceSpan

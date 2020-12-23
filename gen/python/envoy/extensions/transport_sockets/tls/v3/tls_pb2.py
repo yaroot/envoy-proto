@@ -29,11 +29,41 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n7io.envoyproxy.envoy.extensions.transport_sockets.tls.v3B\010TlsProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n3envoy/extensions/transport_sockets/tls/v3/tls.proto\x12)envoy.extensions.transport_sockets.tls.v3\x1a$envoy/config/core/v3/extension.proto\x1a\x36\x65nvoy/extensions/transport_sockets/tls/v3/common.proto\x1a\x36\x65nvoy/extensions/transport_sockets/tls/v3/secret.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x86\x02\n\x12UpstreamTlsContext\x12W\n\x12\x63ommon_tls_context\x18\x01 \x01(\x0b\x32;.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext\x12\x15\n\x03sni\x18\x02 \x01(\tB\x08\xfa\x42\x05r\x03(\xff\x01\x12\x1b\n\x13\x61llow_renegotiation\x18\x03 \x01(\x08\x12\x36\n\x10max_session_keys\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value:+\x9a\xc5\x88\x1e&\n$envoy.api.v2.auth.UpstreamTlsContext\"\xee\x04\n\x14\x44ownstreamTlsContext\x12W\n\x12\x63ommon_tls_context\x18\x01 \x01(\x0b\x32;.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext\x12>\n\x1arequire_client_certificate\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12/\n\x0brequire_sni\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12^\n\x13session_ticket_keys\x18\x04 \x01(\x0b\x32?.envoy.extensions.transport_sockets.tls.v3.TlsSessionTicketKeysH\x00\x12k\n%session_ticket_keys_sds_secret_config\x18\x05 \x01(\x0b\x32:.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfigH\x00\x12.\n$disable_stateless_session_resumption\x18\x07 \x01(\x08H\x00\x12\x44\n\x0fsession_timeout\x18\x06 \x01(\x0b\x32\x19.google.protobuf.DurationB\x10\xfa\x42\r\xaa\x01\n\x1a\x06\x08\x80\x80\x80\x80\x10\x32\x00:-\x9a\xc5\x88\x1e(\n&envoy.api.v2.auth.DownstreamTlsContextB\x1a\n\x18session_ticket_keys_type\"\x9b\r\n\x10\x43ommonTlsContext\x12L\n\ntls_params\x18\x01 \x01(\x0b\x32\x38.envoy.extensions.transport_sockets.tls.v3.TlsParameters\x12S\n\x10tls_certificates\x18\x02 \x03(\x0b\x32\x39.envoy.extensions.transport_sockets.tls.v3.TlsCertificate\x12p\n\"tls_certificate_sds_secret_configs\x18\x06 \x03(\x0b\x32:.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfigB\x08\xfa\x42\x05\x92\x01\x02\x10\x01\x12}\n$tls_certificate_certificate_provider\x18\t \x01(\x0b\x32O.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProvider\x12\x65\n\x12validation_context\x18\x03 \x01(\x0b\x32G.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContextH\x00\x12j\n$validation_context_sds_secret_config\x18\x07 \x01(\x0b\x32:.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfigH\x00\x12\x87\x01\n\x1b\x63ombined_validation_context\x18\x08 \x01(\x0b\x32`.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CombinedCertificateValidationContextH\x00\x12\x82\x01\n\'validation_context_certificate_provider\x18\n \x01(\x0b\x32O.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderH\x00\x12\x16\n\x0e\x61lpn_protocols\x18\x04 \x03(\t\x1a\x7f\n\x13\x43\x65rtificateProvider\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x42\n\x0ctyped_config\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigH\x00\x42\r\n\x06\x63onfig\x12\x03\xf8\x42\x01\x1a\xab\x04\n$CombinedCertificateValidationContext\x12u\n\x1a\x64\x65\x66\x61ult_validation_context\x18\x01 \x01(\x0b\x32G.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContextB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x94\x01\n$validation_context_sds_secret_config\x18\x02 \x01(\x0b\x32:.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfigB*\xfa\x42\x05\x8a\x01\x02\x10\x01\xf2\x98\xfe\x8f\x05\x1c\x12\x1a\x64ynamic_validation_context\x12\xa4\x01\n\'validation_context_certificate_provider\x18\x03 \x01(\x0b\x32O.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderB\"\xf2\x98\xfe\x8f\x05\x1c\x12\x1a\x64ynamic_validation_context:N\x9a\xc5\x88\x1eI\nGenvoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext:)\x9a\xc5\x88\x1e$\n\"envoy.api.v2.auth.CommonTlsContextB\x19\n\x17validation_context_typeJ\x04\x08\x05\x10\x06\x42M\n7io.envoyproxy.envoy.extensions.transport_sockets.tls.v3B\x08TlsProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n3envoy/extensions/transport_sockets/tls/v3/tls.proto\x12)envoy.extensions.transport_sockets.tls.v3\x1a$envoy/config/core/v3/extension.proto\x1a\x36\x65nvoy/extensions/transport_sockets/tls/v3/common.proto\x1a\x36\x65nvoy/extensions/transport_sockets/tls/v3/secret.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x86\x02\n\x12UpstreamTlsContext\x12W\n\x12\x63ommon_tls_context\x18\x01 \x01(\x0b\x32;.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext\x12\x15\n\x03sni\x18\x02 \x01(\tB\x08\xfa\x42\x05r\x03(\xff\x01\x12\x1b\n\x13\x61llow_renegotiation\x18\x03 \x01(\x08\x12\x36\n\x10max_session_keys\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value:+\x9a\xc5\x88\x1e&\n$envoy.api.v2.auth.UpstreamTlsContext\"\xb6\x06\n\x14\x44ownstreamTlsContext\x12W\n\x12\x63ommon_tls_context\x18\x01 \x01(\x0b\x32;.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext\x12>\n\x1arequire_client_certificate\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12/\n\x0brequire_sni\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12^\n\x13session_ticket_keys\x18\x04 \x01(\x0b\x32?.envoy.extensions.transport_sockets.tls.v3.TlsSessionTicketKeysH\x00\x12k\n%session_ticket_keys_sds_secret_config\x18\x05 \x01(\x0b\x32:.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfigH\x00\x12.\n$disable_stateless_session_resumption\x18\x07 \x01(\x08H\x00\x12\x44\n\x0fsession_timeout\x18\x06 \x01(\x0b\x32\x19.google.protobuf.DurationB\x10\xfa\x42\r\xaa\x01\n\x1a\x06\x08\x80\x80\x80\x80\x10\x32\x00\x12v\n\x12ocsp_staple_policy\x18\x08 \x01(\x0e\x32P.envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext.OcspStaplePolicyB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\"N\n\x10OcspStaplePolicy\x12\x14\n\x10LENIENT_STAPLING\x10\x00\x12\x13\n\x0fSTRICT_STAPLING\x10\x01\x12\x0f\n\x0bMUST_STAPLE\x10\x02:-\x9a\xc5\x88\x1e(\n&envoy.api.v2.auth.DownstreamTlsContextB\x1a\n\x18session_ticket_keys_type\"\x91\x12\n\x10\x43ommonTlsContext\x12L\n\ntls_params\x18\x01 \x01(\x0b\x32\x38.envoy.extensions.transport_sockets.tls.v3.TlsParameters\x12S\n\x10tls_certificates\x18\x02 \x03(\x0b\x32\x39.envoy.extensions.transport_sockets.tls.v3.TlsCertificate\x12p\n\"tls_certificate_sds_secret_configs\x18\x06 \x03(\x0b\x32:.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfigB\x08\xfa\x42\x05\x92\x01\x02\x10\x01\x12}\n$tls_certificate_certificate_provider\x18\t \x01(\x0b\x32O.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProvider\x12\x8e\x01\n-tls_certificate_certificate_provider_instance\x18\x0b \x01(\x0b\x32W.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance\x12\x65\n\x12validation_context\x18\x03 \x01(\x0b\x32G.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContextH\x00\x12j\n$validation_context_sds_secret_config\x18\x07 \x01(\x0b\x32:.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfigH\x00\x12\x87\x01\n\x1b\x63ombined_validation_context\x18\x08 \x01(\x0b\x32`.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CombinedCertificateValidationContextH\x00\x12\x82\x01\n\'validation_context_certificate_provider\x18\n \x01(\x0b\x32O.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderH\x00\x12\x93\x01\n0validation_context_certificate_provider_instance\x18\x0c \x01(\x0b\x32W.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstanceH\x00\x12\x16\n\x0e\x61lpn_protocols\x18\x04 \x03(\t\x12\x45\n\x11\x63ustom_handshaker\x18\r \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfig\x1a\x7f\n\x13\x43\x65rtificateProvider\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x42\n\x0ctyped_config\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigH\x00\x42\r\n\x06\x63onfig\x12\x03\xf8\x42\x01\x1aN\n\x1b\x43\x65rtificateProviderInstance\x12\x15\n\rinstance_name\x18\x01 \x01(\t\x12\x18\n\x10\x63\x65rtificate_name\x18\x02 \x01(\t\x1a\xe3\x05\n$CombinedCertificateValidationContext\x12u\n\x1a\x64\x65\x66\x61ult_validation_context\x18\x01 \x01(\x0b\x32G.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContextB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x94\x01\n$validation_context_sds_secret_config\x18\x02 \x01(\x0b\x32:.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfigB*\xfa\x42\x05\x8a\x01\x02\x10\x01\xf2\x98\xfe\x8f\x05\x1c\x12\x1a\x64ynamic_validation_context\x12\xa4\x01\n\'validation_context_certificate_provider\x18\x03 \x01(\x0b\x32O.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderB\"\xf2\x98\xfe\x8f\x05\x1c\x12\x1a\x64ynamic_validation_context\x12\xb5\x01\n0validation_context_certificate_provider_instance\x18\x04 \x01(\x0b\x32W.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstanceB\"\xf2\x98\xfe\x8f\x05\x1c\x12\x1a\x64ynamic_validation_context:N\x9a\xc5\x88\x1eI\nGenvoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext:)\x9a\xc5\x88\x1e$\n\"envoy.api.v2.auth.CommonTlsContextB\x19\n\x17validation_context_typeJ\x04\x08\x05\x10\x06\x42M\n7io.envoyproxy.envoy.extensions.transport_sockets.tls.v3B\x08TlsProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_extension__pb2.DESCRIPTOR,envoy_dot_extensions_dot_transport__sockets_dot_tls_dot_v3_dot_common__pb2.DESCRIPTOR,envoy_dot_extensions_dot_transport__sockets_dot_tls_dot_v3_dot_secret__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_migrate__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
+
+_DOWNSTREAMTLSCONTEXT_OCSPSTAPLEPOLICY = _descriptor.EnumDescriptor(
+  name='OcspStaplePolicy',
+  full_name='envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext.OcspStaplePolicy',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='LENIENT_STAPLING', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='STRICT_STAPLING', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='MUST_STAPLE', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1397,
+  serialized_end=1475,
+)
+_sym_db.RegisterEnumDescriptor(_DOWNSTREAMTLSCONTEXT_OCSPSTAPLEPOLICY)
 
 
 _UPSTREAMTLSCONTEXT = _descriptor.Descriptor(
@@ -146,11 +176,19 @@ _DOWNSTREAMTLSCONTEXT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\r\252\001\n\032\006\010\200\200\200\200\0202\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ocsp_staple_policy', full_name='envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext.ocsp_staple_policy', index=7,
+      number=8, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\005\202\001\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
+    _DOWNSTREAMTLSCONTEXT_OCSPSTAPLEPOLICY,
   ],
   serialized_options=b'\232\305\210\036(\n&envoy.api.v2.auth.DownstreamTlsContext',
   is_extendable=False,
@@ -164,7 +202,7 @@ _DOWNSTREAMTLSCONTEXT = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=728,
-  serialized_end=1350,
+  serialized_end=1550,
 )
 
 
@@ -182,7 +220,7 @@ _COMMONTLSCONTEXT_CERTIFICATEPROVIDER = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='typed_config', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProvider.typed_config', index=1,
       number=2, type=11, cpp_type=10, label=1,
@@ -207,8 +245,46 @@ _COMMONTLSCONTEXT_CERTIFICATEPROVIDER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=2283,
-  serialized_end=2410,
+  serialized_start=2849,
+  serialized_end=2976,
+)
+
+_COMMONTLSCONTEXT_CERTIFICATEPROVIDERINSTANCE = _descriptor.Descriptor(
+  name='CertificateProviderInstance',
+  full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='instance_name', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance.instance_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='certificate_name', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance.certificate_name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2978,
+  serialized_end=3056,
 )
 
 _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT = _descriptor.Descriptor(
@@ -240,6 +316,13 @@ _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\362\230\376\217\005\034\022\032dynamic_validation_context', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='validation_context_certificate_provider_instance', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CombinedCertificateValidationContext.validation_context_certificate_provider_instance', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\362\230\376\217\005\034\022\032dynamic_validation_context', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -252,8 +335,8 @@ _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2413,
-  serialized_end=2968,
+  serialized_start=3059,
+  serialized_end=3798,
 )
 
 _COMMONTLSCONTEXT = _descriptor.Descriptor(
@@ -293,44 +376,65 @@ _COMMONTLSCONTEXT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='validation_context', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.validation_context', index=4,
+      name='tls_certificate_certificate_provider_instance', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.tls_certificate_certificate_provider_instance', index=4,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='validation_context', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.validation_context', index=5,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='validation_context_sds_secret_config', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.validation_context_sds_secret_config', index=5,
+      name='validation_context_sds_secret_config', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.validation_context_sds_secret_config', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='combined_validation_context', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.combined_validation_context', index=6,
+      name='combined_validation_context', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.combined_validation_context', index=7,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='validation_context_certificate_provider', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.validation_context_certificate_provider', index=7,
+      name='validation_context_certificate_provider', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.validation_context_certificate_provider', index=8,
       number=10, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='alpn_protocols', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.alpn_protocols', index=8,
+      name='validation_context_certificate_provider_instance', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.validation_context_certificate_provider_instance', index=9,
+      number=12, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='alpn_protocols', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.alpn_protocols', index=10,
       number=4, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='custom_handshaker', full_name='envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.custom_handshaker', index=11,
+      number=13, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_COMMONTLSCONTEXT_CERTIFICATEPROVIDER, _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT, ],
+  nested_types=[_COMMONTLSCONTEXT_CERTIFICATEPROVIDER, _COMMONTLSCONTEXT_CERTIFICATEPROVIDERINSTANCE, _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT, ],
   enum_types=[
   ],
   serialized_options=b'\232\305\210\036$\n\"envoy.api.v2.auth.CommonTlsContext',
@@ -344,8 +448,8 @@ _COMMONTLSCONTEXT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1353,
-  serialized_end=3044,
+  serialized_start=1553,
+  serialized_end=3874,
 )
 
 _UPSTREAMTLSCONTEXT.fields_by_name['common_tls_context'].message_type = _COMMONTLSCONTEXT
@@ -356,6 +460,8 @@ _DOWNSTREAMTLSCONTEXT.fields_by_name['require_sni'].message_type = google_dot_pr
 _DOWNSTREAMTLSCONTEXT.fields_by_name['session_ticket_keys'].message_type = envoy_dot_extensions_dot_transport__sockets_dot_tls_dot_v3_dot_common__pb2._TLSSESSIONTICKETKEYS
 _DOWNSTREAMTLSCONTEXT.fields_by_name['session_ticket_keys_sds_secret_config'].message_type = envoy_dot_extensions_dot_transport__sockets_dot_tls_dot_v3_dot_secret__pb2._SDSSECRETCONFIG
 _DOWNSTREAMTLSCONTEXT.fields_by_name['session_timeout'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
+_DOWNSTREAMTLSCONTEXT.fields_by_name['ocsp_staple_policy'].enum_type = _DOWNSTREAMTLSCONTEXT_OCSPSTAPLEPOLICY
+_DOWNSTREAMTLSCONTEXT_OCSPSTAPLEPOLICY.containing_type = _DOWNSTREAMTLSCONTEXT
 _DOWNSTREAMTLSCONTEXT.oneofs_by_name['session_ticket_keys_type'].fields.append(
   _DOWNSTREAMTLSCONTEXT.fields_by_name['session_ticket_keys'])
 _DOWNSTREAMTLSCONTEXT.fields_by_name['session_ticket_keys'].containing_oneof = _DOWNSTREAMTLSCONTEXT.oneofs_by_name['session_ticket_keys_type']
@@ -370,18 +476,23 @@ _COMMONTLSCONTEXT_CERTIFICATEPROVIDER.containing_type = _COMMONTLSCONTEXT
 _COMMONTLSCONTEXT_CERTIFICATEPROVIDER.oneofs_by_name['config'].fields.append(
   _COMMONTLSCONTEXT_CERTIFICATEPROVIDER.fields_by_name['typed_config'])
 _COMMONTLSCONTEXT_CERTIFICATEPROVIDER.fields_by_name['typed_config'].containing_oneof = _COMMONTLSCONTEXT_CERTIFICATEPROVIDER.oneofs_by_name['config']
+_COMMONTLSCONTEXT_CERTIFICATEPROVIDERINSTANCE.containing_type = _COMMONTLSCONTEXT
 _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT.fields_by_name['default_validation_context'].message_type = envoy_dot_extensions_dot_transport__sockets_dot_tls_dot_v3_dot_common__pb2._CERTIFICATEVALIDATIONCONTEXT
 _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT.fields_by_name['validation_context_sds_secret_config'].message_type = envoy_dot_extensions_dot_transport__sockets_dot_tls_dot_v3_dot_secret__pb2._SDSSECRETCONFIG
 _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT.fields_by_name['validation_context_certificate_provider'].message_type = _COMMONTLSCONTEXT_CERTIFICATEPROVIDER
+_COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT.fields_by_name['validation_context_certificate_provider_instance'].message_type = _COMMONTLSCONTEXT_CERTIFICATEPROVIDERINSTANCE
 _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT.containing_type = _COMMONTLSCONTEXT
 _COMMONTLSCONTEXT.fields_by_name['tls_params'].message_type = envoy_dot_extensions_dot_transport__sockets_dot_tls_dot_v3_dot_common__pb2._TLSPARAMETERS
 _COMMONTLSCONTEXT.fields_by_name['tls_certificates'].message_type = envoy_dot_extensions_dot_transport__sockets_dot_tls_dot_v3_dot_common__pb2._TLSCERTIFICATE
 _COMMONTLSCONTEXT.fields_by_name['tls_certificate_sds_secret_configs'].message_type = envoy_dot_extensions_dot_transport__sockets_dot_tls_dot_v3_dot_secret__pb2._SDSSECRETCONFIG
 _COMMONTLSCONTEXT.fields_by_name['tls_certificate_certificate_provider'].message_type = _COMMONTLSCONTEXT_CERTIFICATEPROVIDER
+_COMMONTLSCONTEXT.fields_by_name['tls_certificate_certificate_provider_instance'].message_type = _COMMONTLSCONTEXT_CERTIFICATEPROVIDERINSTANCE
 _COMMONTLSCONTEXT.fields_by_name['validation_context'].message_type = envoy_dot_extensions_dot_transport__sockets_dot_tls_dot_v3_dot_common__pb2._CERTIFICATEVALIDATIONCONTEXT
 _COMMONTLSCONTEXT.fields_by_name['validation_context_sds_secret_config'].message_type = envoy_dot_extensions_dot_transport__sockets_dot_tls_dot_v3_dot_secret__pb2._SDSSECRETCONFIG
 _COMMONTLSCONTEXT.fields_by_name['combined_validation_context'].message_type = _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT
 _COMMONTLSCONTEXT.fields_by_name['validation_context_certificate_provider'].message_type = _COMMONTLSCONTEXT_CERTIFICATEPROVIDER
+_COMMONTLSCONTEXT.fields_by_name['validation_context_certificate_provider_instance'].message_type = _COMMONTLSCONTEXT_CERTIFICATEPROVIDERINSTANCE
+_COMMONTLSCONTEXT.fields_by_name['custom_handshaker'].message_type = envoy_dot_config_dot_core_dot_v3_dot_extension__pb2._TYPEDEXTENSIONCONFIG
 _COMMONTLSCONTEXT.oneofs_by_name['validation_context_type'].fields.append(
   _COMMONTLSCONTEXT.fields_by_name['validation_context'])
 _COMMONTLSCONTEXT.fields_by_name['validation_context'].containing_oneof = _COMMONTLSCONTEXT.oneofs_by_name['validation_context_type']
@@ -394,6 +505,9 @@ _COMMONTLSCONTEXT.fields_by_name['combined_validation_context'].containing_oneof
 _COMMONTLSCONTEXT.oneofs_by_name['validation_context_type'].fields.append(
   _COMMONTLSCONTEXT.fields_by_name['validation_context_certificate_provider'])
 _COMMONTLSCONTEXT.fields_by_name['validation_context_certificate_provider'].containing_oneof = _COMMONTLSCONTEXT.oneofs_by_name['validation_context_type']
+_COMMONTLSCONTEXT.oneofs_by_name['validation_context_type'].fields.append(
+  _COMMONTLSCONTEXT.fields_by_name['validation_context_certificate_provider_instance'])
+_COMMONTLSCONTEXT.fields_by_name['validation_context_certificate_provider_instance'].containing_oneof = _COMMONTLSCONTEXT.oneofs_by_name['validation_context_type']
 DESCRIPTOR.message_types_by_name['UpstreamTlsContext'] = _UPSTREAMTLSCONTEXT
 DESCRIPTOR.message_types_by_name['DownstreamTlsContext'] = _DOWNSTREAMTLSCONTEXT
 DESCRIPTOR.message_types_by_name['CommonTlsContext'] = _COMMONTLSCONTEXT
@@ -422,6 +536,13 @@ CommonTlsContext = _reflection.GeneratedProtocolMessageType('CommonTlsContext', 
     })
   ,
 
+  'CertificateProviderInstance' : _reflection.GeneratedProtocolMessageType('CertificateProviderInstance', (_message.Message,), {
+    'DESCRIPTOR' : _COMMONTLSCONTEXT_CERTIFICATEPROVIDERINSTANCE,
+    '__module__' : 'envoy.extensions.transport_sockets.tls.v3.tls_pb2'
+    # @@protoc_insertion_point(class_scope:envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.CertificateProviderInstance)
+    })
+  ,
+
   'CombinedCertificateValidationContext' : _reflection.GeneratedProtocolMessageType('CombinedCertificateValidationContext', (_message.Message,), {
     'DESCRIPTOR' : _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT,
     '__module__' : 'envoy.extensions.transport_sockets.tls.v3.tls_pb2'
@@ -434,6 +555,7 @@ CommonTlsContext = _reflection.GeneratedProtocolMessageType('CommonTlsContext', 
   })
 _sym_db.RegisterMessage(CommonTlsContext)
 _sym_db.RegisterMessage(CommonTlsContext.CertificateProvider)
+_sym_db.RegisterMessage(CommonTlsContext.CertificateProviderInstance)
 _sym_db.RegisterMessage(CommonTlsContext.CombinedCertificateValidationContext)
 
 
@@ -441,12 +563,14 @@ DESCRIPTOR._options = None
 _UPSTREAMTLSCONTEXT.fields_by_name['sni']._options = None
 _UPSTREAMTLSCONTEXT._options = None
 _DOWNSTREAMTLSCONTEXT.fields_by_name['session_timeout']._options = None
+_DOWNSTREAMTLSCONTEXT.fields_by_name['ocsp_staple_policy']._options = None
 _DOWNSTREAMTLSCONTEXT._options = None
 _COMMONTLSCONTEXT_CERTIFICATEPROVIDER.oneofs_by_name['config']._options = None
 _COMMONTLSCONTEXT_CERTIFICATEPROVIDER.fields_by_name['name']._options = None
 _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT.fields_by_name['default_validation_context']._options = None
 _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT.fields_by_name['validation_context_sds_secret_config']._options = None
 _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT.fields_by_name['validation_context_certificate_provider']._options = None
+_COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT.fields_by_name['validation_context_certificate_provider_instance']._options = None
 _COMMONTLSCONTEXT_COMBINEDCERTIFICATEVALIDATIONCONTEXT._options = None
 _COMMONTLSCONTEXT.fields_by_name['tls_certificate_sds_secret_configs']._options = None
 _COMMONTLSCONTEXT._options = None

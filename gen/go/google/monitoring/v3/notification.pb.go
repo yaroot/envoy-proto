@@ -22,12 +22,12 @@ package monitoring
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	api "google.golang.org/genproto/googleapis/api"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	label "google.golang.org/genproto/googleapis/api/label"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -296,7 +296,7 @@ type NotificationChannel struct {
 	// the channel. This is a more convenient approach when the change is
 	// temporary and you want to receive notifications from the same set
 	// of alerting policies on the channel at some point in the future.
-	Enabled *wrapperspb.BoolValue `protobuf:"bytes,11,opt,name=enabled,proto3" json:"enabled,omitempty"`
+	Enabled *wrappers.BoolValue `protobuf:"bytes,11,opt,name=enabled,proto3" json:"enabled,omitempty"`
 }
 
 func (x *NotificationChannel) Reset() {
@@ -380,7 +380,7 @@ func (x *NotificationChannel) GetVerificationStatus() NotificationChannel_Verifi
 	return NotificationChannel_VERIFICATION_STATUS_UNSPECIFIED
 }
 
-func (x *NotificationChannel) GetEnabled() *wrapperspb.BoolValue {
+func (x *NotificationChannel) GetEnabled() *wrappers.BoolValue {
 	if x != nil {
 		return x.Enabled
 	}
@@ -540,7 +540,7 @@ var file_google_monitoring_v3_notification_proto_goTypes = []interface{}{
 	(*label.LabelDescriptor)(nil),               // 5: google.api.LabelDescriptor
 	(ServiceTier)(0),                            // 6: google.monitoring.v3.ServiceTier
 	(api.LaunchStage)(0),                        // 7: google.api.LaunchStage
-	(*wrapperspb.BoolValue)(nil),                // 8: google.protobuf.BoolValue
+	(*wrappers.BoolValue)(nil),                  // 8: google.protobuf.BoolValue
 }
 var file_google_monitoring_v3_notification_proto_depIdxs = []int32{
 	5, // 0: google.monitoring.v3.NotificationChannelDescriptor.labels:type_name -> google.api.LabelDescriptor

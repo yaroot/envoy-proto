@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from envoy.config.core.v3 import base_pb2 as envoy_dot_config_dot_core_dot_v3_dot_base__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from envoy.annotations import deprecation_pb2 as envoy_dot_annotations_dot_deprecation__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
@@ -23,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\034io.envoyproxy.envoy.admin.v3B\017ServerInfoProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n envoy/admin/v3/server_info.proto\x12\x0e\x65nvoy.admin.v3\x1a\x1egoogle/protobuf/duration.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"\x8c\x03\n\nServerInfo\x12\x0f\n\x07version\x18\x01 \x01(\t\x12/\n\x05state\x18\x02 \x01(\x0e\x32 .envoy.admin.v3.ServerInfo.State\x12\x37\n\x14uptime_current_epoch\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x34\n\x11uptime_all_epochs\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x1b\n\x13hot_restart_version\x18\x05 \x01(\t\x12@\n\x14\x63ommand_line_options\x18\x06 \x01(\x0b\x32\".envoy.admin.v3.CommandLineOptions\"G\n\x05State\x12\x08\n\x04LIVE\x10\x00\x12\x0c\n\x08\x44RAINING\x10\x01\x12\x14\n\x10PRE_INITIALIZING\x10\x02\x12\x10\n\x0cINITIALIZING\x10\x03:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.admin.v2alpha.ServerInfo\"\xc7\t\n\x12\x43ommandLineOptions\x12\x0f\n\x07\x62\x61se_id\x18\x01 \x01(\x04\x12\x1b\n\x13use_dynamic_base_id\x18\x1f \x01(\x08\x12\x14\n\x0c\x62\x61se_id_path\x18  \x01(\t\x12\x13\n\x0b\x63oncurrency\x18\x02 \x01(\r\x12\x13\n\x0b\x63onfig_path\x18\x03 \x01(\t\x12\x13\n\x0b\x63onfig_yaml\x18\x04 \x01(\t\x12#\n\x1b\x61llow_unknown_static_fields\x18\x05 \x01(\x08\x12%\n\x1dreject_unknown_dynamic_fields\x18\x1a \x01(\x08\x12%\n\x1dignore_unknown_dynamic_fields\x18\x1e \x01(\x08\x12\x1a\n\x12\x61\x64min_address_path\x18\x06 \x01(\t\x12N\n\x18local_address_ip_version\x18\x07 \x01(\x0e\x32,.envoy.admin.v3.CommandLineOptions.IpVersion\x12\x11\n\tlog_level\x18\x08 \x01(\t\x12\x1b\n\x13\x63omponent_log_level\x18\t \x01(\t\x12\x12\n\nlog_format\x18\n \x01(\t\x12\x1a\n\x12log_format_escaped\x18\x1b \x01(\x08\x12\x10\n\x08log_path\x18\x0b \x01(\t\x12\x17\n\x0fservice_cluster\x18\r \x01(\t\x12\x14\n\x0cservice_node\x18\x0e \x01(\t\x12\x14\n\x0cservice_zone\x18\x0f \x01(\t\x12\x36\n\x13\x66ile_flush_interval\x18\x10 \x01(\x0b\x32\x19.google.protobuf.Duration\x12-\n\ndrain_time\x18\x11 \x01(\x0b\x32\x19.google.protobuf.Duration\x12H\n\x0e\x64rain_strategy\x18! \x01(\x0e\x32\x30.envoy.admin.v3.CommandLineOptions.DrainStrategy\x12\x37\n\x14parent_shutdown_time\x18\x12 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x35\n\x04mode\x18\x13 \x01(\x0e\x32\'.envoy.admin.v3.CommandLineOptions.Mode\x12\x1b\n\x13\x64isable_hot_restart\x18\x16 \x01(\x08\x12\x1c\n\x14\x65nable_mutex_tracing\x18\x17 \x01(\x08\x12\x15\n\rrestart_epoch\x18\x18 \x01(\r\x12\x16\n\x0e\x63puset_threads\x18\x19 \x01(\x08\x12\x1b\n\x13\x64isabled_extensions\x18\x1c \x03(\t\x12\x19\n\x11\x62ootstrap_version\x18\x1d \x01(\r\"\x1b\n\tIpVersion\x12\x06\n\x02v4\x10\x00\x12\x06\n\x02v6\x10\x01\"-\n\x04Mode\x12\t\n\x05Serve\x10\x00\x12\x0c\n\x08Validate\x10\x01\x12\x0c\n\x08InitOnly\x10\x02\"+\n\rDrainStrategy\x12\x0b\n\x07Gradual\x10\x00\x12\r\n\tImmediate\x10\x01:-\x9a\xc5\x88\x1e(\n&envoy.admin.v2alpha.CommandLineOptionsJ\x04\x08\x0c\x10\rJ\x04\x08\x14\x10\x15J\x04\x08\x15\x10\x16R\tmax_statsR\x10max_obj_name_lenB9\n\x1cio.envoyproxy.envoy.admin.v3B\x0fServerInfoProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n envoy/admin/v3/server_info.proto\x12\x0e\x65nvoy.admin.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x1egoogle/protobuf/duration.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"\xb6\x03\n\nServerInfo\x12\x0f\n\x07version\x18\x01 \x01(\t\x12/\n\x05state\x18\x02 \x01(\x0e\x32 .envoy.admin.v3.ServerInfo.State\x12\x37\n\x14uptime_current_epoch\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x34\n\x11uptime_all_epochs\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x1b\n\x13hot_restart_version\x18\x05 \x01(\t\x12@\n\x14\x63ommand_line_options\x18\x06 \x01(\x0b\x32\".envoy.admin.v3.CommandLineOptions\x12(\n\x04node\x18\x07 \x01(\x0b\x32\x1a.envoy.config.core.v3.Node\"G\n\x05State\x12\x08\n\x04LIVE\x10\x00\x12\x0c\n\x08\x44RAINING\x10\x01\x12\x14\n\x10PRE_INITIALIZING\x10\x02\x12\x10\n\x0cINITIALIZING\x10\x03:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.admin.v2alpha.ServerInfo\"\x94\n\n\x12\x43ommandLineOptions\x12\x0f\n\x07\x62\x61se_id\x18\x01 \x01(\x04\x12\x1b\n\x13use_dynamic_base_id\x18\x1f \x01(\x08\x12\x14\n\x0c\x62\x61se_id_path\x18  \x01(\t\x12\x13\n\x0b\x63oncurrency\x18\x02 \x01(\r\x12\x13\n\x0b\x63onfig_path\x18\x03 \x01(\t\x12\x13\n\x0b\x63onfig_yaml\x18\x04 \x01(\t\x12#\n\x1b\x61llow_unknown_static_fields\x18\x05 \x01(\x08\x12%\n\x1dreject_unknown_dynamic_fields\x18\x1a \x01(\x08\x12%\n\x1dignore_unknown_dynamic_fields\x18\x1e \x01(\x08\x12\x1a\n\x12\x61\x64min_address_path\x18\x06 \x01(\t\x12N\n\x18local_address_ip_version\x18\x07 \x01(\x0e\x32,.envoy.admin.v3.CommandLineOptions.IpVersion\x12\x11\n\tlog_level\x18\x08 \x01(\t\x12\x1b\n\x13\x63omponent_log_level\x18\t \x01(\t\x12\x12\n\nlog_format\x18\n \x01(\t\x12\x1a\n\x12log_format_escaped\x18\x1b \x01(\x08\x12\x10\n\x08log_path\x18\x0b \x01(\t\x12\x17\n\x0fservice_cluster\x18\r \x01(\t\x12\x14\n\x0cservice_node\x18\x0e \x01(\t\x12\x14\n\x0cservice_zone\x18\x0f \x01(\t\x12\x36\n\x13\x66ile_flush_interval\x18\x10 \x01(\x0b\x32\x19.google.protobuf.Duration\x12-\n\ndrain_time\x18\x11 \x01(\x0b\x32\x19.google.protobuf.Duration\x12H\n\x0e\x64rain_strategy\x18! \x01(\x0e\x32\x30.envoy.admin.v3.CommandLineOptions.DrainStrategy\x12\x37\n\x14parent_shutdown_time\x18\x12 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x35\n\x04mode\x18\x13 \x01(\x0e\x32\'.envoy.admin.v3.CommandLineOptions.Mode\x12\x1b\n\x13\x64isable_hot_restart\x18\x16 \x01(\x08\x12\x1c\n\x14\x65nable_mutex_tracing\x18\x17 \x01(\x08\x12\x15\n\rrestart_epoch\x18\x18 \x01(\r\x12\x16\n\x0e\x63puset_threads\x18\x19 \x01(\x08\x12\x1b\n\x13\x64isabled_extensions\x18\x1c \x03(\t\x12\x19\n\x11\x62ootstrap_version\x18\x1d \x01(\r\x12!\n\x19\x65nable_fine_grain_logging\x18\" \x01(\x08\x12\x13\n\x0bsocket_path\x18# \x01(\t\x12\x13\n\x0bsocket_mode\x18$ \x01(\r\"\x1b\n\tIpVersion\x12\x06\n\x02v4\x10\x00\x12\x06\n\x02v6\x10\x01\"-\n\x04Mode\x12\t\n\x05Serve\x10\x00\x12\x0c\n\x08Validate\x10\x01\x12\x0c\n\x08InitOnly\x10\x02\"+\n\rDrainStrategy\x12\x0b\n\x07Gradual\x10\x00\x12\r\n\tImmediate\x10\x01:-\x9a\xc5\x88\x1e(\n&envoy.admin.v2alpha.CommandLineOptionsJ\x04\x08\x0c\x10\rJ\x04\x08\x14\x10\x15J\x04\x08\x15\x10\x16R\tmax_statsR\x10max_obj_name_lenB9\n\x1cio.envoyproxy.envoy.admin.v3B\x0fServerInfoProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,])
 
 
 
@@ -59,8 +60,8 @@ _SERVERINFO_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=474,
-  serialized_end=545,
+  serialized_start=549,
+  serialized_end=620,
 )
 _sym_db.RegisterEnumDescriptor(_SERVERINFO_STATE)
 
@@ -84,8 +85,8 @@ _COMMANDLINEOPTIONS_IPVERSION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1597,
-  serialized_end=1624,
+  serialized_start=1749,
+  serialized_end=1776,
 )
 _sym_db.RegisterEnumDescriptor(_COMMANDLINEOPTIONS_IPVERSION)
 
@@ -114,8 +115,8 @@ _COMMANDLINEOPTIONS_MODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1626,
-  serialized_end=1671,
+  serialized_start=1778,
+  serialized_end=1823,
 )
 _sym_db.RegisterEnumDescriptor(_COMMANDLINEOPTIONS_MODE)
 
@@ -139,8 +140,8 @@ _COMMANDLINEOPTIONS_DRAINSTRATEGY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1673,
-  serialized_end=1716,
+  serialized_start=1825,
+  serialized_end=1868,
 )
 _sym_db.RegisterEnumDescriptor(_COMMANDLINEOPTIONS_DRAINSTRATEGY)
 
@@ -195,6 +196,13 @@ _SERVERINFO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='node', full_name='envoy.admin.v3.ServerInfo.node', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -208,8 +216,8 @@ _SERVERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=188,
-  serialized_end=584,
+  serialized_start=221,
+  serialized_end=659,
 )
 
 
@@ -431,6 +439,27 @@ _COMMANDLINEOPTIONS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='enable_fine_grain_logging', full_name='envoy.admin.v3.CommandLineOptions.enable_fine_grain_logging', index=30,
+      number=34, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='socket_path', full_name='envoy.admin.v3.CommandLineOptions.socket_path', index=31,
+      number=35, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='socket_mode', full_name='envoy.admin.v3.CommandLineOptions.socket_mode', index=32,
+      number=36, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -446,14 +475,15 @@ _COMMANDLINEOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=587,
-  serialized_end=1810,
+  serialized_start=662,
+  serialized_end=1962,
 )
 
 _SERVERINFO.fields_by_name['state'].enum_type = _SERVERINFO_STATE
 _SERVERINFO.fields_by_name['uptime_current_epoch'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _SERVERINFO.fields_by_name['uptime_all_epochs'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _SERVERINFO.fields_by_name['command_line_options'].message_type = _COMMANDLINEOPTIONS
+_SERVERINFO.fields_by_name['node'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._NODE
 _SERVERINFO_STATE.containing_type = _SERVERINFO
 _COMMANDLINEOPTIONS.fields_by_name['local_address_ip_version'].enum_type = _COMMANDLINEOPTIONS_IPVERSION
 _COMMANDLINEOPTIONS.fields_by_name['file_flush_interval'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION

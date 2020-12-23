@@ -25,9 +25,9 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	v1 "google.golang.org/genproto/googleapis/iam/v1"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -466,7 +466,7 @@ type UpdateBillingAccountRequest struct {
 	Account *BillingAccount `protobuf:"bytes,2,opt,name=account,proto3" json:"account,omitempty"`
 	// The update mask applied to the resource.
 	// Only "display_name" is currently supported.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateBillingAccountRequest) Reset() {
@@ -515,7 +515,7 @@ func (x *UpdateBillingAccountRequest) GetAccount() *BillingAccount {
 	return nil
 }
 
-func (x *UpdateBillingAccountRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateBillingAccountRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1039,7 +1039,7 @@ var file_google_cloud_billing_v1_cloud_billing_proto_goTypes = []interface{}{
 	(*ListProjectBillingInfoResponse)(nil),  // 8: google.cloud.billing.v1.ListProjectBillingInfoResponse
 	(*GetProjectBillingInfoRequest)(nil),    // 9: google.cloud.billing.v1.GetProjectBillingInfoRequest
 	(*UpdateProjectBillingInfoRequest)(nil), // 10: google.cloud.billing.v1.UpdateProjectBillingInfoRequest
-	(*fieldmaskpb.FieldMask)(nil),           // 11: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),            // 11: google.protobuf.FieldMask
 	(*v1.GetIamPolicyRequest)(nil),          // 12: google.iam.v1.GetIamPolicyRequest
 	(*v1.SetIamPolicyRequest)(nil),          // 13: google.iam.v1.SetIamPolicyRequest
 	(*v1.TestIamPermissionsRequest)(nil),    // 14: google.iam.v1.TestIamPermissionsRequest

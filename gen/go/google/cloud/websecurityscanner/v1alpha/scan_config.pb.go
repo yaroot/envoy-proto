@@ -23,10 +23,10 @@ package websecurityscanner
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -388,7 +388,7 @@ type ScanConfig_Schedule struct {
 	// refreshed by the server after each run. If unspecified, it will default
 	// to current server time, which means the scan will be scheduled to start
 	// immediately.
-	ScheduleTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=schedule_time,json=scheduleTime,proto3" json:"schedule_time,omitempty"`
+	ScheduleTime *timestamp.Timestamp `protobuf:"bytes,1,opt,name=schedule_time,json=scheduleTime,proto3" json:"schedule_time,omitempty"`
 	// Required. The duration of time between executions in days.
 	IntervalDurationDays int32 `protobuf:"varint,2,opt,name=interval_duration_days,json=intervalDurationDays,proto3" json:"interval_duration_days,omitempty"`
 }
@@ -425,7 +425,7 @@ func (*ScanConfig_Schedule) Descriptor() ([]byte, []int) {
 	return file_google_cloud_websecurityscanner_v1alpha_scan_config_proto_rawDescGZIP(), []int{0, 1}
 }
 
-func (x *ScanConfig_Schedule) GetScheduleTime() *timestamppb.Timestamp {
+func (x *ScanConfig_Schedule) GetScheduleTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ScheduleTime
 	}
@@ -719,7 +719,7 @@ var file_google_cloud_websecurityscanner_v1alpha_scan_config_proto_goTypes = []i
 	(*ScanConfig_Authentication_GoogleAccount)(nil), // 5: google.cloud.websecurityscanner.v1alpha.ScanConfig.Authentication.GoogleAccount
 	(*ScanConfig_Authentication_CustomAccount)(nil), // 6: google.cloud.websecurityscanner.v1alpha.ScanConfig.Authentication.CustomAccount
 	(*ScanRun)(nil),                                 // 7: google.cloud.websecurityscanner.v1alpha.ScanRun
-	(*timestamppb.Timestamp)(nil),                   // 8: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),                     // 8: google.protobuf.Timestamp
 }
 var file_google_cloud_websecurityscanner_v1alpha_scan_config_proto_depIdxs = []int32{
 	3, // 0: google.cloud.websecurityscanner.v1alpha.ScanConfig.authentication:type_name -> google.cloud.websecurityscanner.v1alpha.ScanConfig.Authentication

@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n&io.envoyproxy.envoy.config.overload.v3B\rOverloadProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'envoy/config/overload/v3/overload.proto\x12\x18\x65nvoy.config.overload.v3\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xa9\x01\n\x0fResourceMonitor\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:4\x9a\xc5\x88\x1e/\n-envoy.config.overload.v2alpha.ResourceMonitorB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\"q\n\x10ThresholdTrigger\x12&\n\x05value\x18\x01 \x01(\x01\x42\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\xf0?)\x00\x00\x00\x00\x00\x00\x00\x00:5\x9a\xc5\x88\x1e\x30\n.envoy.config.overload.v2alpha.ThresholdTrigger\"\xa5\x01\n\x07Trigger\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12?\n\tthreshold\x18\x02 \x01(\x0b\x32*.envoy.config.overload.v3.ThresholdTriggerH\x00:,\x9a\xc5\x88\x1e\'\n%envoy.config.overload.v2alpha.TriggerB\x14\n\rtrigger_oneof\x12\x03\xf8\x42\x01\"\x9b\x01\n\x0eOverloadAction\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12=\n\x08triggers\x18\x02 \x03(\x0b\x32!.envoy.config.overload.v3.TriggerB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:3\x9a\xc5\x88\x1e.\n,envoy.config.overload.v2alpha.OverloadAction\"\x87\x02\n\x0fOverloadManager\x12\x33\n\x10refresh_interval\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12N\n\x11resource_monitors\x18\x02 \x03(\x0b\x32).envoy.config.overload.v3.ResourceMonitorB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12\x39\n\x07\x61\x63tions\x18\x03 \x03(\x0b\x32(.envoy.config.overload.v3.OverloadAction:4\x9a\xc5\x88\x1e/\n-envoy.config.overload.v2alpha.OverloadManagerBA\n&io.envoyproxy.envoy.config.overload.v3B\rOverloadProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n\'envoy/config/overload/v3/overload.proto\x12\x18\x65nvoy.config.overload.v3\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xa9\x01\n\x0fResourceMonitor\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:4\x9a\xc5\x88\x1e/\n-envoy.config.overload.v2alpha.ResourceMonitorB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\"q\n\x10ThresholdTrigger\x12&\n\x05value\x18\x01 \x01(\x01\x42\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\xf0?)\x00\x00\x00\x00\x00\x00\x00\x00:5\x9a\xc5\x88\x1e\x30\n.envoy.config.overload.v2alpha.ThresholdTrigger\"z\n\rScaledTrigger\x12\x32\n\x11scaling_threshold\x18\x01 \x01(\x01\x42\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\xf0?)\x00\x00\x00\x00\x00\x00\x00\x00\x12\x35\n\x14saturation_threshold\x18\x02 \x01(\x01\x42\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\xf0?)\x00\x00\x00\x00\x00\x00\x00\x00\"\xe0\x01\n\x07Trigger\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12?\n\tthreshold\x18\x02 \x01(\x0b\x32*.envoy.config.overload.v3.ThresholdTriggerH\x00\x12\x39\n\x06scaled\x18\x03 \x01(\x0b\x32\'.envoy.config.overload.v3.ScaledTriggerH\x00:,\x9a\xc5\x88\x1e\'\n%envoy.config.overload.v2alpha.TriggerB\x14\n\rtrigger_oneof\x12\x03\xf8\x42\x01\"\x9b\x01\n\x0eOverloadAction\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12=\n\x08triggers\x18\x02 \x03(\x0b\x32!.envoy.config.overload.v3.TriggerB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:3\x9a\xc5\x88\x1e.\n,envoy.config.overload.v2alpha.OverloadAction\"\x87\x02\n\x0fOverloadManager\x12\x33\n\x10refresh_interval\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12N\n\x11resource_monitors\x18\x02 \x03(\x0b\x32).envoy.config.overload.v3.ResourceMonitorB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12\x39\n\x07\x61\x63tions\x18\x03 \x03(\x0b\x32(.envoy.config.overload.v3.OverloadAction:4\x9a\xc5\x88\x1e/\n-envoy.config.overload.v2alpha.OverloadManagerBA\n&io.envoyproxy.envoy.config.overload.v3B\rOverloadProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -46,7 +46,7 @@ _RESOURCEMONITOR = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='typed_config', full_name='envoy.config.overload.v3.ResourceMonitor.typed_config', index=1,
       number=3, type=11, cpp_type=10, label=1,
@@ -108,6 +108,45 @@ _THRESHOLDTRIGGER = _descriptor.Descriptor(
 )
 
 
+_SCALEDTRIGGER = _descriptor.Descriptor(
+  name='ScaledTrigger',
+  full_name='envoy.config.overload.v3.ScaledTrigger',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='scaling_threshold', full_name='envoy.config.overload.v3.ScaledTrigger.scaling_threshold', index=0,
+      number=1, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\024\022\022\031\000\000\000\000\000\000\360?)\000\000\000\000\000\000\000\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='saturation_threshold', full_name='envoy.config.overload.v3.ScaledTrigger.saturation_threshold', index=1,
+      number=2, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\024\022\022\031\000\000\000\000\000\000\360?)\000\000\000\000\000\000\000\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=536,
+  serialized_end=658,
+)
+
+
 _TRIGGER = _descriptor.Descriptor(
   name='Trigger',
   full_name='envoy.config.overload.v3.Trigger',
@@ -122,10 +161,17 @@ _TRIGGER = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='threshold', full_name='envoy.config.overload.v3.Trigger.threshold', index=1,
       number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='scaled', full_name='envoy.config.overload.v3.Trigger.scaled', index=2,
+      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -147,8 +193,8 @@ _TRIGGER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=537,
-  serialized_end=702,
+  serialized_start=661,
+  serialized_end=885,
 )
 
 
@@ -166,7 +212,7 @@ _OVERLOADACTION = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='triggers', full_name='envoy.config.overload.v3.OverloadAction.triggers', index=1,
       number=2, type=11, cpp_type=10, label=3,
@@ -186,8 +232,8 @@ _OVERLOADACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=705,
-  serialized_end=860,
+  serialized_start=888,
+  serialized_end=1043,
 )
 
 
@@ -232,8 +278,8 @@ _OVERLOADMANAGER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=863,
-  serialized_end=1126,
+  serialized_start=1046,
+  serialized_end=1309,
 )
 
 _RESOURCEMONITOR.fields_by_name['typed_config'].message_type = google_dot_protobuf_dot_any__pb2._ANY
@@ -241,15 +287,20 @@ _RESOURCEMONITOR.oneofs_by_name['config_type'].fields.append(
   _RESOURCEMONITOR.fields_by_name['typed_config'])
 _RESOURCEMONITOR.fields_by_name['typed_config'].containing_oneof = _RESOURCEMONITOR.oneofs_by_name['config_type']
 _TRIGGER.fields_by_name['threshold'].message_type = _THRESHOLDTRIGGER
+_TRIGGER.fields_by_name['scaled'].message_type = _SCALEDTRIGGER
 _TRIGGER.oneofs_by_name['trigger_oneof'].fields.append(
   _TRIGGER.fields_by_name['threshold'])
 _TRIGGER.fields_by_name['threshold'].containing_oneof = _TRIGGER.oneofs_by_name['trigger_oneof']
+_TRIGGER.oneofs_by_name['trigger_oneof'].fields.append(
+  _TRIGGER.fields_by_name['scaled'])
+_TRIGGER.fields_by_name['scaled'].containing_oneof = _TRIGGER.oneofs_by_name['trigger_oneof']
 _OVERLOADACTION.fields_by_name['triggers'].message_type = _TRIGGER
 _OVERLOADMANAGER.fields_by_name['refresh_interval'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _OVERLOADMANAGER.fields_by_name['resource_monitors'].message_type = _RESOURCEMONITOR
 _OVERLOADMANAGER.fields_by_name['actions'].message_type = _OVERLOADACTION
 DESCRIPTOR.message_types_by_name['ResourceMonitor'] = _RESOURCEMONITOR
 DESCRIPTOR.message_types_by_name['ThresholdTrigger'] = _THRESHOLDTRIGGER
+DESCRIPTOR.message_types_by_name['ScaledTrigger'] = _SCALEDTRIGGER
 DESCRIPTOR.message_types_by_name['Trigger'] = _TRIGGER
 DESCRIPTOR.message_types_by_name['OverloadAction'] = _OVERLOADACTION
 DESCRIPTOR.message_types_by_name['OverloadManager'] = _OVERLOADMANAGER
@@ -268,6 +319,13 @@ ThresholdTrigger = _reflection.GeneratedProtocolMessageType('ThresholdTrigger', 
   # @@protoc_insertion_point(class_scope:envoy.config.overload.v3.ThresholdTrigger)
   })
 _sym_db.RegisterMessage(ThresholdTrigger)
+
+ScaledTrigger = _reflection.GeneratedProtocolMessageType('ScaledTrigger', (_message.Message,), {
+  'DESCRIPTOR' : _SCALEDTRIGGER,
+  '__module__' : 'envoy.config.overload.v3.overload_pb2'
+  # @@protoc_insertion_point(class_scope:envoy.config.overload.v3.ScaledTrigger)
+  })
+_sym_db.RegisterMessage(ScaledTrigger)
 
 Trigger = _reflection.GeneratedProtocolMessageType('Trigger', (_message.Message,), {
   'DESCRIPTOR' : _TRIGGER,
@@ -296,6 +354,8 @@ _RESOURCEMONITOR.fields_by_name['name']._options = None
 _RESOURCEMONITOR._options = None
 _THRESHOLDTRIGGER.fields_by_name['value']._options = None
 _THRESHOLDTRIGGER._options = None
+_SCALEDTRIGGER.fields_by_name['scaling_threshold']._options = None
+_SCALEDTRIGGER.fields_by_name['saturation_threshold']._options = None
 _TRIGGER.oneofs_by_name['trigger_oneof']._options = None
 _TRIGGER.fields_by_name['name']._options = None
 _TRIGGER._options = None

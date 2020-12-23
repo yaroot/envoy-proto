@@ -8,9 +8,9 @@ package udpa_annotations
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	descriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	descriptorpb "google.golang.org/protobuf/types/descriptorpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -142,7 +142,7 @@ func (x *StatusAnnotation) GetPackageVersionStatus() PackageVersionStatus {
 
 var file_udpa_annotations_status_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
-		ExtendedType:  (*descriptorpb.FileOptions)(nil),
+		ExtendedType:  (*descriptor.FileOptions)(nil),
 		ExtensionType: (*StatusAnnotation)(nil),
 		Field:         222707719,
 		Name:          "udpa.annotations.file_status",
@@ -151,7 +151,7 @@ var file_udpa_annotations_status_proto_extTypes = []protoimpl.ExtensionInfo{
 	},
 }
 
-// Extension fields to descriptorpb.FileOptions.
+// Extension fields to descriptor.FileOptions.
 var (
 	// optional udpa.annotations.StatusAnnotation file_status = 222707719;
 	E_FileStatus = &file_udpa_annotations_status_proto_extTypes[0]
@@ -205,9 +205,9 @@ func file_udpa_annotations_status_proto_rawDescGZIP() []byte {
 var file_udpa_annotations_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_udpa_annotations_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_udpa_annotations_status_proto_goTypes = []interface{}{
-	(PackageVersionStatus)(0),        // 0: udpa.annotations.PackageVersionStatus
-	(*StatusAnnotation)(nil),         // 1: udpa.annotations.StatusAnnotation
-	(*descriptorpb.FileOptions)(nil), // 2: google.protobuf.FileOptions
+	(PackageVersionStatus)(0),      // 0: udpa.annotations.PackageVersionStatus
+	(*StatusAnnotation)(nil),       // 1: udpa.annotations.StatusAnnotation
+	(*descriptor.FileOptions)(nil), // 2: google.protobuf.FileOptions
 }
 var file_udpa_annotations_status_proto_depIdxs = []int32{
 	0, // 0: udpa.annotations.StatusAnnotation.package_version_status:type_name -> udpa.annotations.PackageVersionStatus

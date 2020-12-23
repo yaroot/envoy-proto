@@ -10,10 +10,10 @@ import (
 	_ "envoy/annotations"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -189,9 +189,9 @@ type ApiConfigSource struct {
 	// services will be cycled through if any kind of failure occurs.
 	GrpcServices []*GrpcService `protobuf:"bytes,4,rep,name=grpc_services,json=grpcServices,proto3" json:"grpc_services,omitempty"`
 	// For REST APIs, the delay between successive polls.
-	RefreshDelay *durationpb.Duration `protobuf:"bytes,3,opt,name=refresh_delay,json=refreshDelay,proto3" json:"refresh_delay,omitempty"`
+	RefreshDelay *duration.Duration `protobuf:"bytes,3,opt,name=refresh_delay,json=refreshDelay,proto3" json:"refresh_delay,omitempty"`
 	// For REST APIs, the request timeout. If not set, a default value of 1s will be used.
-	RequestTimeout *durationpb.Duration `protobuf:"bytes,5,opt,name=request_timeout,json=requestTimeout,proto3" json:"request_timeout,omitempty"`
+	RequestTimeout *duration.Duration `protobuf:"bytes,5,opt,name=request_timeout,json=requestTimeout,proto3" json:"request_timeout,omitempty"`
 	// For GRPC APIs, the rate limit settings. If present, discovery requests made by Envoy will be
 	// rate limited.
 	RateLimitSettings *RateLimitSettings `protobuf:"bytes,6,opt,name=rate_limit_settings,json=rateLimitSettings,proto3" json:"rate_limit_settings,omitempty"`
@@ -259,14 +259,14 @@ func (x *ApiConfigSource) GetGrpcServices() []*GrpcService {
 	return nil
 }
 
-func (x *ApiConfigSource) GetRefreshDelay() *durationpb.Duration {
+func (x *ApiConfigSource) GetRefreshDelay() *duration.Duration {
 	if x != nil {
 		return x.RefreshDelay
 	}
 	return nil
 }
 
-func (x *ApiConfigSource) GetRequestTimeout() *durationpb.Duration {
+func (x *ApiConfigSource) GetRequestTimeout() *duration.Duration {
 	if x != nil {
 		return x.RequestTimeout
 	}
@@ -389,10 +389,10 @@ type RateLimitSettings struct {
 
 	// Maximum number of tokens to be used for rate limiting discovery request calls. If not set, a
 	// default value of 100 will be used.
-	MaxTokens *wrapperspb.UInt32Value `protobuf:"bytes,1,opt,name=max_tokens,json=maxTokens,proto3" json:"max_tokens,omitempty"`
+	MaxTokens *wrappers.UInt32Value `protobuf:"bytes,1,opt,name=max_tokens,json=maxTokens,proto3" json:"max_tokens,omitempty"`
 	// Rate at which tokens will be filled per second. If not set, a default fill rate of 10 tokens
 	// per second will be used.
-	FillRate *wrapperspb.DoubleValue `protobuf:"bytes,2,opt,name=fill_rate,json=fillRate,proto3" json:"fill_rate,omitempty"`
+	FillRate *wrappers.DoubleValue `protobuf:"bytes,2,opt,name=fill_rate,json=fillRate,proto3" json:"fill_rate,omitempty"`
 }
 
 func (x *RateLimitSettings) Reset() {
@@ -427,14 +427,14 @@ func (*RateLimitSettings) Descriptor() ([]byte, []int) {
 	return file_envoy_config_core_v4alpha_config_source_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *RateLimitSettings) GetMaxTokens() *wrapperspb.UInt32Value {
+func (x *RateLimitSettings) GetMaxTokens() *wrappers.UInt32Value {
 	if x != nil {
 		return x.MaxTokens
 	}
 	return nil
 }
 
-func (x *RateLimitSettings) GetFillRate() *wrapperspb.DoubleValue {
+func (x *RateLimitSettings) GetFillRate() *wrappers.DoubleValue {
 	if x != nil {
 		return x.FillRate
 	}
@@ -472,7 +472,7 @@ type ConfigSource struct {
 	// when the xDS API subscription starts, and is disarmed on first config update or on error. 0
 	// means no timeout - Envoy will wait indefinitely for the first xDS config (unless another
 	// timeout applies). The default is 15s.
-	InitialFetchTimeout *durationpb.Duration `protobuf:"bytes,4,opt,name=initial_fetch_timeout,json=initialFetchTimeout,proto3" json:"initial_fetch_timeout,omitempty"`
+	InitialFetchTimeout *duration.Duration `protobuf:"bytes,4,opt,name=initial_fetch_timeout,json=initialFetchTimeout,proto3" json:"initial_fetch_timeout,omitempty"`
 	// API version for xDS resources. This implies the type URLs that the client
 	// will request for resources and the resource type that the client will in
 	// turn expect to be delivered.
@@ -553,7 +553,7 @@ func (x *ConfigSource) GetSelf() *SelfConfigSource {
 	return nil
 }
 
-func (x *ConfigSource) GetInitialFetchTimeout() *durationpb.Duration {
+func (x *ConfigSource) GetInitialFetchTimeout() *duration.Duration {
 	if x != nil {
 		return x.InitialFetchTimeout
 	}
@@ -795,9 +795,9 @@ var file_envoy_config_core_v4alpha_config_source_proto_goTypes = []interface{}{
 	(*RateLimitSettings)(nil),      // 5: envoy.config.core.v4alpha.RateLimitSettings
 	(*ConfigSource)(nil),           // 6: envoy.config.core.v4alpha.ConfigSource
 	(*GrpcService)(nil),            // 7: envoy.config.core.v4alpha.GrpcService
-	(*durationpb.Duration)(nil),    // 8: google.protobuf.Duration
-	(*wrapperspb.UInt32Value)(nil), // 9: google.protobuf.UInt32Value
-	(*wrapperspb.DoubleValue)(nil), // 10: google.protobuf.DoubleValue
+	(*duration.Duration)(nil),      // 8: google.protobuf.Duration
+	(*wrappers.UInt32Value)(nil),   // 9: google.protobuf.UInt32Value
+	(*wrappers.DoubleValue)(nil),   // 10: google.protobuf.DoubleValue
 	(*v1.Authority)(nil),           // 11: udpa.core.v1.Authority
 }
 var file_envoy_config_core_v4alpha_config_source_proto_depIdxs = []int32{

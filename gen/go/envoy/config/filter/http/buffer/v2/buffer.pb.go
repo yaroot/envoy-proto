@@ -9,9 +9,9 @@ package envoy_config_filter_http_buffer_v2
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -35,7 +35,7 @@ type Buffer struct {
 
 	// The maximum request size that the filter will buffer before the connection
 	// manager will stop buffering and return a 413 response.
-	MaxRequestBytes *wrapperspb.UInt32Value `protobuf:"bytes,1,opt,name=max_request_bytes,json=maxRequestBytes,proto3" json:"max_request_bytes,omitempty"`
+	MaxRequestBytes *wrappers.UInt32Value `protobuf:"bytes,1,opt,name=max_request_bytes,json=maxRequestBytes,proto3" json:"max_request_bytes,omitempty"`
 }
 
 func (x *Buffer) Reset() {
@@ -70,7 +70,7 @@ func (*Buffer) Descriptor() ([]byte, []int) {
 	return file_envoy_config_filter_http_buffer_v2_buffer_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Buffer) GetMaxRequestBytes() *wrapperspb.UInt32Value {
+func (x *Buffer) GetMaxRequestBytes() *wrappers.UInt32Value {
 	if x != nil {
 		return x.MaxRequestBytes
 	}
@@ -216,9 +216,9 @@ func file_envoy_config_filter_http_buffer_v2_buffer_proto_rawDescGZIP() []byte {
 
 var file_envoy_config_filter_http_buffer_v2_buffer_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_envoy_config_filter_http_buffer_v2_buffer_proto_goTypes = []interface{}{
-	(*Buffer)(nil),                 // 0: envoy.config.filter.http.buffer.v2.Buffer
-	(*BufferPerRoute)(nil),         // 1: envoy.config.filter.http.buffer.v2.BufferPerRoute
-	(*wrapperspb.UInt32Value)(nil), // 2: google.protobuf.UInt32Value
+	(*Buffer)(nil),               // 0: envoy.config.filter.http.buffer.v2.Buffer
+	(*BufferPerRoute)(nil),       // 1: envoy.config.filter.http.buffer.v2.BufferPerRoute
+	(*wrappers.UInt32Value)(nil), // 2: google.protobuf.UInt32Value
 }
 var file_envoy_config_filter_http_buffer_v2_buffer_proto_depIdxs = []int32{
 	2, // 0: envoy.config.filter.http.buffer.v2.Buffer.max_request_bytes:type_name -> google.protobuf.UInt32Value

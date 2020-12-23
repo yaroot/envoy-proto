@@ -22,10 +22,10 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -55,15 +55,15 @@ type TopicConstant struct {
 	// `topicConstants/{topic_id}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. The ID of the topic.
-	Id *wrapperspb.Int64Value `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	Id *wrappers.Int64Value `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	// Output only. Resource name of parent of the topic constant.
-	TopicConstantParent *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=topic_constant_parent,json=topicConstantParent,proto3" json:"topic_constant_parent,omitempty"`
+	TopicConstantParent *wrappers.StringValue `protobuf:"bytes,3,opt,name=topic_constant_parent,json=topicConstantParent,proto3" json:"topic_constant_parent,omitempty"`
 	// Output only. The category to target or exclude. Each subsequent element in the array
 	// describes a more specific sub-category. For example,
 	// {"Pets & Animals", "Pets", "Dogs"} represents the
 	// "Pets & Animals/Pets/Dogs" category. List of available topic categories at
 	// https://developers.google.com/adwords/api/docs/appendix/verticals
-	Path []*wrapperspb.StringValue `protobuf:"bytes,4,rep,name=path,proto3" json:"path,omitempty"`
+	Path []*wrappers.StringValue `protobuf:"bytes,4,rep,name=path,proto3" json:"path,omitempty"`
 }
 
 func (x *TopicConstant) Reset() {
@@ -105,21 +105,21 @@ func (x *TopicConstant) GetResourceName() string {
 	return ""
 }
 
-func (x *TopicConstant) GetId() *wrapperspb.Int64Value {
+func (x *TopicConstant) GetId() *wrappers.Int64Value {
 	if x != nil {
 		return x.Id
 	}
 	return nil
 }
 
-func (x *TopicConstant) GetTopicConstantParent() *wrapperspb.StringValue {
+func (x *TopicConstant) GetTopicConstantParent() *wrappers.StringValue {
 	if x != nil {
 		return x.TopicConstantParent
 	}
 	return nil
 }
 
-func (x *TopicConstant) GetPath() []*wrapperspb.StringValue {
+func (x *TopicConstant) GetPath() []*wrappers.StringValue {
 	if x != nil {
 		return x.Path
 	}
@@ -201,9 +201,9 @@ func file_google_ads_googleads_v3_resources_topic_constant_proto_rawDescGZIP() [
 
 var file_google_ads_googleads_v3_resources_topic_constant_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v3_resources_topic_constant_proto_goTypes = []interface{}{
-	(*TopicConstant)(nil),          // 0: google.ads.googleads.v3.resources.TopicConstant
-	(*wrapperspb.Int64Value)(nil),  // 1: google.protobuf.Int64Value
-	(*wrapperspb.StringValue)(nil), // 2: google.protobuf.StringValue
+	(*TopicConstant)(nil),        // 0: google.ads.googleads.v3.resources.TopicConstant
+	(*wrappers.Int64Value)(nil),  // 1: google.protobuf.Int64Value
+	(*wrappers.StringValue)(nil), // 2: google.protobuf.StringValue
 }
 var file_google_ads_googleads_v3_resources_topic_constant_proto_depIdxs = []int32{
 	1, // 0: google.ads.googleads.v3.resources.TopicConstant.id:type_name -> google.protobuf.Int64Value

@@ -22,12 +22,12 @@ package errors
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	common "google.golang.org/genproto/googleapis/ads/googleads/v5/common"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -2257,7 +2257,7 @@ type QuotaErrorDetails struct {
 	// Examples are "Get requests for standard access" or "Requests per account".
 	RateName string `protobuf:"bytes,2,opt,name=rate_name,json=rateName,proto3" json:"rate_name,omitempty"`
 	// Backoff period that customers should wait before sending next request.
-	RetryDelay *durationpb.Duration `protobuf:"bytes,3,opt,name=retry_delay,json=retryDelay,proto3" json:"retry_delay,omitempty"`
+	RetryDelay *duration.Duration `protobuf:"bytes,3,opt,name=retry_delay,json=retryDelay,proto3" json:"retry_delay,omitempty"`
 }
 
 func (x *QuotaErrorDetails) Reset() {
@@ -2306,7 +2306,7 @@ func (x *QuotaErrorDetails) GetRateName() string {
 	return ""
 }
 
-func (x *QuotaErrorDetails) GetRetryDelay() *durationpb.Duration {
+func (x *QuotaErrorDetails) GetRetryDelay() *duration.Duration {
 	if x != nil {
 		return x.RetryDelay
 	}
@@ -2322,7 +2322,7 @@ type ErrorLocation_FieldPathElement struct {
 	// The name of a field or a oneof
 	FieldName string `protobuf:"bytes,1,opt,name=field_name,json=fieldName,proto3" json:"field_name,omitempty"`
 	// If field_name is a repeated field, this is the element that failed
-	Index *wrapperspb.Int64Value `protobuf:"bytes,2,opt,name=index,proto3" json:"index,omitempty"`
+	Index *wrappers.Int64Value `protobuf:"bytes,2,opt,name=index,proto3" json:"index,omitempty"`
 }
 
 func (x *ErrorLocation_FieldPathElement) Reset() {
@@ -2364,7 +2364,7 @@ func (x *ErrorLocation_FieldPathElement) GetFieldName() string {
 	return ""
 }
 
-func (x *ErrorLocation_FieldPathElement) GetIndex() *wrapperspb.Int64Value {
+func (x *ErrorLocation_FieldPathElement) GetIndex() *wrappers.Int64Value {
 	if x != nil {
 		return x.Index
 	}
@@ -3947,8 +3947,8 @@ var file_google_ads_googleads_v5_errors_errors_proto_goTypes = []interface{}{
 	(ThirdPartyAppAnalyticsLinkErrorEnum_ThirdPartyAppAnalyticsLinkError)(0),   // 123: google.ads.googleads.v5.errors.ThirdPartyAppAnalyticsLinkErrorEnum.ThirdPartyAppAnalyticsLinkError
 	(*common.PolicyViolationKey)(nil),                                          // 124: google.ads.googleads.v5.common.PolicyViolationKey
 	(*common.PolicyTopicEntry)(nil),                                            // 125: google.ads.googleads.v5.common.PolicyTopicEntry
-	(*durationpb.Duration)(nil),                                                // 126: google.protobuf.Duration
-	(*wrapperspb.Int64Value)(nil),                                              // 127: google.protobuf.Int64Value
+	(*duration.Duration)(nil),                                                  // 126: google.protobuf.Duration
+	(*wrappers.Int64Value)(nil),                                                // 127: google.protobuf.Int64Value
 }
 var file_google_ads_googleads_v5_errors_errors_proto_depIdxs = []int32{
 	2,   // 0: google.ads.googleads.v5.errors.GoogleAdsFailure.errors:type_name -> google.ads.googleads.v5.errors.GoogleAdsError

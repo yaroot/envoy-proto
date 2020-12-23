@@ -8,10 +8,10 @@ package envoy_api_v2_listener
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -93,14 +93,14 @@ func (m *UdpListenerConfig) GetConfigType() isUdpListenerConfig_ConfigType {
 }
 
 // Deprecated: Do not use.
-func (x *UdpListenerConfig) GetConfig() *structpb.Struct {
+func (x *UdpListenerConfig) GetConfig() *_struct.Struct {
 	if x, ok := x.GetConfigType().(*UdpListenerConfig_Config); ok {
 		return x.Config
 	}
 	return nil
 }
 
-func (x *UdpListenerConfig) GetTypedConfig() *anypb.Any {
+func (x *UdpListenerConfig) GetTypedConfig() *any.Any {
 	if x, ok := x.GetConfigType().(*UdpListenerConfig_TypedConfig); ok {
 		return x.TypedConfig
 	}
@@ -113,11 +113,11 @@ type isUdpListenerConfig_ConfigType interface {
 
 type UdpListenerConfig_Config struct {
 	// Deprecated: Do not use.
-	Config *structpb.Struct `protobuf:"bytes,2,opt,name=config,proto3,oneof"`
+	Config *_struct.Struct `protobuf:"bytes,2,opt,name=config,proto3,oneof"`
 }
 
 type UdpListenerConfig_TypedConfig struct {
-	TypedConfig *anypb.Any `protobuf:"bytes,3,opt,name=typed_config,json=typedConfig,proto3,oneof"`
+	TypedConfig *any.Any `protobuf:"bytes,3,opt,name=typed_config,json=typedConfig,proto3,oneof"`
 }
 
 func (*UdpListenerConfig_Config) isUdpListenerConfig_ConfigType() {}
@@ -220,8 +220,8 @@ var file_envoy_api_v2_listener_udp_listener_config_proto_msgTypes = make([]proto
 var file_envoy_api_v2_listener_udp_listener_config_proto_goTypes = []interface{}{
 	(*UdpListenerConfig)(nil),          // 0: envoy.api.v2.listener.UdpListenerConfig
 	(*ActiveRawUdpListenerConfig)(nil), // 1: envoy.api.v2.listener.ActiveRawUdpListenerConfig
-	(*structpb.Struct)(nil),            // 2: google.protobuf.Struct
-	(*anypb.Any)(nil),                  // 3: google.protobuf.Any
+	(*_struct.Struct)(nil),             // 2: google.protobuf.Struct
+	(*any.Any)(nil),                    // 3: google.protobuf.Any
 }
 var file_envoy_api_v2_listener_udp_listener_config_proto_depIdxs = []int32{
 	2, // 0: envoy.api.v2.listener.UdpListenerConfig.config:type_name -> google.protobuf.Struct

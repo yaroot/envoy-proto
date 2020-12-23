@@ -8,9 +8,9 @@ package udpa_annotations
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	descriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	descriptorpb "google.golang.org/protobuf/types/descriptorpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -78,7 +78,7 @@ func (x *VersioningAnnotation) GetPreviousMessageType() string {
 
 var file_udpa_annotations_versioning_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
-		ExtendedType:  (*descriptorpb.MessageOptions)(nil),
+		ExtendedType:  (*descriptor.MessageOptions)(nil),
 		ExtensionType: (*VersioningAnnotation)(nil),
 		Field:         7881811,
 		Name:          "udpa.annotations.versioning",
@@ -87,7 +87,7 @@ var file_udpa_annotations_versioning_proto_extTypes = []protoimpl.ExtensionInfo{
 	},
 }
 
-// Extension fields to descriptorpb.MessageOptions.
+// Extension fields to descriptor.MessageOptions.
 var (
 	// Magic number derived from 0x78 ('x') 0x44 ('D') 0x53 ('S')
 	//
@@ -132,8 +132,8 @@ func file_udpa_annotations_versioning_proto_rawDescGZIP() []byte {
 
 var file_udpa_annotations_versioning_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_udpa_annotations_versioning_proto_goTypes = []interface{}{
-	(*VersioningAnnotation)(nil),        // 0: udpa.annotations.VersioningAnnotation
-	(*descriptorpb.MessageOptions)(nil), // 1: google.protobuf.MessageOptions
+	(*VersioningAnnotation)(nil),      // 0: udpa.annotations.VersioningAnnotation
+	(*descriptor.MessageOptions)(nil), // 1: google.protobuf.MessageOptions
 }
 var file_udpa_annotations_versioning_proto_depIdxs = []int32{
 	1, // 0: udpa.annotations.versioning:extendee -> google.protobuf.MessageOptions

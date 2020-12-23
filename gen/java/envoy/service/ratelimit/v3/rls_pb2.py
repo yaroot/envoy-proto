@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 from envoy.config.core.v3 import base_pb2 as envoy_dot_config_dot_core_dot_v3_dot_base__pb2
 from envoy.extensions.common.ratelimit.v3 import ratelimit_pb2 as envoy_dot_extensions_dot_common_dot_ratelimit_dot_v3_dot_ratelimit__pb2
+from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from udpa.annotations import versioning_pb2 as udpa_dot_annotations_dot_versioning__pb2
 from validate import validate_pb2 as validate_dot_validate__pb2
@@ -24,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n(io.envoyproxy.envoy.service.ratelimit.v3B\010RlsProtoP\001\210\001\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n$envoy/service/ratelimit/v3/rls.proto\x12\x1a\x65nvoy.service.ratelimit.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x34\x65nvoy/extensions/common/ratelimit/v3/ratelimit.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xbb\x01\n\x10RateLimitRequest\x12\x0e\n\x06\x64omain\x18\x01 \x01(\t\x12N\n\x0b\x64\x65scriptors\x18\x02 \x03(\x0b\x32\x39.envoy.extensions.common.ratelimit.v3.RateLimitDescriptor\x12\x13\n\x0bhits_addend\x18\x03 \x01(\r:2\x9a\xc5\x88\x1e-\n+envoy.service.ratelimit.v2.RateLimitRequest\"\xa0\x07\n\x11RateLimitResponse\x12H\n\x0coverall_code\x18\x01 \x01(\x0e\x32\x32.envoy.service.ratelimit.v3.RateLimitResponse.Code\x12P\n\x08statuses\x18\x02 \x03(\x0b\x32>.envoy.service.ratelimit.v3.RateLimitResponse.DescriptorStatus\x12\x42\n\x17response_headers_to_add\x18\x03 \x03(\x0b\x32!.envoy.config.core.v3.HeaderValue\x12\x41\n\x16request_headers_to_add\x18\x04 \x03(\x0b\x32!.envoy.config.core.v3.HeaderValue\x1a\xff\x01\n\tRateLimit\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x19\n\x11requests_per_unit\x18\x01 \x01(\r\x12J\n\x04unit\x18\x02 \x01(\x0e\x32<.envoy.service.ratelimit.v3.RateLimitResponse.RateLimit.Unit\">\n\x04Unit\x12\x0b\n\x07UNKNOWN\x10\x00\x12\n\n\x06SECOND\x10\x01\x12\n\n\x06MINUTE\x10\x02\x12\x08\n\x04HOUR\x10\x03\x12\x07\n\x03\x44\x41Y\x10\x04:=\x9a\xc5\x88\x1e\x38\n6envoy.service.ratelimit.v2.RateLimitResponse.RateLimit\x1a\x83\x02\n\x10\x44\x65scriptorStatus\x12@\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x32.envoy.service.ratelimit.v3.RateLimitResponse.Code\x12N\n\rcurrent_limit\x18\x02 \x01(\x0b\x32\x37.envoy.service.ratelimit.v3.RateLimitResponse.RateLimit\x12\x17\n\x0flimit_remaining\x18\x03 \x01(\r:D\x9a\xc5\x88\x1e?\n=envoy.service.ratelimit.v2.RateLimitResponse.DescriptorStatus\"+\n\x04\x43ode\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x06\n\x02OK\x10\x01\x12\x0e\n\nOVER_LIMIT\x10\x02:3\x9a\xc5\x88\x1e.\n,envoy.service.ratelimit.v2.RateLimitResponse2\x84\x01\n\x10RateLimitService\x12p\n\x0fShouldRateLimit\x12,.envoy.service.ratelimit.v3.RateLimitRequest\x1a-.envoy.service.ratelimit.v3.RateLimitResponse\"\x00\x42\x41\n(io.envoyproxy.envoy.service.ratelimit.v3B\x08RlsProtoP\x01\x88\x01\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n$envoy/service/ratelimit/v3/rls.proto\x12\x1a\x65nvoy.service.ratelimit.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x34\x65nvoy/extensions/common/ratelimit/v3/ratelimit.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xbb\x01\n\x10RateLimitRequest\x12\x0e\n\x06\x64omain\x18\x01 \x01(\t\x12N\n\x0b\x64\x65scriptors\x18\x02 \x03(\x0b\x32\x39.envoy.extensions.common.ratelimit.v3.RateLimitDescriptor\x12\x13\n\x0bhits_addend\x18\x03 \x01(\r:2\x9a\xc5\x88\x1e-\n+envoy.service.ratelimit.v2.RateLimitRequest\"\xd9\x07\n\x11RateLimitResponse\x12H\n\x0coverall_code\x18\x01 \x01(\x0e\x32\x32.envoy.service.ratelimit.v3.RateLimitResponse.Code\x12P\n\x08statuses\x18\x02 \x03(\x0b\x32>.envoy.service.ratelimit.v3.RateLimitResponse.DescriptorStatus\x12\x42\n\x17response_headers_to_add\x18\x03 \x03(\x0b\x32!.envoy.config.core.v3.HeaderValue\x12\x41\n\x16request_headers_to_add\x18\x04 \x03(\x0b\x32!.envoy.config.core.v3.HeaderValue\x1a\xff\x01\n\tRateLimit\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x19\n\x11requests_per_unit\x18\x01 \x01(\r\x12J\n\x04unit\x18\x02 \x01(\x0e\x32<.envoy.service.ratelimit.v3.RateLimitResponse.RateLimit.Unit\">\n\x04Unit\x12\x0b\n\x07UNKNOWN\x10\x00\x12\n\n\x06SECOND\x10\x01\x12\n\n\x06MINUTE\x10\x02\x12\x08\n\x04HOUR\x10\x03\x12\x07\n\x03\x44\x41Y\x10\x04:=\x9a\xc5\x88\x1e\x38\n6envoy.service.ratelimit.v2.RateLimitResponse.RateLimit\x1a\xbc\x02\n\x10\x44\x65scriptorStatus\x12@\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x32.envoy.service.ratelimit.v3.RateLimitResponse.Code\x12N\n\rcurrent_limit\x18\x02 \x01(\x0b\x32\x37.envoy.service.ratelimit.v3.RateLimitResponse.RateLimit\x12\x17\n\x0flimit_remaining\x18\x03 \x01(\r\x12\x37\n\x14\x64uration_until_reset\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration:D\x9a\xc5\x88\x1e?\n=envoy.service.ratelimit.v2.RateLimitResponse.DescriptorStatus\"+\n\x04\x43ode\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x06\n\x02OK\x10\x01\x12\x0e\n\nOVER_LIMIT\x10\x02:3\x9a\xc5\x88\x1e.\n,envoy.service.ratelimit.v2.RateLimitResponse2\x84\x01\n\x10RateLimitService\x12p\n\x0fShouldRateLimit\x12,.envoy.service.ratelimit.v3.RateLimitRequest\x1a-.envoy.service.ratelimit.v3.RateLimitResponse\"\x00\x42\x41\n(io.envoyproxy.envoy.service.ratelimit.v3B\x08RlsProtoP\x01\x88\x01\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_extensions_dot_common_dot_ratelimit_dot_v3_dot_ratelimit__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_extensions_dot_common_dot_ratelimit_dot_v3_dot_ratelimit__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -65,8 +66,8 @@ _RATELIMITRESPONSE_RATELIMIT_UNIT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=880,
-  serialized_end=942,
+  serialized_start=912,
+  serialized_end=974,
 )
 _sym_db.RegisterEnumDescriptor(_RATELIMITRESPONSE_RATELIMIT_UNIT)
 
@@ -95,8 +96,8 @@ _RATELIMITRESPONSE_CODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1269,
-  serialized_end=1312,
+  serialized_start=1358,
+  serialized_end=1401,
 )
 _sym_db.RegisterEnumDescriptor(_RATELIMITRESPONSE_CODE)
 
@@ -142,8 +143,8 @@ _RATELIMITREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=247,
-  serialized_end=434,
+  serialized_start=279,
+  serialized_end=466,
 )
 
 
@@ -189,8 +190,8 @@ _RATELIMITRESPONSE_RATELIMIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=750,
-  serialized_end=1005,
+  serialized_start=782,
+  serialized_end=1037,
 )
 
 _RATELIMITRESPONSE_DESCRIPTORSTATUS = _descriptor.Descriptor(
@@ -222,6 +223,13 @@ _RATELIMITRESPONSE_DESCRIPTORSTATUS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='duration_until_reset', full_name='envoy.service.ratelimit.v3.RateLimitResponse.DescriptorStatus.duration_until_reset', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -234,8 +242,8 @@ _RATELIMITRESPONSE_DESCRIPTORSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1008,
-  serialized_end=1267,
+  serialized_start=1040,
+  serialized_end=1356,
 )
 
 _RATELIMITRESPONSE = _descriptor.Descriptor(
@@ -287,8 +295,8 @@ _RATELIMITRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=437,
-  serialized_end=1365,
+  serialized_start=469,
+  serialized_end=1454,
 )
 
 _RATELIMITREQUEST.fields_by_name['descriptors'].message_type = envoy_dot_extensions_dot_common_dot_ratelimit_dot_v3_dot_ratelimit__pb2._RATELIMITDESCRIPTOR
@@ -297,6 +305,7 @@ _RATELIMITRESPONSE_RATELIMIT.containing_type = _RATELIMITRESPONSE
 _RATELIMITRESPONSE_RATELIMIT_UNIT.containing_type = _RATELIMITRESPONSE_RATELIMIT
 _RATELIMITRESPONSE_DESCRIPTORSTATUS.fields_by_name['code'].enum_type = _RATELIMITRESPONSE_CODE
 _RATELIMITRESPONSE_DESCRIPTORSTATUS.fields_by_name['current_limit'].message_type = _RATELIMITRESPONSE_RATELIMIT
+_RATELIMITRESPONSE_DESCRIPTORSTATUS.fields_by_name['duration_until_reset'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _RATELIMITRESPONSE_DESCRIPTORSTATUS.containing_type = _RATELIMITRESPONSE
 _RATELIMITRESPONSE.fields_by_name['overall_code'].enum_type = _RATELIMITRESPONSE_CODE
 _RATELIMITRESPONSE.fields_by_name['statuses'].message_type = _RATELIMITRESPONSE_DESCRIPTORSTATUS
@@ -351,8 +360,8 @@ _RATELIMITSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1368,
-  serialized_end=1500,
+  serialized_start=1457,
+  serialized_end=1589,
   methods=[
   _descriptor.MethodDescriptor(
     name='ShouldRateLimit',

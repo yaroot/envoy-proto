@@ -22,9 +22,9 @@ package v1
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -579,7 +579,7 @@ type Measurement struct {
 	Value isMeasurement_Value `protobuf_oneof:"value"`
 	// The time when this measurement was recorded. If the implementation uses a async buffer to
 	// record measurements this may be the time when the measurement was read from the buffer.
-	Time *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=time,proto3" json:"time,omitempty"`
+	Time *timestamp.Timestamp `protobuf:"bytes,5,opt,name=time,proto3" json:"time,omitempty"`
 }
 
 func (x *Measurement) Reset() {
@@ -649,7 +649,7 @@ func (x *Measurement) GetIntValue() int64 {
 	return 0
 }
 
-func (x *Measurement) GetTime() *timestamppb.Timestamp {
+func (x *Measurement) GetTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.Time
 	}
@@ -790,7 +790,7 @@ var file_opencensus_proto_stats_v1_stats_proto_goTypes = []interface{}{
 	(*LastValueAggregation)(nil),    // 6: opencensus.proto.stats.v1.LastValueAggregation
 	(*DistributionAggregation)(nil), // 7: opencensus.proto.stats.v1.DistributionAggregation
 	(*Measurement)(nil),             // 8: opencensus.proto.stats.v1.Measurement
-	(*timestamppb.Timestamp)(nil),   // 9: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),     // 9: google.protobuf.Timestamp
 }
 var file_opencensus_proto_stats_v1_stats_proto_depIdxs = []int32{
 	0, // 0: opencensus.proto.stats.v1.Measure.type:type_name -> opencensus.proto.stats.v1.Measure.Type

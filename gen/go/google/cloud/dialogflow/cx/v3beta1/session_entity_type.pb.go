@@ -22,11 +22,11 @@ package cx
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -58,9 +58,8 @@ const (
 	// `GetSessionEntityType`, `CreateSessionEntityType` and
 	// `UpdateSessionEntityType` only return the additional entities added in
 	// this session entity type. If you want to get the supplemented list,
-	// please call
-	// [EntityTypes.GetEntityType][google.cloud.dialogflow.cx.v3beta1.EntityTypes.GetEntityType]
-	// on the custom entity type and merge.
+	// please call [EntityTypes.GetEntityType][google.cloud.dialogflow.cx.v3beta1.EntityTypes.GetEntityType] on the custom entity type
+	// and merge.
 	SessionEntityType_ENTITY_OVERRIDE_MODE_SUPPLEMENT SessionEntityType_EntityOverrideMode = 2
 )
 
@@ -110,9 +109,9 @@ func (SessionEntityType_EntityOverrideMode) EnumDescriptor() ([]byte, []int) {
 // preferences, playlists, and so on.
 //
 // You can redefine a session entity type at the session level to extend or
-// replace a [custom entity type][google.cloud.dialogflow.cx.v3beta1.EntityType]
-// at the user session level (we refer to the entity types defined at the agent
-// level as "custom entity types").
+// replace a [custom entity type][google.cloud.dialogflow.cx.v3beta1.EntityType] at the user session level (we
+// refer to the entity types defined at the agent level as "custom entity
+// types").
 //
 // Note: session entity types apply to all queries, regardless of the language.
 //
@@ -131,11 +130,11 @@ type SessionEntityType struct {
 	// Type ID>`. If `Environment ID` is not specified, we assume default 'draft'
 	// environment.
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	// Required. Indicates whether the additional data should override or
-	// supplement the custom entity type definition.
+	// Required. Indicates whether the additional data should override or supplement the
+	// custom entity type definition.
 	EntityOverrideMode SessionEntityType_EntityOverrideMode `protobuf:"varint,3,opt,name=entity_override_mode,json=entityOverrideMode,proto3,enum=google.cloud.dialogflow.cx.v3beta1.SessionEntityType_EntityOverrideMode" json:"entity_override_mode,omitempty"`
-	// Required. The collection of entities to override or supplement the custom
-	// entity type.
+	// Required. The collection of entities to override or supplement the custom entity
+	// type.
 	Entities []*EntityType_Entity `protobuf:"bytes,4,rep,name=entities,proto3" json:"entities,omitempty"`
 }
 
@@ -192,8 +191,7 @@ func (x *SessionEntityType) GetEntities() []*EntityType_Entity {
 	return nil
 }
 
-// The request message for
-// [SessionEntityTypes.ListSessionEntityTypes][google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes.ListSessionEntityTypes].
+// The request message for [SessionEntityTypes.ListSessionEntityTypes][google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes.ListSessionEntityTypes].
 type ListSessionEntityTypesRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -266,8 +264,7 @@ func (x *ListSessionEntityTypesRequest) GetPageToken() string {
 	return ""
 }
 
-// The response message for
-// [SessionEntityTypes.ListSessionEntityTypes][google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes.ListSessionEntityTypes].
+// The response message for [SessionEntityTypes.ListSessionEntityTypes][google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes.ListSessionEntityTypes].
 type ListSessionEntityTypesResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -327,8 +324,7 @@ func (x *ListSessionEntityTypesResponse) GetNextPageToken() string {
 	return ""
 }
 
-// The request message for
-// [SessionEntityTypes.GetSessionEntityType][google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes.GetSessionEntityType].
+// The request message for [SessionEntityTypes.GetSessionEntityType][google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes.GetSessionEntityType].
 type GetSessionEntityTypeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -383,8 +379,7 @@ func (x *GetSessionEntityTypeRequest) GetName() string {
 	return ""
 }
 
-// The request message for
-// [SessionEntityTypes.CreateSessionEntityType][google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes.CreateSessionEntityType].
+// The request message for [SessionEntityTypes.CreateSessionEntityType][google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes.CreateSessionEntityType].
 type CreateSessionEntityTypeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -447,8 +442,7 @@ func (x *CreateSessionEntityTypeRequest) GetSessionEntityType() *SessionEntityTy
 	return nil
 }
 
-// The request message for
-// [SessionEntityTypes.UpdateSessionEntityType][google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes.UpdateSessionEntityType].
+// The request message for [SessionEntityTypes.UpdateSessionEntityType][google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes.UpdateSessionEntityType].
 type UpdateSessionEntityTypeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -463,7 +457,7 @@ type UpdateSessionEntityTypeRequest struct {
 	// environment.
 	SessionEntityType *SessionEntityType `protobuf:"bytes,1,opt,name=session_entity_type,json=sessionEntityType,proto3" json:"session_entity_type,omitempty"`
 	// The mask to control which fields get updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateSessionEntityTypeRequest) Reset() {
@@ -505,15 +499,14 @@ func (x *UpdateSessionEntityTypeRequest) GetSessionEntityType() *SessionEntityTy
 	return nil
 }
 
-func (x *UpdateSessionEntityTypeRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateSessionEntityTypeRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
 	return nil
 }
 
-// The request message for
-// [SessionEntityTypes.DeleteSessionEntityType][google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes.DeleteSessionEntityType].
+// The request message for [SessionEntityTypes.DeleteSessionEntityType][google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes.DeleteSessionEntityType].
 type DeleteSessionEntityTypeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -857,8 +850,8 @@ var file_google_cloud_dialogflow_cx_v3beta1_session_entity_type_proto_goTypes = 
 	(*UpdateSessionEntityTypeRequest)(nil),    // 6: google.cloud.dialogflow.cx.v3beta1.UpdateSessionEntityTypeRequest
 	(*DeleteSessionEntityTypeRequest)(nil),    // 7: google.cloud.dialogflow.cx.v3beta1.DeleteSessionEntityTypeRequest
 	(*EntityType_Entity)(nil),                 // 8: google.cloud.dialogflow.cx.v3beta1.EntityType.Entity
-	(*fieldmaskpb.FieldMask)(nil),             // 9: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),                     // 10: google.protobuf.Empty
+	(*field_mask.FieldMask)(nil),              // 9: google.protobuf.FieldMask
+	(*empty.Empty)(nil),                       // 10: google.protobuf.Empty
 }
 var file_google_cloud_dialogflow_cx_v3beta1_session_entity_type_proto_depIdxs = []int32{
 	0,  // 0: google.cloud.dialogflow.cx.v3beta1.SessionEntityType.entity_override_mode:type_name -> google.cloud.dialogflow.cx.v3beta1.SessionEntityType.EntityOverrideMode

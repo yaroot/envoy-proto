@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v4.servicesB\037DetailPlacementViewServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V4.Services\312\002 Google\\Ads\\GoogleAds\\V4\\Services\352\002$Google::Ads::GoogleAds::V4::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nDgoogle/ads/googleads/v4/services/detail_placement_view_service.proto\x12 google.ads.googleads.v4.services\x1a=google/ads/googleads/v4/resources/detail_placement_view.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"l\n\x1dGetDetailPlacementViewRequest\x12K\n\rresource_name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,googleads.googleapis.com/DetailPlacementView2\x9d\x02\n\x1a\x44\x65tailPlacementViewService\x12\xe1\x01\n\x16GetDetailPlacementView\x12?.google.ads.googleads.v4.services.GetDetailPlacementViewRequest\x1a\x36.google.ads.googleads.v4.resources.DetailPlacementView\"N\x82\xd3\xe4\x93\x02\x38\x12\x36/v4/{resource_name=customers/*/detailPlacementViews/*}\xda\x41\rresource_name\x1a\x1b\xca\x41\x18googleads.googleapis.comB\x86\x02\n$com.google.ads.googleads.v4.servicesB\x1f\x44\x65tailPlacementViewServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V4.Services\xca\x02 Google\\Ads\\GoogleAds\\V4\\Services\xea\x02$Google::Ads::GoogleAds::V4::Servicesb\x06proto3'
+  serialized_pb=b'\nDgoogle/ads/googleads/v4/services/detail_placement_view_service.proto\x12 google.ads.googleads.v4.services\x1a=google/ads/googleads/v4/resources/detail_placement_view.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"l\n\x1dGetDetailPlacementViewRequest\x12K\n\rresource_name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,googleads.googleapis.com/DetailPlacementView2\xc7\x02\n\x1a\x44\x65tailPlacementViewService\x12\xe1\x01\n\x16GetDetailPlacementView\x12?.google.ads.googleads.v4.services.GetDetailPlacementViewRequest\x1a\x36.google.ads.googleads.v4.resources.DetailPlacementView\"N\x82\xd3\xe4\x93\x02\x38\x12\x36/v4/{resource_name=customers/*/detailPlacementViews/*}\xda\x41\rresource_name\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x86\x02\n$com.google.ads.googleads.v4.servicesB\x1f\x44\x65tailPlacementViewServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V4.Services\xca\x02 Google\\Ads\\GoogleAds\\V4\\Services\xea\x02$Google::Ads::GoogleAds::V4::Servicesb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v4_dot_resources_dot_detail__placement__view__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
 
@@ -81,10 +81,10 @@ _DETAILPLACEMENTVIEWSERVICE = _descriptor.ServiceDescriptor(
   full_name='google.ads.googleads.v4.services.DetailPlacementViewService',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=b'\312A\030googleads.googleapis.com',
+  serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
   serialized_start=395,
-  serialized_end=680,
+  serialized_end=722,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetDetailPlacementView',

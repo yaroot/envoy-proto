@@ -22,11 +22,11 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v5/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -55,11 +55,11 @@ type KeywordPlanAdGroupKeyword struct {
 	// `customers/{customer_id}/keywordPlanAdGroupKeywords/{kp_ad_group_keyword_id}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// The Keyword Plan ad group to which this keyword belongs.
-	KeywordPlanAdGroup *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=keyword_plan_ad_group,json=keywordPlanAdGroup,proto3" json:"keyword_plan_ad_group,omitempty"`
+	KeywordPlanAdGroup *wrappers.StringValue `protobuf:"bytes,2,opt,name=keyword_plan_ad_group,json=keywordPlanAdGroup,proto3" json:"keyword_plan_ad_group,omitempty"`
 	// Output only. The ID of the Keyword Plan keyword.
-	Id *wrapperspb.Int64Value `protobuf:"bytes,3,opt,name=id,proto3" json:"id,omitempty"`
+	Id *wrappers.Int64Value `protobuf:"bytes,3,opt,name=id,proto3" json:"id,omitempty"`
 	// The keyword text.
-	Text *wrapperspb.StringValue `protobuf:"bytes,4,opt,name=text,proto3" json:"text,omitempty"`
+	Text *wrappers.StringValue `protobuf:"bytes,4,opt,name=text,proto3" json:"text,omitempty"`
 	// The keyword match type.
 	MatchType enums.KeywordMatchTypeEnum_KeywordMatchType `protobuf:"varint,5,opt,name=match_type,json=matchType,proto3,enum=google.ads.googleads.v5.enums.KeywordMatchTypeEnum_KeywordMatchType" json:"match_type,omitempty"`
 	// A keyword level max cpc bid in micros (e.g. $1 = 1mm). The currency is the
@@ -67,9 +67,9 @@ type KeywordPlanAdGroupKeyword struct {
 	// the keyword plan ad group level.
 	// Not applicable for negative keywords. (negative = true)
 	// This field is Optional.
-	CpcBidMicros *wrapperspb.Int64Value `protobuf:"bytes,6,opt,name=cpc_bid_micros,json=cpcBidMicros,proto3" json:"cpc_bid_micros,omitempty"`
+	CpcBidMicros *wrappers.Int64Value `protobuf:"bytes,6,opt,name=cpc_bid_micros,json=cpcBidMicros,proto3" json:"cpc_bid_micros,omitempty"`
 	// Immutable. If true, the keyword is negative.
-	Negative *wrapperspb.BoolValue `protobuf:"bytes,7,opt,name=negative,proto3" json:"negative,omitempty"`
+	Negative *wrappers.BoolValue `protobuf:"bytes,7,opt,name=negative,proto3" json:"negative,omitempty"`
 }
 
 func (x *KeywordPlanAdGroupKeyword) Reset() {
@@ -111,21 +111,21 @@ func (x *KeywordPlanAdGroupKeyword) GetResourceName() string {
 	return ""
 }
 
-func (x *KeywordPlanAdGroupKeyword) GetKeywordPlanAdGroup() *wrapperspb.StringValue {
+func (x *KeywordPlanAdGroupKeyword) GetKeywordPlanAdGroup() *wrappers.StringValue {
 	if x != nil {
 		return x.KeywordPlanAdGroup
 	}
 	return nil
 }
 
-func (x *KeywordPlanAdGroupKeyword) GetId() *wrapperspb.Int64Value {
+func (x *KeywordPlanAdGroupKeyword) GetId() *wrappers.Int64Value {
 	if x != nil {
 		return x.Id
 	}
 	return nil
 }
 
-func (x *KeywordPlanAdGroupKeyword) GetText() *wrapperspb.StringValue {
+func (x *KeywordPlanAdGroupKeyword) GetText() *wrappers.StringValue {
 	if x != nil {
 		return x.Text
 	}
@@ -139,14 +139,14 @@ func (x *KeywordPlanAdGroupKeyword) GetMatchType() enums.KeywordMatchTypeEnum_Ke
 	return enums.KeywordMatchTypeEnum_UNSPECIFIED
 }
 
-func (x *KeywordPlanAdGroupKeyword) GetCpcBidMicros() *wrapperspb.Int64Value {
+func (x *KeywordPlanAdGroupKeyword) GetCpcBidMicros() *wrappers.Int64Value {
 	if x != nil {
 		return x.CpcBidMicros
 	}
 	return nil
 }
 
-func (x *KeywordPlanAdGroupKeyword) GetNegative() *wrapperspb.BoolValue {
+func (x *KeywordPlanAdGroupKeyword) GetNegative() *wrappers.BoolValue {
 	if x != nil {
 		return x.Negative
 	}
@@ -254,10 +254,10 @@ func file_google_ads_googleads_v5_resources_keyword_plan_ad_group_keyword_proto_
 var file_google_ads_googleads_v5_resources_keyword_plan_ad_group_keyword_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v5_resources_keyword_plan_ad_group_keyword_proto_goTypes = []interface{}{
 	(*KeywordPlanAdGroupKeyword)(nil),                // 0: google.ads.googleads.v5.resources.KeywordPlanAdGroupKeyword
-	(*wrapperspb.StringValue)(nil),                   // 1: google.protobuf.StringValue
-	(*wrapperspb.Int64Value)(nil),                    // 2: google.protobuf.Int64Value
+	(*wrappers.StringValue)(nil),                     // 1: google.protobuf.StringValue
+	(*wrappers.Int64Value)(nil),                      // 2: google.protobuf.Int64Value
 	(enums.KeywordMatchTypeEnum_KeywordMatchType)(0), // 3: google.ads.googleads.v5.enums.KeywordMatchTypeEnum.KeywordMatchType
-	(*wrapperspb.BoolValue)(nil),                     // 4: google.protobuf.BoolValue
+	(*wrappers.BoolValue)(nil),                       // 4: google.protobuf.BoolValue
 }
 var file_google_ads_googleads_v5_resources_keyword_plan_ad_group_keyword_proto_depIdxs = []int32{
 	1, // 0: google.ads.googleads.v5.resources.KeywordPlanAdGroupKeyword.keyword_plan_ad_group:type_name -> google.protobuf.StringValue

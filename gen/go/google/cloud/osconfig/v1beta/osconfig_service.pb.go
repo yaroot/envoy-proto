@@ -22,10 +22,10 @@ package osconfig
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 )
 
@@ -279,7 +279,7 @@ var file_google_cloud_osconfig_v1beta_osconfig_service_proto_goTypes = []interfa
 	(*ListPatchJobInstanceDetailsResponse)(nil), // 17: google.cloud.osconfig.v1beta.ListPatchJobInstanceDetailsResponse
 	(*PatchDeployment)(nil),                     // 18: google.cloud.osconfig.v1beta.PatchDeployment
 	(*ListPatchDeploymentsResponse)(nil),        // 19: google.cloud.osconfig.v1beta.ListPatchDeploymentsResponse
-	(*emptypb.Empty)(nil),                       // 20: google.protobuf.Empty
+	(*empty.Empty)(nil),                         // 20: google.protobuf.Empty
 	(*GuestPolicy)(nil),                         // 21: google.cloud.osconfig.v1beta.GuestPolicy
 	(*ListGuestPoliciesResponse)(nil),           // 22: google.cloud.osconfig.v1beta.ListGuestPoliciesResponse
 	(*EffectiveGuestPolicy)(nil),                // 23: google.cloud.osconfig.v1beta.EffectiveGuestPolicy

@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n#io.envoyproxy.envoy.config.trace.v3B\016DynamicOtProtoP\001\362\230\376\217\005-\022+envoy.extensions.tracers.dynamic_ot.v4alpha\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n&envoy/config/trace/v3/dynamic_ot.proto\x12\x15\x65nvoy.config.trace.v3\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x82\x01\n\x0f\x44ynamicOtConfig\x12\x18\n\x07library\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\'\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct:,\x9a\xc5\x88\x1e\'\n%envoy.config.trace.v2.DynamicOtConfigBr\n#io.envoyproxy.envoy.config.trace.v3B\x0e\x44ynamicOtProtoP\x01\xf2\x98\xfe\x8f\x05-\x12+envoy.extensions.tracers.dynamic_ot.v4alpha\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n&envoy/config/trace/v3/dynamic_ot.proto\x12\x15\x65nvoy.config.trace.v3\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x82\x01\n\x0f\x44ynamicOtConfig\x12\x18\n\x07library\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\'\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct:,\x9a\xc5\x88\x1e\'\n%envoy.config.trace.v2.DynamicOtConfigBr\n#io.envoyproxy.envoy.config.trace.v3B\x0e\x44ynamicOtProtoP\x01\xf2\x98\xfe\x8f\x05-\x12+envoy.extensions.tracers.dynamic_ot.v4alpha\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,udpa_dot_annotations_dot_migrate__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -45,7 +45,7 @@ _DYNAMICOTCONFIG = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='config', full_name='envoy.config.trace.v3.DynamicOtConfig.config', index=1,
       number=2, type=11, cpp_type=10, label=1,

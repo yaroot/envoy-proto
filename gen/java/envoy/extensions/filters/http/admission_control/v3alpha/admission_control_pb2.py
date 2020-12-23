@@ -28,7 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\nEio.envoyproxy.envoy.extensions.filters.http.admission_control.v3alphaB\025AdmissionControlProtoP\001\272\200\310\321\006\002\010\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nOenvoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto\x12\x37\x65nvoy.extensions.filters.http.admission_control.v3alpha\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x19\x65nvoy/type/v3/range.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x17google/rpc/status.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\xf4\x05\n\x10\x41\x64missionControl\x12\x39\n\x07\x65nabled\x18\x01 \x01(\x0b\x32(.envoy.config.core.v3.RuntimeFeatureFlag\x12u\n\x10success_criteria\x18\x02 \x01(\x0b\x32Y.envoy.extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteriaH\x00\x12\x32\n\x0fsampling_window\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x43\n\x16\x61ggression_coefficient\x18\x04 \x01(\x0b\x32#.envoy.config.core.v3.RuntimeDouble\x1a\x98\x03\n\x0fSuccessCriteria\x12}\n\rhttp_criteria\x18\x01 \x01(\x0b\x32\x66.envoy.extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.HttpCriteria\x12}\n\rgrpc_criteria\x18\x02 \x01(\x0b\x32\x66.envoy.extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.GrpcCriteria\x1aP\n\x0cHttpCriteria\x12@\n\x13http_success_status\x18\x01 \x03(\x0b\x32\x19.envoy.type.v3.Int32RangeB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x35\n\x0cGrpcCriteria\x12%\n\x13grpc_success_status\x18\x01 \x03(\rB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x42\x1a\n\x13\x65valuation_criteria\x12\x03\xf8\x42\x01\x42p\nEio.envoyproxy.envoy.extensions.filters.http.admission_control.v3alphaB\x15\x41\x64missionControlProtoP\x01\xba\x80\xc8\xd1\x06\x02\x08\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\nOenvoy/extensions/filters/http/admission_control/v3alpha/admission_control.proto\x12\x37\x65nvoy.extensions.filters.http.admission_control.v3alpha\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x19\x65nvoy/type/v3/range.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x17google/rpc/status.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\xa4\x06\n\x10\x41\x64missionControl\x12\x39\n\x07\x65nabled\x18\x01 \x01(\x0b\x32(.envoy.config.core.v3.RuntimeFeatureFlag\x12u\n\x10success_criteria\x18\x02 \x01(\x0b\x32Y.envoy.extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteriaH\x00\x12\x32\n\x0fsampling_window\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x37\n\naggression\x18\x04 \x01(\x0b\x32#.envoy.config.core.v3.RuntimeDouble\x12:\n\x0csr_threshold\x18\x05 \x01(\x0b\x32$.envoy.config.core.v3.RuntimePercent\x1a\x98\x03\n\x0fSuccessCriteria\x12}\n\rhttp_criteria\x18\x01 \x01(\x0b\x32\x66.envoy.extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.HttpCriteria\x12}\n\rgrpc_criteria\x18\x02 \x01(\x0b\x32\x66.envoy.extensions.filters.http.admission_control.v3alpha.AdmissionControl.SuccessCriteria.GrpcCriteria\x1aP\n\x0cHttpCriteria\x12@\n\x13http_success_status\x18\x01 \x03(\x0b\x32\x19.envoy.type.v3.Int32RangeB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x35\n\x0cGrpcCriteria\x12%\n\x13grpc_success_status\x18\x01 \x03(\rB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x42\x1a\n\x13\x65valuation_criteria\x12\x03\xf8\x42\x01\x42p\nEio.envoyproxy.envoy.extensions.filters.http.admission_control.v3alphaB\x15\x41\x64missionControlProtoP\x01\xba\x80\xc8\xd1\x06\x02\x08\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_range__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_migrate__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -62,8 +62,8 @@ _ADMISSIONCONTROL_SUCCESSCRITERIA_HTTPCRITERIA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1001,
-  serialized_end=1081,
+  serialized_start=1049,
+  serialized_end=1129,
 )
 
 _ADMISSIONCONTROL_SUCCESSCRITERIA_GRPCCRITERIA = _descriptor.Descriptor(
@@ -93,8 +93,8 @@ _ADMISSIONCONTROL_SUCCESSCRITERIA_GRPCCRITERIA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1083,
-  serialized_end=1136,
+  serialized_start=1131,
+  serialized_end=1184,
 )
 
 _ADMISSIONCONTROL_SUCCESSCRITERIA = _descriptor.Descriptor(
@@ -131,8 +131,8 @@ _ADMISSIONCONTROL_SUCCESSCRITERIA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=728,
-  serialized_end=1136,
+  serialized_start=776,
+  serialized_end=1184,
 )
 
 _ADMISSIONCONTROL = _descriptor.Descriptor(
@@ -165,8 +165,15 @@ _ADMISSIONCONTROL = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='aggression_coefficient', full_name='envoy.extensions.filters.http.admission_control.v3alpha.AdmissionControl.aggression_coefficient', index=3,
+      name='aggression', full_name='envoy.extensions.filters.http.admission_control.v3alpha.AdmissionControl.aggression', index=3,
       number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sr_threshold', full_name='envoy.extensions.filters.http.admission_control.v3alpha.AdmissionControl.sr_threshold', index=4,
+      number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -189,7 +196,7 @@ _ADMISSIONCONTROL = _descriptor.Descriptor(
     fields=[], serialized_options=b'\370B\001'),
   ],
   serialized_start=408,
-  serialized_end=1164,
+  serialized_end=1212,
 )
 
 _ADMISSIONCONTROL_SUCCESSCRITERIA_HTTPCRITERIA.fields_by_name['http_success_status'].message_type = envoy_dot_type_dot_v3_dot_range__pb2._INT32RANGE
@@ -201,7 +208,8 @@ _ADMISSIONCONTROL_SUCCESSCRITERIA.containing_type = _ADMISSIONCONTROL
 _ADMISSIONCONTROL.fields_by_name['enabled'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._RUNTIMEFEATUREFLAG
 _ADMISSIONCONTROL.fields_by_name['success_criteria'].message_type = _ADMISSIONCONTROL_SUCCESSCRITERIA
 _ADMISSIONCONTROL.fields_by_name['sampling_window'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
-_ADMISSIONCONTROL.fields_by_name['aggression_coefficient'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._RUNTIMEDOUBLE
+_ADMISSIONCONTROL.fields_by_name['aggression'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._RUNTIMEDOUBLE
+_ADMISSIONCONTROL.fields_by_name['sr_threshold'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._RUNTIMEPERCENT
 _ADMISSIONCONTROL.oneofs_by_name['evaluation_criteria'].fields.append(
   _ADMISSIONCONTROL.fields_by_name['success_criteria'])
 _ADMISSIONCONTROL.fields_by_name['success_criteria'].containing_oneof = _ADMISSIONCONTROL.oneofs_by_name['evaluation_criteria']

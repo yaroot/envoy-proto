@@ -15,6 +15,7 @@ from envoy.config.core.v3 import address_pb2 as envoy_dot_config_dot_core_dot_v3
 from envoy.config.core.v3 import base_pb2 as envoy_dot_config_dot_core_dot_v3_dot_base__pb2
 from envoy.type.v3 import range_pb2 as envoy_dot_type_dot_v3_dot_range__pb2
 from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
+from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
@@ -28,9 +29,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n&io.envoyproxy.envoy.config.listener.v3B\027ListenerComponentsProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n2envoy/config/listener/v3/listener_components.proto\x12\x18\x65nvoy.config.listener.v3\x1a\"envoy/config/core/v3/address.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x19\x65nvoy/type/v3/range.proto\x1a\x19google/protobuf/any.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x95\x01\n\x06\x46ilter\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12,\n\x0ctyped_config\x18\x04 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:#\x9a\xc5\x88\x1e\x1e\n\x1c\x65nvoy.api.v2.listener.FilterB\r\n\x0b\x63onfig_typeJ\x04\x08\x03\x10\x04J\x04\x08\x02\x10\x03R\x06\x63onfig\"\xee\x04\n\x10\x46ilterChainMatch\x12\x43\n\x10\x64\x65stination_port\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x0b\xfa\x42\x08*\x06\x18\xff\xff\x03(\x01\x12\x36\n\rprefix_ranges\x18\x03 \x03(\x0b\x32\x1f.envoy.config.core.v3.CidrRange\x12\x16\n\x0e\x61\x64\x64ress_suffix\x18\x04 \x01(\t\x12\x30\n\nsuffix_len\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12^\n\x0bsource_type\x18\x0c \x01(\x0e\x32?.envoy.config.listener.v3.FilterChainMatch.ConnectionSourceTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12=\n\x14source_prefix_ranges\x18\x06 \x03(\x0b\x32\x1f.envoy.config.core.v3.CidrRange\x12&\n\x0csource_ports\x18\x07 \x03(\rB\x10\xfa\x42\r\x92\x01\n\"\x08*\x06\x18\xff\xff\x03(\x01\x12\x14\n\x0cserver_names\x18\x0b \x03(\t\x12\x1a\n\x12transport_protocol\x18\t \x01(\t\x12\x1d\n\x15\x61pplication_protocols\x18\n \x03(\t\"F\n\x14\x43onnectionSourceType\x12\x07\n\x03\x41NY\x10\x00\x12\x17\n\x13SAME_IP_OR_LOOPBACK\x10\x01\x12\x0c\n\x08\x45XTERNAL\x10\x02:-\x9a\xc5\x88\x1e(\n&envoy.api.v2.listener.FilterChainMatchJ\x04\x08\x01\x10\x02\"\xfb\x02\n\x0b\x46ilterChain\x12\x46\n\x12\x66ilter_chain_match\x18\x01 \x01(\x0b\x32*.envoy.config.listener.v3.FilterChainMatch\x12\x31\n\x07\x66ilters\x18\x03 \x03(\x0b\x32 .envoy.config.listener.v3.Filter\x12\x33\n\x0fuse_proxy_proto\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x30\n\x08metadata\x18\x05 \x01(\x0b\x32\x1e.envoy.config.core.v3.Metadata\x12?\n\x10transport_socket\x18\x06 \x01(\x0b\x32%.envoy.config.core.v3.TransportSocket\x12\x0c\n\x04name\x18\x07 \x01(\t:(\x9a\xc5\x88\x1e#\n!envoy.api.v2.listener.FilterChainJ\x04\x08\x02\x10\x03R\x0btls_context\"\xfe\x04\n!ListenerFilterChainMatchPredicate\x12X\n\x08or_match\x18\x01 \x01(\x0b\x32\x44.envoy.config.listener.v3.ListenerFilterChainMatchPredicate.MatchSetH\x00\x12Y\n\tand_match\x18\x02 \x01(\x0b\x32\x44.envoy.config.listener.v3.ListenerFilterChainMatchPredicate.MatchSetH\x00\x12P\n\tnot_match\x18\x03 \x01(\x0b\x32;.envoy.config.listener.v3.ListenerFilterChainMatchPredicateH\x00\x12\x1c\n\tany_match\x18\x04 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12;\n\x16\x64\x65stination_port_range\x18\x05 \x01(\x0b\x32\x19.envoy.type.v3.Int32RangeH\x00\x1a\xa9\x01\n\x08MatchSet\x12T\n\x05rules\x18\x01 \x03(\x0b\x32;.envoy.config.listener.v3.ListenerFilterChainMatchPredicateB\x08\xfa\x42\x05\x92\x01\x02\x08\x02:G\x9a\xc5\x88\x1e\x42\n@envoy.api.v2.listener.ListenerFilterChainMatchPredicate.MatchSet:>\x9a\xc5\x88\x1e\x39\n7envoy.api.v2.listener.ListenerFilterChainMatchPredicateB\x0b\n\x04rule\x12\x03\xf8\x42\x01\"\xf5\x01\n\x0eListenerFilter\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x12T\n\x0f\x66ilter_disabled\x18\x04 \x01(\x0b\x32;.envoy.config.listener.v3.ListenerFilterChainMatchPredicate:+\x9a\xc5\x88\x1e&\n$envoy.api.v2.listener.ListenerFilterB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfigBK\n&io.envoyproxy.envoy.config.listener.v3B\x17ListenerComponentsProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n2envoy/config/listener/v3/listener_components.proto\x12\x18\x65nvoy.config.listener.v3\x1a\"envoy/config/core/v3/address.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x19\x65nvoy/type/v3/range.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x95\x01\n\x06\x46ilter\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x04 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:#\x9a\xc5\x88\x1e\x1e\n\x1c\x65nvoy.api.v2.listener.FilterB\r\n\x0b\x63onfig_typeJ\x04\x08\x03\x10\x04J\x04\x08\x02\x10\x03R\x06\x63onfig\"\xee\x04\n\x10\x46ilterChainMatch\x12\x43\n\x10\x64\x65stination_port\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x0b\xfa\x42\x08*\x06\x18\xff\xff\x03(\x01\x12\x36\n\rprefix_ranges\x18\x03 \x03(\x0b\x32\x1f.envoy.config.core.v3.CidrRange\x12\x16\n\x0e\x61\x64\x64ress_suffix\x18\x04 \x01(\t\x12\x30\n\nsuffix_len\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12^\n\x0bsource_type\x18\x0c \x01(\x0e\x32?.envoy.config.listener.v3.FilterChainMatch.ConnectionSourceTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12=\n\x14source_prefix_ranges\x18\x06 \x03(\x0b\x32\x1f.envoy.config.core.v3.CidrRange\x12&\n\x0csource_ports\x18\x07 \x03(\rB\x10\xfa\x42\r\x92\x01\n\"\x08*\x06\x18\xff\xff\x03(\x01\x12\x14\n\x0cserver_names\x18\x0b \x03(\t\x12\x1a\n\x12transport_protocol\x18\t \x01(\t\x12\x1d\n\x15\x61pplication_protocols\x18\n \x03(\t\"F\n\x14\x43onnectionSourceType\x12\x07\n\x03\x41NY\x10\x00\x12\x17\n\x13SAME_IP_OR_LOOPBACK\x10\x01\x12\x0c\n\x08\x45XTERNAL\x10\x02:-\x9a\xc5\x88\x1e(\n&envoy.api.v2.listener.FilterChainMatchJ\x04\x08\x01\x10\x02\"\xa6\x04\n\x0b\x46ilterChain\x12\x46\n\x12\x66ilter_chain_match\x18\x01 \x01(\x0b\x32*.envoy.config.listener.v3.FilterChainMatch\x12\x31\n\x07\x66ilters\x18\x03 \x03(\x0b\x32 .envoy.config.listener.v3.Filter\x12\x33\n\x0fuse_proxy_proto\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x30\n\x08metadata\x18\x05 \x01(\x0b\x32\x1e.envoy.config.core.v3.Metadata\x12?\n\x10transport_socket\x18\x06 \x01(\x0b\x32%.envoy.config.core.v3.TransportSocket\x12\x0c\n\x04name\x18\x07 \x01(\t\x12\\\n\x17on_demand_configuration\x18\x08 \x01(\x0b\x32;.envoy.config.listener.v3.FilterChain.OnDemandConfiguration\x1aK\n\x15OnDemandConfiguration\x12\x32\n\x0frebuild_timeout\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration:(\x9a\xc5\x88\x1e#\n!envoy.api.v2.listener.FilterChainJ\x04\x08\x02\x10\x03R\x0btls_context\"\xfe\x04\n!ListenerFilterChainMatchPredicate\x12X\n\x08or_match\x18\x01 \x01(\x0b\x32\x44.envoy.config.listener.v3.ListenerFilterChainMatchPredicate.MatchSetH\x00\x12Y\n\tand_match\x18\x02 \x01(\x0b\x32\x44.envoy.config.listener.v3.ListenerFilterChainMatchPredicate.MatchSetH\x00\x12P\n\tnot_match\x18\x03 \x01(\x0b\x32;.envoy.config.listener.v3.ListenerFilterChainMatchPredicateH\x00\x12\x1c\n\tany_match\x18\x04 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12;\n\x16\x64\x65stination_port_range\x18\x05 \x01(\x0b\x32\x19.envoy.type.v3.Int32RangeH\x00\x1a\xa9\x01\n\x08MatchSet\x12T\n\x05rules\x18\x01 \x03(\x0b\x32;.envoy.config.listener.v3.ListenerFilterChainMatchPredicateB\x08\xfa\x42\x05\x92\x01\x02\x08\x02:G\x9a\xc5\x88\x1e\x42\n@envoy.api.v2.listener.ListenerFilterChainMatchPredicate.MatchSet:>\x9a\xc5\x88\x1e\x39\n7envoy.api.v2.listener.ListenerFilterChainMatchPredicateB\x0b\n\x04rule\x12\x03\xf8\x42\x01\"\xf5\x01\n\x0eListenerFilter\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x12T\n\x0f\x66ilter_disabled\x18\x04 \x01(\x0b\x32;.envoy.config.listener.v3.ListenerFilterChainMatchPredicate:+\x9a\xc5\x88\x1e&\n$envoy.api.v2.listener.ListenerFilterB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfigBK\n&io.envoyproxy.envoy.config.listener.v3B\x17ListenerComponentsProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_range__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_range__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -59,8 +60,8 @@ _FILTERCHAINMATCH_CONNECTIONSOURCETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1008,
-  serialized_end=1078,
+  serialized_start=1040,
+  serialized_end=1110,
 )
 _sym_db.RegisterEnumDescriptor(_FILTERCHAINMATCH_CONNECTIONSOURCETYPE)
 
@@ -79,7 +80,7 @@ _FILTER = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='typed_config', full_name='envoy.config.listener.v3.Filter.typed_config', index=1,
       number=4, type=11, cpp_type=10, label=1,
@@ -104,8 +105,8 @@ _FILTER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=357,
-  serialized_end=506,
+  serialized_start=389,
+  serialized_end=538,
 )
 
 
@@ -200,10 +201,41 @@ _FILTERCHAINMATCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=509,
-  serialized_end=1131,
+  serialized_start=541,
+  serialized_end=1163,
 )
 
+
+_FILTERCHAIN_ONDEMANDCONFIGURATION = _descriptor.Descriptor(
+  name='OnDemandConfiguration',
+  full_name='envoy.config.listener.v3.FilterChain.OnDemandConfiguration',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='rebuild_timeout', full_name='envoy.config.listener.v3.FilterChain.OnDemandConfiguration.rebuild_timeout', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1580,
+  serialized_end=1655,
+)
 
 _FILTERCHAIN = _descriptor.Descriptor(
   name='FilterChain',
@@ -255,10 +287,17 @@ _FILTERCHAIN = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='on_demand_configuration', full_name='envoy.config.listener.v3.FilterChain.on_demand_configuration', index=6,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_FILTERCHAIN_ONDEMANDCONFIGURATION, ],
   enum_types=[
   ],
   serialized_options=b'\232\305\210\036#\n!envoy.api.v2.listener.FilterChain',
@@ -267,8 +306,8 @@ _FILTERCHAIN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1134,
-  serialized_end=1513,
+  serialized_start=1166,
+  serialized_end=1716,
 )
 
 
@@ -299,8 +338,8 @@ _LISTENERFILTERCHAINMATCHPREDICATE_MATCHSET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1908,
-  serialized_end=2077,
+  serialized_start=2111,
+  serialized_end=2280,
 )
 
 _LISTENERFILTERCHAINMATCHPREDICATE = _descriptor.Descriptor(
@@ -363,8 +402,8 @@ _LISTENERFILTERCHAINMATCHPREDICATE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=1516,
-  serialized_end=2154,
+  serialized_start=1719,
+  serialized_end=2357,
 )
 
 
@@ -382,7 +421,7 @@ _LISTENERFILTER = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='typed_config', full_name='envoy.config.listener.v3.ListenerFilter.typed_config', index=1,
       number=3, type=11, cpp_type=10, label=1,
@@ -414,8 +453,8 @@ _LISTENERFILTER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2157,
-  serialized_end=2402,
+  serialized_start=2360,
+  serialized_end=2605,
 )
 
 _FILTER.fields_by_name['typed_config'].message_type = google_dot_protobuf_dot_any__pb2._ANY
@@ -428,11 +467,14 @@ _FILTERCHAINMATCH.fields_by_name['suffix_len'].message_type = google_dot_protobu
 _FILTERCHAINMATCH.fields_by_name['source_type'].enum_type = _FILTERCHAINMATCH_CONNECTIONSOURCETYPE
 _FILTERCHAINMATCH.fields_by_name['source_prefix_ranges'].message_type = envoy_dot_config_dot_core_dot_v3_dot_address__pb2._CIDRRANGE
 _FILTERCHAINMATCH_CONNECTIONSOURCETYPE.containing_type = _FILTERCHAINMATCH
+_FILTERCHAIN_ONDEMANDCONFIGURATION.fields_by_name['rebuild_timeout'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
+_FILTERCHAIN_ONDEMANDCONFIGURATION.containing_type = _FILTERCHAIN
 _FILTERCHAIN.fields_by_name['filter_chain_match'].message_type = _FILTERCHAINMATCH
 _FILTERCHAIN.fields_by_name['filters'].message_type = _FILTER
 _FILTERCHAIN.fields_by_name['use_proxy_proto'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _FILTERCHAIN.fields_by_name['metadata'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._METADATA
 _FILTERCHAIN.fields_by_name['transport_socket'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._TRANSPORTSOCKET
+_FILTERCHAIN.fields_by_name['on_demand_configuration'].message_type = _FILTERCHAIN_ONDEMANDCONFIGURATION
 _LISTENERFILTERCHAINMATCHPREDICATE_MATCHSET.fields_by_name['rules'].message_type = _LISTENERFILTERCHAINMATCHPREDICATE
 _LISTENERFILTERCHAINMATCHPREDICATE_MATCHSET.containing_type = _LISTENERFILTERCHAINMATCHPREDICATE
 _LISTENERFILTERCHAINMATCHPREDICATE.fields_by_name['or_match'].message_type = _LISTENERFILTERCHAINMATCHPREDICATE_MATCHSET
@@ -481,11 +523,19 @@ FilterChainMatch = _reflection.GeneratedProtocolMessageType('FilterChainMatch', 
 _sym_db.RegisterMessage(FilterChainMatch)
 
 FilterChain = _reflection.GeneratedProtocolMessageType('FilterChain', (_message.Message,), {
+
+  'OnDemandConfiguration' : _reflection.GeneratedProtocolMessageType('OnDemandConfiguration', (_message.Message,), {
+    'DESCRIPTOR' : _FILTERCHAIN_ONDEMANDCONFIGURATION,
+    '__module__' : 'envoy.config.listener.v3.listener_components_pb2'
+    # @@protoc_insertion_point(class_scope:envoy.config.listener.v3.FilterChain.OnDemandConfiguration)
+    })
+  ,
   'DESCRIPTOR' : _FILTERCHAIN,
   '__module__' : 'envoy.config.listener.v3.listener_components_pb2'
   # @@protoc_insertion_point(class_scope:envoy.config.listener.v3.FilterChain)
   })
 _sym_db.RegisterMessage(FilterChain)
+_sym_db.RegisterMessage(FilterChain.OnDemandConfiguration)
 
 ListenerFilterChainMatchPredicate = _reflection.GeneratedProtocolMessageType('ListenerFilterChainMatchPredicate', (_message.Message,), {
 

@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\nBio.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v4alphaB\017DubboProxyProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nFenvoy/extensions/filters/network/dubbo_proxy/v4alpha/dubbo_proxy.proto\x12\x34\x65nvoy.extensions.filters.network.dubbo_proxy.v4alpha\x1a@envoy/extensions/filters/network/dubbo_proxy/v4alpha/route.proto\x1a\x19google/protobuf/any.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xfb\x03\n\nDubboProxy\x12\x1c\n\x0bstat_prefix\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x63\n\rprotocol_type\x18\x02 \x01(\x0e\x32\x42.envoy.extensions.filters.network.dubbo_proxy.v4alpha.ProtocolTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12m\n\x12serialization_type\x18\x03 \x01(\x0e\x32G.envoy.extensions.filters.network.dubbo_proxy.v4alpha.SerializationTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12^\n\x0croute_config\x18\x04 \x03(\x0b\x32H.envoy.extensions.filters.network.dubbo_proxy.v4alpha.RouteConfiguration\x12X\n\rdubbo_filters\x18\x05 \x03(\x0b\x32\x41.envoy.extensions.filters.network.dubbo_proxy.v4alpha.DubboFilter:A\x9a\xc5\x88\x1e<\n:envoy.extensions.filters.network.dubbo_proxy.v3.DubboProxy\"\x8e\x01\n\x0b\x44ubboFilter\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12$\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:B\x9a\xc5\x88\x1e=\n;envoy.extensions.filters.network.dubbo_proxy.v3.DubboFilter*\x19\n\x0cProtocolType\x12\t\n\x05\x44ubbo\x10\x00*!\n\x11SerializationType\x12\x0c\n\x08Hessian2\x10\x00\x42_\nBio.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v4alphaB\x0f\x44ubboProxyProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\nFenvoy/extensions/filters/network/dubbo_proxy/v4alpha/dubbo_proxy.proto\x12\x34\x65nvoy.extensions.filters.network.dubbo_proxy.v4alpha\x1a@envoy/extensions/filters/network/dubbo_proxy/v4alpha/route.proto\x1a\x19google/protobuf/any.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xfb\x03\n\nDubboProxy\x12\x1c\n\x0bstat_prefix\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x63\n\rprotocol_type\x18\x02 \x01(\x0e\x32\x42.envoy.extensions.filters.network.dubbo_proxy.v4alpha.ProtocolTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12m\n\x12serialization_type\x18\x03 \x01(\x0e\x32G.envoy.extensions.filters.network.dubbo_proxy.v4alpha.SerializationTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12^\n\x0croute_config\x18\x04 \x03(\x0b\x32H.envoy.extensions.filters.network.dubbo_proxy.v4alpha.RouteConfiguration\x12X\n\rdubbo_filters\x18\x05 \x03(\x0b\x32\x41.envoy.extensions.filters.network.dubbo_proxy.v4alpha.DubboFilter:A\x9a\xc5\x88\x1e<\n:envoy.extensions.filters.network.dubbo_proxy.v3.DubboProxy\"\x8e\x01\n\x0b\x44ubboFilter\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12$\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:B\x9a\xc5\x88\x1e=\n;envoy.extensions.filters.network.dubbo_proxy.v3.DubboFilter*\x19\n\x0cProtocolType\x12\t\n\x05\x44ubbo\x10\x00*!\n\x11SerializationType\x12\x0c\n\x08Hessian2\x10\x00\x42_\nBio.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v4alphaB\x0f\x44ubboProxyProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
   dependencies=[envoy_dot_extensions_dot_filters_dot_network_dot_dubbo__proxy_dot_v4alpha_dot_route__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -90,7 +90,7 @@ _DUBBOPROXY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='protocol_type', full_name='envoy.extensions.filters.network.dubbo_proxy.v4alpha.DubboProxy.protocol_type', index=1,
       number=2, type=14, cpp_type=8, label=1,
@@ -150,7 +150,7 @@ _DUBBOFILTER = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='config', full_name='envoy.extensions.filters.network.dubbo_proxy.v4alpha.DubboFilter.config', index=1,
       number=2, type=11, cpp_type=10, label=1,

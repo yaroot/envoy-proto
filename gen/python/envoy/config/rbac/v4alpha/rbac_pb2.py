@@ -16,6 +16,7 @@ from envoy.config.route.v4alpha import route_components_pb2 as envoy_dot_config_
 from envoy.type.matcher.v4alpha import metadata_pb2 as envoy_dot_type_dot_matcher_dot_v4alpha_dot_metadata__pb2
 from envoy.type.matcher.v4alpha import path_pb2 as envoy_dot_type_dot_matcher_dot_v4alpha_dot_path__pb2
 from envoy.type.matcher.v4alpha import string_pb2 as envoy_dot_type_dot_matcher_dot_v4alpha_dot_string__pb2
+from google.api.expr.v1alpha1 import checked_pb2 as google_dot_api_dot_expr_dot_v1alpha1_dot_checked__pb2
 from google.api.expr.v1alpha1 import syntax_pb2 as google_dot_api_dot_expr_dot_v1alpha1_dot_syntax__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from udpa.annotations import versioning_pb2 as udpa_dot_annotations_dot_versioning__pb2
@@ -28,9 +29,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\'io.envoyproxy.envoy.config.rbac.v4alphaB\tRbacProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n$envoy/config/rbac/v4alpha/rbac.proto\x12\x19\x65nvoy.config.rbac.v4alpha\x1a\'envoy/config/core/v4alpha/address.proto\x1a\x31\x65nvoy/config/route/v4alpha/route_components.proto\x1a)envoy/type/matcher/v4alpha/metadata.proto\x1a%envoy/type/matcher/v4alpha/path.proto\x1a\'envoy/type/matcher/v4alpha/string.proto\x1a%google/api/expr/v1alpha1/syntax.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x94\x02\n\x04RBAC\x12\x36\n\x06\x61\x63tion\x18\x01 \x01(\x0e\x32&.envoy.config.rbac.v4alpha.RBAC.Action\x12?\n\x08policies\x18\x02 \x03(\x0b\x32-.envoy.config.rbac.v4alpha.RBAC.PoliciesEntry\x1aR\n\rPoliciesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x30\n\x05value\x18\x02 \x01(\x0b\x32!.envoy.config.rbac.v4alpha.Policy:\x02\x38\x01\"\x1d\n\x06\x41\x63tion\x12\t\n\x05\x41LLOW\x10\x00\x12\x08\n\x04\x44\x45NY\x10\x01: \x9a\xc5\x88\x1e\x1b\n\x19\x65nvoy.config.rbac.v3.RBAC\"\xe9\x01\n\x06Policy\x12\x44\n\x0bpermissions\x18\x01 \x03(\x0b\x32%.envoy.config.rbac.v4alpha.PermissionB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12\x42\n\nprincipals\x18\x02 \x03(\x0b\x32$.envoy.config.rbac.v4alpha.PrincipalB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12\x31\n\tcondition\x18\x03 \x01(\x0b\x32\x1e.google.api.expr.v1alpha1.Expr:\"\x9a\xc5\x88\x1e\x1d\n\x1b\x65nvoy.config.rbac.v3.Policy\"\xf4\x05\n\nPermission\x12>\n\tand_rules\x18\x01 \x01(\x0b\x32).envoy.config.rbac.v4alpha.Permission.SetH\x00\x12=\n\x08or_rules\x18\x02 \x01(\x0b\x32).envoy.config.rbac.v4alpha.Permission.SetH\x00\x12\x16\n\x03\x61ny\x18\x03 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12;\n\x06header\x18\x04 \x01(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcherH\x00\x12;\n\x08url_path\x18\n \x01(\x0b\x32\'.envoy.type.matcher.v4alpha.PathMatcherH\x00\x12>\n\x0e\x64\x65stination_ip\x18\x05 \x01(\x0b\x32$.envoy.config.core.v4alpha.CidrRangeH\x00\x12%\n\x10\x64\x65stination_port\x18\x06 \x01(\rB\t\xfa\x42\x06*\x04\x18\xff\xff\x03H\x00\x12?\n\x08metadata\x18\x07 \x01(\x0b\x32+.envoy.type.matcher.v4alpha.MetadataMatcherH\x00\x12\x39\n\x08not_rule\x18\x08 \x01(\x0b\x32%.envoy.config.rbac.v4alpha.PermissionH\x00\x12J\n\x15requested_server_name\x18\t \x01(\x0b\x32).envoy.type.matcher.v4alpha.StringMatcherH\x00\x1aq\n\x03Set\x12>\n\x05rules\x18\x01 \x03(\x0b\x32%.envoy.config.rbac.v4alpha.PermissionB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:*\x9a\xc5\x88\x1e%\n#envoy.config.rbac.v3.Permission.Set:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.rbac.v3.PermissionB\x0b\n\x04rule\x12\x03\xf8\x42\x01\"\xa3\x07\n\tPrincipal\x12;\n\x07\x61nd_ids\x18\x01 \x01(\x0b\x32(.envoy.config.rbac.v4alpha.Principal.SetH\x00\x12:\n\x06or_ids\x18\x02 \x01(\x0b\x32(.envoy.config.rbac.v4alpha.Principal.SetH\x00\x12\x16\n\x03\x61ny\x18\x03 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12K\n\rauthenticated\x18\x04 \x01(\x0b\x32\x32.envoy.config.rbac.v4alpha.Principal.AuthenticatedH\x00\x12@\n\x10\x64irect_remote_ip\x18\n \x01(\x0b\x32$.envoy.config.core.v4alpha.CidrRangeH\x00\x12\x39\n\tremote_ip\x18\x0b \x01(\x0b\x32$.envoy.config.core.v4alpha.CidrRangeH\x00\x12;\n\x06header\x18\x06 \x01(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcherH\x00\x12;\n\x08url_path\x18\t \x01(\x0b\x32\'.envoy.type.matcher.v4alpha.PathMatcherH\x00\x12?\n\x08metadata\x18\x07 \x01(\x0b\x32+.envoy.type.matcher.v4alpha.MetadataMatcherH\x00\x12\x36\n\x06not_id\x18\x08 \x01(\x0b\x32$.envoy.config.rbac.v4alpha.PrincipalH\x00\x1am\n\x03Set\x12;\n\x03ids\x18\x01 \x03(\x0b\x32$.envoy.config.rbac.v4alpha.PrincipalB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:)\x9a\xc5\x88\x1e$\n\"envoy.config.rbac.v3.Principal.Set\x1a\x8d\x01\n\rAuthenticated\x12\x41\n\x0eprincipal_name\x18\x02 \x01(\x0b\x32).envoy.type.matcher.v4alpha.StringMatcher:3\x9a\xc5\x88\x1e.\n,envoy.config.rbac.v3.Principal.AuthenticatedJ\x04\x08\x01\x10\x02:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.config.rbac.v3.PrincipalB\x11\n\nidentifier\x12\x03\xf8\x42\x01J\x04\x08\x05\x10\x06R\tsource_ipB>\n\'io.envoyproxy.envoy.config.rbac.v4alphaB\tRbacProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n$envoy/config/rbac/v4alpha/rbac.proto\x12\x19\x65nvoy.config.rbac.v4alpha\x1a\'envoy/config/core/v4alpha/address.proto\x1a\x31\x65nvoy/config/route/v4alpha/route_components.proto\x1a)envoy/type/matcher/v4alpha/metadata.proto\x1a%envoy/type/matcher/v4alpha/path.proto\x1a\'envoy/type/matcher/v4alpha/string.proto\x1a&google/api/expr/v1alpha1/checked.proto\x1a%google/api/expr/v1alpha1/syntax.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xa7\x02\n\x04RBAC\x12@\n\x06\x61\x63tion\x18\x01 \x01(\x0e\x32&.envoy.config.rbac.v4alpha.RBAC.ActionB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12?\n\x08policies\x18\x02 \x03(\x0b\x32-.envoy.config.rbac.v4alpha.RBAC.PoliciesEntry\x1aR\n\rPoliciesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x30\n\x05value\x18\x02 \x01(\x0b\x32!.envoy.config.rbac.v4alpha.Policy:\x02\x38\x01\"&\n\x06\x41\x63tion\x12\t\n\x05\x41LLOW\x10\x00\x12\x08\n\x04\x44\x45NY\x10\x01\x12\x07\n\x03LOG\x10\x02: \x9a\xc5\x88\x1e\x1b\n\x19\x65nvoy.config.rbac.v3.RBAC\"\xc7\x02\n\x06Policy\x12\x44\n\x0bpermissions\x18\x01 \x03(\x0b\x32%.envoy.config.rbac.v4alpha.PermissionB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12\x42\n\nprincipals\x18\x02 \x03(\x0b\x32$.envoy.config.rbac.v4alpha.PrincipalB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12\x33\n\tcondition\x18\x03 \x01(\x0b\x32\x1e.google.api.expr.v1alpha1.ExprH\x00\x12\x42\n\x11\x63hecked_condition\x18\x04 \x01(\x0b\x32%.google.api.expr.v1alpha1.CheckedExprH\x00:\"\x9a\xc5\x88\x1e\x1d\n\x1b\x65nvoy.config.rbac.v3.PolicyB\x16\n\x14\x65xpression_specifier\"\xf4\x05\n\nPermission\x12>\n\tand_rules\x18\x01 \x01(\x0b\x32).envoy.config.rbac.v4alpha.Permission.SetH\x00\x12=\n\x08or_rules\x18\x02 \x01(\x0b\x32).envoy.config.rbac.v4alpha.Permission.SetH\x00\x12\x16\n\x03\x61ny\x18\x03 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12;\n\x06header\x18\x04 \x01(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcherH\x00\x12;\n\x08url_path\x18\n \x01(\x0b\x32\'.envoy.type.matcher.v4alpha.PathMatcherH\x00\x12>\n\x0e\x64\x65stination_ip\x18\x05 \x01(\x0b\x32$.envoy.config.core.v4alpha.CidrRangeH\x00\x12%\n\x10\x64\x65stination_port\x18\x06 \x01(\rB\t\xfa\x42\x06*\x04\x18\xff\xff\x03H\x00\x12?\n\x08metadata\x18\x07 \x01(\x0b\x32+.envoy.type.matcher.v4alpha.MetadataMatcherH\x00\x12\x39\n\x08not_rule\x18\x08 \x01(\x0b\x32%.envoy.config.rbac.v4alpha.PermissionH\x00\x12J\n\x15requested_server_name\x18\t \x01(\x0b\x32).envoy.type.matcher.v4alpha.StringMatcherH\x00\x1aq\n\x03Set\x12>\n\x05rules\x18\x01 \x03(\x0b\x32%.envoy.config.rbac.v4alpha.PermissionB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:*\x9a\xc5\x88\x1e%\n#envoy.config.rbac.v3.Permission.Set:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.rbac.v3.PermissionB\x0b\n\x04rule\x12\x03\xf8\x42\x01\"\xa3\x07\n\tPrincipal\x12;\n\x07\x61nd_ids\x18\x01 \x01(\x0b\x32(.envoy.config.rbac.v4alpha.Principal.SetH\x00\x12:\n\x06or_ids\x18\x02 \x01(\x0b\x32(.envoy.config.rbac.v4alpha.Principal.SetH\x00\x12\x16\n\x03\x61ny\x18\x03 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12K\n\rauthenticated\x18\x04 \x01(\x0b\x32\x32.envoy.config.rbac.v4alpha.Principal.AuthenticatedH\x00\x12@\n\x10\x64irect_remote_ip\x18\n \x01(\x0b\x32$.envoy.config.core.v4alpha.CidrRangeH\x00\x12\x39\n\tremote_ip\x18\x0b \x01(\x0b\x32$.envoy.config.core.v4alpha.CidrRangeH\x00\x12;\n\x06header\x18\x06 \x01(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcherH\x00\x12;\n\x08url_path\x18\t \x01(\x0b\x32\'.envoy.type.matcher.v4alpha.PathMatcherH\x00\x12?\n\x08metadata\x18\x07 \x01(\x0b\x32+.envoy.type.matcher.v4alpha.MetadataMatcherH\x00\x12\x36\n\x06not_id\x18\x08 \x01(\x0b\x32$.envoy.config.rbac.v4alpha.PrincipalH\x00\x1am\n\x03Set\x12;\n\x03ids\x18\x01 \x03(\x0b\x32$.envoy.config.rbac.v4alpha.PrincipalB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:)\x9a\xc5\x88\x1e$\n\"envoy.config.rbac.v3.Principal.Set\x1a\x8d\x01\n\rAuthenticated\x12\x41\n\x0eprincipal_name\x18\x02 \x01(\x0b\x32).envoy.type.matcher.v4alpha.StringMatcher:3\x9a\xc5\x88\x1e.\n,envoy.config.rbac.v3.Principal.AuthenticatedJ\x04\x08\x01\x10\x02:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.config.rbac.v3.PrincipalB\x11\n\nidentifier\x12\x03\xf8\x42\x01J\x04\x08\x05\x10\x06R\tsource_ipB>\n\'io.envoyproxy.envoy.config.rbac.v4alphaB\tRbacProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_core_dot_v4alpha_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v4alpha_dot_route__components__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v4alpha_dot_metadata__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v4alpha_dot_path__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v4alpha_dot_string__pb2.DESCRIPTOR,google_dot_api_dot_expr_dot_v1alpha1_dot_syntax__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_core_dot_v4alpha_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v4alpha_dot_route__components__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v4alpha_dot_metadata__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v4alpha_dot_path__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v4alpha_dot_string__pb2.DESCRIPTOR,google_dot_api_dot_expr_dot_v1alpha1_dot_checked__pb2.DESCRIPTOR,google_dot_api_dot_expr_dot_v1alpha1_dot_syntax__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -51,11 +52,16 @@ _RBAC_ACTION = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='LOG', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=626,
-  serialized_end=655,
+  serialized_start=676,
+  serialized_end=714,
 )
 _sym_db.RegisterEnumDescriptor(_RBAC_ACTION)
 
@@ -94,8 +100,8 @@ _RBAC_POLICIESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=542,
-  serialized_end=624,
+  serialized_start=592,
+  serialized_end=674,
 )
 
 _RBAC = _descriptor.Descriptor(
@@ -112,7 +118,7 @@ _RBAC = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\005\202\001\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='policies', full_name='envoy.config.rbac.v4alpha.RBAC.policies', index=1,
       number=2, type=11, cpp_type=10, label=3,
@@ -133,8 +139,8 @@ _RBAC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=413,
-  serialized_end=689,
+  serialized_start=453,
+  serialized_end=748,
 )
 
 
@@ -167,6 +173,13 @@ _POLICY = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='checked_condition', full_name='envoy.config.rbac.v4alpha.Policy.checked_condition', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -178,9 +191,14 @@ _POLICY = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='expression_specifier', full_name='envoy.config.rbac.v4alpha.Policy.expression_specifier',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=692,
-  serialized_end=925,
+  serialized_start=751,
+  serialized_end=1078,
 )
 
 
@@ -211,8 +229,8 @@ _PERMISSION_SET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1518,
-  serialized_end=1631,
+  serialized_start=1671,
+  serialized_end=1784,
 )
 
 _PERMISSION = _descriptor.Descriptor(
@@ -310,8 +328,8 @@ _PERMISSION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=928,
-  serialized_end=1684,
+  serialized_start=1081,
+  serialized_end=1837,
 )
 
 
@@ -342,8 +360,8 @@ _PRINCIPAL_SET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2290,
-  serialized_end=2399,
+  serialized_start=2443,
+  serialized_end=2552,
 )
 
 _PRINCIPAL_AUTHENTICATED = _descriptor.Descriptor(
@@ -373,8 +391,8 @@ _PRINCIPAL_AUTHENTICATED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2402,
-  serialized_end=2543,
+  serialized_start=2555,
+  serialized_end=2696,
 )
 
 _PRINCIPAL = _descriptor.Descriptor(
@@ -472,8 +490,8 @@ _PRINCIPAL = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=1687,
-  serialized_end=2618,
+  serialized_start=1840,
+  serialized_end=2771,
 )
 
 _RBAC_POLICIESENTRY.fields_by_name['value'].message_type = _POLICY
@@ -484,6 +502,13 @@ _RBAC_ACTION.containing_type = _RBAC
 _POLICY.fields_by_name['permissions'].message_type = _PERMISSION
 _POLICY.fields_by_name['principals'].message_type = _PRINCIPAL
 _POLICY.fields_by_name['condition'].message_type = google_dot_api_dot_expr_dot_v1alpha1_dot_syntax__pb2._EXPR
+_POLICY.fields_by_name['checked_condition'].message_type = google_dot_api_dot_expr_dot_v1alpha1_dot_checked__pb2._CHECKEDEXPR
+_POLICY.oneofs_by_name['expression_specifier'].fields.append(
+  _POLICY.fields_by_name['condition'])
+_POLICY.fields_by_name['condition'].containing_oneof = _POLICY.oneofs_by_name['expression_specifier']
+_POLICY.oneofs_by_name['expression_specifier'].fields.append(
+  _POLICY.fields_by_name['checked_condition'])
+_POLICY.fields_by_name['checked_condition'].containing_oneof = _POLICY.oneofs_by_name['expression_specifier']
 _PERMISSION_SET.fields_by_name['rules'].message_type = _PERMISSION
 _PERMISSION_SET.containing_type = _PERMISSION
 _PERMISSION.fields_by_name['and_rules'].message_type = _PERMISSION_SET
@@ -636,6 +661,7 @@ _sym_db.RegisterMessage(Principal.Authenticated)
 
 DESCRIPTOR._options = None
 _RBAC_POLICIESENTRY._options = None
+_RBAC.fields_by_name['action']._options = None
 _RBAC._options = None
 _POLICY.fields_by_name['permissions']._options = None
 _POLICY.fields_by_name['principals']._options = None

@@ -22,9 +22,9 @@ package httpbody
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -90,7 +90,7 @@ type HttpBody struct {
 	Data []byte `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
 	// Application specific response metadata. Must be set in the first response
 	// for streaming APIs.
-	Extensions []*anypb.Any `protobuf:"bytes,3,rep,name=extensions,proto3" json:"extensions,omitempty"`
+	Extensions []*any.Any `protobuf:"bytes,3,rep,name=extensions,proto3" json:"extensions,omitempty"`
 }
 
 func (x *HttpBody) Reset() {
@@ -139,7 +139,7 @@ func (x *HttpBody) GetData() []byte {
 	return nil
 }
 
-func (x *HttpBody) GetExtensions() []*anypb.Any {
+func (x *HttpBody) GetExtensions() []*any.Any {
 	if x != nil {
 		return x.Extensions
 	}
@@ -184,8 +184,8 @@ func file_google_api_httpbody_proto_rawDescGZIP() []byte {
 
 var file_google_api_httpbody_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_api_httpbody_proto_goTypes = []interface{}{
-	(*HttpBody)(nil),  // 0: google.api.HttpBody
-	(*anypb.Any)(nil), // 1: google.protobuf.Any
+	(*HttpBody)(nil), // 0: google.api.HttpBody
+	(*any.Any)(nil),  // 1: google.protobuf.Any
 }
 var file_google_api_httpbody_proto_depIdxs = []int32{
 	1, // 0: google.api.HttpBody.extensions:type_name -> google.protobuf.Any

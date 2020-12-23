@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\034io.envoyproxy.envoy.admin.v3B\nCertsProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1a\x65nvoy/admin/v3/certs.proto\x12\x0e\x65nvoy.admin.v3\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"j\n\x0c\x43\x65rtificates\x12\x31\n\x0c\x63\x65rtificates\x18\x01 \x03(\x0b\x32\x1b.envoy.admin.v3.Certificate:\'\x9a\xc5\x88\x1e\"\n envoy.admin.v2alpha.Certificates\"\xa2\x01\n\x0b\x43\x65rtificate\x12\x33\n\x07\x63\x61_cert\x18\x01 \x03(\x0b\x32\".envoy.admin.v3.CertificateDetails\x12\x36\n\ncert_chain\x18\x02 \x03(\x0b\x32\".envoy.admin.v3.CertificateDetails:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.admin.v2alpha.Certificate\"\xad\x02\n\x12\x43\x65rtificateDetails\x12\x0c\n\x04path\x18\x01 \x01(\t\x12\x15\n\rserial_number\x18\x02 \x01(\t\x12?\n\x11subject_alt_names\x18\x03 \x03(\x0b\x32$.envoy.admin.v3.SubjectAlternateName\x12\x1d\n\x15\x64\x61ys_until_expiration\x18\x04 \x01(\x04\x12.\n\nvalid_from\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x33\n\x0f\x65xpiration_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:-\x9a\xc5\x88\x1e(\n&envoy.admin.v2alpha.CertificateDetails\"\x83\x01\n\x14SubjectAlternateName\x12\r\n\x03\x64ns\x18\x01 \x01(\tH\x00\x12\r\n\x03uri\x18\x02 \x01(\tH\x00\x12\x14\n\nip_address\x18\x03 \x01(\tH\x00:/\x9a\xc5\x88\x1e*\n(envoy.admin.v2alpha.SubjectAlternateNameB\x06\n\x04nameB4\n\x1cio.envoyproxy.envoy.admin.v3B\nCertsProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n\x1a\x65nvoy/admin/v3/certs.proto\x12\x0e\x65nvoy.admin.v3\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"j\n\x0c\x43\x65rtificates\x12\x31\n\x0c\x63\x65rtificates\x18\x01 \x03(\x0b\x32\x1b.envoy.admin.v3.Certificate:\'\x9a\xc5\x88\x1e\"\n envoy.admin.v2alpha.Certificates\"\xa2\x01\n\x0b\x43\x65rtificate\x12\x33\n\x07\x63\x61_cert\x18\x01 \x03(\x0b\x32\".envoy.admin.v3.CertificateDetails\x12\x36\n\ncert_chain\x18\x02 \x03(\x0b\x32\".envoy.admin.v3.CertificateDetails:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.admin.v2alpha.Certificate\"\xe2\x03\n\x12\x43\x65rtificateDetails\x12\x0c\n\x04path\x18\x01 \x01(\t\x12\x15\n\rserial_number\x18\x02 \x01(\t\x12?\n\x11subject_alt_names\x18\x03 \x03(\x0b\x32$.envoy.admin.v3.SubjectAlternateName\x12\x1d\n\x15\x64\x61ys_until_expiration\x18\x04 \x01(\x04\x12.\n\nvalid_from\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x33\n\x0f\x65xpiration_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x44\n\x0cocsp_details\x18\x07 \x01(\x0b\x32..envoy.admin.v3.CertificateDetails.OcspDetails\x1am\n\x0bOcspDetails\x12.\n\nvalid_from\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nexpiration\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:-\x9a\xc5\x88\x1e(\n&envoy.admin.v2alpha.CertificateDetails\"\x83\x01\n\x14SubjectAlternateName\x12\r\n\x03\x64ns\x18\x01 \x01(\tH\x00\x12\r\n\x03uri\x18\x02 \x01(\tH\x00\x12\x14\n\nip_address\x18\x03 \x01(\tH\x00:/\x9a\xc5\x88\x1e*\n(envoy.admin.v2alpha.SubjectAlternateNameB\x06\n\x04nameB4\n\x1cio.envoyproxy.envoy.admin.v3B\nCertsProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,])
 
@@ -100,6 +100,44 @@ _CERTIFICATE = _descriptor.Descriptor(
 )
 
 
+_CERTIFICATEDETAILS_OCSPDETAILS = _descriptor.Descriptor(
+  name='OcspDetails',
+  full_name='envoy.admin.v3.CertificateDetails.OcspDetails',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='valid_from', full_name='envoy.admin.v3.CertificateDetails.OcspDetails.valid_from', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='expiration', full_name='envoy.admin.v3.CertificateDetails.OcspDetails.expiration', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=745,
+  serialized_end=854,
+)
+
 _CERTIFICATEDETAILS = _descriptor.Descriptor(
   name='CertificateDetails',
   full_name='envoy.admin.v3.CertificateDetails',
@@ -150,10 +188,17 @@ _CERTIFICATEDETAILS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ocsp_details', full_name='envoy.admin.v3.CertificateDetails.ocsp_details', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_CERTIFICATEDETAILS_OCSPDETAILS, ],
   enum_types=[
   ],
   serialized_options=b'\232\305\210\036(\n&envoy.admin.v2alpha.CertificateDetails',
@@ -163,7 +208,7 @@ _CERTIFICATEDETAILS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=419,
-  serialized_end=720,
+  serialized_end=901,
 )
 
 
@@ -213,16 +258,20 @@ _SUBJECTALTERNATENAME = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=723,
-  serialized_end=854,
+  serialized_start=904,
+  serialized_end=1035,
 )
 
 _CERTIFICATES.fields_by_name['certificates'].message_type = _CERTIFICATE
 _CERTIFICATE.fields_by_name['ca_cert'].message_type = _CERTIFICATEDETAILS
 _CERTIFICATE.fields_by_name['cert_chain'].message_type = _CERTIFICATEDETAILS
+_CERTIFICATEDETAILS_OCSPDETAILS.fields_by_name['valid_from'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CERTIFICATEDETAILS_OCSPDETAILS.fields_by_name['expiration'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CERTIFICATEDETAILS_OCSPDETAILS.containing_type = _CERTIFICATEDETAILS
 _CERTIFICATEDETAILS.fields_by_name['subject_alt_names'].message_type = _SUBJECTALTERNATENAME
 _CERTIFICATEDETAILS.fields_by_name['valid_from'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CERTIFICATEDETAILS.fields_by_name['expiration_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CERTIFICATEDETAILS.fields_by_name['ocsp_details'].message_type = _CERTIFICATEDETAILS_OCSPDETAILS
 _SUBJECTALTERNATENAME.oneofs_by_name['name'].fields.append(
   _SUBJECTALTERNATENAME.fields_by_name['dns'])
 _SUBJECTALTERNATENAME.fields_by_name['dns'].containing_oneof = _SUBJECTALTERNATENAME.oneofs_by_name['name']
@@ -253,11 +302,19 @@ Certificate = _reflection.GeneratedProtocolMessageType('Certificate', (_message.
 _sym_db.RegisterMessage(Certificate)
 
 CertificateDetails = _reflection.GeneratedProtocolMessageType('CertificateDetails', (_message.Message,), {
+
+  'OcspDetails' : _reflection.GeneratedProtocolMessageType('OcspDetails', (_message.Message,), {
+    'DESCRIPTOR' : _CERTIFICATEDETAILS_OCSPDETAILS,
+    '__module__' : 'envoy.admin.v3.certs_pb2'
+    # @@protoc_insertion_point(class_scope:envoy.admin.v3.CertificateDetails.OcspDetails)
+    })
+  ,
   'DESCRIPTOR' : _CERTIFICATEDETAILS,
   '__module__' : 'envoy.admin.v3.certs_pb2'
   # @@protoc_insertion_point(class_scope:envoy.admin.v3.CertificateDetails)
   })
 _sym_db.RegisterMessage(CertificateDetails)
+_sym_db.RegisterMessage(CertificateDetails.OcspDetails)
 
 SubjectAlternateName = _reflection.GeneratedProtocolMessageType('SubjectAlternateName', (_message.Message,), {
   'DESCRIPTOR' : _SUBJECTALTERNATENAME,

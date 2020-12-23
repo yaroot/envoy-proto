@@ -11,9 +11,9 @@ import (
 	route "envoy/api/v2/route"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -99,7 +99,7 @@ type RouteConfiguration struct {
 	// <envoy_api_field_config.filter.network.http_connection_manager.v2.HttpConnectionManager.rds>`
 	// option. Users may wish to override the default behavior in certain cases (for example when
 	// using CDS with a static route table).
-	ValidateClusters *wrapperspb.BoolValue `protobuf:"bytes,7,opt,name=validate_clusters,json=validateClusters,proto3" json:"validate_clusters,omitempty"`
+	ValidateClusters *wrappers.BoolValue `protobuf:"bytes,7,opt,name=validate_clusters,json=validateClusters,proto3" json:"validate_clusters,omitempty"`
 }
 
 func (x *RouteConfiguration) Reset() {
@@ -197,7 +197,7 @@ func (x *RouteConfiguration) GetMostSpecificHeaderMutationsWins() bool {
 	return false
 }
 
-func (x *RouteConfiguration) GetValidateClusters() *wrapperspb.BoolValue {
+func (x *RouteConfiguration) GetValidateClusters() *wrappers.BoolValue {
 	if x != nil {
 		return x.ValidateClusters
 	}
@@ -350,7 +350,7 @@ var file_envoy_api_v2_route_proto_goTypes = []interface{}{
 	(*Vhds)(nil),                   // 1: envoy.api.v2.Vhds
 	(*route.VirtualHost)(nil),      // 2: envoy.api.v2.route.VirtualHost
 	(*core.HeaderValueOption)(nil), // 3: envoy.api.v2.core.HeaderValueOption
-	(*wrapperspb.BoolValue)(nil),   // 4: google.protobuf.BoolValue
+	(*wrappers.BoolValue)(nil),     // 4: google.protobuf.BoolValue
 	(*core.ConfigSource)(nil),      // 5: envoy.api.v2.core.ConfigSource
 }
 var file_envoy_api_v2_route_proto_depIdxs = []int32{

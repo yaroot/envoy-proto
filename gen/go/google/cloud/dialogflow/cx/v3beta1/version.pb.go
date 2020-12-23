@@ -22,13 +22,13 @@ package cx
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -171,7 +171,7 @@ type Version struct {
 	// Output only. The NLU settings of the flow at version creation.
 	NluSettings *NluSettings `protobuf:"bytes,4,opt,name=nlu_settings,json=nluSettings,proto3" json:"nlu_settings,omitempty"`
 	// Output only. Create time of the version.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The state of this version. This field is read-only and cannot be set by
 	// create and update methods.
 	State Version_State `protobuf:"varint,6,opt,name=state,proto3,enum=google.cloud.dialogflow.cx.v3beta1.Version_State" json:"state,omitempty"`
@@ -237,7 +237,7 @@ func (x *Version) GetNluSettings() *NluSettings {
 	return nil
 }
 
-func (x *Version) GetCreateTime() *timestamppb.Timestamp {
+func (x *Version) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -503,7 +503,7 @@ type UpdateVersionRequest struct {
 	Version *Version `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
 	// Required. The mask to control which fields get updated. Currently only `description`
 	// and `display_name` can be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateVersionRequest) Reset() {
@@ -545,7 +545,7 @@ func (x *UpdateVersionRequest) GetVersion() *Version {
 	return nil
 }
 
-func (x *UpdateVersionRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateVersionRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -924,10 +924,10 @@ var file_google_cloud_dialogflow_cx_v3beta1_version_proto_goTypes = []interface{
 	(*DeleteVersionRequest)(nil),           // 8: google.cloud.dialogflow.cx.v3beta1.DeleteVersionRequest
 	(*LoadVersionRequest)(nil),             // 9: google.cloud.dialogflow.cx.v3beta1.LoadVersionRequest
 	(*NluSettings)(nil),                    // 10: google.cloud.dialogflow.cx.v3beta1.NluSettings
-	(*timestamppb.Timestamp)(nil),          // 11: google.protobuf.Timestamp
-	(*fieldmaskpb.FieldMask)(nil),          // 12: google.protobuf.FieldMask
+	(*timestamp.Timestamp)(nil),            // 11: google.protobuf.Timestamp
+	(*field_mask.FieldMask)(nil),           // 12: google.protobuf.FieldMask
 	(*longrunning.Operation)(nil),          // 13: google.longrunning.Operation
-	(*emptypb.Empty)(nil),                  // 14: google.protobuf.Empty
+	(*empty.Empty)(nil),                    // 14: google.protobuf.Empty
 }
 var file_google_cloud_dialogflow_cx_v3beta1_version_proto_depIdxs = []int32{
 	10, // 0: google.cloud.dialogflow.cx.v3beta1.Version.nlu_settings:type_name -> google.cloud.dialogflow.cx.v3beta1.NluSettings

@@ -22,10 +22,10 @@ package spanner
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -128,12 +128,12 @@ type PlanNode struct {
 	//       "parameter_reference": "param1",
 	//       "parameter_type": "array"
 	//     }
-	Metadata *structpb.Struct `protobuf:"bytes,6,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	Metadata *_struct.Struct `protobuf:"bytes,6,opt,name=metadata,proto3" json:"metadata,omitempty"`
 	// The execution statistics associated with the node, contained in a group of
 	// key-value pairs. Only present if the plan was returned as a result of a
 	// profile query. For example, number of executions, number of rows/time per
 	// execution etc.
-	ExecutionStats *structpb.Struct `protobuf:"bytes,7,opt,name=execution_stats,json=executionStats,proto3" json:"execution_stats,omitempty"`
+	ExecutionStats *_struct.Struct `protobuf:"bytes,7,opt,name=execution_stats,json=executionStats,proto3" json:"execution_stats,omitempty"`
 }
 
 func (x *PlanNode) Reset() {
@@ -203,14 +203,14 @@ func (x *PlanNode) GetShortRepresentation() *PlanNode_ShortRepresentation {
 	return nil
 }
 
-func (x *PlanNode) GetMetadata() *structpb.Struct {
+func (x *PlanNode) GetMetadata() *_struct.Struct {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *PlanNode) GetExecutionStats() *structpb.Struct {
+func (x *PlanNode) GetExecutionStats() *_struct.Struct {
 	if x != nil {
 		return x.ExecutionStats
 	}
@@ -508,7 +508,7 @@ var file_google_spanner_v1_query_plan_proto_goTypes = []interface{}{
 	(*PlanNode_ChildLink)(nil),           // 3: google.spanner.v1.PlanNode.ChildLink
 	(*PlanNode_ShortRepresentation)(nil), // 4: google.spanner.v1.PlanNode.ShortRepresentation
 	nil,                                  // 5: google.spanner.v1.PlanNode.ShortRepresentation.SubqueriesEntry
-	(*structpb.Struct)(nil),              // 6: google.protobuf.Struct
+	(*_struct.Struct)(nil),               // 6: google.protobuf.Struct
 }
 var file_google_spanner_v1_query_plan_proto_depIdxs = []int32{
 	0, // 0: google.spanner.v1.PlanNode.kind:type_name -> google.spanner.v1.PlanNode.Kind

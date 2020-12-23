@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.analytics.data.v1alphaB\021ReportingApiProtoP\001ZAgoogle.golang.org/genproto/googleapis/analytics/data/v1alpha;data',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n(google/analytics/data/v1alpha/data.proto\x12\x1dgoogle.analytics.data.v1alpha\"?\n\tDateRange\x12\x12\n\nstart_date\x18\x01 \x01(\t\x12\x10\n\x08\x65nd_date\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\"\x1d\n\x06\x45ntity\x12\x13\n\x0bproperty_id\x18\x01 \x01(\t\"k\n\tDimension\x12\x0c\n\x04name\x18\x01 \x01(\t\x12P\n\x14\x64imension_expression\x18\x02 \x01(\x0b\x32\x32.google.analytics.data.v1alpha.DimensionExpression\"\xa9\x03\n\x13\x44imensionExpression\x12W\n\nlower_case\x18\x04 \x01(\x0b\x32\x41.google.analytics.data.v1alpha.DimensionExpression.CaseExpressionH\x00\x12W\n\nupper_case\x18\x05 \x01(\x0b\x32\x41.google.analytics.data.v1alpha.DimensionExpression.CaseExpressionH\x00\x12_\n\x0b\x63oncatenate\x18\x06 \x01(\x0b\x32H.google.analytics.data.v1alpha.DimensionExpression.ConcatenateExpressionH\x00\x1a(\n\x0e\x43\x61seExpression\x12\x16\n\x0e\x64imension_name\x18\x01 \x01(\t\x1a\x43\n\x15\x43oncatenateExpression\x12\x17\n\x0f\x64imension_names\x18\x01 \x03(\t\x12\x11\n\tdelimiter\x18\x02 \x01(\tB\x10\n\x0eone_expression\"=\n\x06Metric\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nexpression\x18\x02 \x01(\t\x12\x11\n\tinvisible\x18\x03 \x01(\x08\"\xb1\x02\n\x10\x46ilterExpression\x12H\n\tand_group\x18\x01 \x01(\x0b\x32\x33.google.analytics.data.v1alpha.FilterExpressionListH\x00\x12G\n\x08or_group\x18\x02 \x01(\x0b\x32\x33.google.analytics.data.v1alpha.FilterExpressionListH\x00\x12I\n\x0enot_expression\x18\x03 \x01(\x0b\x32/.google.analytics.data.v1alpha.FilterExpressionH\x00\x12\x37\n\x06\x66ilter\x18\x04 \x01(\x0b\x32%.google.analytics.data.v1alpha.FilterH\x00\x42\x06\n\x04\x65xpr\"\\\n\x14\x46ilterExpressionList\x12\x44\n\x0b\x65xpressions\x18\x01 \x03(\x0b\x32/.google.analytics.data.v1alpha.FilterExpression\"\xfe\x08\n\x06\x46ilter\x12\x12\n\nfield_name\x18\x01 \x01(\t\x12\x15\n\x0bnull_filter\x18\x02 \x01(\x08H\x00\x12K\n\rstring_filter\x18\x03 \x01(\x0b\x32\x32.google.analytics.data.v1alpha.Filter.StringFilterH\x00\x12L\n\x0ein_list_filter\x18\x04 \x01(\x0b\x32\x32.google.analytics.data.v1alpha.Filter.InListFilterH\x00\x12M\n\x0enumeric_filter\x18\x05 \x01(\x0b\x32\x33.google.analytics.data.v1alpha.Filter.NumericFilterH\x00\x12M\n\x0e\x62\x65tween_filter\x18\x06 \x01(\x0b\x32\x33.google.analytics.data.v1alpha.Filter.BetweenFilterH\x00\x1a\x8f\x02\n\x0cStringFilter\x12P\n\nmatch_type\x18\x01 \x01(\x0e\x32<.google.analytics.data.v1alpha.Filter.StringFilter.MatchType\x12\r\n\x05value\x18\x02 \x01(\t\x12\x16\n\x0e\x63\x61se_sensitive\x18\x03 \x01(\x08\"\x85\x01\n\tMatchType\x12\x1a\n\x16MATCH_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05\x45XACT\x10\x01\x12\x0f\n\x0b\x42\x45GINS_WITH\x10\x02\x12\r\n\tENDS_WITH\x10\x03\x12\x0c\n\x08\x43ONTAINS\x10\x04\x12\x0f\n\x0b\x46ULL_REGEXP\x10\x05\x12\x12\n\x0ePARTIAL_REGEXP\x10\x06\x1a\x36\n\x0cInListFilter\x12\x0e\n\x06values\x18\x01 \x03(\t\x12\x16\n\x0e\x63\x61se_sensitive\x18\x02 \x01(\x08\x1a\xa5\x02\n\rNumericFilter\x12P\n\toperation\x18\x01 \x01(\x0e\x32=.google.analytics.data.v1alpha.Filter.NumericFilter.Operation\x12:\n\x05value\x18\x02 \x01(\x0b\x32+.google.analytics.data.v1alpha.NumericValue\"\x85\x01\n\tOperation\x12\x19\n\x15OPERATION_UNSPECIFIED\x10\x00\x12\t\n\x05\x45QUAL\x10\x01\x12\r\n\tLESS_THAN\x10\x02\x12\x16\n\x12LESS_THAN_OR_EQUAL\x10\x03\x12\x10\n\x0cGREATER_THAN\x10\x04\x12\x19\n\x15GREATER_THAN_OR_EQUAL\x10\x05\x1a\x8f\x01\n\rBetweenFilter\x12?\n\nfrom_value\x18\x01 \x01(\x0b\x32+.google.analytics.data.v1alpha.NumericValue\x12=\n\x08to_value\x18\x02 \x01(\x0b\x32+.google.analytics.data.v1alpha.NumericValueB\x0c\n\none_filter\"\xdf\x05\n\x07OrderBy\x12\x46\n\x06metric\x18\x01 \x01(\x0b\x32\x34.google.analytics.data.v1alpha.OrderBy.MetricOrderByH\x00\x12L\n\tdimension\x18\x02 \x01(\x0b\x32\x37.google.analytics.data.v1alpha.OrderBy.DimensionOrderByH\x00\x12\x44\n\x05pivot\x18\x03 \x01(\x0b\x32\x33.google.analytics.data.v1alpha.OrderBy.PivotOrderByH\x00\x12\x0c\n\x04\x64\x65sc\x18\x04 \x01(\x08\x1a$\n\rMetricOrderBy\x12\x13\n\x0bmetric_name\x18\x01 \x01(\t\x1a\xec\x01\n\x10\x44imensionOrderBy\x12\x16\n\x0e\x64imension_name\x18\x01 \x01(\t\x12U\n\norder_type\x18\x02 \x01(\x0e\x32\x41.google.analytics.data.v1alpha.OrderBy.DimensionOrderBy.OrderType\"i\n\tOrderType\x12\x1a\n\x16ORDER_TYPE_UNSPECIFIED\x10\x00\x12\x10\n\x0c\x41LPHANUMERIC\x10\x01\x12!\n\x1d\x43\x41SE_INSENSITIVE_ALPHANUMERIC\x10\x02\x12\x0b\n\x07NUMERIC\x10\x03\x1a\xc4\x01\n\x0cPivotOrderBy\x12\x13\n\x0bmetric_name\x18\x01 \x01(\t\x12\\\n\x10pivot_selections\x18\x02 \x03(\x0b\x32\x42.google.analytics.data.v1alpha.OrderBy.PivotOrderBy.PivotSelection\x1a\x41\n\x0ePivotSelection\x12\x16\n\x0e\x64imension_name\x18\x01 \x01(\t\x12\x17\n\x0f\x64imension_value\x18\x02 \x01(\tB\x0e\n\x0cone_order_by\"\xc5\x01\n\x05Pivot\x12\x13\n\x0b\x66ield_names\x18\x01 \x03(\t\x12\x39\n\torder_bys\x18\x02 \x03(\x0b\x32&.google.analytics.data.v1alpha.OrderBy\x12\x0e\n\x06offset\x18\x03 \x01(\x03\x12\r\n\x05limit\x18\x04 \x01(\x03\x12M\n\x13metric_aggregations\x18\x05 \x03(\x0e\x32\x30.google.analytics.data.v1alpha.MetricAggregation\"\xdd\x01\n\nCohortSpec\x12\x36\n\x07\x63ohorts\x18\x01 \x03(\x0b\x32%.google.analytics.data.v1alpha.Cohort\x12\x42\n\rcohorts_range\x18\x02 \x01(\x0b\x32+.google.analytics.data.v1alpha.CohortsRange\x12S\n\x16\x63ohort_report_settings\x18\x03 \x01(\x0b\x32\x33.google.analytics.data.v1alpha.CohortReportSettings\"g\n\x06\x43ohort\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tdimension\x18\x02 \x01(\t\x12<\n\ndate_range\x18\x03 \x01(\x0b\x32(.google.analytics.data.v1alpha.DateRange\"*\n\x14\x43ohortReportSettings\x12\x12\n\naccumulate\x18\x01 \x01(\x08\"\xd6\x01\n\x0c\x43ohortsRange\x12L\n\x0bgranularity\x18\x01 \x01(\x0e\x32\x37.google.analytics.data.v1alpha.CohortsRange.Granularity\x12\x14\n\x0cstart_offset\x18\x02 \x01(\x05\x12\x12\n\nend_offset\x18\x03 \x01(\x05\"N\n\x0bGranularity\x12\x1b\n\x17GRANULARITY_UNSPECIFIED\x10\x00\x12\t\n\x05\x44\x41ILY\x10\x01\x12\n\n\x06WEEKLY\x10\x02\x12\x0b\n\x07MONTHLY\x10\x03\"4\n\x10ResponseMetaData\x12 \n\x18\x64\x61ta_loss_from_other_row\x18\x03 \x01(\x08\"\x1f\n\x0f\x44imensionHeader\x12\x0c\n\x04name\x18\x01 \x01(\t\"U\n\x0cMetricHeader\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x37\n\x04type\x18\x02 \x01(\x0e\x32).google.analytics.data.v1alpha.MetricType\"v\n\x0bPivotHeader\x12T\n\x17pivot_dimension_headers\x18\x01 \x03(\x0b\x32\x33.google.analytics.data.v1alpha.PivotDimensionHeader\x12\x11\n\trow_count\x18\x02 \x01(\x05\"_\n\x14PivotDimensionHeader\x12G\n\x10\x64imension_values\x18\x01 \x03(\x0b\x32-.google.analytics.data.v1alpha.DimensionValue\"\x91\x01\n\x03Row\x12G\n\x10\x64imension_values\x18\x01 \x03(\x0b\x32-.google.analytics.data.v1alpha.DimensionValue\x12\x41\n\rmetric_values\x18\x02 \x03(\x0b\x32*.google.analytics.data.v1alpha.MetricValue\".\n\x0e\x44imensionValue\x12\x0f\n\x05value\x18\x01 \x01(\tH\x00\x42\x0b\n\tone_value\"+\n\x0bMetricValue\x12\x0f\n\x05value\x18\x04 \x01(\tH\x00\x42\x0b\n\tone_value\"J\n\x0cNumericValue\x12\x15\n\x0bint64_value\x18\x01 \x01(\x03H\x00\x12\x16\n\x0c\x64ouble_value\x18\x02 \x01(\x01H\x00\x42\x0b\n\tone_value\"\xb9\x02\n\rPropertyQuota\x12\x42\n\x0etokens_per_day\x18\x01 \x01(\x0b\x32*.google.analytics.data.v1alpha.QuotaStatus\x12\x43\n\x0ftokens_per_hour\x18\x02 \x01(\x0b\x32*.google.analytics.data.v1alpha.QuotaStatus\x12G\n\x13\x63oncurrent_requests\x18\x03 \x01(\x0b\x32*.google.analytics.data.v1alpha.QuotaStatus\x12V\n\"server_errors_per_project_per_hour\x18\x04 \x01(\x0b\x32*.google.analytics.data.v1alpha.QuotaStatus\"2\n\x0bQuotaStatus\x12\x10\n\x08\x63onsumed\x18\x01 \x01(\x05\x12\x11\n\tremaining\x18\x02 \x01(\x05\"i\n\x11\x44imensionMetadata\x12\x10\n\x08\x61pi_name\x18\x01 \x01(\t\x12\x0f\n\x07ui_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x1c\n\x14\x64\x65precated_api_names\x18\x04 \x03(\t\"\xb3\x01\n\x0eMetricMetadata\x12\x10\n\x08\x61pi_name\x18\x01 \x01(\t\x12\x0f\n\x07ui_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x1c\n\x14\x64\x65precated_api_names\x18\x04 \x03(\t\x12\x37\n\x04type\x18\x05 \x01(\x0e\x32).google.analytics.data.v1alpha.MetricType\x12\x12\n\nexpression\x18\x06 \x01(\t*g\n\x11MetricAggregation\x12\"\n\x1eMETRIC_AGGREGATION_UNSPECIFIED\x10\x00\x12\t\n\x05TOTAL\x10\x01\x12\x0b\n\x07MINIMUM\x10\x05\x12\x0b\n\x07MAXIMUM\x10\x06\x12\t\n\x05\x43OUNT\x10\x04*p\n\nMetricType\x12\x1b\n\x17METRIC_TYPE_UNSPECIFIED\x10\x00\x12\x10\n\x0cTYPE_INTEGER\x10\x01\x12\x0e\n\nTYPE_FLOAT\x10\x02\x12\x10\n\x0cTYPE_SECONDS\x10\x04\x12\x11\n\rTYPE_CURRENCY\x10\tB{\n!com.google.analytics.data.v1alphaB\x11ReportingApiProtoP\x01ZAgoogle.golang.org/genproto/googleapis/analytics/data/v1alpha;datab\x06proto3'
+  serialized_pb=b'\n(google/analytics/data/v1alpha/data.proto\x12\x1dgoogle.analytics.data.v1alpha\"?\n\tDateRange\x12\x12\n\nstart_date\x18\x01 \x01(\t\x12\x10\n\x08\x65nd_date\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\"\x1d\n\x06\x45ntity\x12\x13\n\x0bproperty_id\x18\x01 \x01(\t\"k\n\tDimension\x12\x0c\n\x04name\x18\x01 \x01(\t\x12P\n\x14\x64imension_expression\x18\x02 \x01(\x0b\x32\x32.google.analytics.data.v1alpha.DimensionExpression\"\xa9\x03\n\x13\x44imensionExpression\x12W\n\nlower_case\x18\x04 \x01(\x0b\x32\x41.google.analytics.data.v1alpha.DimensionExpression.CaseExpressionH\x00\x12W\n\nupper_case\x18\x05 \x01(\x0b\x32\x41.google.analytics.data.v1alpha.DimensionExpression.CaseExpressionH\x00\x12_\n\x0b\x63oncatenate\x18\x06 \x01(\x0b\x32H.google.analytics.data.v1alpha.DimensionExpression.ConcatenateExpressionH\x00\x1a(\n\x0e\x43\x61seExpression\x12\x16\n\x0e\x64imension_name\x18\x01 \x01(\t\x1a\x43\n\x15\x43oncatenateExpression\x12\x17\n\x0f\x64imension_names\x18\x01 \x03(\t\x12\x11\n\tdelimiter\x18\x02 \x01(\tB\x10\n\x0eone_expression\"=\n\x06Metric\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nexpression\x18\x02 \x01(\t\x12\x11\n\tinvisible\x18\x03 \x01(\x08\"\xb1\x02\n\x10\x46ilterExpression\x12H\n\tand_group\x18\x01 \x01(\x0b\x32\x33.google.analytics.data.v1alpha.FilterExpressionListH\x00\x12G\n\x08or_group\x18\x02 \x01(\x0b\x32\x33.google.analytics.data.v1alpha.FilterExpressionListH\x00\x12I\n\x0enot_expression\x18\x03 \x01(\x0b\x32/.google.analytics.data.v1alpha.FilterExpressionH\x00\x12\x37\n\x06\x66ilter\x18\x04 \x01(\x0b\x32%.google.analytics.data.v1alpha.FilterH\x00\x42\x06\n\x04\x65xpr\"\\\n\x14\x46ilterExpressionList\x12\x44\n\x0b\x65xpressions\x18\x01 \x03(\x0b\x32/.google.analytics.data.v1alpha.FilterExpression\"\xfe\x08\n\x06\x46ilter\x12\x12\n\nfield_name\x18\x01 \x01(\t\x12\x15\n\x0bnull_filter\x18\x02 \x01(\x08H\x00\x12K\n\rstring_filter\x18\x03 \x01(\x0b\x32\x32.google.analytics.data.v1alpha.Filter.StringFilterH\x00\x12L\n\x0ein_list_filter\x18\x04 \x01(\x0b\x32\x32.google.analytics.data.v1alpha.Filter.InListFilterH\x00\x12M\n\x0enumeric_filter\x18\x05 \x01(\x0b\x32\x33.google.analytics.data.v1alpha.Filter.NumericFilterH\x00\x12M\n\x0e\x62\x65tween_filter\x18\x06 \x01(\x0b\x32\x33.google.analytics.data.v1alpha.Filter.BetweenFilterH\x00\x1a\x8f\x02\n\x0cStringFilter\x12P\n\nmatch_type\x18\x01 \x01(\x0e\x32<.google.analytics.data.v1alpha.Filter.StringFilter.MatchType\x12\r\n\x05value\x18\x02 \x01(\t\x12\x16\n\x0e\x63\x61se_sensitive\x18\x03 \x01(\x08\"\x85\x01\n\tMatchType\x12\x1a\n\x16MATCH_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05\x45XACT\x10\x01\x12\x0f\n\x0b\x42\x45GINS_WITH\x10\x02\x12\r\n\tENDS_WITH\x10\x03\x12\x0c\n\x08\x43ONTAINS\x10\x04\x12\x0f\n\x0b\x46ULL_REGEXP\x10\x05\x12\x12\n\x0ePARTIAL_REGEXP\x10\x06\x1a\x36\n\x0cInListFilter\x12\x0e\n\x06values\x18\x01 \x03(\t\x12\x16\n\x0e\x63\x61se_sensitive\x18\x02 \x01(\x08\x1a\xa5\x02\n\rNumericFilter\x12P\n\toperation\x18\x01 \x01(\x0e\x32=.google.analytics.data.v1alpha.Filter.NumericFilter.Operation\x12:\n\x05value\x18\x02 \x01(\x0b\x32+.google.analytics.data.v1alpha.NumericValue\"\x85\x01\n\tOperation\x12\x19\n\x15OPERATION_UNSPECIFIED\x10\x00\x12\t\n\x05\x45QUAL\x10\x01\x12\r\n\tLESS_THAN\x10\x02\x12\x16\n\x12LESS_THAN_OR_EQUAL\x10\x03\x12\x10\n\x0cGREATER_THAN\x10\x04\x12\x19\n\x15GREATER_THAN_OR_EQUAL\x10\x05\x1a\x8f\x01\n\rBetweenFilter\x12?\n\nfrom_value\x18\x01 \x01(\x0b\x32+.google.analytics.data.v1alpha.NumericValue\x12=\n\x08to_value\x18\x02 \x01(\x0b\x32+.google.analytics.data.v1alpha.NumericValueB\x0c\n\none_filter\"\xdf\x05\n\x07OrderBy\x12\x46\n\x06metric\x18\x01 \x01(\x0b\x32\x34.google.analytics.data.v1alpha.OrderBy.MetricOrderByH\x00\x12L\n\tdimension\x18\x02 \x01(\x0b\x32\x37.google.analytics.data.v1alpha.OrderBy.DimensionOrderByH\x00\x12\x44\n\x05pivot\x18\x03 \x01(\x0b\x32\x33.google.analytics.data.v1alpha.OrderBy.PivotOrderByH\x00\x12\x0c\n\x04\x64\x65sc\x18\x04 \x01(\x08\x1a$\n\rMetricOrderBy\x12\x13\n\x0bmetric_name\x18\x01 \x01(\t\x1a\xec\x01\n\x10\x44imensionOrderBy\x12\x16\n\x0e\x64imension_name\x18\x01 \x01(\t\x12U\n\norder_type\x18\x02 \x01(\x0e\x32\x41.google.analytics.data.v1alpha.OrderBy.DimensionOrderBy.OrderType\"i\n\tOrderType\x12\x1a\n\x16ORDER_TYPE_UNSPECIFIED\x10\x00\x12\x10\n\x0c\x41LPHANUMERIC\x10\x01\x12!\n\x1d\x43\x41SE_INSENSITIVE_ALPHANUMERIC\x10\x02\x12\x0b\n\x07NUMERIC\x10\x03\x1a\xc4\x01\n\x0cPivotOrderBy\x12\x13\n\x0bmetric_name\x18\x01 \x01(\t\x12\\\n\x10pivot_selections\x18\x02 \x03(\x0b\x32\x42.google.analytics.data.v1alpha.OrderBy.PivotOrderBy.PivotSelection\x1a\x41\n\x0ePivotSelection\x12\x16\n\x0e\x64imension_name\x18\x01 \x01(\t\x12\x17\n\x0f\x64imension_value\x18\x02 \x01(\tB\x0e\n\x0cone_order_by\"\xc5\x01\n\x05Pivot\x12\x13\n\x0b\x66ield_names\x18\x01 \x03(\t\x12\x39\n\torder_bys\x18\x02 \x03(\x0b\x32&.google.analytics.data.v1alpha.OrderBy\x12\x0e\n\x06offset\x18\x03 \x01(\x03\x12\r\n\x05limit\x18\x04 \x01(\x03\x12M\n\x13metric_aggregations\x18\x05 \x03(\x0e\x32\x30.google.analytics.data.v1alpha.MetricAggregation\"\xdd\x01\n\nCohortSpec\x12\x36\n\x07\x63ohorts\x18\x01 \x03(\x0b\x32%.google.analytics.data.v1alpha.Cohort\x12\x42\n\rcohorts_range\x18\x02 \x01(\x0b\x32+.google.analytics.data.v1alpha.CohortsRange\x12S\n\x16\x63ohort_report_settings\x18\x03 \x01(\x0b\x32\x33.google.analytics.data.v1alpha.CohortReportSettings\"g\n\x06\x43ohort\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tdimension\x18\x02 \x01(\t\x12<\n\ndate_range\x18\x03 \x01(\x0b\x32(.google.analytics.data.v1alpha.DateRange\"\xd6\x01\n\x0c\x43ohortsRange\x12L\n\x0bgranularity\x18\x01 \x01(\x0e\x32\x37.google.analytics.data.v1alpha.CohortsRange.Granularity\x12\x14\n\x0cstart_offset\x18\x02 \x01(\x05\x12\x12\n\nend_offset\x18\x03 \x01(\x05\"N\n\x0bGranularity\x12\x1b\n\x17GRANULARITY_UNSPECIFIED\x10\x00\x12\t\n\x05\x44\x41ILY\x10\x01\x12\n\n\x06WEEKLY\x10\x02\x12\x0b\n\x07MONTHLY\x10\x03\"*\n\x14\x43ohortReportSettings\x12\x12\n\naccumulate\x18\x01 \x01(\x08\"4\n\x10ResponseMetaData\x12 \n\x18\x64\x61ta_loss_from_other_row\x18\x03 \x01(\x08\"\x1f\n\x0f\x44imensionHeader\x12\x0c\n\x04name\x18\x01 \x01(\t\"U\n\x0cMetricHeader\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x37\n\x04type\x18\x02 \x01(\x0e\x32).google.analytics.data.v1alpha.MetricType\"v\n\x0bPivotHeader\x12T\n\x17pivot_dimension_headers\x18\x01 \x03(\x0b\x32\x33.google.analytics.data.v1alpha.PivotDimensionHeader\x12\x11\n\trow_count\x18\x02 \x01(\x05\"_\n\x14PivotDimensionHeader\x12G\n\x10\x64imension_values\x18\x01 \x03(\x0b\x32-.google.analytics.data.v1alpha.DimensionValue\"\x91\x01\n\x03Row\x12G\n\x10\x64imension_values\x18\x01 \x03(\x0b\x32-.google.analytics.data.v1alpha.DimensionValue\x12\x41\n\rmetric_values\x18\x02 \x03(\x0b\x32*.google.analytics.data.v1alpha.MetricValue\".\n\x0e\x44imensionValue\x12\x0f\n\x05value\x18\x01 \x01(\tH\x00\x42\x0b\n\tone_value\"+\n\x0bMetricValue\x12\x0f\n\x05value\x18\x04 \x01(\tH\x00\x42\x0b\n\tone_value\"J\n\x0cNumericValue\x12\x15\n\x0bint64_value\x18\x01 \x01(\x03H\x00\x12\x16\n\x0c\x64ouble_value\x18\x02 \x01(\x01H\x00\x42\x0b\n\tone_value\"\xb9\x02\n\rPropertyQuota\x12\x42\n\x0etokens_per_day\x18\x01 \x01(\x0b\x32*.google.analytics.data.v1alpha.QuotaStatus\x12\x43\n\x0ftokens_per_hour\x18\x02 \x01(\x0b\x32*.google.analytics.data.v1alpha.QuotaStatus\x12G\n\x13\x63oncurrent_requests\x18\x03 \x01(\x0b\x32*.google.analytics.data.v1alpha.QuotaStatus\x12V\n\"server_errors_per_project_per_hour\x18\x04 \x01(\x0b\x32*.google.analytics.data.v1alpha.QuotaStatus\"2\n\x0bQuotaStatus\x12\x10\n\x08\x63onsumed\x18\x01 \x01(\x05\x12\x11\n\tremaining\x18\x02 \x01(\x05\"\x84\x01\n\x11\x44imensionMetadata\x12\x10\n\x08\x61pi_name\x18\x01 \x01(\t\x12\x0f\n\x07ui_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x1c\n\x14\x64\x65precated_api_names\x18\x04 \x03(\t\x12\x19\n\x11\x63ustom_definition\x18\x05 \x01(\x08\"\xce\x01\n\x0eMetricMetadata\x12\x10\n\x08\x61pi_name\x18\x01 \x01(\t\x12\x0f\n\x07ui_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x1c\n\x14\x64\x65precated_api_names\x18\x04 \x03(\t\x12\x37\n\x04type\x18\x05 \x01(\x0e\x32).google.analytics.data.v1alpha.MetricType\x12\x12\n\nexpression\x18\x06 \x01(\t\x12\x19\n\x11\x63ustom_definition\x18\x07 \x01(\x08*g\n\x11MetricAggregation\x12\"\n\x1eMETRIC_AGGREGATION_UNSPECIFIED\x10\x00\x12\t\n\x05TOTAL\x10\x01\x12\x0b\n\x07MINIMUM\x10\x05\x12\x0b\n\x07MAXIMUM\x10\x06\x12\t\n\x05\x43OUNT\x10\x04*\x81\x02\n\nMetricType\x12\x1b\n\x17METRIC_TYPE_UNSPECIFIED\x10\x00\x12\x10\n\x0cTYPE_INTEGER\x10\x01\x12\x0e\n\nTYPE_FLOAT\x10\x02\x12\x10\n\x0cTYPE_SECONDS\x10\x04\x12\x15\n\x11TYPE_MILLISECONDS\x10\x05\x12\x10\n\x0cTYPE_MINUTES\x10\x06\x12\x0e\n\nTYPE_HOURS\x10\x07\x12\x11\n\rTYPE_STANDARD\x10\x08\x12\x11\n\rTYPE_CURRENCY\x10\t\x12\r\n\tTYPE_FEET\x10\n\x12\x0e\n\nTYPE_MILES\x10\x0b\x12\x0f\n\x0bTYPE_METERS\x10\x0c\x12\x13\n\x0fTYPE_KILOMETERS\x10\rB{\n!com.google.analytics.data.v1alphaB\x11ReportingApiProtoP\x01ZAgoogle.golang.org/genproto/googleapis/analytics/data/v1alpha;datab\x06proto3'
 )
 
 _METRICAGGREGATION = _descriptor.EnumDescriptor(
@@ -58,8 +58,8 @@ _METRICAGGREGATION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5219,
-  serialized_end=5322,
+  serialized_start=5274,
+  serialized_end=5377,
 )
 _sym_db.RegisterEnumDescriptor(_METRICAGGREGATION)
 
@@ -92,15 +92,55 @@ _METRICTYPE = _descriptor.EnumDescriptor(
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TYPE_CURRENCY', index=4, number=9,
+      name='TYPE_MILLISECONDS', index=4, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TYPE_MINUTES', index=5, number=6,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TYPE_HOURS', index=6, number=7,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TYPE_STANDARD', index=7, number=8,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TYPE_CURRENCY', index=8, number=9,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TYPE_FEET', index=9, number=10,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TYPE_MILES', index=10, number=11,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TYPE_METERS', index=11, number=12,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TYPE_KILOMETERS', index=12, number=13,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5324,
-  serialized_end=5436,
+  serialized_start=5380,
+  serialized_end=5637,
 )
 _sym_db.RegisterEnumDescriptor(_METRICTYPE)
 
@@ -114,7 +154,15 @@ METRIC_TYPE_UNSPECIFIED = 0
 TYPE_INTEGER = 1
 TYPE_FLOAT = 2
 TYPE_SECONDS = 4
+TYPE_MILLISECONDS = 5
+TYPE_MINUTES = 6
+TYPE_HOURS = 7
+TYPE_STANDARD = 8
 TYPE_CURRENCY = 9
+TYPE_FEET = 10
+TYPE_MILES = 11
+TYPE_METERS = 12
+TYPE_KILOMETERS = 13
 
 
 _FILTER_STRINGFILTER_MATCHTYPE = _descriptor.EnumDescriptor(
@@ -277,8 +325,8 @@ _COHORTSRANGE_GRANULARITY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3774,
-  serialized_end=3852,
+  serialized_start=3730,
+  serialized_end=3808,
 )
 _sym_db.RegisterEnumDescriptor(_COHORTSRANGE_GRANULARITY)
 
@@ -1245,38 +1293,6 @@ _COHORT = _descriptor.Descriptor(
 )
 
 
-_COHORTREPORTSETTINGS = _descriptor.Descriptor(
-  name='CohortReportSettings',
-  full_name='google.analytics.data.v1alpha.CohortReportSettings',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='accumulate', full_name='google.analytics.data.v1alpha.CohortReportSettings.accumulate', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3593,
-  serialized_end=3635,
-)
-
-
 _COHORTSRANGE = _descriptor.Descriptor(
   name='CohortsRange',
   full_name='google.analytics.data.v1alpha.CohortsRange',
@@ -1319,7 +1335,39 @@ _COHORTSRANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3638,
+  serialized_start=3594,
+  serialized_end=3808,
+)
+
+
+_COHORTREPORTSETTINGS = _descriptor.Descriptor(
+  name='CohortReportSettings',
+  full_name='google.analytics.data.v1alpha.CohortReportSettings',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='accumulate', full_name='google.analytics.data.v1alpha.CohortReportSettings.accumulate', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3810,
   serialized_end=3852,
 )
 
@@ -1783,6 +1831,13 @@ _DIMENSIONMETADATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='custom_definition', full_name='google.analytics.data.v1alpha.DimensionMetadata.custom_definition', index=4,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1795,8 +1850,8 @@ _DIMENSIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4930,
-  serialized_end=5035,
+  serialized_start=4931,
+  serialized_end=5063,
 )
 
 
@@ -1850,6 +1905,13 @@ _METRICMETADATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='custom_definition', full_name='google.analytics.data.v1alpha.MetricMetadata.custom_definition', index=6,
+      number=7, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1862,8 +1924,8 @@ _METRICMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5038,
-  serialized_end=5217,
+  serialized_start=5066,
+  serialized_end=5272,
 )
 
 _DIMENSION.fields_by_name['dimension_expression'].message_type = _DIMENSIONEXPRESSION
@@ -1989,8 +2051,8 @@ DESCRIPTOR.message_types_by_name['OrderBy'] = _ORDERBY
 DESCRIPTOR.message_types_by_name['Pivot'] = _PIVOT
 DESCRIPTOR.message_types_by_name['CohortSpec'] = _COHORTSPEC
 DESCRIPTOR.message_types_by_name['Cohort'] = _COHORT
-DESCRIPTOR.message_types_by_name['CohortReportSettings'] = _COHORTREPORTSETTINGS
 DESCRIPTOR.message_types_by_name['CohortsRange'] = _COHORTSRANGE
+DESCRIPTOR.message_types_by_name['CohortReportSettings'] = _COHORTREPORTSETTINGS
 DESCRIPTOR.message_types_by_name['ResponseMetaData'] = _RESPONSEMETADATA
 DESCRIPTOR.message_types_by_name['DimensionHeader'] = _DIMENSIONHEADER
 DESCRIPTOR.message_types_by_name['MetricHeader'] = _METRICHEADER
@@ -2172,19 +2234,19 @@ Cohort = _reflection.GeneratedProtocolMessageType('Cohort', (_message.Message,),
   })
 _sym_db.RegisterMessage(Cohort)
 
-CohortReportSettings = _reflection.GeneratedProtocolMessageType('CohortReportSettings', (_message.Message,), {
-  'DESCRIPTOR' : _COHORTREPORTSETTINGS,
-  '__module__' : 'google.analytics.data.v1alpha.data_pb2'
-  # @@protoc_insertion_point(class_scope:google.analytics.data.v1alpha.CohortReportSettings)
-  })
-_sym_db.RegisterMessage(CohortReportSettings)
-
 CohortsRange = _reflection.GeneratedProtocolMessageType('CohortsRange', (_message.Message,), {
   'DESCRIPTOR' : _COHORTSRANGE,
   '__module__' : 'google.analytics.data.v1alpha.data_pb2'
   # @@protoc_insertion_point(class_scope:google.analytics.data.v1alpha.CohortsRange)
   })
 _sym_db.RegisterMessage(CohortsRange)
+
+CohortReportSettings = _reflection.GeneratedProtocolMessageType('CohortReportSettings', (_message.Message,), {
+  'DESCRIPTOR' : _COHORTREPORTSETTINGS,
+  '__module__' : 'google.analytics.data.v1alpha.data_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.data.v1alpha.CohortReportSettings)
+  })
+_sym_db.RegisterMessage(CohortReportSettings)
 
 ResponseMetaData = _reflection.GeneratedProtocolMessageType('ResponseMetaData', (_message.Message,), {
   'DESCRIPTOR' : _RESPONSEMETADATA,

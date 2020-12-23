@@ -22,12 +22,12 @@ package dialogflow
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -557,7 +557,7 @@ type UpdateEntityTypeRequest struct {
 	// data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
 	LanguageCode string `protobuf:"bytes,2,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty"`
 	// Optional. The mask to control which fields get updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateEntityTypeRequest) Reset() {
@@ -606,7 +606,7 @@ func (x *UpdateEntityTypeRequest) GetLanguageCode() string {
 	return ""
 }
 
-func (x *UpdateEntityTypeRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateEntityTypeRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -690,7 +690,7 @@ type BatchUpdateEntityTypesRequest struct {
 	// data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
 	LanguageCode string `protobuf:"bytes,4,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty"`
 	// Optional. The mask to control which fields get updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,5,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,5,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *BatchUpdateEntityTypesRequest) Reset() {
@@ -760,7 +760,7 @@ func (x *BatchUpdateEntityTypesRequest) GetLanguageCode() string {
 	return ""
 }
 
-func (x *BatchUpdateEntityTypesRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *BatchUpdateEntityTypesRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -989,7 +989,7 @@ type BatchUpdateEntitiesRequest struct {
 	// data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
 	LanguageCode string `protobuf:"bytes,3,opt,name=language_code,json=languageCode,proto3" json:"language_code,omitempty"`
 	// Optional. The mask to control which fields get updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *BatchUpdateEntitiesRequest) Reset() {
@@ -1045,7 +1045,7 @@ func (x *BatchUpdateEntitiesRequest) GetLanguageCode() string {
 	return ""
 }
 
-func (x *BatchUpdateEntitiesRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *BatchUpdateEntitiesRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1675,8 +1675,8 @@ var file_google_cloud_dialogflow_v2_entity_type_proto_goTypes = []interface{}{
 	(*BatchDeleteEntitiesRequest)(nil),     // 14: google.cloud.dialogflow.v2.BatchDeleteEntitiesRequest
 	(*EntityTypeBatch)(nil),                // 15: google.cloud.dialogflow.v2.EntityTypeBatch
 	(*EntityType_Entity)(nil),              // 16: google.cloud.dialogflow.v2.EntityType.Entity
-	(*fieldmaskpb.FieldMask)(nil),          // 17: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),                  // 18: google.protobuf.Empty
+	(*field_mask.FieldMask)(nil),           // 17: google.protobuf.FieldMask
+	(*empty.Empty)(nil),                    // 18: google.protobuf.Empty
 	(*longrunning.Operation)(nil),          // 19: google.longrunning.Operation
 }
 var file_google_cloud_dialogflow_v2_entity_type_proto_depIdxs = []int32{

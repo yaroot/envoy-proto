@@ -22,11 +22,11 @@ package common
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v3/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -49,7 +49,7 @@ type AdTextAsset struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Asset text.
-	Text *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	Text *wrappers.StringValue `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
 	// The pinned field of the asset. This restricts the asset to only serve
 	// within this field. Multiple assets can be pinned to the same field. An
 	// asset that is unpinned or pinned to a different field will not serve in a
@@ -89,7 +89,7 @@ func (*AdTextAsset) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_common_ad_asset_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *AdTextAsset) GetText() *wrapperspb.StringValue {
+func (x *AdTextAsset) GetText() *wrappers.StringValue {
 	if x != nil {
 		return x.Text
 	}
@@ -110,7 +110,7 @@ type AdImageAsset struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The Asset resource name of this image.
-	Asset *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=asset,proto3" json:"asset,omitempty"`
+	Asset *wrappers.StringValue `protobuf:"bytes,1,opt,name=asset,proto3" json:"asset,omitempty"`
 }
 
 func (x *AdImageAsset) Reset() {
@@ -145,7 +145,7 @@ func (*AdImageAsset) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_common_ad_asset_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *AdImageAsset) GetAsset() *wrapperspb.StringValue {
+func (x *AdImageAsset) GetAsset() *wrappers.StringValue {
 	if x != nil {
 		return x.Asset
 	}
@@ -159,7 +159,7 @@ type AdVideoAsset struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The Asset resource name of this video.
-	Asset *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=asset,proto3" json:"asset,omitempty"`
+	Asset *wrappers.StringValue `protobuf:"bytes,1,opt,name=asset,proto3" json:"asset,omitempty"`
 }
 
 func (x *AdVideoAsset) Reset() {
@@ -194,7 +194,7 @@ func (*AdVideoAsset) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_common_ad_asset_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *AdVideoAsset) GetAsset() *wrapperspb.StringValue {
+func (x *AdVideoAsset) GetAsset() *wrappers.StringValue {
 	if x != nil {
 		return x.Asset
 	}
@@ -208,7 +208,7 @@ type AdMediaBundleAsset struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The Asset resource name of this media bundle.
-	Asset *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=asset,proto3" json:"asset,omitempty"`
+	Asset *wrappers.StringValue `protobuf:"bytes,1,opt,name=asset,proto3" json:"asset,omitempty"`
 }
 
 func (x *AdMediaBundleAsset) Reset() {
@@ -243,7 +243,7 @@ func (*AdMediaBundleAsset) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_common_ad_asset_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *AdMediaBundleAsset) GetAsset() *wrapperspb.StringValue {
+func (x *AdMediaBundleAsset) GetAsset() *wrappers.StringValue {
 	if x != nil {
 		return x.Asset
 	}
@@ -322,11 +322,11 @@ func file_google_ads_googleads_v3_common_ad_asset_proto_rawDescGZIP() []byte {
 
 var file_google_ads_googleads_v3_common_ad_asset_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_google_ads_googleads_v3_common_ad_asset_proto_goTypes = []interface{}{
-	(*AdTextAsset)(nil),                                      // 0: google.ads.googleads.v3.common.AdTextAsset
-	(*AdImageAsset)(nil),                                     // 1: google.ads.googleads.v3.common.AdImageAsset
-	(*AdVideoAsset)(nil),                                     // 2: google.ads.googleads.v3.common.AdVideoAsset
-	(*AdMediaBundleAsset)(nil),                               // 3: google.ads.googleads.v3.common.AdMediaBundleAsset
-	(*wrapperspb.StringValue)(nil),                           // 4: google.protobuf.StringValue
+	(*AdTextAsset)(nil),          // 0: google.ads.googleads.v3.common.AdTextAsset
+	(*AdImageAsset)(nil),         // 1: google.ads.googleads.v3.common.AdImageAsset
+	(*AdVideoAsset)(nil),         // 2: google.ads.googleads.v3.common.AdVideoAsset
+	(*AdMediaBundleAsset)(nil),   // 3: google.ads.googleads.v3.common.AdMediaBundleAsset
+	(*wrappers.StringValue)(nil), // 4: google.protobuf.StringValue
 	(enums.ServedAssetFieldTypeEnum_ServedAssetFieldType)(0), // 5: google.ads.googleads.v3.enums.ServedAssetFieldTypeEnum.ServedAssetFieldType
 }
 var file_google_ads_googleads_v3_common_ad_asset_proto_depIdxs = []int32{

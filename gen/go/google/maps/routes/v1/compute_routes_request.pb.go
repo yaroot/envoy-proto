@@ -22,9 +22,9 @@ package routes
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -249,7 +249,7 @@ type ComputeRoutesRequest struct {
 	// Optional. The departure time. If you don't set this value, then this value
 	// defaults to the time that you made the request. If you set this value to a
 	// time that has already occurred, then the request fails.
-	DepartureTime *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=departure_time,json=departureTime,proto3" json:"departure_time,omitempty"`
+	DepartureTime *timestamp.Timestamp `protobuf:"bytes,7,opt,name=departure_time,json=departureTime,proto3" json:"departure_time,omitempty"`
 	// Specifies whether to calculate alternate routes in addition to the route.
 	ComputeAlternativeRoutes bool `protobuf:"varint,8,opt,name=compute_alternative_routes,json=computeAlternativeRoutes,proto3" json:"compute_alternative_routes,omitempty"`
 	// Optional. A set of conditions to satisfy that affect the way routes are
@@ -344,7 +344,7 @@ func (x *ComputeRoutesRequest) GetPolylineQuality() PolylineQuality {
 	return PolylineQuality_POLYLINE_QUALITY_UNSPECIFIED
 }
 
-func (x *ComputeRoutesRequest) GetDepartureTime() *timestamppb.Timestamp {
+func (x *ComputeRoutesRequest) GetDepartureTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.DepartureTime
 	}
@@ -687,17 +687,17 @@ func file_google_maps_routes_v1_compute_routes_request_proto_rawDescGZIP() []byt
 var file_google_maps_routes_v1_compute_routes_request_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_google_maps_routes_v1_compute_routes_request_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_google_maps_routes_v1_compute_routes_request_proto_goTypes = []interface{}{
-	(RouteTravelMode)(0),          // 0: google.maps.routes.v1.RouteTravelMode
-	(RoutingPreference)(0),        // 1: google.maps.routes.v1.RoutingPreference
-	(Units)(0),                    // 2: google.maps.routes.v1.Units
-	(*ComputeRoutesRequest)(nil),  // 3: google.maps.routes.v1.ComputeRoutesRequest
-	(*RouteModifiers)(nil),        // 4: google.maps.routes.v1.RouteModifiers
-	(*VehicleInfo)(nil),           // 5: google.maps.routes.v1.VehicleInfo
-	(*Waypoint)(nil),              // 6: google.maps.routes.v1.Waypoint
-	(PolylineQuality)(0),          // 7: google.maps.routes.v1.PolylineQuality
-	(*timestamppb.Timestamp)(nil), // 8: google.protobuf.Timestamp
-	(TollPass)(0),                 // 9: google.maps.routes.v1.TollPass
-	(VehicleEmissionType)(0),      // 10: google.maps.routes.v1.VehicleEmissionType
+	(RouteTravelMode)(0),         // 0: google.maps.routes.v1.RouteTravelMode
+	(RoutingPreference)(0),       // 1: google.maps.routes.v1.RoutingPreference
+	(Units)(0),                   // 2: google.maps.routes.v1.Units
+	(*ComputeRoutesRequest)(nil), // 3: google.maps.routes.v1.ComputeRoutesRequest
+	(*RouteModifiers)(nil),       // 4: google.maps.routes.v1.RouteModifiers
+	(*VehicleInfo)(nil),          // 5: google.maps.routes.v1.VehicleInfo
+	(*Waypoint)(nil),             // 6: google.maps.routes.v1.Waypoint
+	(PolylineQuality)(0),         // 7: google.maps.routes.v1.PolylineQuality
+	(*timestamp.Timestamp)(nil),  // 8: google.protobuf.Timestamp
+	(TollPass)(0),                // 9: google.maps.routes.v1.TollPass
+	(VehicleEmissionType)(0),     // 10: google.maps.routes.v1.VehicleEmissionType
 }
 var file_google_maps_routes_v1_compute_routes_request_proto_depIdxs = []int32{
 	6,  // 0: google.maps.routes.v1.ComputeRoutesRequest.origin:type_name -> google.maps.routes.v1.Waypoint

@@ -22,10 +22,10 @@ package firestore
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -382,7 +382,7 @@ type StructuredQuery struct {
 	//
 	// Applies after all other constraints.
 	// Must be >= 0 if specified.
-	Limit *wrapperspb.Int32Value `protobuf:"bytes,5,opt,name=limit,proto3" json:"limit,omitempty"`
+	Limit *wrappers.Int32Value `protobuf:"bytes,5,opt,name=limit,proto3" json:"limit,omitempty"`
 }
 
 func (x *StructuredQuery) Reset() {
@@ -466,7 +466,7 @@ func (x *StructuredQuery) GetOffset() int32 {
 	return 0
 }
 
-func (x *StructuredQuery) GetLimit() *wrapperspb.Int32Value {
+func (x *StructuredQuery) GetLimit() *wrappers.Int32Value {
 	if x != nil {
 		return x.Limit
 	}
@@ -1258,7 +1258,7 @@ var file_google_firestore_v1_query_proto_goTypes = []interface{}{
 	(*StructuredQuery_Order)(nil),                 // 11: google.firestore.v1.StructuredQuery.Order
 	(*StructuredQuery_FieldReference)(nil),        // 12: google.firestore.v1.StructuredQuery.FieldReference
 	(*StructuredQuery_Projection)(nil),            // 13: google.firestore.v1.StructuredQuery.Projection
-	(*wrapperspb.Int32Value)(nil),                 // 14: google.protobuf.Int32Value
+	(*wrappers.Int32Value)(nil),                   // 14: google.protobuf.Int32Value
 	(*Value)(nil),                                 // 15: google.firestore.v1.Value
 }
 var file_google_firestore_v1_query_proto_depIdxs = []int32{

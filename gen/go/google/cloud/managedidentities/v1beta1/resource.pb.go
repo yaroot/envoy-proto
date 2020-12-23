@@ -23,10 +23,10 @@ package managedidentities
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -330,9 +330,9 @@ type Domain struct {
 	// Active Directory set up on an internal network.
 	Fqdn string `protobuf:"bytes,10,opt,name=fqdn,proto3" json:"fqdn,omitempty"`
 	// Output only. The time the instance was created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,11,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The last update time.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,12,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// Output only. The current state of this domain.
 	State Domain_State `protobuf:"varint,13,opt,name=state,proto3,enum=google.cloud.managedidentities.v1beta1.Domain_State" json:"state,omitempty"`
 	// Output only. Additional information about the current status of this
@@ -423,14 +423,14 @@ func (x *Domain) GetFqdn() string {
 	return ""
 }
 
-func (x *Domain) GetCreateTime() *timestamppb.Timestamp {
+func (x *Domain) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *Domain) GetUpdateTime() *timestamppb.Timestamp {
+func (x *Domain) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -484,9 +484,9 @@ type Trust struct {
 	// with the target domain.
 	TrustHandshakeSecret string `protobuf:"bytes,6,opt,name=trust_handshake_secret,json=trustHandshakeSecret,proto3" json:"trust_handshake_secret,omitempty"`
 	// Output only. The time the instance was created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The last update time.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,8,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// Output only. The current state of the trust.
 	State Trust_State `protobuf:"varint,9,opt,name=state,proto3,enum=google.cloud.managedidentities.v1beta1.Trust_State" json:"state,omitempty"`
 	// Output only. Additional information about the current state of the
@@ -494,7 +494,7 @@ type Trust struct {
 	StateDescription string `protobuf:"bytes,11,opt,name=state_description,json=stateDescription,proto3" json:"state_description,omitempty"`
 	// Output only. The last heartbeat time when the trust was known to be
 	// connected.
-	LastTrustHeartbeatTime *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=last_trust_heartbeat_time,json=lastTrustHeartbeatTime,proto3" json:"last_trust_heartbeat_time,omitempty"`
+	LastTrustHeartbeatTime *timestamp.Timestamp `protobuf:"bytes,12,opt,name=last_trust_heartbeat_time,json=lastTrustHeartbeatTime,proto3" json:"last_trust_heartbeat_time,omitempty"`
 }
 
 func (x *Trust) Reset() {
@@ -571,14 +571,14 @@ func (x *Trust) GetTrustHandshakeSecret() string {
 	return ""
 }
 
-func (x *Trust) GetCreateTime() *timestamppb.Timestamp {
+func (x *Trust) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *Trust) GetUpdateTime() *timestamppb.Timestamp {
+func (x *Trust) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -599,7 +599,7 @@ func (x *Trust) GetStateDescription() string {
 	return ""
 }
 
-func (x *Trust) GetLastTrustHeartbeatTime() *timestamppb.Timestamp {
+func (x *Trust) GetLastTrustHeartbeatTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.LastTrustHeartbeatTime
 	}
@@ -731,8 +731,8 @@ var file_google_cloud_managedidentities_v1beta1_resource_proto_rawDesc = []byte{
 	0x4f, 0x4e, 0x5f, 0x55, 0x4e, 0x53, 0x50, 0x45, 0x43, 0x49, 0x46, 0x49, 0x45, 0x44, 0x10, 0x00,
 	0x12, 0x0b, 0x0a, 0x07, 0x49, 0x4e, 0x42, 0x4f, 0x55, 0x4e, 0x44, 0x10, 0x01, 0x12, 0x0c, 0x0a,
 	0x08, 0x4f, 0x55, 0x54, 0x42, 0x4f, 0x55, 0x4e, 0x44, 0x10, 0x02, 0x12, 0x11, 0x0a, 0x0d, 0x42,
-	0x49, 0x44, 0x49, 0x52, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x41, 0x4c, 0x10, 0x03, 0x42, 0xbf,
-	0x01, 0x0a, 0x2a, 0x63, 0x6f, 0x6d, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x63, 0x6c,
+	0x49, 0x44, 0x49, 0x52, 0x45, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x41, 0x4c, 0x10, 0x03, 0x42, 0x94,
+	0x02, 0x0a, 0x2a, 0x63, 0x6f, 0x6d, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x63, 0x6c,
 	0x6f, 0x75, 0x64, 0x2e, 0x6d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x64, 0x69, 0x64, 0x65, 0x6e, 0x74,
 	0x69, 0x74, 0x69, 0x65, 0x73, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x42, 0x0d, 0x52,
 	0x65, 0x73, 0x6f, 0x75, 0x72, 0x63, 0x65, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x57,
@@ -744,7 +744,12 @@ var file_google_cloud_managedidentities_v1beta1_resource_proto_rawDesc = []byte{
 	0x6e, 0x74, 0x69, 0x74, 0x69, 0x65, 0x73, 0xaa, 0x02, 0x26, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
 	0x2e, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x2e, 0x4d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x64, 0x49, 0x64,
 	0x65, 0x6e, 0x74, 0x69, 0x74, 0x69, 0x65, 0x73, 0x2e, 0x56, 0x31, 0x42, 0x65, 0x74, 0x61, 0x31,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0xca, 0x02, 0x26, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x5c, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x5c,
+	0x4d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x64, 0x49, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x69, 0x65,
+	0x73, 0x5c, 0x56, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0xea, 0x02, 0x29, 0x47, 0x6f, 0x6f, 0x67,
+	0x6c, 0x65, 0x3a, 0x3a, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x3a, 0x3a, 0x4d, 0x61, 0x6e, 0x61, 0x67,
+	0x65, 0x64, 0x49, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x69, 0x65, 0x73, 0x3a, 0x3a, 0x56, 0x31,
+	0x62, 0x65, 0x74, 0x61, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -762,14 +767,14 @@ func file_google_cloud_managedidentities_v1beta1_resource_proto_rawDescGZIP() []
 var file_google_cloud_managedidentities_v1beta1_resource_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
 var file_google_cloud_managedidentities_v1beta1_resource_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_google_cloud_managedidentities_v1beta1_resource_proto_goTypes = []interface{}{
-	(Domain_State)(0),             // 0: google.cloud.managedidentities.v1beta1.Domain.State
-	(Trust_State)(0),              // 1: google.cloud.managedidentities.v1beta1.Trust.State
-	(Trust_TrustType)(0),          // 2: google.cloud.managedidentities.v1beta1.Trust.TrustType
-	(Trust_TrustDirection)(0),     // 3: google.cloud.managedidentities.v1beta1.Trust.TrustDirection
-	(*Domain)(nil),                // 4: google.cloud.managedidentities.v1beta1.Domain
-	(*Trust)(nil),                 // 5: google.cloud.managedidentities.v1beta1.Trust
-	nil,                           // 6: google.cloud.managedidentities.v1beta1.Domain.LabelsEntry
-	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
+	(Domain_State)(0),           // 0: google.cloud.managedidentities.v1beta1.Domain.State
+	(Trust_State)(0),            // 1: google.cloud.managedidentities.v1beta1.Trust.State
+	(Trust_TrustType)(0),        // 2: google.cloud.managedidentities.v1beta1.Trust.TrustType
+	(Trust_TrustDirection)(0),   // 3: google.cloud.managedidentities.v1beta1.Trust.TrustDirection
+	(*Domain)(nil),              // 4: google.cloud.managedidentities.v1beta1.Domain
+	(*Trust)(nil),               // 5: google.cloud.managedidentities.v1beta1.Trust
+	nil,                         // 6: google.cloud.managedidentities.v1beta1.Domain.LabelsEntry
+	(*timestamp.Timestamp)(nil), // 7: google.protobuf.Timestamp
 }
 var file_google_cloud_managedidentities_v1beta1_resource_proto_depIdxs = []int32{
 	6,  // 0: google.cloud.managedidentities.v1beta1.Domain.labels:type_name -> google.cloud.managedidentities.v1beta1.Domain.LabelsEntry

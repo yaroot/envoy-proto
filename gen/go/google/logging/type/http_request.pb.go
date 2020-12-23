@@ -22,10 +22,10 @@ package ltype
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -69,10 +69,12 @@ type HttpRequest struct {
 	// CLR 1.0.3705)"`.
 	UserAgent string `protobuf:"bytes,6,opt,name=user_agent,json=userAgent,proto3" json:"user_agent,omitempty"`
 	// The IP address (IPv4 or IPv6) of the client that issued the HTTP
-	// request. Examples: `"192.168.1.1"`, `"FE80::0202:B3FF:FE1E:8329"`.
+	// request. This field can include port information. Examples:
+	// `"192.168.1.1"`, `"10.0.0.1:80"`, `"FE80::0202:B3FF:FE1E:8329"`.
 	RemoteIp string `protobuf:"bytes,7,opt,name=remote_ip,json=remoteIp,proto3" json:"remote_ip,omitempty"`
 	// The IP address (IPv4 or IPv6) of the origin server that the request was
-	// sent to.
+	// sent to. This field can include port information. Examples:
+	// `"192.168.1.1"`, `"10.0.0.1:80"`, `"FE80::0202:B3FF:FE1E:8329"`.
 	ServerIp string `protobuf:"bytes,13,opt,name=server_ip,json=serverIp,proto3" json:"server_ip,omitempty"`
 	// The referer URL of the request, as defined in
 	// [HTTP/1.1 Header Field
@@ -80,7 +82,7 @@ type HttpRequest struct {
 	Referer string `protobuf:"bytes,8,opt,name=referer,proto3" json:"referer,omitempty"`
 	// The request processing latency on the server, from the time the request was
 	// received until the response was sent.
-	Latency *durationpb.Duration `protobuf:"bytes,14,opt,name=latency,proto3" json:"latency,omitempty"`
+	Latency *duration.Duration `protobuf:"bytes,14,opt,name=latency,proto3" json:"latency,omitempty"`
 	// Whether or not a cache lookup was attempted.
 	CacheLookup bool `protobuf:"varint,11,opt,name=cache_lookup,json=cacheLookup,proto3" json:"cache_lookup,omitempty"`
 	// Whether or not an entity was served from cache
@@ -192,7 +194,7 @@ func (x *HttpRequest) GetReferer() string {
 	return ""
 }
 
-func (x *HttpRequest) GetLatency() *durationpb.Duration {
+func (x *HttpRequest) GetLatency() *duration.Duration {
 	if x != nil {
 		return x.Latency
 	}
@@ -309,8 +311,8 @@ func file_google_logging_type_http_request_proto_rawDescGZIP() []byte {
 
 var file_google_logging_type_http_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_logging_type_http_request_proto_goTypes = []interface{}{
-	(*HttpRequest)(nil),         // 0: google.logging.type.HttpRequest
-	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
+	(*HttpRequest)(nil),       // 0: google.logging.type.HttpRequest
+	(*duration.Duration)(nil), // 1: google.protobuf.Duration
 }
 var file_google_logging_type_http_request_proto_depIdxs = []int32{
 	1, // 0: google.logging.type.HttpRequest.latency:type_name -> google.protobuf.Duration

@@ -22,13 +22,13 @@ package recommendationengine
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	httpbody "google.golang.org/genproto/googleapis/api/httpbody"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
 	_ "google.golang.org/genproto/googleapis/type/date"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -142,7 +142,7 @@ type PurgeUserEventsMetadata struct {
 	// The ID of the request / operation.
 	OperationName string `protobuf:"bytes,1,opt,name=operation_name,json=operationName,proto3" json:"operation_name,omitempty"`
 	// Operation create time.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 }
 
 func (x *PurgeUserEventsMetadata) Reset() {
@@ -184,7 +184,7 @@ func (x *PurgeUserEventsMetadata) GetOperationName() string {
 	return ""
 }
 
-func (x *PurgeUserEventsMetadata) GetCreateTime() *timestamppb.Timestamp {
+func (x *PurgeUserEventsMetadata) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -812,7 +812,7 @@ var file_google_cloud_recommendationengine_v1beta1_user_event_service_proto_goTy
 	(*CollectUserEventRequest)(nil), // 4: google.cloud.recommendationengine.v1beta1.CollectUserEventRequest
 	(*ListUserEventsRequest)(nil),   // 5: google.cloud.recommendationengine.v1beta1.ListUserEventsRequest
 	(*ListUserEventsResponse)(nil),  // 6: google.cloud.recommendationengine.v1beta1.ListUserEventsResponse
-	(*timestamppb.Timestamp)(nil),   // 7: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),     // 7: google.protobuf.Timestamp
 	(*UserEvent)(nil),               // 8: google.cloud.recommendationengine.v1beta1.UserEvent
 	(*ImportUserEventsRequest)(nil), // 9: google.cloud.recommendationengine.v1beta1.ImportUserEventsRequest
 	(*httpbody.HttpBody)(nil),       // 10: google.api.HttpBody

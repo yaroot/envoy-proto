@@ -11,9 +11,9 @@ import (
 	v4alpha "envoy/type/matcher/v4alpha"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -36,18 +36,15 @@ type CacheConfig struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Config specific to the cache storage implementation.
-	TypedConfig *anypb.Any `protobuf:"bytes,1,opt,name=typed_config,json=typedConfig,proto3" json:"typed_config,omitempty"`
-	// [#not-implemented-hide:]
-	// <TODO(toddmgreer) implement *vary* headers>
-	//
-	// List of allowed *Vary* headers.
+	TypedConfig *any.Any `protobuf:"bytes,1,opt,name=typed_config,json=typedConfig,proto3" json:"typed_config,omitempty"`
+	// List of matching rules that defines allowed *Vary* headers.
 	//
 	// The *vary* response header holds a list of header names that affect the
 	// contents of a response, as described by
 	// https://httpwg.org/specs/rfc7234.html#caching.negotiated.responses.
 	//
 	// During insertion, *allowed_vary_headers* acts as a allowlist: if a
-	// response's *vary* header mentions any header names that aren't in
+	// response's *vary* header mentions any header names that aren't matched by any rules in
 	// *allowed_vary_headers*, that response will not be cached.
 	//
 	// During lookup, *allowed_vary_headers* controls what request headers will be
@@ -98,7 +95,7 @@ func (*CacheConfig) Descriptor() ([]byte, []int) {
 	return file_envoy_extensions_filters_http_cache_v4alpha_cache_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CacheConfig) GetTypedConfig() *anypb.Any {
+func (x *CacheConfig) GetTypedConfig() *any.Any {
 	if x != nil {
 		return x.TypedConfig
 	}
@@ -306,7 +303,7 @@ var file_envoy_extensions_filters_http_cache_v4alpha_cache_proto_msgTypes = make
 var file_envoy_extensions_filters_http_cache_v4alpha_cache_proto_goTypes = []interface{}{
 	(*CacheConfig)(nil),                    // 0: envoy.extensions.filters.http.cache.v4alpha.CacheConfig
 	(*CacheConfig_KeyCreatorParams)(nil),   // 1: envoy.extensions.filters.http.cache.v4alpha.CacheConfig.KeyCreatorParams
-	(*anypb.Any)(nil),                      // 2: google.protobuf.Any
+	(*any.Any)(nil),                        // 2: google.protobuf.Any
 	(*v4alpha.StringMatcher)(nil),          // 3: envoy.type.matcher.v4alpha.StringMatcher
 	(*v4alpha1.QueryParameterMatcher)(nil), // 4: envoy.config.route.v4alpha.QueryParameterMatcher
 }

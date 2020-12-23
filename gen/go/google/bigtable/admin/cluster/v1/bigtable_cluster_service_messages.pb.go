@@ -22,9 +22,9 @@ package cluster
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -380,9 +380,9 @@ type CreateClusterMetadata struct {
 	// The request which prompted the creation of this operation.
 	OriginalRequest *CreateClusterRequest `protobuf:"bytes,1,opt,name=original_request,json=originalRequest,proto3" json:"original_request,omitempty"`
 	// The time at which original_request was received.
-	RequestTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=request_time,json=requestTime,proto3" json:"request_time,omitempty"`
+	RequestTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=request_time,json=requestTime,proto3" json:"request_time,omitempty"`
 	// The time at which this operation failed or was completed successfully.
-	FinishTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
+	FinishTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
 }
 
 func (x *CreateClusterMetadata) Reset() {
@@ -424,14 +424,14 @@ func (x *CreateClusterMetadata) GetOriginalRequest() *CreateClusterRequest {
 	return nil
 }
 
-func (x *CreateClusterMetadata) GetRequestTime() *timestamppb.Timestamp {
+func (x *CreateClusterMetadata) GetRequestTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.RequestTime
 	}
 	return nil
 }
 
-func (x *CreateClusterMetadata) GetFinishTime() *timestamppb.Timestamp {
+func (x *CreateClusterMetadata) GetFinishTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.FinishTime
 	}
@@ -448,13 +448,13 @@ type UpdateClusterMetadata struct {
 	// The request which prompted the creation of this operation.
 	OriginalRequest *Cluster `protobuf:"bytes,1,opt,name=original_request,json=originalRequest,proto3" json:"original_request,omitempty"`
 	// The time at which original_request was received.
-	RequestTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=request_time,json=requestTime,proto3" json:"request_time,omitempty"`
+	RequestTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=request_time,json=requestTime,proto3" json:"request_time,omitempty"`
 	// The time at which this operation was cancelled. If set, this operation is
 	// in the process of undoing itself (which is guaranteed to succeed) and
 	// cannot be cancelled again.
-	CancelTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
+	CancelTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=cancel_time,json=cancelTime,proto3" json:"cancel_time,omitempty"`
 	// The time at which this operation failed or was completed successfully.
-	FinishTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
+	FinishTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
 }
 
 func (x *UpdateClusterMetadata) Reset() {
@@ -496,21 +496,21 @@ func (x *UpdateClusterMetadata) GetOriginalRequest() *Cluster {
 	return nil
 }
 
-func (x *UpdateClusterMetadata) GetRequestTime() *timestamppb.Timestamp {
+func (x *UpdateClusterMetadata) GetRequestTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.RequestTime
 	}
 	return nil
 }
 
-func (x *UpdateClusterMetadata) GetCancelTime() *timestamppb.Timestamp {
+func (x *UpdateClusterMetadata) GetCancelTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CancelTime
 	}
 	return nil
 }
 
-func (x *UpdateClusterMetadata) GetFinishTime() *timestamppb.Timestamp {
+func (x *UpdateClusterMetadata) GetFinishTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.FinishTime
 	}
@@ -625,9 +625,9 @@ type UndeleteClusterMetadata struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The time at which the original request was received.
-	RequestTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=request_time,json=requestTime,proto3" json:"request_time,omitempty"`
+	RequestTime *timestamp.Timestamp `protobuf:"bytes,1,opt,name=request_time,json=requestTime,proto3" json:"request_time,omitempty"`
 	// The time at which this operation failed or was completed successfully.
-	FinishTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
+	FinishTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=finish_time,json=finishTime,proto3" json:"finish_time,omitempty"`
 }
 
 func (x *UndeleteClusterMetadata) Reset() {
@@ -662,14 +662,14 @@ func (*UndeleteClusterMetadata) Descriptor() ([]byte, []int) {
 	return file_google_bigtable_admin_cluster_v1_bigtable_cluster_service_messages_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *UndeleteClusterMetadata) GetRequestTime() *timestamppb.Timestamp {
+func (x *UndeleteClusterMetadata) GetRequestTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.RequestTime
 	}
 	return nil
 }
 
-func (x *UndeleteClusterMetadata) GetFinishTime() *timestamppb.Timestamp {
+func (x *UndeleteClusterMetadata) GetFinishTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.FinishTime
 	}
@@ -856,7 +856,7 @@ var file_google_bigtable_admin_cluster_v1_bigtable_cluster_service_messages_prot
 	(*V2OperationMetadata)(nil),     // 11: google.bigtable.admin.cluster.v1.V2OperationMetadata
 	(*Zone)(nil),                    // 12: google.bigtable.admin.cluster.v1.Zone
 	(*Cluster)(nil),                 // 13: google.bigtable.admin.cluster.v1.Cluster
-	(*timestamppb.Timestamp)(nil),   // 14: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),     // 14: google.protobuf.Timestamp
 }
 var file_google_bigtable_admin_cluster_v1_bigtable_cluster_service_messages_proto_depIdxs = []int32{
 	12, // 0: google.bigtable.admin.cluster.v1.ListZonesResponse.zones:type_name -> google.bigtable.admin.cluster.v1.Zone

@@ -9,10 +9,10 @@ package udpa_annotations
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	descriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
+	_ "github.com/golang/protobuf/ptypes/any"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	descriptorpb "google.golang.org/protobuf/types/descriptorpb"
-	_ "google.golang.org/protobuf/types/known/anypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -89,7 +89,7 @@ func (x *FieldSecurityAnnotation) GetConfigureForUntrustedUpstream() bool {
 
 var file_udpa_annotations_security_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
-		ExtendedType:  (*descriptorpb.FieldOptions)(nil),
+		ExtendedType:  (*descriptor.FieldOptions)(nil),
 		ExtensionType: (*FieldSecurityAnnotation)(nil),
 		Field:         11122993,
 		Name:          "udpa.annotations.security",
@@ -98,7 +98,7 @@ var file_udpa_annotations_security_proto_extTypes = []protoimpl.ExtensionInfo{
 	},
 }
 
-// Extension fields to descriptorpb.FieldOptions.
+// Extension fields to descriptor.FieldOptions.
 var (
 	// Magic number is the 28 most significant bits in the sha256sum of
 	// "udpa.annotations.security".
@@ -156,8 +156,8 @@ func file_udpa_annotations_security_proto_rawDescGZIP() []byte {
 
 var file_udpa_annotations_security_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_udpa_annotations_security_proto_goTypes = []interface{}{
-	(*FieldSecurityAnnotation)(nil),   // 0: udpa.annotations.FieldSecurityAnnotation
-	(*descriptorpb.FieldOptions)(nil), // 1: google.protobuf.FieldOptions
+	(*FieldSecurityAnnotation)(nil), // 0: udpa.annotations.FieldSecurityAnnotation
+	(*descriptor.FieldOptions)(nil), // 1: google.protobuf.FieldOptions
 }
 var file_udpa_annotations_security_proto_depIdxs = []int32{
 	1, // 0: udpa.annotations.security:extendee -> google.protobuf.FieldOptions

@@ -22,11 +22,11 @@ package appengine
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -303,7 +303,7 @@ type Version struct {
 	// Time that this version was created.
 	//
 	// @OutputOnly
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,17,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,17,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Total size in bytes of all the files that are included in this version
 	// and currently hosted on the App Engine disk.
 	//
@@ -345,7 +345,7 @@ type Version struct {
 	// does not specify its own expiration time.
 	//
 	// Only returned in `GET` requests if `view=FULL` is set.
-	DefaultExpiration *durationpb.Duration `protobuf:"bytes,105,opt,name=default_expiration,json=defaultExpiration,proto3" json:"default_expiration,omitempty"`
+	DefaultExpiration *duration.Duration `protobuf:"bytes,105,opt,name=default_expiration,json=defaultExpiration,proto3" json:"default_expiration,omitempty"`
 	// Configures health checking for instances. Unhealthy instances are
 	// stopped and replaced with new instances.
 	// Only applicable in the App Engine flexible environment.
@@ -552,7 +552,7 @@ func (x *Version) GetCreatedBy() string {
 	return ""
 }
 
-func (x *Version) GetCreateTime() *timestamppb.Timestamp {
+func (x *Version) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -615,7 +615,7 @@ func (x *Version) GetEnvVariables() map[string]string {
 	return nil
 }
 
-func (x *Version) GetDefaultExpiration() *durationpb.Duration {
+func (x *Version) GetDefaultExpiration() *duration.Duration {
 	if x != nil {
 		return x.DefaultExpiration
 	}
@@ -824,7 +824,7 @@ type AutomaticScaling struct {
 	// This prevents the autoscaler from collecting information when the instance
 	// is initializing, during which the collected usage would not be reliable.
 	// Only applicable in the App Engine flexible environment.
-	CoolDownPeriod *durationpb.Duration `protobuf:"bytes,1,opt,name=cool_down_period,json=coolDownPeriod,proto3" json:"cool_down_period,omitempty"`
+	CoolDownPeriod *duration.Duration `protobuf:"bytes,1,opt,name=cool_down_period,json=coolDownPeriod,proto3" json:"cool_down_period,omitempty"`
 	// Target scaling by CPU usage.
 	CpuUtilization *CpuUtilization `protobuf:"bytes,2,opt,name=cpu_utilization,json=cpuUtilization,proto3" json:"cpu_utilization,omitempty"`
 	// Number of concurrent requests an automatic scaling instance can accept
@@ -840,7 +840,7 @@ type AutomaticScaling struct {
 	MaxTotalInstances int32 `protobuf:"varint,5,opt,name=max_total_instances,json=maxTotalInstances,proto3" json:"max_total_instances,omitempty"`
 	// Maximum amount of time that a request should wait in the pending queue
 	// before starting a new instance to handle it.
-	MaxPendingLatency *durationpb.Duration `protobuf:"bytes,6,opt,name=max_pending_latency,json=maxPendingLatency,proto3" json:"max_pending_latency,omitempty"`
+	MaxPendingLatency *duration.Duration `protobuf:"bytes,6,opt,name=max_pending_latency,json=maxPendingLatency,proto3" json:"max_pending_latency,omitempty"`
 	// Minimum number of idle instances that should be maintained for
 	// this version. Only applicable for the default version of a service.
 	MinIdleInstances int32 `protobuf:"varint,7,opt,name=min_idle_instances,json=minIdleInstances,proto3" json:"min_idle_instances,omitempty"`
@@ -849,7 +849,7 @@ type AutomaticScaling struct {
 	MinTotalInstances int32 `protobuf:"varint,8,opt,name=min_total_instances,json=minTotalInstances,proto3" json:"min_total_instances,omitempty"`
 	// Minimum amount of time a request should wait in the pending queue before
 	// starting a new instance to handle it.
-	MinPendingLatency *durationpb.Duration `protobuf:"bytes,9,opt,name=min_pending_latency,json=minPendingLatency,proto3" json:"min_pending_latency,omitempty"`
+	MinPendingLatency *duration.Duration `protobuf:"bytes,9,opt,name=min_pending_latency,json=minPendingLatency,proto3" json:"min_pending_latency,omitempty"`
 	// Target scaling by request utilization.
 	RequestUtilization *RequestUtilization `protobuf:"bytes,10,opt,name=request_utilization,json=requestUtilization,proto3" json:"request_utilization,omitempty"`
 	// Target scaling by disk usage.
@@ -892,7 +892,7 @@ func (*AutomaticScaling) Descriptor() ([]byte, []int) {
 	return file_google_appengine_v1_version_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *AutomaticScaling) GetCoolDownPeriod() *durationpb.Duration {
+func (x *AutomaticScaling) GetCoolDownPeriod() *duration.Duration {
 	if x != nil {
 		return x.CoolDownPeriod
 	}
@@ -927,7 +927,7 @@ func (x *AutomaticScaling) GetMaxTotalInstances() int32 {
 	return 0
 }
 
-func (x *AutomaticScaling) GetMaxPendingLatency() *durationpb.Duration {
+func (x *AutomaticScaling) GetMaxPendingLatency() *duration.Duration {
 	if x != nil {
 		return x.MaxPendingLatency
 	}
@@ -948,7 +948,7 @@ func (x *AutomaticScaling) GetMinTotalInstances() int32 {
 	return 0
 }
 
-func (x *AutomaticScaling) GetMinPendingLatency() *durationpb.Duration {
+func (x *AutomaticScaling) GetMinPendingLatency() *duration.Duration {
 	if x != nil {
 		return x.MinPendingLatency
 	}
@@ -994,7 +994,7 @@ type BasicScaling struct {
 
 	// Duration of time after the last request that an instance must wait before
 	// the instance is shut down.
-	IdleTimeout *durationpb.Duration `protobuf:"bytes,1,opt,name=idle_timeout,json=idleTimeout,proto3" json:"idle_timeout,omitempty"`
+	IdleTimeout *duration.Duration `protobuf:"bytes,1,opt,name=idle_timeout,json=idleTimeout,proto3" json:"idle_timeout,omitempty"`
 	// Maximum number of instances to create for this version.
 	MaxInstances int32 `protobuf:"varint,2,opt,name=max_instances,json=maxInstances,proto3" json:"max_instances,omitempty"`
 }
@@ -1031,7 +1031,7 @@ func (*BasicScaling) Descriptor() ([]byte, []int) {
 	return file_google_appengine_v1_version_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *BasicScaling) GetIdleTimeout() *durationpb.Duration {
+func (x *BasicScaling) GetIdleTimeout() *duration.Duration {
 	if x != nil {
 		return x.IdleTimeout
 	}
@@ -1105,7 +1105,7 @@ type CpuUtilization struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Period of time over which CPU utilization is calculated.
-	AggregationWindowLength *durationpb.Duration `protobuf:"bytes,1,opt,name=aggregation_window_length,json=aggregationWindowLength,proto3" json:"aggregation_window_length,omitempty"`
+	AggregationWindowLength *duration.Duration `protobuf:"bytes,1,opt,name=aggregation_window_length,json=aggregationWindowLength,proto3" json:"aggregation_window_length,omitempty"`
 	// Target CPU utilization ratio to maintain when scaling. Must be between 0
 	// and 1.
 	TargetUtilization float64 `protobuf:"fixed64,2,opt,name=target_utilization,json=targetUtilization,proto3" json:"target_utilization,omitempty"`
@@ -1143,7 +1143,7 @@ func (*CpuUtilization) Descriptor() ([]byte, []int) {
 	return file_google_appengine_v1_version_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *CpuUtilization) GetAggregationWindowLength() *durationpb.Duration {
+func (x *CpuUtilization) GetAggregationWindowLength() *duration.Duration {
 	if x != nil {
 		return x.AggregationWindowLength
 	}
@@ -2239,12 +2239,12 @@ var file_google_appengine_v1_version_proto_goTypes = []interface{}{
 	(*Entrypoint)(nil),                       // 17: google.appengine.v1.Entrypoint
 	nil,                                      // 18: google.appengine.v1.Version.BetaSettingsEntry
 	nil,                                      // 19: google.appengine.v1.Version.EnvVariablesEntry
-	(*timestamppb.Timestamp)(nil),            // 20: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),              // 20: google.protobuf.Timestamp
 	(*UrlMap)(nil),                           // 21: google.appengine.v1.UrlMap
 	(*ErrorHandler)(nil),                     // 22: google.appengine.v1.ErrorHandler
 	(*Library)(nil),                          // 23: google.appengine.v1.Library
 	(*ApiConfigHandler)(nil),                 // 24: google.appengine.v1.ApiConfigHandler
-	(*durationpb.Duration)(nil),              // 25: google.protobuf.Duration
+	(*duration.Duration)(nil),                // 25: google.protobuf.Duration
 	(*HealthCheck)(nil),                      // 26: google.appengine.v1.HealthCheck
 	(*ReadinessCheck)(nil),                   // 27: google.appengine.v1.ReadinessCheck
 	(*LivenessCheck)(nil),                    // 28: google.appengine.v1.LivenessCheck

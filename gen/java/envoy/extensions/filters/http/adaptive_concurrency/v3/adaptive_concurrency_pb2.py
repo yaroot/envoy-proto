@@ -26,7 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\nCio.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3B\030AdaptiveConcurrencyProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nPenvoy/extensions/filters/http/adaptive_concurrency/v3/adaptive_concurrency.proto\x12\x35\x65nvoy.extensions.filters.http.adaptive_concurrency.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xae\t\n\x18GradientControllerConfig\x12;\n\x1bsample_aggregate_percentile\x18\x01 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x9d\x01\n\x18\x63oncurrency_limit_params\x18\x02 \x01(\x0b\x32q.envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.ConcurrencyLimitCalculationParamsB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x92\x01\n\x13min_rtt_calc_params\x18\x03 \x01(\x0b\x32k.envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.MinimumRTTCalculationParamsB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x1a\xae\x02\n!ConcurrencyLimitCalculationParams\x12\x44\n\x15max_concurrency_limit\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02 \x00\x12J\n\x1b\x63oncurrency_update_interval\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\n\xfa\x42\x07\xaa\x01\x04\x08\x01*\x00:w\x9a\xc5\x88\x1er\npenvoy.config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig.ConcurrencyLimitCalculationParams\x1a\x97\x03\n\x1bMinimumRTTCalculationParams\x12\x37\n\x08interval\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\n\xfa\x42\x07\xaa\x01\x04\x08\x01*\x00\x12<\n\rrequest_count\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02 \x00\x12&\n\x06jitter\x18\x03 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12>\n\x0fmin_concurrency\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02 \x00\x12&\n\x06\x62uffer\x18\x05 \x01(\x0b\x32\x16.envoy.type.v3.Percent:q\x9a\xc5\x88\x1el\njenvoy.config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig.MinimumRTTCalculationParams:U\x9a\xc5\x88\x1eP\nNenvoy.config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig\"\xc9\x02\n\x13\x41\x64\x61ptiveConcurrency\x12\x7f\n\x1agradient_controller_config\x18\x01 \x01(\x0b\x32O.envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfigB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01H\x00\x12\x39\n\x07\x65nabled\x18\x02 \x01(\x0b\x32(.envoy.config.core.v3.RuntimeFeatureFlag:P\x9a\xc5\x88\x1eK\nIenvoy.config.filter.http.adaptive_concurrency.v2alpha.AdaptiveConcurrencyB$\n\x1d\x63oncurrency_controller_config\x12\x03\xf8\x42\x01\x42i\nCio.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3B\x18\x41\x64\x61ptiveConcurrencyProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\nPenvoy/extensions/filters/http/adaptive_concurrency/v3/adaptive_concurrency.proto\x12\x35\x65nvoy.extensions.filters.http.adaptive_concurrency.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xb2\t\n\x18GradientControllerConfig\x12;\n\x1bsample_aggregate_percentile\x18\x01 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x9d\x01\n\x18\x63oncurrency_limit_params\x18\x02 \x01(\x0b\x32q.envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.ConcurrencyLimitCalculationParamsB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x92\x01\n\x13min_rtt_calc_params\x18\x03 \x01(\x0b\x32k.envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.MinimumRTTCalculationParamsB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x1a\xae\x02\n!ConcurrencyLimitCalculationParams\x12\x44\n\x15max_concurrency_limit\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02 \x00\x12J\n\x1b\x63oncurrency_update_interval\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\n\xfa\x42\x07\xaa\x01\x04\x08\x01*\x00:w\x9a\xc5\x88\x1er\npenvoy.config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig.ConcurrencyLimitCalculationParams\x1a\x9b\x03\n\x1bMinimumRTTCalculationParams\x12;\n\x08interval\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0e\xfa\x42\x0b\xaa\x01\x08\x08\x01\x32\x04\x10\xc0\x84=\x12<\n\rrequest_count\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02 \x00\x12&\n\x06jitter\x18\x03 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12>\n\x0fmin_concurrency\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02 \x00\x12&\n\x06\x62uffer\x18\x05 \x01(\x0b\x32\x16.envoy.type.v3.Percent:q\x9a\xc5\x88\x1el\njenvoy.config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig.MinimumRTTCalculationParams:U\x9a\xc5\x88\x1eP\nNenvoy.config.filter.http.adaptive_concurrency.v2alpha.GradientControllerConfig\"\xc9\x02\n\x13\x41\x64\x61ptiveConcurrency\x12\x7f\n\x1agradient_controller_config\x18\x01 \x01(\x0b\x32O.envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfigB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01H\x00\x12\x39\n\x07\x65nabled\x18\x02 \x01(\x0b\x32(.envoy.config.core.v3.RuntimeFeatureFlag:P\x9a\xc5\x88\x1eK\nIenvoy.config.filter.http.adaptive_concurrency.v2alpha.AdaptiveConcurrencyB$\n\x1d\x63oncurrency_controller_config\x12\x03\xf8\x42\x01\x42i\nCio.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3B\x18\x41\x64\x61ptiveConcurrencyProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -85,7 +85,7 @@ _GRADIENTCONTROLLERCONFIG_MINIMUMRTTCALCULATIONPARAMS = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\007\252\001\004\010\001*\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\013\252\001\010\010\0012\004\020\300\204=', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='request_count', full_name='envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.MinimumRTTCalculationParams.request_count', index=1,
       number=2, type=11, cpp_type=10, label=1,
@@ -127,7 +127,7 @@ _GRADIENTCONTROLLERCONFIG_MINIMUMRTTCALCULATIONPARAMS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1061,
-  serialized_end=1468,
+  serialized_end=1472,
 )
 
 _GRADIENTCONTROLLERCONFIG = _descriptor.Descriptor(
@@ -172,7 +172,7 @@ _GRADIENTCONTROLLERCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=357,
-  serialized_end=1555,
+  serialized_end=1559,
 )
 
 
@@ -215,8 +215,8 @@ _ADAPTIVECONCURRENCY = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=1558,
-  serialized_end=1887,
+  serialized_start=1562,
+  serialized_end=1891,
 )
 
 _GRADIENTCONTROLLERCONFIG_CONCURRENCYLIMITCALCULATIONPARAMS.fields_by_name['max_concurrency_limit'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE

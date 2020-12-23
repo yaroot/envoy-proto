@@ -22,10 +22,10 @@ package common
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -49,7 +49,7 @@ type RealTimeBiddingSetting struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Whether the campaign is opted in to real-time bidding.
-	OptIn *wrapperspb.BoolValue `protobuf:"bytes,1,opt,name=opt_in,json=optIn,proto3" json:"opt_in,omitempty"`
+	OptIn *wrappers.BoolValue `protobuf:"bytes,1,opt,name=opt_in,json=optIn,proto3" json:"opt_in,omitempty"`
 }
 
 func (x *RealTimeBiddingSetting) Reset() {
@@ -84,7 +84,7 @@ func (*RealTimeBiddingSetting) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v4_common_real_time_bidding_setting_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *RealTimeBiddingSetting) GetOptIn() *wrapperspb.BoolValue {
+func (x *RealTimeBiddingSetting) GetOptIn() *wrappers.BoolValue {
 	if x != nil {
 		return x.OptIn
 	}
@@ -142,7 +142,7 @@ func file_google_ads_googleads_v4_common_real_time_bidding_setting_proto_rawDesc
 var file_google_ads_googleads_v4_common_real_time_bidding_setting_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v4_common_real_time_bidding_setting_proto_goTypes = []interface{}{
 	(*RealTimeBiddingSetting)(nil), // 0: google.ads.googleads.v4.common.RealTimeBiddingSetting
-	(*wrapperspb.BoolValue)(nil),   // 1: google.protobuf.BoolValue
+	(*wrappers.BoolValue)(nil),     // 1: google.protobuf.BoolValue
 }
 var file_google_ads_googleads_v4_common_real_time_bidding_setting_proto_depIdxs = []int32{
 	1, // 0: google.ads.googleads.v4.common.RealTimeBiddingSetting.opt_in:type_name -> google.protobuf.BoolValue

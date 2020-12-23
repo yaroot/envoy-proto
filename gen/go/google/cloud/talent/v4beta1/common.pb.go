@@ -22,6 +22,8 @@ package talent
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	date "google.golang.org/genproto/googleapis/type/date"
 	latlng "google.golang.org/genproto/googleapis/type/latlng"
@@ -30,8 +32,6 @@ import (
 	_ "google.golang.org/genproto/googleapis/type/timeofday"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -1621,9 +1621,9 @@ type TimestampRange struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Begin of the period (inclusive).
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,1,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// End of the period (exclusive).
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 }
 
 func (x *TimestampRange) Reset() {
@@ -1658,14 +1658,14 @@ func (*TimestampRange) Descriptor() ([]byte, []int) {
 	return file_google_cloud_talent_v4beta1_common_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *TimestampRange) GetStartTime() *timestamppb.Timestamp {
+func (x *TimestampRange) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *TimestampRange) GetEndTime() *timestamppb.Timestamp {
+func (x *TimestampRange) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -2572,14 +2572,14 @@ type BatchOperationMetadata struct {
 	// Count of total item(s) inside an operation.
 	TotalCount int32 `protobuf:"varint,5,opt,name=total_count,json=totalCount,proto3" json:"total_count,omitempty"`
 	// The time when the batch operation is created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,6,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// The time when the batch operation status is updated. The metadata and the
 	// [update_time][google.cloud.talent.v4beta1.BatchOperationMetadata.update_time] is refreshed every minute otherwise cached data is
 	// returned.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,7,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// The time when the batch operation is finished and
 	// [google.longrunning.Operation.done][google.longrunning.Operation.done] is set to `true`.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,8,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 }
 
 func (x *BatchOperationMetadata) Reset() {
@@ -2649,21 +2649,21 @@ func (x *BatchOperationMetadata) GetTotalCount() int32 {
 	return 0
 }
 
-func (x *BatchOperationMetadata) GetCreateTime() *timestamppb.Timestamp {
+func (x *BatchOperationMetadata) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *BatchOperationMetadata) GetUpdateTime() *timestamppb.Timestamp {
+func (x *BatchOperationMetadata) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
 	return nil
 }
 
-func (x *BatchOperationMetadata) GetEndTime() *timestamppb.Timestamp {
+func (x *BatchOperationMetadata) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -2709,7 +2709,7 @@ type CompensationInfo_CompensationEntry struct {
 	// - WEEKLY: 52
 	// - MONTHLY: 12
 	// - ANNUAL: 1
-	ExpectedUnitsPerYear *wrapperspb.DoubleValue `protobuf:"bytes,6,opt,name=expected_units_per_year,json=expectedUnitsPerYear,proto3" json:"expected_units_per_year,omitempty"`
+	ExpectedUnitsPerYear *wrappers.DoubleValue `protobuf:"bytes,6,opt,name=expected_units_per_year,json=expectedUnitsPerYear,proto3" json:"expected_units_per_year,omitempty"`
 }
 
 func (x *CompensationInfo_CompensationEntry) Reset() {
@@ -2786,7 +2786,7 @@ func (x *CompensationInfo_CompensationEntry) GetDescription() string {
 	return ""
 }
 
-func (x *CompensationInfo_CompensationEntry) GetExpectedUnitsPerYear() *wrapperspb.DoubleValue {
+func (x *CompensationInfo_CompensationEntry) GetExpectedUnitsPerYear() *wrappers.DoubleValue {
 	if x != nil {
 		return x.ExpectedUnitsPerYear
 	}
@@ -3382,12 +3382,12 @@ var file_google_cloud_talent_v4beta1_common_proto_goTypes = []interface{}{
 	(*BatchOperationMetadata)(nil),             // 31: google.cloud.talent.v4beta1.BatchOperationMetadata
 	(*CompensationInfo_CompensationEntry)(nil), // 32: google.cloud.talent.v4beta1.CompensationInfo.CompensationEntry
 	(*CompensationInfo_CompensationRange)(nil), // 33: google.cloud.talent.v4beta1.CompensationInfo.CompensationRange
-	(*timestamppb.Timestamp)(nil),              // 34: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),                // 34: google.protobuf.Timestamp
 	(*postaladdress.PostalAddress)(nil),        // 35: google.type.PostalAddress
 	(*latlng.LatLng)(nil),                      // 36: google.type.LatLng
 	(*date.Date)(nil),                          // 37: google.type.Date
 	(*money.Money)(nil),                        // 38: google.type.Money
-	(*wrapperspb.DoubleValue)(nil),             // 39: google.protobuf.DoubleValue
+	(*wrappers.DoubleValue)(nil),               // 39: google.protobuf.DoubleValue
 }
 var file_google_cloud_talent_v4beta1_common_proto_depIdxs = []int32{
 	34, // 0: google.cloud.talent.v4beta1.TimestampRange.start_time:type_name -> google.protobuf.Timestamp

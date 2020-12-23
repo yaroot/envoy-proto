@@ -22,11 +22,11 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v4/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -54,27 +54,27 @@ type GoogleAdsField struct {
 	// `googleAdsFields/{name}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. The name of the artifact.
-	Name *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Name *wrappers.StringValue `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	// Output only. The category of the artifact.
 	Category enums.GoogleAdsFieldCategoryEnum_GoogleAdsFieldCategory `protobuf:"varint,3,opt,name=category,proto3,enum=google.ads.googleads.v4.enums.GoogleAdsFieldCategoryEnum_GoogleAdsFieldCategory" json:"category,omitempty"`
 	// Output only. Whether the artifact can be used in a SELECT clause in search
 	// queries.
-	Selectable *wrapperspb.BoolValue `protobuf:"bytes,4,opt,name=selectable,proto3" json:"selectable,omitempty"`
+	Selectable *wrappers.BoolValue `protobuf:"bytes,4,opt,name=selectable,proto3" json:"selectable,omitempty"`
 	// Output only. Whether the artifact can be used in a WHERE clause in search
 	// queries.
-	Filterable *wrapperspb.BoolValue `protobuf:"bytes,5,opt,name=filterable,proto3" json:"filterable,omitempty"`
+	Filterable *wrappers.BoolValue `protobuf:"bytes,5,opt,name=filterable,proto3" json:"filterable,omitempty"`
 	// Output only. Whether the artifact can be used in a ORDER BY clause in search
 	// queries.
-	Sortable *wrapperspb.BoolValue `protobuf:"bytes,6,opt,name=sortable,proto3" json:"sortable,omitempty"`
+	Sortable *wrappers.BoolValue `protobuf:"bytes,6,opt,name=sortable,proto3" json:"sortable,omitempty"`
 	// Output only. The names of all resources, segments, and metrics that are selectable with
 	// the described artifact.
-	SelectableWith []*wrapperspb.StringValue `protobuf:"bytes,7,rep,name=selectable_with,json=selectableWith,proto3" json:"selectable_with,omitempty"`
+	SelectableWith []*wrappers.StringValue `protobuf:"bytes,7,rep,name=selectable_with,json=selectableWith,proto3" json:"selectable_with,omitempty"`
 	// Output only. The names of all resources that are selectable with the described
 	// artifact. Fields from these resources do not segment metrics when included
 	// in search queries.
 	//
 	// This field is only set for artifacts whose category is RESOURCE.
-	AttributeResources []*wrapperspb.StringValue `protobuf:"bytes,8,rep,name=attribute_resources,json=attributeResources,proto3" json:"attribute_resources,omitempty"`
+	AttributeResources []*wrappers.StringValue `protobuf:"bytes,8,rep,name=attribute_resources,json=attributeResources,proto3" json:"attribute_resources,omitempty"`
 	// Output only. At and beyond version V1 this field lists the names of all metrics that are
 	// selectable with the described artifact when it is used in the FROM clause.
 	// It is only set for artifacts whose category is RESOURCE.
@@ -82,7 +82,7 @@ type GoogleAdsField struct {
 	// Before version V1 this field lists the names of all metrics that are
 	// selectable with the described artifact. It is only set for artifacts whose
 	// category is either RESOURCE or SEGMENT
-	Metrics []*wrapperspb.StringValue `protobuf:"bytes,9,rep,name=metrics,proto3" json:"metrics,omitempty"`
+	Metrics []*wrappers.StringValue `protobuf:"bytes,9,rep,name=metrics,proto3" json:"metrics,omitempty"`
 	// Output only. At and beyond version V1 this field lists the names of all artifacts,
 	// whether a segment or another resource, that segment metrics when included
 	// in search queries and when the described artifact is used in the FROM
@@ -92,18 +92,18 @@ type GoogleAdsField struct {
 	// segment or another resource, that segment metrics when included in search
 	// queries. It is only set for artifacts of category RESOURCE, SEGMENT or
 	// METRIC.
-	Segments []*wrapperspb.StringValue `protobuf:"bytes,10,rep,name=segments,proto3" json:"segments,omitempty"`
+	Segments []*wrappers.StringValue `protobuf:"bytes,10,rep,name=segments,proto3" json:"segments,omitempty"`
 	// Output only. Values the artifact can assume if it is a field of type ENUM.
 	//
 	// This field is only set for artifacts of category SEGMENT or ATTRIBUTE.
-	EnumValues []*wrapperspb.StringValue `protobuf:"bytes,11,rep,name=enum_values,json=enumValues,proto3" json:"enum_values,omitempty"`
+	EnumValues []*wrappers.StringValue `protobuf:"bytes,11,rep,name=enum_values,json=enumValues,proto3" json:"enum_values,omitempty"`
 	// Output only. This field determines the operators that can be used with the artifact
 	// in WHERE clauses.
 	DataType enums.GoogleAdsFieldDataTypeEnum_GoogleAdsFieldDataType `protobuf:"varint,12,opt,name=data_type,json=dataType,proto3,enum=google.ads.googleads.v4.enums.GoogleAdsFieldDataTypeEnum_GoogleAdsFieldDataType" json:"data_type,omitempty"`
 	// Output only. The URL of proto describing the artifact's data type.
-	TypeUrl *wrapperspb.StringValue `protobuf:"bytes,13,opt,name=type_url,json=typeUrl,proto3" json:"type_url,omitempty"`
+	TypeUrl *wrappers.StringValue `protobuf:"bytes,13,opt,name=type_url,json=typeUrl,proto3" json:"type_url,omitempty"`
 	// Output only. Whether the field artifact is repeated.
-	IsRepeated *wrapperspb.BoolValue `protobuf:"bytes,14,opt,name=is_repeated,json=isRepeated,proto3" json:"is_repeated,omitempty"`
+	IsRepeated *wrappers.BoolValue `protobuf:"bytes,14,opt,name=is_repeated,json=isRepeated,proto3" json:"is_repeated,omitempty"`
 }
 
 func (x *GoogleAdsField) Reset() {
@@ -145,7 +145,7 @@ func (x *GoogleAdsField) GetResourceName() string {
 	return ""
 }
 
-func (x *GoogleAdsField) GetName() *wrapperspb.StringValue {
+func (x *GoogleAdsField) GetName() *wrappers.StringValue {
 	if x != nil {
 		return x.Name
 	}
@@ -159,56 +159,56 @@ func (x *GoogleAdsField) GetCategory() enums.GoogleAdsFieldCategoryEnum_GoogleAd
 	return enums.GoogleAdsFieldCategoryEnum_UNSPECIFIED
 }
 
-func (x *GoogleAdsField) GetSelectable() *wrapperspb.BoolValue {
+func (x *GoogleAdsField) GetSelectable() *wrappers.BoolValue {
 	if x != nil {
 		return x.Selectable
 	}
 	return nil
 }
 
-func (x *GoogleAdsField) GetFilterable() *wrapperspb.BoolValue {
+func (x *GoogleAdsField) GetFilterable() *wrappers.BoolValue {
 	if x != nil {
 		return x.Filterable
 	}
 	return nil
 }
 
-func (x *GoogleAdsField) GetSortable() *wrapperspb.BoolValue {
+func (x *GoogleAdsField) GetSortable() *wrappers.BoolValue {
 	if x != nil {
 		return x.Sortable
 	}
 	return nil
 }
 
-func (x *GoogleAdsField) GetSelectableWith() []*wrapperspb.StringValue {
+func (x *GoogleAdsField) GetSelectableWith() []*wrappers.StringValue {
 	if x != nil {
 		return x.SelectableWith
 	}
 	return nil
 }
 
-func (x *GoogleAdsField) GetAttributeResources() []*wrapperspb.StringValue {
+func (x *GoogleAdsField) GetAttributeResources() []*wrappers.StringValue {
 	if x != nil {
 		return x.AttributeResources
 	}
 	return nil
 }
 
-func (x *GoogleAdsField) GetMetrics() []*wrapperspb.StringValue {
+func (x *GoogleAdsField) GetMetrics() []*wrappers.StringValue {
 	if x != nil {
 		return x.Metrics
 	}
 	return nil
 }
 
-func (x *GoogleAdsField) GetSegments() []*wrapperspb.StringValue {
+func (x *GoogleAdsField) GetSegments() []*wrappers.StringValue {
 	if x != nil {
 		return x.Segments
 	}
 	return nil
 }
 
-func (x *GoogleAdsField) GetEnumValues() []*wrapperspb.StringValue {
+func (x *GoogleAdsField) GetEnumValues() []*wrappers.StringValue {
 	if x != nil {
 		return x.EnumValues
 	}
@@ -222,14 +222,14 @@ func (x *GoogleAdsField) GetDataType() enums.GoogleAdsFieldDataTypeEnum_GoogleAd
 	return enums.GoogleAdsFieldDataTypeEnum_UNSPECIFIED
 }
 
-func (x *GoogleAdsField) GetTypeUrl() *wrapperspb.StringValue {
+func (x *GoogleAdsField) GetTypeUrl() *wrappers.StringValue {
 	if x != nil {
 		return x.TypeUrl
 	}
 	return nil
 }
 
-func (x *GoogleAdsField) GetIsRepeated() *wrapperspb.BoolValue {
+func (x *GoogleAdsField) GetIsRepeated() *wrappers.BoolValue {
 	if x != nil {
 		return x.IsRepeated
 	}
@@ -366,9 +366,9 @@ func file_google_ads_googleads_v4_resources_google_ads_field_proto_rawDescGZIP()
 var file_google_ads_googleads_v4_resources_google_ads_field_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v4_resources_google_ads_field_proto_goTypes = []interface{}{
 	(*GoogleAdsField)(nil),                                       // 0: google.ads.googleads.v4.resources.GoogleAdsField
-	(*wrapperspb.StringValue)(nil),                               // 1: google.protobuf.StringValue
+	(*wrappers.StringValue)(nil),                                 // 1: google.protobuf.StringValue
 	(enums.GoogleAdsFieldCategoryEnum_GoogleAdsFieldCategory)(0), // 2: google.ads.googleads.v4.enums.GoogleAdsFieldCategoryEnum.GoogleAdsFieldCategory
-	(*wrapperspb.BoolValue)(nil),                                 // 3: google.protobuf.BoolValue
+	(*wrappers.BoolValue)(nil),                                   // 3: google.protobuf.BoolValue
 	(enums.GoogleAdsFieldDataTypeEnum_GoogleAdsFieldDataType)(0), // 4: google.ads.googleads.v4.enums.GoogleAdsFieldDataTypeEnum.GoogleAdsFieldDataType
 }
 var file_google_ads_googleads_v4_resources_google_ads_field_proto_depIdxs = []int32{

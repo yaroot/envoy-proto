@@ -22,11 +22,11 @@ package datastore
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "google.golang.org/genproto/googleapis/type/latlng"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -448,7 +448,7 @@ type Query struct {
 	// constraints. Optional.
 	// Unspecified is interpreted as no limit.
 	// Must be >= 0 if specified.
-	Limit *wrapperspb.Int32Value `protobuf:"bytes,12,opt,name=limit,proto3" json:"limit,omitempty"`
+	Limit *wrappers.Int32Value `protobuf:"bytes,12,opt,name=limit,proto3" json:"limit,omitempty"`
 }
 
 func (x *Query) Reset() {
@@ -539,7 +539,7 @@ func (x *Query) GetOffset() int32 {
 	return 0
 }
 
-func (x *Query) GetLimit() *wrapperspb.Int32Value {
+func (x *Query) GetLimit() *wrappers.Int32Value {
 	if x != nil {
 		return x.Limit
 	}
@@ -1491,7 +1491,7 @@ var file_google_datastore_v1_query_proto_goTypes = []interface{}{
 	(*QueryResultBatch)(nil),              // 16: google.datastore.v1.QueryResultBatch
 	nil,                                   // 17: google.datastore.v1.GqlQuery.NamedBindingsEntry
 	(*Entity)(nil),                        // 18: google.datastore.v1.Entity
-	(*wrapperspb.Int32Value)(nil),         // 19: google.protobuf.Int32Value
+	(*wrappers.Int32Value)(nil),           // 19: google.protobuf.Int32Value
 	(*Value)(nil),                         // 20: google.datastore.v1.Value
 }
 var file_google_datastore_v1_query_proto_depIdxs = []int32{

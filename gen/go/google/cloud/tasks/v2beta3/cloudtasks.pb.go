@@ -22,12 +22,12 @@ package tasks
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	v1 "google.golang.org/genproto/googleapis/iam/v1"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -341,7 +341,7 @@ type UpdateQueueRequest struct {
 	// A mask used to specify which fields of the queue are being updated.
 	//
 	// If empty, then all fields will be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateQueueRequest) Reset() {
@@ -383,7 +383,7 @@ func (x *UpdateQueueRequest) GetQueue() *Queue {
 	return nil
 }
 
-func (x *UpdateQueueRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateQueueRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1430,13 +1430,13 @@ var file_google_cloud_tasks_v2beta3_cloudtasks_proto_goTypes = []interface{}{
 	(*DeleteTaskRequest)(nil),             // 13: google.cloud.tasks.v2beta3.DeleteTaskRequest
 	(*RunTaskRequest)(nil),                // 14: google.cloud.tasks.v2beta3.RunTaskRequest
 	(*Queue)(nil),                         // 15: google.cloud.tasks.v2beta3.Queue
-	(*fieldmaskpb.FieldMask)(nil),         // 16: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),          // 16: google.protobuf.FieldMask
 	(Task_View)(0),                        // 17: google.cloud.tasks.v2beta3.Task.View
 	(*Task)(nil),                          // 18: google.cloud.tasks.v2beta3.Task
 	(*v1.GetIamPolicyRequest)(nil),        // 19: google.iam.v1.GetIamPolicyRequest
 	(*v1.SetIamPolicyRequest)(nil),        // 20: google.iam.v1.SetIamPolicyRequest
 	(*v1.TestIamPermissionsRequest)(nil),  // 21: google.iam.v1.TestIamPermissionsRequest
-	(*emptypb.Empty)(nil),                 // 22: google.protobuf.Empty
+	(*empty.Empty)(nil),                   // 22: google.protobuf.Empty
 	(*v1.Policy)(nil),                     // 23: google.iam.v1.Policy
 	(*v1.TestIamPermissionsResponse)(nil), // 24: google.iam.v1.TestIamPermissionsResponse
 }

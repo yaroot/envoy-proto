@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v3.servicesB MobileDeviceConstantServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v3/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V3.Services\312\002 Google\\Ads\\GoogleAds\\V3\\Services\352\002$Google::Ads::GoogleAds::V3::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nEgoogle/ads/googleads/v3/services/mobile_device_constant_service.proto\x12 google.ads.googleads.v3.services\x1a>google/ads/googleads/v3/resources/mobile_device_constant.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"n\n\x1eGetMobileDeviceConstantRequest\x12L\n\rresource_name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-googleads.googleapis.com/MobileDeviceConstant2\x96\x02\n\x1bMobileDeviceConstantService\x12\xd9\x01\n\x17GetMobileDeviceConstant\x12@.google.ads.googleads.v3.services.GetMobileDeviceConstantRequest\x1a\x37.google.ads.googleads.v3.resources.MobileDeviceConstant\"C\x82\xd3\xe4\x93\x02-\x12+/v3/{resource_name=mobileDeviceConstants/*}\xda\x41\rresource_name\x1a\x1b\xca\x41\x18googleads.googleapis.comB\x87\x02\n$com.google.ads.googleads.v3.servicesB MobileDeviceConstantServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v3/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V3.Services\xca\x02 Google\\Ads\\GoogleAds\\V3\\Services\xea\x02$Google::Ads::GoogleAds::V3::Servicesb\x06proto3'
+  serialized_pb=b'\nEgoogle/ads/googleads/v3/services/mobile_device_constant_service.proto\x12 google.ads.googleads.v3.services\x1a>google/ads/googleads/v3/resources/mobile_device_constant.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"n\n\x1eGetMobileDeviceConstantRequest\x12L\n\rresource_name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-googleads.googleapis.com/MobileDeviceConstant2\xc0\x02\n\x1bMobileDeviceConstantService\x12\xd9\x01\n\x17GetMobileDeviceConstant\x12@.google.ads.googleads.v3.services.GetMobileDeviceConstantRequest\x1a\x37.google.ads.googleads.v3.resources.MobileDeviceConstant\"C\x82\xd3\xe4\x93\x02-\x12+/v3/{resource_name=mobileDeviceConstants/*}\xda\x41\rresource_name\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x87\x02\n$com.google.ads.googleads.v3.servicesB MobileDeviceConstantServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v3/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V3.Services\xca\x02 Google\\Ads\\GoogleAds\\V3\\Services\xea\x02$Google::Ads::GoogleAds::V3::Servicesb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v3_dot_resources_dot_mobile__device__constant__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
 
@@ -81,10 +81,10 @@ _MOBILEDEVICECONSTANTSERVICE = _descriptor.ServiceDescriptor(
   full_name='google.ads.googleads.v3.services.MobileDeviceConstantService',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=b'\312A\030googleads.googleapis.com',
+  serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
   serialized_start=399,
-  serialized_end=677,
+  serialized_end=719,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetMobileDeviceConstant',

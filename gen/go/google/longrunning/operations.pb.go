@@ -22,14 +22,14 @@ package longrunning
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	descriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
+	any "github.com/golang/protobuf/ptypes/any"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	status "google.golang.org/genproto/googleapis/rpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	descriptorpb "google.golang.org/protobuf/types/descriptorpb"
-	anypb "google.golang.org/protobuf/types/known/anypb"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -60,7 +60,7 @@ type Operation struct {
 	// contains progress information and common metadata such as create time.
 	// Some services might not provide such metadata.  Any method that returns a
 	// long-running operation should document the metadata type, if any.
-	Metadata *anypb.Any `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	Metadata *any.Any `protobuf:"bytes,2,opt,name=metadata,proto3" json:"metadata,omitempty"`
 	// If the value is `false`, it means the operation is still in progress.
 	// If `true`, the operation is completed, and either `error` or `response` is
 	// available.
@@ -114,7 +114,7 @@ func (x *Operation) GetName() string {
 	return ""
 }
 
-func (x *Operation) GetMetadata() *anypb.Any {
+func (x *Operation) GetMetadata() *any.Any {
 	if x != nil {
 		return x.Metadata
 	}
@@ -142,7 +142,7 @@ func (x *Operation) GetError() *status.Status {
 	return nil
 }
 
-func (x *Operation) GetResponse() *anypb.Any {
+func (x *Operation) GetResponse() *any.Any {
 	if x, ok := x.GetResult().(*Operation_Response); ok {
 		return x.Response
 	}
@@ -167,7 +167,7 @@ type Operation_Response struct {
 	// is the original method name.  For example, if the original method name
 	// is `TakeSnapshot()`, the inferred response type is
 	// `TakeSnapshotResponse`.
-	Response *anypb.Any `protobuf:"bytes,5,opt,name=response,proto3,oneof"`
+	Response *any.Any `protobuf:"bytes,5,opt,name=response,proto3,oneof"`
 }
 
 func (*Operation_Error) isOperation_Result() {}
@@ -466,7 +466,7 @@ type WaitOperationRequest struct {
 	// The maximum duration to wait before timing out. If left blank, the wait
 	// will be at most the time permitted by the underlying HTTP/RPC protocol.
 	// If RPC context deadline is also specified, the shorter one will be used.
-	Timeout *durationpb.Duration `protobuf:"bytes,2,opt,name=timeout,proto3" json:"timeout,omitempty"`
+	Timeout *duration.Duration `protobuf:"bytes,2,opt,name=timeout,proto3" json:"timeout,omitempty"`
 }
 
 func (x *WaitOperationRequest) Reset() {
@@ -508,7 +508,7 @@ func (x *WaitOperationRequest) GetName() string {
 	return ""
 }
 
-func (x *WaitOperationRequest) GetTimeout() *durationpb.Duration {
+func (x *WaitOperationRequest) GetTimeout() *duration.Duration {
 	if x != nil {
 		return x.Timeout
 	}
@@ -598,7 +598,7 @@ func (x *OperationInfo) GetMetadataType() string {
 
 var file_google_longrunning_operations_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
-		ExtendedType:  (*descriptorpb.MethodOptions)(nil),
+		ExtendedType:  (*descriptor.MethodOptions)(nil),
 		ExtensionType: (*OperationInfo)(nil),
 		Field:         1049,
 		Name:          "google.longrunning.operation_info",
@@ -607,7 +607,7 @@ var file_google_longrunning_operations_proto_extTypes = []protoimpl.ExtensionInf
 	},
 }
 
-// Extension fields to descriptorpb.MethodOptions.
+// Extension fields to descriptor.MethodOptions.
 var (
 	// Additional information regarding long-running operations.
 	// In particular, this specifies the types that are returned from
@@ -765,19 +765,19 @@ func file_google_longrunning_operations_proto_rawDescGZIP() []byte {
 
 var file_google_longrunning_operations_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_google_longrunning_operations_proto_goTypes = []interface{}{
-	(*Operation)(nil),                  // 0: google.longrunning.Operation
-	(*GetOperationRequest)(nil),        // 1: google.longrunning.GetOperationRequest
-	(*ListOperationsRequest)(nil),      // 2: google.longrunning.ListOperationsRequest
-	(*ListOperationsResponse)(nil),     // 3: google.longrunning.ListOperationsResponse
-	(*CancelOperationRequest)(nil),     // 4: google.longrunning.CancelOperationRequest
-	(*DeleteOperationRequest)(nil),     // 5: google.longrunning.DeleteOperationRequest
-	(*WaitOperationRequest)(nil),       // 6: google.longrunning.WaitOperationRequest
-	(*OperationInfo)(nil),              // 7: google.longrunning.OperationInfo
-	(*anypb.Any)(nil),                  // 8: google.protobuf.Any
-	(*status.Status)(nil),              // 9: google.rpc.Status
-	(*durationpb.Duration)(nil),        // 10: google.protobuf.Duration
-	(*descriptorpb.MethodOptions)(nil), // 11: google.protobuf.MethodOptions
-	(*emptypb.Empty)(nil),              // 12: google.protobuf.Empty
+	(*Operation)(nil),                // 0: google.longrunning.Operation
+	(*GetOperationRequest)(nil),      // 1: google.longrunning.GetOperationRequest
+	(*ListOperationsRequest)(nil),    // 2: google.longrunning.ListOperationsRequest
+	(*ListOperationsResponse)(nil),   // 3: google.longrunning.ListOperationsResponse
+	(*CancelOperationRequest)(nil),   // 4: google.longrunning.CancelOperationRequest
+	(*DeleteOperationRequest)(nil),   // 5: google.longrunning.DeleteOperationRequest
+	(*WaitOperationRequest)(nil),     // 6: google.longrunning.WaitOperationRequest
+	(*OperationInfo)(nil),            // 7: google.longrunning.OperationInfo
+	(*any.Any)(nil),                  // 8: google.protobuf.Any
+	(*status.Status)(nil),            // 9: google.rpc.Status
+	(*duration.Duration)(nil),        // 10: google.protobuf.Duration
+	(*descriptor.MethodOptions)(nil), // 11: google.protobuf.MethodOptions
+	(*empty.Empty)(nil),              // 12: google.protobuf.Empty
 }
 var file_google_longrunning_operations_proto_depIdxs = []int32{
 	8,  // 0: google.longrunning.Operation.metadata:type_name -> google.protobuf.Any

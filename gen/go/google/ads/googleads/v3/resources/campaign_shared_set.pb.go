@@ -22,11 +22,11 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v3/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -55,14 +55,14 @@ type CampaignSharedSet struct {
 	// `customers/{customer_id}/campaignSharedSets/{campaign_id}~{shared_set_id}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Immutable. The campaign to which the campaign shared set belongs.
-	Campaign *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=campaign,proto3" json:"campaign,omitempty"`
+	Campaign *wrappers.StringValue `protobuf:"bytes,3,opt,name=campaign,proto3" json:"campaign,omitempty"`
 	// Immutable. The shared set associated with the campaign. This may be a negative keyword
 	// shared set of another customer. This customer should be a manager of the
 	// other customer, otherwise the campaign shared set will exist but have no
 	// serving effect. Only negative keyword shared sets can be associated with
 	// Shopping campaigns. Only negative placement shared sets can be associated
 	// with Display mobile app campaigns.
-	SharedSet *wrapperspb.StringValue `protobuf:"bytes,4,opt,name=shared_set,json=sharedSet,proto3" json:"shared_set,omitempty"`
+	SharedSet *wrappers.StringValue `protobuf:"bytes,4,opt,name=shared_set,json=sharedSet,proto3" json:"shared_set,omitempty"`
 	// Output only. The status of this campaign shared set. Read only.
 	Status enums.CampaignSharedSetStatusEnum_CampaignSharedSetStatus `protobuf:"varint,2,opt,name=status,proto3,enum=google.ads.googleads.v3.enums.CampaignSharedSetStatusEnum_CampaignSharedSetStatus" json:"status,omitempty"`
 }
@@ -106,14 +106,14 @@ func (x *CampaignSharedSet) GetResourceName() string {
 	return ""
 }
 
-func (x *CampaignSharedSet) GetCampaign() *wrapperspb.StringValue {
+func (x *CampaignSharedSet) GetCampaign() *wrappers.StringValue {
 	if x != nil {
 		return x.Campaign
 	}
 	return nil
 }
 
-func (x *CampaignSharedSet) GetSharedSet() *wrapperspb.StringValue {
+func (x *CampaignSharedSet) GetSharedSet() *wrappers.StringValue {
 	if x != nil {
 		return x.SharedSet
 	}
@@ -216,7 +216,7 @@ func file_google_ads_googleads_v3_resources_campaign_shared_set_proto_rawDescGZI
 var file_google_ads_googleads_v3_resources_campaign_shared_set_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v3_resources_campaign_shared_set_proto_goTypes = []interface{}{
 	(*CampaignSharedSet)(nil),                                      // 0: google.ads.googleads.v3.resources.CampaignSharedSet
-	(*wrapperspb.StringValue)(nil),                                 // 1: google.protobuf.StringValue
+	(*wrappers.StringValue)(nil),                                   // 1: google.protobuf.StringValue
 	(enums.CampaignSharedSetStatusEnum_CampaignSharedSetStatus)(0), // 2: google.ads.googleads.v3.enums.CampaignSharedSetStatusEnum.CampaignSharedSetStatus
 }
 var file_google_ads_googleads_v3_resources_campaign_shared_set_proto_depIdxs = []int32{

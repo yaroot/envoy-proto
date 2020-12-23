@@ -22,14 +22,14 @@ package osconfig
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	datetime "google.golang.org/genproto/googleapis/type/datetime"
 	dayofweek "google.golang.org/genproto/googleapis/type/dayofweek"
 	timeofday "google.golang.org/genproto/googleapis/type/timeofday"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -123,7 +123,7 @@ type PatchDeployment struct {
 	// Optional. Patch configuration that is applied.
 	PatchConfig *PatchConfig `protobuf:"bytes,4,opt,name=patch_config,json=patchConfig,proto3" json:"patch_config,omitempty"`
 	// Optional. Duration of the patch. After the duration ends, the patch times out.
-	Duration *durationpb.Duration `protobuf:"bytes,5,opt,name=duration,proto3" json:"duration,omitempty"`
+	Duration *duration.Duration `protobuf:"bytes,5,opt,name=duration,proto3" json:"duration,omitempty"`
 	// Schedule for the patch.
 	//
 	// Types that are assignable to Schedule:
@@ -133,16 +133,16 @@ type PatchDeployment struct {
 	// Output only. Time the patch deployment was created. Timestamp is in
 	// <a href="https://www.ietf.org/rfc/rfc3339.txt" target="_blank">RFC3339</a>
 	// text format.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,8,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. Time the patch deployment was last updated. Timestamp is in
 	// <a href="https://www.ietf.org/rfc/rfc3339.txt" target="_blank">RFC3339</a>
 	// text format.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,9,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// Output only. The last time a patch job was started by this deployment.
 	// Timestamp is in
 	// <a href="https://www.ietf.org/rfc/rfc3339.txt" target="_blank">RFC3339</a>
 	// text format.
-	LastExecuteTime *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=last_execute_time,json=lastExecuteTime,proto3" json:"last_execute_time,omitempty"`
+	LastExecuteTime *timestamp.Timestamp `protobuf:"bytes,10,opt,name=last_execute_time,json=lastExecuteTime,proto3" json:"last_execute_time,omitempty"`
 }
 
 func (x *PatchDeployment) Reset() {
@@ -205,7 +205,7 @@ func (x *PatchDeployment) GetPatchConfig() *PatchConfig {
 	return nil
 }
 
-func (x *PatchDeployment) GetDuration() *durationpb.Duration {
+func (x *PatchDeployment) GetDuration() *duration.Duration {
 	if x != nil {
 		return x.Duration
 	}
@@ -233,21 +233,21 @@ func (x *PatchDeployment) GetRecurringSchedule() *RecurringSchedule {
 	return nil
 }
 
-func (x *PatchDeployment) GetCreateTime() *timestamppb.Timestamp {
+func (x *PatchDeployment) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *PatchDeployment) GetUpdateTime() *timestamppb.Timestamp {
+func (x *PatchDeployment) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
 	return nil
 }
 
-func (x *PatchDeployment) GetLastExecuteTime() *timestamppb.Timestamp {
+func (x *PatchDeployment) GetLastExecuteTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.LastExecuteTime
 	}
@@ -281,7 +281,7 @@ type OneTimeSchedule struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Required. The desired patch job execution time.
-	ExecuteTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=execute_time,json=executeTime,proto3" json:"execute_time,omitempty"`
+	ExecuteTime *timestamp.Timestamp `protobuf:"bytes,1,opt,name=execute_time,json=executeTime,proto3" json:"execute_time,omitempty"`
 }
 
 func (x *OneTimeSchedule) Reset() {
@@ -316,7 +316,7 @@ func (*OneTimeSchedule) Descriptor() ([]byte, []int) {
 	return file_google_cloud_osconfig_v1beta_patch_deployments_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *OneTimeSchedule) GetExecuteTime() *timestamppb.Timestamp {
+func (x *OneTimeSchedule) GetExecuteTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ExecuteTime
 	}
@@ -334,10 +334,10 @@ type RecurringSchedule struct {
 	TimeZone *datetime.TimeZone `protobuf:"bytes,1,opt,name=time_zone,json=timeZone,proto3" json:"time_zone,omitempty"`
 	// Optional. The time that the recurring schedule becomes effective.
 	// Defaults to `create_time` of the patch deployment.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// Optional. The end time at which a recurring patch deployment schedule is no longer
 	// active.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	// Required. Time of the day to run a recurring deployment.
 	TimeOfDay *timeofday.TimeOfDay `protobuf:"bytes,4,opt,name=time_of_day,json=timeOfDay,proto3" json:"time_of_day,omitempty"`
 	// Required. The frequency unit of this recurring schedule.
@@ -350,9 +350,9 @@ type RecurringSchedule struct {
 	//	*RecurringSchedule_Monthly
 	ScheduleConfig isRecurringSchedule_ScheduleConfig `protobuf_oneof:"schedule_config"`
 	// Output only. The time the last patch job ran successfully.
-	LastExecuteTime *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=last_execute_time,json=lastExecuteTime,proto3" json:"last_execute_time,omitempty"`
+	LastExecuteTime *timestamp.Timestamp `protobuf:"bytes,9,opt,name=last_execute_time,json=lastExecuteTime,proto3" json:"last_execute_time,omitempty"`
 	// Output only. The time the next patch job is scheduled to run.
-	NextExecuteTime *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=next_execute_time,json=nextExecuteTime,proto3" json:"next_execute_time,omitempty"`
+	NextExecuteTime *timestamp.Timestamp `protobuf:"bytes,10,opt,name=next_execute_time,json=nextExecuteTime,proto3" json:"next_execute_time,omitempty"`
 }
 
 func (x *RecurringSchedule) Reset() {
@@ -394,14 +394,14 @@ func (x *RecurringSchedule) GetTimeZone() *datetime.TimeZone {
 	return nil
 }
 
-func (x *RecurringSchedule) GetStartTime() *timestamppb.Timestamp {
+func (x *RecurringSchedule) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *RecurringSchedule) GetEndTime() *timestamppb.Timestamp {
+func (x *RecurringSchedule) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -443,14 +443,14 @@ func (x *RecurringSchedule) GetMonthly() *MonthlySchedule {
 	return nil
 }
 
-func (x *RecurringSchedule) GetLastExecuteTime() *timestamppb.Timestamp {
+func (x *RecurringSchedule) GetLastExecuteTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.LastExecuteTime
 	}
 	return nil
 }
 
-func (x *RecurringSchedule) GetNextExecuteTime() *timestamppb.Timestamp {
+func (x *RecurringSchedule) GetNextExecuteTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.NextExecuteTime
 	}
@@ -1196,8 +1196,8 @@ var file_google_cloud_osconfig_v1beta_patch_deployments_proto_goTypes = []interf
 	(*DeletePatchDeploymentRequest)(nil), // 11: google.cloud.osconfig.v1beta.DeletePatchDeploymentRequest
 	(*PatchInstanceFilter)(nil),          // 12: google.cloud.osconfig.v1beta.PatchInstanceFilter
 	(*PatchConfig)(nil),                  // 13: google.cloud.osconfig.v1beta.PatchConfig
-	(*durationpb.Duration)(nil),          // 14: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil),        // 15: google.protobuf.Timestamp
+	(*duration.Duration)(nil),            // 14: google.protobuf.Duration
+	(*timestamp.Timestamp)(nil),          // 15: google.protobuf.Timestamp
 	(*datetime.TimeZone)(nil),            // 16: google.type.TimeZone
 	(*timeofday.TimeOfDay)(nil),          // 17: google.type.TimeOfDay
 	(dayofweek.DayOfWeek)(0),             // 18: google.type.DayOfWeek

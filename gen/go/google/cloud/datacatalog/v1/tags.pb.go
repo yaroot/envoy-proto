@@ -22,10 +22,10 @@ package datacatalog
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -325,7 +325,7 @@ func (x *TagField) GetBoolValue() bool {
 	return false
 }
 
-func (x *TagField) GetTimestampValue() *timestamppb.Timestamp {
+func (x *TagField) GetTimestampValue() *timestamp.Timestamp {
 	if x, ok := x.GetKind().(*TagField_TimestampValue); ok {
 		return x.TimestampValue
 	}
@@ -367,7 +367,7 @@ type TagField_BoolValue struct {
 
 type TagField_TimestampValue struct {
 	// Holds the value for a tag field with timestamp type.
-	TimestampValue *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=timestamp_value,json=timestampValue,proto3,oneof"`
+	TimestampValue *timestamp.Timestamp `protobuf:"bytes,5,opt,name=timestamp_value,json=timestampValue,proto3,oneof"`
 }
 
 type TagField_EnumValue_ struct {
@@ -981,7 +981,7 @@ var file_google_cloud_datacatalog_v1_tags_proto_goTypes = []interface{}{
 	nil,                                  // 8: google.cloud.datacatalog.v1.TagTemplate.FieldsEntry
 	(*FieldType_EnumType)(nil),           // 9: google.cloud.datacatalog.v1.FieldType.EnumType
 	(*FieldType_EnumType_EnumValue)(nil), // 10: google.cloud.datacatalog.v1.FieldType.EnumType.EnumValue
-	(*timestamppb.Timestamp)(nil),        // 11: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),          // 11: google.protobuf.Timestamp
 }
 var file_google_cloud_datacatalog_v1_tags_proto_depIdxs = []int32{
 	6,  // 0: google.cloud.datacatalog.v1.Tag.fields:type_name -> google.cloud.datacatalog.v1.Tag.FieldsEntry

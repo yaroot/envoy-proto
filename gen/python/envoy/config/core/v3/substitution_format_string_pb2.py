@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"io.envoyproxy.envoy.config.core.v3B\035SubstitutionFormatStringProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n5envoy/config/core/v3/substitution_format_string.proto\x12\x14\x65nvoy.config.core.v3\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\x83\x01\n\x18SubstitutionFormatString\x12\x1e\n\x0btext_format\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01H\x00\x12\x38\n\x0bjson_format\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01H\x00\x42\r\n\x06\x66ormat\x12\x03\xf8\x42\x01\x42M\n\"io.envoyproxy.envoy.config.core.v3B\x1dSubstitutionFormatStringProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n5envoy/config/core/v3/substitution_format_string.proto\x12\x14\x65nvoy.config.core.v3\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\xb4\x01\n\x18SubstitutionFormatString\x12\x1e\n\x0btext_format\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\x38\n\x0bjson_format\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01H\x00\x12\x19\n\x11omit_empty_values\x18\x03 \x01(\x08\x12\x14\n\x0c\x63ontent_type\x18\x04 \x01(\tB\r\n\x06\x66ormat\x12\x03\xf8\x42\x01\x42M\n\"io.envoyproxy.envoy.config.core.v3B\x1dSubstitutionFormatStringProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -43,7 +43,7 @@ _SUBSTITUTIONFORMATSTRING = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='json_format', full_name='envoy.config.core.v3.SubstitutionFormatString.json_format', index=1,
       number=2, type=11, cpp_type=10, label=1,
@@ -51,6 +51,20 @@ _SUBSTITUTIONFORMATSTRING = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\005\212\001\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='omit_empty_values', full_name='envoy.config.core.v3.SubstitutionFormatString.omit_empty_values', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='content_type', full_name='envoy.config.core.v3.SubstitutionFormatString.content_type', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -69,7 +83,7 @@ _SUBSTITUTIONFORMATSTRING = _descriptor.Descriptor(
     fields=[], serialized_options=b'\370B\001'),
   ],
   serialized_start=166,
-  serialized_end=297,
+  serialized_end=346,
 )
 
 _SUBSTITUTIONFORMATSTRING.fields_by_name['json_format'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT

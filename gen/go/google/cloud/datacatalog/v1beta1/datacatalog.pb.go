@@ -22,12 +22,12 @@ package datacatalog
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	v1 "google.golang.org/genproto/googleapis/iam/v1"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -368,7 +368,7 @@ type UpdateEntryGroupRequest struct {
 	EntryGroup *EntryGroup `protobuf:"bytes,1,opt,name=entry_group,json=entryGroup,proto3" json:"entry_group,omitempty"`
 	// The fields to update on the entry group. If absent or empty, all modifiable
 	// fields are updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateEntryGroupRequest) Reset() {
@@ -410,7 +410,7 @@ func (x *UpdateEntryGroupRequest) GetEntryGroup() *EntryGroup {
 	return nil
 }
 
-func (x *UpdateEntryGroupRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateEntryGroupRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -428,7 +428,7 @@ type GetEntryGroupRequest struct {
 	// `projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}`.
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// The fields to return. If not set or empty, all fields are returned.
-	ReadMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=read_mask,json=readMask,proto3" json:"read_mask,omitempty"`
+	ReadMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=read_mask,json=readMask,proto3" json:"read_mask,omitempty"`
 }
 
 func (x *GetEntryGroupRequest) Reset() {
@@ -470,7 +470,7 @@ func (x *GetEntryGroupRequest) GetName() string {
 	return ""
 }
 
-func (x *GetEntryGroupRequest) GetReadMask() *fieldmaskpb.FieldMask {
+func (x *GetEntryGroupRequest) GetReadMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.ReadMask
 	}
@@ -772,7 +772,7 @@ type UpdateEntryRequest struct {
 	//    * user_specified_system
 	//    * linked_resource
 	//    * source_system_timestamps
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateEntryRequest) Reset() {
@@ -814,7 +814,7 @@ func (x *UpdateEntryRequest) GetEntry() *Entry {
 	return nil
 }
 
-func (x *UpdateEntryRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateEntryRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1552,7 +1552,7 @@ type UpdateTagTemplateRequest struct {
 	//   * `display_name`
 	//
 	// If absent or empty, all of the allowed fields above will be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateTagTemplateRequest) Reset() {
@@ -1594,7 +1594,7 @@ func (x *UpdateTagTemplateRequest) GetTagTemplate() *TagTemplate {
 	return nil
 }
 
-func (x *UpdateTagTemplateRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateTagTemplateRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1740,7 +1740,7 @@ type UpdateTagRequest struct {
 	Tag *Tag `protobuf:"bytes,1,opt,name=tag,proto3" json:"tag,omitempty"`
 	// The fields to update on the Tag. If absent or empty, all modifiable fields
 	// are updated. Currently the only modifiable field is the field `fields`.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateTagRequest) Reset() {
@@ -1782,7 +1782,7 @@ func (x *UpdateTagRequest) GetTag() *Tag {
 	return nil
 }
 
-func (x *UpdateTagRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateTagRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1945,7 +1945,7 @@ type UpdateTagTemplateFieldRequest struct {
 	// existing values. Therefore, enum values can only be added, existing enum
 	// values cannot be deleted nor renamed. Updating a template field from
 	// optional to required is NOT allowed.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateTagTemplateFieldRequest) Reset() {
@@ -1994,7 +1994,7 @@ func (x *UpdateTagTemplateFieldRequest) GetTagTemplateField() *TagTemplateField 
 	return nil
 }
 
-func (x *UpdateTagTemplateFieldRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateTagTemplateFieldRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -2283,7 +2283,7 @@ type ListEntriesRequest struct {
 	// fields are returned.
 	// For example, setting read_mask to contain only one path "name" will cause
 	// ListEntries to return a list of Entries with only "name" field.
-	ReadMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=read_mask,json=readMask,proto3" json:"read_mask,omitempty"`
+	ReadMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=read_mask,json=readMask,proto3" json:"read_mask,omitempty"`
 }
 
 func (x *ListEntriesRequest) Reset() {
@@ -2339,7 +2339,7 @@ func (x *ListEntriesRequest) GetPageToken() string {
 	return ""
 }
 
-func (x *ListEntriesRequest) GetReadMask() *fieldmaskpb.FieldMask {
+func (x *ListEntriesRequest) GetReadMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.ReadMask
 	}
@@ -3378,7 +3378,7 @@ var file_google_cloud_datacatalog_v1beta1_datacatalog_proto_goTypes = []interfac
 	(*ListEntriesResponse)(nil),           // 30: google.cloud.datacatalog.v1beta1.ListEntriesResponse
 	(*SearchCatalogRequest_Scope)(nil),    // 31: google.cloud.datacatalog.v1beta1.SearchCatalogRequest.Scope
 	(*SearchCatalogResult)(nil),           // 32: google.cloud.datacatalog.v1beta1.SearchCatalogResult
-	(*fieldmaskpb.FieldMask)(nil),         // 33: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),          // 33: google.protobuf.FieldMask
 	(IntegratedSystem)(0),                 // 34: google.cloud.datacatalog.v1beta1.IntegratedSystem
 	(*GcsFilesetSpec)(nil),                // 35: google.cloud.datacatalog.v1beta1.GcsFilesetSpec
 	(*BigQueryTableSpec)(nil),             // 36: google.cloud.datacatalog.v1beta1.BigQueryTableSpec
@@ -3391,7 +3391,7 @@ var file_google_cloud_datacatalog_v1beta1_datacatalog_proto_goTypes = []interfac
 	(*v1.SetIamPolicyRequest)(nil),        // 43: google.iam.v1.SetIamPolicyRequest
 	(*v1.GetIamPolicyRequest)(nil),        // 44: google.iam.v1.GetIamPolicyRequest
 	(*v1.TestIamPermissionsRequest)(nil),  // 45: google.iam.v1.TestIamPermissionsRequest
-	(*emptypb.Empty)(nil),                 // 46: google.protobuf.Empty
+	(*empty.Empty)(nil),                   // 46: google.protobuf.Empty
 	(*v1.Policy)(nil),                     // 47: google.iam.v1.Policy
 	(*v1.TestIamPermissionsResponse)(nil), // 48: google.iam.v1.TestIamPermissionsResponse
 }

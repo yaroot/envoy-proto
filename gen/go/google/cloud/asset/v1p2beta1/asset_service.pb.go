@@ -23,13 +23,13 @@ package asset
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	_ "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -340,7 +340,7 @@ type UpdateFeedRequest struct {
 	// Required. Only updates the `feed` fields indicated by this mask.
 	// The field mask must not be empty, and it must not contain fields that
 	// are immutable or only set by the server.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateFeedRequest) Reset() {
@@ -382,7 +382,7 @@ func (x *UpdateFeedRequest) GetFeed() *Feed {
 	return nil
 }
 
-func (x *UpdateFeedRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateFeedRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1011,20 +1011,20 @@ func file_google_cloud_asset_v1p2beta1_asset_service_proto_rawDescGZIP() []byte 
 var file_google_cloud_asset_v1p2beta1_asset_service_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_google_cloud_asset_v1p2beta1_asset_service_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_google_cloud_asset_v1p2beta1_asset_service_proto_goTypes = []interface{}{
-	(ContentType)(0),              // 0: google.cloud.asset.v1p2beta1.ContentType
-	(*CreateFeedRequest)(nil),     // 1: google.cloud.asset.v1p2beta1.CreateFeedRequest
-	(*GetFeedRequest)(nil),        // 2: google.cloud.asset.v1p2beta1.GetFeedRequest
-	(*ListFeedsRequest)(nil),      // 3: google.cloud.asset.v1p2beta1.ListFeedsRequest
-	(*ListFeedsResponse)(nil),     // 4: google.cloud.asset.v1p2beta1.ListFeedsResponse
-	(*UpdateFeedRequest)(nil),     // 5: google.cloud.asset.v1p2beta1.UpdateFeedRequest
-	(*DeleteFeedRequest)(nil),     // 6: google.cloud.asset.v1p2beta1.DeleteFeedRequest
-	(*OutputConfig)(nil),          // 7: google.cloud.asset.v1p2beta1.OutputConfig
-	(*GcsDestination)(nil),        // 8: google.cloud.asset.v1p2beta1.GcsDestination
-	(*PubsubDestination)(nil),     // 9: google.cloud.asset.v1p2beta1.PubsubDestination
-	(*FeedOutputConfig)(nil),      // 10: google.cloud.asset.v1p2beta1.FeedOutputConfig
-	(*Feed)(nil),                  // 11: google.cloud.asset.v1p2beta1.Feed
-	(*fieldmaskpb.FieldMask)(nil), // 12: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),         // 13: google.protobuf.Empty
+	(ContentType)(0),             // 0: google.cloud.asset.v1p2beta1.ContentType
+	(*CreateFeedRequest)(nil),    // 1: google.cloud.asset.v1p2beta1.CreateFeedRequest
+	(*GetFeedRequest)(nil),       // 2: google.cloud.asset.v1p2beta1.GetFeedRequest
+	(*ListFeedsRequest)(nil),     // 3: google.cloud.asset.v1p2beta1.ListFeedsRequest
+	(*ListFeedsResponse)(nil),    // 4: google.cloud.asset.v1p2beta1.ListFeedsResponse
+	(*UpdateFeedRequest)(nil),    // 5: google.cloud.asset.v1p2beta1.UpdateFeedRequest
+	(*DeleteFeedRequest)(nil),    // 6: google.cloud.asset.v1p2beta1.DeleteFeedRequest
+	(*OutputConfig)(nil),         // 7: google.cloud.asset.v1p2beta1.OutputConfig
+	(*GcsDestination)(nil),       // 8: google.cloud.asset.v1p2beta1.GcsDestination
+	(*PubsubDestination)(nil),    // 9: google.cloud.asset.v1p2beta1.PubsubDestination
+	(*FeedOutputConfig)(nil),     // 10: google.cloud.asset.v1p2beta1.FeedOutputConfig
+	(*Feed)(nil),                 // 11: google.cloud.asset.v1p2beta1.Feed
+	(*field_mask.FieldMask)(nil), // 12: google.protobuf.FieldMask
+	(*empty.Empty)(nil),          // 13: google.protobuf.Empty
 }
 var file_google_cloud_asset_v1p2beta1_asset_service_proto_depIdxs = []int32{
 	11, // 0: google.cloud.asset.v1p2beta1.CreateFeedRequest.feed:type_name -> google.cloud.asset.v1p2beta1.Feed

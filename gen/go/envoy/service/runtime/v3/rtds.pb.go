@@ -11,10 +11,10 @@ import (
 	v3 "envoy/service/discovery/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -79,8 +79,8 @@ type Runtime struct {
 
 	// Runtime resource name. This makes the Runtime a self-describing xDS
 	// resource.
-	Name  string           `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Layer *structpb.Struct `protobuf:"bytes,2,opt,name=layer,proto3" json:"layer,omitempty"`
+	Name  string          `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Layer *_struct.Struct `protobuf:"bytes,2,opt,name=layer,proto3" json:"layer,omitempty"`
 }
 
 func (x *Runtime) Reset() {
@@ -122,7 +122,7 @@ func (x *Runtime) GetName() string {
 	return ""
 }
 
-func (x *Runtime) GetLayer() *structpb.Struct {
+func (x *Runtime) GetLayer() *_struct.Struct {
 	if x != nil {
 		return x.Layer
 	}
@@ -155,7 +155,7 @@ var file_envoy_service_runtime_v3_rtds_proto_rawDesc = []byte{
 	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x64, 0x69, 0x73, 0x63, 0x6f, 0x76, 0x65, 0x72,
 	0x79, 0x2e, 0x76, 0x32, 0x2e, 0x52, 0x74, 0x64, 0x73, 0x44, 0x75, 0x6d, 0x6d, 0x79, 0x22, 0x80,
 	0x01, 0x0a, 0x07, 0x52, 0x75, 0x6e, 0x74, 0x69, 0x6d, 0x65, 0x12, 0x1b, 0x0a, 0x04, 0x6e, 0x61,
-	0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x20,
+	0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10,
 	0x01, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x2d, 0x0a, 0x05, 0x6c, 0x61, 0x79, 0x65, 0x72,
 	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e,
 	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x53, 0x74, 0x72, 0x75, 0x63, 0x74, 0x52,
@@ -214,7 +214,7 @@ var file_envoy_service_runtime_v3_rtds_proto_msgTypes = make([]protoimpl.Message
 var file_envoy_service_runtime_v3_rtds_proto_goTypes = []interface{}{
 	(*RtdsDummy)(nil),                 // 0: envoy.service.runtime.v3.RtdsDummy
 	(*Runtime)(nil),                   // 1: envoy.service.runtime.v3.Runtime
-	(*structpb.Struct)(nil),           // 2: google.protobuf.Struct
+	(*_struct.Struct)(nil),            // 2: google.protobuf.Struct
 	(*v3.DiscoveryRequest)(nil),       // 3: envoy.service.discovery.v3.DiscoveryRequest
 	(*v3.DeltaDiscoveryRequest)(nil),  // 4: envoy.service.discovery.v3.DeltaDiscoveryRequest
 	(*v3.DiscoveryResponse)(nil),      // 5: envoy.service.discovery.v3.DiscoveryResponse

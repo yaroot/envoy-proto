@@ -9,9 +9,9 @@ package envoy_config_trace_v3
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -42,7 +42,7 @@ type DynamicOtConfig struct {
 	Library string `protobuf:"bytes,1,opt,name=library,proto3" json:"library,omitempty"`
 	// The configuration to use when creating a tracer from the given dynamic
 	// library.
-	Config *structpb.Struct `protobuf:"bytes,2,opt,name=config,proto3" json:"config,omitempty"`
+	Config *_struct.Struct `protobuf:"bytes,2,opt,name=config,proto3" json:"config,omitempty"`
 }
 
 func (x *DynamicOtConfig) Reset() {
@@ -84,7 +84,7 @@ func (x *DynamicOtConfig) GetLibrary() string {
 	return ""
 }
 
-func (x *DynamicOtConfig) GetConfig() *structpb.Struct {
+func (x *DynamicOtConfig) GetConfig() *_struct.Struct {
 	if x != nil {
 		return x.Config
 	}
@@ -110,7 +110,7 @@ var file_envoy_config_trace_v3_dynamic_ot_proto_rawDesc = []byte{
 	0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x93, 0x01, 0x0a, 0x0f, 0x44, 0x79, 0x6e,
 	0x61, 0x6d, 0x69, 0x63, 0x4f, 0x74, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x12, 0x21, 0x0a, 0x07,
 	0x6c, 0x69, 0x62, 0x72, 0x61, 0x72, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x72, 0x02, 0x20, 0x01, 0x52, 0x07, 0x6c, 0x69, 0x62, 0x72, 0x61, 0x72, 0x79, 0x12,
+	0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x07, 0x6c, 0x69, 0x62, 0x72, 0x61, 0x72, 0x79, 0x12,
 	0x2f, 0x0a, 0x06, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32,
 	0x17, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
 	0x66, 0x2e, 0x53, 0x74, 0x72, 0x75, 0x63, 0x74, 0x52, 0x06, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67,
@@ -142,7 +142,7 @@ func file_envoy_config_trace_v3_dynamic_ot_proto_rawDescGZIP() []byte {
 var file_envoy_config_trace_v3_dynamic_ot_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_envoy_config_trace_v3_dynamic_ot_proto_goTypes = []interface{}{
 	(*DynamicOtConfig)(nil), // 0: envoy.config.trace.v3.DynamicOtConfig
-	(*structpb.Struct)(nil), // 1: google.protobuf.Struct
+	(*_struct.Struct)(nil),  // 1: google.protobuf.Struct
 }
 var file_envoy_config_trace_v3_dynamic_ot_proto_depIdxs = []int32{
 	1, // 0: envoy.config.trace.v3.DynamicOtConfig.config:type_name -> google.protobuf.Struct

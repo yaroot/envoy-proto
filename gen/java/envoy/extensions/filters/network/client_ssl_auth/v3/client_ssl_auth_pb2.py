@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\nAio.envoyproxy.envoy.extensions.filters.network.client_ssl_auth.v3B\022ClientSslAuthProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nIenvoy/extensions/filters/network/client_ssl_auth/v3/client_ssl_auth.proto\x12\x33\x65nvoy.extensions.filters.network.client_ssl_auth.v3\x1a\"envoy/config/core/v3/address.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x95\x02\n\rClientSSLAuth\x12!\n\x10\x61uth_api_cluster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x1c\n\x0bstat_prefix\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x30\n\rrefresh_delay\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12L\n\rip_white_list\x18\x04 \x03(\x0b\x32\x1f.envoy.config.core.v3.CidrRangeB\x14\xf2\x98\xfe\x8f\x05\x0e\n\x0cip_allowlist:C\x9a\xc5\x88\x1e>\n<envoy.config.filter.network.client_ssl_auth.v2.ClientSSLAuthBa\nAio.envoyproxy.envoy.extensions.filters.network.client_ssl_auth.v3B\x12\x43lientSslAuthProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\nIenvoy/extensions/filters/network/client_ssl_auth/v3/client_ssl_auth.proto\x12\x33\x65nvoy.extensions.filters.network.client_ssl_auth.v3\x1a\"envoy/config/core/v3/address.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x9b\x02\n\rClientSSLAuth\x12\'\n\x10\x61uth_api_cluster\x18\x01 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x02\xc8\x01\x00\x12\x1c\n\x0bstat_prefix\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x30\n\rrefresh_delay\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12L\n\rip_white_list\x18\x04 \x03(\x0b\x32\x1f.envoy.config.core.v3.CidrRangeB\x14\xf2\x98\xfe\x8f\x05\x0e\n\x0cip_allowlist:C\x9a\xc5\x88\x1e>\n<envoy.config.filter.network.client_ssl_auth.v2.ClientSSLAuthBa\nAio.envoyproxy.envoy.extensions.filters.network.client_ssl_auth.v3B\x12\x43lientSslAuthProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,udpa_dot_annotations_dot_migrate__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -46,14 +46,14 @@ _CLIENTSSLAUTH = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\nr\010\020\001\300\001\002\310\001\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='stat_prefix', full_name='envoy.extensions.filters.network.client_ssl_auth.v3.ClientSSLAuth.stat_prefix', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='refresh_delay', full_name='envoy.extensions.filters.network.client_ssl_auth.v3.ClientSSLAuth.refresh_delay', index=2,
       number=3, type=11, cpp_type=10, label=1,
@@ -81,7 +81,7 @@ _CLIENTSSLAUTH = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=322,
-  serialized_end=599,
+  serialized_end=605,
 )
 
 _CLIENTSSLAUTH.fields_by_name['refresh_delay'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION

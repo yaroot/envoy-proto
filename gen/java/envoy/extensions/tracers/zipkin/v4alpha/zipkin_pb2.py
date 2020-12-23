@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n5io.envoyproxy.envoy.extensions.tracers.zipkin.v4alphaB\013ZipkinProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n4envoy/extensions/tracers/zipkin/v4alpha/zipkin.proto\x12\'envoy.extensions.tracers.zipkin.v4alpha\x1a\x1egoogle/protobuf/wrappers.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xc2\x03\n\x0cZipkinConfig\x12\"\n\x11\x63ollector_cluster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12#\n\x12\x63ollector_endpoint\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x17\n\x0ftrace_id_128bit\x18\x03 \x01(\x08\x12\x37\n\x13shared_span_context\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12r\n\x1a\x63ollector_endpoint_version\x18\x05 \x01(\x0e\x32N.envoy.extensions.tracers.zipkin.v4alpha.ZipkinConfig.CollectorEndpointVersion\"x\n\x18\x43ollectorEndpointVersion\x12\x33\n%DEPRECATED_AND_UNAVAILABLE_DO_NOT_USE\x10\x00\x1a\x08\x08\x01\xa8\xf7\xb4\x8b\x02\x01\x12\r\n\tHTTP_JSON\x10\x01\x12\x0e\n\nHTTP_PROTO\x10\x02\x12\x08\n\x04GRPC\x10\x03:)\x9a\xc5\x88\x1e$\n\"envoy.config.trace.v3.ZipkinConfigBN\n5io.envoyproxy.envoy.extensions.tracers.zipkin.v4alphaB\x0bZipkinProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n4envoy/extensions/tracers/zipkin/v4alpha/zipkin.proto\x12\'envoy.extensions.tracers.zipkin.v4alpha\x1a\x1egoogle/protobuf/wrappers.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xc2\x03\n\x0cZipkinConfig\x12\"\n\x11\x63ollector_cluster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12#\n\x12\x63ollector_endpoint\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x17\n\x0ftrace_id_128bit\x18\x03 \x01(\x08\x12\x37\n\x13shared_span_context\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12r\n\x1a\x63ollector_endpoint_version\x18\x05 \x01(\x0e\x32N.envoy.extensions.tracers.zipkin.v4alpha.ZipkinConfig.CollectorEndpointVersion\"x\n\x18\x43ollectorEndpointVersion\x12\x33\n%DEPRECATED_AND_UNAVAILABLE_DO_NOT_USE\x10\x00\x1a\x08\x08\x01\xa8\xf7\xb4\x8b\x02\x01\x12\r\n\tHTTP_JSON\x10\x01\x12\x0e\n\nHTTP_PROTO\x10\x02\x12\x08\n\x04GRPC\x10\x03:)\x9a\xc5\x88\x1e$\n\"envoy.config.trace.v3.ZipkinConfigBN\n5io.envoyproxy.envoy.extensions.tracers.zipkin.v4alphaB\x0bZipkinProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -80,14 +80,14 @@ _ZIPKINCONFIG = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='collector_endpoint', full_name='envoy.extensions.tracers.zipkin.v4alpha.ZipkinConfig.collector_endpoint', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='trace_id_128bit', full_name='envoy.extensions.tracers.zipkin.v4alpha.ZipkinConfig.trace_id_128bit', index=2,
       number=3, type=8, cpp_type=7, label=1,

@@ -22,12 +22,12 @@ package dialogflow
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	_ "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/emptypb"
-	_ "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -128,23 +128,26 @@ type Environment struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Output only. The unique identifier of this agent environment.
-	// Format:
+	// Supported formats:
 	// - `projects/<Project Number / ID>/agent/environments/<Environment ID>`
 	// - `projects/<Project Number / ID>/locations/<Location
-	// ID>/agent/environments/<Environment ID>`
+	//   ID>/agent/environments/<Environment ID>`
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// Optional. The developer-provided description for this environment.
 	// The maximum length is 500 characters. If exceeded, the request is rejected.
 	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 	// Optional. The agent version loaded into this environment.
-	// Format: `projects/<Project ID>/agent/versions/<Version ID>`.
+	// Supported formats:
+	// - `projects/<Project ID>/agent/versions/<Version ID>`
+	// - `projects/<Project ID>/locations/<Location ID>/agent/versions/<Version
+	//   ID>`
 	AgentVersion string `protobuf:"bytes,3,opt,name=agent_version,json=agentVersion,proto3" json:"agent_version,omitempty"`
 	// Output only. The state of this environment. This field is read-only, i.e., it cannot be
 	// set by create and update methods.
 	State Environment_State `protobuf:"varint,4,opt,name=state,proto3,enum=google.cloud.dialogflow.v2beta1.Environment_State" json:"state,omitempty"`
 	// Output only. The last update time of this environment. This field is read-only, i.e., it
 	// cannot be set by create and update methods.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 }
 
 func (x *Environment) Reset() {
@@ -207,7 +210,7 @@ func (x *Environment) GetState() Environment_State {
 	return Environment_STATE_UNSPECIFIED
 }
 
-func (x *Environment) GetUpdateTime() *timestamppb.Timestamp {
+func (x *Environment) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -223,8 +226,7 @@ type ListEnvironmentsRequest struct {
 	// Required. The agent to list all environments from.
 	// Format:
 	// - `projects/<Project Number / ID>/agent`
-	// - `projects/<Project Number / ID>/locations/<Location
-	// ID>/agent
+	// - `projects/<Project Number / ID>/locations/<Location ID>/agent`
 	Parent string `protobuf:"bytes,1,opt,name=parent,proto3" json:"parent,omitempty"`
 	// Optional. The maximum number of items to return in a single page. By default 100 and
 	// at most 1000.
@@ -481,7 +483,7 @@ var file_google_cloud_dialogflow_v2beta1_environment_proto_goTypes = []interface
 	(*Environment)(nil),              // 1: google.cloud.dialogflow.v2beta1.Environment
 	(*ListEnvironmentsRequest)(nil),  // 2: google.cloud.dialogflow.v2beta1.ListEnvironmentsRequest
 	(*ListEnvironmentsResponse)(nil), // 3: google.cloud.dialogflow.v2beta1.ListEnvironmentsResponse
-	(*timestamppb.Timestamp)(nil),    // 4: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),      // 4: google.protobuf.Timestamp
 }
 var file_google_cloud_dialogflow_v2beta1_environment_proto_depIdxs = []int32{
 	0, // 0: google.cloud.dialogflow.v2beta1.Environment.state:type_name -> google.cloud.dialogflow.v2beta1.Environment.State

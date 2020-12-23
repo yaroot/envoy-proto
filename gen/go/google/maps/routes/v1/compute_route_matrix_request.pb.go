@@ -22,10 +22,10 @@ package routes
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -48,6 +48,15 @@ type ComputeRouteMatrixRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Required. Array of origins, which determines the rows of the response matrix.
+	// Several size restrictions apply to the cardinality of origins and
+	// destinations:
+	//
+	// * The number of elements (origins × destinations) must be no greater than
+	// 625 in any case.
+	// * The number of elements (origins × destinations) must be no greater than
+	// 100 if routing_preference is set to `TRAFFIC_AWARE_OPTIMAL`.
+	// * The number of waypoints (origins + destinations) specified as `place_id`
+	// must be no greater than 50.
 	Origins []*RouteMatrixOrigin `protobuf:"bytes,1,rep,name=origins,proto3" json:"origins,omitempty"`
 	// Required. Array of destinations, which determines the columns of the response matrix.
 	Destinations []*RouteMatrixDestination `protobuf:"bytes,2,rep,name=destinations,proto3" json:"destinations,omitempty"`
@@ -64,7 +73,7 @@ type ComputeRouteMatrixRequest struct {
 	// Optional. The departure time. If you don't set this value, this defaults to the time
 	// that you made the request. If you set this value to a time that has already
 	// occurred, the request fails.
-	DepartureTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=departure_time,json=departureTime,proto3" json:"departure_time,omitempty"`
+	DepartureTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=departure_time,json=departureTime,proto3" json:"departure_time,omitempty"`
 }
 
 func (x *ComputeRouteMatrixRequest) Reset() {
@@ -127,7 +136,7 @@ func (x *ComputeRouteMatrixRequest) GetRoutingPreference() RoutingPreference {
 	return RoutingPreference_ROUTING_PREFERENCE_UNSPECIFIED
 }
 
-func (x *ComputeRouteMatrixRequest) GetDepartureTime() *timestamppb.Timestamp {
+func (x *ComputeRouteMatrixRequest) GetDepartureTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.DepartureTime
 	}
@@ -336,7 +345,7 @@ var file_google_maps_routes_v1_compute_route_matrix_request_proto_goTypes = []in
 	(*RouteMatrixDestination)(nil),    // 2: google.maps.routes.v1.RouteMatrixDestination
 	(RouteTravelMode)(0),              // 3: google.maps.routes.v1.RouteTravelMode
 	(RoutingPreference)(0),            // 4: google.maps.routes.v1.RoutingPreference
-	(*timestamppb.Timestamp)(nil),     // 5: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),       // 5: google.protobuf.Timestamp
 	(*Waypoint)(nil),                  // 6: google.maps.routes.v1.Waypoint
 	(*RouteModifiers)(nil),            // 7: google.maps.routes.v1.RouteModifiers
 }

@@ -22,13 +22,12 @@ package recommendationengine
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	_ "google/cloud/recommendationengine/v1beta1"
 	reflect "reflect"
 	sync "sync"
 )
@@ -304,7 +303,7 @@ type UpdateCatalogItemRequest struct {
 	CatalogItem *CatalogItem `protobuf:"bytes,2,opt,name=catalog_item,json=catalogItem,proto3" json:"catalog_item,omitempty"`
 	// Optional. Indicates which fields in the provided 'item' to update. If not
 	// set, will by default update all fields.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateCatalogItemRequest) Reset() {
@@ -353,7 +352,7 @@ func (x *UpdateCatalogItemRequest) GetCatalogItem() *CatalogItem {
 	return nil
 }
 
-func (x *UpdateCatalogItemRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateCatalogItemRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -659,9 +658,9 @@ var file_google_cloud_recommendationengine_v1beta1_catalog_service_proto_goTypes
 	(*UpdateCatalogItemRequest)(nil),  // 4: google.cloud.recommendationengine.v1beta1.UpdateCatalogItemRequest
 	(*DeleteCatalogItemRequest)(nil),  // 5: google.cloud.recommendationengine.v1beta1.DeleteCatalogItemRequest
 	(*CatalogItem)(nil),               // 6: google.cloud.recommendationengine.v1beta1.CatalogItem
-	(*fieldmaskpb.FieldMask)(nil),     // 7: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),      // 7: google.protobuf.FieldMask
 	(*ImportCatalogItemsRequest)(nil), // 8: google.cloud.recommendationengine.v1beta1.ImportCatalogItemsRequest
-	(*emptypb.Empty)(nil),             // 9: google.protobuf.Empty
+	(*empty.Empty)(nil),               // 9: google.protobuf.Empty
 	(*longrunning.Operation)(nil),     // 10: google.longrunning.Operation
 }
 var file_google_cloud_recommendationengine_v1beta1_catalog_service_proto_depIdxs = []int32{
@@ -695,6 +694,7 @@ func file_google_cloud_recommendationengine_v1beta1_catalog_service_proto_init()
 	}
 	file_google_cloud_recommendationengine_v1beta1_catalog_proto_init()
 	file_google_cloud_recommendationengine_v1beta1_import_proto_init()
+	file_google_cloud_recommendationengine_v1beta1_recommendationengine_resources_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_google_cloud_recommendationengine_v1beta1_catalog_service_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateCatalogItemRequest); i {

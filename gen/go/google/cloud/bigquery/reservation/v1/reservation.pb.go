@@ -22,13 +22,13 @@ package reservation
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	status "google.golang.org/genproto/googleapis/rpc/status"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -391,7 +391,7 @@ type CapacityCommitment struct {
 	State CapacityCommitment_State `protobuf:"varint,4,opt,name=state,proto3,enum=google.cloud.bigquery.reservation.v1.CapacityCommitment_State" json:"state,omitempty"`
 	// Output only. The end of the current commitment period. It is applicable only for ACTIVE
 	// capacity commitments.
-	CommitmentEndTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=commitment_end_time,json=commitmentEndTime,proto3" json:"commitment_end_time,omitempty"`
+	CommitmentEndTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=commitment_end_time,json=commitmentEndTime,proto3" json:"commitment_end_time,omitempty"`
 	// Output only. For FAILED commitment plan, provides the reason of failure.
 	FailureStatus *status.Status `protobuf:"bytes,7,opt,name=failure_status,json=failureStatus,proto3" json:"failure_status,omitempty"`
 	// The plan this capacity commitment is converted to after commitment_end_time
@@ -460,7 +460,7 @@ func (x *CapacityCommitment) GetState() CapacityCommitment_State {
 	return CapacityCommitment_STATE_UNSPECIFIED
 }
 
-func (x *CapacityCommitment) GetCommitmentEndTime() *timestamppb.Timestamp {
+func (x *CapacityCommitment) GetCommitmentEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CommitmentEndTime
 	}
@@ -786,7 +786,7 @@ type UpdateReservationRequest struct {
 	// Content of the reservation to update.
 	Reservation *Reservation `protobuf:"bytes,1,opt,name=reservation,proto3" json:"reservation,omitempty"`
 	// Standard field mask for the set of fields to be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateReservationRequest) Reset() {
@@ -828,7 +828,7 @@ func (x *UpdateReservationRequest) GetReservation() *Reservation {
 	return nil
 }
 
-func (x *UpdateReservationRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateReservationRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1140,7 +1140,7 @@ type UpdateCapacityCommitmentRequest struct {
 	// Content of the capacity commitment to update.
 	CapacityCommitment *CapacityCommitment `protobuf:"bytes,1,opt,name=capacity_commitment,json=capacityCommitment,proto3" json:"capacity_commitment,omitempty"`
 	// Standard field mask for the set of fields to be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateCapacityCommitmentRequest) Reset() {
@@ -1182,7 +1182,7 @@ func (x *UpdateCapacityCommitmentRequest) GetCapacityCommitment() *CapacityCommi
 	return nil
 }
 
-func (x *UpdateCapacityCommitmentRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateCapacityCommitmentRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1919,7 +1919,7 @@ type BiReservation struct {
 	// `projects/{project_id}/locations/{location_id}/bireservation`.
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// Output only. The last update timestamp of a reservation.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// Size of a reservation, in bytes.
 	Size int64 `protobuf:"varint,4,opt,name=size,proto3" json:"size,omitempty"`
 }
@@ -1963,7 +1963,7 @@ func (x *BiReservation) GetName() string {
 	return ""
 }
 
-func (x *BiReservation) GetUpdateTime() *timestamppb.Timestamp {
+func (x *BiReservation) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -2036,7 +2036,7 @@ type UpdateBiReservationRequest struct {
 	// A reservation to update.
 	BiReservation *BiReservation `protobuf:"bytes,1,opt,name=bi_reservation,json=biReservation,proto3" json:"bi_reservation,omitempty"`
 	// A list of fields to be updated in this request.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateBiReservationRequest) Reset() {
@@ -2078,7 +2078,7 @@ func (x *UpdateBiReservationRequest) GetBiReservation() *BiReservation {
 	return nil
 }
 
-func (x *UpdateBiReservationRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateBiReservationRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -2820,10 +2820,10 @@ var file_google_cloud_bigquery_reservation_v1_reservation_proto_goTypes = []inte
 	(*BiReservation)(nil),                   // 29: google.cloud.bigquery.reservation.v1.BiReservation
 	(*GetBiReservationRequest)(nil),         // 30: google.cloud.bigquery.reservation.v1.GetBiReservationRequest
 	(*UpdateBiReservationRequest)(nil),      // 31: google.cloud.bigquery.reservation.v1.UpdateBiReservationRequest
-	(*timestamppb.Timestamp)(nil),           // 32: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),             // 32: google.protobuf.Timestamp
 	(*status.Status)(nil),                   // 33: google.rpc.Status
-	(*fieldmaskpb.FieldMask)(nil),           // 34: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),                   // 35: google.protobuf.Empty
+	(*field_mask.FieldMask)(nil),            // 34: google.protobuf.FieldMask
+	(*empty.Empty)(nil),                     // 35: google.protobuf.Empty
 }
 var file_google_cloud_bigquery_reservation_v1_reservation_proto_depIdxs = []int32{
 	0,  // 0: google.cloud.bigquery.reservation.v1.CapacityCommitment.plan:type_name -> google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan

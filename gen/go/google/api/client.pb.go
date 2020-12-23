@@ -22,9 +22,9 @@ package annotations
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	descriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	descriptorpb "google.golang.org/protobuf/types/descriptorpb"
 	reflect "reflect"
 )
 
@@ -41,7 +41,7 @@ const _ = proto.ProtoPackageIsVersion4
 
 var file_google_api_client_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
-		ExtendedType:  (*descriptorpb.MethodOptions)(nil),
+		ExtendedType:  (*descriptor.MethodOptions)(nil),
 		ExtensionType: ([]string)(nil),
 		Field:         1051,
 		Name:          "google.api.method_signature",
@@ -49,7 +49,7 @@ var file_google_api_client_proto_extTypes = []protoimpl.ExtensionInfo{
 		Filename:      "google/api/client.proto",
 	},
 	{
-		ExtendedType:  (*descriptorpb.ServiceOptions)(nil),
+		ExtendedType:  (*descriptor.ServiceOptions)(nil),
 		ExtensionType: (*string)(nil),
 		Field:         1049,
 		Name:          "google.api.default_host",
@@ -57,7 +57,7 @@ var file_google_api_client_proto_extTypes = []protoimpl.ExtensionInfo{
 		Filename:      "google/api/client.proto",
 	},
 	{
-		ExtendedType:  (*descriptorpb.ServiceOptions)(nil),
+		ExtendedType:  (*descriptor.ServiceOptions)(nil),
 		ExtensionType: (*string)(nil),
 		Field:         1050,
 		Name:          "google.api.oauth_scopes",
@@ -66,7 +66,7 @@ var file_google_api_client_proto_extTypes = []protoimpl.ExtensionInfo{
 	},
 }
 
-// Extension fields to descriptorpb.MethodOptions.
+// Extension fields to descriptor.MethodOptions.
 var (
 	// A definition of a client library method signature.
 	//
@@ -108,7 +108,7 @@ var (
 	E_MethodSignature = &file_google_api_client_proto_extTypes[0]
 )
 
-// Extension fields to descriptorpb.ServiceOptions.
+// Extension fields to descriptor.ServiceOptions.
 var (
 	// The hostname for this service.
 	// This should be specified with no prefix or protocol.
@@ -178,8 +178,8 @@ var file_google_api_client_proto_rawDesc = []byte{
 }
 
 var file_google_api_client_proto_goTypes = []interface{}{
-	(*descriptorpb.MethodOptions)(nil),  // 0: google.protobuf.MethodOptions
-	(*descriptorpb.ServiceOptions)(nil), // 1: google.protobuf.ServiceOptions
+	(*descriptor.MethodOptions)(nil),  // 0: google.protobuf.MethodOptions
+	(*descriptor.ServiceOptions)(nil), // 1: google.protobuf.ServiceOptions
 }
 var file_google_api_client_proto_depIdxs = []int32{
 	0, // 0: google.api.method_signature:extendee -> google.protobuf.MethodOptions

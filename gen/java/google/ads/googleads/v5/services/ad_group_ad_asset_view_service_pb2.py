@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v5.servicesB\036AdGroupAdAssetViewServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v5/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V5.Services\312\002 Google\\Ads\\GoogleAds\\V5\\Services\352\002$Google::Ads::GoogleAds::V5::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nEgoogle/ads/googleads/v5/services/ad_group_ad_asset_view_service.proto\x12 google.ads.googleads.v5.services\x1a>google/ads/googleads/v5/resources/ad_group_ad_asset_view.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"j\n\x1cGetAdGroupAdAssetViewRequest\x12J\n\rresource_name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+googleads.googleapis.com/AdGroupAdAssetView2\x98\x02\n\x19\x41\x64GroupAdAssetViewService\x12\xdd\x01\n\x15GetAdGroupAdAssetView\x12>.google.ads.googleads.v5.services.GetAdGroupAdAssetViewRequest\x1a\x35.google.ads.googleads.v5.resources.AdGroupAdAssetView\"M\x82\xd3\xe4\x93\x02\x37\x12\x35/v5/{resource_name=customers/*/adGroupAdAssetViews/*}\xda\x41\rresource_name\x1a\x1b\xca\x41\x18googleads.googleapis.comB\x85\x02\n$com.google.ads.googleads.v5.servicesB\x1e\x41\x64GroupAdAssetViewServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v5/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V5.Services\xca\x02 Google\\Ads\\GoogleAds\\V5\\Services\xea\x02$Google::Ads::GoogleAds::V5::Servicesb\x06proto3'
+  serialized_pb=b'\nEgoogle/ads/googleads/v5/services/ad_group_ad_asset_view_service.proto\x12 google.ads.googleads.v5.services\x1a>google/ads/googleads/v5/resources/ad_group_ad_asset_view.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"j\n\x1cGetAdGroupAdAssetViewRequest\x12J\n\rresource_name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+googleads.googleapis.com/AdGroupAdAssetView2\xc2\x02\n\x19\x41\x64GroupAdAssetViewService\x12\xdd\x01\n\x15GetAdGroupAdAssetView\x12>.google.ads.googleads.v5.services.GetAdGroupAdAssetViewRequest\x1a\x35.google.ads.googleads.v5.resources.AdGroupAdAssetView\"M\x82\xd3\xe4\x93\x02\x37\x12\x35/v5/{resource_name=customers/*/adGroupAdAssetViews/*}\xda\x41\rresource_name\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x85\x02\n$com.google.ads.googleads.v5.servicesB\x1e\x41\x64GroupAdAssetViewServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v5/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V5.Services\xca\x02 Google\\Ads\\GoogleAds\\V5\\Services\xea\x02$Google::Ads::GoogleAds::V5::Servicesb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v5_dot_resources_dot_ad__group__ad__asset__view__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
 
@@ -81,10 +81,10 @@ _ADGROUPADASSETVIEWSERVICE = _descriptor.ServiceDescriptor(
   full_name='google.ads.googleads.v5.services.AdGroupAdAssetViewService',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=b'\312A\030googleads.googleapis.com',
+  serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
   serialized_start=395,
-  serialized_end=675,
+  serialized_end=717,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetAdGroupAdAssetView',

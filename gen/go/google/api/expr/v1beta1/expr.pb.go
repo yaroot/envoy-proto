@@ -23,9 +23,9 @@ package expr
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -361,11 +361,11 @@ func (m *Literal) GetConstantKind() isLiteral_ConstantKind {
 	return nil
 }
 
-func (x *Literal) GetNullValue() structpb.NullValue {
+func (x *Literal) GetNullValue() _struct.NullValue {
 	if x, ok := x.GetConstantKind().(*Literal_NullValue); ok {
 		return x.NullValue
 	}
-	return structpb.NullValue_NULL_VALUE
+	return _struct.NullValue_NULL_VALUE
 }
 
 func (x *Literal) GetBoolValue() bool {
@@ -416,7 +416,7 @@ type isLiteral_ConstantKind interface {
 
 type Literal_NullValue struct {
 	// null value.
-	NullValue structpb.NullValue `protobuf:"varint,1,opt,name=null_value,json=nullValue,proto3,enum=google.protobuf.NullValue,oneof"`
+	NullValue _struct.NullValue `protobuf:"varint,1,opt,name=null_value,json=nullValue,proto3,enum=google.protobuf.NullValue,oneof"`
 }
 
 type Literal_BoolValue struct {
@@ -1191,7 +1191,7 @@ var file_google_api_expr_v1beta1_expr_proto_goTypes = []interface{}{
 	(*Expr_Comprehension)(nil),      // 8: google.api.expr.v1beta1.Expr.Comprehension
 	(*Expr_CreateStruct_Entry)(nil), // 9: google.api.expr.v1beta1.Expr.CreateStruct.Entry
 	(*SourceInfo)(nil),              // 10: google.api.expr.v1beta1.SourceInfo
-	(structpb.NullValue)(0),         // 11: google.protobuf.NullValue
+	(_struct.NullValue)(0),          // 11: google.protobuf.NullValue
 }
 var file_google_api_expr_v1beta1_expr_proto_depIdxs = []int32{
 	1,  // 0: google.api.expr.v1beta1.ParsedExpr.expr:type_name -> google.api.expr.v1beta1.Expr

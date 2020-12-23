@@ -22,10 +22,10 @@ package firestore
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -155,7 +155,7 @@ func (x *Precondition) GetExists() bool {
 	return false
 }
 
-func (x *Precondition) GetUpdateTime() *timestamppb.Timestamp {
+func (x *Precondition) GetUpdateTime() *timestamp.Timestamp {
 	if x, ok := x.GetConditionType().(*Precondition_UpdateTime); ok {
 		return x.UpdateTime
 	}
@@ -175,7 +175,7 @@ type Precondition_Exists struct {
 type Precondition_UpdateTime struct {
 	// When set, the target document must exist and have been last updated at
 	// that time.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=update_time,json=updateTime,proto3,oneof"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=update_time,json=updateTime,proto3,oneof"`
 }
 
 func (*Precondition_Exists) isPrecondition_ConditionType() {}
@@ -369,7 +369,7 @@ func (m *TransactionOptions_ReadOnly) GetConsistencySelector() isTransactionOpti
 	return nil
 }
 
-func (x *TransactionOptions_ReadOnly) GetReadTime() *timestamppb.Timestamp {
+func (x *TransactionOptions_ReadOnly) GetReadTime() *timestamp.Timestamp {
 	if x, ok := x.GetConsistencySelector().(*TransactionOptions_ReadOnly_ReadTime); ok {
 		return x.ReadTime
 	}
@@ -383,7 +383,7 @@ type isTransactionOptions_ReadOnly_ConsistencySelector interface {
 type TransactionOptions_ReadOnly_ReadTime struct {
 	// Reads documents at the given time.
 	// This may not be older than 60 seconds.
-	ReadTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=read_time,json=readTime,proto3,oneof"`
+	ReadTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=read_time,json=readTime,proto3,oneof"`
 }
 
 func (*TransactionOptions_ReadOnly_ReadTime) isTransactionOptions_ReadOnly_ConsistencySelector() {}
@@ -465,7 +465,7 @@ var file_google_firestore_v1_common_proto_goTypes = []interface{}{
 	(*TransactionOptions)(nil),           // 2: google.firestore.v1.TransactionOptions
 	(*TransactionOptions_ReadWrite)(nil), // 3: google.firestore.v1.TransactionOptions.ReadWrite
 	(*TransactionOptions_ReadOnly)(nil),  // 4: google.firestore.v1.TransactionOptions.ReadOnly
-	(*timestamppb.Timestamp)(nil),        // 5: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),          // 5: google.protobuf.Timestamp
 }
 var file_google_firestore_v1_common_proto_depIdxs = []int32{
 	5, // 0: google.firestore.v1.Precondition.update_time:type_name -> google.protobuf.Timestamp

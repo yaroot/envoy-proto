@@ -9,10 +9,10 @@ package envoy_config_filter_network_thrift_proxy_v2alpha1
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -311,14 +311,14 @@ func (m *ThriftFilter) GetConfigType() isThriftFilter_ConfigType {
 }
 
 // Deprecated: Do not use.
-func (x *ThriftFilter) GetConfig() *structpb.Struct {
+func (x *ThriftFilter) GetConfig() *_struct.Struct {
 	if x, ok := x.GetConfigType().(*ThriftFilter_Config); ok {
 		return x.Config
 	}
 	return nil
 }
 
-func (x *ThriftFilter) GetTypedConfig() *anypb.Any {
+func (x *ThriftFilter) GetTypedConfig() *any.Any {
 	if x, ok := x.GetConfigType().(*ThriftFilter_TypedConfig); ok {
 		return x.TypedConfig
 	}
@@ -331,11 +331,11 @@ type isThriftFilter_ConfigType interface {
 
 type ThriftFilter_Config struct {
 	// Deprecated: Do not use.
-	Config *structpb.Struct `protobuf:"bytes,2,opt,name=config,proto3,oneof"`
+	Config *_struct.Struct `protobuf:"bytes,2,opt,name=config,proto3,oneof"`
 }
 
 type ThriftFilter_TypedConfig struct {
-	TypedConfig *anypb.Any `protobuf:"bytes,3,opt,name=typed_config,json=typedConfig,proto3,oneof"`
+	TypedConfig *any.Any `protobuf:"bytes,3,opt,name=typed_config,json=typedConfig,proto3,oneof"`
 }
 
 func (*ThriftFilter_Config) isThriftFilter_ConfigType() {}
@@ -532,8 +532,8 @@ var file_envoy_config_filter_network_thrift_proxy_v2alpha1_thrift_proxy_proto_go
 	(*ThriftFilter)(nil),          // 3: envoy.config.filter.network.thrift_proxy.v2alpha1.ThriftFilter
 	(*ThriftProtocolOptions)(nil), // 4: envoy.config.filter.network.thrift_proxy.v2alpha1.ThriftProtocolOptions
 	(*RouteConfiguration)(nil),    // 5: envoy.config.filter.network.thrift_proxy.v2alpha1.RouteConfiguration
-	(*structpb.Struct)(nil),       // 6: google.protobuf.Struct
-	(*anypb.Any)(nil),             // 7: google.protobuf.Any
+	(*_struct.Struct)(nil),        // 6: google.protobuf.Struct
+	(*any.Any)(nil),               // 7: google.protobuf.Any
 }
 var file_envoy_config_filter_network_thrift_proxy_v2alpha1_thrift_proxy_proto_depIdxs = []int32{
 	0, // 0: envoy.config.filter.network.thrift_proxy.v2alpha1.ThriftProxy.transport:type_name -> envoy.config.filter.network.thrift_proxy.v2alpha1.TransportType

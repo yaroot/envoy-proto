@@ -22,11 +22,11 @@ package settings
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -231,7 +231,7 @@ type UpdateSettingsRequest struct {
 	//  * `projects/{project}/zones/{zone}/clusters/{cluster}/settings`
 	Settings *Settings `protobuf:"bytes,1,opt,name=settings,proto3" json:"settings,omitempty"`
 	// The list of fields to be updated on the settings.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateSettingsRequest) Reset() {
@@ -273,7 +273,7 @@ func (x *UpdateSettingsRequest) GetSettings() *Settings {
 	return nil
 }
 
-func (x *UpdateSettingsRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateSettingsRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -706,7 +706,7 @@ type UpdateComponentSettingsRequest struct {
 	//  * `projects/{project}/zones/{zone}/clusters/{cluster}/components/{component}/settings`
 	ComponentSettings *ComponentSettings `protobuf:"bytes,1,opt,name=component_settings,json=componentSettings,proto3" json:"component_settings,omitempty"`
 	// The list of fields to be updated on the component settings resource.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateComponentSettingsRequest) Reset() {
@@ -748,7 +748,7 @@ func (x *UpdateComponentSettingsRequest) GetComponentSettings() *ComponentSettin
 	return nil
 }
 
-func (x *UpdateComponentSettingsRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateComponentSettingsRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1824,10 +1824,10 @@ var file_google_cloud_securitycenter_settings_v1beta1_securitycenter_settings_se
 	(*ListComponentsRequest)(nil),                      // 16: google.cloud.securitycenter.settings.v1beta1.ListComponentsRequest
 	(*ListComponentsResponse)(nil),                     // 17: google.cloud.securitycenter.settings.v1beta1.ListComponentsResponse
 	(*Settings)(nil),                                   // 18: google.cloud.securitycenter.settings.v1beta1.Settings
-	(*fieldmaskpb.FieldMask)(nil),                      // 19: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),                       // 19: google.protobuf.FieldMask
 	(*ComponentSettings)(nil),                          // 20: google.cloud.securitycenter.settings.v1beta1.ComponentSettings
 	(*Detector)(nil),                                   // 21: google.cloud.securitycenter.settings.v1beta1.Detector
-	(*emptypb.Empty)(nil),                              // 22: google.protobuf.Empty
+	(*empty.Empty)(nil),                                // 22: google.protobuf.Empty
 }
 var file_google_cloud_securitycenter_settings_v1beta1_securitycenter_settings_service_proto_depIdxs = []int32{
 	18, // 0: google.cloud.securitycenter.settings.v1beta1.UpdateSettingsRequest.settings:type_name -> google.cloud.securitycenter.settings.v1beta1.Settings

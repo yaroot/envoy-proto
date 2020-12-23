@@ -22,11 +22,11 @@ package bigtable
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	status "google.golang.org/genproto/googleapis/rpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -873,13 +873,13 @@ type ReadRowsResponse_CellChunk struct {
 	// column family name in a response so clients must check
 	// explicitly for the presence of this message, not just for
 	// `family_name.value` being non-empty.
-	FamilyName *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=family_name,json=familyName,proto3" json:"family_name,omitempty"`
+	FamilyName *wrappers.StringValue `protobuf:"bytes,2,opt,name=family_name,json=familyName,proto3" json:"family_name,omitempty"`
 	// The column qualifier for this chunk of data.  If this message
 	// is not present, this CellChunk is a continuation of the same column
 	// as the previous CellChunk.  Column qualifiers may be empty so
 	// clients must check for the presence of this message, not just
 	// for `qualifier.value` being non-empty.
-	Qualifier *wrapperspb.BytesValue `protobuf:"bytes,3,opt,name=qualifier,proto3" json:"qualifier,omitempty"`
+	Qualifier *wrappers.BytesValue `protobuf:"bytes,3,opt,name=qualifier,proto3" json:"qualifier,omitempty"`
 	// The cell's stored timestamp, which also uniquely identifies it
 	// within its column.  Values are always expressed in
 	// microseconds, but individual tables may set a coarser
@@ -951,14 +951,14 @@ func (x *ReadRowsResponse_CellChunk) GetRowKey() []byte {
 	return nil
 }
 
-func (x *ReadRowsResponse_CellChunk) GetFamilyName() *wrapperspb.StringValue {
+func (x *ReadRowsResponse_CellChunk) GetFamilyName() *wrappers.StringValue {
 	if x != nil {
 		return x.FamilyName
 	}
 	return nil
 }
 
-func (x *ReadRowsResponse_CellChunk) GetQualifier() *wrapperspb.BytesValue {
+func (x *ReadRowsResponse_CellChunk) GetQualifier() *wrappers.BytesValue {
 	if x != nil {
 		return x.Qualifier
 	}
@@ -1501,8 +1501,8 @@ var file_google_bigtable_v2_bigtable_proto_goTypes = []interface{}{
 	(*Mutation)(nil),                   // 17: google.bigtable.v2.Mutation
 	(*ReadModifyWriteRule)(nil),        // 18: google.bigtable.v2.ReadModifyWriteRule
 	(*Row)(nil),                        // 19: google.bigtable.v2.Row
-	(*wrapperspb.StringValue)(nil),     // 20: google.protobuf.StringValue
-	(*wrapperspb.BytesValue)(nil),      // 21: google.protobuf.BytesValue
+	(*wrappers.StringValue)(nil),       // 20: google.protobuf.StringValue
+	(*wrappers.BytesValue)(nil),        // 21: google.protobuf.BytesValue
 	(*status.Status)(nil),              // 22: google.rpc.Status
 }
 var file_google_bigtable_v2_bigtable_proto_depIdxs = []int32{

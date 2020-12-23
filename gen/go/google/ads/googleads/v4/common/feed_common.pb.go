@@ -22,10 +22,10 @@ package common
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -48,9 +48,9 @@ type Money struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Three-character ISO 4217 currency code.
-	CurrencyCode *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=currency_code,json=currencyCode,proto3" json:"currency_code,omitempty"`
+	CurrencyCode *wrappers.StringValue `protobuf:"bytes,1,opt,name=currency_code,json=currencyCode,proto3" json:"currency_code,omitempty"`
 	// Amount in micros. One million is equivalent to one unit.
-	AmountMicros *wrapperspb.Int64Value `protobuf:"bytes,2,opt,name=amount_micros,json=amountMicros,proto3" json:"amount_micros,omitempty"`
+	AmountMicros *wrappers.Int64Value `protobuf:"bytes,2,opt,name=amount_micros,json=amountMicros,proto3" json:"amount_micros,omitempty"`
 }
 
 func (x *Money) Reset() {
@@ -85,14 +85,14 @@ func (*Money) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v4_common_feed_common_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Money) GetCurrencyCode() *wrapperspb.StringValue {
+func (x *Money) GetCurrencyCode() *wrappers.StringValue {
 	if x != nil {
 		return x.CurrencyCode
 	}
 	return nil
 }
 
-func (x *Money) GetAmountMicros() *wrapperspb.Int64Value {
+func (x *Money) GetAmountMicros() *wrappers.Int64Value {
 	if x != nil {
 		return x.AmountMicros
 	}
@@ -152,9 +152,9 @@ func file_google_ads_googleads_v4_common_feed_common_proto_rawDescGZIP() []byte 
 
 var file_google_ads_googleads_v4_common_feed_common_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v4_common_feed_common_proto_goTypes = []interface{}{
-	(*Money)(nil),                  // 0: google.ads.googleads.v4.common.Money
-	(*wrapperspb.StringValue)(nil), // 1: google.protobuf.StringValue
-	(*wrapperspb.Int64Value)(nil),  // 2: google.protobuf.Int64Value
+	(*Money)(nil),                // 0: google.ads.googleads.v4.common.Money
+	(*wrappers.StringValue)(nil), // 1: google.protobuf.StringValue
+	(*wrappers.Int64Value)(nil),  // 2: google.protobuf.Int64Value
 }
 var file_google_ads_googleads_v4_common_feed_common_proto_depIdxs = []int32{
 	1, // 0: google.ads.googleads.v4.common.Money.currency_code:type_name -> google.protobuf.StringValue

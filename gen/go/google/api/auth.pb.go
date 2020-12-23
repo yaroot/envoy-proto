@@ -133,6 +133,7 @@ type AuthenticationRule struct {
 	// The requirements for OAuth credentials.
 	Oauth *OAuthRequirements `protobuf:"bytes,2,opt,name=oauth,proto3" json:"oauth,omitempty"`
 	// If true, the service accepts API keys without any other credential.
+	// This flag only applies to HTTP and gRPC requests.
 	AllowWithoutCredential bool `protobuf:"varint,5,opt,name=allow_without_credential,json=allowWithoutCredential,proto3" json:"allow_without_credential,omitempty"`
 	// Requirements for additional authentication providers.
 	Requirements []*AuthRequirement `protobuf:"bytes,7,rep,name=requirements,proto3" json:"requirements,omitempty"`
@@ -323,8 +324,8 @@ type AuthProvider struct {
 	// Optional if the key set document:
 	//  - can be retrieved from
 	//    [OpenID
-	//    Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html of
-	//    the issuer.
+	//    Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html)
+	//    of the issuer.
 	//  - can be inferred from the email domain of the issuer (e.g. a Google
 	//  service account).
 	//

@@ -22,11 +22,11 @@ package talent
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -175,7 +175,7 @@ type UpdateCompanyRequest struct {
 	//
 	// A field mask to specify the company fields to be updated. Only
 	// top level fields of [Company][google.cloud.talent.v4beta1.Company] are supported.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateCompanyRequest) Reset() {
@@ -217,7 +217,7 @@ func (x *UpdateCompanyRequest) GetCompany() *Company {
 	return nil
 }
 
-func (x *UpdateCompanyRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateCompanyRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -624,9 +624,9 @@ var file_google_cloud_talent_v4beta1_company_service_proto_goTypes = []interface
 	(*ListCompaniesRequest)(nil),  // 4: google.cloud.talent.v4beta1.ListCompaniesRequest
 	(*ListCompaniesResponse)(nil), // 5: google.cloud.talent.v4beta1.ListCompaniesResponse
 	(*Company)(nil),               // 6: google.cloud.talent.v4beta1.Company
-	(*fieldmaskpb.FieldMask)(nil), // 7: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),  // 7: google.protobuf.FieldMask
 	(*ResponseMetadata)(nil),      // 8: google.cloud.talent.v4beta1.ResponseMetadata
-	(*emptypb.Empty)(nil),         // 9: google.protobuf.Empty
+	(*empty.Empty)(nil),           // 9: google.protobuf.Empty
 }
 var file_google_cloud_talent_v4beta1_company_service_proto_depIdxs = []int32{
 	6,  // 0: google.cloud.talent.v4beta1.CreateCompanyRequest.company:type_name -> google.cloud.talent.v4beta1.Company

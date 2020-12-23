@@ -11,9 +11,9 @@ import (
 	v31 "envoy/config/endpoint/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -110,7 +110,7 @@ type LoadStatsResponse struct {
 	//    *LoadStatsResponse* will also be accumulated and billed to the cluster. This avoids a period
 	//    of inobservability that might otherwise exists between the messages. New clusters are not
 	//    subject to this consideration.
-	LoadReportingInterval *durationpb.Duration `protobuf:"bytes,2,opt,name=load_reporting_interval,json=loadReportingInterval,proto3" json:"load_reporting_interval,omitempty"`
+	LoadReportingInterval *duration.Duration `protobuf:"bytes,2,opt,name=load_reporting_interval,json=loadReportingInterval,proto3" json:"load_reporting_interval,omitempty"`
 	// Set to *true* if the management server supports endpoint granularity
 	// report.
 	ReportEndpointGranularity bool `protobuf:"varint,3,opt,name=report_endpoint_granularity,json=reportEndpointGranularity,proto3" json:"report_endpoint_granularity,omitempty"`
@@ -162,7 +162,7 @@ func (x *LoadStatsResponse) GetSendAllClusters() bool {
 	return false
 }
 
-func (x *LoadStatsResponse) GetLoadReportingInterval() *durationpb.Duration {
+func (x *LoadStatsResponse) GetLoadReportingInterval() *duration.Duration {
 	if x != nil {
 		return x.LoadReportingInterval
 	}
@@ -257,11 +257,11 @@ func file_envoy_service_load_stats_v3_lrs_proto_rawDescGZIP() []byte {
 
 var file_envoy_service_load_stats_v3_lrs_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_envoy_service_load_stats_v3_lrs_proto_goTypes = []interface{}{
-	(*LoadStatsRequest)(nil),    // 0: envoy.service.load_stats.v3.LoadStatsRequest
-	(*LoadStatsResponse)(nil),   // 1: envoy.service.load_stats.v3.LoadStatsResponse
-	(*v3.Node)(nil),             // 2: envoy.config.core.v3.Node
-	(*v31.ClusterStats)(nil),    // 3: envoy.config.endpoint.v3.ClusterStats
-	(*durationpb.Duration)(nil), // 4: google.protobuf.Duration
+	(*LoadStatsRequest)(nil),  // 0: envoy.service.load_stats.v3.LoadStatsRequest
+	(*LoadStatsResponse)(nil), // 1: envoy.service.load_stats.v3.LoadStatsResponse
+	(*v3.Node)(nil),           // 2: envoy.config.core.v3.Node
+	(*v31.ClusterStats)(nil),  // 3: envoy.config.endpoint.v3.ClusterStats
+	(*duration.Duration)(nil), // 4: google.protobuf.Duration
 }
 var file_envoy_service_load_stats_v3_lrs_proto_depIdxs = []int32{
 	2, // 0: envoy.service.load_stats.v3.LoadStatsRequest.node:type_name -> envoy.config.core.v3.Node

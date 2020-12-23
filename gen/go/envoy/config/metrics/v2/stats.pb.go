@@ -11,11 +11,11 @@ import (
 	matcher "envoy/type/matcher"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
+	_struct "github.com/golang/protobuf/ptypes/struct"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -104,14 +104,14 @@ func (m *StatsSink) GetConfigType() isStatsSink_ConfigType {
 }
 
 // Deprecated: Do not use.
-func (x *StatsSink) GetConfig() *structpb.Struct {
+func (x *StatsSink) GetConfig() *_struct.Struct {
 	if x, ok := x.GetConfigType().(*StatsSink_Config); ok {
 		return x.Config
 	}
 	return nil
 }
 
-func (x *StatsSink) GetTypedConfig() *anypb.Any {
+func (x *StatsSink) GetTypedConfig() *any.Any {
 	if x, ok := x.GetConfigType().(*StatsSink_TypedConfig); ok {
 		return x.TypedConfig
 	}
@@ -124,11 +124,11 @@ type isStatsSink_ConfigType interface {
 
 type StatsSink_Config struct {
 	// Deprecated: Do not use.
-	Config *structpb.Struct `protobuf:"bytes,2,opt,name=config,proto3,oneof"`
+	Config *_struct.Struct `protobuf:"bytes,2,opt,name=config,proto3,oneof"`
 }
 
 type StatsSink_TypedConfig struct {
-	TypedConfig *anypb.Any `protobuf:"bytes,3,opt,name=typed_config,json=typedConfig,proto3,oneof"`
+	TypedConfig *any.Any `protobuf:"bytes,3,opt,name=typed_config,json=typedConfig,proto3,oneof"`
 }
 
 func (*StatsSink_Config) isStatsSink_ConfigType() {}
@@ -160,7 +160,7 @@ type StatsConfig struct {
 	// default tags in Envoy.
 	//
 	// If not provided, the value is assumed to be true.
-	UseAllDefaultTags *wrapperspb.BoolValue `protobuf:"bytes,2,opt,name=use_all_default_tags,json=useAllDefaultTags,proto3" json:"use_all_default_tags,omitempty"`
+	UseAllDefaultTags *wrappers.BoolValue `protobuf:"bytes,2,opt,name=use_all_default_tags,json=useAllDefaultTags,proto3" json:"use_all_default_tags,omitempty"`
 	// Inclusion/exclusion matcher for stat name creation. If not provided, all stats are instantiated
 	// as normal. Preventing the instantiation of certain families of stats can improve memory
 	// performance for Envoys running especially large configs.
@@ -211,7 +211,7 @@ func (x *StatsConfig) GetStatsTags() []*TagSpecifier {
 	return nil
 }
 
-func (x *StatsConfig) GetUseAllDefaultTags() *wrapperspb.BoolValue {
+func (x *StatsConfig) GetUseAllDefaultTags() *wrappers.BoolValue {
 	if x != nil {
 		return x.UseAllDefaultTags
 	}
@@ -436,7 +436,7 @@ type TagSpecifier_Regex struct {
 	//
 	//   {
 	//     "tag_name": "envoy.cluster_name",
-	//     "regex": "^cluster\.((.+?)\.)"
+	//     "regex": "^cluster\\.((.+?)\\.)"
 	//   }
 	//
 	// Note that the regex will remove ``foo_cluster.`` making the tag extracted
@@ -453,11 +453,11 @@ type TagSpecifier_Regex struct {
 	//   [
 	//     {
 	//       "tag_name": "envoy.http_user_agent",
-	//       "regex": "^http(?=\.).*?\.user_agent\.((.+?)\.)\w+?$"
+	//       "regex": "^http(?=\\.).*?\\.user_agent\\.((.+?)\\.)\\w+?$"
 	//     },
 	//     {
 	//       "tag_name": "envoy.http_conn_manager_prefix",
-	//       "regex": "^http\.((.*?)\.)"
+	//       "regex": "^http\\.((.*?)\\.)"
 	//     }
 	//   ]
 	//
@@ -876,9 +876,9 @@ var file_envoy_config_metrics_v2_stats_proto_goTypes = []interface{}{
 	(*StatsdSink)(nil),                // 4: envoy.config.metrics.v2.StatsdSink
 	(*DogStatsdSink)(nil),             // 5: envoy.config.metrics.v2.DogStatsdSink
 	(*HystrixSink)(nil),               // 6: envoy.config.metrics.v2.HystrixSink
-	(*structpb.Struct)(nil),           // 7: google.protobuf.Struct
-	(*anypb.Any)(nil),                 // 8: google.protobuf.Any
-	(*wrapperspb.BoolValue)(nil),      // 9: google.protobuf.BoolValue
+	(*_struct.Struct)(nil),            // 7: google.protobuf.Struct
+	(*any.Any)(nil),                   // 8: google.protobuf.Any
+	(*wrappers.BoolValue)(nil),        // 9: google.protobuf.BoolValue
 	(*matcher.ListStringMatcher)(nil), // 10: envoy.type.matcher.ListStringMatcher
 	(*core.Address)(nil),              // 11: envoy.api.v2.core.Address
 }

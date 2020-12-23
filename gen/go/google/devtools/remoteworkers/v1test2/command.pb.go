@@ -23,11 +23,11 @@ package remoteworkers
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	status "google.golang.org/genproto/googleapis/rpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -187,10 +187,10 @@ type CommandOverhead struct {
 	// The elapsed time between calling Accept and Complete. The server will also
 	// have its own idea of what this should be, but this excludes the overhead of
 	// the RPCs and the bot response time.
-	Duration *durationpb.Duration `protobuf:"bytes,1,opt,name=duration,proto3" json:"duration,omitempty"`
+	Duration *duration.Duration `protobuf:"bytes,1,opt,name=duration,proto3" json:"duration,omitempty"`
 	// The amount of time *not* spent executing the command (ie
 	// uploading/downloading files).
-	Overhead *durationpb.Duration `protobuf:"bytes,2,opt,name=overhead,proto3" json:"overhead,omitempty"`
+	Overhead *duration.Duration `protobuf:"bytes,2,opt,name=overhead,proto3" json:"overhead,omitempty"`
 }
 
 func (x *CommandOverhead) Reset() {
@@ -225,14 +225,14 @@ func (*CommandOverhead) Descriptor() ([]byte, []int) {
 	return file_google_devtools_remoteworkers_v1test2_command_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CommandOverhead) GetDuration() *durationpb.Duration {
+func (x *CommandOverhead) GetDuration() *duration.Duration {
 	if x != nil {
 		return x.Duration
 	}
 	return nil
 }
 
-func (x *CommandOverhead) GetOverhead() *durationpb.Duration {
+func (x *CommandOverhead) GetOverhead() *duration.Duration {
 	if x != nil {
 		return x.Overhead
 	}
@@ -263,19 +263,19 @@ type CommandResult struct {
 	// the RPCs and the bot response time.
 	//
 	// Deprecated: Do not use.
-	Duration *durationpb.Duration `protobuf:"bytes,4,opt,name=duration,proto3" json:"duration,omitempty"`
+	Duration *duration.Duration `protobuf:"bytes,4,opt,name=duration,proto3" json:"duration,omitempty"`
 	// The amount of time *not* spent executing the command (ie
 	// uploading/downloading files).
 	//
 	// Deprecated: Do not use.
-	Overhead *durationpb.Duration `protobuf:"bytes,5,opt,name=overhead,proto3" json:"overhead,omitempty"`
+	Overhead *duration.Duration `protobuf:"bytes,5,opt,name=overhead,proto3" json:"overhead,omitempty"`
 	// Implementation-dependent metadata about the task. Both servers and bots
 	// may define messages which can be encoded here; bots are free to provide
 	// metadata in multiple formats, and servers are free to choose one or more
 	// of the values to process and ignore others. In particular, it is *not*
 	// considered an error for the bot to provide the server with a field that it
 	// doesn't know about.
-	Metadata []*anypb.Any `protobuf:"bytes,6,rep,name=metadata,proto3" json:"metadata,omitempty"`
+	Metadata []*any.Any `protobuf:"bytes,6,rep,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
 func (x *CommandResult) Reset() {
@@ -332,7 +332,7 @@ func (x *CommandResult) GetOutputs() *Digest {
 }
 
 // Deprecated: Do not use.
-func (x *CommandResult) GetDuration() *durationpb.Duration {
+func (x *CommandResult) GetDuration() *duration.Duration {
 	if x != nil {
 		return x.Duration
 	}
@@ -340,14 +340,14 @@ func (x *CommandResult) GetDuration() *durationpb.Duration {
 }
 
 // Deprecated: Do not use.
-func (x *CommandResult) GetOverhead() *durationpb.Duration {
+func (x *CommandResult) GetOverhead() *duration.Duration {
 	if x != nil {
 		return x.Overhead
 	}
 	return nil
 }
 
-func (x *CommandResult) GetMetadata() []*anypb.Any {
+func (x *CommandResult) GetMetadata() []*any.Any {
 	if x != nil {
 		return x.Metadata
 	}
@@ -889,19 +889,19 @@ type CommandTask_Timeouts struct {
 	// This specifies the maximum time that the task can run, excluding the
 	// time required to download inputs or upload outputs. That is, the worker
 	// will terminate the task if it runs longer than this.
-	Execution *durationpb.Duration `protobuf:"bytes,1,opt,name=execution,proto3" json:"execution,omitempty"`
+	Execution *duration.Duration `protobuf:"bytes,1,opt,name=execution,proto3" json:"execution,omitempty"`
 	// This specifies the maximum amount of time the task can be idle - that is,
 	// go without generating some output in either stdout or stderr. If the
 	// process is silent for more than the specified time, the worker will
 	// terminate the task.
-	Idle *durationpb.Duration `protobuf:"bytes,2,opt,name=idle,proto3" json:"idle,omitempty"`
+	Idle *duration.Duration `protobuf:"bytes,2,opt,name=idle,proto3" json:"idle,omitempty"`
 	// If the execution or IO timeouts are exceeded, the worker will try to
 	// gracefully terminate the task and return any existing logs. However,
 	// tasks may be hard-frozen in which case this process will fail. This
 	// timeout specifies how long to wait for a terminated task to shut down
 	// gracefully (e.g. via SIGTERM) before we bring down the hammer (e.g.
 	// SIGKILL on *nix, CTRL_BREAK_EVENT on Windows).
-	Shutdown *durationpb.Duration `protobuf:"bytes,3,opt,name=shutdown,proto3" json:"shutdown,omitempty"`
+	Shutdown *duration.Duration `protobuf:"bytes,3,opt,name=shutdown,proto3" json:"shutdown,omitempty"`
 }
 
 func (x *CommandTask_Timeouts) Reset() {
@@ -936,21 +936,21 @@ func (*CommandTask_Timeouts) Descriptor() ([]byte, []int) {
 	return file_google_devtools_remoteworkers_v1test2_command_proto_rawDescGZIP(), []int{0, 2}
 }
 
-func (x *CommandTask_Timeouts) GetExecution() *durationpb.Duration {
+func (x *CommandTask_Timeouts) GetExecution() *duration.Duration {
 	if x != nil {
 		return x.Execution
 	}
 	return nil
 }
 
-func (x *CommandTask_Timeouts) GetIdle() *durationpb.Duration {
+func (x *CommandTask_Timeouts) GetIdle() *duration.Duration {
 	if x != nil {
 		return x.Idle
 	}
 	return nil
 }
 
-func (x *CommandTask_Timeouts) GetShutdown() *durationpb.Duration {
+func (x *CommandTask_Timeouts) GetShutdown() *duration.Duration {
 	if x != nil {
 		return x.Shutdown
 	}
@@ -1214,9 +1214,9 @@ var file_google_devtools_remoteworkers_v1test2_command_proto_goTypes = []interfa
 	(*CommandTask_Outputs)(nil),                    // 10: google.devtools.remoteworkers.v1test2.CommandTask.Outputs
 	(*CommandTask_Timeouts)(nil),                   // 11: google.devtools.remoteworkers.v1test2.CommandTask.Timeouts
 	(*CommandTask_Inputs_EnvironmentVariable)(nil), // 12: google.devtools.remoteworkers.v1test2.CommandTask.Inputs.EnvironmentVariable
-	(*durationpb.Duration)(nil),                    // 13: google.protobuf.Duration
+	(*duration.Duration)(nil),                      // 13: google.protobuf.Duration
 	(*status.Status)(nil),                          // 14: google.rpc.Status
-	(*anypb.Any)(nil),                              // 15: google.protobuf.Any
+	(*any.Any)(nil),                                // 15: google.protobuf.Any
 }
 var file_google_devtools_remoteworkers_v1test2_command_proto_depIdxs = []int32{
 	9,  // 0: google.devtools.remoteworkers.v1test2.CommandTask.inputs:type_name -> google.devtools.remoteworkers.v1test2.CommandTask.Inputs

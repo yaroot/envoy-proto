@@ -22,10 +22,10 @@ package table
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 )
 
@@ -184,7 +184,7 @@ var file_google_bigtable_admin_table_v1_bigtable_table_service_proto_goTypes = [
 	(*BulkDeleteRowsRequest)(nil),     // 8: google.bigtable.admin.table.v1.BulkDeleteRowsRequest
 	(*Table)(nil),                     // 9: google.bigtable.admin.table.v1.Table
 	(*ListTablesResponse)(nil),        // 10: google.bigtable.admin.table.v1.ListTablesResponse
-	(*emptypb.Empty)(nil),             // 11: google.protobuf.Empty
+	(*empty.Empty)(nil),               // 11: google.protobuf.Empty
 }
 var file_google_bigtable_admin_table_v1_bigtable_table_service_proto_depIdxs = []int32{
 	0,  // 0: google.bigtable.admin.table.v1.BigtableTableService.CreateTable:input_type -> google.bigtable.admin.table.v1.CreateTableRequest

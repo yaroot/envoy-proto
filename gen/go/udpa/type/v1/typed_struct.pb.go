@@ -9,9 +9,9 @@ package udpa_type_v1
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -59,7 +59,7 @@ type TypedStruct struct {
 	// https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto
 	TypeUrl string `protobuf:"bytes,1,opt,name=type_url,json=typeUrl,proto3" json:"type_url,omitempty"`
 	// A JSON representation of the above specified type.
-	Value *structpb.Struct `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	Value *_struct.Struct `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
 }
 
 func (x *TypedStruct) Reset() {
@@ -101,7 +101,7 @@ func (x *TypedStruct) GetTypeUrl() string {
 	return ""
 }
 
-func (x *TypedStruct) GetValue() *structpb.Struct {
+func (x *TypedStruct) GetValue() *_struct.Struct {
 	if x != nil {
 		return x.Value
 	}
@@ -143,8 +143,8 @@ func file_udpa_type_v1_typed_struct_proto_rawDescGZIP() []byte {
 
 var file_udpa_type_v1_typed_struct_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_udpa_type_v1_typed_struct_proto_goTypes = []interface{}{
-	(*TypedStruct)(nil),     // 0: udpa.type.v1.TypedStruct
-	(*structpb.Struct)(nil), // 1: google.protobuf.Struct
+	(*TypedStruct)(nil),    // 0: udpa.type.v1.TypedStruct
+	(*_struct.Struct)(nil), // 1: google.protobuf.Struct
 }
 var file_udpa_type_v1_typed_struct_proto_depIdxs = []int32{
 	1, // 0: udpa.type.v1.TypedStruct.value:type_name -> google.protobuf.Struct

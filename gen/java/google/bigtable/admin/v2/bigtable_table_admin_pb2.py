@@ -32,1188 +32,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\034com.google.bigtable.admin.v2B\027BigtableTableAdminProtoP\001Z=google.golang.org/genproto/googleapis/bigtable/admin/v2;admin\252\002\036Google.Cloud.Bigtable.Admin.V2\312\002\036Google\\Cloud\\Bigtable\\Admin\\V2\352\002\"Google::Cloud::Bigtable::Admin::V2',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n3google/bigtable/admin/v2/bigtable_table_admin.proto\x12\x18google.bigtable.admin.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a%google/bigtable/admin/v2/common.proto\x1a$google/bigtable/admin/v2/table.proto\x1a\x1egoogle/iam/v1/iam_policy.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfc\x01\n\x12\x43reateTableRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n bigtable.googleapis.com/Instance\x12\x15\n\x08table_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x33\n\x05table\x18\x03 \x01(\x0b\x32\x1f.google.bigtable.admin.v2.TableB\x03\xe0\x41\x02\x12J\n\x0einitial_splits\x18\x04 \x03(\x0b\x32\x32.google.bigtable.admin.v2.CreateTableRequest.Split\x1a\x14\n\x05Split\x12\x0b\n\x03key\x18\x01 \x01(\x0c\"\xb4\x01\n\x1e\x43reateTableFromSnapshotRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n bigtable.googleapis.com/Instance\x12\x15\n\x08table_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x41\n\x0fsource_snapshot\x18\x03 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n bigtable.googleapis.com/Snapshot\"\x94\x01\n\x13\x44ropRowRangeRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\x12\x18\n\x0erow_key_prefix\x18\x02 \x01(\x0cH\x00\x12$\n\x1a\x64\x65lete_all_data_from_table\x18\x03 \x01(\x08H\x00\x42\x08\n\x06target\"\xa8\x01\n\x11ListTablesRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n bigtable.googleapis.com/Instance\x12\x32\n\x04view\x18\x02 \x01(\x0e\x32$.google.bigtable.admin.v2.Table.View\x12\x11\n\tpage_size\x18\x04 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"^\n\x12ListTablesResponse\x12/\n\x06tables\x18\x01 \x03(\x0b\x32\x1f.google.bigtable.admin.v2.Table\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"z\n\x0fGetTableRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\x12\x32\n\x04view\x18\x02 \x01(\x0e\x32$.google.bigtable.admin.v2.Table.View\"I\n\x12\x44\x65leteTableRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\"\xda\x02\n\x1bModifyColumnFamiliesRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\x12^\n\rmodifications\x18\x02 \x03(\x0b\x32\x42.google.bigtable.admin.v2.ModifyColumnFamiliesRequest.ModificationB\x03\xe0\x41\x02\x1a\xa5\x01\n\x0cModification\x12\n\n\x02id\x18\x01 \x01(\t\x12\x38\n\x06\x63reate\x18\x02 \x01(\x0b\x32&.google.bigtable.admin.v2.ColumnFamilyH\x00\x12\x38\n\x06update\x18\x03 \x01(\x0b\x32&.google.bigtable.admin.v2.ColumnFamilyH\x00\x12\x0e\n\x04\x64rop\x18\x04 \x01(\x08H\x00\x42\x05\n\x03mod\"V\n\x1fGenerateConsistencyTokenRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\"=\n GenerateConsistencyTokenResponse\x12\x19\n\x11\x63onsistency_token\x18\x01 \x01(\t\"n\n\x17\x43heckConsistencyRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\x12\x1e\n\x11\x63onsistency_token\x18\x02 \x01(\tB\x03\xe0\x41\x02\".\n\x18\x43heckConsistencyResponse\x12\x12\n\nconsistent\x18\x01 \x01(\x08\"\xdc\x01\n\x14SnapshotTableRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\x12\x38\n\x07\x63luster\x18\x02 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x62igtable.googleapis.com/Cluster\x12\x18\n\x0bsnapshot_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12&\n\x03ttl\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\"L\n\x12GetSnapshotRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n bigtable.googleapis.com/Snapshot\"v\n\x14ListSnapshotsRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x62igtable.googleapis.com/Cluster\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"g\n\x15ListSnapshotsResponse\x12\x35\n\tsnapshots\x18\x01 \x03(\x0b\x32\".google.bigtable.admin.v2.Snapshot\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"O\n\x15\x44\x65leteSnapshotRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n bigtable.googleapis.com/Snapshot\"\xc4\x01\n\x15SnapshotTableMetadata\x12H\n\x10original_request\x18\x01 \x01(\x0b\x32..google.bigtable.admin.v2.SnapshotTableRequest\x12\x30\n\x0crequest_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x66inish_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xd8\x01\n\x1f\x43reateTableFromSnapshotMetadata\x12R\n\x10original_request\x18\x01 \x01(\x0b\x32\x38.google.bigtable.admin.v2.CreateTableFromSnapshotRequest\x12\x30\n\x0crequest_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x66inish_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x9d\x01\n\x13\x43reateBackupRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x62igtable.googleapis.com/Cluster\x12\x16\n\tbackup_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x35\n\x06\x62\x61\x63kup\x18\x03 \x01(\x0b\x32 .google.bigtable.admin.v2.BackupB\x03\xe0\x41\x02\"\x98\x01\n\x14\x43reateBackupMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0csource_table\x18\x02 \x01(\t\x12.\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"H\n\x10GetBackupRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x62igtable.googleapis.com/Backup\"\x82\x01\n\x13UpdateBackupRequest\x12\x35\n\x06\x62\x61\x63kup\x18\x01 \x01(\x0b\x32 .google.bigtable.admin.v2.BackupB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"K\n\x13\x44\x65leteBackupRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x62igtable.googleapis.com/Backup\"\x96\x01\n\x12ListBackupsRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x62igtable.googleapis.com/Cluster\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x10\n\x08order_by\x18\x03 \x01(\t\x12\x11\n\tpage_size\x18\x04 \x01(\x05\x12\x12\n\npage_token\x18\x05 \x01(\t\"a\n\x13ListBackupsResponse\x12\x31\n\x07\x62\x61\x63kups\x18\x01 \x03(\x0b\x32 .google.bigtable.admin.v2.Backup\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"S\n\x13RestoreTableRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x10\n\x08table_id\x18\x02 \x01(\t\x12\x10\n\x06\x62\x61\x63kup\x18\x03 \x01(\tH\x00\x42\x08\n\x06source\"\x98\x02\n\x14RestoreTableMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12@\n\x0bsource_type\x18\x02 \x01(\x0e\x32+.google.bigtable.admin.v2.RestoreSourceType\x12;\n\x0b\x62\x61\x63kup_info\x18\x03 \x01(\x0b\x32$.google.bigtable.admin.v2.BackupInfoH\x00\x12%\n\x1doptimize_table_operation_name\x18\x04 \x01(\t\x12=\n\x08progress\x18\x05 \x01(\x0b\x32+.google.bigtable.admin.v2.OperationProgressB\r\n\x0bsource_info\"l\n\x1dOptimizeRestoredTableMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12=\n\x08progress\x18\x02 \x01(\x0b\x32+.google.bigtable.admin.v2.OperationProgress2\xc8$\n\x12\x42igtableTableAdmin\x12\xab\x01\n\x0b\x43reateTable\x12,.google.bigtable.admin.v2.CreateTableRequest\x1a\x1f.google.bigtable.admin.v2.Table\"M\x82\xd3\xe4\x93\x02/\"*/v2/{parent=projects/*/instances/*}/tables:\x01*\xda\x41\x15parent,table_id,table\x12\x8a\x02\n\x17\x43reateTableFromSnapshot\x12\x38.google.bigtable.admin.v2.CreateTableFromSnapshotRequest\x1a\x1d.google.longrunning.Operation\"\x95\x01\x82\xd3\xe4\x93\x02\x42\"=/v2/{parent=projects/*/instances/*}/tables:createFromSnapshot:\x01*\xda\x41\x1fparent,table_id,source_snapshot\xca\x41(\n\x05Table\x12\x1f\x43reateTableFromSnapshotMetadata\x12\xa4\x01\n\nListTables\x12+.google.bigtable.admin.v2.ListTablesRequest\x1a,.google.bigtable.admin.v2.ListTablesResponse\";\x82\xd3\xe4\x93\x02,\x12*/v2/{parent=projects/*/instances/*}/tables\xda\x41\x06parent\x12\x91\x01\n\x08GetTable\x12).google.bigtable.admin.v2.GetTableRequest\x1a\x1f.google.bigtable.admin.v2.Table\"9\x82\xd3\xe4\x93\x02,\x12*/v2/{name=projects/*/instances/*/tables/*}\xda\x41\x04name\x12\x8e\x01\n\x0b\x44\x65leteTable\x12,.google.bigtable.admin.v2.DeleteTableRequest\x1a\x16.google.protobuf.Empty\"9\x82\xd3\xe4\x93\x02,**/v2/{name=projects/*/instances/*/tables/*}\xda\x41\x04name\x12\xcf\x01\n\x14ModifyColumnFamilies\x12\x35.google.bigtable.admin.v2.ModifyColumnFamiliesRequest\x1a\x1f.google.bigtable.admin.v2.Table\"_\x82\xd3\xe4\x93\x02\x44\"?/v2/{name=projects/*/instances/*/tables/*}:modifyColumnFamilies:\x01*\xda\x41\x12name,modifications\x12\x99\x01\n\x0c\x44ropRowRange\x12-.google.bigtable.admin.v2.DropRowRangeRequest\x1a\x16.google.protobuf.Empty\"B\x82\xd3\xe4\x93\x02<\"7/v2/{name=projects/*/instances/*/tables/*}:dropRowRange:\x01*\x12\xe8\x01\n\x18GenerateConsistencyToken\x12\x39.google.bigtable.admin.v2.GenerateConsistencyTokenRequest\x1a:.google.bigtable.admin.v2.GenerateConsistencyTokenResponse\"U\x82\xd3\xe4\x93\x02H\"C/v2/{name=projects/*/instances/*/tables/*}:generateConsistencyToken:\x01*\xda\x41\x04name\x12\xda\x01\n\x10\x43heckConsistency\x12\x31.google.bigtable.admin.v2.CheckConsistencyRequest\x1a\x32.google.bigtable.admin.v2.CheckConsistencyResponse\"_\x82\xd3\xe4\x93\x02@\";/v2/{name=projects/*/instances/*/tables/*}:checkConsistency:\x01*\xda\x41\x16name,consistency_token\x12\xea\x01\n\rSnapshotTable\x12..google.bigtable.admin.v2.SnapshotTableRequest\x1a\x1d.google.longrunning.Operation\"\x89\x01\x82\xd3\xe4\x93\x02\x38\"3/v2/{name=projects/*/instances/*/tables/*}:snapshot:\x01*\xda\x41$name,cluster,snapshot_id,description\xca\x41!\n\x08Snapshot\x12\x15SnapshotTableMetadata\x12\xa8\x01\n\x0bGetSnapshot\x12,.google.bigtable.admin.v2.GetSnapshotRequest\x1a\".google.bigtable.admin.v2.Snapshot\"G\x82\xd3\xe4\x93\x02:\x12\x38/v2/{name=projects/*/instances/*/clusters/*/snapshots/*}\xda\x41\x04name\x12\xbb\x01\n\rListSnapshots\x12..google.bigtable.admin.v2.ListSnapshotsRequest\x1a/.google.bigtable.admin.v2.ListSnapshotsResponse\"I\x82\xd3\xe4\x93\x02:\x12\x38/v2/{parent=projects/*/instances/*/clusters/*}/snapshots\xda\x41\x06parent\x12\xa2\x01\n\x0e\x44\x65leteSnapshot\x12/.google.bigtable.admin.v2.DeleteSnapshotRequest\x1a\x16.google.protobuf.Empty\"G\x82\xd3\xe4\x93\x02:*8/v2/{name=projects/*/instances/*/clusters/*/snapshots/*}\xda\x41\x04name\x12\xe0\x01\n\x0c\x43reateBackup\x12-.google.bigtable.admin.v2.CreateBackupRequest\x1a\x1d.google.longrunning.Operation\"\x81\x01\x82\xd3\xe4\x93\x02@\"6/v2/{parent=projects/*/instances/*/clusters/*}/backups:\x06\x62\x61\x63kup\xca\x41\x1e\n\x06\x42\x61\x63kup\x12\x14\x43reateBackupMetadata\xda\x41\x17parent,backup_id,backup\x12\xa0\x01\n\tGetBackup\x12*.google.bigtable.admin.v2.GetBackupRequest\x1a .google.bigtable.admin.v2.Backup\"E\x82\xd3\xe4\x93\x02\x38\x12\x36/v2/{name=projects/*/instances/*/clusters/*/backups/*}\xda\x41\x04name\x12\xc3\x01\n\x0cUpdateBackup\x12-.google.bigtable.admin.v2.UpdateBackupRequest\x1a .google.bigtable.admin.v2.Backup\"b\x82\xd3\xe4\x93\x02G2=/v2/{backup.name=projects/*/instances/*/clusters/*/backups/*}:\x06\x62\x61\x63kup\xda\x41\x12\x62\x61\x63kup,update_mask\x12\x9c\x01\n\x0c\x44\x65leteBackup\x12-.google.bigtable.admin.v2.DeleteBackupRequest\x1a\x16.google.protobuf.Empty\"E\x82\xd3\xe4\x93\x02\x38*6/v2/{name=projects/*/instances/*/clusters/*/backups/*}\xda\x41\x04name\x12\xb3\x01\n\x0bListBackups\x12,.google.bigtable.admin.v2.ListBackupsRequest\x1a-.google.bigtable.admin.v2.ListBackupsResponse\"G\x82\xd3\xe4\x93\x02\x38\x12\x36/v2/{parent=projects/*/instances/*/clusters/*}/backups\xda\x41\x06parent\x12\xbb\x01\n\x0cRestoreTable\x12-.google.bigtable.admin.v2.RestoreTableRequest\x1a\x1d.google.longrunning.Operation\"]\x82\xd3\xe4\x93\x02\x37\"2/v2/{parent=projects/*/instances/*}/tables:restore:\x01*\xca\x41\x1d\n\x05Table\x12\x14RestoreTableMetadata\x12\x9c\x01\n\x0cGetIamPolicy\x12\".google.iam.v1.GetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"Q\x82\xd3\xe4\x93\x02@\";/v2/{resource=projects/*/instances/*/tables/*}:getIamPolicy:\x01*\xda\x41\x08resource\x12\xf3\x01\n\x0cSetIamPolicy\x12\".google.iam.v1.SetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"\xa7\x01\x82\xd3\xe4\x93\x02\x8e\x01\";/v2/{resource=projects/*/instances/*/tables/*}:setIamPolicy:\x01*ZL\"G/v2/{resource=projects/*/instances/*/clusters/*/backups/*}:setIamPolicy:\x01*\xda\x41\x0fresource,policy\x12\xa4\x02\n\x12TestIamPermissions\x12(.google.iam.v1.TestIamPermissionsRequest\x1a).google.iam.v1.TestIamPermissionsResponse\"\xb8\x01\x82\xd3\xe4\x93\x02\x9a\x01\"A/v2/{resource=projects/*/instances/*/tables/*}:testIamPermissions:\x01*ZR\"M/v2/{resource=projects/*/instances/*/clusters/*/backups/*}:testIamPermissions:\x01*\xda\x41\x14resource,permissions\x1a\xde\x02\xca\x41\x1c\x62igtableadmin.googleapis.com\xd2\x41\xbb\x02https://www.googleapis.com/auth/bigtable.admin,https://www.googleapis.com/auth/bigtable.admin.table,https://www.googleapis.com/auth/cloud-bigtable.admin,https://www.googleapis.com/auth/cloud-bigtable.admin.table,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-platform.read-onlyB\xdf\x01\n\x1c\x63om.google.bigtable.admin.v2B\x17\x42igtableTableAdminProtoP\x01Z=google.golang.org/genproto/googleapis/bigtable/admin/v2;admin\xaa\x02\x1eGoogle.Cloud.Bigtable.Admin.V2\xca\x02\x1eGoogle\\Cloud\\Bigtable\\Admin\\V2\xea\x02\"Google::Cloud::Bigtable::Admin::V2b\x06proto3'
+  serialized_pb=b'\n3google/bigtable/admin/v2/bigtable_table_admin.proto\x12\x18google.bigtable.admin.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a%google/bigtable/admin/v2/common.proto\x1a$google/bigtable/admin/v2/table.proto\x1a\x1egoogle/iam/v1/iam_policy.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa7\x01\n\x13RestoreTableRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n bigtable.googleapis.com/Instance\x12\x15\n\x08table_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x35\n\x06\x62\x61\x63kup\x18\x03 \x01(\tB#\xfa\x41 \n\x1e\x62igtable.googleapis.com/BackupH\x00\x42\x08\n\x06source\"\x98\x02\n\x14RestoreTableMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12@\n\x0bsource_type\x18\x02 \x01(\x0e\x32+.google.bigtable.admin.v2.RestoreSourceType\x12;\n\x0b\x62\x61\x63kup_info\x18\x03 \x01(\x0b\x32$.google.bigtable.admin.v2.BackupInfoH\x00\x12%\n\x1doptimize_table_operation_name\x18\x04 \x01(\t\x12=\n\x08progress\x18\x05 \x01(\x0b\x32+.google.bigtable.admin.v2.OperationProgressB\r\n\x0bsource_info\"l\n\x1dOptimizeRestoredTableMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12=\n\x08progress\x18\x02 \x01(\x0b\x32+.google.bigtable.admin.v2.OperationProgress\"\xfc\x01\n\x12\x43reateTableRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n bigtable.googleapis.com/Instance\x12\x15\n\x08table_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x33\n\x05table\x18\x03 \x01(\x0b\x32\x1f.google.bigtable.admin.v2.TableB\x03\xe0\x41\x02\x12J\n\x0einitial_splits\x18\x04 \x03(\x0b\x32\x32.google.bigtable.admin.v2.CreateTableRequest.Split\x1a\x14\n\x05Split\x12\x0b\n\x03key\x18\x01 \x01(\x0c\"\xb4\x01\n\x1e\x43reateTableFromSnapshotRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n bigtable.googleapis.com/Instance\x12\x15\n\x08table_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x41\n\x0fsource_snapshot\x18\x03 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n bigtable.googleapis.com/Snapshot\"\x94\x01\n\x13\x44ropRowRangeRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\x12\x18\n\x0erow_key_prefix\x18\x02 \x01(\x0cH\x00\x12$\n\x1a\x64\x65lete_all_data_from_table\x18\x03 \x01(\x08H\x00\x42\x08\n\x06target\"\xa8\x01\n\x11ListTablesRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n bigtable.googleapis.com/Instance\x12\x32\n\x04view\x18\x02 \x01(\x0e\x32$.google.bigtable.admin.v2.Table.View\x12\x11\n\tpage_size\x18\x04 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"^\n\x12ListTablesResponse\x12/\n\x06tables\x18\x01 \x03(\x0b\x32\x1f.google.bigtable.admin.v2.Table\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"z\n\x0fGetTableRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\x12\x32\n\x04view\x18\x02 \x01(\x0e\x32$.google.bigtable.admin.v2.Table.View\"I\n\x12\x44\x65leteTableRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\"\xda\x02\n\x1bModifyColumnFamiliesRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\x12^\n\rmodifications\x18\x02 \x03(\x0b\x32\x42.google.bigtable.admin.v2.ModifyColumnFamiliesRequest.ModificationB\x03\xe0\x41\x02\x1a\xa5\x01\n\x0cModification\x12\n\n\x02id\x18\x01 \x01(\t\x12\x38\n\x06\x63reate\x18\x02 \x01(\x0b\x32&.google.bigtable.admin.v2.ColumnFamilyH\x00\x12\x38\n\x06update\x18\x03 \x01(\x0b\x32&.google.bigtable.admin.v2.ColumnFamilyH\x00\x12\x0e\n\x04\x64rop\x18\x04 \x01(\x08H\x00\x42\x05\n\x03mod\"V\n\x1fGenerateConsistencyTokenRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\"=\n GenerateConsistencyTokenResponse\x12\x19\n\x11\x63onsistency_token\x18\x01 \x01(\t\"n\n\x17\x43heckConsistencyRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\x12\x1e\n\x11\x63onsistency_token\x18\x02 \x01(\tB\x03\xe0\x41\x02\".\n\x18\x43heckConsistencyResponse\x12\x12\n\nconsistent\x18\x01 \x01(\x08\"\xdc\x01\n\x14SnapshotTableRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x62igtable.googleapis.com/Table\x12\x38\n\x07\x63luster\x18\x02 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x62igtable.googleapis.com/Cluster\x12\x18\n\x0bsnapshot_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12&\n\x03ttl\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\"L\n\x12GetSnapshotRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n bigtable.googleapis.com/Snapshot\"v\n\x14ListSnapshotsRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x62igtable.googleapis.com/Cluster\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"g\n\x15ListSnapshotsResponse\x12\x35\n\tsnapshots\x18\x01 \x03(\x0b\x32\".google.bigtable.admin.v2.Snapshot\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"O\n\x15\x44\x65leteSnapshotRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n bigtable.googleapis.com/Snapshot\"\xc4\x01\n\x15SnapshotTableMetadata\x12H\n\x10original_request\x18\x01 \x01(\x0b\x32..google.bigtable.admin.v2.SnapshotTableRequest\x12\x30\n\x0crequest_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x66inish_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xd8\x01\n\x1f\x43reateTableFromSnapshotMetadata\x12R\n\x10original_request\x18\x01 \x01(\x0b\x32\x38.google.bigtable.admin.v2.CreateTableFromSnapshotRequest\x12\x30\n\x0crequest_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x66inish_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x9d\x01\n\x13\x43reateBackupRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x62igtable.googleapis.com/Cluster\x12\x16\n\tbackup_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x35\n\x06\x62\x61\x63kup\x18\x03 \x01(\x0b\x32 .google.bigtable.admin.v2.BackupB\x03\xe0\x41\x02\"\x98\x01\n\x14\x43reateBackupMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0csource_table\x18\x02 \x01(\t\x12.\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x82\x01\n\x13UpdateBackupRequest\x12\x35\n\x06\x62\x61\x63kup\x18\x01 \x01(\x0b\x32 .google.bigtable.admin.v2.BackupB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"H\n\x10GetBackupRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x62igtable.googleapis.com/Backup\"K\n\x13\x44\x65leteBackupRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x62igtable.googleapis.com/Backup\"\x96\x01\n\x12ListBackupsRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x62igtable.googleapis.com/Cluster\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x10\n\x08order_by\x18\x03 \x01(\t\x12\x11\n\tpage_size\x18\x04 \x01(\x05\x12\x12\n\npage_token\x18\x05 \x01(\t\"a\n\x13ListBackupsResponse\x12\x31\n\x07\x62\x61\x63kups\x18\x01 \x03(\x0b\x32 .google.bigtable.admin.v2.Backup\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\x98%\n\x12\x42igtableTableAdmin\x12\xab\x01\n\x0b\x43reateTable\x12,.google.bigtable.admin.v2.CreateTableRequest\x1a\x1f.google.bigtable.admin.v2.Table\"M\x82\xd3\xe4\x93\x02/\"*/v2/{parent=projects/*/instances/*}/tables:\x01*\xda\x41\x15parent,table_id,table\x12\x8a\x02\n\x17\x43reateTableFromSnapshot\x12\x38.google.bigtable.admin.v2.CreateTableFromSnapshotRequest\x1a\x1d.google.longrunning.Operation\"\x95\x01\x82\xd3\xe4\x93\x02\x42\"=/v2/{parent=projects/*/instances/*}/tables:createFromSnapshot:\x01*\xda\x41\x1fparent,table_id,source_snapshot\xca\x41(\n\x05Table\x12\x1f\x43reateTableFromSnapshotMetadata\x12\xa4\x01\n\nListTables\x12+.google.bigtable.admin.v2.ListTablesRequest\x1a,.google.bigtable.admin.v2.ListTablesResponse\";\x82\xd3\xe4\x93\x02,\x12*/v2/{parent=projects/*/instances/*}/tables\xda\x41\x06parent\x12\x91\x01\n\x08GetTable\x12).google.bigtable.admin.v2.GetTableRequest\x1a\x1f.google.bigtable.admin.v2.Table\"9\x82\xd3\xe4\x93\x02,\x12*/v2/{name=projects/*/instances/*/tables/*}\xda\x41\x04name\x12\x8e\x01\n\x0b\x44\x65leteTable\x12,.google.bigtable.admin.v2.DeleteTableRequest\x1a\x16.google.protobuf.Empty\"9\x82\xd3\xe4\x93\x02,**/v2/{name=projects/*/instances/*/tables/*}\xda\x41\x04name\x12\xcf\x01\n\x14ModifyColumnFamilies\x12\x35.google.bigtable.admin.v2.ModifyColumnFamiliesRequest\x1a\x1f.google.bigtable.admin.v2.Table\"_\x82\xd3\xe4\x93\x02\x44\"?/v2/{name=projects/*/instances/*/tables/*}:modifyColumnFamilies:\x01*\xda\x41\x12name,modifications\x12\x99\x01\n\x0c\x44ropRowRange\x12-.google.bigtable.admin.v2.DropRowRangeRequest\x1a\x16.google.protobuf.Empty\"B\x82\xd3\xe4\x93\x02<\"7/v2/{name=projects/*/instances/*/tables/*}:dropRowRange:\x01*\x12\xe8\x01\n\x18GenerateConsistencyToken\x12\x39.google.bigtable.admin.v2.GenerateConsistencyTokenRequest\x1a:.google.bigtable.admin.v2.GenerateConsistencyTokenResponse\"U\x82\xd3\xe4\x93\x02H\"C/v2/{name=projects/*/instances/*/tables/*}:generateConsistencyToken:\x01*\xda\x41\x04name\x12\xda\x01\n\x10\x43heckConsistency\x12\x31.google.bigtable.admin.v2.CheckConsistencyRequest\x1a\x32.google.bigtable.admin.v2.CheckConsistencyResponse\"_\x82\xd3\xe4\x93\x02@\";/v2/{name=projects/*/instances/*/tables/*}:checkConsistency:\x01*\xda\x41\x16name,consistency_token\x12\xea\x01\n\rSnapshotTable\x12..google.bigtable.admin.v2.SnapshotTableRequest\x1a\x1d.google.longrunning.Operation\"\x89\x01\x82\xd3\xe4\x93\x02\x38\"3/v2/{name=projects/*/instances/*/tables/*}:snapshot:\x01*\xda\x41$name,cluster,snapshot_id,description\xca\x41!\n\x08Snapshot\x12\x15SnapshotTableMetadata\x12\xa8\x01\n\x0bGetSnapshot\x12,.google.bigtable.admin.v2.GetSnapshotRequest\x1a\".google.bigtable.admin.v2.Snapshot\"G\x82\xd3\xe4\x93\x02:\x12\x38/v2/{name=projects/*/instances/*/clusters/*/snapshots/*}\xda\x41\x04name\x12\xbb\x01\n\rListSnapshots\x12..google.bigtable.admin.v2.ListSnapshotsRequest\x1a/.google.bigtable.admin.v2.ListSnapshotsResponse\"I\x82\xd3\xe4\x93\x02:\x12\x38/v2/{parent=projects/*/instances/*/clusters/*}/snapshots\xda\x41\x06parent\x12\xa2\x01\n\x0e\x44\x65leteSnapshot\x12/.google.bigtable.admin.v2.DeleteSnapshotRequest\x1a\x16.google.protobuf.Empty\"G\x82\xd3\xe4\x93\x02:*8/v2/{name=projects/*/instances/*/clusters/*/snapshots/*}\xda\x41\x04name\x12\xe0\x01\n\x0c\x43reateBackup\x12-.google.bigtable.admin.v2.CreateBackupRequest\x1a\x1d.google.longrunning.Operation\"\x81\x01\x82\xd3\xe4\x93\x02@\"6/v2/{parent=projects/*/instances/*/clusters/*}/backups:\x06\x62\x61\x63kup\xda\x41\x17parent,backup_id,backup\xca\x41\x1e\n\x06\x42\x61\x63kup\x12\x14\x43reateBackupMetadata\x12\xa0\x01\n\tGetBackup\x12*.google.bigtable.admin.v2.GetBackupRequest\x1a .google.bigtable.admin.v2.Backup\"E\x82\xd3\xe4\x93\x02\x38\x12\x36/v2/{name=projects/*/instances/*/clusters/*/backups/*}\xda\x41\x04name\x12\xc3\x01\n\x0cUpdateBackup\x12-.google.bigtable.admin.v2.UpdateBackupRequest\x1a .google.bigtable.admin.v2.Backup\"b\x82\xd3\xe4\x93\x02G2=/v2/{backup.name=projects/*/instances/*/clusters/*/backups/*}:\x06\x62\x61\x63kup\xda\x41\x12\x62\x61\x63kup,update_mask\x12\x9c\x01\n\x0c\x44\x65leteBackup\x12-.google.bigtable.admin.v2.DeleteBackupRequest\x1a\x16.google.protobuf.Empty\"E\x82\xd3\xe4\x93\x02\x38*6/v2/{name=projects/*/instances/*/clusters/*/backups/*}\xda\x41\x04name\x12\xb3\x01\n\x0bListBackups\x12,.google.bigtable.admin.v2.ListBackupsRequest\x1a-.google.bigtable.admin.v2.ListBackupsResponse\"G\x82\xd3\xe4\x93\x02\x38\x12\x36/v2/{parent=projects/*/instances/*/clusters/*}/backups\xda\x41\x06parent\x12\xbb\x01\n\x0cRestoreTable\x12-.google.bigtable.admin.v2.RestoreTableRequest\x1a\x1d.google.longrunning.Operation\"]\x82\xd3\xe4\x93\x02\x37\"2/v2/{parent=projects/*/instances/*}/tables:restore:\x01*\xca\x41\x1d\n\x05Table\x12\x14RestoreTableMetadata\x12\xec\x01\n\x0cGetIamPolicy\x12\".google.iam.v1.GetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"\xa0\x01\x82\xd3\xe4\x93\x02\x8e\x01\";/v2/{resource=projects/*/instances/*/tables/*}:getIamPolicy:\x01*ZL\"G/v2/{resource=projects/*/instances/*/clusters/*/backups/*}:getIamPolicy:\x01*\xda\x41\x08resource\x12\xf3\x01\n\x0cSetIamPolicy\x12\".google.iam.v1.SetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"\xa7\x01\x82\xd3\xe4\x93\x02\x8e\x01\";/v2/{resource=projects/*/instances/*/tables/*}:setIamPolicy:\x01*ZL\"G/v2/{resource=projects/*/instances/*/clusters/*/backups/*}:setIamPolicy:\x01*\xda\x41\x0fresource,policy\x12\xa4\x02\n\x12TestIamPermissions\x12(.google.iam.v1.TestIamPermissionsRequest\x1a).google.iam.v1.TestIamPermissionsResponse\"\xb8\x01\x82\xd3\xe4\x93\x02\x9a\x01\"A/v2/{resource=projects/*/instances/*/tables/*}:testIamPermissions:\x01*ZR\"M/v2/{resource=projects/*/instances/*/clusters/*/backups/*}:testIamPermissions:\x01*\xda\x41\x14resource,permissions\x1a\xde\x02\xca\x41\x1c\x62igtableadmin.googleapis.com\xd2\x41\xbb\x02https://www.googleapis.com/auth/bigtable.admin,https://www.googleapis.com/auth/bigtable.admin.table,https://www.googleapis.com/auth/cloud-bigtable.admin,https://www.googleapis.com/auth/cloud-bigtable.admin.table,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-platform.read-onlyB\xdf\x01\n\x1c\x63om.google.bigtable.admin.v2B\x17\x42igtableTableAdminProtoP\x01Z=google.golang.org/genproto/googleapis/bigtable/admin/v2;admin\xaa\x02\x1eGoogle.Cloud.Bigtable.Admin.V2\xca\x02\x1eGoogle\\Cloud\\Bigtable\\Admin\\V2\xea\x02\"Google::Cloud::Bigtable::Admin::V2b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_bigtable_dot_admin_dot_v2_dot_common__pb2.DESCRIPTOR,google_dot_bigtable_dot_admin_dot_v2_dot_table__pb2.DESCRIPTOR,google_dot_iam_dot_v1_dot_iam__policy__pb2.DESCRIPTOR,google_dot_iam_dot_v1_dot_policy__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
-
-
-_CREATETABLEREQUEST_SPLIT = _descriptor.Descriptor(
-  name='Split',
-  full_name='google.bigtable.admin.v2.CreateTableRequest.Split',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='google.bigtable.admin.v2.CreateTableRequest.Split.key', index=0,
-      number=1, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=731,
-  serialized_end=751,
-)
-
-_CREATETABLEREQUEST = _descriptor.Descriptor(
-  name='CreateTableRequest',
-  full_name='google.bigtable.admin.v2.CreateTableRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='google.bigtable.admin.v2.CreateTableRequest.parent', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\"\n bigtable.googleapis.com/Instance', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='table_id', full_name='google.bigtable.admin.v2.CreateTableRequest.table_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='table', full_name='google.bigtable.admin.v2.CreateTableRequest.table', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='initial_splits', full_name='google.bigtable.admin.v2.CreateTableRequest.initial_splits', index=3,
-      number=4, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[_CREATETABLEREQUEST_SPLIT, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=499,
-  serialized_end=751,
-)
-
-
-_CREATETABLEFROMSNAPSHOTREQUEST = _descriptor.Descriptor(
-  name='CreateTableFromSnapshotRequest',
-  full_name='google.bigtable.admin.v2.CreateTableFromSnapshotRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='google.bigtable.admin.v2.CreateTableFromSnapshotRequest.parent', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\"\n bigtable.googleapis.com/Instance', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='table_id', full_name='google.bigtable.admin.v2.CreateTableFromSnapshotRequest.table_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='source_snapshot', full_name='google.bigtable.admin.v2.CreateTableFromSnapshotRequest.source_snapshot', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\"\n bigtable.googleapis.com/Snapshot', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=754,
-  serialized_end=934,
-)
-
-
-_DROPROWRANGEREQUEST = _descriptor.Descriptor(
-  name='DropRowRangeRequest',
-  full_name='google.bigtable.admin.v2.DropRowRangeRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.bigtable.admin.v2.DropRowRangeRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='row_key_prefix', full_name='google.bigtable.admin.v2.DropRowRangeRequest.row_key_prefix', index=1,
-      number=2, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='delete_all_data_from_table', full_name='google.bigtable.admin.v2.DropRowRangeRequest.delete_all_data_from_table', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-    _descriptor.OneofDescriptor(
-      name='target', full_name='google.bigtable.admin.v2.DropRowRangeRequest.target',
-      index=0, containing_type=None,
-      create_key=_descriptor._internal_create_key,
-    fields=[]),
-  ],
-  serialized_start=937,
-  serialized_end=1085,
-)
-
-
-_LISTTABLESREQUEST = _descriptor.Descriptor(
-  name='ListTablesRequest',
-  full_name='google.bigtable.admin.v2.ListTablesRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='google.bigtable.admin.v2.ListTablesRequest.parent', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\"\n bigtable.googleapis.com/Instance', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='view', full_name='google.bigtable.admin.v2.ListTablesRequest.view', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='page_size', full_name='google.bigtable.admin.v2.ListTablesRequest.page_size', index=2,
-      number=4, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='page_token', full_name='google.bigtable.admin.v2.ListTablesRequest.page_token', index=3,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1088,
-  serialized_end=1256,
-)
-
-
-_LISTTABLESRESPONSE = _descriptor.Descriptor(
-  name='ListTablesResponse',
-  full_name='google.bigtable.admin.v2.ListTablesResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='tables', full_name='google.bigtable.admin.v2.ListTablesResponse.tables', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='next_page_token', full_name='google.bigtable.admin.v2.ListTablesResponse.next_page_token', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1258,
-  serialized_end=1352,
-)
-
-
-_GETTABLEREQUEST = _descriptor.Descriptor(
-  name='GetTableRequest',
-  full_name='google.bigtable.admin.v2.GetTableRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.bigtable.admin.v2.GetTableRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='view', full_name='google.bigtable.admin.v2.GetTableRequest.view', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1354,
-  serialized_end=1476,
-)
-
-
-_DELETETABLEREQUEST = _descriptor.Descriptor(
-  name='DeleteTableRequest',
-  full_name='google.bigtable.admin.v2.DeleteTableRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.bigtable.admin.v2.DeleteTableRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1478,
-  serialized_end=1551,
-)
-
-
-_MODIFYCOLUMNFAMILIESREQUEST_MODIFICATION = _descriptor.Descriptor(
-  name='Modification',
-  full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.Modification',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.Modification.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='create', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.Modification.create', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='update', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.Modification.update', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='drop', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.Modification.drop', index=3,
-      number=4, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-    _descriptor.OneofDescriptor(
-      name='mod', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.Modification.mod',
-      index=0, containing_type=None,
-      create_key=_descriptor._internal_create_key,
-    fields=[]),
-  ],
-  serialized_start=1735,
-  serialized_end=1900,
-)
-
-_MODIFYCOLUMNFAMILIESREQUEST = _descriptor.Descriptor(
-  name='ModifyColumnFamiliesRequest',
-  full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='modifications', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.modifications', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[_MODIFYCOLUMNFAMILIESREQUEST_MODIFICATION, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1554,
-  serialized_end=1900,
-)
-
-
-_GENERATECONSISTENCYTOKENREQUEST = _descriptor.Descriptor(
-  name='GenerateConsistencyTokenRequest',
-  full_name='google.bigtable.admin.v2.GenerateConsistencyTokenRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.bigtable.admin.v2.GenerateConsistencyTokenRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1902,
-  serialized_end=1988,
-)
-
-
-_GENERATECONSISTENCYTOKENRESPONSE = _descriptor.Descriptor(
-  name='GenerateConsistencyTokenResponse',
-  full_name='google.bigtable.admin.v2.GenerateConsistencyTokenResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='consistency_token', full_name='google.bigtable.admin.v2.GenerateConsistencyTokenResponse.consistency_token', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1990,
-  serialized_end=2051,
-)
-
-
-_CHECKCONSISTENCYREQUEST = _descriptor.Descriptor(
-  name='CheckConsistencyRequest',
-  full_name='google.bigtable.admin.v2.CheckConsistencyRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.bigtable.admin.v2.CheckConsistencyRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='consistency_token', full_name='google.bigtable.admin.v2.CheckConsistencyRequest.consistency_token', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2053,
-  serialized_end=2163,
-)
-
-
-_CHECKCONSISTENCYRESPONSE = _descriptor.Descriptor(
-  name='CheckConsistencyResponse',
-  full_name='google.bigtable.admin.v2.CheckConsistencyResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='consistent', full_name='google.bigtable.admin.v2.CheckConsistencyResponse.consistent', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2165,
-  serialized_end=2211,
-)
-
-
-_SNAPSHOTTABLEREQUEST = _descriptor.Descriptor(
-  name='SnapshotTableRequest',
-  full_name='google.bigtable.admin.v2.SnapshotTableRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.bigtable.admin.v2.SnapshotTableRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='cluster', full_name='google.bigtable.admin.v2.SnapshotTableRequest.cluster', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A!\n\037bigtable.googleapis.com/Cluster', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='snapshot_id', full_name='google.bigtable.admin.v2.SnapshotTableRequest.snapshot_id', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='ttl', full_name='google.bigtable.admin.v2.SnapshotTableRequest.ttl', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='description', full_name='google.bigtable.admin.v2.SnapshotTableRequest.description', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2214,
-  serialized_end=2434,
-)
-
-
-_GETSNAPSHOTREQUEST = _descriptor.Descriptor(
-  name='GetSnapshotRequest',
-  full_name='google.bigtable.admin.v2.GetSnapshotRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.bigtable.admin.v2.GetSnapshotRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\"\n bigtable.googleapis.com/Snapshot', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2436,
-  serialized_end=2512,
-)
-
-
-_LISTSNAPSHOTSREQUEST = _descriptor.Descriptor(
-  name='ListSnapshotsRequest',
-  full_name='google.bigtable.admin.v2.ListSnapshotsRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='google.bigtable.admin.v2.ListSnapshotsRequest.parent', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A!\n\037bigtable.googleapis.com/Cluster', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='page_size', full_name='google.bigtable.admin.v2.ListSnapshotsRequest.page_size', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='page_token', full_name='google.bigtable.admin.v2.ListSnapshotsRequest.page_token', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2514,
-  serialized_end=2632,
-)
-
-
-_LISTSNAPSHOTSRESPONSE = _descriptor.Descriptor(
-  name='ListSnapshotsResponse',
-  full_name='google.bigtable.admin.v2.ListSnapshotsResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='snapshots', full_name='google.bigtable.admin.v2.ListSnapshotsResponse.snapshots', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='next_page_token', full_name='google.bigtable.admin.v2.ListSnapshotsResponse.next_page_token', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2634,
-  serialized_end=2737,
-)
-
-
-_DELETESNAPSHOTREQUEST = _descriptor.Descriptor(
-  name='DeleteSnapshotRequest',
-  full_name='google.bigtable.admin.v2.DeleteSnapshotRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.bigtable.admin.v2.DeleteSnapshotRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\"\n bigtable.googleapis.com/Snapshot', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2739,
-  serialized_end=2818,
-)
-
-
-_SNAPSHOTTABLEMETADATA = _descriptor.Descriptor(
-  name='SnapshotTableMetadata',
-  full_name='google.bigtable.admin.v2.SnapshotTableMetadata',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='original_request', full_name='google.bigtable.admin.v2.SnapshotTableMetadata.original_request', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_time', full_name='google.bigtable.admin.v2.SnapshotTableMetadata.request_time', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='finish_time', full_name='google.bigtable.admin.v2.SnapshotTableMetadata.finish_time', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2821,
-  serialized_end=3017,
-)
-
-
-_CREATETABLEFROMSNAPSHOTMETADATA = _descriptor.Descriptor(
-  name='CreateTableFromSnapshotMetadata',
-  full_name='google.bigtable.admin.v2.CreateTableFromSnapshotMetadata',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='original_request', full_name='google.bigtable.admin.v2.CreateTableFromSnapshotMetadata.original_request', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='request_time', full_name='google.bigtable.admin.v2.CreateTableFromSnapshotMetadata.request_time', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='finish_time', full_name='google.bigtable.admin.v2.CreateTableFromSnapshotMetadata.finish_time', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3020,
-  serialized_end=3236,
-)
-
-
-_CREATEBACKUPREQUEST = _descriptor.Descriptor(
-  name='CreateBackupRequest',
-  full_name='google.bigtable.admin.v2.CreateBackupRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='google.bigtable.admin.v2.CreateBackupRequest.parent', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A!\n\037bigtable.googleapis.com/Cluster', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='backup_id', full_name='google.bigtable.admin.v2.CreateBackupRequest.backup_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='backup', full_name='google.bigtable.admin.v2.CreateBackupRequest.backup', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3239,
-  serialized_end=3396,
-)
-
-
-_CREATEBACKUPMETADATA = _descriptor.Descriptor(
-  name='CreateBackupMetadata',
-  full_name='google.bigtable.admin.v2.CreateBackupMetadata',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.bigtable.admin.v2.CreateBackupMetadata.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='source_table', full_name='google.bigtable.admin.v2.CreateBackupMetadata.source_table', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='start_time', full_name='google.bigtable.admin.v2.CreateBackupMetadata.start_time', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='end_time', full_name='google.bigtable.admin.v2.CreateBackupMetadata.end_time', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3399,
-  serialized_end=3551,
-)
-
-
-_GETBACKUPREQUEST = _descriptor.Descriptor(
-  name='GetBackupRequest',
-  full_name='google.bigtable.admin.v2.GetBackupRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.bigtable.admin.v2.GetBackupRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A \n\036bigtable.googleapis.com/Backup', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3553,
-  serialized_end=3625,
-)
-
-
-_UPDATEBACKUPREQUEST = _descriptor.Descriptor(
-  name='UpdateBackupRequest',
-  full_name='google.bigtable.admin.v2.UpdateBackupRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='backup', full_name='google.bigtable.admin.v2.UpdateBackupRequest.backup', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='update_mask', full_name='google.bigtable.admin.v2.UpdateBackupRequest.update_mask', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3628,
-  serialized_end=3758,
-)
-
-
-_DELETEBACKUPREQUEST = _descriptor.Descriptor(
-  name='DeleteBackupRequest',
-  full_name='google.bigtable.admin.v2.DeleteBackupRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='google.bigtable.admin.v2.DeleteBackupRequest.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A \n\036bigtable.googleapis.com/Backup', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3760,
-  serialized_end=3835,
-)
-
-
-_LISTBACKUPSREQUEST = _descriptor.Descriptor(
-  name='ListBackupsRequest',
-  full_name='google.bigtable.admin.v2.ListBackupsRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='google.bigtable.admin.v2.ListBackupsRequest.parent', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A!\n\037bigtable.googleapis.com/Cluster', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='filter', full_name='google.bigtable.admin.v2.ListBackupsRequest.filter', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='order_by', full_name='google.bigtable.admin.v2.ListBackupsRequest.order_by', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='page_size', full_name='google.bigtable.admin.v2.ListBackupsRequest.page_size', index=3,
-      number=4, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='page_token', full_name='google.bigtable.admin.v2.ListBackupsRequest.page_token', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3838,
-  serialized_end=3988,
-)
-
-
-_LISTBACKUPSRESPONSE = _descriptor.Descriptor(
-  name='ListBackupsResponse',
-  full_name='google.bigtable.admin.v2.ListBackupsResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='backups', full_name='google.bigtable.admin.v2.ListBackupsResponse.backups', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='next_page_token', full_name='google.bigtable.admin.v2.ListBackupsResponse.next_page_token', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3990,
-  serialized_end=4087,
-)
 
 
 _RESTORETABLEREQUEST = _descriptor.Descriptor(
@@ -1230,21 +53,21 @@ _RESTORETABLEREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A\"\n bigtable.googleapis.com/Instance', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='table_id', full_name='google.bigtable.admin.v2.RestoreTableRequest.table_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='backup', full_name='google.bigtable.admin.v2.RestoreTableRequest.backup', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372A \n\036bigtable.googleapis.com/Backup', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1262,8 +85,8 @@ _RESTORETABLEREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4089,
-  serialized_end=4172,
+  serialized_start=499,
+  serialized_end=666,
 )
 
 
@@ -1327,8 +150,8 @@ _RESTORETABLEMETADATA = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4175,
-  serialized_end=4455,
+  serialized_start=669,
+  serialized_end=949,
 )
 
 
@@ -1366,10 +189,1197 @@ _OPTIMIZERESTOREDTABLEMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4457,
-  serialized_end=4565,
+  serialized_start=951,
+  serialized_end=1059,
 )
 
+
+_CREATETABLEREQUEST_SPLIT = _descriptor.Descriptor(
+  name='Split',
+  full_name='google.bigtable.admin.v2.CreateTableRequest.Split',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.bigtable.admin.v2.CreateTableRequest.Split.key', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1294,
+  serialized_end=1314,
+)
+
+_CREATETABLEREQUEST = _descriptor.Descriptor(
+  name='CreateTableRequest',
+  full_name='google.bigtable.admin.v2.CreateTableRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.bigtable.admin.v2.CreateTableRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\"\n bigtable.googleapis.com/Instance', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='table_id', full_name='google.bigtable.admin.v2.CreateTableRequest.table_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='table', full_name='google.bigtable.admin.v2.CreateTableRequest.table', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='initial_splits', full_name='google.bigtable.admin.v2.CreateTableRequest.initial_splits', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_CREATETABLEREQUEST_SPLIT, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1062,
+  serialized_end=1314,
+)
+
+
+_CREATETABLEFROMSNAPSHOTREQUEST = _descriptor.Descriptor(
+  name='CreateTableFromSnapshotRequest',
+  full_name='google.bigtable.admin.v2.CreateTableFromSnapshotRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.bigtable.admin.v2.CreateTableFromSnapshotRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\"\n bigtable.googleapis.com/Instance', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='table_id', full_name='google.bigtable.admin.v2.CreateTableFromSnapshotRequest.table_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='source_snapshot', full_name='google.bigtable.admin.v2.CreateTableFromSnapshotRequest.source_snapshot', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\"\n bigtable.googleapis.com/Snapshot', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1317,
+  serialized_end=1497,
+)
+
+
+_DROPROWRANGEREQUEST = _descriptor.Descriptor(
+  name='DropRowRangeRequest',
+  full_name='google.bigtable.admin.v2.DropRowRangeRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.bigtable.admin.v2.DropRowRangeRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='row_key_prefix', full_name='google.bigtable.admin.v2.DropRowRangeRequest.row_key_prefix', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='delete_all_data_from_table', full_name='google.bigtable.admin.v2.DropRowRangeRequest.delete_all_data_from_table', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='target', full_name='google.bigtable.admin.v2.DropRowRangeRequest.target',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=1500,
+  serialized_end=1648,
+)
+
+
+_LISTTABLESREQUEST = _descriptor.Descriptor(
+  name='ListTablesRequest',
+  full_name='google.bigtable.admin.v2.ListTablesRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.bigtable.admin.v2.ListTablesRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\"\n bigtable.googleapis.com/Instance', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='view', full_name='google.bigtable.admin.v2.ListTablesRequest.view', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.bigtable.admin.v2.ListTablesRequest.page_size', index=2,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.bigtable.admin.v2.ListTablesRequest.page_token', index=3,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1651,
+  serialized_end=1819,
+)
+
+
+_LISTTABLESRESPONSE = _descriptor.Descriptor(
+  name='ListTablesResponse',
+  full_name='google.bigtable.admin.v2.ListTablesResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tables', full_name='google.bigtable.admin.v2.ListTablesResponse.tables', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.bigtable.admin.v2.ListTablesResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1821,
+  serialized_end=1915,
+)
+
+
+_GETTABLEREQUEST = _descriptor.Descriptor(
+  name='GetTableRequest',
+  full_name='google.bigtable.admin.v2.GetTableRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.bigtable.admin.v2.GetTableRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='view', full_name='google.bigtable.admin.v2.GetTableRequest.view', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1917,
+  serialized_end=2039,
+)
+
+
+_DELETETABLEREQUEST = _descriptor.Descriptor(
+  name='DeleteTableRequest',
+  full_name='google.bigtable.admin.v2.DeleteTableRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.bigtable.admin.v2.DeleteTableRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2041,
+  serialized_end=2114,
+)
+
+
+_MODIFYCOLUMNFAMILIESREQUEST_MODIFICATION = _descriptor.Descriptor(
+  name='Modification',
+  full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.Modification',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.Modification.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='create', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.Modification.create', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.Modification.update', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='drop', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.Modification.drop', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='mod', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.Modification.mod',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2298,
+  serialized_end=2463,
+)
+
+_MODIFYCOLUMNFAMILIESREQUEST = _descriptor.Descriptor(
+  name='ModifyColumnFamiliesRequest',
+  full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='modifications', full_name='google.bigtable.admin.v2.ModifyColumnFamiliesRequest.modifications', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_MODIFYCOLUMNFAMILIESREQUEST_MODIFICATION, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2117,
+  serialized_end=2463,
+)
+
+
+_GENERATECONSISTENCYTOKENREQUEST = _descriptor.Descriptor(
+  name='GenerateConsistencyTokenRequest',
+  full_name='google.bigtable.admin.v2.GenerateConsistencyTokenRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.bigtable.admin.v2.GenerateConsistencyTokenRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2465,
+  serialized_end=2551,
+)
+
+
+_GENERATECONSISTENCYTOKENRESPONSE = _descriptor.Descriptor(
+  name='GenerateConsistencyTokenResponse',
+  full_name='google.bigtable.admin.v2.GenerateConsistencyTokenResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='consistency_token', full_name='google.bigtable.admin.v2.GenerateConsistencyTokenResponse.consistency_token', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2553,
+  serialized_end=2614,
+)
+
+
+_CHECKCONSISTENCYREQUEST = _descriptor.Descriptor(
+  name='CheckConsistencyRequest',
+  full_name='google.bigtable.admin.v2.CheckConsistencyRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.bigtable.admin.v2.CheckConsistencyRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='consistency_token', full_name='google.bigtable.admin.v2.CheckConsistencyRequest.consistency_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2616,
+  serialized_end=2726,
+)
+
+
+_CHECKCONSISTENCYRESPONSE = _descriptor.Descriptor(
+  name='CheckConsistencyResponse',
+  full_name='google.bigtable.admin.v2.CheckConsistencyResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='consistent', full_name='google.bigtable.admin.v2.CheckConsistencyResponse.consistent', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2728,
+  serialized_end=2774,
+)
+
+
+_SNAPSHOTTABLEREQUEST = _descriptor.Descriptor(
+  name='SnapshotTableRequest',
+  full_name='google.bigtable.admin.v2.SnapshotTableRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.bigtable.admin.v2.SnapshotTableRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\037\n\035bigtable.googleapis.com/Table', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cluster', full_name='google.bigtable.admin.v2.SnapshotTableRequest.cluster', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A!\n\037bigtable.googleapis.com/Cluster', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='snapshot_id', full_name='google.bigtable.admin.v2.SnapshotTableRequest.snapshot_id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ttl', full_name='google.bigtable.admin.v2.SnapshotTableRequest.ttl', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='description', full_name='google.bigtable.admin.v2.SnapshotTableRequest.description', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2777,
+  serialized_end=2997,
+)
+
+
+_GETSNAPSHOTREQUEST = _descriptor.Descriptor(
+  name='GetSnapshotRequest',
+  full_name='google.bigtable.admin.v2.GetSnapshotRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.bigtable.admin.v2.GetSnapshotRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\"\n bigtable.googleapis.com/Snapshot', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2999,
+  serialized_end=3075,
+)
+
+
+_LISTSNAPSHOTSREQUEST = _descriptor.Descriptor(
+  name='ListSnapshotsRequest',
+  full_name='google.bigtable.admin.v2.ListSnapshotsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.bigtable.admin.v2.ListSnapshotsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A!\n\037bigtable.googleapis.com/Cluster', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.bigtable.admin.v2.ListSnapshotsRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.bigtable.admin.v2.ListSnapshotsRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3077,
+  serialized_end=3195,
+)
+
+
+_LISTSNAPSHOTSRESPONSE = _descriptor.Descriptor(
+  name='ListSnapshotsResponse',
+  full_name='google.bigtable.admin.v2.ListSnapshotsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='snapshots', full_name='google.bigtable.admin.v2.ListSnapshotsResponse.snapshots', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.bigtable.admin.v2.ListSnapshotsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3197,
+  serialized_end=3300,
+)
+
+
+_DELETESNAPSHOTREQUEST = _descriptor.Descriptor(
+  name='DeleteSnapshotRequest',
+  full_name='google.bigtable.admin.v2.DeleteSnapshotRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.bigtable.admin.v2.DeleteSnapshotRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\"\n bigtable.googleapis.com/Snapshot', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3302,
+  serialized_end=3381,
+)
+
+
+_SNAPSHOTTABLEMETADATA = _descriptor.Descriptor(
+  name='SnapshotTableMetadata',
+  full_name='google.bigtable.admin.v2.SnapshotTableMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='original_request', full_name='google.bigtable.admin.v2.SnapshotTableMetadata.original_request', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_time', full_name='google.bigtable.admin.v2.SnapshotTableMetadata.request_time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='finish_time', full_name='google.bigtable.admin.v2.SnapshotTableMetadata.finish_time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3384,
+  serialized_end=3580,
+)
+
+
+_CREATETABLEFROMSNAPSHOTMETADATA = _descriptor.Descriptor(
+  name='CreateTableFromSnapshotMetadata',
+  full_name='google.bigtable.admin.v2.CreateTableFromSnapshotMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='original_request', full_name='google.bigtable.admin.v2.CreateTableFromSnapshotMetadata.original_request', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_time', full_name='google.bigtable.admin.v2.CreateTableFromSnapshotMetadata.request_time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='finish_time', full_name='google.bigtable.admin.v2.CreateTableFromSnapshotMetadata.finish_time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3583,
+  serialized_end=3799,
+)
+
+
+_CREATEBACKUPREQUEST = _descriptor.Descriptor(
+  name='CreateBackupRequest',
+  full_name='google.bigtable.admin.v2.CreateBackupRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.bigtable.admin.v2.CreateBackupRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A!\n\037bigtable.googleapis.com/Cluster', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='backup_id', full_name='google.bigtable.admin.v2.CreateBackupRequest.backup_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='backup', full_name='google.bigtable.admin.v2.CreateBackupRequest.backup', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3802,
+  serialized_end=3959,
+)
+
+
+_CREATEBACKUPMETADATA = _descriptor.Descriptor(
+  name='CreateBackupMetadata',
+  full_name='google.bigtable.admin.v2.CreateBackupMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.bigtable.admin.v2.CreateBackupMetadata.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='source_table', full_name='google.bigtable.admin.v2.CreateBackupMetadata.source_table', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='google.bigtable.admin.v2.CreateBackupMetadata.start_time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_time', full_name='google.bigtable.admin.v2.CreateBackupMetadata.end_time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3962,
+  serialized_end=4114,
+)
+
+
+_UPDATEBACKUPREQUEST = _descriptor.Descriptor(
+  name='UpdateBackupRequest',
+  full_name='google.bigtable.admin.v2.UpdateBackupRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='backup', full_name='google.bigtable.admin.v2.UpdateBackupRequest.backup', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_mask', full_name='google.bigtable.admin.v2.UpdateBackupRequest.update_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4117,
+  serialized_end=4247,
+)
+
+
+_GETBACKUPREQUEST = _descriptor.Descriptor(
+  name='GetBackupRequest',
+  full_name='google.bigtable.admin.v2.GetBackupRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.bigtable.admin.v2.GetBackupRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A \n\036bigtable.googleapis.com/Backup', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4249,
+  serialized_end=4321,
+)
+
+
+_DELETEBACKUPREQUEST = _descriptor.Descriptor(
+  name='DeleteBackupRequest',
+  full_name='google.bigtable.admin.v2.DeleteBackupRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.bigtable.admin.v2.DeleteBackupRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A \n\036bigtable.googleapis.com/Backup', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4323,
+  serialized_end=4398,
+)
+
+
+_LISTBACKUPSREQUEST = _descriptor.Descriptor(
+  name='ListBackupsRequest',
+  full_name='google.bigtable.admin.v2.ListBackupsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.bigtable.admin.v2.ListBackupsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A!\n\037bigtable.googleapis.com/Cluster', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filter', full_name='google.bigtable.admin.v2.ListBackupsRequest.filter', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='order_by', full_name='google.bigtable.admin.v2.ListBackupsRequest.order_by', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.bigtable.admin.v2.ListBackupsRequest.page_size', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.bigtable.admin.v2.ListBackupsRequest.page_token', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4401,
+  serialized_end=4551,
+)
+
+
+_LISTBACKUPSRESPONSE = _descriptor.Descriptor(
+  name='ListBackupsResponse',
+  full_name='google.bigtable.admin.v2.ListBackupsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='backups', full_name='google.bigtable.admin.v2.ListBackupsResponse.backups', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.bigtable.admin.v2.ListBackupsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4553,
+  serialized_end=4650,
+)
+
+_RESTORETABLEREQUEST.oneofs_by_name['source'].fields.append(
+  _RESTORETABLEREQUEST.fields_by_name['backup'])
+_RESTORETABLEREQUEST.fields_by_name['backup'].containing_oneof = _RESTORETABLEREQUEST.oneofs_by_name['source']
+_RESTORETABLEMETADATA.fields_by_name['source_type'].enum_type = google_dot_bigtable_dot_admin_dot_v2_dot_table__pb2._RESTORESOURCETYPE
+_RESTORETABLEMETADATA.fields_by_name['backup_info'].message_type = google_dot_bigtable_dot_admin_dot_v2_dot_table__pb2._BACKUPINFO
+_RESTORETABLEMETADATA.fields_by_name['progress'].message_type = google_dot_bigtable_dot_admin_dot_v2_dot_common__pb2._OPERATIONPROGRESS
+_RESTORETABLEMETADATA.oneofs_by_name['source_info'].fields.append(
+  _RESTORETABLEMETADATA.fields_by_name['backup_info'])
+_RESTORETABLEMETADATA.fields_by_name['backup_info'].containing_oneof = _RESTORETABLEMETADATA.oneofs_by_name['source_info']
+_OPTIMIZERESTOREDTABLEMETADATA.fields_by_name['progress'].message_type = google_dot_bigtable_dot_admin_dot_v2_dot_common__pb2._OPERATIONPROGRESS
 _CREATETABLEREQUEST_SPLIT.containing_type = _CREATETABLEREQUEST
 _CREATETABLEREQUEST.fields_by_name['table'].message_type = google_dot_bigtable_dot_admin_dot_v2_dot_table__pb2._TABLE
 _CREATETABLEREQUEST.fields_by_name['initial_splits'].message_type = _CREATETABLEREQUEST_SPLIT
@@ -1409,16 +1419,9 @@ _CREATEBACKUPMETADATA.fields_by_name['end_time'].message_type = google_dot_proto
 _UPDATEBACKUPREQUEST.fields_by_name['backup'].message_type = google_dot_bigtable_dot_admin_dot_v2_dot_table__pb2._BACKUP
 _UPDATEBACKUPREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 _LISTBACKUPSRESPONSE.fields_by_name['backups'].message_type = google_dot_bigtable_dot_admin_dot_v2_dot_table__pb2._BACKUP
-_RESTORETABLEREQUEST.oneofs_by_name['source'].fields.append(
-  _RESTORETABLEREQUEST.fields_by_name['backup'])
-_RESTORETABLEREQUEST.fields_by_name['backup'].containing_oneof = _RESTORETABLEREQUEST.oneofs_by_name['source']
-_RESTORETABLEMETADATA.fields_by_name['source_type'].enum_type = google_dot_bigtable_dot_admin_dot_v2_dot_table__pb2._RESTORESOURCETYPE
-_RESTORETABLEMETADATA.fields_by_name['backup_info'].message_type = google_dot_bigtable_dot_admin_dot_v2_dot_table__pb2._BACKUPINFO
-_RESTORETABLEMETADATA.fields_by_name['progress'].message_type = google_dot_bigtable_dot_admin_dot_v2_dot_common__pb2._OPERATIONPROGRESS
-_RESTORETABLEMETADATA.oneofs_by_name['source_info'].fields.append(
-  _RESTORETABLEMETADATA.fields_by_name['backup_info'])
-_RESTORETABLEMETADATA.fields_by_name['backup_info'].containing_oneof = _RESTORETABLEMETADATA.oneofs_by_name['source_info']
-_OPTIMIZERESTOREDTABLEMETADATA.fields_by_name['progress'].message_type = google_dot_bigtable_dot_admin_dot_v2_dot_common__pb2._OPERATIONPROGRESS
+DESCRIPTOR.message_types_by_name['RestoreTableRequest'] = _RESTORETABLEREQUEST
+DESCRIPTOR.message_types_by_name['RestoreTableMetadata'] = _RESTORETABLEMETADATA
+DESCRIPTOR.message_types_by_name['OptimizeRestoredTableMetadata'] = _OPTIMIZERESTOREDTABLEMETADATA
 DESCRIPTOR.message_types_by_name['CreateTableRequest'] = _CREATETABLEREQUEST
 DESCRIPTOR.message_types_by_name['CreateTableFromSnapshotRequest'] = _CREATETABLEFROMSNAPSHOTREQUEST
 DESCRIPTOR.message_types_by_name['DropRowRangeRequest'] = _DROPROWRANGEREQUEST
@@ -1440,15 +1443,33 @@ DESCRIPTOR.message_types_by_name['SnapshotTableMetadata'] = _SNAPSHOTTABLEMETADA
 DESCRIPTOR.message_types_by_name['CreateTableFromSnapshotMetadata'] = _CREATETABLEFROMSNAPSHOTMETADATA
 DESCRIPTOR.message_types_by_name['CreateBackupRequest'] = _CREATEBACKUPREQUEST
 DESCRIPTOR.message_types_by_name['CreateBackupMetadata'] = _CREATEBACKUPMETADATA
-DESCRIPTOR.message_types_by_name['GetBackupRequest'] = _GETBACKUPREQUEST
 DESCRIPTOR.message_types_by_name['UpdateBackupRequest'] = _UPDATEBACKUPREQUEST
+DESCRIPTOR.message_types_by_name['GetBackupRequest'] = _GETBACKUPREQUEST
 DESCRIPTOR.message_types_by_name['DeleteBackupRequest'] = _DELETEBACKUPREQUEST
 DESCRIPTOR.message_types_by_name['ListBackupsRequest'] = _LISTBACKUPSREQUEST
 DESCRIPTOR.message_types_by_name['ListBackupsResponse'] = _LISTBACKUPSRESPONSE
-DESCRIPTOR.message_types_by_name['RestoreTableRequest'] = _RESTORETABLEREQUEST
-DESCRIPTOR.message_types_by_name['RestoreTableMetadata'] = _RESTORETABLEMETADATA
-DESCRIPTOR.message_types_by_name['OptimizeRestoredTableMetadata'] = _OPTIMIZERESTOREDTABLEMETADATA
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+RestoreTableRequest = _reflection.GeneratedProtocolMessageType('RestoreTableRequest', (_message.Message,), {
+  'DESCRIPTOR' : _RESTORETABLEREQUEST,
+  '__module__' : 'google.bigtable.admin.v2.bigtable_table_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.bigtable.admin.v2.RestoreTableRequest)
+  })
+_sym_db.RegisterMessage(RestoreTableRequest)
+
+RestoreTableMetadata = _reflection.GeneratedProtocolMessageType('RestoreTableMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _RESTORETABLEMETADATA,
+  '__module__' : 'google.bigtable.admin.v2.bigtable_table_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.bigtable.admin.v2.RestoreTableMetadata)
+  })
+_sym_db.RegisterMessage(RestoreTableMetadata)
+
+OptimizeRestoredTableMetadata = _reflection.GeneratedProtocolMessageType('OptimizeRestoredTableMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _OPTIMIZERESTOREDTABLEMETADATA,
+  '__module__' : 'google.bigtable.admin.v2.bigtable_table_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.bigtable.admin.v2.OptimizeRestoredTableMetadata)
+  })
+_sym_db.RegisterMessage(OptimizeRestoredTableMetadata)
 
 CreateTableRequest = _reflection.GeneratedProtocolMessageType('CreateTableRequest', (_message.Message,), {
 
@@ -1613,19 +1634,19 @@ CreateBackupMetadata = _reflection.GeneratedProtocolMessageType('CreateBackupMet
   })
 _sym_db.RegisterMessage(CreateBackupMetadata)
 
-GetBackupRequest = _reflection.GeneratedProtocolMessageType('GetBackupRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETBACKUPREQUEST,
-  '__module__' : 'google.bigtable.admin.v2.bigtable_table_admin_pb2'
-  # @@protoc_insertion_point(class_scope:google.bigtable.admin.v2.GetBackupRequest)
-  })
-_sym_db.RegisterMessage(GetBackupRequest)
-
 UpdateBackupRequest = _reflection.GeneratedProtocolMessageType('UpdateBackupRequest', (_message.Message,), {
   'DESCRIPTOR' : _UPDATEBACKUPREQUEST,
   '__module__' : 'google.bigtable.admin.v2.bigtable_table_admin_pb2'
   # @@protoc_insertion_point(class_scope:google.bigtable.admin.v2.UpdateBackupRequest)
   })
 _sym_db.RegisterMessage(UpdateBackupRequest)
+
+GetBackupRequest = _reflection.GeneratedProtocolMessageType('GetBackupRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETBACKUPREQUEST,
+  '__module__' : 'google.bigtable.admin.v2.bigtable_table_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.bigtable.admin.v2.GetBackupRequest)
+  })
+_sym_db.RegisterMessage(GetBackupRequest)
 
 DeleteBackupRequest = _reflection.GeneratedProtocolMessageType('DeleteBackupRequest', (_message.Message,), {
   'DESCRIPTOR' : _DELETEBACKUPREQUEST,
@@ -1648,29 +1669,11 @@ ListBackupsResponse = _reflection.GeneratedProtocolMessageType('ListBackupsRespo
   })
 _sym_db.RegisterMessage(ListBackupsResponse)
 
-RestoreTableRequest = _reflection.GeneratedProtocolMessageType('RestoreTableRequest', (_message.Message,), {
-  'DESCRIPTOR' : _RESTORETABLEREQUEST,
-  '__module__' : 'google.bigtable.admin.v2.bigtable_table_admin_pb2'
-  # @@protoc_insertion_point(class_scope:google.bigtable.admin.v2.RestoreTableRequest)
-  })
-_sym_db.RegisterMessage(RestoreTableRequest)
-
-RestoreTableMetadata = _reflection.GeneratedProtocolMessageType('RestoreTableMetadata', (_message.Message,), {
-  'DESCRIPTOR' : _RESTORETABLEMETADATA,
-  '__module__' : 'google.bigtable.admin.v2.bigtable_table_admin_pb2'
-  # @@protoc_insertion_point(class_scope:google.bigtable.admin.v2.RestoreTableMetadata)
-  })
-_sym_db.RegisterMessage(RestoreTableMetadata)
-
-OptimizeRestoredTableMetadata = _reflection.GeneratedProtocolMessageType('OptimizeRestoredTableMetadata', (_message.Message,), {
-  'DESCRIPTOR' : _OPTIMIZERESTOREDTABLEMETADATA,
-  '__module__' : 'google.bigtable.admin.v2.bigtable_table_admin_pb2'
-  # @@protoc_insertion_point(class_scope:google.bigtable.admin.v2.OptimizeRestoredTableMetadata)
-  })
-_sym_db.RegisterMessage(OptimizeRestoredTableMetadata)
-
 
 DESCRIPTOR._options = None
+_RESTORETABLEREQUEST.fields_by_name['parent']._options = None
+_RESTORETABLEREQUEST.fields_by_name['table_id']._options = None
+_RESTORETABLEREQUEST.fields_by_name['backup']._options = None
 _CREATETABLEREQUEST.fields_by_name['parent']._options = None
 _CREATETABLEREQUEST.fields_by_name['table_id']._options = None
 _CREATETABLEREQUEST.fields_by_name['table']._options = None
@@ -1695,9 +1698,9 @@ _DELETESNAPSHOTREQUEST.fields_by_name['name']._options = None
 _CREATEBACKUPREQUEST.fields_by_name['parent']._options = None
 _CREATEBACKUPREQUEST.fields_by_name['backup_id']._options = None
 _CREATEBACKUPREQUEST.fields_by_name['backup']._options = None
-_GETBACKUPREQUEST.fields_by_name['name']._options = None
 _UPDATEBACKUPREQUEST.fields_by_name['backup']._options = None
 _UPDATEBACKUPREQUEST.fields_by_name['update_mask']._options = None
+_GETBACKUPREQUEST.fields_by_name['name']._options = None
 _DELETEBACKUPREQUEST.fields_by_name['name']._options = None
 _LISTBACKUPSREQUEST.fields_by_name['parent']._options = None
 
@@ -1708,8 +1711,8 @@ _BIGTABLETABLEADMIN = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\034bigtableadmin.googleapis.com\322A\273\002https://www.googleapis.com/auth/bigtable.admin,https://www.googleapis.com/auth/bigtable.admin.table,https://www.googleapis.com/auth/cloud-bigtable.admin,https://www.googleapis.com/auth/cloud-bigtable.admin.table,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-platform.read-only',
   create_key=_descriptor._internal_create_key,
-  serialized_start=4568,
-  serialized_end=9248,
+  serialized_start=4653,
+  serialized_end=9413,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateTable',
@@ -1848,7 +1851,7 @@ _BIGTABLETABLEADMIN = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_CREATEBACKUPREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
-    serialized_options=b'\202\323\344\223\002@\"6/v2/{parent=projects/*/instances/*/clusters/*}/backups:\006backup\312A\036\n\006Backup\022\024CreateBackupMetadata\332A\027parent,backup_id,backup',
+    serialized_options=b'\202\323\344\223\002@\"6/v2/{parent=projects/*/instances/*/clusters/*}/backups:\006backup\332A\027parent,backup_id,backup\312A\036\n\006Backup\022\024CreateBackupMetadata',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -1908,7 +1911,7 @@ _BIGTABLETABLEADMIN = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=google_dot_iam_dot_v1_dot_iam__policy__pb2._GETIAMPOLICYREQUEST,
     output_type=google_dot_iam_dot_v1_dot_policy__pb2._POLICY,
-    serialized_options=b'\202\323\344\223\002@\";/v2/{resource=projects/*/instances/*/tables/*}:getIamPolicy:\001*\332A\010resource',
+    serialized_options=b'\202\323\344\223\002\216\001\";/v2/{resource=projects/*/instances/*/tables/*}:getIamPolicy:\001*ZL\"G/v2/{resource=projects/*/instances/*/clusters/*/backups/*}:getIamPolicy:\001*\332A\010resource',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(

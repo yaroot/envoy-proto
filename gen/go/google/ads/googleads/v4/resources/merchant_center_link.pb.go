@@ -22,11 +22,11 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v4/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -56,10 +56,10 @@ type MerchantCenterLink struct {
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. The ID of the Merchant Center account.
 	// This field is readonly.
-	Id *wrapperspb.Int64Value `protobuf:"bytes,3,opt,name=id,proto3" json:"id,omitempty"`
+	Id *wrappers.Int64Value `protobuf:"bytes,3,opt,name=id,proto3" json:"id,omitempty"`
 	// Output only. The name of the Merchant Center account.
 	// This field is readonly.
-	MerchantCenterAccountName *wrapperspb.StringValue `protobuf:"bytes,4,opt,name=merchant_center_account_name,json=merchantCenterAccountName,proto3" json:"merchant_center_account_name,omitempty"`
+	MerchantCenterAccountName *wrappers.StringValue `protobuf:"bytes,4,opt,name=merchant_center_account_name,json=merchantCenterAccountName,proto3" json:"merchant_center_account_name,omitempty"`
 	// The status of the link.
 	Status enums.MerchantCenterLinkStatusEnum_MerchantCenterLinkStatus `protobuf:"varint,5,opt,name=status,proto3,enum=google.ads.googleads.v4.enums.MerchantCenterLinkStatusEnum_MerchantCenterLinkStatus" json:"status,omitempty"`
 }
@@ -103,14 +103,14 @@ func (x *MerchantCenterLink) GetResourceName() string {
 	return ""
 }
 
-func (x *MerchantCenterLink) GetId() *wrapperspb.Int64Value {
+func (x *MerchantCenterLink) GetId() *wrappers.Int64Value {
 	if x != nil {
 		return x.Id
 	}
 	return nil
 }
 
-func (x *MerchantCenterLink) GetMerchantCenterAccountName() *wrapperspb.StringValue {
+func (x *MerchantCenterLink) GetMerchantCenterAccountName() *wrappers.StringValue {
 	if x != nil {
 		return x.MerchantCenterAccountName
 	}
@@ -210,8 +210,8 @@ func file_google_ads_googleads_v4_resources_merchant_center_link_proto_rawDescGZ
 var file_google_ads_googleads_v4_resources_merchant_center_link_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v4_resources_merchant_center_link_proto_goTypes = []interface{}{
 	(*MerchantCenterLink)(nil),                                       // 0: google.ads.googleads.v4.resources.MerchantCenterLink
-	(*wrapperspb.Int64Value)(nil),                                    // 1: google.protobuf.Int64Value
-	(*wrapperspb.StringValue)(nil),                                   // 2: google.protobuf.StringValue
+	(*wrappers.Int64Value)(nil),                                      // 1: google.protobuf.Int64Value
+	(*wrappers.StringValue)(nil),                                     // 2: google.protobuf.StringValue
 	(enums.MerchantCenterLinkStatusEnum_MerchantCenterLinkStatus)(0), // 3: google.ads.googleads.v4.enums.MerchantCenterLinkStatusEnum.MerchantCenterLinkStatus
 }
 var file_google_ads_googleads_v4_resources_merchant_center_link_proto_depIdxs = []int32{

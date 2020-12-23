@@ -10,10 +10,10 @@ import (
 	v3 "envoy/config/core/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/any"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/anypb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -157,7 +157,7 @@ type Decompressor_RequestDirectionConfig struct {
 	CommonConfig *Decompressor_CommonDirectionConfig `protobuf:"bytes,1,opt,name=common_config,json=commonConfig,proto3" json:"common_config,omitempty"`
 	// If set to true, and response decompression is enabled, the filter modifies the Accept-Encoding
 	// request header by appending the decompressor_library's encoding. Defaults to true.
-	AdvertiseAcceptEncoding *wrapperspb.BoolValue `protobuf:"bytes,2,opt,name=advertise_accept_encoding,json=advertiseAcceptEncoding,proto3" json:"advertise_accept_encoding,omitempty"`
+	AdvertiseAcceptEncoding *wrappers.BoolValue `protobuf:"bytes,2,opt,name=advertise_accept_encoding,json=advertiseAcceptEncoding,proto3" json:"advertise_accept_encoding,omitempty"`
 }
 
 func (x *Decompressor_RequestDirectionConfig) Reset() {
@@ -199,7 +199,7 @@ func (x *Decompressor_RequestDirectionConfig) GetCommonConfig() *Decompressor_Co
 	return nil
 }
 
-func (x *Decompressor_RequestDirectionConfig) GetAdvertiseAcceptEncoding() *wrapperspb.BoolValue {
+func (x *Decompressor_RequestDirectionConfig) GetAdvertiseAcceptEncoding() *wrappers.BoolValue {
 	if x != nil {
 		return x.AdvertiseAcceptEncoding
 	}
@@ -364,7 +364,7 @@ var file_envoy_extensions_filters_http_decompressor_v3_decompressor_proto_goType
 	(*Decompressor_ResponseDirectionConfig)(nil), // 3: envoy.extensions.filters.http.decompressor.v3.Decompressor.ResponseDirectionConfig
 	(*v3.TypedExtensionConfig)(nil),              // 4: envoy.config.core.v3.TypedExtensionConfig
 	(*v3.RuntimeFeatureFlag)(nil),                // 5: envoy.config.core.v3.RuntimeFeatureFlag
-	(*wrapperspb.BoolValue)(nil),                 // 6: google.protobuf.BoolValue
+	(*wrappers.BoolValue)(nil),                   // 6: google.protobuf.BoolValue
 }
 var file_envoy_extensions_filters_http_decompressor_v3_decompressor_proto_depIdxs = []int32{
 	4, // 0: envoy.extensions.filters.http.decompressor.v3.Decompressor.decompressor_library:type_name -> envoy.config.core.v3.TypedExtensionConfig

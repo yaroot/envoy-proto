@@ -22,10 +22,10 @@ package transcoder
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -341,8 +341,8 @@ type CreateJobTemplateRequest struct {
 	// Required. The ID to use for the job template, which will become the final component
 	// of the job template's resource name.
 	//
-	// This value should be 4-63 characters, and valid characters
-	// are `/[a-zA-Z0-9_-_]/`.
+	// This value should be 4-63 characters, and valid characters must match the
+	// regular expression `[a-zA-Z][a-zA-Z0-9_-]*`.
 	JobTemplateId string `protobuf:"bytes,3,opt,name=job_template_id,json=jobTemplateId,proto3" json:"job_template_id,omitempty"`
 }
 
@@ -873,7 +873,7 @@ var file_google_cloud_video_transcoder_v1beta1_services_proto_goTypes = []interf
 	(*ListJobTemplatesResponse)(nil), // 9: google.cloud.video.transcoder.v1beta1.ListJobTemplatesResponse
 	(*Job)(nil),                      // 10: google.cloud.video.transcoder.v1beta1.Job
 	(*JobTemplate)(nil),              // 11: google.cloud.video.transcoder.v1beta1.JobTemplate
-	(*emptypb.Empty)(nil),            // 12: google.protobuf.Empty
+	(*empty.Empty)(nil),              // 12: google.protobuf.Empty
 }
 var file_google_cloud_video_transcoder_v1beta1_services_proto_depIdxs = []int32{
 	10, // 0: google.cloud.video.transcoder.v1beta1.CreateJobRequest.job:type_name -> google.cloud.video.transcoder.v1beta1.Job

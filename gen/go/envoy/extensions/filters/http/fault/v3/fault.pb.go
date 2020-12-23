@@ -12,9 +12,9 @@ import (
 	v3 "envoy/type/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -184,7 +184,7 @@ type HTTPFault struct {
 	//   Like other :ref:`circuit breakers <arch_overview_circuit_break>` in Envoy, this is a fuzzy
 	//   limit. It's possible for the number of active faults to rise slightly above the configured
 	//   amount due to the implementation details.
-	MaxActiveFaults *wrapperspb.UInt32Value `protobuf:"bytes,6,opt,name=max_active_faults,json=maxActiveFaults,proto3" json:"max_active_faults,omitempty"`
+	MaxActiveFaults *wrappers.UInt32Value `protobuf:"bytes,6,opt,name=max_active_faults,json=maxActiveFaults,proto3" json:"max_active_faults,omitempty"`
 	// The response rate limit to be applied to the response body of the stream. When configured,
 	// the percentage can be overridden by the :ref:`fault.http.rate_limit.response_percent
 	// <config_http_filters_fault_injection_runtime>` runtime key.
@@ -283,7 +283,7 @@ func (x *HTTPFault) GetDownstreamNodes() []string {
 	return nil
 }
 
-func (x *HTTPFault) GetMaxActiveFaults() *wrapperspb.UInt32Value {
+func (x *HTTPFault) GetMaxActiveFaults() *wrappers.UInt32Value {
 	if x != nil {
 		return x.MaxActiveFaults
 	}
@@ -526,7 +526,7 @@ var file_envoy_extensions_filters_http_fault_v3_fault_proto_goTypes = []interfac
 	(*v3.FractionalPercent)(nil),   // 3: envoy.type.v3.FractionalPercent
 	(*v31.FaultDelay)(nil),         // 4: envoy.extensions.filters.common.fault.v3.FaultDelay
 	(*v32.HeaderMatcher)(nil),      // 5: envoy.config.route.v3.HeaderMatcher
-	(*wrapperspb.UInt32Value)(nil), // 6: google.protobuf.UInt32Value
+	(*wrappers.UInt32Value)(nil),   // 6: google.protobuf.UInt32Value
 	(*v31.FaultRateLimit)(nil),     // 7: envoy.extensions.filters.common.fault.v3.FaultRateLimit
 }
 var file_envoy_extensions_filters_http_fault_v3_fault_proto_depIdxs = []int32{

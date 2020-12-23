@@ -22,11 +22,11 @@ package admin
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -681,7 +681,7 @@ func (x *GcRule) GetMaxNumVersions() int32 {
 	return 0
 }
 
-func (x *GcRule) GetMaxAge() *durationpb.Duration {
+func (x *GcRule) GetMaxAge() *duration.Duration {
 	if x, ok := x.GetRule().(*GcRule_MaxAge); ok {
 		return x.MaxAge
 	}
@@ -715,7 +715,7 @@ type GcRule_MaxAge struct {
 	// Delete cells in a column older than the given age.
 	// Values must be at least one millisecond, and will be truncated to
 	// microsecond granularity.
-	MaxAge *durationpb.Duration `protobuf:"bytes,2,opt,name=max_age,json=maxAge,proto3,oneof"`
+	MaxAge *duration.Duration `protobuf:"bytes,2,opt,name=max_age,json=maxAge,proto3,oneof"`
 }
 
 type GcRule_Intersection_ struct {
@@ -760,11 +760,11 @@ type Snapshot struct {
 	// in the meantime.
 	DataSizeBytes int64 `protobuf:"varint,3,opt,name=data_size_bytes,json=dataSizeBytes,proto3" json:"data_size_bytes,omitempty"`
 	// Output only. The time when the snapshot is created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The time when the snapshot will be deleted. The maximum amount
 	// of time a snapshot can stay active is 365 days. If 'ttl' is not specified,
 	// the default maximum of 365 days will be used.
-	DeleteTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=delete_time,json=deleteTime,proto3" json:"delete_time,omitempty"`
+	DeleteTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=delete_time,json=deleteTime,proto3" json:"delete_time,omitempty"`
 	// Output only. The current state of the snapshot.
 	State Snapshot_State `protobuf:"varint,6,opt,name=state,proto3,enum=google.bigtable.admin.v2.Snapshot_State" json:"state,omitempty"`
 	// Output only. Description of the snapshot.
@@ -824,14 +824,14 @@ func (x *Snapshot) GetDataSizeBytes() int64 {
 	return 0
 }
 
-func (x *Snapshot) GetCreateTime() *timestamppb.Timestamp {
+func (x *Snapshot) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *Snapshot) GetDeleteTime() *timestamppb.Timestamp {
+func (x *Snapshot) GetDeleteTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.DeleteTime
 	}
@@ -878,16 +878,16 @@ type Backup struct {
 	// from the time the request is received. Once the `expire_time`
 	// has passed, Cloud Bigtable will delete the backup and free the
 	// resources used by the backup.
-	ExpireTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
+	ExpireTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
 	// Output only. `start_time` is the time that the backup was started
 	// (i.e. approximately the time the
 	// [CreateBackup][google.bigtable.admin.v2.BigtableTableAdmin.CreateBackup]
 	// request is received).  The row data in this backup will be no older than
 	// this timestamp.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// Output only. `end_time` is the time that the backup was finished. The row
 	// data in the backup will be no newer than this timestamp.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	// Output only. Size of the backup in bytes.
 	SizeBytes int64 `protobuf:"varint,6,opt,name=size_bytes,json=sizeBytes,proto3" json:"size_bytes,omitempty"`
 	// Output only. The current state of the backup.
@@ -940,21 +940,21 @@ func (x *Backup) GetSourceTable() string {
 	return ""
 }
 
-func (x *Backup) GetExpireTime() *timestamppb.Timestamp {
+func (x *Backup) GetExpireTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ExpireTime
 	}
 	return nil
 }
 
-func (x *Backup) GetStartTime() *timestamppb.Timestamp {
+func (x *Backup) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *Backup) GetEndTime() *timestamppb.Timestamp {
+func (x *Backup) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -985,10 +985,10 @@ type BackupInfo struct {
 	Backup string `protobuf:"bytes,1,opt,name=backup,proto3" json:"backup,omitempty"`
 	// Output only. The time that the backup was started. Row data in the backup
 	// will be no older than this timestamp.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// Output only. This time that the backup was finished. Row data in the
 	// backup will be no newer than this timestamp.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	// Output only. Name of the table the backup was created from.
 	SourceTable string `protobuf:"bytes,4,opt,name=source_table,json=sourceTable,proto3" json:"source_table,omitempty"`
 }
@@ -1032,14 +1032,14 @@ func (x *BackupInfo) GetBackup() string {
 	return ""
 }
 
-func (x *BackupInfo) GetStartTime() *timestamppb.Timestamp {
+func (x *BackupInfo) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *BackupInfo) GetEndTime() *timestamppb.Timestamp {
+func (x *BackupInfo) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -1461,8 +1461,8 @@ var file_google_bigtable_admin_v2_table_proto_goTypes = []interface{}{
 	nil,                                      // 15: google.bigtable.admin.v2.Table.ColumnFamiliesEntry
 	(*GcRule_Intersection)(nil),              // 16: google.bigtable.admin.v2.GcRule.Intersection
 	(*GcRule_Union)(nil),                     // 17: google.bigtable.admin.v2.GcRule.Union
-	(*durationpb.Duration)(nil),              // 18: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil),            // 19: google.protobuf.Timestamp
+	(*duration.Duration)(nil),                // 18: google.protobuf.Duration
+	(*timestamp.Timestamp)(nil),              // 19: google.protobuf.Timestamp
 }
 var file_google_bigtable_admin_v2_table_proto_depIdxs = []int32{
 	0,  // 0: google.bigtable.admin.v2.RestoreInfo.source_type:type_name -> google.bigtable.admin.v2.RestoreSourceType

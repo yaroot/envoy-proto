@@ -22,10 +22,10 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -52,9 +52,9 @@ type AdGroupAdLabel struct {
 	// `customers/{customer_id}/adGroupAdLabels/{ad_group_id}~{ad_id}~{label_id}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Immutable. The ad group ad to which the label is attached.
-	AdGroupAd *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=ad_group_ad,json=adGroupAd,proto3" json:"ad_group_ad,omitempty"`
+	AdGroupAd *wrappers.StringValue `protobuf:"bytes,2,opt,name=ad_group_ad,json=adGroupAd,proto3" json:"ad_group_ad,omitempty"`
 	// Immutable. The label assigned to the ad group ad.
-	Label *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=label,proto3" json:"label,omitempty"`
+	Label *wrappers.StringValue `protobuf:"bytes,3,opt,name=label,proto3" json:"label,omitempty"`
 }
 
 func (x *AdGroupAdLabel) Reset() {
@@ -96,14 +96,14 @@ func (x *AdGroupAdLabel) GetResourceName() string {
 	return ""
 }
 
-func (x *AdGroupAdLabel) GetAdGroupAd() *wrapperspb.StringValue {
+func (x *AdGroupAdLabel) GetAdGroupAd() *wrappers.StringValue {
 	if x != nil {
 		return x.AdGroupAd
 	}
 	return nil
 }
 
-func (x *AdGroupAdLabel) GetLabel() *wrapperspb.StringValue {
+func (x *AdGroupAdLabel) GetLabel() *wrappers.StringValue {
 	if x != nil {
 		return x.Label
 	}
@@ -185,8 +185,8 @@ func file_google_ads_googleads_v3_resources_ad_group_ad_label_proto_rawDescGZIP(
 
 var file_google_ads_googleads_v3_resources_ad_group_ad_label_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v3_resources_ad_group_ad_label_proto_goTypes = []interface{}{
-	(*AdGroupAdLabel)(nil),         // 0: google.ads.googleads.v3.resources.AdGroupAdLabel
-	(*wrapperspb.StringValue)(nil), // 1: google.protobuf.StringValue
+	(*AdGroupAdLabel)(nil),       // 0: google.ads.googleads.v3.resources.AdGroupAdLabel
+	(*wrappers.StringValue)(nil), // 1: google.protobuf.StringValue
 }
 var file_google_ads_googleads_v3_resources_ad_group_ad_label_proto_depIdxs = []int32{
 	1, // 0: google.ads.googleads.v3.resources.AdGroupAdLabel.ad_group_ad:type_name -> google.protobuf.StringValue

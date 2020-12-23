@@ -23,12 +23,12 @@ package resultstore
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -155,7 +155,7 @@ type CreateInvocationRequest struct {
 	// By default, Invocations are auto-finalized if they are not modified for 24
 	// hours. If you need auto-finalize to happen sooner, set this field to the
 	// time you'd like auto-finalize to occur.
-	AutoFinalizeTime *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=auto_finalize_time,json=autoFinalizeTime,proto3" json:"auto_finalize_time,omitempty"`
+	AutoFinalizeTime *timestamp.Timestamp `protobuf:"bytes,6,opt,name=auto_finalize_time,json=autoFinalizeTime,proto3" json:"auto_finalize_time,omitempty"`
 	// Client provided unique token for batch upload to ensure data integrity and
 	// to provide a way to resume batch upload in case of a distributed failure on
 	// the client side. The standard uploading client is presumed to have many
@@ -248,7 +248,7 @@ func (x *CreateInvocationRequest) GetAuthorizationToken() string {
 	return ""
 }
 
-func (x *CreateInvocationRequest) GetAutoFinalizeTime() *timestamppb.Timestamp {
+func (x *CreateInvocationRequest) GetAutoFinalizeTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.AutoFinalizeTime
 	}
@@ -279,7 +279,7 @@ type UpdateInvocationRequest struct {
 	// name format must be: invocations/${INVOCATION_ID}
 	Invocation *Invocation `protobuf:"bytes,3,opt,name=invocation,proto3" json:"invocation,omitempty"`
 	// Indicates which fields to update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// This is a token to authorize access to this invocation. It must be set to
 	// the same value that was provided in the CreateInvocationRequest.
 	AuthorizationToken string `protobuf:"bytes,5,opt,name=authorization_token,json=authorizationToken,proto3" json:"authorization_token,omitempty"`
@@ -324,7 +324,7 @@ func (x *UpdateInvocationRequest) GetInvocation() *Invocation {
 	return nil
 }
 
-func (x *UpdateInvocationRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateInvocationRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -354,7 +354,7 @@ type MergeInvocationRequest struct {
 	// name format must be: invocations/${INVOCATION_ID}
 	Invocation *Invocation `protobuf:"bytes,3,opt,name=invocation,proto3" json:"invocation,omitempty"`
 	// Indicates which fields to merge.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// This is a token to authorize access to this invocation. It must be set to
 	// the same value that was provided in the CreateInvocationRequest.
 	AuthorizationToken string `protobuf:"bytes,5,opt,name=authorization_token,json=authorizationToken,proto3" json:"authorization_token,omitempty"`
@@ -406,7 +406,7 @@ func (x *MergeInvocationRequest) GetInvocation() *Invocation {
 	return nil
 }
 
-func (x *MergeInvocationRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *MergeInvocationRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -812,7 +812,7 @@ type UpdateTargetRequest struct {
 	// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
 	Target *Target `protobuf:"bytes,3,opt,name=target,proto3" json:"target,omitempty"`
 	// Indicates which fields to update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// This is a token to authorize access to this invocation. It must be set to
 	// the same value that was provided in the CreateInvocationRequest.
 	AuthorizationToken string `protobuf:"bytes,5,opt,name=authorization_token,json=authorizationToken,proto3" json:"authorization_token,omitempty"`
@@ -860,7 +860,7 @@ func (x *UpdateTargetRequest) GetTarget() *Target {
 	return nil
 }
 
-func (x *UpdateTargetRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateTargetRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -898,7 +898,7 @@ type MergeTargetRequest struct {
 	// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}
 	Target *Target `protobuf:"bytes,3,opt,name=target,proto3" json:"target,omitempty"`
 	// Indicates which fields to merge.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// This is a token to authorize access to this invocation. It must be set to
 	// the same value that was provided in the CreateInvocationRequest.
 	AuthorizationToken string `protobuf:"bytes,5,opt,name=authorization_token,json=authorizationToken,proto3" json:"authorization_token,omitempty"`
@@ -953,7 +953,7 @@ func (x *MergeTargetRequest) GetTarget() *Target {
 	return nil
 }
 
-func (x *MergeTargetRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *MergeTargetRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1198,7 +1198,7 @@ type UpdateConfiguredTargetRequest struct {
 	// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${url_encode(CONFIG_ID)}
 	ConfiguredTarget *ConfiguredTarget `protobuf:"bytes,3,opt,name=configured_target,json=configuredTarget,proto3" json:"configured_target,omitempty"`
 	// Indicates which fields to update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// This is a token to authorize access to this invocation. It must be set to
 	// the same value that was provided in the CreateInvocationRequest.
 	AuthorizationToken string `protobuf:"bytes,5,opt,name=authorization_token,json=authorizationToken,proto3" json:"authorization_token,omitempty"`
@@ -1246,7 +1246,7 @@ func (x *UpdateConfiguredTargetRequest) GetConfiguredTarget() *ConfiguredTarget 
 	return nil
 }
 
-func (x *UpdateConfiguredTargetRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateConfiguredTargetRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1284,7 +1284,7 @@ type MergeConfiguredTargetRequest struct {
 	// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${url_encode(CONFIG_ID)}
 	ConfiguredTarget *ConfiguredTarget `protobuf:"bytes,3,opt,name=configured_target,json=configuredTarget,proto3" json:"configured_target,omitempty"`
 	// Indicates which fields to merge.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// This is a token to authorize access to this invocation. It must be set to
 	// the same value that was provided in the CreateInvocationRequest.
 	AuthorizationToken string `protobuf:"bytes,5,opt,name=authorization_token,json=authorizationToken,proto3" json:"authorization_token,omitempty"`
@@ -1339,7 +1339,7 @@ func (x *MergeConfiguredTargetRequest) GetConfiguredTarget() *ConfiguredTarget {
 	return nil
 }
 
-func (x *MergeConfiguredTargetRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *MergeConfiguredTargetRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1592,7 +1592,7 @@ type UpdateActionRequest struct {
 	// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${url_encode(CONFIG_ID)}/actions/${url_encode(ACTION_ID)}
 	Action *Action `protobuf:"bytes,3,opt,name=action,proto3" json:"action,omitempty"`
 	// Indicates which fields to update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// This is a token to authorize access to this invocation. It must be set to
 	// the same value that was provided in the CreateInvocationRequest.
 	AuthorizationToken string `protobuf:"bytes,5,opt,name=authorization_token,json=authorizationToken,proto3" json:"authorization_token,omitempty"`
@@ -1640,7 +1640,7 @@ func (x *UpdateActionRequest) GetAction() *Action {
 	return nil
 }
 
-func (x *UpdateActionRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateActionRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1678,7 +1678,7 @@ type MergeActionRequest struct {
 	// invocations/${INVOCATION_ID}/targets/${url_encode(TARGET_ID)}/configuredTargets/${url_encode(CONFIG_ID)}/actions/${url_encode(ACTION_ID)}
 	Action *Action `protobuf:"bytes,3,opt,name=action,proto3" json:"action,omitempty"`
 	// Indicates which fields to merge.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// This is a token to authorize access to this invocation. It must be set to
 	// the same value that was provided in the CreateInvocationRequest.
 	AuthorizationToken string `protobuf:"bytes,5,opt,name=authorization_token,json=authorizationToken,proto3" json:"authorization_token,omitempty"`
@@ -1733,7 +1733,7 @@ func (x *MergeActionRequest) GetAction() *Action {
 	return nil
 }
 
-func (x *MergeActionRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *MergeActionRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1860,7 +1860,7 @@ type UpdateConfigurationRequest struct {
 	// invocations/${INVOCATION_ID}/configs/${url_encode(CONFIG_ID)}
 	Configuration *Configuration `protobuf:"bytes,3,opt,name=configuration,proto3" json:"configuration,omitempty"`
 	// Indicates which fields to update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// This is a token to authorize access to this invocation. It must be set to
 	// the same value that was provided in the CreateInvocationRequest.
 	AuthorizationToken string `protobuf:"bytes,5,opt,name=authorization_token,json=authorizationToken,proto3" json:"authorization_token,omitempty"`
@@ -1908,7 +1908,7 @@ func (x *UpdateConfigurationRequest) GetConfiguration() *Configuration {
 	return nil
 }
 
-func (x *UpdateConfigurationRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateConfigurationRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -2032,7 +2032,7 @@ type UpdateFileSetRequest struct {
 	// must be: invocations/${INVOCATION_ID}/fileSets/${url_encode(FILE_SET_ID)}
 	FileSet *FileSet `protobuf:"bytes,1,opt,name=file_set,json=fileSet,proto3" json:"file_set,omitempty"`
 	// Indicates which fields to update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// This is a token to authorize access to this invocation. It must be set to
 	// the same value that was provided in the CreateInvocationRequest.
 	AuthorizationToken string `protobuf:"bytes,3,opt,name=authorization_token,json=authorizationToken,proto3" json:"authorization_token,omitempty"`
@@ -2080,7 +2080,7 @@ func (x *UpdateFileSetRequest) GetFileSet() *FileSet {
 	return nil
 }
 
-func (x *UpdateFileSetRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateFileSetRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -2118,7 +2118,7 @@ type MergeFileSetRequest struct {
 	// invocations/${INVOCATION_ID}/fileSets/${url_encode(FILE_SET_ID)}
 	FileSet *FileSet `protobuf:"bytes,2,opt,name=file_set,json=fileSet,proto3" json:"file_set,omitempty"`
 	// Indicates which fields to merge.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// This is a token to authorize access to this invocation. It must be set to
 	// the same value that was provided in the CreateInvocationRequest.
 	AuthorizationToken string `protobuf:"bytes,4,opt,name=authorization_token,json=authorizationToken,proto3" json:"authorization_token,omitempty"`
@@ -2173,7 +2173,7 @@ func (x *MergeFileSetRequest) GetFileSet() *FileSet {
 	return nil
 }
 
-func (x *MergeFileSetRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *MergeFileSetRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -2376,7 +2376,7 @@ type UploadRequest struct {
 	// Action: [*, status_attributes.*, timing.*, test_action.test_suite,
 	// test_action.infrastructure_failure_info].
 	// FileSet: [*].
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// If true then the Update, Merge operation will become a Create operation if
 	// the resource is NOT_FOUND. Not supported for Invocation resource.
 	CreateIfNotFound bool `protobuf:"varint,10,opt,name=create_if_not_found,json=createIfNotFound,proto3" json:"create_if_not_found,omitempty"`
@@ -2438,7 +2438,7 @@ func (x *UploadRequest) GetUploadOperation() UploadRequest_UploadOperation {
 	return UploadRequest_UPLOAD_OPERATION_UNSPECIFIED
 }
 
-func (x *UploadRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UploadRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -3498,8 +3498,8 @@ var file_google_devtools_resultstore_v2_resultstore_upload_proto_goTypes = []int
 	(*GetInvocationUploadMetadataRequest)(nil), // 30: google.devtools.resultstore.v2.GetInvocationUploadMetadataRequest
 	(*UploadRequest_Id)(nil),                   // 31: google.devtools.resultstore.v2.UploadRequest.Id
 	(*Invocation)(nil),                         // 32: google.devtools.resultstore.v2.Invocation
-	(*timestamppb.Timestamp)(nil),              // 33: google.protobuf.Timestamp
-	(*fieldmaskpb.FieldMask)(nil),              // 34: google.protobuf.FieldMask
+	(*timestamp.Timestamp)(nil),                // 33: google.protobuf.Timestamp
+	(*field_mask.FieldMask)(nil),               // 34: google.protobuf.FieldMask
 	(*Invocation_Id)(nil),                      // 35: google.devtools.resultstore.v2.Invocation.Id
 	(*Target)(nil),                             // 36: google.devtools.resultstore.v2.Target
 	(*Target_Id)(nil),                          // 37: google.devtools.resultstore.v2.Target.Id
@@ -3508,7 +3508,7 @@ var file_google_devtools_resultstore_v2_resultstore_upload_proto_goTypes = []int
 	(*Action)(nil),                             // 40: google.devtools.resultstore.v2.Action
 	(*Configuration)(nil),                      // 41: google.devtools.resultstore.v2.Configuration
 	(*FileSet)(nil),                            // 42: google.devtools.resultstore.v2.FileSet
-	(*emptypb.Empty)(nil),                      // 43: google.protobuf.Empty
+	(*empty.Empty)(nil),                        // 43: google.protobuf.Empty
 	(*UploadMetadata)(nil),                     // 44: google.devtools.resultstore.v2.UploadMetadata
 }
 var file_google_devtools_resultstore_v2_resultstore_upload_proto_depIdxs = []int32{

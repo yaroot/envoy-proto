@@ -9,9 +9,9 @@ package envoy_data_tap_v2alpha
 import (
 	core "envoy/api/v2/core"
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -93,7 +93,7 @@ type SocketEvent struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Timestamp for event.
-	Timestamp *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Timestamp *timestamp.Timestamp `protobuf:"bytes,1,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 	// Read or write with content as bytes string.
 	//
 	// Types that are assignable to EventSelector:
@@ -135,7 +135,7 @@ func (*SocketEvent) Descriptor() ([]byte, []int) {
 	return file_envoy_data_tap_v2alpha_transport_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *SocketEvent) GetTimestamp() *timestamppb.Timestamp {
+func (x *SocketEvent) GetTimestamp() *timestamp.Timestamp {
 	if x != nil {
 		return x.Timestamp
 	}
@@ -631,7 +631,7 @@ var file_envoy_data_tap_v2alpha_transport_proto_goTypes = []interface{}{
 	(*SocketEvent_Write)(nil),          // 5: envoy.data.tap.v2alpha.SocketEvent.Write
 	(*SocketEvent_Closed)(nil),         // 6: envoy.data.tap.v2alpha.SocketEvent.Closed
 	(*core.Address)(nil),               // 7: envoy.api.v2.core.Address
-	(*timestamppb.Timestamp)(nil),      // 8: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),        // 8: google.protobuf.Timestamp
 	(*Body)(nil),                       // 9: envoy.data.tap.v2alpha.Body
 }
 var file_envoy_data_tap_v2alpha_transport_proto_depIdxs = []int32{

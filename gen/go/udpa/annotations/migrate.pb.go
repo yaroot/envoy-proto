@@ -8,9 +8,9 @@ package udpa_annotations
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	descriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	descriptorpb "google.golang.org/protobuf/types/descriptorpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -184,7 +184,7 @@ func (x *FileMigrateAnnotation) GetMoveToPackage() string {
 
 var file_udpa_annotations_migrate_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
-		ExtendedType:  (*descriptorpb.MessageOptions)(nil),
+		ExtendedType:  (*descriptor.MessageOptions)(nil),
 		ExtensionType: (*MigrateAnnotation)(nil),
 		Field:         171962766,
 		Name:          "udpa.annotations.message_migrate",
@@ -192,7 +192,7 @@ var file_udpa_annotations_migrate_proto_extTypes = []protoimpl.ExtensionInfo{
 		Filename:      "udpa/annotations/migrate.proto",
 	},
 	{
-		ExtendedType:  (*descriptorpb.FieldOptions)(nil),
+		ExtendedType:  (*descriptor.FieldOptions)(nil),
 		ExtensionType: (*FieldMigrateAnnotation)(nil),
 		Field:         171962766,
 		Name:          "udpa.annotations.field_migrate",
@@ -200,7 +200,7 @@ var file_udpa_annotations_migrate_proto_extTypes = []protoimpl.ExtensionInfo{
 		Filename:      "udpa/annotations/migrate.proto",
 	},
 	{
-		ExtendedType:  (*descriptorpb.EnumOptions)(nil),
+		ExtendedType:  (*descriptor.EnumOptions)(nil),
 		ExtensionType: (*MigrateAnnotation)(nil),
 		Field:         171962766,
 		Name:          "udpa.annotations.enum_migrate",
@@ -208,7 +208,7 @@ var file_udpa_annotations_migrate_proto_extTypes = []protoimpl.ExtensionInfo{
 		Filename:      "udpa/annotations/migrate.proto",
 	},
 	{
-		ExtendedType:  (*descriptorpb.EnumValueOptions)(nil),
+		ExtendedType:  (*descriptor.EnumValueOptions)(nil),
 		ExtensionType: (*MigrateAnnotation)(nil),
 		Field:         171962766,
 		Name:          "udpa.annotations.enum_value_migrate",
@@ -216,7 +216,7 @@ var file_udpa_annotations_migrate_proto_extTypes = []protoimpl.ExtensionInfo{
 		Filename:      "udpa/annotations/migrate.proto",
 	},
 	{
-		ExtendedType:  (*descriptorpb.FileOptions)(nil),
+		ExtendedType:  (*descriptor.FileOptions)(nil),
 		ExtensionType: (*FileMigrateAnnotation)(nil),
 		Field:         171962766,
 		Name:          "udpa.annotations.file_migrate",
@@ -225,31 +225,31 @@ var file_udpa_annotations_migrate_proto_extTypes = []protoimpl.ExtensionInfo{
 	},
 }
 
-// Extension fields to descriptorpb.MessageOptions.
+// Extension fields to descriptor.MessageOptions.
 var (
 	// optional udpa.annotations.MigrateAnnotation message_migrate = 171962766;
 	E_MessageMigrate = &file_udpa_annotations_migrate_proto_extTypes[0]
 )
 
-// Extension fields to descriptorpb.FieldOptions.
+// Extension fields to descriptor.FieldOptions.
 var (
 	// optional udpa.annotations.FieldMigrateAnnotation field_migrate = 171962766;
 	E_FieldMigrate = &file_udpa_annotations_migrate_proto_extTypes[1]
 )
 
-// Extension fields to descriptorpb.EnumOptions.
+// Extension fields to descriptor.EnumOptions.
 var (
 	// optional udpa.annotations.MigrateAnnotation enum_migrate = 171962766;
 	E_EnumMigrate = &file_udpa_annotations_migrate_proto_extTypes[2]
 )
 
-// Extension fields to descriptorpb.EnumValueOptions.
+// Extension fields to descriptor.EnumValueOptions.
 var (
 	// optional udpa.annotations.MigrateAnnotation enum_value_migrate = 171962766;
 	E_EnumValueMigrate = &file_udpa_annotations_migrate_proto_extTypes[3]
 )
 
-// Extension fields to descriptorpb.FileOptions.
+// Extension fields to descriptor.FileOptions.
 var (
 	// optional udpa.annotations.FileMigrateAnnotation file_migrate = 171962766;
 	E_FileMigrate = &file_udpa_annotations_migrate_proto_extTypes[4]
@@ -328,14 +328,14 @@ func file_udpa_annotations_migrate_proto_rawDescGZIP() []byte {
 
 var file_udpa_annotations_migrate_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_udpa_annotations_migrate_proto_goTypes = []interface{}{
-	(*MigrateAnnotation)(nil),             // 0: udpa.annotations.MigrateAnnotation
-	(*FieldMigrateAnnotation)(nil),        // 1: udpa.annotations.FieldMigrateAnnotation
-	(*FileMigrateAnnotation)(nil),         // 2: udpa.annotations.FileMigrateAnnotation
-	(*descriptorpb.MessageOptions)(nil),   // 3: google.protobuf.MessageOptions
-	(*descriptorpb.FieldOptions)(nil),     // 4: google.protobuf.FieldOptions
-	(*descriptorpb.EnumOptions)(nil),      // 5: google.protobuf.EnumOptions
-	(*descriptorpb.EnumValueOptions)(nil), // 6: google.protobuf.EnumValueOptions
-	(*descriptorpb.FileOptions)(nil),      // 7: google.protobuf.FileOptions
+	(*MigrateAnnotation)(nil),           // 0: udpa.annotations.MigrateAnnotation
+	(*FieldMigrateAnnotation)(nil),      // 1: udpa.annotations.FieldMigrateAnnotation
+	(*FileMigrateAnnotation)(nil),       // 2: udpa.annotations.FileMigrateAnnotation
+	(*descriptor.MessageOptions)(nil),   // 3: google.protobuf.MessageOptions
+	(*descriptor.FieldOptions)(nil),     // 4: google.protobuf.FieldOptions
+	(*descriptor.EnumOptions)(nil),      // 5: google.protobuf.EnumOptions
+	(*descriptor.EnumValueOptions)(nil), // 6: google.protobuf.EnumValueOptions
+	(*descriptor.FileOptions)(nil),      // 7: google.protobuf.FileOptions
 }
 var file_udpa_annotations_migrate_proto_depIdxs = []int32{
 	3,  // 0: udpa.annotations.message_migrate:extendee -> google.protobuf.MessageOptions

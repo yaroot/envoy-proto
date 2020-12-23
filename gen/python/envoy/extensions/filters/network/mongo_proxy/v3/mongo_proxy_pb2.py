@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n=io.envoyproxy.envoy.extensions.filters.network.mongo_proxy.v3B\017MongoProxyProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nAenvoy/extensions/filters/network/mongo_proxy/v3/mongo_proxy.proto\x12/envoy.extensions.filters.network.mongo_proxy.v3\x1a\x34\x65nvoy/extensions/filters/common/fault/v3/fault.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xe0\x01\n\nMongoProxy\x12\x1c\n\x0bstat_prefix\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x12\n\naccess_log\x18\x02 \x01(\t\x12\x43\n\x05\x64\x65lay\x18\x03 \x01(\x0b\x32\x34.envoy.extensions.filters.common.fault.v3.FaultDelay\x12\x1d\n\x15\x65mit_dynamic_metadata\x18\x04 \x01(\x08:<\x9a\xc5\x88\x1e\x37\n5envoy.config.filter.network.mongo_proxy.v2.MongoProxyBZ\n=io.envoyproxy.envoy.extensions.filters.network.mongo_proxy.v3B\x0fMongoProxyProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\nAenvoy/extensions/filters/network/mongo_proxy/v3/mongo_proxy.proto\x12/envoy.extensions.filters.network.mongo_proxy.v3\x1a\x34\x65nvoy/extensions/filters/common/fault/v3/fault.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xe0\x01\n\nMongoProxy\x12\x1c\n\x0bstat_prefix\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x12\n\naccess_log\x18\x02 \x01(\t\x12\x43\n\x05\x64\x65lay\x18\x03 \x01(\x0b\x32\x34.envoy.extensions.filters.common.fault.v3.FaultDelay\x12\x1d\n\x15\x65mit_dynamic_metadata\x18\x04 \x01(\x08:<\x9a\xc5\x88\x1e\x37\n5envoy.config.filter.network.mongo_proxy.v2.MongoProxyBZ\n=io.envoyproxy.envoy.extensions.filters.network.mongo_proxy.v3B\x0fMongoProxyProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_extensions_dot_filters_dot_common_dot_fault_dot_v3_dot_fault__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -44,7 +44,7 @@ _MONGOPROXY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='access_log', full_name='envoy.extensions.filters.network.mongo_proxy.v3.MongoProxy.access_log', index=1,
       number=2, type=9, cpp_type=9, label=1,

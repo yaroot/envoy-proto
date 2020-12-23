@@ -22,12 +22,12 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	common "google.golang.org/genproto/googleapis/ads/googleads/v4/common"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v4/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -45,11 +45,14 @@ const _ = proto.ProtoPackageIsVersion4
 
 // An ad group criterion simulation. Supported combinations of advertising
 // channel type, criterion type, simulation type, and simulation modification
-// method are detailed below respectively.
+// method are detailed below respectively. Hotel AdGroupCriterion simulation
+// operations starting in V5.
 //
 // 1. DISPLAY - KEYWORD - CPC_BID - UNIFORM
 // 2. SEARCH - KEYWORD - CPC_BID - UNIFORM
 // 3. SHOPPING - LISTING_GROUP - CPC_BID - UNIFORM
+// 4. HOTEL - LISTING_GROUP - CPC_BID - UNIFORM
+// 5. HOTEL - LISTING_GROUP - PERCENT_CPC_BID - UNIFORM
 type AdGroupCriterionSimulation struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -61,17 +64,17 @@ type AdGroupCriterionSimulation struct {
 	// `customers/{customer_id}/adGroupCriterionSimulations/{ad_group_id}~{criterion_id}~{type}~{modification_method}~{start_date}~{end_date}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. AdGroup ID of the simulation.
-	AdGroupId *wrapperspb.Int64Value `protobuf:"bytes,2,opt,name=ad_group_id,json=adGroupId,proto3" json:"ad_group_id,omitempty"`
+	AdGroupId *wrappers.Int64Value `protobuf:"bytes,2,opt,name=ad_group_id,json=adGroupId,proto3" json:"ad_group_id,omitempty"`
 	// Output only. Criterion ID of the simulation.
-	CriterionId *wrapperspb.Int64Value `protobuf:"bytes,3,opt,name=criterion_id,json=criterionId,proto3" json:"criterion_id,omitempty"`
+	CriterionId *wrappers.Int64Value `protobuf:"bytes,3,opt,name=criterion_id,json=criterionId,proto3" json:"criterion_id,omitempty"`
 	// Output only. The field that the simulation modifies.
 	Type enums.SimulationTypeEnum_SimulationType `protobuf:"varint,4,opt,name=type,proto3,enum=google.ads.googleads.v4.enums.SimulationTypeEnum_SimulationType" json:"type,omitempty"`
 	// Output only. How the simulation modifies the field.
 	ModificationMethod enums.SimulationModificationMethodEnum_SimulationModificationMethod `protobuf:"varint,5,opt,name=modification_method,json=modificationMethod,proto3,enum=google.ads.googleads.v4.enums.SimulationModificationMethodEnum_SimulationModificationMethod" json:"modification_method,omitempty"`
 	// Output only. First day on which the simulation is based, in YYYY-MM-DD format.
-	StartDate *wrapperspb.StringValue `protobuf:"bytes,6,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
+	StartDate *wrappers.StringValue `protobuf:"bytes,6,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
 	// Output only. Last day on which the simulation is based, in YYYY-MM-DD format.
-	EndDate *wrapperspb.StringValue `protobuf:"bytes,7,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`
+	EndDate *wrappers.StringValue `protobuf:"bytes,7,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`
 	// List of simulation points.
 	//
 	// Types that are assignable to PointList:
@@ -118,14 +121,14 @@ func (x *AdGroupCriterionSimulation) GetResourceName() string {
 	return ""
 }
 
-func (x *AdGroupCriterionSimulation) GetAdGroupId() *wrapperspb.Int64Value {
+func (x *AdGroupCriterionSimulation) GetAdGroupId() *wrappers.Int64Value {
 	if x != nil {
 		return x.AdGroupId
 	}
 	return nil
 }
 
-func (x *AdGroupCriterionSimulation) GetCriterionId() *wrapperspb.Int64Value {
+func (x *AdGroupCriterionSimulation) GetCriterionId() *wrappers.Int64Value {
 	if x != nil {
 		return x.CriterionId
 	}
@@ -146,14 +149,14 @@ func (x *AdGroupCriterionSimulation) GetModificationMethod() enums.SimulationMod
 	return enums.SimulationModificationMethodEnum_UNSPECIFIED
 }
 
-func (x *AdGroupCriterionSimulation) GetStartDate() *wrapperspb.StringValue {
+func (x *AdGroupCriterionSimulation) GetStartDate() *wrappers.StringValue {
 	if x != nil {
 		return x.StartDate
 	}
 	return nil
 }
 
-func (x *AdGroupCriterionSimulation) GetEndDate() *wrapperspb.StringValue {
+func (x *AdGroupCriterionSimulation) GetEndDate() *wrappers.StringValue {
 	if x != nil {
 		return x.EndDate
 	}
@@ -304,10 +307,10 @@ func file_google_ads_googleads_v4_resources_ad_group_criterion_simulation_proto_
 var file_google_ads_googleads_v4_resources_ad_group_criterion_simulation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v4_resources_ad_group_criterion_simulation_proto_goTypes = []interface{}{
 	(*AdGroupCriterionSimulation)(nil),                                       // 0: google.ads.googleads.v4.resources.AdGroupCriterionSimulation
-	(*wrapperspb.Int64Value)(nil),                                            // 1: google.protobuf.Int64Value
+	(*wrappers.Int64Value)(nil),                                              // 1: google.protobuf.Int64Value
 	(enums.SimulationTypeEnum_SimulationType)(0),                             // 2: google.ads.googleads.v4.enums.SimulationTypeEnum.SimulationType
 	(enums.SimulationModificationMethodEnum_SimulationModificationMethod)(0), // 3: google.ads.googleads.v4.enums.SimulationModificationMethodEnum.SimulationModificationMethod
-	(*wrapperspb.StringValue)(nil),                                           // 4: google.protobuf.StringValue
+	(*wrappers.StringValue)(nil),                                             // 4: google.protobuf.StringValue
 	(*common.CpcBidSimulationPointList)(nil),                                 // 5: google.ads.googleads.v4.common.CpcBidSimulationPointList
 }
 var file_google_ads_googleads_v4_resources_ad_group_criterion_simulation_proto_depIdxs = []int32{

@@ -22,12 +22,12 @@ package monitoring
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/duration"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/durationpb"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -310,7 +310,7 @@ type UpdateUptimeCheckConfigRequest struct {
 	// configuration are updated with values from the new configuration. If this
 	// field is empty, then the current configuration is completely replaced with
 	// the new configuration.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// Required. If an `updateMask` has been specified, this field gives
 	// the values for the set of fields mentioned in the `updateMask`. If an
 	// `updateMask` has not been given, this Uptime check configuration replaces
@@ -357,7 +357,7 @@ func (*UpdateUptimeCheckConfigRequest) Descriptor() ([]byte, []int) {
 	return file_google_monitoring_v3_uptime_service_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *UpdateUptimeCheckConfigRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateUptimeCheckConfigRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -772,9 +772,9 @@ var file_google_monitoring_v3_uptime_service_proto_goTypes = []interface{}{
 	(*ListUptimeCheckIpsRequest)(nil),      // 6: google.monitoring.v3.ListUptimeCheckIpsRequest
 	(*ListUptimeCheckIpsResponse)(nil),     // 7: google.monitoring.v3.ListUptimeCheckIpsResponse
 	(*UptimeCheckConfig)(nil),              // 8: google.monitoring.v3.UptimeCheckConfig
-	(*fieldmaskpb.FieldMask)(nil),          // 9: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),           // 9: google.protobuf.FieldMask
 	(*UptimeCheckIp)(nil),                  // 10: google.monitoring.v3.UptimeCheckIp
-	(*emptypb.Empty)(nil),                  // 11: google.protobuf.Empty
+	(*empty.Empty)(nil),                    // 11: google.protobuf.Empty
 }
 var file_google_monitoring_v3_uptime_service_proto_depIdxs = []int32{
 	8,  // 0: google.monitoring.v3.ListUptimeCheckConfigsResponse.uptime_check_configs:type_name -> google.monitoring.v3.UptimeCheckConfig

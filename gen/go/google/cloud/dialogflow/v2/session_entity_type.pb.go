@@ -22,11 +22,11 @@ package dialogflow
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -449,7 +449,7 @@ type UpdateSessionEntityTypeRequest struct {
 	// Required. The session entity type to update.
 	SessionEntityType *SessionEntityType `protobuf:"bytes,1,opt,name=session_entity_type,json=sessionEntityType,proto3" json:"session_entity_type,omitempty"`
 	// Optional. The mask to control which fields get updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateSessionEntityTypeRequest) Reset() {
@@ -491,7 +491,7 @@ func (x *UpdateSessionEntityTypeRequest) GetSessionEntityType() *SessionEntityTy
 	return nil
 }
 
-func (x *UpdateSessionEntityTypeRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateSessionEntityTypeRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -821,8 +821,8 @@ var file_google_cloud_dialogflow_v2_session_entity_type_proto_goTypes = []interf
 	(*UpdateSessionEntityTypeRequest)(nil),    // 6: google.cloud.dialogflow.v2.UpdateSessionEntityTypeRequest
 	(*DeleteSessionEntityTypeRequest)(nil),    // 7: google.cloud.dialogflow.v2.DeleteSessionEntityTypeRequest
 	(*EntityType_Entity)(nil),                 // 8: google.cloud.dialogflow.v2.EntityType.Entity
-	(*fieldmaskpb.FieldMask)(nil),             // 9: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),                     // 10: google.protobuf.Empty
+	(*field_mask.FieldMask)(nil),              // 9: google.protobuf.FieldMask
+	(*empty.Empty)(nil),                       // 10: google.protobuf.Empty
 }
 var file_google_cloud_dialogflow_v2_session_entity_type_proto_depIdxs = []int32{
 	0,  // 0: google.cloud.dialogflow.v2.SessionEntityType.entity_override_mode:type_name -> google.cloud.dialogflow.v2.SessionEntityType.EntityOverrideMode

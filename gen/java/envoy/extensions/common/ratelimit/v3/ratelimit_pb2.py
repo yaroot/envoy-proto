@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n2io.envoyproxy.envoy.extensions.common.ratelimit.v3B\016RatelimitProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n4envoy/extensions/common/ratelimit/v3/ratelimit.proto\x12$envoy.extensions.common.ratelimit.v3\x1a\"envoy/type/v3/ratelimit_unit.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xd6\x03\n\x13RateLimitDescriptor\x12Z\n\x07\x65ntries\x18\x01 \x03(\x0b\x32?.envoy.extensions.common.ratelimit.v3.RateLimitDescriptor.EntryB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12Z\n\x05limit\x18\x02 \x01(\x0b\x32K.envoy.extensions.common.ratelimit.v3.RateLimitDescriptor.RateLimitOverride\x1an\n\x05\x45ntry\x12\x14\n\x03key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x16\n\x05value\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02 \x01:7\x9a\xc5\x88\x1e\x32\n0envoy.api.v2.ratelimit.RateLimitDescriptor.Entry\x1a\x64\n\x11RateLimitOverride\x12\x19\n\x11requests_per_unit\x18\x01 \x01(\r\x12\x34\n\x04unit\x18\x02 \x01(\x0e\x32\x1c.envoy.type.v3.RateLimitUnitB\x08\xfa\x42\x05\x82\x01\x02\x10\x01:1\x9a\xc5\x88\x1e,\n*envoy.api.v2.ratelimit.RateLimitDescriptorBN\n2io.envoyproxy.envoy.extensions.common.ratelimit.v3B\x0eRatelimitProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n4envoy/extensions/common/ratelimit/v3/ratelimit.proto\x12$envoy.extensions.common.ratelimit.v3\x1a\"envoy/type/v3/ratelimit_unit.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xd6\x03\n\x13RateLimitDescriptor\x12Z\n\x07\x65ntries\x18\x01 \x03(\x0b\x32?.envoy.extensions.common.ratelimit.v3.RateLimitDescriptor.EntryB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12Z\n\x05limit\x18\x02 \x01(\x0b\x32K.envoy.extensions.common.ratelimit.v3.RateLimitDescriptor.RateLimitOverride\x1an\n\x05\x45ntry\x12\x14\n\x03key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x16\n\x05value\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:7\x9a\xc5\x88\x1e\x32\n0envoy.api.v2.ratelimit.RateLimitDescriptor.Entry\x1a\x64\n\x11RateLimitOverride\x12\x19\n\x11requests_per_unit\x18\x01 \x01(\r\x12\x34\n\x04unit\x18\x02 \x01(\x0e\x32\x1c.envoy.type.v3.RateLimitUnitB\x08\xfa\x42\x05\x82\x01\x02\x10\x01:1\x9a\xc5\x88\x1e,\n*envoy.api.v2.ratelimit.RateLimitDescriptorBN\n2io.envoyproxy.envoy.extensions.common.ratelimit.v3B\x0eRatelimitProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_type_dot_v3_dot_ratelimit__unit__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -44,14 +44,14 @@ _RATELIMITDESCRIPTOR_ENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='envoy.extensions.common.ratelimit.v3.RateLimitDescriptor.Entry.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],

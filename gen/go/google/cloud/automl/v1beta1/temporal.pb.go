@@ -22,10 +22,10 @@ package automl
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -49,10 +49,10 @@ type TimeSegment struct {
 
 	// Start of the time segment (inclusive), represented as the duration since
 	// the example start.
-	StartTimeOffset *durationpb.Duration `protobuf:"bytes,1,opt,name=start_time_offset,json=startTimeOffset,proto3" json:"start_time_offset,omitempty"`
+	StartTimeOffset *duration.Duration `protobuf:"bytes,1,opt,name=start_time_offset,json=startTimeOffset,proto3" json:"start_time_offset,omitempty"`
 	// End of the time segment (exclusive), represented as the duration since the
 	// example start.
-	EndTimeOffset *durationpb.Duration `protobuf:"bytes,2,opt,name=end_time_offset,json=endTimeOffset,proto3" json:"end_time_offset,omitempty"`
+	EndTimeOffset *duration.Duration `protobuf:"bytes,2,opt,name=end_time_offset,json=endTimeOffset,proto3" json:"end_time_offset,omitempty"`
 }
 
 func (x *TimeSegment) Reset() {
@@ -87,14 +87,14 @@ func (*TimeSegment) Descriptor() ([]byte, []int) {
 	return file_google_cloud_automl_v1beta1_temporal_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *TimeSegment) GetStartTimeOffset() *durationpb.Duration {
+func (x *TimeSegment) GetStartTimeOffset() *duration.Duration {
 	if x != nil {
 		return x.StartTimeOffset
 	}
 	return nil
 }
 
-func (x *TimeSegment) GetEndTimeOffset() *durationpb.Duration {
+func (x *TimeSegment) GetEndTimeOffset() *duration.Duration {
 	if x != nil {
 		return x.EndTimeOffset
 	}
@@ -150,8 +150,8 @@ func file_google_cloud_automl_v1beta1_temporal_proto_rawDescGZIP() []byte {
 
 var file_google_cloud_automl_v1beta1_temporal_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_cloud_automl_v1beta1_temporal_proto_goTypes = []interface{}{
-	(*TimeSegment)(nil),         // 0: google.cloud.automl.v1beta1.TimeSegment
-	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
+	(*TimeSegment)(nil),       // 0: google.cloud.automl.v1beta1.TimeSegment
+	(*duration.Duration)(nil), // 1: google.protobuf.Duration
 }
 var file_google_cloud_automl_v1beta1_temporal_proto_depIdxs = []int32{
 	1, // 0: google.cloud.automl.v1beta1.TimeSegment.start_time_offset:type_name -> google.protobuf.Duration

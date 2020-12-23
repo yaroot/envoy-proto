@@ -22,10 +22,10 @@ package routes
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	status "google.golang.org/genproto/googleapis/rpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -45,13 +45,13 @@ const _ = proto.ProtoPackageIsVersion4
 type RouteMatrixElementCondition int32
 
 const (
-	// Not used.
+	// Only used when the `status` of the element is not OK.
 	RouteMatrixElementCondition_ROUTE_MATRIX_ELEMENT_CONDITION_UNSPECIFIED RouteMatrixElementCondition = 0
 	// A route was found, and the corresponding information was filled out for the
 	// element.
 	RouteMatrixElementCondition_ROUTE_EXISTS RouteMatrixElementCondition = 1
 	// No route could be found. Fields containing route information, such as
-	// distance_meters or duration, will not be filled out in the element.
+	// `distance_meters` or `duration`, will not be filled out in the element.
 	RouteMatrixElementCondition_ROUTE_NOT_FOUND RouteMatrixElementCondition = 2
 )
 
@@ -118,10 +118,10 @@ type RouteMatrixElement struct {
 	// `static_duration`. If you set the `route_preference` to either
 	// `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
 	// taking traffic conditions into account.
-	Duration *durationpb.Duration `protobuf:"bytes,5,opt,name=duration,proto3" json:"duration,omitempty"`
+	Duration *duration.Duration `protobuf:"bytes,5,opt,name=duration,proto3" json:"duration,omitempty"`
 	// The duration of traveling through the route without taking traffic
 	// conditions into consideration.
-	StaticDuration *durationpb.Duration `protobuf:"bytes,6,opt,name=static_duration,json=staticDuration,proto3" json:"static_duration,omitempty"`
+	StaticDuration *duration.Duration `protobuf:"bytes,6,opt,name=static_duration,json=staticDuration,proto3" json:"static_duration,omitempty"`
 	// Additional information about the route. For example: restriction
 	// information and toll information
 	TravelAdvisory *RouteTravelAdvisory `protobuf:"bytes,7,opt,name=travel_advisory,json=travelAdvisory,proto3" json:"travel_advisory,omitempty"`
@@ -200,14 +200,14 @@ func (x *RouteMatrixElement) GetDistanceMeters() int32 {
 	return 0
 }
 
-func (x *RouteMatrixElement) GetDuration() *durationpb.Duration {
+func (x *RouteMatrixElement) GetDuration() *duration.Duration {
 	if x != nil {
 		return x.Duration
 	}
 	return nil
 }
 
-func (x *RouteMatrixElement) GetStaticDuration() *durationpb.Duration {
+func (x *RouteMatrixElement) GetStaticDuration() *duration.Duration {
 	if x != nil {
 		return x.StaticDuration
 	}
@@ -318,7 +318,7 @@ var file_google_maps_routes_v1_route_matrix_element_proto_goTypes = []interface{
 	(RouteMatrixElementCondition)(0), // 0: google.maps.routes.v1.RouteMatrixElementCondition
 	(*RouteMatrixElement)(nil),       // 1: google.maps.routes.v1.RouteMatrixElement
 	(*status.Status)(nil),            // 2: google.rpc.Status
-	(*durationpb.Duration)(nil),      // 3: google.protobuf.Duration
+	(*duration.Duration)(nil),        // 3: google.protobuf.Duration
 	(*RouteTravelAdvisory)(nil),      // 4: google.maps.routes.v1.RouteTravelAdvisory
 	(*FallbackInfo)(nil),             // 5: google.maps.routes.v1.FallbackInfo
 }

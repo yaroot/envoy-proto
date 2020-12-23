@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n)com.google.cloud.billing.budgets.v1alpha1P\001ZLgoogle.golang.org/genproto/googleapis/cloud/billing/budgets/v1alpha1;budgets',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n8google/cloud/billing/budgets/v1alpha1/budget_model.proto\x12%google.cloud.billing.budgets.v1alpha1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x17google/type/money.proto\"\xe2\x03\n\x06\x42udget\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12I\n\rbudget_filter\x18\x03 \x01(\x0b\x32-.google.cloud.billing.budgets.v1alpha1.FilterB\x03\xe0\x41\x01\x12H\n\x06\x61mount\x18\x04 \x01(\x0b\x32\x33.google.cloud.billing.budgets.v1alpha1.BudgetAmountB\x03\xe0\x41\x02\x12R\n\x0fthreshold_rules\x18\x05 \x03(\x0b\x32\x34.google.cloud.billing.budgets.v1alpha1.ThresholdRuleB\x03\xe0\x41\x01\x12T\n\x10\x61ll_updates_rule\x18\x06 \x01(\x0b\x32\x35.google.cloud.billing.budgets.v1alpha1.AllUpdatesRuleB\x03\xe0\x41\x01\x12\x11\n\x04\x65tag\x18\x07 \x01(\tB\x03\xe0\x41\x01:]\xea\x41Z\n$billingbudgets.googleapis.com/Budget\x12\x32\x62illingAccounts/{billing_account}/budgets/{budget}\"\xa6\x01\n\x0c\x42udgetAmount\x12.\n\x10specified_amount\x18\x01 \x01(\x0b\x32\x12.google.type.MoneyH\x00\x12U\n\x12last_period_amount\x18\x02 \x01(\x0b\x32\x37.google.cloud.billing.budgets.v1alpha1.LastPeriodAmountH\x00\x42\x0f\n\rbudget_amount\"\x12\n\x10LastPeriodAmount\"\xce\x01\n\rThresholdRule\x12\x1e\n\x11threshold_percent\x18\x01 \x01(\x01\x42\x03\xe0\x41\x02\x12T\n\x0bspend_basis\x18\x02 \x01(\x0e\x32:.google.cloud.billing.budgets.v1alpha1.ThresholdRule.BasisB\x03\xe0\x41\x01\"G\n\x05\x42\x61sis\x12\x15\n\x11\x42\x41SIS_UNSPECIFIED\x10\x00\x12\x11\n\rCURRENT_SPEND\x10\x01\x12\x14\n\x10\x46ORECASTED_SPEND\x10\x02\"H\n\x0e\x41llUpdatesRule\x12\x19\n\x0cpubsub_topic\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1b\n\x0eschema_version\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\xc6\x03\n\x06\x46ilter\x12\x15\n\x08projects\x18\x01 \x03(\tB\x03\xe0\x41\x01\x12g\n\x16\x63redit_types_treatment\x18\x04 \x01(\x0e\x32\x42.google.cloud.billing.budgets.v1alpha1.Filter.CreditTypesTreatmentB\x03\xe0\x41\x01\x12\x15\n\x08services\x18\x03 \x03(\tB\x03\xe0\x41\x01\x12\x18\n\x0bsubaccounts\x18\x05 \x03(\tB\x03\xe0\x41\x01\x12N\n\x06labels\x18\x06 \x03(\x0b\x32\x39.google.cloud.billing.budgets.v1alpha1.Filter.LabelsEntryB\x03\xe0\x41\x01\x1aI\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12)\n\x05value\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.ListValue:\x02\x38\x01\"p\n\x14\x43reditTypesTreatment\x12&\n\"CREDIT_TYPES_TREATMENT_UNSPECIFIED\x10\x00\x12\x17\n\x13INCLUDE_ALL_CREDITS\x10\x01\x12\x17\n\x13\x45XCLUDE_ALL_CREDITS\x10\x02\x42{\n)com.google.cloud.billing.budgets.v1alpha1P\x01ZLgoogle.golang.org/genproto/googleapis/cloud/billing/budgets/v1alpha1;budgetsb\x06proto3'
+  serialized_pb=b'\n8google/cloud/billing/budgets/v1alpha1/budget_model.proto\x12%google.cloud.billing.budgets.v1alpha1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x17google/type/money.proto\"\xe2\x03\n\x06\x42udget\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12I\n\rbudget_filter\x18\x03 \x01(\x0b\x32-.google.cloud.billing.budgets.v1alpha1.FilterB\x03\xe0\x41\x01\x12H\n\x06\x61mount\x18\x04 \x01(\x0b\x32\x33.google.cloud.billing.budgets.v1alpha1.BudgetAmountB\x03\xe0\x41\x02\x12R\n\x0fthreshold_rules\x18\x05 \x03(\x0b\x32\x34.google.cloud.billing.budgets.v1alpha1.ThresholdRuleB\x03\xe0\x41\x01\x12T\n\x10\x61ll_updates_rule\x18\x06 \x01(\x0b\x32\x35.google.cloud.billing.budgets.v1alpha1.AllUpdatesRuleB\x03\xe0\x41\x01\x12\x11\n\x04\x65tag\x18\x07 \x01(\tB\x03\xe0\x41\x01:]\xea\x41Z\n$billingbudgets.googleapis.com/Budget\x12\x32\x62illingAccounts/{billing_account}/budgets/{budget}\"\xa6\x01\n\x0c\x42udgetAmount\x12.\n\x10specified_amount\x18\x01 \x01(\x0b\x32\x12.google.type.MoneyH\x00\x12U\n\x12last_period_amount\x18\x02 \x01(\x0b\x32\x37.google.cloud.billing.budgets.v1alpha1.LastPeriodAmountH\x00\x42\x0f\n\rbudget_amount\"\x12\n\x10LastPeriodAmount\"\xce\x01\n\rThresholdRule\x12\x1e\n\x11threshold_percent\x18\x01 \x01(\x01\x42\x03\xe0\x41\x02\x12T\n\x0bspend_basis\x18\x02 \x01(\x0e\x32:.google.cloud.billing.budgets.v1alpha1.ThresholdRule.BasisB\x03\xe0\x41\x01\"G\n\x05\x42\x61sis\x12\x15\n\x11\x42\x41SIS_UNSPECIFIED\x10\x00\x12\x11\n\rCURRENT_SPEND\x10\x01\x12\x14\n\x10\x46ORECASTED_SPEND\x10\x02\"\xa4\x01\n\x0e\x41llUpdatesRule\x12\x19\n\x0cpubsub_topic\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x1b\n\x0eschema_version\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12-\n monitoring_notification_channels\x18\x03 \x03(\tB\x03\xe0\x41\x01\x12+\n\x1e\x64isable_default_iam_recipients\x18\x04 \x01(\x08\x42\x03\xe0\x41\x01\"\x81\x04\n\x06\x46ilter\x12\x15\n\x08projects\x18\x01 \x03(\tB\x03\xe0\x41\x01\x12\x19\n\x0c\x63redit_types\x18\x07 \x03(\tB\x03\xe0\x41\x01\x12g\n\x16\x63redit_types_treatment\x18\x04 \x01(\x0e\x32\x42.google.cloud.billing.budgets.v1alpha1.Filter.CreditTypesTreatmentB\x03\xe0\x41\x01\x12\x15\n\x08services\x18\x03 \x03(\tB\x03\xe0\x41\x01\x12\x18\n\x0bsubaccounts\x18\x05 \x03(\tB\x03\xe0\x41\x01\x12N\n\x06labels\x18\x06 \x03(\x0b\x32\x39.google.cloud.billing.budgets.v1alpha1.Filter.LabelsEntryB\x03\xe0\x41\x01\x1aI\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12)\n\x05value\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.ListValue:\x02\x38\x01\"\x8f\x01\n\x14\x43reditTypesTreatment\x12&\n\"CREDIT_TYPES_TREATMENT_UNSPECIFIED\x10\x00\x12\x17\n\x13INCLUDE_ALL_CREDITS\x10\x01\x12\x17\n\x13\x45XCLUDE_ALL_CREDITS\x10\x02\x12\x1d\n\x19INCLUDE_SPECIFIED_CREDITS\x10\x03\x42{\n)com.google.cloud.billing.budgets.v1alpha1P\x01ZLgoogle.golang.org/genproto/googleapis/cloud/billing/budgets/v1alpha1;budgetsb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_type_dot_money__pb2.DESCRIPTOR,])
 
@@ -81,11 +81,16 @@ _FILTER_CREDITTYPESTREATMENT = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='INCLUDE_SPECIFIED_CREDITS', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1514,
-  serialized_end=1626,
+  serialized_start=1635,
+  serialized_end=1778,
 )
 _sym_db.RegisterEnumDescriptor(_FILTER_CREDITTYPESTREATMENT)
 
@@ -287,14 +292,28 @@ _ALLUPDATESRULE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='schema_version', full_name='google.cloud.billing.budgets.v1alpha1.AllUpdatesRule.schema_version', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='monitoring_notification_channels', full_name='google.cloud.billing.budgets.v1alpha1.AllUpdatesRule.monitoring_notification_channels', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='disable_default_iam_recipients', full_name='google.cloud.billing.budgets.v1alpha1.AllUpdatesRule.disable_default_iam_recipients', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -307,8 +326,8 @@ _ALLUPDATESRULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1097,
-  serialized_end=1169,
+  serialized_start=1098,
+  serialized_end=1262,
 )
 
 
@@ -346,8 +365,8 @@ _FILTER_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1439,
-  serialized_end=1512,
+  serialized_start=1559,
+  serialized_end=1632,
 )
 
 _FILTER = _descriptor.Descriptor(
@@ -366,28 +385,35 @@ _FILTER = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='credit_types_treatment', full_name='google.cloud.billing.budgets.v1alpha1.Filter.credit_types_treatment', index=1,
+      name='credit_types', full_name='google.cloud.billing.budgets.v1alpha1.Filter.credit_types', index=1,
+      number=7, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='credit_types_treatment', full_name='google.cloud.billing.budgets.v1alpha1.Filter.credit_types_treatment', index=2,
       number=4, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='services', full_name='google.cloud.billing.budgets.v1alpha1.Filter.services', index=2,
+      name='services', full_name='google.cloud.billing.budgets.v1alpha1.Filter.services', index=3,
       number=3, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='subaccounts', full_name='google.cloud.billing.budgets.v1alpha1.Filter.subaccounts', index=3,
+      name='subaccounts', full_name='google.cloud.billing.budgets.v1alpha1.Filter.subaccounts', index=4,
       number=5, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='labels', full_name='google.cloud.billing.budgets.v1alpha1.Filter.labels', index=4,
+      name='labels', full_name='google.cloud.billing.budgets.v1alpha1.Filter.labels', index=5,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -406,8 +432,8 @@ _FILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1172,
-  serialized_end=1626,
+  serialized_start=1265,
+  serialized_end=1778,
 )
 
 _BUDGET.fields_by_name['budget_filter'].message_type = _FILTER
@@ -500,8 +526,11 @@ _THRESHOLDRULE.fields_by_name['threshold_percent']._options = None
 _THRESHOLDRULE.fields_by_name['spend_basis']._options = None
 _ALLUPDATESRULE.fields_by_name['pubsub_topic']._options = None
 _ALLUPDATESRULE.fields_by_name['schema_version']._options = None
+_ALLUPDATESRULE.fields_by_name['monitoring_notification_channels']._options = None
+_ALLUPDATESRULE.fields_by_name['disable_default_iam_recipients']._options = None
 _FILTER_LABELSENTRY._options = None
 _FILTER.fields_by_name['projects']._options = None
+_FILTER.fields_by_name['credit_types']._options = None
 _FILTER.fields_by_name['credit_types_treatment']._options = None
 _FILTER.fields_by_name['services']._options = None
 _FILTER.fields_by_name['subaccounts']._options = None

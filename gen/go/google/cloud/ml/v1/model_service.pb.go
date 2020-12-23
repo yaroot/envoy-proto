@@ -22,12 +22,12 @@ package ml
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	_ "google.golang.org/genproto/googleapis/api/serviceconfig"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -176,9 +176,9 @@ type Version struct {
 	// this location is useful only as a historical record.
 	DeploymentUri string `protobuf:"bytes,4,opt,name=deployment_uri,json=deploymentUri,proto3" json:"deployment_uri,omitempty"`
 	// Output only. The time the version was created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The time the version was last used for prediction.
-	LastUseTime *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=last_use_time,json=lastUseTime,proto3" json:"last_use_time,omitempty"`
+	LastUseTime *timestamp.Timestamp `protobuf:"bytes,6,opt,name=last_use_time,json=lastUseTime,proto3" json:"last_use_time,omitempty"`
 	// Optional. The Google Cloud ML runtime version to use for this deployment.
 	// If not set, Google Cloud ML will choose a version.
 	RuntimeVersion string `protobuf:"bytes,8,opt,name=runtime_version,json=runtimeVersion,proto3" json:"runtime_version,omitempty"`
@@ -251,14 +251,14 @@ func (x *Version) GetDeploymentUri() string {
 	return ""
 }
 
-func (x *Version) GetCreateTime() *timestamppb.Timestamp {
+func (x *Version) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *Version) GetLastUseTime() *timestamppb.Timestamp {
+func (x *Version) GetLastUseTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.LastUseTime
 	}
@@ -1204,7 +1204,7 @@ var file_google_cloud_ml_v1_model_service_proto_goTypes = []interface{}{
 	(*GetVersionRequest)(nil),        // 11: google.cloud.ml.v1.GetVersionRequest
 	(*DeleteVersionRequest)(nil),     // 12: google.cloud.ml.v1.DeleteVersionRequest
 	(*SetDefaultVersionRequest)(nil), // 13: google.cloud.ml.v1.SetDefaultVersionRequest
-	(*timestamppb.Timestamp)(nil),    // 14: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),      // 14: google.protobuf.Timestamp
 	(*longrunning.Operation)(nil),    // 15: google.longrunning.Operation
 }
 var file_google_cloud_ml_v1_model_service_proto_depIdxs = []int32{

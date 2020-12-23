@@ -22,10 +22,10 @@ package common
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -244,40 +244,40 @@ type BidModifierSimulationPoint struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The simulated bid modifier upon which projected metrics are based.
-	BidModifier *wrapperspb.DoubleValue `protobuf:"bytes,1,opt,name=bid_modifier,json=bidModifier,proto3" json:"bid_modifier,omitempty"`
+	BidModifier *wrappers.DoubleValue `protobuf:"bytes,1,opt,name=bid_modifier,json=bidModifier,proto3" json:"bid_modifier,omitempty"`
 	// Projected number of biddable conversions.
 	// Only search advertising channel type supports this field.
-	BiddableConversions *wrapperspb.DoubleValue `protobuf:"bytes,2,opt,name=biddable_conversions,json=biddableConversions,proto3" json:"biddable_conversions,omitempty"`
+	BiddableConversions *wrappers.DoubleValue `protobuf:"bytes,2,opt,name=biddable_conversions,json=biddableConversions,proto3" json:"biddable_conversions,omitempty"`
 	// Projected total value of biddable conversions.
 	// Only search advertising channel type supports this field.
-	BiddableConversionsValue *wrapperspb.DoubleValue `protobuf:"bytes,3,opt,name=biddable_conversions_value,json=biddableConversionsValue,proto3" json:"biddable_conversions_value,omitempty"`
+	BiddableConversionsValue *wrappers.DoubleValue `protobuf:"bytes,3,opt,name=biddable_conversions_value,json=biddableConversionsValue,proto3" json:"biddable_conversions_value,omitempty"`
 	// Projected number of clicks.
-	Clicks *wrapperspb.Int64Value `protobuf:"bytes,4,opt,name=clicks,proto3" json:"clicks,omitempty"`
+	Clicks *wrappers.Int64Value `protobuf:"bytes,4,opt,name=clicks,proto3" json:"clicks,omitempty"`
 	// Projected cost in micros.
-	CostMicros *wrapperspb.Int64Value `protobuf:"bytes,5,opt,name=cost_micros,json=costMicros,proto3" json:"cost_micros,omitempty"`
+	CostMicros *wrappers.Int64Value `protobuf:"bytes,5,opt,name=cost_micros,json=costMicros,proto3" json:"cost_micros,omitempty"`
 	// Projected number of impressions.
-	Impressions *wrapperspb.Int64Value `protobuf:"bytes,6,opt,name=impressions,proto3" json:"impressions,omitempty"`
+	Impressions *wrappers.Int64Value `protobuf:"bytes,6,opt,name=impressions,proto3" json:"impressions,omitempty"`
 	// Projected number of top slot impressions.
 	// Only search advertising channel type supports this field.
-	TopSlotImpressions *wrapperspb.Int64Value `protobuf:"bytes,7,opt,name=top_slot_impressions,json=topSlotImpressions,proto3" json:"top_slot_impressions,omitempty"`
+	TopSlotImpressions *wrappers.Int64Value `protobuf:"bytes,7,opt,name=top_slot_impressions,json=topSlotImpressions,proto3" json:"top_slot_impressions,omitempty"`
 	// Projected number of biddable conversions for the parent resource.
 	// Only search advertising channel type supports this field.
-	ParentBiddableConversions *wrapperspb.DoubleValue `protobuf:"bytes,8,opt,name=parent_biddable_conversions,json=parentBiddableConversions,proto3" json:"parent_biddable_conversions,omitempty"`
+	ParentBiddableConversions *wrappers.DoubleValue `protobuf:"bytes,8,opt,name=parent_biddable_conversions,json=parentBiddableConversions,proto3" json:"parent_biddable_conversions,omitempty"`
 	// Projected total value of biddable conversions for the parent resource.
 	// Only search advertising channel type supports this field.
-	ParentBiddableConversionsValue *wrapperspb.DoubleValue `protobuf:"bytes,9,opt,name=parent_biddable_conversions_value,json=parentBiddableConversionsValue,proto3" json:"parent_biddable_conversions_value,omitempty"`
+	ParentBiddableConversionsValue *wrappers.DoubleValue `protobuf:"bytes,9,opt,name=parent_biddable_conversions_value,json=parentBiddableConversionsValue,proto3" json:"parent_biddable_conversions_value,omitempty"`
 	// Projected number of clicks for the parent resource.
-	ParentClicks *wrapperspb.Int64Value `protobuf:"bytes,10,opt,name=parent_clicks,json=parentClicks,proto3" json:"parent_clicks,omitempty"`
+	ParentClicks *wrappers.Int64Value `protobuf:"bytes,10,opt,name=parent_clicks,json=parentClicks,proto3" json:"parent_clicks,omitempty"`
 	// Projected cost in micros for the parent resource.
-	ParentCostMicros *wrapperspb.Int64Value `protobuf:"bytes,11,opt,name=parent_cost_micros,json=parentCostMicros,proto3" json:"parent_cost_micros,omitempty"`
+	ParentCostMicros *wrappers.Int64Value `protobuf:"bytes,11,opt,name=parent_cost_micros,json=parentCostMicros,proto3" json:"parent_cost_micros,omitempty"`
 	// Projected number of impressions for the parent resource.
-	ParentImpressions *wrapperspb.Int64Value `protobuf:"bytes,12,opt,name=parent_impressions,json=parentImpressions,proto3" json:"parent_impressions,omitempty"`
+	ParentImpressions *wrappers.Int64Value `protobuf:"bytes,12,opt,name=parent_impressions,json=parentImpressions,proto3" json:"parent_impressions,omitempty"`
 	// Projected number of top slot impressions for the parent resource.
 	// Only search advertising channel type supports this field.
-	ParentTopSlotImpressions *wrapperspb.Int64Value `protobuf:"bytes,13,opt,name=parent_top_slot_impressions,json=parentTopSlotImpressions,proto3" json:"parent_top_slot_impressions,omitempty"`
+	ParentTopSlotImpressions *wrappers.Int64Value `protobuf:"bytes,13,opt,name=parent_top_slot_impressions,json=parentTopSlotImpressions,proto3" json:"parent_top_slot_impressions,omitempty"`
 	// Projected minimum daily budget that must be available to the parent
 	// resource to realize this simulation.
-	ParentRequiredBudgetMicros *wrapperspb.Int64Value `protobuf:"bytes,14,opt,name=parent_required_budget_micros,json=parentRequiredBudgetMicros,proto3" json:"parent_required_budget_micros,omitempty"`
+	ParentRequiredBudgetMicros *wrappers.Int64Value `protobuf:"bytes,14,opt,name=parent_required_budget_micros,json=parentRequiredBudgetMicros,proto3" json:"parent_required_budget_micros,omitempty"`
 }
 
 func (x *BidModifierSimulationPoint) Reset() {
@@ -312,98 +312,98 @@ func (*BidModifierSimulationPoint) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_common_simulation_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *BidModifierSimulationPoint) GetBidModifier() *wrapperspb.DoubleValue {
+func (x *BidModifierSimulationPoint) GetBidModifier() *wrappers.DoubleValue {
 	if x != nil {
 		return x.BidModifier
 	}
 	return nil
 }
 
-func (x *BidModifierSimulationPoint) GetBiddableConversions() *wrapperspb.DoubleValue {
+func (x *BidModifierSimulationPoint) GetBiddableConversions() *wrappers.DoubleValue {
 	if x != nil {
 		return x.BiddableConversions
 	}
 	return nil
 }
 
-func (x *BidModifierSimulationPoint) GetBiddableConversionsValue() *wrapperspb.DoubleValue {
+func (x *BidModifierSimulationPoint) GetBiddableConversionsValue() *wrappers.DoubleValue {
 	if x != nil {
 		return x.BiddableConversionsValue
 	}
 	return nil
 }
 
-func (x *BidModifierSimulationPoint) GetClicks() *wrapperspb.Int64Value {
+func (x *BidModifierSimulationPoint) GetClicks() *wrappers.Int64Value {
 	if x != nil {
 		return x.Clicks
 	}
 	return nil
 }
 
-func (x *BidModifierSimulationPoint) GetCostMicros() *wrapperspb.Int64Value {
+func (x *BidModifierSimulationPoint) GetCostMicros() *wrappers.Int64Value {
 	if x != nil {
 		return x.CostMicros
 	}
 	return nil
 }
 
-func (x *BidModifierSimulationPoint) GetImpressions() *wrapperspb.Int64Value {
+func (x *BidModifierSimulationPoint) GetImpressions() *wrappers.Int64Value {
 	if x != nil {
 		return x.Impressions
 	}
 	return nil
 }
 
-func (x *BidModifierSimulationPoint) GetTopSlotImpressions() *wrapperspb.Int64Value {
+func (x *BidModifierSimulationPoint) GetTopSlotImpressions() *wrappers.Int64Value {
 	if x != nil {
 		return x.TopSlotImpressions
 	}
 	return nil
 }
 
-func (x *BidModifierSimulationPoint) GetParentBiddableConversions() *wrapperspb.DoubleValue {
+func (x *BidModifierSimulationPoint) GetParentBiddableConversions() *wrappers.DoubleValue {
 	if x != nil {
 		return x.ParentBiddableConversions
 	}
 	return nil
 }
 
-func (x *BidModifierSimulationPoint) GetParentBiddableConversionsValue() *wrapperspb.DoubleValue {
+func (x *BidModifierSimulationPoint) GetParentBiddableConversionsValue() *wrappers.DoubleValue {
 	if x != nil {
 		return x.ParentBiddableConversionsValue
 	}
 	return nil
 }
 
-func (x *BidModifierSimulationPoint) GetParentClicks() *wrapperspb.Int64Value {
+func (x *BidModifierSimulationPoint) GetParentClicks() *wrappers.Int64Value {
 	if x != nil {
 		return x.ParentClicks
 	}
 	return nil
 }
 
-func (x *BidModifierSimulationPoint) GetParentCostMicros() *wrapperspb.Int64Value {
+func (x *BidModifierSimulationPoint) GetParentCostMicros() *wrappers.Int64Value {
 	if x != nil {
 		return x.ParentCostMicros
 	}
 	return nil
 }
 
-func (x *BidModifierSimulationPoint) GetParentImpressions() *wrapperspb.Int64Value {
+func (x *BidModifierSimulationPoint) GetParentImpressions() *wrappers.Int64Value {
 	if x != nil {
 		return x.ParentImpressions
 	}
 	return nil
 }
 
-func (x *BidModifierSimulationPoint) GetParentTopSlotImpressions() *wrapperspb.Int64Value {
+func (x *BidModifierSimulationPoint) GetParentTopSlotImpressions() *wrappers.Int64Value {
 	if x != nil {
 		return x.ParentTopSlotImpressions
 	}
 	return nil
 }
 
-func (x *BidModifierSimulationPoint) GetParentRequiredBudgetMicros() *wrapperspb.Int64Value {
+func (x *BidModifierSimulationPoint) GetParentRequiredBudgetMicros() *wrappers.Int64Value {
 	if x != nil {
 		return x.ParentRequiredBudgetMicros
 	}
@@ -417,20 +417,20 @@ type CpcBidSimulationPoint struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The simulated CPC bid upon which projected metrics are based.
-	CpcBidMicros *wrapperspb.Int64Value `protobuf:"bytes,1,opt,name=cpc_bid_micros,json=cpcBidMicros,proto3" json:"cpc_bid_micros,omitempty"`
+	CpcBidMicros *wrappers.Int64Value `protobuf:"bytes,1,opt,name=cpc_bid_micros,json=cpcBidMicros,proto3" json:"cpc_bid_micros,omitempty"`
 	// Projected number of biddable conversions.
-	BiddableConversions *wrapperspb.DoubleValue `protobuf:"bytes,2,opt,name=biddable_conversions,json=biddableConversions,proto3" json:"biddable_conversions,omitempty"`
+	BiddableConversions *wrappers.DoubleValue `protobuf:"bytes,2,opt,name=biddable_conversions,json=biddableConversions,proto3" json:"biddable_conversions,omitempty"`
 	// Projected total value of biddable conversions.
-	BiddableConversionsValue *wrapperspb.DoubleValue `protobuf:"bytes,3,opt,name=biddable_conversions_value,json=biddableConversionsValue,proto3" json:"biddable_conversions_value,omitempty"`
+	BiddableConversionsValue *wrappers.DoubleValue `protobuf:"bytes,3,opt,name=biddable_conversions_value,json=biddableConversionsValue,proto3" json:"biddable_conversions_value,omitempty"`
 	// Projected number of clicks.
-	Clicks *wrapperspb.Int64Value `protobuf:"bytes,4,opt,name=clicks,proto3" json:"clicks,omitempty"`
+	Clicks *wrappers.Int64Value `protobuf:"bytes,4,opt,name=clicks,proto3" json:"clicks,omitempty"`
 	// Projected cost in micros.
-	CostMicros *wrapperspb.Int64Value `protobuf:"bytes,5,opt,name=cost_micros,json=costMicros,proto3" json:"cost_micros,omitempty"`
+	CostMicros *wrappers.Int64Value `protobuf:"bytes,5,opt,name=cost_micros,json=costMicros,proto3" json:"cost_micros,omitempty"`
 	// Projected number of impressions.
-	Impressions *wrapperspb.Int64Value `protobuf:"bytes,6,opt,name=impressions,proto3" json:"impressions,omitempty"`
+	Impressions *wrappers.Int64Value `protobuf:"bytes,6,opt,name=impressions,proto3" json:"impressions,omitempty"`
 	// Projected number of top slot impressions.
 	// Only search advertising channel type supports this field.
-	TopSlotImpressions *wrapperspb.Int64Value `protobuf:"bytes,7,opt,name=top_slot_impressions,json=topSlotImpressions,proto3" json:"top_slot_impressions,omitempty"`
+	TopSlotImpressions *wrappers.Int64Value `protobuf:"bytes,7,opt,name=top_slot_impressions,json=topSlotImpressions,proto3" json:"top_slot_impressions,omitempty"`
 }
 
 func (x *CpcBidSimulationPoint) Reset() {
@@ -465,49 +465,49 @@ func (*CpcBidSimulationPoint) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_common_simulation_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *CpcBidSimulationPoint) GetCpcBidMicros() *wrapperspb.Int64Value {
+func (x *CpcBidSimulationPoint) GetCpcBidMicros() *wrappers.Int64Value {
 	if x != nil {
 		return x.CpcBidMicros
 	}
 	return nil
 }
 
-func (x *CpcBidSimulationPoint) GetBiddableConversions() *wrapperspb.DoubleValue {
+func (x *CpcBidSimulationPoint) GetBiddableConversions() *wrappers.DoubleValue {
 	if x != nil {
 		return x.BiddableConversions
 	}
 	return nil
 }
 
-func (x *CpcBidSimulationPoint) GetBiddableConversionsValue() *wrapperspb.DoubleValue {
+func (x *CpcBidSimulationPoint) GetBiddableConversionsValue() *wrappers.DoubleValue {
 	if x != nil {
 		return x.BiddableConversionsValue
 	}
 	return nil
 }
 
-func (x *CpcBidSimulationPoint) GetClicks() *wrapperspb.Int64Value {
+func (x *CpcBidSimulationPoint) GetClicks() *wrappers.Int64Value {
 	if x != nil {
 		return x.Clicks
 	}
 	return nil
 }
 
-func (x *CpcBidSimulationPoint) GetCostMicros() *wrapperspb.Int64Value {
+func (x *CpcBidSimulationPoint) GetCostMicros() *wrappers.Int64Value {
 	if x != nil {
 		return x.CostMicros
 	}
 	return nil
 }
 
-func (x *CpcBidSimulationPoint) GetImpressions() *wrapperspb.Int64Value {
+func (x *CpcBidSimulationPoint) GetImpressions() *wrappers.Int64Value {
 	if x != nil {
 		return x.Impressions
 	}
 	return nil
 }
 
-func (x *CpcBidSimulationPoint) GetTopSlotImpressions() *wrapperspb.Int64Value {
+func (x *CpcBidSimulationPoint) GetTopSlotImpressions() *wrappers.Int64Value {
 	if x != nil {
 		return x.TopSlotImpressions
 	}
@@ -521,13 +521,13 @@ type CpvBidSimulationPoint struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The simulated CPV bid upon which projected metrics are based.
-	CpvBidMicros *wrapperspb.Int64Value `protobuf:"bytes,1,opt,name=cpv_bid_micros,json=cpvBidMicros,proto3" json:"cpv_bid_micros,omitempty"`
+	CpvBidMicros *wrappers.Int64Value `protobuf:"bytes,1,opt,name=cpv_bid_micros,json=cpvBidMicros,proto3" json:"cpv_bid_micros,omitempty"`
 	// Projected cost in micros.
-	CostMicros *wrapperspb.Int64Value `protobuf:"bytes,2,opt,name=cost_micros,json=costMicros,proto3" json:"cost_micros,omitempty"`
+	CostMicros *wrappers.Int64Value `protobuf:"bytes,2,opt,name=cost_micros,json=costMicros,proto3" json:"cost_micros,omitempty"`
 	// Projected number of impressions.
-	Impressions *wrapperspb.Int64Value `protobuf:"bytes,3,opt,name=impressions,proto3" json:"impressions,omitempty"`
+	Impressions *wrappers.Int64Value `protobuf:"bytes,3,opt,name=impressions,proto3" json:"impressions,omitempty"`
 	// Projected number of views.
-	Views *wrapperspb.Int64Value `protobuf:"bytes,4,opt,name=views,proto3" json:"views,omitempty"`
+	Views *wrappers.Int64Value `protobuf:"bytes,4,opt,name=views,proto3" json:"views,omitempty"`
 }
 
 func (x *CpvBidSimulationPoint) Reset() {
@@ -562,28 +562,28 @@ func (*CpvBidSimulationPoint) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_common_simulation_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *CpvBidSimulationPoint) GetCpvBidMicros() *wrapperspb.Int64Value {
+func (x *CpvBidSimulationPoint) GetCpvBidMicros() *wrappers.Int64Value {
 	if x != nil {
 		return x.CpvBidMicros
 	}
 	return nil
 }
 
-func (x *CpvBidSimulationPoint) GetCostMicros() *wrapperspb.Int64Value {
+func (x *CpvBidSimulationPoint) GetCostMicros() *wrappers.Int64Value {
 	if x != nil {
 		return x.CostMicros
 	}
 	return nil
 }
 
-func (x *CpvBidSimulationPoint) GetImpressions() *wrapperspb.Int64Value {
+func (x *CpvBidSimulationPoint) GetImpressions() *wrappers.Int64Value {
 	if x != nil {
 		return x.Impressions
 	}
 	return nil
 }
 
-func (x *CpvBidSimulationPoint) GetViews() *wrapperspb.Int64Value {
+func (x *CpvBidSimulationPoint) GetViews() *wrappers.Int64Value {
 	if x != nil {
 		return x.Views
 	}
@@ -597,20 +597,20 @@ type TargetCpaSimulationPoint struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The simulated target CPA upon which projected metrics are based.
-	TargetCpaMicros *wrapperspb.Int64Value `protobuf:"bytes,1,opt,name=target_cpa_micros,json=targetCpaMicros,proto3" json:"target_cpa_micros,omitempty"`
+	TargetCpaMicros *wrappers.Int64Value `protobuf:"bytes,1,opt,name=target_cpa_micros,json=targetCpaMicros,proto3" json:"target_cpa_micros,omitempty"`
 	// Projected number of biddable conversions.
-	BiddableConversions *wrapperspb.DoubleValue `protobuf:"bytes,2,opt,name=biddable_conversions,json=biddableConversions,proto3" json:"biddable_conversions,omitempty"`
+	BiddableConversions *wrappers.DoubleValue `protobuf:"bytes,2,opt,name=biddable_conversions,json=biddableConversions,proto3" json:"biddable_conversions,omitempty"`
 	// Projected total value of biddable conversions.
-	BiddableConversionsValue *wrapperspb.DoubleValue `protobuf:"bytes,3,opt,name=biddable_conversions_value,json=biddableConversionsValue,proto3" json:"biddable_conversions_value,omitempty"`
+	BiddableConversionsValue *wrappers.DoubleValue `protobuf:"bytes,3,opt,name=biddable_conversions_value,json=biddableConversionsValue,proto3" json:"biddable_conversions_value,omitempty"`
 	// Projected number of clicks.
-	Clicks *wrapperspb.Int64Value `protobuf:"bytes,4,opt,name=clicks,proto3" json:"clicks,omitempty"`
+	Clicks *wrappers.Int64Value `protobuf:"bytes,4,opt,name=clicks,proto3" json:"clicks,omitempty"`
 	// Projected cost in micros.
-	CostMicros *wrapperspb.Int64Value `protobuf:"bytes,5,opt,name=cost_micros,json=costMicros,proto3" json:"cost_micros,omitempty"`
+	CostMicros *wrappers.Int64Value `protobuf:"bytes,5,opt,name=cost_micros,json=costMicros,proto3" json:"cost_micros,omitempty"`
 	// Projected number of impressions.
-	Impressions *wrapperspb.Int64Value `protobuf:"bytes,6,opt,name=impressions,proto3" json:"impressions,omitempty"`
+	Impressions *wrappers.Int64Value `protobuf:"bytes,6,opt,name=impressions,proto3" json:"impressions,omitempty"`
 	// Projected number of top slot impressions.
 	// Only search advertising channel type supports this field.
-	TopSlotImpressions *wrapperspb.Int64Value `protobuf:"bytes,7,opt,name=top_slot_impressions,json=topSlotImpressions,proto3" json:"top_slot_impressions,omitempty"`
+	TopSlotImpressions *wrappers.Int64Value `protobuf:"bytes,7,opt,name=top_slot_impressions,json=topSlotImpressions,proto3" json:"top_slot_impressions,omitempty"`
 }
 
 func (x *TargetCpaSimulationPoint) Reset() {
@@ -645,49 +645,49 @@ func (*TargetCpaSimulationPoint) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_common_simulation_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *TargetCpaSimulationPoint) GetTargetCpaMicros() *wrapperspb.Int64Value {
+func (x *TargetCpaSimulationPoint) GetTargetCpaMicros() *wrappers.Int64Value {
 	if x != nil {
 		return x.TargetCpaMicros
 	}
 	return nil
 }
 
-func (x *TargetCpaSimulationPoint) GetBiddableConversions() *wrapperspb.DoubleValue {
+func (x *TargetCpaSimulationPoint) GetBiddableConversions() *wrappers.DoubleValue {
 	if x != nil {
 		return x.BiddableConversions
 	}
 	return nil
 }
 
-func (x *TargetCpaSimulationPoint) GetBiddableConversionsValue() *wrapperspb.DoubleValue {
+func (x *TargetCpaSimulationPoint) GetBiddableConversionsValue() *wrappers.DoubleValue {
 	if x != nil {
 		return x.BiddableConversionsValue
 	}
 	return nil
 }
 
-func (x *TargetCpaSimulationPoint) GetClicks() *wrapperspb.Int64Value {
+func (x *TargetCpaSimulationPoint) GetClicks() *wrappers.Int64Value {
 	if x != nil {
 		return x.Clicks
 	}
 	return nil
 }
 
-func (x *TargetCpaSimulationPoint) GetCostMicros() *wrapperspb.Int64Value {
+func (x *TargetCpaSimulationPoint) GetCostMicros() *wrappers.Int64Value {
 	if x != nil {
 		return x.CostMicros
 	}
 	return nil
 }
 
-func (x *TargetCpaSimulationPoint) GetImpressions() *wrapperspb.Int64Value {
+func (x *TargetCpaSimulationPoint) GetImpressions() *wrappers.Int64Value {
 	if x != nil {
 		return x.Impressions
 	}
 	return nil
 }
 
-func (x *TargetCpaSimulationPoint) GetTopSlotImpressions() *wrapperspb.Int64Value {
+func (x *TargetCpaSimulationPoint) GetTopSlotImpressions() *wrappers.Int64Value {
 	if x != nil {
 		return x.TopSlotImpressions
 	}
@@ -927,8 +927,8 @@ var file_google_ads_googleads_v3_common_simulation_proto_goTypes = []interface{}
 	(*CpcBidSimulationPoint)(nil),          // 5: google.ads.googleads.v3.common.CpcBidSimulationPoint
 	(*CpvBidSimulationPoint)(nil),          // 6: google.ads.googleads.v3.common.CpvBidSimulationPoint
 	(*TargetCpaSimulationPoint)(nil),       // 7: google.ads.googleads.v3.common.TargetCpaSimulationPoint
-	(*wrapperspb.DoubleValue)(nil),         // 8: google.protobuf.DoubleValue
-	(*wrapperspb.Int64Value)(nil),          // 9: google.protobuf.Int64Value
+	(*wrappers.DoubleValue)(nil),           // 8: google.protobuf.DoubleValue
+	(*wrappers.Int64Value)(nil),            // 9: google.protobuf.Int64Value
 }
 var file_google_ads_googleads_v3_common_simulation_proto_depIdxs = []int32{
 	4,  // 0: google.ads.googleads.v3.common.BidModifierSimulationPointList.points:type_name -> google.ads.googleads.v3.common.BidModifierSimulationPoint

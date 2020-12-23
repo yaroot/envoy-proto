@@ -22,12 +22,12 @@ package runtimeconfig
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -592,7 +592,7 @@ type WatchVariableRequest struct {
 	//
 	// If not specified or the variable has an older timestamp, the watcher waits
 	// for a the value to change before returning.
-	NewerThan *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=newer_than,json=newerThan,proto3" json:"newer_than,omitempty"`
+	NewerThan *timestamp.Timestamp `protobuf:"bytes,4,opt,name=newer_than,json=newerThan,proto3" json:"newer_than,omitempty"`
 }
 
 func (x *WatchVariableRequest) Reset() {
@@ -634,7 +634,7 @@ func (x *WatchVariableRequest) GetName() string {
 	return ""
 }
 
-func (x *WatchVariableRequest) GetNewerThan() *timestamppb.Timestamp {
+func (x *WatchVariableRequest) GetNewerThan() *timestamp.Timestamp {
 	if x != nil {
 		return x.NewerThan
 	}
@@ -1561,9 +1561,9 @@ var file_google_cloud_runtimeconfig_v1beta1_runtimeconfig_proto_goTypes = []inte
 	(*DeleteWaiterRequest)(nil),   // 17: google.cloud.runtimeconfig.v1beta1.DeleteWaiterRequest
 	(*RuntimeConfig)(nil),         // 18: google.cloud.runtimeconfig.v1beta1.RuntimeConfig
 	(*Variable)(nil),              // 19: google.cloud.runtimeconfig.v1beta1.Variable
-	(*timestamppb.Timestamp)(nil), // 20: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),   // 20: google.protobuf.Timestamp
 	(*Waiter)(nil),                // 21: google.cloud.runtimeconfig.v1beta1.Waiter
-	(*emptypb.Empty)(nil),         // 22: google.protobuf.Empty
+	(*empty.Empty)(nil),           // 22: google.protobuf.Empty
 	(*longrunning.Operation)(nil), // 23: google.longrunning.Operation
 }
 var file_google_cloud_runtimeconfig_v1beta1_runtimeconfig_proto_depIdxs = []int32{

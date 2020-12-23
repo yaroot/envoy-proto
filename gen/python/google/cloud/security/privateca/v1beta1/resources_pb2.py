@@ -24,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/security/privateca/v1beta1/resources.proto',
   package='google.cloud.security.privateca.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n+com.google.cloud.security.privateca.v1beta1B\027PrivateCaResourcesProtoP\001ZPgoogle.golang.org/genproto/googleapis/cloud/security/privateca/v1beta1;privateca\370\001\001\252\002\'Google.Cloud.Security.PrivateCA.V1Beta1',
+  serialized_options=b'\n+com.google.cloud.security.privateca.v1beta1B\027PrivateCaResourcesProtoP\001ZPgoogle.golang.org/genproto/googleapis/cloud/security/privateca/v1beta1;privateca\370\001\001\252\002\'Google.Cloud.Security.PrivateCA.V1Beta1\312\002\'Google\\Cloud\\Security\\PrivateCA\\V1beta1\352\002+Google::Cloud::Security::PrivateCA::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n7google/cloud/security/privateca/v1beta1/resources.proto\x12\'google.cloud.security.privateca.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1cgoogle/api/annotations.proto\"\xb6\x19\n\x14\x43\x65rtificateAuthority\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12X\n\x04type\x18\x02 \x01(\x0e\x32\x42.google.cloud.security.privateca.v1beta1.CertificateAuthority.TypeB\x06\xe0\x41\x02\xe0\x41\x05\x12X\n\x04tier\x18\x03 \x01(\x0e\x32\x42.google.cloud.security.privateca.v1beta1.CertificateAuthority.TierB\x06\xe0\x41\x02\xe0\x41\x05\x12R\n\x06\x63onfig\x18\x04 \x01(\x0b\x32:.google.cloud.security.privateca.v1beta1.CertificateConfigB\x06\xe0\x41\x02\xe0\x41\x05\x12\x30\n\x08lifetime\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x02\x12\x66\n\x08key_spec\x18\x06 \x01(\x0b\x32L.google.cloud.security.privateca.v1beta1.CertificateAuthority.KeyVersionSpecB\x06\xe0\x41\x02\xe0\x41\x05\x12y\n\x12\x63\x65rtificate_policy\x18\x07 \x01(\x0b\x32X.google.cloud.security.privateca.v1beta1.CertificateAuthority.CertificateAuthorityPolicyB\x03\xe0\x41\x01\x12j\n\x0fissuing_options\x18\x08 \x01(\x0b\x32L.google.cloud.security.privateca.v1beta1.CertificateAuthority.IssuingOptionsB\x03\xe0\x41\x01\x12\"\n\x15pem_issuer_cert_chain\x18\t \x03(\tB\x03\xe0\x41\x01\x12W\n\x05state\x18\n \x01(\x0e\x32\x43.google.cloud.security.privateca.v1beta1.CertificateAuthority.StateB\x03\xe0\x41\x03\x12\x1c\n\x0fpem_certificate\x18\x0b \x01(\tB\x03\xe0\x41\x03\x12h\n\x1a\x63\x61_certificate_description\x18\x0c \x01(\x0b\x32?.google.cloud.security.privateca.v1beta1.CertificateDescriptionB\x03\xe0\x41\x03\x12\x17\n\ngcs_bucket\x18\r \x01(\tB\x03\xe0\x41\x05\x12\x62\n\x0b\x61\x63\x63\x65ss_urls\x18\x0e \x01(\x0b\x32H.google.cloud.security.privateca.v1beta1.CertificateAuthority.AccessUrlsB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x10 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x36\n\rdeletion_time\x18\x11 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12^\n\x06labels\x18\x12 \x03(\x0b\x32I.google.cloud.security.privateca.v1beta1.CertificateAuthority.LabelsEntryB\x03\xe0\x41\x01\x1aW\n\x0eIssuingOptions\x12 \n\x13include_ca_cert_url\x18\x01 \x01(\x08\x42\x03\xe0\x41\x02\x12#\n\x16include_crl_access_url\x18\x02 \x01(\x08\x42\x03\xe0\x41\x02\x1a\xce\x07\n\x1a\x43\x65rtificateAuthorityPolicy\x12\x8e\x01\n\x13\x61llowed_config_list\x18\x01 \x01(\x0b\x32j.google.cloud.security.privateca.v1beta1.CertificateAuthority.CertificateAuthorityPolicy.AllowedConfigListB\x03\xe0\x41\x01H\x00\x12\x66\n\x17overwrite_config_values\x18\x02 \x01(\x0b\x32>.google.cloud.security.privateca.v1beta1.ReusableConfigWrapperB\x03\xe0\x41\x01H\x00\x12\x62\n#allowed_locations_and_organizations\x18\x03 \x03(\x0b\x32\x30.google.cloud.security.privateca.v1beta1.SubjectB\x03\xe0\x41\x01\x12!\n\x14\x61llowed_common_names\x18\x04 \x03(\tB\x03\xe0\x41\x01\x12\x8a\x01\n\x0c\x61llowed_sans\x18\x05 \x01(\x0b\x32o.google.cloud.security.privateca.v1beta1.CertificateAuthority.CertificateAuthorityPolicy.AllowedSubjectAltNamesB\x03\xe0\x41\x01\x12\x38\n\x10maximum_lifetime\x18\x06 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x01\x1aw\n\x11\x41llowedConfigList\x12\x62\n\x15\x61llowed_config_values\x18\x01 \x03(\x0b\x32>.google.cloud.security.privateca.v1beta1.ReusableConfigWrapperB\x03\xe0\x41\x02\x1a\xde\x01\n\x16\x41llowedSubjectAltNames\x12\x1e\n\x11\x61llowed_dns_names\x18\x01 \x03(\tB\x03\xe0\x41\x01\x12\x19\n\x0c\x61llowed_uris\x18\x02 \x03(\tB\x03\xe0\x41\x01\x12$\n\x17\x61llowed_email_addresses\x18\x03 \x03(\tB\x03\xe0\x41\x01\x12\x18\n\x0b\x61llowed_ips\x18\x04 \x03(\tB\x03\xe0\x41\x01\x12)\n\x1c\x61llow_globbing_dns_wildcards\x18\x05 \x01(\x08\x42\x03\xe0\x41\x01\x12\x1e\n\x11\x61llow_custom_sans\x18\x06 \x01(\x08\x42\x03\xe0\x41\x01\x42\x0f\n\rconfig_policy\x1aG\n\nAccessUrls\x12!\n\x19\x63\x61_certificate_access_url\x18\x01 \x01(\t\x12\x16\n\x0e\x63rl_access_url\x18\x02 \x01(\t\x1a\xaf\x01\n\x0eKeyVersionSpec\x12$\n\x15\x63loud_kms_key_version\x18\x01 \x01(\tB\x03\xe0\x41\x02H\x00\x12i\n\talgorithm\x18\x02 \x01(\x0e\x32O.google.cloud.security.privateca.v1beta1.CertificateAuthority.SignHashAlgorithmB\x03\xe0\x41\x02H\x00\x42\x0c\n\nKeyVersion\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\">\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bSELF_SIGNED\x10\x01\x12\x0f\n\x0bSUBORDINATE\x10\x02\"8\n\x04Tier\x12\x14\n\x10TIER_UNSPECIFIED\x10\x00\x12\x0e\n\nENTERPRISE\x10\x01\x12\n\n\x06\x44\x45VOPS\x10\x02\"g\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x45NABLED\x10\x01\x12\x0c\n\x08\x44ISABLED\x10\x02\x12\x16\n\x12PENDING_ACTIVATION\x10\x03\x12\x14\n\x10PENDING_DELETION\x10\x04\"\xb6\x01\n\x11SignHashAlgorithm\x12#\n\x1fSIGN_HASH_ALGORITHM_UNSPECIFIED\x10\x00\x12\x14\n\x10RSA_2048_SHA_256\x10\x01\x12\x14\n\x10RSA_3072_SHA_256\x10\x02\x12\x14\n\x10RSA_4096_SHA_256\x10\x03\x12\x12\n\x0e\x45\x43_P256_SHA256\x10\x04\x12\x12\n\x0e\x45\x43_P384_SHA256\x10\x05\x12\x12\n\x0e\x45\x43_P521_SHA256\x10\x06:\x8b\x01\xea\x41\x87\x01\n-privateca.googleapis.com/CertificateAuthority\x12Vprojects/{project}/locations/{location}/certificateAuthorities/{certificate_authority}\"\xf9\x07\n\x19\x43\x65rtificateRevocationList\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x1c\n\x0fsequence_number\x18\x02 \x01(\x03\x42\x03\xe0\x41\x03\x12x\n\x14revoked_certificates\x18\x03 \x03(\x0b\x32U.google.cloud.security.privateca.v1beta1.CertificateRevocationList.RevokedCertificateB\x03\xe0\x41\x03\x12\x14\n\x07pem_crl\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x17\n\naccess_url\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\\\n\x05state\x18\x06 \x01(\x0e\x32H.google.cloud.security.privateca.v1beta1.CertificateRevocationList.StateB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x63\n\x06labels\x18\t \x03(\x0b\x32N.google.cloud.security.privateca.v1beta1.CertificateRevocationList.LabelsEntryB\x03\xe0\x41\x01\x1a\x9a\x01\n\x12RevokedCertificate\x12\x13\n\x0b\x63\x65rtificate\x18\x01 \x01(\t\x12\x19\n\x11hex_serial_number\x18\x02 \x01(\t\x12T\n\x11revocation_reason\x18\x03 \x01(\x0e\x32\x39.google.cloud.security.privateca.v1beta1.RevocationReason\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\":\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\n\n\x06\x41\x43TIVE\x10\x01\x12\x0e\n\nSUPERSEDED\x10\x02:\xca\x01\xea\x41\xc6\x01\n2privateca.googleapis.com/CertificateRevocationList\x12\x8f\x01projects/{project}/locations/{location}/certificateAuthorities/{certificate_authority}/certificateRevocationLists/{certificate_revocation_list}\"\x97\x08\n\x0b\x43\x65rtificate\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x16\n\x07pem_csr\x18\x02 \x01(\tB\x03\xe0\x41\x05H\x00\x12Q\n\x06\x63onfig\x18\x03 \x01(\x0b\x32:.google.cloud.security.privateca.v1beta1.CertificateConfigB\x03\xe0\x41\x05H\x00\x12\x30\n\x08lifetime\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x02\x12g\n\x12revocation_details\x18\x05 \x01(\x0b\x32\x46.google.cloud.security.privateca.v1beta1.Certificate.RevocationDetailsB\x03\xe0\x41\x03\x12\x1c\n\x0fpem_certificate\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12\x65\n\x17\x63\x65rtificate_description\x18\x07 \x01(\x0b\x32?.google.cloud.security.privateca.v1beta1.CertificateDescriptionB\x03\xe0\x41\x03\x12\"\n\x15pem_certificate_chain\x18\x08 \x03(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12U\n\x06labels\x18\x0b \x03(\x0b\x32@.google.cloud.security.privateca.v1beta1.Certificate.LabelsEntryB\x03\xe0\x41\x01\x1a\x9d\x01\n\x11RevocationDetails\x12S\n\x10revocation_state\x18\x01 \x01(\x0e\x32\x39.google.cloud.security.privateca.v1beta1.RevocationReason\x12\x33\n\x0frevocation_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x9d\x01\xea\x41\x99\x01\n$privateca.googleapis.com/Certificate\x12qprojects/{project}/locations/{location}/certificateAuthorities/{certificate_authority}/certificates/{certificate}B\x14\n\x12\x63\x65rtificate_config\"\xff\x03\n\x0eReusableConfig\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12R\n\x06values\x18\x02 \x01(\x0b\x32=.google.cloud.security.privateca.v1beta1.ReusableConfigValuesB\x03\xe0\x41\x02\x12\x18\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12X\n\x06labels\x18\x06 \x03(\x0b\x32\x43.google.cloud.security.privateca.v1beta1.ReusableConfig.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:w\xea\x41t\n\'privateca.googleapis.com/ReusableConfig\x12Iprojects/{project}/locations/{location}/reusableConfigs/{reusable_config}\"\x89\x04\n\x14ReusableConfigValues\x12I\n\tkey_usage\x18\x01 \x01(\x0b\x32\x31.google.cloud.security.privateca.v1beta1.KeyUsageB\x03\xe0\x41\x01\x12`\n\nca_options\x18\x02 \x01(\x0b\x32G.google.cloud.security.privateca.v1beta1.ReusableConfigValues.CaOptionsB\x03\xe0\x41\x01\x12J\n\npolicy_ids\x18\x03 \x03(\x0b\x32\x31.google.cloud.security.privateca.v1beta1.ObjectIdB\x03\xe0\x41\x01\x12\x1d\n\x10\x61ia_ocsp_servers\x18\x04 \x03(\tB\x03\xe0\x41\x01\x12Z\n\x15\x61\x64\x64itional_extensions\x18\x05 \x03(\x0b\x32\x36.google.cloud.security.privateca.v1beta1.X509ExtensionB\x03\xe0\x41\x01\x1a}\n\tCaOptions\x12.\n\x05is_ca\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x03\xe0\x41\x01\x12@\n\x16max_issuer_path_length\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32ValueB\x03\xe0\x41\x01\"\xae\x01\n\x15ReusableConfigWrapper\x12\x1e\n\x0freusable_config\x18\x01 \x01(\tB\x03\xe0\x41\x02H\x00\x12\x64\n\x16reusable_config_values\x18\x02 \x01(\x0b\x32=.google.cloud.security.privateca.v1beta1.ReusableConfigValuesB\x03\xe0\x41\x02H\x00\x42\x0f\n\rconfig_values\"\xb2\x01\n\tPublicKey\x12M\n\x04type\x18\x01 \x01(\x0e\x32:.google.cloud.security.privateca.v1beta1.PublicKey.KeyTypeB\x03\xe0\x41\x02\x12\x10\n\x03key\x18\x02 \x01(\x0c\x42\x03\xe0\x41\x02\"D\n\x07KeyType\x12\x18\n\x14KEY_TYPE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bPEM_RSA_KEY\x10\x01\x12\x0e\n\nPEM_EC_KEY\x10\x02\"\xf2\x03\n\x11\x43\x65rtificateConfig\x12\x65\n\x0esubject_config\x18\x01 \x01(\x0b\x32H.google.cloud.security.privateca.v1beta1.CertificateConfig.SubjectConfigB\x03\xe0\x41\x02\x12\\\n\x0freusable_config\x18\x02 \x01(\x0b\x32>.google.cloud.security.privateca.v1beta1.ReusableConfigWrapperB\x03\xe0\x41\x02\x12K\n\npublic_key\x18\x03 \x01(\x0b\x32\x32.google.cloud.security.privateca.v1beta1.PublicKeyB\x03\xe0\x41\x01\x1a\xca\x01\n\rSubjectConfig\x12\x46\n\x07subject\x18\x01 \x01(\x0b\x32\x30.google.cloud.security.privateca.v1beta1.SubjectB\x03\xe0\x41\x02\x12\x18\n\x0b\x63ommon_name\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12W\n\x10subject_alt_name\x18\x03 \x01(\x0b\x32\x38.google.cloud.security.privateca.v1beta1.SubjectAltNamesB\x03\xe0\x41\x01\"\xc0\x07\n\x16\x43\x65rtificateDescription\x12o\n\x13subject_description\x18\x01 \x01(\x0b\x32R.google.cloud.security.privateca.v1beta1.CertificateDescription.SubjectDescription\x12T\n\rconfig_values\x18\x02 \x01(\x0b\x32=.google.cloud.security.privateca.v1beta1.ReusableConfigValues\x12\x46\n\npublic_key\x18\x03 \x01(\x0b\x32\x32.google.cloud.security.privateca.v1beta1.PublicKey\x12]\n\x0esubject_key_id\x18\x04 \x01(\x0b\x32\x45.google.cloud.security.privateca.v1beta1.CertificateDescription.KeyId\x12_\n\x10\x61uthority_key_id\x18\x05 \x01(\x0b\x32\x45.google.cloud.security.privateca.v1beta1.CertificateDescription.KeyId\x12\x1f\n\x17\x63rl_distribution_points\x18\x06 \x03(\t\x12$\n\x1c\x61ia_issuing_certificate_urls\x18\x07 \x03(\t\x1a\xf1\x02\n\x12SubjectDescription\x12\x41\n\x07subject\x18\x01 \x01(\x0b\x32\x30.google.cloud.security.privateca.v1beta1.Subject\x12\x13\n\x0b\x63ommon_name\x18\x02 \x01(\t\x12R\n\x10subject_alt_name\x18\x03 \x01(\x0b\x32\x38.google.cloud.security.privateca.v1beta1.SubjectAltNames\x12\x19\n\x11hex_serial_number\x18\x04 \x01(\t\x12+\n\x08lifetime\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x33\n\x0fnot_before_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x32\n\x0enot_after_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x1c\n\x05KeyId\x12\x13\n\x06key_id\x18\x01 \x01(\tB\x03\xe0\x41\x01\"\'\n\x08ObjectId\x12\x1b\n\x0eobject_id_path\x18\x01 \x03(\x05\x42\x03\xe0\x41\x02\"\x85\x01\n\rX509Extension\x12I\n\tobject_id\x18\x01 \x01(\x0b\x32\x31.google.cloud.security.privateca.v1beta1.ObjectIdB\x03\xe0\x41\x02\x12\x15\n\x08\x63ritical\x18\x02 \x01(\x08\x42\x03\xe0\x41\x02\x12\x12\n\x05value\x18\x03 \x01(\x0c\x42\x03\xe0\x41\x02\"\xb1\x05\n\x08KeyUsage\x12Y\n\x0e\x62\x61se_key_usage\x18\x01 \x01(\x0b\x32\x41.google.cloud.security.privateca.v1beta1.KeyUsage.KeyUsageOptions\x12\x65\n\x12\x65xtended_key_usage\x18\x02 \x01(\x0b\x32I.google.cloud.security.privateca.v1beta1.KeyUsage.ExtendedKeyUsageOptions\x12V\n\x1bunknown_extended_key_usages\x18\x03 \x03(\x0b\x32\x31.google.cloud.security.privateca.v1beta1.ObjectId\x1a\xe7\x01\n\x0fKeyUsageOptions\x12\x19\n\x11\x64igital_signature\x18\x01 \x01(\x08\x12\x1a\n\x12\x63ontent_commitment\x18\x02 \x01(\x08\x12\x18\n\x10key_encipherment\x18\x03 \x01(\x08\x12\x19\n\x11\x64\x61ta_encipherment\x18\x04 \x01(\x08\x12\x15\n\rkey_agreement\x18\x05 \x01(\x08\x12\x11\n\tcert_sign\x18\x06 \x01(\x08\x12\x10\n\x08\x63rl_sign\x18\x07 \x01(\x08\x12\x15\n\rencipher_only\x18\x08 \x01(\x08\x12\x15\n\rdecipher_only\x18\t \x01(\x08\x1a\xa0\x01\n\x17\x45xtendedKeyUsageOptions\x12\x13\n\x0bserver_auth\x18\x01 \x01(\x08\x12\x13\n\x0b\x63lient_auth\x18\x02 \x01(\x08\x12\x14\n\x0c\x63ode_signing\x18\x03 \x01(\x08\x12\x18\n\x10\x65mail_protection\x18\x04 \x01(\x08\x12\x15\n\rtime_stamping\x18\x05 \x01(\x08\x12\x14\n\x0cocsp_signing\x18\x06 \x01(\x08\"\xa3\x01\n\x07Subject\x12\x14\n\x0c\x63ountry_code\x18\x01 \x01(\t\x12\x14\n\x0corganization\x18\x02 \x01(\t\x12\x1b\n\x13organizational_unit\x18\x03 \x01(\t\x12\x10\n\x08locality\x18\x04 \x01(\t\x12\x10\n\x08province\x18\x05 \x01(\t\x12\x16\n\x0estreet_address\x18\x06 \x01(\t\x12\x13\n\x0bpostal_code\x18\x07 \x01(\t\"\xae\x01\n\x0fSubjectAltNames\x12\x11\n\tdns_names\x18\x01 \x03(\t\x12\x0c\n\x04uris\x18\x02 \x03(\t\x12\x17\n\x0f\x65mail_addresses\x18\x03 \x03(\t\x12\x14\n\x0cip_addresses\x18\x04 \x03(\t\x12K\n\x0b\x63ustom_sans\x18\x05 \x03(\x0b\x32\x36.google.cloud.security.privateca.v1beta1.X509Extension*\x87\x02\n\x10RevocationReason\x12!\n\x1dREVOCATION_REASON_UNSPECIFIED\x10\x00\x12\x12\n\x0eKEY_COMPROMISE\x10\x01\x12$\n CERTIFICATE_AUTHORITY_COMPROMISE\x10\x02\x12\x17\n\x13\x41\x46\x46ILIATION_CHANGED\x10\x03\x12\x0e\n\nSUPERSEDED\x10\x04\x12\x1a\n\x16\x43\x45SSATION_OF_OPERATION\x10\x05\x12\x14\n\x10\x43\x45RTIFICATE_HOLD\x10\x06\x12\x17\n\x13PRIVILEGE_WITHDRAWN\x10\x07\x12\"\n\x1e\x41TTRIBUTE_AUTHORITY_COMPROMISE\x10\x08\x42\xc7\x01\n+com.google.cloud.security.privateca.v1beta1B\x17PrivateCaResourcesProtoP\x01ZPgoogle.golang.org/genproto/googleapis/cloud/security/privateca/v1beta1;privateca\xf8\x01\x01\xaa\x02\'Google.Cloud.Security.PrivateCA.V1Beta1b\x06proto3'
+  serialized_pb=b'\n7google/cloud/security/privateca/v1beta1/resources.proto\x12\'google.cloud.security.privateca.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1cgoogle/api/annotations.proto\"\xa8\x1c\n\x14\x43\x65rtificateAuthority\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12X\n\x04type\x18\x02 \x01(\x0e\x32\x42.google.cloud.security.privateca.v1beta1.CertificateAuthority.TypeB\x06\xe0\x41\x02\xe0\x41\x05\x12X\n\x04tier\x18\x03 \x01(\x0e\x32\x42.google.cloud.security.privateca.v1beta1.CertificateAuthority.TierB\x06\xe0\x41\x02\xe0\x41\x05\x12R\n\x06\x63onfig\x18\x04 \x01(\x0b\x32:.google.cloud.security.privateca.v1beta1.CertificateConfigB\x06\xe0\x41\x02\xe0\x41\x05\x12\x30\n\x08lifetime\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x02\x12\x66\n\x08key_spec\x18\x06 \x01(\x0b\x32L.google.cloud.security.privateca.v1beta1.CertificateAuthority.KeyVersionSpecB\x06\xe0\x41\x02\xe0\x41\x05\x12y\n\x12\x63\x65rtificate_policy\x18\x07 \x01(\x0b\x32X.google.cloud.security.privateca.v1beta1.CertificateAuthority.CertificateAuthorityPolicyB\x03\xe0\x41\x01\x12j\n\x0fissuing_options\x18\x08 \x01(\x0b\x32L.google.cloud.security.privateca.v1beta1.CertificateAuthority.IssuingOptionsB\x03\xe0\x41\x01\x12[\n\x12subordinate_config\x18\x13 \x01(\x0b\x32:.google.cloud.security.privateca.v1beta1.SubordinateConfigB\x03\xe0\x41\x01\x12W\n\x05state\x18\n \x01(\x0e\x32\x43.google.cloud.security.privateca.v1beta1.CertificateAuthority.StateB\x03\xe0\x41\x03\x12 \n\x13pem_ca_certificates\x18\t \x03(\tB\x03\xe0\x41\x03\x12i\n\x1b\x63\x61_certificate_descriptions\x18\x0c \x03(\x0b\x32?.google.cloud.security.privateca.v1beta1.CertificateDescriptionB\x03\xe0\x41\x03\x12\x17\n\ngcs_bucket\x18\r \x01(\tB\x03\xe0\x41\x05\x12\x62\n\x0b\x61\x63\x63\x65ss_urls\x18\x0e \x01(\x0b\x32H.google.cloud.security.privateca.v1beta1.CertificateAuthority.AccessUrlsB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x10 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0b\x64\x65lete_time\x18\x11 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12^\n\x06labels\x18\x12 \x03(\x0b\x32I.google.cloud.security.privateca.v1beta1.CertificateAuthority.LabelsEntryB\x03\xe0\x41\x01\x1aW\n\x0eIssuingOptions\x12 \n\x13include_ca_cert_url\x18\x01 \x01(\x08\x42\x03\xe0\x41\x02\x12#\n\x16include_crl_access_url\x18\x02 \x01(\x08\x42\x03\xe0\x41\x02\x1a\xbe\t\n\x1a\x43\x65rtificateAuthorityPolicy\x12\x8e\x01\n\x13\x61llowed_config_list\x18\x01 \x01(\x0b\x32j.google.cloud.security.privateca.v1beta1.CertificateAuthority.CertificateAuthorityPolicy.AllowedConfigListB\x03\xe0\x41\x01H\x00\x12\x66\n\x17overwrite_config_values\x18\x02 \x01(\x0b\x32>.google.cloud.security.privateca.v1beta1.ReusableConfigWrapperB\x03\xe0\x41\x01H\x00\x12\x62\n#allowed_locations_and_organizations\x18\x03 \x03(\x0b\x32\x30.google.cloud.security.privateca.v1beta1.SubjectB\x03\xe0\x41\x01\x12!\n\x14\x61llowed_common_names\x18\x04 \x03(\tB\x03\xe0\x41\x01\x12\x8a\x01\n\x0c\x61llowed_sans\x18\x05 \x01(\x0b\x32o.google.cloud.security.privateca.v1beta1.CertificateAuthority.CertificateAuthorityPolicy.AllowedSubjectAltNamesB\x03\xe0\x41\x01\x12\x38\n\x10maximum_lifetime\x18\x06 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x01\x12\x8b\x01\n\x16\x61llowed_issuance_modes\x18\x08 \x01(\x0b\x32\x66.google.cloud.security.privateca.v1beta1.CertificateAuthority.CertificateAuthorityPolicy.IssuanceModesB\x03\xe0\x41\x01\x1aw\n\x11\x41llowedConfigList\x12\x62\n\x15\x61llowed_config_values\x18\x01 \x03(\x0b\x32>.google.cloud.security.privateca.v1beta1.ReusableConfigWrapperB\x03\xe0\x41\x02\x1a\xde\x01\n\x16\x41llowedSubjectAltNames\x12\x1e\n\x11\x61llowed_dns_names\x18\x01 \x03(\tB\x03\xe0\x41\x01\x12\x19\n\x0c\x61llowed_uris\x18\x02 \x03(\tB\x03\xe0\x41\x01\x12$\n\x17\x61llowed_email_addresses\x18\x03 \x03(\tB\x03\xe0\x41\x01\x12\x18\n\x0b\x61llowed_ips\x18\x04 \x03(\tB\x03\xe0\x41\x01\x12)\n\x1c\x61llow_globbing_dns_wildcards\x18\x05 \x01(\x08\x42\x03\xe0\x41\x01\x12\x1e\n\x11\x61llow_custom_sans\x18\x06 \x01(\x08\x42\x03\xe0\x41\x01\x1a`\n\rIssuanceModes\x12%\n\x18\x61llow_csr_based_issuance\x18\x01 \x01(\x08\x42\x03\xe0\x41\x02\x12(\n\x1b\x61llow_config_based_issuance\x18\x02 \x01(\x08\x42\x03\xe0\x41\x02\x42\x0f\n\rconfig_policy\x1aG\n\nAccessUrls\x12!\n\x19\x63\x61_certificate_access_url\x18\x01 \x01(\t\x12\x16\n\x0e\x63rl_access_url\x18\x02 \x01(\t\x1a\xaf\x01\n\x0eKeyVersionSpec\x12$\n\x15\x63loud_kms_key_version\x18\x01 \x01(\tB\x03\xe0\x41\x02H\x00\x12i\n\talgorithm\x18\x02 \x01(\x0e\x32O.google.cloud.security.privateca.v1beta1.CertificateAuthority.SignHashAlgorithmB\x03\xe0\x41\x02H\x00\x42\x0c\n\nKeyVersion\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\">\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bSELF_SIGNED\x10\x01\x12\x0f\n\x0bSUBORDINATE\x10\x02\"8\n\x04Tier\x12\x14\n\x10TIER_UNSPECIFIED\x10\x00\x12\x0e\n\nENTERPRISE\x10\x01\x12\n\n\x06\x44\x45VOPS\x10\x02\"g\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x45NABLED\x10\x01\x12\x0c\n\x08\x44ISABLED\x10\x02\x12\x16\n\x12PENDING_ACTIVATION\x10\x03\x12\x14\n\x10PENDING_DELETION\x10\x04\"\xfc\x01\n\x11SignHashAlgorithm\x12#\n\x1fSIGN_HASH_ALGORITHM_UNSPECIFIED\x10\x00\x12\x17\n\x13RSA_PSS_2048_SHA256\x10\x01\x12\x17\n\x13RSA_PSS_3072_SHA256\x10\x02\x12\x17\n\x13RSA_PSS_4096_SHA256\x10\x03\x12\x19\n\x15RSA_PKCS1_2048_SHA256\x10\x06\x12\x19\n\x15RSA_PKCS1_3072_SHA256\x10\x07\x12\x19\n\x15RSA_PKCS1_4096_SHA256\x10\x08\x12\x12\n\x0e\x45\x43_P256_SHA256\x10\x04\x12\x12\n\x0e\x45\x43_P384_SHA384\x10\x05:\x8b\x01\xea\x41\x87\x01\n-privateca.googleapis.com/CertificateAuthority\x12Vprojects/{project}/locations/{location}/certificateAuthorities/{certificate_authority}\"\xf9\x07\n\x19\x43\x65rtificateRevocationList\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x1c\n\x0fsequence_number\x18\x02 \x01(\x03\x42\x03\xe0\x41\x03\x12x\n\x14revoked_certificates\x18\x03 \x03(\x0b\x32U.google.cloud.security.privateca.v1beta1.CertificateRevocationList.RevokedCertificateB\x03\xe0\x41\x03\x12\x14\n\x07pem_crl\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x17\n\naccess_url\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\\\n\x05state\x18\x06 \x01(\x0e\x32H.google.cloud.security.privateca.v1beta1.CertificateRevocationList.StateB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x63\n\x06labels\x18\t \x03(\x0b\x32N.google.cloud.security.privateca.v1beta1.CertificateRevocationList.LabelsEntryB\x03\xe0\x41\x01\x1a\x9a\x01\n\x12RevokedCertificate\x12\x13\n\x0b\x63\x65rtificate\x18\x01 \x01(\t\x12\x19\n\x11hex_serial_number\x18\x02 \x01(\t\x12T\n\x11revocation_reason\x18\x03 \x01(\x0e\x32\x39.google.cloud.security.privateca.v1beta1.RevocationReason\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\":\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\n\n\x06\x41\x43TIVE\x10\x01\x12\x0e\n\nSUPERSEDED\x10\x02:\xca\x01\xea\x41\xc6\x01\n2privateca.googleapis.com/CertificateRevocationList\x12\x8f\x01projects/{project}/locations/{location}/certificateAuthorities/{certificate_authority}/certificateRevocationLists/{certificate_revocation_list}\"\x9a\x08\n\x0b\x43\x65rtificate\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x16\n\x07pem_csr\x18\x02 \x01(\tB\x03\xe0\x41\x05H\x00\x12Q\n\x06\x63onfig\x18\x03 \x01(\x0b\x32:.google.cloud.security.privateca.v1beta1.CertificateConfigB\x03\xe0\x41\x05H\x00\x12\x33\n\x08lifetime\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationB\x06\xe0\x41\x02\xe0\x41\x05\x12g\n\x12revocation_details\x18\x05 \x01(\x0b\x32\x46.google.cloud.security.privateca.v1beta1.Certificate.RevocationDetailsB\x03\xe0\x41\x03\x12\x1c\n\x0fpem_certificate\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12\x65\n\x17\x63\x65rtificate_description\x18\x07 \x01(\x0b\x32?.google.cloud.security.privateca.v1beta1.CertificateDescriptionB\x03\xe0\x41\x03\x12\"\n\x15pem_certificate_chain\x18\x08 \x03(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12U\n\x06labels\x18\x0b \x03(\x0b\x32@.google.cloud.security.privateca.v1beta1.Certificate.LabelsEntryB\x03\xe0\x41\x01\x1a\x9d\x01\n\x11RevocationDetails\x12S\n\x10revocation_state\x18\x01 \x01(\x0e\x32\x39.google.cloud.security.privateca.v1beta1.RevocationReason\x12\x33\n\x0frevocation_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x9d\x01\xea\x41\x99\x01\n$privateca.googleapis.com/Certificate\x12qprojects/{project}/locations/{location}/certificateAuthorities/{certificate_authority}/certificates/{certificate}B\x14\n\x12\x63\x65rtificate_config\"\xff\x03\n\x0eReusableConfig\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12R\n\x06values\x18\x02 \x01(\x0b\x32=.google.cloud.security.privateca.v1beta1.ReusableConfigValuesB\x03\xe0\x41\x02\x12\x18\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12X\n\x06labels\x18\x06 \x03(\x0b\x32\x43.google.cloud.security.privateca.v1beta1.ReusableConfig.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:w\xea\x41t\n\'privateca.googleapis.com/ReusableConfig\x12Iprojects/{project}/locations/{location}/reusableConfigs/{reusable_config}\"\x89\x04\n\x14ReusableConfigValues\x12I\n\tkey_usage\x18\x01 \x01(\x0b\x32\x31.google.cloud.security.privateca.v1beta1.KeyUsageB\x03\xe0\x41\x01\x12`\n\nca_options\x18\x02 \x01(\x0b\x32G.google.cloud.security.privateca.v1beta1.ReusableConfigValues.CaOptionsB\x03\xe0\x41\x01\x12J\n\npolicy_ids\x18\x03 \x03(\x0b\x32\x31.google.cloud.security.privateca.v1beta1.ObjectIdB\x03\xe0\x41\x01\x12\x1d\n\x10\x61ia_ocsp_servers\x18\x04 \x03(\tB\x03\xe0\x41\x01\x12Z\n\x15\x61\x64\x64itional_extensions\x18\x05 \x03(\x0b\x32\x36.google.cloud.security.privateca.v1beta1.X509ExtensionB\x03\xe0\x41\x01\x1a}\n\tCaOptions\x12.\n\x05is_ca\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x03\xe0\x41\x01\x12@\n\x16max_issuer_path_length\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32ValueB\x03\xe0\x41\x01\"\xae\x01\n\x15ReusableConfigWrapper\x12\x1e\n\x0freusable_config\x18\x01 \x01(\tB\x03\xe0\x41\x02H\x00\x12\x64\n\x16reusable_config_values\x18\x02 \x01(\x0b\x32=.google.cloud.security.privateca.v1beta1.ReusableConfigValuesB\x03\xe0\x41\x02H\x00\x42\x0f\n\rconfig_values\"\xfc\x01\n\x11SubordinateConfig\x12$\n\x15\x63\x65rtificate_authority\x18\x01 \x01(\tB\x03\xe0\x41\x02H\x00\x12r\n\x10pem_issuer_chain\x18\x02 \x01(\x0b\x32Q.google.cloud.security.privateca.v1beta1.SubordinateConfig.SubordinateConfigChainB\x03\xe0\x41\x02H\x00\x1a\x37\n\x16SubordinateConfigChain\x12\x1d\n\x10pem_certificates\x18\x01 \x03(\tB\x03\xe0\x41\x02\x42\x14\n\x12subordinate_config\"\xb2\x01\n\tPublicKey\x12M\n\x04type\x18\x01 \x01(\x0e\x32:.google.cloud.security.privateca.v1beta1.PublicKey.KeyTypeB\x03\xe0\x41\x02\x12\x10\n\x03key\x18\x02 \x01(\x0c\x42\x03\xe0\x41\x02\"D\n\x07KeyType\x12\x18\n\x14KEY_TYPE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bPEM_RSA_KEY\x10\x01\x12\x0e\n\nPEM_EC_KEY\x10\x02\"\xf2\x03\n\x11\x43\x65rtificateConfig\x12\x65\n\x0esubject_config\x18\x01 \x01(\x0b\x32H.google.cloud.security.privateca.v1beta1.CertificateConfig.SubjectConfigB\x03\xe0\x41\x02\x12\\\n\x0freusable_config\x18\x02 \x01(\x0b\x32>.google.cloud.security.privateca.v1beta1.ReusableConfigWrapperB\x03\xe0\x41\x02\x12K\n\npublic_key\x18\x03 \x01(\x0b\x32\x32.google.cloud.security.privateca.v1beta1.PublicKeyB\x03\xe0\x41\x01\x1a\xca\x01\n\rSubjectConfig\x12\x46\n\x07subject\x18\x01 \x01(\x0b\x32\x30.google.cloud.security.privateca.v1beta1.SubjectB\x03\xe0\x41\x02\x12\x18\n\x0b\x63ommon_name\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12W\n\x10subject_alt_name\x18\x03 \x01(\x0b\x32\x38.google.cloud.security.privateca.v1beta1.SubjectAltNamesB\x03\xe0\x41\x01\"\xe1\x08\n\x16\x43\x65rtificateDescription\x12o\n\x13subject_description\x18\x01 \x01(\x0b\x32R.google.cloud.security.privateca.v1beta1.CertificateDescription.SubjectDescription\x12T\n\rconfig_values\x18\x02 \x01(\x0b\x32=.google.cloud.security.privateca.v1beta1.ReusableConfigValues\x12\x46\n\npublic_key\x18\x03 \x01(\x0b\x32\x32.google.cloud.security.privateca.v1beta1.PublicKey\x12]\n\x0esubject_key_id\x18\x04 \x01(\x0b\x32\x45.google.cloud.security.privateca.v1beta1.CertificateDescription.KeyId\x12_\n\x10\x61uthority_key_id\x18\x05 \x01(\x0b\x32\x45.google.cloud.security.privateca.v1beta1.CertificateDescription.KeyId\x12\x1f\n\x17\x63rl_distribution_points\x18\x06 \x03(\t\x12$\n\x1c\x61ia_issuing_certificate_urls\x18\x07 \x03(\t\x12p\n\x10\x63\x65rt_fingerprint\x18\x08 \x01(\x0b\x32V.google.cloud.security.privateca.v1beta1.CertificateDescription.CertificateFingerprint\x1a\xf1\x02\n\x12SubjectDescription\x12\x41\n\x07subject\x18\x01 \x01(\x0b\x32\x30.google.cloud.security.privateca.v1beta1.Subject\x12\x13\n\x0b\x63ommon_name\x18\x02 \x01(\t\x12R\n\x10subject_alt_name\x18\x03 \x01(\x0b\x32\x38.google.cloud.security.privateca.v1beta1.SubjectAltNames\x12\x19\n\x11hex_serial_number\x18\x04 \x01(\t\x12+\n\x08lifetime\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x33\n\x0fnot_before_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x32\n\x0enot_after_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x1c\n\x05KeyId\x12\x13\n\x06key_id\x18\x01 \x01(\tB\x03\xe0\x41\x01\x1a-\n\x16\x43\x65rtificateFingerprint\x12\x13\n\x0bsha256_hash\x18\x01 \x01(\t\"\'\n\x08ObjectId\x12\x1b\n\x0eobject_id_path\x18\x01 \x03(\x05\x42\x03\xe0\x41\x02\"\x85\x01\n\rX509Extension\x12I\n\tobject_id\x18\x01 \x01(\x0b\x32\x31.google.cloud.security.privateca.v1beta1.ObjectIdB\x03\xe0\x41\x02\x12\x15\n\x08\x63ritical\x18\x02 \x01(\x08\x42\x03\xe0\x41\x02\x12\x12\n\x05value\x18\x03 \x01(\x0c\x42\x03\xe0\x41\x02\"\xb1\x05\n\x08KeyUsage\x12Y\n\x0e\x62\x61se_key_usage\x18\x01 \x01(\x0b\x32\x41.google.cloud.security.privateca.v1beta1.KeyUsage.KeyUsageOptions\x12\x65\n\x12\x65xtended_key_usage\x18\x02 \x01(\x0b\x32I.google.cloud.security.privateca.v1beta1.KeyUsage.ExtendedKeyUsageOptions\x12V\n\x1bunknown_extended_key_usages\x18\x03 \x03(\x0b\x32\x31.google.cloud.security.privateca.v1beta1.ObjectId\x1a\xe7\x01\n\x0fKeyUsageOptions\x12\x19\n\x11\x64igital_signature\x18\x01 \x01(\x08\x12\x1a\n\x12\x63ontent_commitment\x18\x02 \x01(\x08\x12\x18\n\x10key_encipherment\x18\x03 \x01(\x08\x12\x19\n\x11\x64\x61ta_encipherment\x18\x04 \x01(\x08\x12\x15\n\rkey_agreement\x18\x05 \x01(\x08\x12\x11\n\tcert_sign\x18\x06 \x01(\x08\x12\x10\n\x08\x63rl_sign\x18\x07 \x01(\x08\x12\x15\n\rencipher_only\x18\x08 \x01(\x08\x12\x15\n\rdecipher_only\x18\t \x01(\x08\x1a\xa0\x01\n\x17\x45xtendedKeyUsageOptions\x12\x13\n\x0bserver_auth\x18\x01 \x01(\x08\x12\x13\n\x0b\x63lient_auth\x18\x02 \x01(\x08\x12\x14\n\x0c\x63ode_signing\x18\x03 \x01(\x08\x12\x18\n\x10\x65mail_protection\x18\x04 \x01(\x08\x12\x15\n\rtime_stamping\x18\x05 \x01(\x08\x12\x14\n\x0cocsp_signing\x18\x06 \x01(\x08\"\xa3\x01\n\x07Subject\x12\x14\n\x0c\x63ountry_code\x18\x01 \x01(\t\x12\x14\n\x0corganization\x18\x02 \x01(\t\x12\x1b\n\x13organizational_unit\x18\x03 \x01(\t\x12\x10\n\x08locality\x18\x04 \x01(\t\x12\x10\n\x08province\x18\x05 \x01(\t\x12\x16\n\x0estreet_address\x18\x06 \x01(\t\x12\x13\n\x0bpostal_code\x18\x07 \x01(\t\"\xae\x01\n\x0fSubjectAltNames\x12\x11\n\tdns_names\x18\x01 \x03(\t\x12\x0c\n\x04uris\x18\x02 \x03(\t\x12\x17\n\x0f\x65mail_addresses\x18\x03 \x03(\t\x12\x14\n\x0cip_addresses\x18\x04 \x03(\t\x12K\n\x0b\x63ustom_sans\x18\x05 \x03(\x0b\x32\x36.google.cloud.security.privateca.v1beta1.X509Extension*\x87\x02\n\x10RevocationReason\x12!\n\x1dREVOCATION_REASON_UNSPECIFIED\x10\x00\x12\x12\n\x0eKEY_COMPROMISE\x10\x01\x12$\n CERTIFICATE_AUTHORITY_COMPROMISE\x10\x02\x12\x17\n\x13\x41\x46\x46ILIATION_CHANGED\x10\x03\x12\x0e\n\nSUPERSEDED\x10\x04\x12\x1a\n\x16\x43\x45SSATION_OF_OPERATION\x10\x05\x12\x14\n\x10\x43\x45RTIFICATE_HOLD\x10\x06\x12\x17\n\x13PRIVILEGE_WITHDRAWN\x10\x07\x12\"\n\x1e\x41TTRIBUTE_AUTHORITY_COMPROMISE\x10\x08\x42\x9f\x02\n+com.google.cloud.security.privateca.v1beta1B\x17PrivateCaResourcesProtoP\x01ZPgoogle.golang.org/genproto/googleapis/cloud/security/privateca/v1beta1;privateca\xf8\x01\x01\xaa\x02\'Google.Cloud.Security.PrivateCA.V1Beta1\xca\x02\'Google\\Cloud\\Security\\PrivateCA\\V1beta1\xea\x02+Google::Cloud::Security::PrivateCA::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -85,8 +85,8 @@ _REVOCATIONREASON = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9687,
-  serialized_end=9950,
+  serialized_start=10476,
+  serialized_end=10739,
 )
 _sym_db.RegisterEnumDescriptor(_REVOCATIONREASON)
 
@@ -127,8 +127,8 @@ _CERTIFICATEAUTHORITY_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2990,
-  serialized_end=3052,
+  serialized_start=3290,
+  serialized_end=3352,
 )
 _sym_db.RegisterEnumDescriptor(_CERTIFICATEAUTHORITY_TYPE)
 
@@ -157,8 +157,8 @@ _CERTIFICATEAUTHORITY_TIER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3054,
-  serialized_end=3110,
+  serialized_start=3354,
+  serialized_end=3410,
 )
 _sym_db.RegisterEnumDescriptor(_CERTIFICATEAUTHORITY_TIER)
 
@@ -197,8 +197,8 @@ _CERTIFICATEAUTHORITY_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3112,
-  serialized_end=3215,
+  serialized_start=3412,
+  serialized_end=3515,
 )
 _sym_db.RegisterEnumDescriptor(_CERTIFICATEAUTHORITY_STATE)
 
@@ -215,40 +215,50 @@ _CERTIFICATEAUTHORITY_SIGNHASHALGORITHM = _descriptor.EnumDescriptor(
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='RSA_2048_SHA_256', index=1, number=1,
+      name='RSA_PSS_2048_SHA256', index=1, number=1,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='RSA_3072_SHA_256', index=2, number=2,
+      name='RSA_PSS_3072_SHA256', index=2, number=2,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='RSA_4096_SHA_256', index=3, number=3,
+      name='RSA_PSS_4096_SHA256', index=3, number=3,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='EC_P256_SHA256', index=4, number=4,
+      name='RSA_PKCS1_2048_SHA256', index=4, number=6,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='EC_P384_SHA256', index=5, number=5,
+      name='RSA_PKCS1_3072_SHA256', index=5, number=7,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='EC_P521_SHA256', index=6, number=6,
+      name='RSA_PKCS1_4096_SHA256', index=6, number=8,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='EC_P256_SHA256', index=7, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='EC_P384_SHA384', index=8, number=5,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3218,
-  serialized_end=3400,
+  serialized_start=3518,
+  serialized_end=3770,
 )
 _sym_db.RegisterEnumDescriptor(_CERTIFICATEAUTHORITY_SIGNHASHALGORITHM)
 
@@ -277,8 +287,8 @@ _CERTIFICATEREVOCATIONLIST_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4299,
-  serialized_end=4357,
+  serialized_start=4669,
+  serialized_end=4727,
 )
 _sym_db.RegisterEnumDescriptor(_CERTIFICATEREVOCATIONLIST_STATE)
 
@@ -307,8 +317,8 @@ _PUBLICKEY_KEYTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6940,
-  serialized_end=7008,
+  serialized_start=7568,
+  serialized_end=7636,
 )
 _sym_db.RegisterEnumDescriptor(_PUBLICKEY_KEYTYPE)
 
@@ -347,8 +357,8 @@ _CERTIFICATEAUTHORITY_ISSUINGOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1626,
-  serialized_end=1713,
+  serialized_start=1686,
+  serialized_end=1773,
 )
 
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDCONFIGLIST = _descriptor.Descriptor(
@@ -378,8 +388,8 @@ _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDCONFIGLIST = _descriptor
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2329,
-  serialized_end=2448,
+  serialized_start=2531,
+  serialized_end=2650,
 )
 
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDSUBJECTALTNAMES = _descriptor.Descriptor(
@@ -444,8 +454,46 @@ _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDSUBJECTALTNAMES = _descr
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2451,
-  serialized_end=2673,
+  serialized_start=2653,
+  serialized_end=2875,
+)
+
+_CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ISSUANCEMODES = _descriptor.Descriptor(
+  name='IssuanceModes',
+  full_name='google.cloud.security.privateca.v1beta1.CertificateAuthority.CertificateAuthorityPolicy.IssuanceModes',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='allow_csr_based_issuance', full_name='google.cloud.security.privateca.v1beta1.CertificateAuthority.CertificateAuthorityPolicy.IssuanceModes.allow_csr_based_issuance', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allow_config_based_issuance', full_name='google.cloud.security.privateca.v1beta1.CertificateAuthority.CertificateAuthorityPolicy.IssuanceModes.allow_config_based_issuance', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2877,
+  serialized_end=2973,
 )
 
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY = _descriptor.Descriptor(
@@ -498,10 +546,17 @@ _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allowed_issuance_modes', full_name='google.cloud.security.privateca.v1beta1.CertificateAuthority.CertificateAuthorityPolicy.allowed_issuance_modes', index=6,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDCONFIGLIST, _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDSUBJECTALTNAMES, ],
+  nested_types=[_CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDCONFIGLIST, _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDSUBJECTALTNAMES, _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ISSUANCEMODES, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -515,8 +570,8 @@ _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1716,
-  serialized_end=2690,
+  serialized_start=1776,
+  serialized_end=2990,
 )
 
 _CERTIFICATEAUTHORITY_ACCESSURLS = _descriptor.Descriptor(
@@ -553,8 +608,8 @@ _CERTIFICATEAUTHORITY_ACCESSURLS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2692,
-  serialized_end=2763,
+  serialized_start=2992,
+  serialized_end=3063,
 )
 
 _CERTIFICATEAUTHORITY_KEYVERSIONSPEC = _descriptor.Descriptor(
@@ -596,8 +651,8 @@ _CERTIFICATEAUTHORITY_KEYVERSIONSPEC = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2766,
-  serialized_end=2941,
+  serialized_start=3066,
+  serialized_end=3241,
 )
 
 _CERTIFICATEAUTHORITY_LABELSENTRY = _descriptor.Descriptor(
@@ -634,8 +689,8 @@ _CERTIFICATEAUTHORITY_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2943,
-  serialized_end=2988,
+  serialized_start=3243,
+  serialized_end=3288,
 )
 
 _CERTIFICATEAUTHORITY = _descriptor.Descriptor(
@@ -703,9 +758,9 @@ _CERTIFICATEAUTHORITY = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='pem_issuer_cert_chain', full_name='google.cloud.security.privateca.v1beta1.CertificateAuthority.pem_issuer_cert_chain', index=8,
-      number=9, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
+      name='subordinate_config', full_name='google.cloud.security.privateca.v1beta1.CertificateAuthority.subordinate_config', index=8,
+      number=19, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -717,16 +772,16 @@ _CERTIFICATEAUTHORITY = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='pem_certificate', full_name='google.cloud.security.privateca.v1beta1.CertificateAuthority.pem_certificate', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='pem_ca_certificates', full_name='google.cloud.security.privateca.v1beta1.CertificateAuthority.pem_ca_certificates', index=10,
+      number=9, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ca_certificate_description', full_name='google.cloud.security.privateca.v1beta1.CertificateAuthority.ca_certificate_description', index=11,
-      number=12, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='ca_certificate_descriptions', full_name='google.cloud.security.privateca.v1beta1.CertificateAuthority.ca_certificate_descriptions', index=11,
+      number=12, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -759,7 +814,7 @@ _CERTIFICATEAUTHORITY = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='deletion_time', full_name='google.cloud.security.privateca.v1beta1.CertificateAuthority.deletion_time', index=16,
+      name='delete_time', full_name='google.cloud.security.privateca.v1beta1.CertificateAuthority.delete_time', index=16,
       number=17, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -789,7 +844,7 @@ _CERTIFICATEAUTHORITY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=288,
-  serialized_end=3542,
+  serialized_end=3912,
 )
 
 
@@ -834,8 +889,8 @@ _CERTIFICATEREVOCATIONLIST_REVOKEDCERTIFICATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4096,
-  serialized_end=4250,
+  serialized_start=4466,
+  serialized_end=4620,
 )
 
 _CERTIFICATEREVOCATIONLIST_LABELSENTRY = _descriptor.Descriptor(
@@ -872,8 +927,8 @@ _CERTIFICATEREVOCATIONLIST_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2943,
-  serialized_end=2988,
+  serialized_start=3243,
+  serialized_end=3288,
 )
 
 _CERTIFICATEREVOCATIONLIST = _descriptor.Descriptor(
@@ -960,8 +1015,8 @@ _CERTIFICATEREVOCATIONLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3545,
-  serialized_end=4562,
+  serialized_start=3915,
+  serialized_end=4932,
 )
 
 
@@ -999,8 +1054,8 @@ _CERTIFICATE_REVOCATIONDETAILS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5226,
-  serialized_end=5383,
+  serialized_start=5599,
+  serialized_end=5756,
 )
 
 _CERTIFICATE_LABELSENTRY = _descriptor.Descriptor(
@@ -1037,8 +1092,8 @@ _CERTIFICATE_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2943,
-  serialized_end=2988,
+  serialized_start=3243,
+  serialized_end=3288,
 )
 
 _CERTIFICATE = _descriptor.Descriptor(
@@ -1076,7 +1131,7 @@ _CERTIFICATE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='revocation_details', full_name='google.cloud.security.privateca.v1beta1.Certificate.revocation_details', index=4,
       number=5, type=11, cpp_type=10, label=1,
@@ -1143,8 +1198,8 @@ _CERTIFICATE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4565,
-  serialized_end=5612,
+  serialized_start=4935,
+  serialized_end=5985,
 )
 
 
@@ -1182,8 +1237,8 @@ _REUSABLECONFIG_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2943,
-  serialized_end=2988,
+  serialized_start=3243,
+  serialized_end=3288,
 )
 
 _REUSABLECONFIG = _descriptor.Descriptor(
@@ -1248,8 +1303,8 @@ _REUSABLECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5615,
-  serialized_end=6126,
+  serialized_start=5988,
+  serialized_end=6499,
 )
 
 
@@ -1287,8 +1342,8 @@ _REUSABLECONFIGVALUES_CAOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6525,
-  serialized_end=6650,
+  serialized_start=6898,
+  serialized_end=7023,
 )
 
 _REUSABLECONFIGVALUES = _descriptor.Descriptor(
@@ -1346,8 +1401,8 @@ _REUSABLECONFIGVALUES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6129,
-  serialized_end=6650,
+  serialized_start=6502,
+  serialized_end=7023,
 )
 
 
@@ -1390,8 +1445,83 @@ _REUSABLECONFIGWRAPPER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=6653,
-  serialized_end=6827,
+  serialized_start=7026,
+  serialized_end=7200,
+)
+
+
+_SUBORDINATECONFIG_SUBORDINATECONFIGCHAIN = _descriptor.Descriptor(
+  name='SubordinateConfigChain',
+  full_name='google.cloud.security.privateca.v1beta1.SubordinateConfig.SubordinateConfigChain',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='pem_certificates', full_name='google.cloud.security.privateca.v1beta1.SubordinateConfig.SubordinateConfigChain.pem_certificates', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7378,
+  serialized_end=7433,
+)
+
+_SUBORDINATECONFIG = _descriptor.Descriptor(
+  name='SubordinateConfig',
+  full_name='google.cloud.security.privateca.v1beta1.SubordinateConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='certificate_authority', full_name='google.cloud.security.privateca.v1beta1.SubordinateConfig.certificate_authority', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='pem_issuer_chain', full_name='google.cloud.security.privateca.v1beta1.SubordinateConfig.pem_issuer_chain', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_SUBORDINATECONFIG_SUBORDINATECONFIGCHAIN, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='subordinate_config', full_name='google.cloud.security.privateca.v1beta1.SubordinateConfig.subordinate_config',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=7203,
+  serialized_end=7455,
 )
 
 
@@ -1430,8 +1560,8 @@ _PUBLICKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6830,
-  serialized_end=7008,
+  serialized_start=7458,
+  serialized_end=7636,
 )
 
 
@@ -1476,8 +1606,8 @@ _CERTIFICATECONFIG_SUBJECTCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7307,
-  serialized_end=7509,
+  serialized_start=7935,
+  serialized_end=8137,
 )
 
 _CERTIFICATECONFIG = _descriptor.Descriptor(
@@ -1521,8 +1651,8 @@ _CERTIFICATECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7011,
-  serialized_end=7509,
+  serialized_start=7639,
+  serialized_end=8137,
 )
 
 
@@ -1595,8 +1725,8 @@ _CERTIFICATEDESCRIPTION_SUBJECTDESCRIPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8073,
-  serialized_end=8442,
+  serialized_start=8815,
+  serialized_end=9184,
 )
 
 _CERTIFICATEDESCRIPTION_KEYID = _descriptor.Descriptor(
@@ -1626,8 +1756,39 @@ _CERTIFICATEDESCRIPTION_KEYID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8444,
-  serialized_end=8472,
+  serialized_start=9186,
+  serialized_end=9214,
+)
+
+_CERTIFICATEDESCRIPTION_CERTIFICATEFINGERPRINT = _descriptor.Descriptor(
+  name='CertificateFingerprint',
+  full_name='google.cloud.security.privateca.v1beta1.CertificateDescription.CertificateFingerprint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sha256_hash', full_name='google.cloud.security.privateca.v1beta1.CertificateDescription.CertificateFingerprint.sha256_hash', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9216,
+  serialized_end=9261,
 )
 
 _CERTIFICATEDESCRIPTION = _descriptor.Descriptor(
@@ -1687,10 +1848,17 @@ _CERTIFICATEDESCRIPTION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cert_fingerprint', full_name='google.cloud.security.privateca.v1beta1.CertificateDescription.cert_fingerprint', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_CERTIFICATEDESCRIPTION_SUBJECTDESCRIPTION, _CERTIFICATEDESCRIPTION_KEYID, ],
+  nested_types=[_CERTIFICATEDESCRIPTION_SUBJECTDESCRIPTION, _CERTIFICATEDESCRIPTION_KEYID, _CERTIFICATEDESCRIPTION_CERTIFICATEFINGERPRINT, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -1699,8 +1867,8 @@ _CERTIFICATEDESCRIPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7512,
-  serialized_end=8472,
+  serialized_start=8140,
+  serialized_end=9261,
 )
 
 
@@ -1731,8 +1899,8 @@ _OBJECTID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8474,
-  serialized_end=8513,
+  serialized_start=9263,
+  serialized_end=9302,
 )
 
 
@@ -1777,8 +1945,8 @@ _X509EXTENSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8516,
-  serialized_end=8649,
+  serialized_start=9305,
+  serialized_end=9438,
 )
 
 
@@ -1865,8 +2033,8 @@ _KEYUSAGE_KEYUSAGEOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8947,
-  serialized_end=9178,
+  serialized_start=9736,
+  serialized_end=9967,
 )
 
 _KEYUSAGE_EXTENDEDKEYUSAGEOPTIONS = _descriptor.Descriptor(
@@ -1931,8 +2099,8 @@ _KEYUSAGE_EXTENDEDKEYUSAGEOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9181,
-  serialized_end=9341,
+  serialized_start=9970,
+  serialized_end=10130,
 )
 
 _KEYUSAGE = _descriptor.Descriptor(
@@ -1976,8 +2144,8 @@ _KEYUSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8652,
-  serialized_end=9341,
+  serialized_start=9441,
+  serialized_end=10130,
 )
 
 
@@ -2050,8 +2218,8 @@ _SUBJECT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9344,
-  serialized_end=9507,
+  serialized_start=10133,
+  serialized_end=10296,
 )
 
 
@@ -2110,19 +2278,21 @@ _SUBJECTALTNAMES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9510,
-  serialized_end=9684,
+  serialized_start=10299,
+  serialized_end=10473,
 )
 
 _CERTIFICATEAUTHORITY_ISSUINGOPTIONS.containing_type = _CERTIFICATEAUTHORITY
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDCONFIGLIST.fields_by_name['allowed_config_values'].message_type = _REUSABLECONFIGWRAPPER
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDCONFIGLIST.containing_type = _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDSUBJECTALTNAMES.containing_type = _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY
+_CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ISSUANCEMODES.containing_type = _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['allowed_config_list'].message_type = _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDCONFIGLIST
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['overwrite_config_values'].message_type = _REUSABLECONFIGWRAPPER
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['allowed_locations_and_organizations'].message_type = _SUBJECT
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['allowed_sans'].message_type = _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDSUBJECTALTNAMES
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['maximum_lifetime'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
+_CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['allowed_issuance_modes'].message_type = _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ISSUANCEMODES
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.containing_type = _CERTIFICATEAUTHORITY
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.oneofs_by_name['config_policy'].fields.append(
   _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['allowed_config_list'])
@@ -2147,12 +2317,13 @@ _CERTIFICATEAUTHORITY.fields_by_name['lifetime'].message_type = google_dot_proto
 _CERTIFICATEAUTHORITY.fields_by_name['key_spec'].message_type = _CERTIFICATEAUTHORITY_KEYVERSIONSPEC
 _CERTIFICATEAUTHORITY.fields_by_name['certificate_policy'].message_type = _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY
 _CERTIFICATEAUTHORITY.fields_by_name['issuing_options'].message_type = _CERTIFICATEAUTHORITY_ISSUINGOPTIONS
+_CERTIFICATEAUTHORITY.fields_by_name['subordinate_config'].message_type = _SUBORDINATECONFIG
 _CERTIFICATEAUTHORITY.fields_by_name['state'].enum_type = _CERTIFICATEAUTHORITY_STATE
-_CERTIFICATEAUTHORITY.fields_by_name['ca_certificate_description'].message_type = _CERTIFICATEDESCRIPTION
+_CERTIFICATEAUTHORITY.fields_by_name['ca_certificate_descriptions'].message_type = _CERTIFICATEDESCRIPTION
 _CERTIFICATEAUTHORITY.fields_by_name['access_urls'].message_type = _CERTIFICATEAUTHORITY_ACCESSURLS
 _CERTIFICATEAUTHORITY.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CERTIFICATEAUTHORITY.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
-_CERTIFICATEAUTHORITY.fields_by_name['deletion_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CERTIFICATEAUTHORITY.fields_by_name['delete_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CERTIFICATEAUTHORITY.fields_by_name['labels'].message_type = _CERTIFICATEAUTHORITY_LABELSENTRY
 _CERTIFICATEAUTHORITY_TYPE.containing_type = _CERTIFICATEAUTHORITY
 _CERTIFICATEAUTHORITY_TIER.containing_type = _CERTIFICATEAUTHORITY
@@ -2203,6 +2374,14 @@ _REUSABLECONFIGWRAPPER.fields_by_name['reusable_config'].containing_oneof = _REU
 _REUSABLECONFIGWRAPPER.oneofs_by_name['config_values'].fields.append(
   _REUSABLECONFIGWRAPPER.fields_by_name['reusable_config_values'])
 _REUSABLECONFIGWRAPPER.fields_by_name['reusable_config_values'].containing_oneof = _REUSABLECONFIGWRAPPER.oneofs_by_name['config_values']
+_SUBORDINATECONFIG_SUBORDINATECONFIGCHAIN.containing_type = _SUBORDINATECONFIG
+_SUBORDINATECONFIG.fields_by_name['pem_issuer_chain'].message_type = _SUBORDINATECONFIG_SUBORDINATECONFIGCHAIN
+_SUBORDINATECONFIG.oneofs_by_name['subordinate_config'].fields.append(
+  _SUBORDINATECONFIG.fields_by_name['certificate_authority'])
+_SUBORDINATECONFIG.fields_by_name['certificate_authority'].containing_oneof = _SUBORDINATECONFIG.oneofs_by_name['subordinate_config']
+_SUBORDINATECONFIG.oneofs_by_name['subordinate_config'].fields.append(
+  _SUBORDINATECONFIG.fields_by_name['pem_issuer_chain'])
+_SUBORDINATECONFIG.fields_by_name['pem_issuer_chain'].containing_oneof = _SUBORDINATECONFIG.oneofs_by_name['subordinate_config']
 _PUBLICKEY.fields_by_name['type'].enum_type = _PUBLICKEY_KEYTYPE
 _PUBLICKEY_KEYTYPE.containing_type = _PUBLICKEY
 _CERTIFICATECONFIG_SUBJECTCONFIG.fields_by_name['subject'].message_type = _SUBJECT
@@ -2218,11 +2397,13 @@ _CERTIFICATEDESCRIPTION_SUBJECTDESCRIPTION.fields_by_name['not_before_time'].mes
 _CERTIFICATEDESCRIPTION_SUBJECTDESCRIPTION.fields_by_name['not_after_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CERTIFICATEDESCRIPTION_SUBJECTDESCRIPTION.containing_type = _CERTIFICATEDESCRIPTION
 _CERTIFICATEDESCRIPTION_KEYID.containing_type = _CERTIFICATEDESCRIPTION
+_CERTIFICATEDESCRIPTION_CERTIFICATEFINGERPRINT.containing_type = _CERTIFICATEDESCRIPTION
 _CERTIFICATEDESCRIPTION.fields_by_name['subject_description'].message_type = _CERTIFICATEDESCRIPTION_SUBJECTDESCRIPTION
 _CERTIFICATEDESCRIPTION.fields_by_name['config_values'].message_type = _REUSABLECONFIGVALUES
 _CERTIFICATEDESCRIPTION.fields_by_name['public_key'].message_type = _PUBLICKEY
 _CERTIFICATEDESCRIPTION.fields_by_name['subject_key_id'].message_type = _CERTIFICATEDESCRIPTION_KEYID
 _CERTIFICATEDESCRIPTION.fields_by_name['authority_key_id'].message_type = _CERTIFICATEDESCRIPTION_KEYID
+_CERTIFICATEDESCRIPTION.fields_by_name['cert_fingerprint'].message_type = _CERTIFICATEDESCRIPTION_CERTIFICATEFINGERPRINT
 _X509EXTENSION.fields_by_name['object_id'].message_type = _OBJECTID
 _KEYUSAGE_KEYUSAGEOPTIONS.containing_type = _KEYUSAGE
 _KEYUSAGE_EXTENDEDKEYUSAGEOPTIONS.containing_type = _KEYUSAGE
@@ -2236,6 +2417,7 @@ DESCRIPTOR.message_types_by_name['Certificate'] = _CERTIFICATE
 DESCRIPTOR.message_types_by_name['ReusableConfig'] = _REUSABLECONFIG
 DESCRIPTOR.message_types_by_name['ReusableConfigValues'] = _REUSABLECONFIGVALUES
 DESCRIPTOR.message_types_by_name['ReusableConfigWrapper'] = _REUSABLECONFIGWRAPPER
+DESCRIPTOR.message_types_by_name['SubordinateConfig'] = _SUBORDINATECONFIG
 DESCRIPTOR.message_types_by_name['PublicKey'] = _PUBLICKEY
 DESCRIPTOR.message_types_by_name['CertificateConfig'] = _CERTIFICATECONFIG
 DESCRIPTOR.message_types_by_name['CertificateDescription'] = _CERTIFICATEDESCRIPTION
@@ -2269,6 +2451,13 @@ CertificateAuthority = _reflection.GeneratedProtocolMessageType('CertificateAuth
       'DESCRIPTOR' : _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDSUBJECTALTNAMES,
       '__module__' : 'google.cloud.security.privateca.v1beta1.resources_pb2'
       # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.CertificateAuthority.CertificateAuthorityPolicy.AllowedSubjectAltNames)
+      })
+    ,
+
+    'IssuanceModes' : _reflection.GeneratedProtocolMessageType('IssuanceModes', (_message.Message,), {
+      'DESCRIPTOR' : _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ISSUANCEMODES,
+      '__module__' : 'google.cloud.security.privateca.v1beta1.resources_pb2'
+      # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.CertificateAuthority.CertificateAuthorityPolicy.IssuanceModes)
       })
     ,
     'DESCRIPTOR' : _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY,
@@ -2306,6 +2495,7 @@ _sym_db.RegisterMessage(CertificateAuthority.IssuingOptions)
 _sym_db.RegisterMessage(CertificateAuthority.CertificateAuthorityPolicy)
 _sym_db.RegisterMessage(CertificateAuthority.CertificateAuthorityPolicy.AllowedConfigList)
 _sym_db.RegisterMessage(CertificateAuthority.CertificateAuthorityPolicy.AllowedSubjectAltNames)
+_sym_db.RegisterMessage(CertificateAuthority.CertificateAuthorityPolicy.IssuanceModes)
 _sym_db.RegisterMessage(CertificateAuthority.AccessUrls)
 _sym_db.RegisterMessage(CertificateAuthority.KeyVersionSpec)
 _sym_db.RegisterMessage(CertificateAuthority.LabelsEntry)
@@ -2393,6 +2583,21 @@ ReusableConfigWrapper = _reflection.GeneratedProtocolMessageType('ReusableConfig
   })
 _sym_db.RegisterMessage(ReusableConfigWrapper)
 
+SubordinateConfig = _reflection.GeneratedProtocolMessageType('SubordinateConfig', (_message.Message,), {
+
+  'SubordinateConfigChain' : _reflection.GeneratedProtocolMessageType('SubordinateConfigChain', (_message.Message,), {
+    'DESCRIPTOR' : _SUBORDINATECONFIG_SUBORDINATECONFIGCHAIN,
+    '__module__' : 'google.cloud.security.privateca.v1beta1.resources_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.SubordinateConfig.SubordinateConfigChain)
+    })
+  ,
+  'DESCRIPTOR' : _SUBORDINATECONFIG,
+  '__module__' : 'google.cloud.security.privateca.v1beta1.resources_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.SubordinateConfig)
+  })
+_sym_db.RegisterMessage(SubordinateConfig)
+_sym_db.RegisterMessage(SubordinateConfig.SubordinateConfigChain)
+
 PublicKey = _reflection.GeneratedProtocolMessageType('PublicKey', (_message.Message,), {
   'DESCRIPTOR' : _PUBLICKEY,
   '__module__' : 'google.cloud.security.privateca.v1beta1.resources_pb2'
@@ -2430,6 +2635,13 @@ CertificateDescription = _reflection.GeneratedProtocolMessageType('CertificateDe
     # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.CertificateDescription.KeyId)
     })
   ,
+
+  'CertificateFingerprint' : _reflection.GeneratedProtocolMessageType('CertificateFingerprint', (_message.Message,), {
+    'DESCRIPTOR' : _CERTIFICATEDESCRIPTION_CERTIFICATEFINGERPRINT,
+    '__module__' : 'google.cloud.security.privateca.v1beta1.resources_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.CertificateDescription.CertificateFingerprint)
+    })
+  ,
   'DESCRIPTOR' : _CERTIFICATEDESCRIPTION,
   '__module__' : 'google.cloud.security.privateca.v1beta1.resources_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.security.privateca.v1beta1.CertificateDescription)
@@ -2437,6 +2649,7 @@ CertificateDescription = _reflection.GeneratedProtocolMessageType('CertificateDe
 _sym_db.RegisterMessage(CertificateDescription)
 _sym_db.RegisterMessage(CertificateDescription.SubjectDescription)
 _sym_db.RegisterMessage(CertificateDescription.KeyId)
+_sym_db.RegisterMessage(CertificateDescription.CertificateFingerprint)
 
 ObjectId = _reflection.GeneratedProtocolMessageType('ObjectId', (_message.Message,), {
   'DESCRIPTOR' : _OBJECTID,
@@ -2500,12 +2713,15 @@ _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDSUBJECTALTNAMES.fields_b
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDSUBJECTALTNAMES.fields_by_name['allowed_ips']._options = None
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDSUBJECTALTNAMES.fields_by_name['allow_globbing_dns_wildcards']._options = None
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ALLOWEDSUBJECTALTNAMES.fields_by_name['allow_custom_sans']._options = None
+_CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ISSUANCEMODES.fields_by_name['allow_csr_based_issuance']._options = None
+_CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY_ISSUANCEMODES.fields_by_name['allow_config_based_issuance']._options = None
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['allowed_config_list']._options = None
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['overwrite_config_values']._options = None
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['allowed_locations_and_organizations']._options = None
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['allowed_common_names']._options = None
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['allowed_sans']._options = None
 _CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['maximum_lifetime']._options = None
+_CERTIFICATEAUTHORITY_CERTIFICATEAUTHORITYPOLICY.fields_by_name['allowed_issuance_modes']._options = None
 _CERTIFICATEAUTHORITY_KEYVERSIONSPEC.fields_by_name['cloud_kms_key_version']._options = None
 _CERTIFICATEAUTHORITY_KEYVERSIONSPEC.fields_by_name['algorithm']._options = None
 _CERTIFICATEAUTHORITY_LABELSENTRY._options = None
@@ -2517,15 +2733,15 @@ _CERTIFICATEAUTHORITY.fields_by_name['lifetime']._options = None
 _CERTIFICATEAUTHORITY.fields_by_name['key_spec']._options = None
 _CERTIFICATEAUTHORITY.fields_by_name['certificate_policy']._options = None
 _CERTIFICATEAUTHORITY.fields_by_name['issuing_options']._options = None
-_CERTIFICATEAUTHORITY.fields_by_name['pem_issuer_cert_chain']._options = None
+_CERTIFICATEAUTHORITY.fields_by_name['subordinate_config']._options = None
 _CERTIFICATEAUTHORITY.fields_by_name['state']._options = None
-_CERTIFICATEAUTHORITY.fields_by_name['pem_certificate']._options = None
-_CERTIFICATEAUTHORITY.fields_by_name['ca_certificate_description']._options = None
+_CERTIFICATEAUTHORITY.fields_by_name['pem_ca_certificates']._options = None
+_CERTIFICATEAUTHORITY.fields_by_name['ca_certificate_descriptions']._options = None
 _CERTIFICATEAUTHORITY.fields_by_name['gcs_bucket']._options = None
 _CERTIFICATEAUTHORITY.fields_by_name['access_urls']._options = None
 _CERTIFICATEAUTHORITY.fields_by_name['create_time']._options = None
 _CERTIFICATEAUTHORITY.fields_by_name['update_time']._options = None
-_CERTIFICATEAUTHORITY.fields_by_name['deletion_time']._options = None
+_CERTIFICATEAUTHORITY.fields_by_name['delete_time']._options = None
 _CERTIFICATEAUTHORITY.fields_by_name['labels']._options = None
 _CERTIFICATEAUTHORITY._options = None
 _CERTIFICATEREVOCATIONLIST_LABELSENTRY._options = None
@@ -2569,6 +2785,9 @@ _REUSABLECONFIGVALUES.fields_by_name['aia_ocsp_servers']._options = None
 _REUSABLECONFIGVALUES.fields_by_name['additional_extensions']._options = None
 _REUSABLECONFIGWRAPPER.fields_by_name['reusable_config']._options = None
 _REUSABLECONFIGWRAPPER.fields_by_name['reusable_config_values']._options = None
+_SUBORDINATECONFIG_SUBORDINATECONFIGCHAIN.fields_by_name['pem_certificates']._options = None
+_SUBORDINATECONFIG.fields_by_name['certificate_authority']._options = None
+_SUBORDINATECONFIG.fields_by_name['pem_issuer_chain']._options = None
 _PUBLICKEY.fields_by_name['type']._options = None
 _PUBLICKEY.fields_by_name['key']._options = None
 _CERTIFICATECONFIG_SUBJECTCONFIG.fields_by_name['subject']._options = None

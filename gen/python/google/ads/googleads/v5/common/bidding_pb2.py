@@ -12,7 +12,6 @@ _sym_db = _symbol_database.Default()
 
 
 from google.ads.googleads.v5.enums import target_impression_share_location_pb2 as google_dot_ads_dot_googleads_dot_v5_dot_enums_dot_target__impression__share__location__pb2
-from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
@@ -22,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"com.google.ads.googleads.v5.commonB\014BiddingProtoP\001ZDgoogle.golang.org/genproto/googleapis/ads/googleads/v5/common;common\242\002\003GAA\252\002\036Google.Ads.GoogleAds.V5.Common\312\002\036Google\\Ads\\GoogleAds\\V5\\Common\352\002\"Google::Ads::GoogleAds::V5::Common',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,google/ads/googleads/v5/common/bidding.proto\x12\x1egoogle.ads.googleads.v5.common\x1a\x44google/ads/googleads/v5/enums/target_impression_share_location.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1cgoogle/api/annotations.proto\"L\n\nCommission\x12#\n\x16\x63ommission_rate_micros\x18\x02 \x01(\x03H\x00\x88\x01\x01\x42\x19\n\x17_commission_rate_micros\"\r\n\x0b\x45nhancedCpc\"G\n\tManualCpc\x12!\n\x14\x65nhanced_cpc_enabled\x18\x02 \x01(\x08H\x00\x88\x01\x01\x42\x17\n\x15_enhanced_cpc_enabled\"\x0b\n\tManualCpm\"\x0b\n\tManualCpv\"\x15\n\x13MaximizeConversions\"C\n\x17MaximizeConversionValue\x12\x18\n\x0btarget_roas\x18\x02 \x01(\x01H\x00\x88\x01\x01\x42\x0e\n\x0c_target_roas\"\xbd\x01\n\tTargetCpa\x12\x1e\n\x11target_cpa_micros\x18\x04 \x01(\x03H\x00\x88\x01\x01\x12#\n\x16\x63pc_bid_ceiling_micros\x18\x05 \x01(\x03H\x01\x88\x01\x01\x12!\n\x14\x63pc_bid_floor_micros\x18\x06 \x01(\x03H\x02\x88\x01\x01\x42\x14\n\x12_target_cpa_microsB\x19\n\x17_cpc_bid_ceiling_microsB\x17\n\x15_cpc_bid_floor_micros\"\x0b\n\tTargetCpm\"\x8d\x02\n\x15TargetImpressionShare\x12p\n\x08location\x18\x01 \x01(\x0e\x32^.google.ads.googleads.v5.enums.TargetImpressionShareLocationEnum.TargetImpressionShareLocation\x12%\n\x18location_fraction_micros\x18\x04 \x01(\x03H\x00\x88\x01\x01\x12#\n\x16\x63pc_bid_ceiling_micros\x18\x05 \x01(\x03H\x01\x88\x01\x01\x42\x1b\n\x19_location_fraction_microsB\x19\n\x17_cpc_bid_ceiling_micros\"\xb2\x01\n\nTargetRoas\x12\x18\n\x0btarget_roas\x18\x04 \x01(\x01H\x00\x88\x01\x01\x12#\n\x16\x63pc_bid_ceiling_micros\x18\x05 \x01(\x03H\x01\x88\x01\x01\x12!\n\x14\x63pc_bid_floor_micros\x18\x06 \x01(\x03H\x02\x88\x01\x01\x42\x0e\n\x0c_target_roasB\x19\n\x17_cpc_bid_ceiling_microsB\x17\n\x15_cpc_bid_floor_micros\"\x87\x01\n\x0bTargetSpend\x12 \n\x13target_spend_micros\x18\x03 \x01(\x03H\x00\x88\x01\x01\x12#\n\x16\x63pc_bid_ceiling_micros\x18\x04 \x01(\x03H\x01\x88\x01\x01\x42\x16\n\x14_target_spend_microsB\x19\n\x17_cpc_bid_ceiling_micros\"\x88\x01\n\nPercentCpc\x12#\n\x16\x63pc_bid_ceiling_micros\x18\x03 \x01(\x03H\x00\x88\x01\x01\x12!\n\x14\x65nhanced_cpc_enabled\x18\x04 \x01(\x08H\x01\x88\x01\x01\x42\x19\n\x17_cpc_bid_ceiling_microsB\x17\n\x15_enhanced_cpc_enabledB\xe7\x01\n\"com.google.ads.googleads.v5.commonB\x0c\x42iddingProtoP\x01ZDgoogle.golang.org/genproto/googleapis/ads/googleads/v5/common;common\xa2\x02\x03GAA\xaa\x02\x1eGoogle.Ads.GoogleAds.V5.Common\xca\x02\x1eGoogle\\Ads\\GoogleAds\\V5\\Common\xea\x02\"Google::Ads::GoogleAds::V5::Commonb\x06proto3'
+  serialized_pb=b'\n,google/ads/googleads/v5/common/bidding.proto\x12\x1egoogle.ads.googleads.v5.common\x1a\x44google/ads/googleads/v5/enums/target_impression_share_location.proto\x1a\x1cgoogle/api/annotations.proto\"L\n\nCommission\x12#\n\x16\x63ommission_rate_micros\x18\x02 \x01(\x03H\x00\x88\x01\x01\x42\x19\n\x17_commission_rate_micros\"\r\n\x0b\x45nhancedCpc\"G\n\tManualCpc\x12!\n\x14\x65nhanced_cpc_enabled\x18\x02 \x01(\x08H\x00\x88\x01\x01\x42\x17\n\x15_enhanced_cpc_enabled\"\x0b\n\tManualCpm\"\x0b\n\tManualCpv\"\x15\n\x13MaximizeConversions\"C\n\x17MaximizeConversionValue\x12\x18\n\x0btarget_roas\x18\x02 \x01(\x01H\x00\x88\x01\x01\x42\x0e\n\x0c_target_roas\"\xbd\x01\n\tTargetCpa\x12\x1e\n\x11target_cpa_micros\x18\x04 \x01(\x03H\x00\x88\x01\x01\x12#\n\x16\x63pc_bid_ceiling_micros\x18\x05 \x01(\x03H\x01\x88\x01\x01\x12!\n\x14\x63pc_bid_floor_micros\x18\x06 \x01(\x03H\x02\x88\x01\x01\x42\x14\n\x12_target_cpa_microsB\x19\n\x17_cpc_bid_ceiling_microsB\x17\n\x15_cpc_bid_floor_micros\"\x0b\n\tTargetCpm\"\x8d\x02\n\x15TargetImpressionShare\x12p\n\x08location\x18\x01 \x01(\x0e\x32^.google.ads.googleads.v5.enums.TargetImpressionShareLocationEnum.TargetImpressionShareLocation\x12%\n\x18location_fraction_micros\x18\x04 \x01(\x03H\x00\x88\x01\x01\x12#\n\x16\x63pc_bid_ceiling_micros\x18\x05 \x01(\x03H\x01\x88\x01\x01\x42\x1b\n\x19_location_fraction_microsB\x19\n\x17_cpc_bid_ceiling_micros\"\xb2\x01\n\nTargetRoas\x12\x18\n\x0btarget_roas\x18\x04 \x01(\x01H\x00\x88\x01\x01\x12#\n\x16\x63pc_bid_ceiling_micros\x18\x05 \x01(\x03H\x01\x88\x01\x01\x12!\n\x14\x63pc_bid_floor_micros\x18\x06 \x01(\x03H\x02\x88\x01\x01\x42\x0e\n\x0c_target_roasB\x19\n\x17_cpc_bid_ceiling_microsB\x17\n\x15_cpc_bid_floor_micros\"\x8b\x01\n\x0bTargetSpend\x12$\n\x13target_spend_micros\x18\x03 \x01(\x03\x42\x02\x18\x01H\x00\x88\x01\x01\x12#\n\x16\x63pc_bid_ceiling_micros\x18\x04 \x01(\x03H\x01\x88\x01\x01\x42\x16\n\x14_target_spend_microsB\x19\n\x17_cpc_bid_ceiling_micros\"\x88\x01\n\nPercentCpc\x12#\n\x16\x63pc_bid_ceiling_micros\x18\x03 \x01(\x03H\x00\x88\x01\x01\x12!\n\x14\x65nhanced_cpc_enabled\x18\x04 \x01(\x08H\x01\x88\x01\x01\x42\x19\n\x17_cpc_bid_ceiling_microsB\x17\n\x15_enhanced_cpc_enabledB\xe7\x01\n\"com.google.ads.googleads.v5.commonB\x0c\x42iddingProtoP\x01ZDgoogle.golang.org/genproto/googleapis/ads/googleads/v5/common;common\xa2\x02\x03GAA\xaa\x02\x1eGoogle.Ads.GoogleAds.V5.Common\xca\x02\x1eGoogle\\Ads\\GoogleAds\\V5\\Common\xea\x02\"Google::Ads::GoogleAds::V5::Commonb\x06proto3'
   ,
-  dependencies=[google_dot_ads_dot_googleads_dot_v5_dot_enums_dot_target__impression__share__location__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_ads_dot_googleads_dot_v5_dot_enums_dot_target__impression__share__location__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -61,8 +60,8 @@ _COMMISSION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=212,
-  serialized_end=288,
+  serialized_start=180,
+  serialized_end=256,
 )
 
 
@@ -86,8 +85,8 @@ _ENHANCEDCPC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=290,
-  serialized_end=303,
+  serialized_start=258,
+  serialized_end=271,
 )
 
 
@@ -123,8 +122,8 @@ _MANUALCPC = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=305,
-  serialized_end=376,
+  serialized_start=273,
+  serialized_end=344,
 )
 
 
@@ -148,8 +147,8 @@ _MANUALCPM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=378,
-  serialized_end=389,
+  serialized_start=346,
+  serialized_end=357,
 )
 
 
@@ -173,8 +172,8 @@ _MANUALCPV = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=391,
-  serialized_end=402,
+  serialized_start=359,
+  serialized_end=370,
 )
 
 
@@ -198,8 +197,8 @@ _MAXIMIZECONVERSIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=404,
-  serialized_end=425,
+  serialized_start=372,
+  serialized_end=393,
 )
 
 
@@ -235,8 +234,8 @@ _MAXIMIZECONVERSIONVALUE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=427,
-  serialized_end=494,
+  serialized_start=395,
+  serialized_end=462,
 )
 
 
@@ -296,8 +295,8 @@ _TARGETCPA = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=497,
-  serialized_end=686,
+  serialized_start=465,
+  serialized_end=654,
 )
 
 
@@ -321,8 +320,8 @@ _TARGETCPM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=688,
-  serialized_end=699,
+  serialized_start=656,
+  serialized_end=667,
 )
 
 
@@ -377,8 +376,8 @@ _TARGETIMPRESSIONSHARE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=702,
-  serialized_end=971,
+  serialized_start=670,
+  serialized_end=939,
 )
 
 
@@ -438,8 +437,8 @@ _TARGETROAS = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=974,
-  serialized_end=1152,
+  serialized_start=942,
+  serialized_end=1120,
 )
 
 
@@ -457,7 +456,7 @@ _TARGETSPEND = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='cpc_bid_ceiling_micros', full_name='google.ads.googleads.v5.common.TargetSpend.cpc_bid_ceiling_micros', index=1,
       number=4, type=3, cpp_type=2, label=1,
@@ -487,8 +486,8 @@ _TARGETSPEND = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1155,
-  serialized_end=1290,
+  serialized_start=1123,
+  serialized_end=1262,
 )
 
 
@@ -536,8 +535,8 @@ _PERCENTCPC = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1293,
-  serialized_end=1429,
+  serialized_start=1265,
+  serialized_end=1401,
 )
 
 _COMMISSION.oneofs_by_name['_commission_rate_micros'].fields.append(
@@ -694,4 +693,5 @@ _sym_db.RegisterMessage(PercentCpc)
 
 
 DESCRIPTOR._options = None
+_TARGETSPEND.fields_by_name['target_spend_micros']._options = None
 # @@protoc_insertion_point(module_scope)

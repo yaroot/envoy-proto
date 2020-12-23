@@ -9,9 +9,9 @@ package envoy_api_v2_cluster
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -38,7 +38,7 @@ type Filter struct {
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// Filter specific configuration which depends on the filter being
 	// instantiated. See the supported filters for further documentation.
-	TypedConfig *anypb.Any `protobuf:"bytes,2,opt,name=typed_config,json=typedConfig,proto3" json:"typed_config,omitempty"`
+	TypedConfig *any.Any `protobuf:"bytes,2,opt,name=typed_config,json=typedConfig,proto3" json:"typed_config,omitempty"`
 }
 
 func (x *Filter) Reset() {
@@ -80,7 +80,7 @@ func (x *Filter) GetName() string {
 	return ""
 }
 
-func (x *Filter) GetTypedConfig() *anypb.Any {
+func (x *Filter) GetTypedConfig() *any.Any {
 	if x != nil {
 		return x.TypedConfig
 	}
@@ -133,8 +133,8 @@ func file_envoy_api_v2_cluster_filter_proto_rawDescGZIP() []byte {
 
 var file_envoy_api_v2_cluster_filter_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_envoy_api_v2_cluster_filter_proto_goTypes = []interface{}{
-	(*Filter)(nil),    // 0: envoy.api.v2.cluster.Filter
-	(*anypb.Any)(nil), // 1: google.protobuf.Any
+	(*Filter)(nil),  // 0: envoy.api.v2.cluster.Filter
+	(*any.Any)(nil), // 1: google.protobuf.Any
 }
 var file_envoy_api_v2_cluster_filter_proto_depIdxs = []int32{
 	1, // 0: envoy.api.v2.cluster.Filter.typed_config:type_name -> google.protobuf.Any

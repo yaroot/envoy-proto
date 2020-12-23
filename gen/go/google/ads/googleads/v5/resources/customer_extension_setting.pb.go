@@ -22,11 +22,11 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v5/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -59,7 +59,7 @@ type CustomerExtensionSetting struct {
 	// ExtensionFeedItem resource names have the form:
 	//
 	// `customers/{customer_id}/extensionFeedItems/{feed_item_id}`
-	ExtensionFeedItems []*wrapperspb.StringValue `protobuf:"bytes,3,rep,name=extension_feed_items,json=extensionFeedItems,proto3" json:"extension_feed_items,omitempty"`
+	ExtensionFeedItems []*wrappers.StringValue `protobuf:"bytes,3,rep,name=extension_feed_items,json=extensionFeedItems,proto3" json:"extension_feed_items,omitempty"`
 	// The device for which the extensions will serve. Optional.
 	Device enums.ExtensionSettingDeviceEnum_ExtensionSettingDevice `protobuf:"varint,4,opt,name=device,proto3,enum=google.ads.googleads.v5.enums.ExtensionSettingDeviceEnum_ExtensionSettingDevice" json:"device,omitempty"`
 }
@@ -110,7 +110,7 @@ func (x *CustomerExtensionSetting) GetExtensionType() enums.ExtensionTypeEnum_Ex
 	return enums.ExtensionTypeEnum_UNSPECIFIED
 }
 
-func (x *CustomerExtensionSetting) GetExtensionFeedItems() []*wrapperspb.StringValue {
+func (x *CustomerExtensionSetting) GetExtensionFeedItems() []*wrappers.StringValue {
 	if x != nil {
 		return x.ExtensionFeedItems
 	}
@@ -222,7 +222,7 @@ var file_google_ads_googleads_v5_resources_customer_extension_setting_proto_msgT
 var file_google_ads_googleads_v5_resources_customer_extension_setting_proto_goTypes = []interface{}{
 	(*CustomerExtensionSetting)(nil),                             // 0: google.ads.googleads.v5.resources.CustomerExtensionSetting
 	(enums.ExtensionTypeEnum_ExtensionType)(0),                   // 1: google.ads.googleads.v5.enums.ExtensionTypeEnum.ExtensionType
-	(*wrapperspb.StringValue)(nil),                               // 2: google.protobuf.StringValue
+	(*wrappers.StringValue)(nil),                                 // 2: google.protobuf.StringValue
 	(enums.ExtensionSettingDeviceEnum_ExtensionSettingDevice)(0), // 3: google.ads.googleads.v5.enums.ExtensionSettingDeviceEnum.ExtensionSettingDevice
 }
 var file_google_ads_googleads_v5_resources_customer_extension_setting_proto_depIdxs = []int32{

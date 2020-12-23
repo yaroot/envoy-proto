@@ -23,10 +23,10 @@ package language
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -1546,7 +1546,6 @@ func (EntityMention_Type) EnumDescriptor() ([]byte, []int) {
 	return file_google_cloud_language_v1beta2_language_service_proto_rawDescGZIP(), []int{7, 0}
 }
 
-// ################################################################ #
 //
 // Represents the input to API methods.
 type Document struct {

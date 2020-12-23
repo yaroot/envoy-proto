@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\nCio.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v4alphaB\nRouteProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nAenvoy/extensions/filters/network/thrift_proxy/v4alpha/route.proto\x12\x35\x65nvoy.extensions.filters.network.thrift_proxy.v4alpha\x1a$envoy/config/core/v4alpha/base.proto\x1a\x31\x65nvoy/config/route/v4alpha/route_components.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xbc\x01\n\x12RouteConfiguration\x12\x0c\n\x04name\x18\x01 \x01(\t\x12L\n\x06routes\x18\x02 \x03(\x0b\x32<.envoy.extensions.filters.network.thrift_proxy.v4alpha.Route:J\x9a\xc5\x88\x1e\x45\nCenvoy.extensions.filters.network.thrift_proxy.v3.RouteConfiguration\"\xff\x01\n\x05Route\x12Z\n\x05match\x18\x01 \x01(\x0b\x32\x41.envoy.extensions.filters.network.thrift_proxy.v4alpha.RouteMatchB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12[\n\x05route\x18\x02 \x01(\x0b\x32\x42.envoy.extensions.filters.network.thrift_proxy.v4alpha.RouteActionB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:=\x9a\xc5\x88\x1e\x38\n6envoy.extensions.filters.network.thrift_proxy.v3.Route\"\xe3\x01\n\nRouteMatch\x12\x15\n\x0bmethod_name\x18\x01 \x01(\tH\x00\x12\x16\n\x0cservice_name\x18\x02 \x01(\tH\x00\x12\x0e\n\x06invert\x18\x03 \x01(\x08\x12:\n\x07headers\x18\x04 \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcher:B\x9a\xc5\x88\x1e=\n;envoy.extensions.filters.network.thrift_proxy.v3.RouteMatchB\x16\n\x0fmatch_specifier\x12\x03\xf8\x42\x01\"\xa5\x03\n\x0bRouteAction\x12\x1a\n\x07\x63luster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01H\x00\x12\x63\n\x11weighted_clusters\x18\x02 \x01(\x0b\x32\x46.envoy.extensions.filters.network.thrift_proxy.v4alpha.WeightedClusterH\x00\x12!\n\x0e\x63luster_header\x18\x06 \x01(\tB\x07\xfa\x42\x04r\x02 \x01H\x00\x12;\n\x0emetadata_match\x18\x03 \x01(\x0b\x32#.envoy.config.core.v4alpha.Metadata\x12:\n\x0brate_limits\x18\x04 \x03(\x0b\x32%.envoy.config.route.v4alpha.RateLimit\x12\x1a\n\x12strip_service_name\x18\x05 \x01(\x08:C\x9a\xc5\x88\x1e>\n<envoy.extensions.filters.network.thrift_proxy.v3.RouteActionB\x18\n\x11\x63luster_specifier\x12\x03\xf8\x42\x01\"\xc0\x03\n\x0fWeightedCluster\x12p\n\x08\x63lusters\x18\x01 \x03(\x0b\x32T.envoy.extensions.filters.network.thrift_proxy.v4alpha.WeightedCluster.ClusterWeightB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\xf1\x01\n\rClusterWeight\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x35\n\x06weight\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12;\n\x0emetadata_match\x18\x03 \x01(\x0b\x32#.envoy.config.core.v4alpha.Metadata:U\x9a\xc5\x88\x1eP\nNenvoy.extensions.filters.network.thrift_proxy.v3.WeightedCluster.ClusterWeight:G\x9a\xc5\x88\x1e\x42\n@envoy.extensions.filters.network.thrift_proxy.v3.WeightedClusterB[\nCio.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v4alphaB\nRouteProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\nAenvoy/extensions/filters/network/thrift_proxy/v4alpha/route.proto\x12\x35\x65nvoy.extensions.filters.network.thrift_proxy.v4alpha\x1a$envoy/config/core/v4alpha/base.proto\x1a\x31\x65nvoy/config/route/v4alpha/route_components.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xbc\x01\n\x12RouteConfiguration\x12\x0c\n\x04name\x18\x01 \x01(\t\x12L\n\x06routes\x18\x02 \x03(\x0b\x32<.envoy.extensions.filters.network.thrift_proxy.v4alpha.Route:J\x9a\xc5\x88\x1e\x45\nCenvoy.extensions.filters.network.thrift_proxy.v3.RouteConfiguration\"\xff\x01\n\x05Route\x12Z\n\x05match\x18\x01 \x01(\x0b\x32\x41.envoy.extensions.filters.network.thrift_proxy.v4alpha.RouteMatchB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12[\n\x05route\x18\x02 \x01(\x0b\x32\x42.envoy.extensions.filters.network.thrift_proxy.v4alpha.RouteActionB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:=\x9a\xc5\x88\x1e\x38\n6envoy.extensions.filters.network.thrift_proxy.v3.Route\"\xe3\x01\n\nRouteMatch\x12\x15\n\x0bmethod_name\x18\x01 \x01(\tH\x00\x12\x16\n\x0cservice_name\x18\x02 \x01(\tH\x00\x12\x0e\n\x06invert\x18\x03 \x01(\x08\x12:\n\x07headers\x18\x04 \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcher:B\x9a\xc5\x88\x1e=\n;envoy.extensions.filters.network.thrift_proxy.v3.RouteMatchB\x16\n\x0fmatch_specifier\x12\x03\xf8\x42\x01\"\xab\x03\n\x0bRouteAction\x12\x1a\n\x07\x63luster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\x63\n\x11weighted_clusters\x18\x02 \x01(\x0b\x32\x46.envoy.extensions.filters.network.thrift_proxy.v4alpha.WeightedClusterH\x00\x12\'\n\x0e\x63luster_header\x18\x06 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x02\xc8\x01\x00H\x00\x12;\n\x0emetadata_match\x18\x03 \x01(\x0b\x32#.envoy.config.core.v4alpha.Metadata\x12:\n\x0brate_limits\x18\x04 \x03(\x0b\x32%.envoy.config.route.v4alpha.RateLimit\x12\x1a\n\x12strip_service_name\x18\x05 \x01(\x08:C\x9a\xc5\x88\x1e>\n<envoy.extensions.filters.network.thrift_proxy.v3.RouteActionB\x18\n\x11\x63luster_specifier\x12\x03\xf8\x42\x01\"\xc0\x03\n\x0fWeightedCluster\x12p\n\x08\x63lusters\x18\x01 \x03(\x0b\x32T.envoy.extensions.filters.network.thrift_proxy.v4alpha.WeightedCluster.ClusterWeightB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\xf1\x01\n\rClusterWeight\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x35\n\x06weight\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12;\n\x0emetadata_match\x18\x03 \x01(\x0b\x32#.envoy.config.core.v4alpha.Metadata:U\x9a\xc5\x88\x1eP\nNenvoy.extensions.filters.network.thrift_proxy.v3.WeightedCluster.ClusterWeight:G\x9a\xc5\x88\x1e\x42\n@envoy.extensions.filters.network.thrift_proxy.v3.WeightedClusterB[\nCio.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v4alphaB\nRouteProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v4alpha_dot_route__components__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -182,7 +182,7 @@ _ROUTEACTION = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='weighted_clusters', full_name='envoy.extensions.filters.network.thrift_proxy.v4alpha.RouteAction.weighted_clusters', index=1,
       number=2, type=11, cpp_type=10, label=1,
@@ -196,7 +196,7 @@ _ROUTEACTION = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\nr\010\020\001\300\001\002\310\001\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='metadata_match', full_name='envoy.extensions.filters.network.thrift_proxy.v4alpha.RouteAction.metadata_match', index=3,
       number=3, type=11, cpp_type=10, label=1,
@@ -236,7 +236,7 @@ _ROUTEACTION = _descriptor.Descriptor(
     fields=[], serialized_options=b'\370B\001'),
   ],
   serialized_start=1016,
-  serialized_end=1437,
+  serialized_end=1443,
 )
 
 
@@ -254,7 +254,7 @@ _WEIGHTEDCLUSTER_CLUSTERWEIGHT = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='weight', full_name='envoy.extensions.filters.network.thrift_proxy.v4alpha.WeightedCluster.ClusterWeight.weight', index=1,
       number=2, type=11, cpp_type=10, label=1,
@@ -281,8 +281,8 @@ _WEIGHTEDCLUSTER_CLUSTERWEIGHT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1574,
-  serialized_end=1815,
+  serialized_start=1580,
+  serialized_end=1821,
 )
 
 _WEIGHTEDCLUSTER = _descriptor.Descriptor(
@@ -312,8 +312,8 @@ _WEIGHTEDCLUSTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1440,
-  serialized_end=1888,
+  serialized_start=1446,
+  serialized_end=1894,
 )
 
 _ROUTECONFIGURATION.fields_by_name['routes'].message_type = _ROUTE

@@ -22,10 +22,10 @@ package common
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -48,9 +48,9 @@ type DateRange struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The start date, in yyyy-mm-dd format. This date is inclusive.
-	StartDate *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
+	StartDate *wrappers.StringValue `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"`
 	// The end date, in yyyy-mm-dd format. This date is inclusive.
-	EndDate *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`
+	EndDate *wrappers.StringValue `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`
 }
 
 func (x *DateRange) Reset() {
@@ -85,14 +85,14 @@ func (*DateRange) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v5_common_dates_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *DateRange) GetStartDate() *wrapperspb.StringValue {
+func (x *DateRange) GetStartDate() *wrappers.StringValue {
 	if x != nil {
 		return x.StartDate
 	}
 	return nil
 }
 
-func (x *DateRange) GetEndDate() *wrapperspb.StringValue {
+func (x *DateRange) GetEndDate() *wrappers.StringValue {
 	if x != nil {
 		return x.EndDate
 	}
@@ -150,8 +150,8 @@ func file_google_ads_googleads_v5_common_dates_proto_rawDescGZIP() []byte {
 
 var file_google_ads_googleads_v5_common_dates_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v5_common_dates_proto_goTypes = []interface{}{
-	(*DateRange)(nil),              // 0: google.ads.googleads.v5.common.DateRange
-	(*wrapperspb.StringValue)(nil), // 1: google.protobuf.StringValue
+	(*DateRange)(nil),            // 0: google.ads.googleads.v5.common.DateRange
+	(*wrappers.StringValue)(nil), // 1: google.protobuf.StringValue
 }
 var file_google_ads_googleads_v5_common_dates_proto_depIdxs = []int32{
 	1, // 0: google.ads.googleads.v5.common.DateRange.start_date:type_name -> google.protobuf.StringValue

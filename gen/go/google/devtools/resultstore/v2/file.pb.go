@@ -23,9 +23,9 @@ package resultstore
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -118,7 +118,7 @@ type File struct {
 	// (Optional) The length of the file in bytes.  Allows the filesize to be
 	// shown in the UI.  Omit if file is still being written or length is
 	// not known.  This could also be the length of an entire archive.
-	Length *wrapperspb.Int64Value `protobuf:"bytes,3,opt,name=length,proto3" json:"length,omitempty"`
+	Length *wrappers.Int64Value `protobuf:"bytes,3,opt,name=length,proto3" json:"length,omitempty"`
 	// (Optional) The content-type (aka MIME-type) of the file.  This is sent to
 	// the web browser so it knows how to handle the file. (e.g. text/plain,
 	// image/jpeg, text/html, etc). For zip archives, use "application/zip".
@@ -191,7 +191,7 @@ func (x *File) GetUri() string {
 	return ""
 }
 
-func (x *File) GetLength() *wrapperspb.Int64Value {
+func (x *File) GetLength() *wrappers.Int64Value {
 	if x != nil {
 		return x.Length
 	}
@@ -257,7 +257,7 @@ type ArchiveEntry struct {
 	Path string `protobuf:"bytes,1,opt,name=path,proto3" json:"path,omitempty"`
 	// (Optional) The uncompressed length of the archive entry in bytes.  Allows
 	// the entry size to be shown in the UI.  Omit if the length is not known.
-	Length *wrapperspb.Int64Value `protobuf:"bytes,2,opt,name=length,proto3" json:"length,omitempty"`
+	Length *wrappers.Int64Value `protobuf:"bytes,2,opt,name=length,proto3" json:"length,omitempty"`
 	// (Optional) The content-type (aka MIME-type) of the archive entry. (e.g.
 	// text/plain, image/jpeg, text/html, etc). This is sent to the web browser
 	// so it knows how to handle the entry.
@@ -303,7 +303,7 @@ func (x *ArchiveEntry) GetPath() string {
 	return ""
 }
 
-func (x *ArchiveEntry) GetLength() *wrapperspb.Int64Value {
+func (x *ArchiveEntry) GetLength() *wrappers.Int64Value {
 	if x != nil {
 		return x.Length
 	}
@@ -390,10 +390,10 @@ func file_google_devtools_resultstore_v2_file_proto_rawDescGZIP() []byte {
 var file_google_devtools_resultstore_v2_file_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_google_devtools_resultstore_v2_file_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_google_devtools_resultstore_v2_file_proto_goTypes = []interface{}{
-	(File_HashType)(0),            // 0: google.devtools.resultstore.v2.File.HashType
-	(*File)(nil),                  // 1: google.devtools.resultstore.v2.File
-	(*ArchiveEntry)(nil),          // 2: google.devtools.resultstore.v2.ArchiveEntry
-	(*wrapperspb.Int64Value)(nil), // 3: google.protobuf.Int64Value
+	(File_HashType)(0),          // 0: google.devtools.resultstore.v2.File.HashType
+	(*File)(nil),                // 1: google.devtools.resultstore.v2.File
+	(*ArchiveEntry)(nil),        // 2: google.devtools.resultstore.v2.ArchiveEntry
+	(*wrappers.Int64Value)(nil), // 3: google.protobuf.Int64Value
 }
 var file_google_devtools_resultstore_v2_file_proto_depIdxs = []int32{
 	3, // 0: google.devtools.resultstore.v2.File.length:type_name -> google.protobuf.Int64Value

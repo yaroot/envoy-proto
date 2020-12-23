@@ -27,7 +27,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n*io.envoyproxy.envoy.service.status.v4alphaB\tCsdsProtoP\001\210\001\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'envoy/service/status/v4alpha/csds.proto\x12\x1c\x65nvoy.service.status.v4alpha\x1a%envoy/admin/v4alpha/config_dump.proto\x1a$envoy/config/core/v4alpha/base.proto\x1a%envoy/type/matcher/v4alpha/node.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"\x89\x01\n\x13\x43lientStatusRequest\x12>\n\rnode_matchers\x18\x01 \x03(\x0b\x32\'.envoy.type.matcher.v4alpha.NodeMatcher:2\x9a\xc5\x88\x1e-\n+envoy.service.status.v3.ClientStatusRequest\"\xe1\x03\n\x0cPerXdsConfig\x12:\n\x06status\x18\x01 \x01(\x0e\x32*.envoy.service.status.v4alpha.ConfigStatus\x12\x43\n\x0flistener_config\x18\x02 \x01(\x0b\x32(.envoy.admin.v4alpha.ListenersConfigDumpH\x00\x12\x41\n\x0e\x63luster_config\x18\x03 \x01(\x0b\x32\'.envoy.admin.v4alpha.ClustersConfigDumpH\x00\x12=\n\x0croute_config\x18\x04 \x01(\x0b\x32%.envoy.admin.v4alpha.RoutesConfigDumpH\x00\x12J\n\x13scoped_route_config\x18\x05 \x01(\x0b\x32+.envoy.admin.v4alpha.ScopedRoutesConfigDumpH\x00\x12\x43\n\x0f\x65ndpoint_config\x18\x06 \x01(\x0b\x32(.envoy.admin.v4alpha.EndpointsConfigDumpH\x00:+\x9a\xc5\x88\x1e&\n$envoy.service.status.v3.PerXdsConfigB\x10\n\x0eper_xds_config\"\xaa\x01\n\x0c\x43lientConfig\x12-\n\x04node\x18\x01 \x01(\x0b\x32\x1f.envoy.config.core.v4alpha.Node\x12>\n\nxds_config\x18\x02 \x03(\x0b\x32*.envoy.service.status.v4alpha.PerXdsConfig:+\x9a\xc5\x88\x1e&\n$envoy.service.status.v3.ClientConfig\"\x87\x01\n\x14\x43lientStatusResponse\x12:\n\x06\x63onfig\x18\x01 \x03(\x0b\x32*.envoy.service.status.v4alpha.ClientConfig:3\x9a\xc5\x88\x1e.\n,envoy.service.status.v3.ClientStatusResponse*K\n\x0c\x43onfigStatus\x12\x0b\n\x07UNKNOWN\x10\x00\x12\n\n\x06SYNCED\x10\x01\x12\x0c\n\x08NOT_SENT\x10\x02\x12\t\n\x05STALE\x10\x03\x12\t\n\x05\x45RROR\x10\x04\x32\xcd\x02\n\x1c\x43lientStatusDiscoveryService\x12\x81\x01\n\x12StreamClientStatus\x12\x31.envoy.service.status.v4alpha.ClientStatusRequest\x1a\x32.envoy.service.status.v4alpha.ClientStatusResponse\"\x00(\x01\x30\x01\x12\xa8\x01\n\x11\x46\x65tchClientStatus\x12\x31.envoy.service.status.v4alpha.ClientStatusRequest\x1a\x32.envoy.service.status.v4alpha.ClientStatusResponse\",\x82\xd3\xe4\x93\x02\x1d\"\x1b/v3/discovery:client_status\x82\xd3\xe4\x93\x02\x03:\x01*BD\n*io.envoyproxy.envoy.service.status.v4alphaB\tCsdsProtoP\x01\x88\x01\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n\'envoy/service/status/v4alpha/csds.proto\x12\x1c\x65nvoy.service.status.v4alpha\x1a%envoy/admin/v4alpha/config_dump.proto\x1a$envoy/config/core/v4alpha/base.proto\x1a%envoy/type/matcher/v4alpha/node.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"\xb8\x01\n\x13\x43lientStatusRequest\x12>\n\rnode_matchers\x18\x01 \x03(\x0b\x32\'.envoy.type.matcher.v4alpha.NodeMatcher\x12-\n\x04node\x18\x02 \x01(\x0b\x32\x1f.envoy.config.core.v4alpha.Node:2\x9a\xc5\x88\x1e-\n+envoy.service.status.v3.ClientStatusRequest\"\xbf\x04\n\x0cPerXdsConfig\x12<\n\x06status\x18\x01 \x01(\x0e\x32*.envoy.service.status.v4alpha.ConfigStatusH\x00\x12I\n\rclient_status\x18\x07 \x01(\x0e\x32\x30.envoy.service.status.v4alpha.ClientConfigStatusH\x00\x12\x43\n\x0flistener_config\x18\x02 \x01(\x0b\x32(.envoy.admin.v4alpha.ListenersConfigDumpH\x01\x12\x41\n\x0e\x63luster_config\x18\x03 \x01(\x0b\x32\'.envoy.admin.v4alpha.ClustersConfigDumpH\x01\x12=\n\x0croute_config\x18\x04 \x01(\x0b\x32%.envoy.admin.v4alpha.RoutesConfigDumpH\x01\x12J\n\x13scoped_route_config\x18\x05 \x01(\x0b\x32+.envoy.admin.v4alpha.ScopedRoutesConfigDumpH\x01\x12\x43\n\x0f\x65ndpoint_config\x18\x06 \x01(\x0b\x32(.envoy.admin.v4alpha.EndpointsConfigDumpH\x01:+\x9a\xc5\x88\x1e&\n$envoy.service.status.v3.PerXdsConfigB\x0f\n\rstatus_configB\x10\n\x0eper_xds_config\"\xaa\x01\n\x0c\x43lientConfig\x12-\n\x04node\x18\x01 \x01(\x0b\x32\x1f.envoy.config.core.v4alpha.Node\x12>\n\nxds_config\x18\x02 \x03(\x0b\x32*.envoy.service.status.v4alpha.PerXdsConfig:+\x9a\xc5\x88\x1e&\n$envoy.service.status.v3.ClientConfig\"\x87\x01\n\x14\x43lientStatusResponse\x12:\n\x06\x63onfig\x18\x01 \x03(\x0b\x32*.envoy.service.status.v4alpha.ClientConfig:3\x9a\xc5\x88\x1e.\n,envoy.service.status.v3.ClientStatusResponse*K\n\x0c\x43onfigStatus\x12\x0b\n\x07UNKNOWN\x10\x00\x12\n\n\x06SYNCED\x10\x01\x12\x0c\n\x08NOT_SENT\x10\x02\x12\t\n\x05STALE\x10\x03\x12\t\n\x05\x45RROR\x10\x04*c\n\x12\x43lientConfigStatus\x12\x12\n\x0e\x43LIENT_UNKNOWN\x10\x00\x12\x14\n\x10\x43LIENT_REQUESTED\x10\x01\x12\x10\n\x0c\x43LIENT_ACKED\x10\x02\x12\x11\n\rCLIENT_NACKED\x10\x03\x32\xcd\x02\n\x1c\x43lientStatusDiscoveryService\x12\x81\x01\n\x12StreamClientStatus\x12\x31.envoy.service.status.v4alpha.ClientStatusRequest\x1a\x32.envoy.service.status.v4alpha.ClientStatusResponse\"\x00(\x01\x30\x01\x12\xa8\x01\n\x11\x46\x65tchClientStatus\x12\x31.envoy.service.status.v4alpha.ClientStatusRequest\x1a\x32.envoy.service.status.v4alpha.ClientStatusResponse\",\x82\xd3\xe4\x93\x02\x1d\"\x1b/v3/discovery:client_status\x82\xd3\xe4\x93\x02\x03:\x01*BD\n*io.envoyproxy.envoy.service.status.v4alphaB\tCsdsProtoP\x01\x88\x01\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
   dependencies=[envoy_dot_admin_dot_v4alpha_dot_config__dump__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v4alpha_dot_node__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,])
 
@@ -66,17 +66,57 @@ _CONFIGSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1250,
-  serialized_end=1325,
+  serialized_start=1391,
+  serialized_end=1466,
 )
 _sym_db.RegisterEnumDescriptor(_CONFIGSTATUS)
 
 ConfigStatus = enum_type_wrapper.EnumTypeWrapper(_CONFIGSTATUS)
+_CLIENTCONFIGSTATUS = _descriptor.EnumDescriptor(
+  name='ClientConfigStatus',
+  full_name='envoy.service.status.v4alpha.ClientConfigStatus',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='CLIENT_UNKNOWN', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CLIENT_REQUESTED', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CLIENT_ACKED', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CLIENT_NACKED', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1468,
+  serialized_end=1567,
+)
+_sym_db.RegisterEnumDescriptor(_CLIENTCONFIGSTATUS)
+
+ClientConfigStatus = enum_type_wrapper.EnumTypeWrapper(_CLIENTCONFIGSTATUS)
 UNKNOWN = 0
 SYNCED = 1
 NOT_SENT = 2
 STALE = 3
 ERROR = 4
+CLIENT_UNKNOWN = 0
+CLIENT_REQUESTED = 1
+CLIENT_ACKED = 2
+CLIENT_NACKED = 3
 
 
 
@@ -95,6 +135,13 @@ _CLIENTSTATUSREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='node', full_name='envoy.service.status.v4alpha.ClientStatusRequest.node', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -108,7 +155,7 @@ _CLIENTSTATUSREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=316,
-  serialized_end=453,
+  serialized_end=500,
 )
 
 
@@ -128,35 +175,42 @@ _PERXDSCONFIG = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='listener_config', full_name='envoy.service.status.v4alpha.PerXdsConfig.listener_config', index=1,
+      name='client_status', full_name='envoy.service.status.v4alpha.PerXdsConfig.client_status', index=1,
+      number=7, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='listener_config', full_name='envoy.service.status.v4alpha.PerXdsConfig.listener_config', index=2,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='cluster_config', full_name='envoy.service.status.v4alpha.PerXdsConfig.cluster_config', index=2,
+      name='cluster_config', full_name='envoy.service.status.v4alpha.PerXdsConfig.cluster_config', index=3,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='route_config', full_name='envoy.service.status.v4alpha.PerXdsConfig.route_config', index=3,
+      name='route_config', full_name='envoy.service.status.v4alpha.PerXdsConfig.route_config', index=4,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='scoped_route_config', full_name='envoy.service.status.v4alpha.PerXdsConfig.scoped_route_config', index=4,
+      name='scoped_route_config', full_name='envoy.service.status.v4alpha.PerXdsConfig.scoped_route_config', index=5,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='endpoint_config', full_name='envoy.service.status.v4alpha.PerXdsConfig.endpoint_config', index=5,
+      name='endpoint_config', full_name='envoy.service.status.v4alpha.PerXdsConfig.endpoint_config', index=6,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -174,13 +228,18 @@ _PERXDSCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='per_xds_config', full_name='envoy.service.status.v4alpha.PerXdsConfig.per_xds_config',
+      name='status_config', full_name='envoy.service.status.v4alpha.PerXdsConfig.status_config',
       index=0, containing_type=None,
       create_key=_descriptor._internal_create_key,
     fields=[]),
+    _descriptor.OneofDescriptor(
+      name='per_xds_config', full_name='envoy.service.status.v4alpha.PerXdsConfig.per_xds_config',
+      index=1, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=456,
-  serialized_end=937,
+  serialized_start=503,
+  serialized_end=1078,
 )
 
 
@@ -218,8 +277,8 @@ _CLIENTCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=940,
-  serialized_end=1110,
+  serialized_start=1081,
+  serialized_end=1251,
 )
 
 
@@ -250,17 +309,25 @@ _CLIENTSTATUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1113,
-  serialized_end=1248,
+  serialized_start=1254,
+  serialized_end=1389,
 )
 
 _CLIENTSTATUSREQUEST.fields_by_name['node_matchers'].message_type = envoy_dot_type_dot_matcher_dot_v4alpha_dot_node__pb2._NODEMATCHER
+_CLIENTSTATUSREQUEST.fields_by_name['node'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2._NODE
 _PERXDSCONFIG.fields_by_name['status'].enum_type = _CONFIGSTATUS
+_PERXDSCONFIG.fields_by_name['client_status'].enum_type = _CLIENTCONFIGSTATUS
 _PERXDSCONFIG.fields_by_name['listener_config'].message_type = envoy_dot_admin_dot_v4alpha_dot_config__dump__pb2._LISTENERSCONFIGDUMP
 _PERXDSCONFIG.fields_by_name['cluster_config'].message_type = envoy_dot_admin_dot_v4alpha_dot_config__dump__pb2._CLUSTERSCONFIGDUMP
 _PERXDSCONFIG.fields_by_name['route_config'].message_type = envoy_dot_admin_dot_v4alpha_dot_config__dump__pb2._ROUTESCONFIGDUMP
 _PERXDSCONFIG.fields_by_name['scoped_route_config'].message_type = envoy_dot_admin_dot_v4alpha_dot_config__dump__pb2._SCOPEDROUTESCONFIGDUMP
 _PERXDSCONFIG.fields_by_name['endpoint_config'].message_type = envoy_dot_admin_dot_v4alpha_dot_config__dump__pb2._ENDPOINTSCONFIGDUMP
+_PERXDSCONFIG.oneofs_by_name['status_config'].fields.append(
+  _PERXDSCONFIG.fields_by_name['status'])
+_PERXDSCONFIG.fields_by_name['status'].containing_oneof = _PERXDSCONFIG.oneofs_by_name['status_config']
+_PERXDSCONFIG.oneofs_by_name['status_config'].fields.append(
+  _PERXDSCONFIG.fields_by_name['client_status'])
+_PERXDSCONFIG.fields_by_name['client_status'].containing_oneof = _PERXDSCONFIG.oneofs_by_name['status_config']
 _PERXDSCONFIG.oneofs_by_name['per_xds_config'].fields.append(
   _PERXDSCONFIG.fields_by_name['listener_config'])
 _PERXDSCONFIG.fields_by_name['listener_config'].containing_oneof = _PERXDSCONFIG.oneofs_by_name['per_xds_config']
@@ -284,6 +351,7 @@ DESCRIPTOR.message_types_by_name['PerXdsConfig'] = _PERXDSCONFIG
 DESCRIPTOR.message_types_by_name['ClientConfig'] = _CLIENTCONFIG
 DESCRIPTOR.message_types_by_name['ClientStatusResponse'] = _CLIENTSTATUSRESPONSE
 DESCRIPTOR.enum_types_by_name['ConfigStatus'] = _CONFIGSTATUS
+DESCRIPTOR.enum_types_by_name['ClientConfigStatus'] = _CLIENTCONFIGSTATUS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ClientStatusRequest = _reflection.GeneratedProtocolMessageType('ClientStatusRequest', (_message.Message,), {
@@ -328,8 +396,8 @@ _CLIENTSTATUSDISCOVERYSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1328,
-  serialized_end=1661,
+  serialized_start=1570,
+  serialized_end=1903,
   methods=[
   _descriptor.MethodDescriptor(
     name='StreamClientStatus',

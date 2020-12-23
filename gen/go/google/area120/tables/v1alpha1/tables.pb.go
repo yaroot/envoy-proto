@@ -22,12 +22,12 @@ package tables
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -660,7 +660,7 @@ type UpdateRowRequest struct {
 	// Required. The row to update.
 	Row *Row `protobuf:"bytes,1,opt,name=row,proto3" json:"row,omitempty"`
 	// The list of fields to update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// Optional. Column key to use for values in the row.
 	// Defaults to user entered name.
 	View View `protobuf:"varint,3,opt,name=view,proto3,enum=google.area120.tables.v1alpha1.View" json:"view,omitempty"`
@@ -705,7 +705,7 @@ func (x *UpdateRowRequest) GetRow() *Row {
 	return nil
 }
 
-func (x *UpdateRowRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateRowRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1030,7 +1030,7 @@ type Row struct {
 	// The values of the row. This is a map of column key to value.
 	// Key is user entered name(default) or the internal column id based on
 	// the view in the request.
-	Values map[string]*structpb.Value `protobuf:"bytes,2,rep,name=values,proto3" json:"values,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Values map[string]*_struct.Value `protobuf:"bytes,2,rep,name=values,proto3" json:"values,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *Row) Reset() {
@@ -1072,7 +1072,7 @@ func (x *Row) GetName() string {
 	return ""
 }
 
-func (x *Row) GetValues() map[string]*structpb.Value {
+func (x *Row) GetValues() map[string]*_struct.Value {
 	if x != nil {
 		return x.Values
 	}
@@ -1385,9 +1385,9 @@ var file_google_area120_tables_v1alpha1_tables_proto_goTypes = []interface{}{
 	(*ColumnDescription)(nil),       // 15: google.area120.tables.v1alpha1.ColumnDescription
 	(*Row)(nil),                     // 16: google.area120.tables.v1alpha1.Row
 	nil,                             // 17: google.area120.tables.v1alpha1.Row.ValuesEntry
-	(*fieldmaskpb.FieldMask)(nil),   // 18: google.protobuf.FieldMask
-	(*structpb.Value)(nil),          // 19: google.protobuf.Value
-	(*emptypb.Empty)(nil),           // 20: google.protobuf.Empty
+	(*field_mask.FieldMask)(nil),    // 18: google.protobuf.FieldMask
+	(*_struct.Value)(nil),           // 19: google.protobuf.Value
+	(*empty.Empty)(nil),             // 20: google.protobuf.Empty
 }
 var file_google_area120_tables_v1alpha1_tables_proto_depIdxs = []int32{
 	14, // 0: google.area120.tables.v1alpha1.ListTablesResponse.tables:type_name -> google.area120.tables.v1alpha1.Table

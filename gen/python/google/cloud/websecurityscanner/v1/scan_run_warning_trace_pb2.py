@@ -17,9 +17,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/websecurityscanner/v1/scan_run_warning_trace.proto',
   package='google.cloud.websecurityscanner.v1',
   syntax='proto3',
-  serialized_options=b'\n&com.google.cloud.websecurityscanner.v1B\030ScanRunWarningTraceProtoP\001ZTgoogle.golang.org/genproto/googleapis/cloud/websecurityscanner/v1;websecurityscanner',
+  serialized_options=b'\n&com.google.cloud.websecurityscanner.v1B\030ScanRunWarningTraceProtoP\001ZTgoogle.golang.org/genproto/googleapis/cloud/websecurityscanner/v1;websecurityscanner\252\002\"Google.Cloud.WebSecurityScanner.V1\312\002\"Google\\Cloud\\WebSecurityScanner\\V1\352\002%Google::Cloud::WebSecurityScanner::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n?google/cloud/websecurityscanner/v1/scan_run_warning_trace.proto\x12\"google.cloud.websecurityscanner.v1\"\xe9\x01\n\x13ScanRunWarningTrace\x12J\n\x04\x63ode\x18\x01 \x01(\x0e\x32<.google.cloud.websecurityscanner.v1.ScanRunWarningTrace.Code\"\x85\x01\n\x04\x43ode\x12\x14\n\x10\x43ODE_UNSPECIFIED\x10\x00\x12\x1e\n\x1aINSUFFICIENT_CRAWL_RESULTS\x10\x01\x12\x1a\n\x16TOO_MANY_CRAWL_RESULTS\x10\x02\x12\x17\n\x13TOO_MANY_FUZZ_TASKS\x10\x03\x12\x12\n\x0e\x42LOCKED_BY_IAP\x10\x04\x42\x9a\x01\n&com.google.cloud.websecurityscanner.v1B\x18ScanRunWarningTraceProtoP\x01ZTgoogle.golang.org/genproto/googleapis/cloud/websecurityscanner/v1;websecurityscannerb\x06proto3'
+  serialized_pb=b'\n?google/cloud/websecurityscanner/v1/scan_run_warning_trace.proto\x12\"google.cloud.websecurityscanner.v1\"\xe9\x01\n\x13ScanRunWarningTrace\x12J\n\x04\x63ode\x18\x01 \x01(\x0e\x32<.google.cloud.websecurityscanner.v1.ScanRunWarningTrace.Code\"\x85\x01\n\x04\x43ode\x12\x14\n\x10\x43ODE_UNSPECIFIED\x10\x00\x12\x1e\n\x1aINSUFFICIENT_CRAWL_RESULTS\x10\x01\x12\x1a\n\x16TOO_MANY_CRAWL_RESULTS\x10\x02\x12\x17\n\x13TOO_MANY_FUZZ_TASKS\x10\x03\x12\x12\n\x0e\x42LOCKED_BY_IAP\x10\x04\x42\x8c\x02\n&com.google.cloud.websecurityscanner.v1B\x18ScanRunWarningTraceProtoP\x01ZTgoogle.golang.org/genproto/googleapis/cloud/websecurityscanner/v1;websecurityscanner\xaa\x02\"Google.Cloud.WebSecurityScanner.V1\xca\x02\"Google\\Cloud\\WebSecurityScanner\\V1\xea\x02%Google::Cloud::WebSecurityScanner::V1b\x06proto3'
 )
 
 

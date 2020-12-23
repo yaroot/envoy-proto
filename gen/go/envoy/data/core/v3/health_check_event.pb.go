@@ -10,9 +10,9 @@ import (
 	v3 "envoy/config/core/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -147,7 +147,7 @@ type HealthCheckEvent struct {
 	//	*HealthCheckEvent_NoLongerDegradedHost
 	Event isHealthCheckEvent_Event `protobuf_oneof:"event"`
 	// Timestamp for event.
-	Timestamp *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Timestamp *timestamp.Timestamp `protobuf:"bytes,6,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 }
 
 func (x *HealthCheckEvent) Reset() {
@@ -245,7 +245,7 @@ func (x *HealthCheckEvent) GetNoLongerDegradedHost() *NoLongerDegradedHost {
 	return nil
 }
 
-func (x *HealthCheckEvent) GetTimestamp() *timestamppb.Timestamp {
+func (x *HealthCheckEvent) GetTimestamp() *timestamp.Timestamp {
 	if x != nil {
 		return x.Timestamp
 	}
@@ -551,7 +551,7 @@ var file_envoy_data_core_v3_health_check_event_proto_rawDesc = []byte{
 	0x6e, 0x66, 0x69, 0x67, 0x2e, 0x63, 0x6f, 0x72, 0x65, 0x2e, 0x76, 0x33, 0x2e, 0x41, 0x64, 0x64,
 	0x72, 0x65, 0x73, 0x73, 0x52, 0x04, 0x68, 0x6f, 0x73, 0x74, 0x12, 0x2a, 0x0a, 0x0c, 0x63, 0x6c,
 	0x75, 0x73, 0x74, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x20, 0x01, 0x52, 0x0b, 0x63, 0x6c, 0x75, 0x73, 0x74,
+	0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0b, 0x63, 0x6c, 0x75, 0x73, 0x74,
 	0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x63, 0x0a, 0x15, 0x65, 0x6a, 0x65, 0x63, 0x74, 0x5f,
 	0x75, 0x6e, 0x68, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x79, 0x5f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x18,
 	0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2d, 0x2e, 0x65, 0x6e, 0x76, 0x6f, 0x79, 0x2e, 0x64, 0x61,
@@ -669,7 +669,7 @@ var file_envoy_data_core_v3_health_check_event_proto_goTypes = []interface{}{
 	(*DegradedHealthyHost)(nil),       // 6: envoy.data.core.v3.DegradedHealthyHost
 	(*NoLongerDegradedHost)(nil),      // 7: envoy.data.core.v3.NoLongerDegradedHost
 	(*v3.Address)(nil),                // 8: envoy.config.core.v3.Address
-	(*timestamppb.Timestamp)(nil),     // 9: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),       // 9: google.protobuf.Timestamp
 }
 var file_envoy_data_core_v3_health_check_event_proto_depIdxs = []int32{
 	1,  // 0: envoy.data.core.v3.HealthCheckEvent.health_checker_type:type_name -> envoy.data.core.v3.HealthCheckerType

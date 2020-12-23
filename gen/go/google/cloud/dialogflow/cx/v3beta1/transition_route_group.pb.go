@@ -22,11 +22,11 @@ package cx
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -423,7 +423,7 @@ type UpdateTransitionRouteGroupRequest struct {
 	// Required. The transition route group to update.
 	TransitionRouteGroup *TransitionRouteGroup `protobuf:"bytes,1,opt,name=transition_route_group,json=transitionRouteGroup,proto3" json:"transition_route_group,omitempty"`
 	// The mask to control which fields get updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// The language to list transition route groups for. The field
 	// [`messages`][TransitionRoute.trigger_fulfillment.messages] in
 	// [TransitionRoute][google.cloud.dialogflow.cx.v3beta1.TransitionRoute] is language dependent.
@@ -475,7 +475,7 @@ func (x *UpdateTransitionRouteGroupRequest) GetTransitionRouteGroup() *Transitio
 	return nil
 }
 
-func (x *UpdateTransitionRouteGroupRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateTransitionRouteGroupRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -809,8 +809,8 @@ var file_google_cloud_dialogflow_cx_v3beta1_transition_route_group_proto_goTypes
 	(*UpdateTransitionRouteGroupRequest)(nil), // 5: google.cloud.dialogflow.cx.v3beta1.UpdateTransitionRouteGroupRequest
 	(*DeleteTransitionRouteGroupRequest)(nil), // 6: google.cloud.dialogflow.cx.v3beta1.DeleteTransitionRouteGroupRequest
 	(*TransitionRoute)(nil),                   // 7: google.cloud.dialogflow.cx.v3beta1.TransitionRoute
-	(*fieldmaskpb.FieldMask)(nil),             // 8: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),                     // 9: google.protobuf.Empty
+	(*field_mask.FieldMask)(nil),              // 8: google.protobuf.FieldMask
+	(*empty.Empty)(nil),                       // 9: google.protobuf.Empty
 }
 var file_google_cloud_dialogflow_cx_v3beta1_transition_route_group_proto_depIdxs = []int32{
 	7,  // 0: google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroup.transition_routes:type_name -> google.cloud.dialogflow.cx.v3beta1.TransitionRoute

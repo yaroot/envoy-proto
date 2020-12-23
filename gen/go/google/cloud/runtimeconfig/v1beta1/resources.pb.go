@@ -22,12 +22,12 @@ package runtimeconfig
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	status "google.golang.org/genproto/googleapis/rpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -204,7 +204,7 @@ type Variable struct {
 	//	*Variable_Text
 	Contents isVariable_Contents `protobuf_oneof:"contents"`
 	// [Output Only] The time of the last variable update.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// [Ouput only] The current state of the variable. The variable state
 	// indicates the outcome of the `variables().watch` call and is visible
 	// through the `get` and `list` calls.
@@ -271,7 +271,7 @@ func (x *Variable) GetText() string {
 	return ""
 }
 
-func (x *Variable) GetUpdateTime() *timestamppb.Timestamp {
+func (x *Variable) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -414,7 +414,7 @@ type Waiter struct {
 	// the instant that `waiters().create` method is called. If this time elapses
 	// before the success or failure conditions are met, the waiter fails and sets
 	// the `error` code to `DEADLINE_EXCEEDED`.
-	Timeout *durationpb.Duration `protobuf:"bytes,2,opt,name=timeout,proto3" json:"timeout,omitempty"`
+	Timeout *duration.Duration `protobuf:"bytes,2,opt,name=timeout,proto3" json:"timeout,omitempty"`
 	// [Optional] The failure condition of this waiter. If this condition is met,
 	// `done` will be set to `true` and the `error` code will be set to `ABORTED`.
 	// The failure condition takes precedence over the success condition. If both
@@ -429,7 +429,7 @@ type Waiter struct {
 	// [Output Only] The instant at which this Waiter resource was created. Adding
 	// the value of `timeout` to this instant yields the timeout deadline for the
 	// waiter.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// [Output Only] If the value is `false`, it means the waiter is still waiting
 	// for one of its conditions to be met.
 	//
@@ -480,7 +480,7 @@ func (x *Waiter) GetName() string {
 	return ""
 }
 
-func (x *Waiter) GetTimeout() *durationpb.Duration {
+func (x *Waiter) GetTimeout() *duration.Duration {
 	if x != nil {
 		return x.Timeout
 	}
@@ -501,7 +501,7 @@ func (x *Waiter) GetSuccess() *EndCondition {
 	return nil
 }
 
-func (x *Waiter) GetCreateTime() *timestamppb.Timestamp {
+func (x *Waiter) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -704,8 +704,8 @@ var file_google_cloud_runtimeconfig_v1beta1_resources_proto_goTypes = []interfac
 	(*EndCondition)(nil),             // 3: google.cloud.runtimeconfig.v1beta1.EndCondition
 	(*Waiter)(nil),                   // 4: google.cloud.runtimeconfig.v1beta1.Waiter
 	(*EndCondition_Cardinality)(nil), // 5: google.cloud.runtimeconfig.v1beta1.EndCondition.Cardinality
-	(*timestamppb.Timestamp)(nil),    // 6: google.protobuf.Timestamp
-	(*durationpb.Duration)(nil),      // 7: google.protobuf.Duration
+	(*timestamp.Timestamp)(nil),      // 6: google.protobuf.Timestamp
+	(*duration.Duration)(nil),        // 7: google.protobuf.Duration
 	(*status.Status)(nil),            // 8: google.rpc.Status
 }
 var file_google_cloud_runtimeconfig_v1beta1_resources_proto_depIdxs = []int32{

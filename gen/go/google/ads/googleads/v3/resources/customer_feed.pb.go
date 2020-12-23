@@ -22,12 +22,12 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	common "google.golang.org/genproto/googleapis/ads/googleads/v3/common"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v3/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -55,7 +55,7 @@ type CustomerFeed struct {
 	// `customers/{customer_id}/customerFeeds/{feed_id}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Immutable. The feed being linked to the customer.
-	Feed *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=feed,proto3" json:"feed,omitempty"`
+	Feed *wrappers.StringValue `protobuf:"bytes,2,opt,name=feed,proto3" json:"feed,omitempty"`
 	// Indicates which placeholder types the feed may populate under the connected
 	// customer. Required.
 	PlaceholderTypes []enums.PlaceholderTypeEnum_PlaceholderType `protobuf:"varint,3,rep,packed,name=placeholder_types,json=placeholderTypes,proto3,enum=google.ads.googleads.v3.enums.PlaceholderTypeEnum_PlaceholderType" json:"placeholder_types,omitempty"`
@@ -107,7 +107,7 @@ func (x *CustomerFeed) GetResourceName() string {
 	return ""
 }
 
-func (x *CustomerFeed) GetFeed() *wrapperspb.StringValue {
+func (x *CustomerFeed) GetFeed() *wrappers.StringValue {
 	if x != nil {
 		return x.Feed
 	}
@@ -232,7 +232,7 @@ func file_google_ads_googleads_v3_resources_customer_feed_proto_rawDescGZIP() []
 var file_google_ads_googleads_v3_resources_customer_feed_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v3_resources_customer_feed_proto_goTypes = []interface{}{
 	(*CustomerFeed)(nil),                           // 0: google.ads.googleads.v3.resources.CustomerFeed
-	(*wrapperspb.StringValue)(nil),                 // 1: google.protobuf.StringValue
+	(*wrappers.StringValue)(nil),                   // 1: google.protobuf.StringValue
 	(enums.PlaceholderTypeEnum_PlaceholderType)(0), // 2: google.ads.googleads.v3.enums.PlaceholderTypeEnum.PlaceholderType
 	(*common.MatchingFunction)(nil),                // 3: google.ads.googleads.v3.common.MatchingFunction
 	(enums.FeedLinkStatusEnum_FeedLinkStatus)(0),   // 4: google.ads.googleads.v3.enums.FeedLinkStatusEnum.FeedLinkStatus

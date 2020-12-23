@@ -22,11 +22,11 @@ package dataproc
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -173,7 +173,7 @@ type BasicAutoscalingAlgorithm struct {
 	// the update operation from the previous event has completed.
 	//
 	// Bounds: [2m, 1d]. Default: 2m.
-	CooldownPeriod *durationpb.Duration `protobuf:"bytes,2,opt,name=cooldown_period,json=cooldownPeriod,proto3" json:"cooldown_period,omitempty"`
+	CooldownPeriod *duration.Duration `protobuf:"bytes,2,opt,name=cooldown_period,json=cooldownPeriod,proto3" json:"cooldown_period,omitempty"`
 }
 
 func (x *BasicAutoscalingAlgorithm) Reset() {
@@ -215,7 +215,7 @@ func (x *BasicAutoscalingAlgorithm) GetYarnConfig() *BasicYarnAutoscalingConfig 
 	return nil
 }
 
-func (x *BasicAutoscalingAlgorithm) GetCooldownPeriod() *durationpb.Duration {
+func (x *BasicAutoscalingAlgorithm) GetCooldownPeriod() *duration.Duration {
 	if x != nil {
 		return x.CooldownPeriod
 	}
@@ -234,7 +234,7 @@ type BasicYarnAutoscalingConfig struct {
 	// downscaling operations.
 	//
 	// Bounds: [0s, 1d].
-	GracefulDecommissionTimeout *durationpb.Duration `protobuf:"bytes,5,opt,name=graceful_decommission_timeout,json=gracefulDecommissionTimeout,proto3" json:"graceful_decommission_timeout,omitempty"`
+	GracefulDecommissionTimeout *duration.Duration `protobuf:"bytes,5,opt,name=graceful_decommission_timeout,json=gracefulDecommissionTimeout,proto3" json:"graceful_decommission_timeout,omitempty"`
 	// Required. Fraction of average YARN pending memory in the last cooldown period
 	// for which to add workers. A scale-up factor of 1.0 will result in scaling
 	// up so that there is no pending memory remaining after the update (more
@@ -307,7 +307,7 @@ func (*BasicYarnAutoscalingConfig) Descriptor() ([]byte, []int) {
 	return file_google_cloud_dataproc_v1_autoscaling_policies_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *BasicYarnAutoscalingConfig) GetGracefulDecommissionTimeout() *durationpb.Duration {
+func (x *BasicYarnAutoscalingConfig) GetGracefulDecommissionTimeout() *duration.Duration {
 	if x != nil {
 		return x.GracefulDecommissionTimeout
 	}
@@ -1091,8 +1091,8 @@ var file_google_cloud_dataproc_v1_autoscaling_policies_proto_goTypes = []interfa
 	(*DeleteAutoscalingPolicyRequest)(nil),       // 7: google.cloud.dataproc.v1.DeleteAutoscalingPolicyRequest
 	(*ListAutoscalingPoliciesRequest)(nil),       // 8: google.cloud.dataproc.v1.ListAutoscalingPoliciesRequest
 	(*ListAutoscalingPoliciesResponse)(nil),      // 9: google.cloud.dataproc.v1.ListAutoscalingPoliciesResponse
-	(*durationpb.Duration)(nil),                  // 10: google.protobuf.Duration
-	(*emptypb.Empty)(nil),                        // 11: google.protobuf.Empty
+	(*duration.Duration)(nil),                    // 10: google.protobuf.Duration
+	(*empty.Empty)(nil),                          // 11: google.protobuf.Empty
 }
 var file_google_cloud_dataproc_v1_autoscaling_policies_proto_depIdxs = []int32{
 	1,  // 0: google.cloud.dataproc.v1.AutoscalingPolicy.basic_algorithm:type_name -> google.cloud.dataproc.v1.BasicAutoscalingAlgorithm

@@ -22,12 +22,12 @@ package dialogflow
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -96,12 +96,13 @@ type Context struct {
 	// -   MapKey value: parameter name
 	// -   MapValue type:
 	//     -   If parameter's entity type is a composite entity: map
-	//     -   Else: string or number, depending on parameter value type
+	//     -   Else: depending on parameter value type, could be one of string,
+	//         number, boolean, null, list or map
 	// -   MapValue value:
 	//     -   If parameter's entity type is a composite entity:
 	//         map from composite entity property names to property values
 	//     -   Else: parameter value
-	Parameters *structpb.Struct `protobuf:"bytes,3,opt,name=parameters,proto3" json:"parameters,omitempty"`
+	Parameters *_struct.Struct `protobuf:"bytes,3,opt,name=parameters,proto3" json:"parameters,omitempty"`
 }
 
 func (x *Context) Reset() {
@@ -150,7 +151,7 @@ func (x *Context) GetLifespanCount() int32 {
 	return 0
 }
 
-func (x *Context) GetParameters() *structpb.Struct {
+func (x *Context) GetParameters() *_struct.Struct {
 	if x != nil {
 		return x.Parameters
 	}
@@ -416,7 +417,7 @@ type UpdateContextRequest struct {
 	// Required. The context to update.
 	Context *Context `protobuf:"bytes,1,opt,name=context,proto3" json:"context,omitempty"`
 	// Optional. The mask to control which fields get updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateContextRequest) Reset() {
@@ -458,7 +459,7 @@ func (x *UpdateContextRequest) GetContext() *Context {
 	return nil
 }
 
-func (x *UpdateContextRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateContextRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -811,9 +812,9 @@ var file_google_cloud_dialogflow_v2_context_proto_goTypes = []interface{}{
 	(*UpdateContextRequest)(nil),     // 5: google.cloud.dialogflow.v2.UpdateContextRequest
 	(*DeleteContextRequest)(nil),     // 6: google.cloud.dialogflow.v2.DeleteContextRequest
 	(*DeleteAllContextsRequest)(nil), // 7: google.cloud.dialogflow.v2.DeleteAllContextsRequest
-	(*structpb.Struct)(nil),          // 8: google.protobuf.Struct
-	(*fieldmaskpb.FieldMask)(nil),    // 9: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),            // 10: google.protobuf.Empty
+	(*_struct.Struct)(nil),           // 8: google.protobuf.Struct
+	(*field_mask.FieldMask)(nil),     // 9: google.protobuf.FieldMask
+	(*empty.Empty)(nil),              // 10: google.protobuf.Empty
 }
 var file_google_cloud_dialogflow_v2_context_proto_depIdxs = []int32{
 	8,  // 0: google.cloud.dialogflow.v2.Context.parameters:type_name -> google.protobuf.Struct

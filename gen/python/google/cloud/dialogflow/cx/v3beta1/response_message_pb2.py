@@ -11,9 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n&com.google.cloud.dialogflow.cx.v3beta1B\024ResponseMessageProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\370\001\001\242\002\002DF\252\002\"Google.Cloud.Dialogflow.Cx.V3Beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n9google/cloud/dialogflow/cx/v3beta1/response_message.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x83\n\n\x0fResponseMessage\x12H\n\x04text\x18\x01 \x01(\x0b\x32\x38.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TextH\x00\x12*\n\x07payload\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructH\x00\x12g\n\x14\x63onversation_success\x18\t \x01(\x0b\x32G.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.ConversationSuccessH\x00\x12`\n\x11output_audio_text\x18\x08 \x01(\x0b\x32\x43.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioTextH\x00\x12\x62\n\x12live_agent_handoff\x18\n \x01(\x0b\x32\x44.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.LiveAgentHandoffH\x00\x12\x62\n\x0f\x65nd_interaction\x18\x0b \x01(\x0b\x32\x42.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteractionB\x03\xe0\x41\x03H\x00\x12S\n\nplay_audio\x18\x0c \x01(\x0b\x32=.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudioH\x00\x12Z\n\x0bmixed_audio\x18\r \x01(\x0b\x32>.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudioB\x03\xe0\x41\x03H\x00\x1a\x43\n\x04Text\x12\x11\n\x04text\x18\x01 \x03(\tB\x03\xe0\x41\x02\x12(\n\x1b\x61llow_playback_interruption\x18\x02 \x01(\x08\x42\x03\xe0\x41\x03\x1a=\n\x10LiveAgentHandoff\x12)\n\x08metadata\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x1a@\n\x13\x43onversationSuccess\x12)\n\x08metadata\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x1a;\n\x0fOutputAudioText\x12\x0e\n\x04text\x18\x01 \x01(\tH\x00\x12\x0e\n\x04ssml\x18\x02 \x01(\tH\x00\x42\x08\n\x06source\x1a\x10\n\x0e\x45ndInteraction\x1a\xc6\x01\n\nMixedAudio\x12X\n\x08segments\x18\x01 \x03(\x0b\x32\x46.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment\x1a^\n\x07Segment\x12\x0f\n\x05\x61udio\x18\x01 \x01(\x0cH\x00\x12\r\n\x03uri\x18\x02 \x01(\tH\x00\x12(\n\x1b\x61llow_playback_interruption\x18\x03 \x01(\x08\x42\x03\xe0\x41\x03\x42\t\n\x07\x63ontent\x1aM\n\tPlayAudio\x12\x16\n\taudio_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12(\n\x1b\x61llow_playback_interruption\x18\x02 \x01(\x08\x42\x03\xe0\x41\x03\x42\t\n\x07messageB\xb3\x01\n&com.google.cloud.dialogflow.cx.v3beta1B\x14ResponseMessageProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1b\x06proto3'
+  serialized_pb=b'\n9google/cloud/dialogflow/cx/v3beta1/response_message.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1cgoogle/api/annotations.proto\"\xad\n\n\x0fResponseMessage\x12H\n\x04text\x18\x01 \x01(\x0b\x32\x38.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.TextH\x00\x12*\n\x07payload\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructH\x00\x12g\n\x14\x63onversation_success\x18\t \x01(\x0b\x32G.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.ConversationSuccessH\x00\x12`\n\x11output_audio_text\x18\x08 \x01(\x0b\x32\x43.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioTextH\x00\x12\x62\n\x12live_agent_handoff\x18\n \x01(\x0b\x32\x44.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.LiveAgentHandoffH\x00\x12\x62\n\x0f\x65nd_interaction\x18\x0b \x01(\x0b\x32\x42.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteractionB\x03\xe0\x41\x03H\x00\x12S\n\nplay_audio\x18\x0c \x01(\x0b\x32=.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.PlayAudioH\x00\x12Z\n\x0bmixed_audio\x18\r \x01(\x0b\x32>.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudioB\x03\xe0\x41\x03H\x00\x1a\x43\n\x04Text\x12\x11\n\x04text\x18\x01 \x03(\tB\x03\xe0\x41\x02\x12(\n\x1b\x61llow_playback_interruption\x18\x02 \x01(\x08\x42\x03\xe0\x41\x03\x1a=\n\x10LiveAgentHandoff\x12)\n\x08metadata\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x1a@\n\x13\x43onversationSuccess\x12)\n\x08metadata\x18\x01 \x01(\x0b\x32\x17.google.protobuf.Struct\x1a\x65\n\x0fOutputAudioText\x12\x0e\n\x04text\x18\x01 \x01(\tH\x00\x12\x0e\n\x04ssml\x18\x02 \x01(\tH\x00\x12(\n\x1b\x61llow_playback_interruption\x18\x03 \x01(\x08\x42\x03\xe0\x41\x03\x42\x08\n\x06source\x1a\xc6\x01\n\nMixedAudio\x12X\n\x08segments\x18\x01 \x03(\x0b\x32\x46.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio.Segment\x1a^\n\x07Segment\x12\x0f\n\x05\x61udio\x18\x01 \x01(\x0cH\x00\x12\r\n\x03uri\x18\x02 \x01(\tH\x00\x12(\n\x1b\x61llow_playback_interruption\x18\x03 \x01(\x08\x42\x03\xe0\x41\x03\x42\t\n\x07\x63ontent\x1a\x10\n\x0e\x45ndInteraction\x1aM\n\tPlayAudio\x12\x16\n\taudio_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12(\n\x1b\x61llow_playback_interruption\x18\x02 \x01(\x08\x42\x03\xe0\x41\x03\x42\t\n\x07messageB\xb3\x01\n&com.google.cloud.dialogflow.cx.v3beta1B\x14ResponseMessageProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -151,6 +151,13 @@ _RESPONSEMESSAGE_OUTPUTAUDIOTEXT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allow_playback_interruption', full_name='google.cloud.dialogflow.cx.v3beta1.ResponseMessage.OutputAudioText.allow_playback_interruption', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -169,31 +176,7 @@ _RESPONSEMESSAGE_OUTPUTAUDIOTEXT = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=1106,
-  serialized_end=1165,
-)
-
-_RESPONSEMESSAGE_ENDINTERACTION = _descriptor.Descriptor(
-  name='EndInteraction',
-  full_name='google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1167,
-  serialized_end=1183,
+  serialized_end=1207,
 )
 
 _RESPONSEMESSAGE_MIXEDAUDIO_SEGMENT = _descriptor.Descriptor(
@@ -242,8 +225,8 @@ _RESPONSEMESSAGE_MIXEDAUDIO_SEGMENT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1290,
-  serialized_end=1384,
+  serialized_start=1314,
+  serialized_end=1408,
 )
 
 _RESPONSEMESSAGE_MIXEDAUDIO = _descriptor.Descriptor(
@@ -273,8 +256,32 @@ _RESPONSEMESSAGE_MIXEDAUDIO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1186,
-  serialized_end=1384,
+  serialized_start=1210,
+  serialized_end=1408,
+)
+
+_RESPONSEMESSAGE_ENDINTERACTION = _descriptor.Descriptor(
+  name='EndInteraction',
+  full_name='google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1410,
+  serialized_end=1426,
 )
 
 _RESPONSEMESSAGE_PLAYAUDIO = _descriptor.Descriptor(
@@ -311,8 +318,8 @@ _RESPONSEMESSAGE_PLAYAUDIO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1386,
-  serialized_end=1463,
+  serialized_start=1428,
+  serialized_end=1505,
 )
 
 _RESPONSEMESSAGE = _descriptor.Descriptor(
@@ -382,7 +389,7 @@ _RESPONSEMESSAGE = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_RESPONSEMESSAGE_TEXT, _RESPONSEMESSAGE_LIVEAGENTHANDOFF, _RESPONSEMESSAGE_CONVERSATIONSUCCESS, _RESPONSEMESSAGE_OUTPUTAUDIOTEXT, _RESPONSEMESSAGE_ENDINTERACTION, _RESPONSEMESSAGE_MIXEDAUDIO, _RESPONSEMESSAGE_PLAYAUDIO, ],
+  nested_types=[_RESPONSEMESSAGE_TEXT, _RESPONSEMESSAGE_LIVEAGENTHANDOFF, _RESPONSEMESSAGE_CONVERSATIONSUCCESS, _RESPONSEMESSAGE_OUTPUTAUDIOTEXT, _RESPONSEMESSAGE_MIXEDAUDIO, _RESPONSEMESSAGE_ENDINTERACTION, _RESPONSEMESSAGE_PLAYAUDIO, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -397,7 +404,7 @@ _RESPONSEMESSAGE = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=191,
-  serialized_end=1474,
+  serialized_end=1516,
 )
 
 _RESPONSEMESSAGE_TEXT.containing_type = _RESPONSEMESSAGE
@@ -412,7 +419,6 @@ _RESPONSEMESSAGE_OUTPUTAUDIOTEXT.fields_by_name['text'].containing_oneof = _RESP
 _RESPONSEMESSAGE_OUTPUTAUDIOTEXT.oneofs_by_name['source'].fields.append(
   _RESPONSEMESSAGE_OUTPUTAUDIOTEXT.fields_by_name['ssml'])
 _RESPONSEMESSAGE_OUTPUTAUDIOTEXT.fields_by_name['ssml'].containing_oneof = _RESPONSEMESSAGE_OUTPUTAUDIOTEXT.oneofs_by_name['source']
-_RESPONSEMESSAGE_ENDINTERACTION.containing_type = _RESPONSEMESSAGE
 _RESPONSEMESSAGE_MIXEDAUDIO_SEGMENT.containing_type = _RESPONSEMESSAGE_MIXEDAUDIO
 _RESPONSEMESSAGE_MIXEDAUDIO_SEGMENT.oneofs_by_name['content'].fields.append(
   _RESPONSEMESSAGE_MIXEDAUDIO_SEGMENT.fields_by_name['audio'])
@@ -422,6 +428,7 @@ _RESPONSEMESSAGE_MIXEDAUDIO_SEGMENT.oneofs_by_name['content'].fields.append(
 _RESPONSEMESSAGE_MIXEDAUDIO_SEGMENT.fields_by_name['uri'].containing_oneof = _RESPONSEMESSAGE_MIXEDAUDIO_SEGMENT.oneofs_by_name['content']
 _RESPONSEMESSAGE_MIXEDAUDIO.fields_by_name['segments'].message_type = _RESPONSEMESSAGE_MIXEDAUDIO_SEGMENT
 _RESPONSEMESSAGE_MIXEDAUDIO.containing_type = _RESPONSEMESSAGE
+_RESPONSEMESSAGE_ENDINTERACTION.containing_type = _RESPONSEMESSAGE
 _RESPONSEMESSAGE_PLAYAUDIO.containing_type = _RESPONSEMESSAGE
 _RESPONSEMESSAGE.fields_by_name['text'].message_type = _RESPONSEMESSAGE_TEXT
 _RESPONSEMESSAGE.fields_by_name['payload'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
@@ -488,13 +495,6 @@ ResponseMessage = _reflection.GeneratedProtocolMessageType('ResponseMessage', (_
     })
   ,
 
-  'EndInteraction' : _reflection.GeneratedProtocolMessageType('EndInteraction', (_message.Message,), {
-    'DESCRIPTOR' : _RESPONSEMESSAGE_ENDINTERACTION,
-    '__module__' : 'google.cloud.dialogflow.cx.v3beta1.response_message_pb2'
-    # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction)
-    })
-  ,
-
   'MixedAudio' : _reflection.GeneratedProtocolMessageType('MixedAudio', (_message.Message,), {
 
     'Segment' : _reflection.GeneratedProtocolMessageType('Segment', (_message.Message,), {
@@ -506,6 +506,13 @@ ResponseMessage = _reflection.GeneratedProtocolMessageType('ResponseMessage', (_
     'DESCRIPTOR' : _RESPONSEMESSAGE_MIXEDAUDIO,
     '__module__' : 'google.cloud.dialogflow.cx.v3beta1.response_message_pb2'
     # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3beta1.ResponseMessage.MixedAudio)
+    })
+  ,
+
+  'EndInteraction' : _reflection.GeneratedProtocolMessageType('EndInteraction', (_message.Message,), {
+    'DESCRIPTOR' : _RESPONSEMESSAGE_ENDINTERACTION,
+    '__module__' : 'google.cloud.dialogflow.cx.v3beta1.response_message_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3beta1.ResponseMessage.EndInteraction)
     })
   ,
 
@@ -524,15 +531,16 @@ _sym_db.RegisterMessage(ResponseMessage.Text)
 _sym_db.RegisterMessage(ResponseMessage.LiveAgentHandoff)
 _sym_db.RegisterMessage(ResponseMessage.ConversationSuccess)
 _sym_db.RegisterMessage(ResponseMessage.OutputAudioText)
-_sym_db.RegisterMessage(ResponseMessage.EndInteraction)
 _sym_db.RegisterMessage(ResponseMessage.MixedAudio)
 _sym_db.RegisterMessage(ResponseMessage.MixedAudio.Segment)
+_sym_db.RegisterMessage(ResponseMessage.EndInteraction)
 _sym_db.RegisterMessage(ResponseMessage.PlayAudio)
 
 
 DESCRIPTOR._options = None
 _RESPONSEMESSAGE_TEXT.fields_by_name['text']._options = None
 _RESPONSEMESSAGE_TEXT.fields_by_name['allow_playback_interruption']._options = None
+_RESPONSEMESSAGE_OUTPUTAUDIOTEXT.fields_by_name['allow_playback_interruption']._options = None
 _RESPONSEMESSAGE_MIXEDAUDIO_SEGMENT.fields_by_name['allow_playback_interruption']._options = None
 _RESPONSEMESSAGE_PLAYAUDIO.fields_by_name['audio_uri']._options = None
 _RESPONSEMESSAGE_PLAYAUDIO.fields_by_name['allow_playback_interruption']._options = None

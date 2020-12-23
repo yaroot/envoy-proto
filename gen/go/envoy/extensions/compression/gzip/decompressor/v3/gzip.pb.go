@@ -9,9 +9,9 @@ package envoy_extensions_compression_gzip_decompressor_v3
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -38,10 +38,10 @@ type Gzip struct {
 	// The default is 12 to match the default in the
 	// :ref:`gzip compressor <envoy_api_field_extensions.compression.gzip.compressor.v3.Gzip.window_bits>`.
 	// For more details about this parameter, please refer to `zlib manual <https://www.zlib.net/manual.html>`_ > inflateInit2.
-	WindowBits *wrapperspb.UInt32Value `protobuf:"bytes,1,opt,name=window_bits,json=windowBits,proto3" json:"window_bits,omitempty"`
+	WindowBits *wrappers.UInt32Value `protobuf:"bytes,1,opt,name=window_bits,json=windowBits,proto3" json:"window_bits,omitempty"`
 	// Value for zlib's decompressor output buffer. If not set, defaults to 4096.
 	// See https://www.zlib.net/manual.html for more details.
-	ChunkSize *wrapperspb.UInt32Value `protobuf:"bytes,2,opt,name=chunk_size,json=chunkSize,proto3" json:"chunk_size,omitempty"`
+	ChunkSize *wrappers.UInt32Value `protobuf:"bytes,2,opt,name=chunk_size,json=chunkSize,proto3" json:"chunk_size,omitempty"`
 }
 
 func (x *Gzip) Reset() {
@@ -76,14 +76,14 @@ func (*Gzip) Descriptor() ([]byte, []int) {
 	return file_envoy_extensions_compression_gzip_decompressor_v3_gzip_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Gzip) GetWindowBits() *wrapperspb.UInt32Value {
+func (x *Gzip) GetWindowBits() *wrappers.UInt32Value {
 	if x != nil {
 		return x.WindowBits
 	}
 	return nil
 }
 
-func (x *Gzip) GetChunkSize() *wrapperspb.UInt32Value {
+func (x *Gzip) GetChunkSize() *wrappers.UInt32Value {
 	if x != nil {
 		return x.ChunkSize
 	}
@@ -142,8 +142,8 @@ func file_envoy_extensions_compression_gzip_decompressor_v3_gzip_proto_rawDescGZ
 
 var file_envoy_extensions_compression_gzip_decompressor_v3_gzip_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_envoy_extensions_compression_gzip_decompressor_v3_gzip_proto_goTypes = []interface{}{
-	(*Gzip)(nil),                   // 0: envoy.extensions.compression.gzip.decompressor.v3.Gzip
-	(*wrapperspb.UInt32Value)(nil), // 1: google.protobuf.UInt32Value
+	(*Gzip)(nil),                 // 0: envoy.extensions.compression.gzip.decompressor.v3.Gzip
+	(*wrappers.UInt32Value)(nil), // 1: google.protobuf.UInt32Value
 }
 var file_envoy_extensions_compression_gzip_decompressor_v3_gzip_proto_depIdxs = []int32{
 	1, // 0: envoy.extensions.compression.gzip.decompressor.v3.Gzip.window_bits:type_name -> google.protobuf.UInt32Value

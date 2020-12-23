@@ -12,6 +12,7 @@ _sym_db = _symbol_database.Default()
 
 
 from envoy.admin.v3 import metrics_pb2 as envoy_dot_admin_dot_v3_dot_metrics__pb2
+from envoy.config.cluster.v3 import circuit_breaker_pb2 as envoy_dot_config_dot_cluster_dot_v3_dot_circuit__breaker__pb2
 from envoy.config.core.v3 import address_pb2 as envoy_dot_config_dot_core_dot_v3_dot_address__pb2
 from envoy.config.core.v3 import base_pb2 as envoy_dot_config_dot_core_dot_v3_dot_base__pb2
 from envoy.config.core.v3 import health_check_pb2 as envoy_dot_config_dot_core_dot_v3_dot_health__check__pb2
@@ -26,9 +27,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\034io.envoyproxy.envoy.admin.v3B\rClustersProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1d\x65nvoy/admin/v3/clusters.proto\x12\x0e\x65nvoy.admin.v3\x1a\x1c\x65nvoy/admin/v3/metrics.proto\x1a\"envoy/config/core/v3/address.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\'envoy/config/core/v3/health_check.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"h\n\x08\x43lusters\x12\x37\n\x10\x63luster_statuses\x18\x01 \x03(\x0b\x32\x1d.envoy.admin.v3.ClusterStatus:#\x9a\xc5\x88\x1e\x1e\n\x1c\x65nvoy.admin.v2alpha.Clusters\"\xa0\x02\n\rClusterStatus\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\radded_via_api\x18\x02 \x01(\x08\x12?\n\x1fsuccess_rate_ejection_threshold\x18\x03 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x31\n\rhost_statuses\x18\x04 \x03(\x0b\x32\x1a.envoy.admin.v3.HostStatus\x12L\n,local_origin_success_rate_ejection_threshold\x18\x05 \x01(\x0b\x32\x16.envoy.type.v3.Percent:(\x9a\xc5\x88\x1e#\n!envoy.admin.v2alpha.ClusterStatus\"\x98\x03\n\nHostStatus\x12.\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12+\n\x05stats\x18\x02 \x03(\x0b\x32\x1c.envoy.admin.v3.SimpleMetric\x12\x37\n\rhealth_status\x18\x03 \x01(\x0b\x32 .envoy.admin.v3.HostHealthStatus\x12,\n\x0csuccess_rate\x18\x04 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x0e\n\x06weight\x18\x05 \x01(\r\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x10\n\x08priority\x18\x07 \x01(\r\x12\x39\n\x19local_origin_success_rate\x18\x08 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x30\n\x08locality\x18\t \x01(\x0b\x32\x1e.envoy.config.core.v3.Locality:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.admin.v2alpha.HostStatus\"\xa2\x02\n\x10HostHealthStatus\x12\"\n\x1a\x66\x61iled_active_health_check\x18\x01 \x01(\x08\x12\x1c\n\x14\x66\x61iled_outlier_check\x18\x02 \x01(\x08\x12$\n\x1c\x66\x61iled_active_degraded_check\x18\x04 \x01(\x08\x12\x1f\n\x17pending_dynamic_removal\x18\x05 \x01(\x08\x12\x19\n\x11pending_active_hc\x18\x06 \x01(\x08\x12=\n\x11\x65\x64s_health_status\x18\x03 \x01(\x0e\x32\".envoy.config.core.v3.HealthStatus:+\x9a\xc5\x88\x1e&\n$envoy.admin.v2alpha.HostHealthStatusB7\n\x1cio.envoyproxy.envoy.admin.v3B\rClustersProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n\x1d\x65nvoy/admin/v3/clusters.proto\x12\x0e\x65nvoy.admin.v3\x1a\x1c\x65nvoy/admin/v3/metrics.proto\x1a-envoy/config/cluster/v3/circuit_breaker.proto\x1a\"envoy/config/core/v3/address.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\'envoy/config/core/v3/health_check.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"h\n\x08\x43lusters\x12\x37\n\x10\x63luster_statuses\x18\x01 \x03(\x0b\x32\x1d.envoy.admin.v3.ClusterStatus:#\x9a\xc5\x88\x1e\x1e\n\x1c\x65nvoy.admin.v2alpha.Clusters\"\xe4\x02\n\rClusterStatus\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\radded_via_api\x18\x02 \x01(\x08\x12?\n\x1fsuccess_rate_ejection_threshold\x18\x03 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x31\n\rhost_statuses\x18\x04 \x03(\x0b\x32\x1a.envoy.admin.v3.HostStatus\x12L\n,local_origin_success_rate_ejection_threshold\x18\x05 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x42\n\x10\x63ircuit_breakers\x18\x06 \x01(\x0b\x32(.envoy.config.cluster.v3.CircuitBreakers:(\x9a\xc5\x88\x1e#\n!envoy.admin.v2alpha.ClusterStatus\"\x98\x03\n\nHostStatus\x12.\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12+\n\x05stats\x18\x02 \x03(\x0b\x32\x1c.envoy.admin.v3.SimpleMetric\x12\x37\n\rhealth_status\x18\x03 \x01(\x0b\x32 .envoy.admin.v3.HostHealthStatus\x12,\n\x0csuccess_rate\x18\x04 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x0e\n\x06weight\x18\x05 \x01(\r\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x10\n\x08priority\x18\x07 \x01(\r\x12\x39\n\x19local_origin_success_rate\x18\x08 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x30\n\x08locality\x18\t \x01(\x0b\x32\x1e.envoy.config.core.v3.Locality:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.admin.v2alpha.HostStatus\"\xa2\x02\n\x10HostHealthStatus\x12\"\n\x1a\x66\x61iled_active_health_check\x18\x01 \x01(\x08\x12\x1c\n\x14\x66\x61iled_outlier_check\x18\x02 \x01(\x08\x12$\n\x1c\x66\x61iled_active_degraded_check\x18\x04 \x01(\x08\x12\x1f\n\x17pending_dynamic_removal\x18\x05 \x01(\x08\x12\x19\n\x11pending_active_hc\x18\x06 \x01(\x08\x12=\n\x11\x65\x64s_health_status\x18\x03 \x01(\x0e\x32\".envoy.config.core.v3.HealthStatus:+\x9a\xc5\x88\x1e&\n$envoy.admin.v2alpha.HostHealthStatusB7\n\x1cio.envoyproxy.envoy.admin.v3B\rClustersProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_admin_dot_v3_dot_metrics__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_health__check__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_admin_dot_v3_dot_metrics__pb2.DESCRIPTOR,envoy_dot_config_dot_cluster_dot_v3_dot_circuit__breaker__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_health__check__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,])
 
 
 
@@ -60,8 +61,8 @@ _CLUSTERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=284,
-  serialized_end=388,
+  serialized_start=331,
+  serialized_end=435,
 )
 
 
@@ -108,6 +109,13 @@ _CLUSTERSTATUS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='circuit_breakers', full_name='envoy.admin.v3.ClusterStatus.circuit_breakers', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -120,8 +128,8 @@ _CLUSTERSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=391,
-  serialized_end=679,
+  serialized_start=438,
+  serialized_end=794,
 )
 
 
@@ -208,8 +216,8 @@ _HOSTSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=682,
-  serialized_end=1090,
+  serialized_start=797,
+  serialized_end=1205,
 )
 
 
@@ -275,14 +283,15 @@ _HOSTHEALTHSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1093,
-  serialized_end=1383,
+  serialized_start=1208,
+  serialized_end=1498,
 )
 
 _CLUSTERS.fields_by_name['cluster_statuses'].message_type = _CLUSTERSTATUS
 _CLUSTERSTATUS.fields_by_name['success_rate_ejection_threshold'].message_type = envoy_dot_type_dot_v3_dot_percent__pb2._PERCENT
 _CLUSTERSTATUS.fields_by_name['host_statuses'].message_type = _HOSTSTATUS
 _CLUSTERSTATUS.fields_by_name['local_origin_success_rate_ejection_threshold'].message_type = envoy_dot_type_dot_v3_dot_percent__pb2._PERCENT
+_CLUSTERSTATUS.fields_by_name['circuit_breakers'].message_type = envoy_dot_config_dot_cluster_dot_v3_dot_circuit__breaker__pb2._CIRCUITBREAKERS
 _HOSTSTATUS.fields_by_name['address'].message_type = envoy_dot_config_dot_core_dot_v3_dot_address__pb2._ADDRESS
 _HOSTSTATUS.fields_by_name['stats'].message_type = envoy_dot_admin_dot_v3_dot_metrics__pb2._SIMPLEMETRIC
 _HOSTSTATUS.fields_by_name['health_status'].message_type = _HOSTHEALTHSTATUS

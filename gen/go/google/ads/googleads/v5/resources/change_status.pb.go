@@ -22,11 +22,11 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v5/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -54,7 +54,7 @@ type ChangeStatus struct {
 	// `customers/{customer_id}/changeStatus/{change_status_id}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. Time at which the most recent change has occurred on this resource.
-	LastChangeDateTime *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=last_change_date_time,json=lastChangeDateTime,proto3" json:"last_change_date_time,omitempty"`
+	LastChangeDateTime *wrappers.StringValue `protobuf:"bytes,3,opt,name=last_change_date_time,json=lastChangeDateTime,proto3" json:"last_change_date_time,omitempty"`
 	// Output only. Represents the type of the changed resource. This dictates what fields
 	// will be set. For example, for AD_GROUP, campaign and ad_group fields will
 	// be set.
@@ -66,21 +66,21 @@ type ChangeStatus struct {
 	// Output only. Represents the status of the changed resource.
 	ResourceStatus enums.ChangeStatusOperationEnum_ChangeStatusOperation `protobuf:"varint,8,opt,name=resource_status,json=resourceStatus,proto3,enum=google.ads.googleads.v5.enums.ChangeStatusOperationEnum_ChangeStatusOperation" json:"resource_status,omitempty"`
 	// Output only. The AdGroupAd affected by this change.
-	AdGroupAd *wrapperspb.StringValue `protobuf:"bytes,9,opt,name=ad_group_ad,json=adGroupAd,proto3" json:"ad_group_ad,omitempty"`
+	AdGroupAd *wrappers.StringValue `protobuf:"bytes,9,opt,name=ad_group_ad,json=adGroupAd,proto3" json:"ad_group_ad,omitempty"`
 	// Output only. The AdGroupCriterion affected by this change.
-	AdGroupCriterion *wrapperspb.StringValue `protobuf:"bytes,10,opt,name=ad_group_criterion,json=adGroupCriterion,proto3" json:"ad_group_criterion,omitempty"`
+	AdGroupCriterion *wrappers.StringValue `protobuf:"bytes,10,opt,name=ad_group_criterion,json=adGroupCriterion,proto3" json:"ad_group_criterion,omitempty"`
 	// Output only. The CampaignCriterion affected by this change.
-	CampaignCriterion *wrapperspb.StringValue `protobuf:"bytes,11,opt,name=campaign_criterion,json=campaignCriterion,proto3" json:"campaign_criterion,omitempty"`
+	CampaignCriterion *wrappers.StringValue `protobuf:"bytes,11,opt,name=campaign_criterion,json=campaignCriterion,proto3" json:"campaign_criterion,omitempty"`
 	// Output only. The Feed affected by this change.
-	Feed *wrapperspb.StringValue `protobuf:"bytes,12,opt,name=feed,proto3" json:"feed,omitempty"`
+	Feed *wrappers.StringValue `protobuf:"bytes,12,opt,name=feed,proto3" json:"feed,omitempty"`
 	// Output only. The FeedItem affected by this change.
-	FeedItem *wrapperspb.StringValue `protobuf:"bytes,13,opt,name=feed_item,json=feedItem,proto3" json:"feed_item,omitempty"`
+	FeedItem *wrappers.StringValue `protobuf:"bytes,13,opt,name=feed_item,json=feedItem,proto3" json:"feed_item,omitempty"`
 	// Output only. The AdGroupFeed affected by this change.
-	AdGroupFeed *wrapperspb.StringValue `protobuf:"bytes,14,opt,name=ad_group_feed,json=adGroupFeed,proto3" json:"ad_group_feed,omitempty"`
+	AdGroupFeed *wrappers.StringValue `protobuf:"bytes,14,opt,name=ad_group_feed,json=adGroupFeed,proto3" json:"ad_group_feed,omitempty"`
 	// Output only. The CampaignFeed affected by this change.
-	CampaignFeed *wrapperspb.StringValue `protobuf:"bytes,15,opt,name=campaign_feed,json=campaignFeed,proto3" json:"campaign_feed,omitempty"`
+	CampaignFeed *wrappers.StringValue `protobuf:"bytes,15,opt,name=campaign_feed,json=campaignFeed,proto3" json:"campaign_feed,omitempty"`
 	// Output only. The AdGroupBidModifier affected by this change.
-	AdGroupBidModifier *wrapperspb.StringValue `protobuf:"bytes,16,opt,name=ad_group_bid_modifier,json=adGroupBidModifier,proto3" json:"ad_group_bid_modifier,omitempty"`
+	AdGroupBidModifier *wrappers.StringValue `protobuf:"bytes,16,opt,name=ad_group_bid_modifier,json=adGroupBidModifier,proto3" json:"ad_group_bid_modifier,omitempty"`
 }
 
 func (x *ChangeStatus) Reset() {
@@ -122,7 +122,7 @@ func (x *ChangeStatus) GetResourceName() string {
 	return ""
 }
 
-func (x *ChangeStatus) GetLastChangeDateTime() *wrapperspb.StringValue {
+func (x *ChangeStatus) GetLastChangeDateTime() *wrappers.StringValue {
 	if x != nil {
 		return x.LastChangeDateTime
 	}
@@ -157,56 +157,56 @@ func (x *ChangeStatus) GetResourceStatus() enums.ChangeStatusOperationEnum_Chang
 	return enums.ChangeStatusOperationEnum_UNSPECIFIED
 }
 
-func (x *ChangeStatus) GetAdGroupAd() *wrapperspb.StringValue {
+func (x *ChangeStatus) GetAdGroupAd() *wrappers.StringValue {
 	if x != nil {
 		return x.AdGroupAd
 	}
 	return nil
 }
 
-func (x *ChangeStatus) GetAdGroupCriterion() *wrapperspb.StringValue {
+func (x *ChangeStatus) GetAdGroupCriterion() *wrappers.StringValue {
 	if x != nil {
 		return x.AdGroupCriterion
 	}
 	return nil
 }
 
-func (x *ChangeStatus) GetCampaignCriterion() *wrapperspb.StringValue {
+func (x *ChangeStatus) GetCampaignCriterion() *wrappers.StringValue {
 	if x != nil {
 		return x.CampaignCriterion
 	}
 	return nil
 }
 
-func (x *ChangeStatus) GetFeed() *wrapperspb.StringValue {
+func (x *ChangeStatus) GetFeed() *wrappers.StringValue {
 	if x != nil {
 		return x.Feed
 	}
 	return nil
 }
 
-func (x *ChangeStatus) GetFeedItem() *wrapperspb.StringValue {
+func (x *ChangeStatus) GetFeedItem() *wrappers.StringValue {
 	if x != nil {
 		return x.FeedItem
 	}
 	return nil
 }
 
-func (x *ChangeStatus) GetAdGroupFeed() *wrapperspb.StringValue {
+func (x *ChangeStatus) GetAdGroupFeed() *wrappers.StringValue {
 	if x != nil {
 		return x.AdGroupFeed
 	}
 	return nil
 }
 
-func (x *ChangeStatus) GetCampaignFeed() *wrapperspb.StringValue {
+func (x *ChangeStatus) GetCampaignFeed() *wrappers.StringValue {
 	if x != nil {
 		return x.CampaignFeed
 	}
 	return nil
 }
 
-func (x *ChangeStatus) GetAdGroupBidModifier() *wrapperspb.StringValue {
+func (x *ChangeStatus) GetAdGroupBidModifier() *wrappers.StringValue {
 	if x != nil {
 		return x.AdGroupBidModifier
 	}
@@ -389,8 +389,8 @@ func file_google_ads_googleads_v5_resources_change_status_proto_rawDescGZIP() []
 
 var file_google_ads_googleads_v5_resources_change_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v5_resources_change_status_proto_goTypes = []interface{}{
-	(*ChangeStatus)(nil),           // 0: google.ads.googleads.v5.resources.ChangeStatus
-	(*wrapperspb.StringValue)(nil), // 1: google.protobuf.StringValue
+	(*ChangeStatus)(nil),         // 0: google.ads.googleads.v5.resources.ChangeStatus
+	(*wrappers.StringValue)(nil), // 1: google.protobuf.StringValue
 	(enums.ChangeStatusResourceTypeEnum_ChangeStatusResourceType)(0), // 2: google.ads.googleads.v5.enums.ChangeStatusResourceTypeEnum.ChangeStatusResourceType
 	(enums.ChangeStatusOperationEnum_ChangeStatusOperation)(0),       // 3: google.ads.googleads.v5.enums.ChangeStatusOperationEnum.ChangeStatusOperation
 }

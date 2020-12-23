@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\nFio.envoyproxy.envoy.extensions.filters.http.header_to_metadata.v4alphaB\025HeaderToMetadataProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nQenvoy/extensions/filters/http/header_to_metadata/v4alpha/header_to_metadata.proto\x12\x38\x65nvoy.extensions.filters.http.header_to_metadata.v4alpha\x1a&envoy/type/matcher/v4alpha/regex.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xf8\x08\n\x06\x43onfig\x12\\\n\rrequest_rules\x18\x01 \x03(\x0b\x32\x45.envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.Rule\x12]\n\x0eresponse_rules\x18\x02 \x03(\x0b\x32\x45.envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.Rule\x1a\xbb\x03\n\x0cKeyValuePair\x12\x1a\n\x12metadata_namespace\x18\x01 \x01(\t\x12\x14\n\x03key\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x0f\n\x05value\x18\x03 \x01(\tH\x00\x12R\n\x13regex_value_rewrite\x18\x06 \x01(\x0b\x32\x33.envoy.type.matcher.v4alpha.RegexMatchAndSubstituteH\x00\x12X\n\x04type\x18\x04 \x01(\x0e\x32J.envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.ValueType\x12\\\n\x06\x65ncode\x18\x05 \x01(\x0e\x32L.envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.ValueEncode:N\x9a\xc5\x88\x1eI\nGenvoy.extensions.filters.http.header_to_metadata.v3.Config.KeyValuePairB\x0c\n\nvalue_type\x1a\xd1\x02\n\x04Rule\x12\x1d\n\x06header\x18\x01 \x01(\tB\r\xfa\x42\nr\x08 \x01\xc0\x01\x01\xc8\x01\x00\x12h\n\x11on_header_present\x18\x02 \x01(\x0b\x32M.envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.KeyValuePair\x12h\n\x11on_header_missing\x18\x03 \x01(\x0b\x32M.envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.KeyValuePair\x12\x0e\n\x06remove\x18\x04 \x01(\x08:F\x9a\xc5\x88\x1e\x41\n?envoy.extensions.filters.http.header_to_metadata.v3.Config.Rule\"7\n\tValueType\x12\n\n\x06STRING\x10\x00\x12\n\n\x06NUMBER\x10\x01\x12\x12\n\x0ePROTOBUF_VALUE\x10\x02\"#\n\x0bValueEncode\x12\x08\n\x04NONE\x10\x00\x12\n\n\x06\x42\x41SE64\x10\x01:A\x9a\xc5\x88\x1e<\n:envoy.extensions.filters.http.header_to_metadata.v3.ConfigBi\nFio.envoyproxy.envoy.extensions.filters.http.header_to_metadata.v4alphaB\x15HeaderToMetadataProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\nQenvoy/extensions/filters/http/header_to_metadata/v4alpha/header_to_metadata.proto\x12\x38\x65nvoy.extensions.filters.http.header_to_metadata.v4alpha\x1a&envoy/type/matcher/v4alpha/regex.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xae\t\n\x06\x43onfig\x12\\\n\rrequest_rules\x18\x01 \x03(\x0b\x32\x45.envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.Rule\x12]\n\x0eresponse_rules\x18\x02 \x03(\x0b\x32\x45.envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.Rule\x1a\xc5\x03\n\x0cKeyValuePair\x12\x1a\n\x12metadata_namespace\x18\x01 \x01(\t\x12\x14\n\x03key\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x0f\n\x05value\x18\x03 \x01(\tH\x00\x12R\n\x13regex_value_rewrite\x18\x06 \x01(\x0b\x32\x33.envoy.type.matcher.v4alpha.RegexMatchAndSubstituteH\x00\x12\x62\n\x04type\x18\x04 \x01(\x0e\x32J.envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.ValueTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\\\n\x06\x65ncode\x18\x05 \x01(\x0e\x32L.envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.ValueEncode:N\x9a\xc5\x88\x1eI\nGenvoy.extensions.filters.http.header_to_metadata.v3.Config.KeyValuePairB\x0c\n\nvalue_type\x1a\xfd\x02\n\x04Rule\x12\x1d\n\x06header\x18\x01 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x01\xc8\x01\x00H\x00\x12\x1d\n\x06\x63ookie\x18\x05 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x01\xc8\x01\x00H\x00\x12\x61\n\non_present\x18\x02 \x01(\x0b\x32M.envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.KeyValuePair\x12\x61\n\non_missing\x18\x03 \x01(\x0b\x32M.envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.KeyValuePair\x12\x0e\n\x06remove\x18\x04 \x01(\x08:F\x9a\xc5\x88\x1e\x41\n?envoy.extensions.filters.http.header_to_metadata.v3.Config.RuleB\x19\n\x17header_cookie_specifier\"7\n\tValueType\x12\n\n\x06STRING\x10\x00\x12\n\n\x06NUMBER\x10\x01\x12\x12\n\x0ePROTOBUF_VALUE\x10\x02\"#\n\x0bValueEncode\x12\x08\n\x04NONE\x10\x00\x12\n\n\x06\x42\x41SE64\x10\x01:A\x9a\xc5\x88\x1e<\n:envoy.extensions.filters.http.header_to_metadata.v3.ConfigBi\nFio.envoyproxy.envoy.extensions.filters.http.header_to_metadata.v4alphaB\x15HeaderToMetadataProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
   dependencies=[envoy_dot_type_dot_matcher_dot_v4alpha_dot_regex__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -54,8 +54,8 @@ _CONFIG_VALUETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1260,
-  serialized_end=1315,
+  serialized_start=1314,
+  serialized_end=1369,
 )
 _sym_db.RegisterEnumDescriptor(_CONFIG_VALUETYPE)
 
@@ -79,8 +79,8 @@ _CONFIG_VALUEENCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1317,
-  serialized_end=1352,
+  serialized_start=1371,
+  serialized_end=1406,
 )
 _sym_db.RegisterEnumDescriptor(_CONFIG_VALUEENCODE)
 
@@ -106,7 +106,7 @@ _CONFIG_KEYVALUEPAIR = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.KeyValuePair.value', index=2,
       number=3, type=9, cpp_type=9, label=1,
@@ -127,7 +127,7 @@ _CONFIG_KEYVALUEPAIR = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\005\202\001\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='encode', full_name='envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.KeyValuePair.encode', index=5,
       number=5, type=14, cpp_type=8, label=1,
@@ -153,7 +153,7 @@ _CONFIG_KEYVALUEPAIR = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=475,
-  serialized_end=918,
+  serialized_end=928,
 )
 
 _CONFIG_RULE = _descriptor.Descriptor(
@@ -170,23 +170,30 @@ _CONFIG_RULE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\nr\010 \001\300\001\001\310\001\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\010r\006\300\001\001\310\001\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='on_header_present', full_name='envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.Rule.on_header_present', index=1,
+      name='cookie', full_name='envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.Rule.cookie', index=1,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\010r\006\300\001\001\310\001\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='on_present', full_name='envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.Rule.on_present', index=2,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='on_header_missing', full_name='envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.Rule.on_header_missing', index=2,
+      name='on_missing', full_name='envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.Rule.on_missing', index=3,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='remove', full_name='envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.Rule.remove', index=3,
+      name='remove', full_name='envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.Rule.remove', index=4,
       number=4, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -203,9 +210,14 @@ _CONFIG_RULE = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='header_cookie_specifier', full_name='envoy.extensions.filters.http.header_to_metadata.v4alpha.Config.Rule.header_cookie_specifier',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=921,
-  serialized_end=1258,
+  serialized_start=931,
+  serialized_end=1312,
 )
 
 _CONFIG = _descriptor.Descriptor(
@@ -245,7 +257,7 @@ _CONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=275,
-  serialized_end=1419,
+  serialized_end=1473,
 )
 
 _CONFIG_KEYVALUEPAIR.fields_by_name['regex_value_rewrite'].message_type = envoy_dot_type_dot_matcher_dot_v4alpha_dot_regex__pb2._REGEXMATCHANDSUBSTITUTE
@@ -258,9 +270,15 @@ _CONFIG_KEYVALUEPAIR.fields_by_name['value'].containing_oneof = _CONFIG_KEYVALUE
 _CONFIG_KEYVALUEPAIR.oneofs_by_name['value_type'].fields.append(
   _CONFIG_KEYVALUEPAIR.fields_by_name['regex_value_rewrite'])
 _CONFIG_KEYVALUEPAIR.fields_by_name['regex_value_rewrite'].containing_oneof = _CONFIG_KEYVALUEPAIR.oneofs_by_name['value_type']
-_CONFIG_RULE.fields_by_name['on_header_present'].message_type = _CONFIG_KEYVALUEPAIR
-_CONFIG_RULE.fields_by_name['on_header_missing'].message_type = _CONFIG_KEYVALUEPAIR
+_CONFIG_RULE.fields_by_name['on_present'].message_type = _CONFIG_KEYVALUEPAIR
+_CONFIG_RULE.fields_by_name['on_missing'].message_type = _CONFIG_KEYVALUEPAIR
 _CONFIG_RULE.containing_type = _CONFIG
+_CONFIG_RULE.oneofs_by_name['header_cookie_specifier'].fields.append(
+  _CONFIG_RULE.fields_by_name['header'])
+_CONFIG_RULE.fields_by_name['header'].containing_oneof = _CONFIG_RULE.oneofs_by_name['header_cookie_specifier']
+_CONFIG_RULE.oneofs_by_name['header_cookie_specifier'].fields.append(
+  _CONFIG_RULE.fields_by_name['cookie'])
+_CONFIG_RULE.fields_by_name['cookie'].containing_oneof = _CONFIG_RULE.oneofs_by_name['header_cookie_specifier']
 _CONFIG.fields_by_name['request_rules'].message_type = _CONFIG_RULE
 _CONFIG.fields_by_name['response_rules'].message_type = _CONFIG_RULE
 _CONFIG_VALUETYPE.containing_type = _CONFIG
@@ -294,8 +312,10 @@ _sym_db.RegisterMessage(Config.Rule)
 
 DESCRIPTOR._options = None
 _CONFIG_KEYVALUEPAIR.fields_by_name['key']._options = None
+_CONFIG_KEYVALUEPAIR.fields_by_name['type']._options = None
 _CONFIG_KEYVALUEPAIR._options = None
 _CONFIG_RULE.fields_by_name['header']._options = None
+_CONFIG_RULE.fields_by_name['cookie']._options = None
 _CONFIG_RULE._options = None
 _CONFIG._options = None
 # @@protoc_insertion_point(module_scope)

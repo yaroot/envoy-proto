@@ -22,10 +22,10 @@ package bigtable
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 )
 
@@ -145,7 +145,7 @@ var file_google_bigtable_v1_bigtable_service_proto_goTypes = []interface{}{
 	(*ReadModifyWriteRowRequest)(nil), // 5: google.bigtable.v1.ReadModifyWriteRowRequest
 	(*ReadRowsResponse)(nil),          // 6: google.bigtable.v1.ReadRowsResponse
 	(*SampleRowKeysResponse)(nil),     // 7: google.bigtable.v1.SampleRowKeysResponse
-	(*emptypb.Empty)(nil),             // 8: google.protobuf.Empty
+	(*empty.Empty)(nil),               // 8: google.protobuf.Empty
 	(*MutateRowsResponse)(nil),        // 9: google.bigtable.v1.MutateRowsResponse
 	(*CheckAndMutateRowResponse)(nil), // 10: google.bigtable.v1.CheckAndMutateRowResponse
 	(*Row)(nil),                       // 11: google.bigtable.v1.Row

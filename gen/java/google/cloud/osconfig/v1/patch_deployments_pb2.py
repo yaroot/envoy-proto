@@ -27,7 +27,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\034com.google.cloud.osconfig.v1B\020PatchDeploymentsZ@google.golang.org/genproto/googleapis/cloud/osconfig/v1;osconfig\252\002\030Google.Cloud.OsConfig.V1\312\002\030Google\\Cloud\\OsConfig\\V1\352\002\033Google::Cloud::OsConfig::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n0google/cloud/osconfig/v1/patch_deployments.proto\x12\x18google.cloud.osconfig.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a)google/cloud/osconfig/v1/patch_jobs.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1agoogle/type/datetime.proto\x1a\x1bgoogle/type/dayofweek.proto\x1a\x1bgoogle/type/timeofday.proto\"\xb1\x05\n\x0fPatchDeployment\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x18\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12K\n\x0finstance_filter\x18\x03 \x01(\x0b\x32-.google.cloud.osconfig.v1.PatchInstanceFilterB\x03\xe0\x41\x02\x12@\n\x0cpatch_config\x18\x04 \x01(\x0b\x32%.google.cloud.osconfig.v1.PatchConfigB\x03\xe0\x41\x01\x12\x30\n\x08\x64uration\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x01\x12K\n\x11one_time_schedule\x18\x06 \x01(\x0b\x32).google.cloud.osconfig.v1.OneTimeScheduleB\x03\xe0\x41\x02H\x00\x12N\n\x12recurring_schedule\x18\x07 \x01(\x0b\x32+.google.cloud.osconfig.v1.RecurringScheduleB\x03\xe0\x41\x02H\x00\x12\x34\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12:\n\x11last_execute_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03:d\xea\x41\x61\n\'osconfig.googleapis.com/PatchDeployment\x12\x36projects/{project}/patchDeployments/{patch_deployment}B\n\n\x08schedule\"H\n\x0fOneTimeSchedule\x12\x35\n\x0c\x65xecute_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02\"\xfb\x04\n\x11RecurringSchedule\x12-\n\ttime_zone\x18\x01 \x01(\x0b\x32\x15.google.type.TimeZoneB\x03\xe0\x41\x02\x12\x33\n\nstart_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\x12\x31\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\x12\x30\n\x0btime_of_day\x18\x04 \x01(\x0b\x32\x16.google.type.TimeOfDayB\x03\xe0\x41\x02\x12M\n\tfrequency\x18\x05 \x01(\x0e\x32\x35.google.cloud.osconfig.v1.RecurringSchedule.FrequencyB\x03\xe0\x41\x02\x12?\n\x06weekly\x18\x06 \x01(\x0b\x32(.google.cloud.osconfig.v1.WeeklyScheduleB\x03\xe0\x41\x02H\x00\x12\x41\n\x07monthly\x18\x07 \x01(\x0b\x32).google.cloud.osconfig.v1.MonthlyScheduleB\x03\xe0\x41\x02H\x00\x12:\n\x11last_execute_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12:\n\x11next_execute_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\"?\n\tFrequency\x12\x19\n\x15\x46REQUENCY_UNSPECIFIED\x10\x00\x12\n\n\x06WEEKLY\x10\x01\x12\x0b\n\x07MONTHLY\x10\x02\x42\x11\n\x0fschedule_config\"B\n\x0eWeeklySchedule\x12\x30\n\x0b\x64\x61y_of_week\x18\x01 \x01(\x0e\x32\x16.google.type.DayOfWeekB\x03\xe0\x41\x02\"\x87\x01\n\x0fMonthlySchedule\x12J\n\x11week_day_of_month\x18\x01 \x01(\x0b\x32(.google.cloud.osconfig.v1.WeekDayOfMonthB\x03\xe0\x41\x02H\x00\x12\x18\n\tmonth_day\x18\x02 \x01(\x05\x42\x03\xe0\x41\x02H\x00\x42\x0e\n\x0c\x64\x61y_of_month\"]\n\x0eWeekDayOfMonth\x12\x19\n\x0cweek_ordinal\x18\x01 \x01(\x05\x42\x03\xe0\x41\x02\x12\x30\n\x0b\x64\x61y_of_week\x18\x02 \x01(\x0e\x32\x16.google.type.DayOfWeekB\x03\xe0\x41\x02\"\xcf\x01\n\x1c\x43reatePatchDeploymentRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12 \n\x13patch_deployment_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12H\n\x10patch_deployment\x18\x03 \x01(\x0b\x32).google.cloud.osconfig.v1.PatchDeploymentB\x03\xe0\x41\x02\"Z\n\x19GetPatchDeploymentRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'osconfig.googleapis.com/PatchDeployment\"\x93\x01\n\x1bListPatchDeploymentsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"}\n\x1cListPatchDeploymentsResponse\x12\x44\n\x11patch_deployments\x18\x01 \x03(\x0b\x32).google.cloud.osconfig.v1.PatchDeployment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"]\n\x1c\x44\x65letePatchDeploymentRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'osconfig.googleapis.com/PatchDeploymentB\xc6\x01\n\x1c\x63om.google.cloud.osconfig.v1B\x10PatchDeploymentsZ@google.golang.org/genproto/googleapis/cloud/osconfig/v1;osconfig\xaa\x02\x18Google.Cloud.OsConfig.V1\xca\x02\x18Google\\Cloud\\OsConfig\\V1\xea\x02\x1bGoogle::Cloud::OsConfig::V1b\x06proto3'
+  serialized_pb=b'\n0google/cloud/osconfig/v1/patch_deployments.proto\x12\x18google.cloud.osconfig.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a)google/cloud/osconfig/v1/patch_jobs.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1agoogle/type/datetime.proto\x1a\x1bgoogle/type/dayofweek.proto\x1a\x1bgoogle/type/timeofday.proto\"\xef\x05\n\x0fPatchDeployment\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x18\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12K\n\x0finstance_filter\x18\x03 \x01(\x0b\x32-.google.cloud.osconfig.v1.PatchInstanceFilterB\x03\xe0\x41\x02\x12@\n\x0cpatch_config\x18\x04 \x01(\x0b\x32%.google.cloud.osconfig.v1.PatchConfigB\x03\xe0\x41\x01\x12\x30\n\x08\x64uration\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x01\x12K\n\x11one_time_schedule\x18\x06 \x01(\x0b\x32).google.cloud.osconfig.v1.OneTimeScheduleB\x03\xe0\x41\x02H\x00\x12N\n\x12recurring_schedule\x18\x07 \x01(\x0b\x32+.google.cloud.osconfig.v1.RecurringScheduleB\x03\xe0\x41\x02H\x00\x12\x34\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12:\n\x11last_execute_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12<\n\x07rollout\x18\x0b \x01(\x0b\x32&.google.cloud.osconfig.v1.PatchRolloutB\x03\xe0\x41\x01:d\xea\x41\x61\n\'osconfig.googleapis.com/PatchDeployment\x12\x36projects/{project}/patchDeployments/{patch_deployment}B\n\n\x08schedule\"H\n\x0fOneTimeSchedule\x12\x35\n\x0c\x65xecute_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02\"\xfb\x04\n\x11RecurringSchedule\x12-\n\ttime_zone\x18\x01 \x01(\x0b\x32\x15.google.type.TimeZoneB\x03\xe0\x41\x02\x12\x33\n\nstart_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\x12\x31\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\x12\x30\n\x0btime_of_day\x18\x04 \x01(\x0b\x32\x16.google.type.TimeOfDayB\x03\xe0\x41\x02\x12M\n\tfrequency\x18\x05 \x01(\x0e\x32\x35.google.cloud.osconfig.v1.RecurringSchedule.FrequencyB\x03\xe0\x41\x02\x12?\n\x06weekly\x18\x06 \x01(\x0b\x32(.google.cloud.osconfig.v1.WeeklyScheduleB\x03\xe0\x41\x02H\x00\x12\x41\n\x07monthly\x18\x07 \x01(\x0b\x32).google.cloud.osconfig.v1.MonthlyScheduleB\x03\xe0\x41\x02H\x00\x12:\n\x11last_execute_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12:\n\x11next_execute_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\"?\n\tFrequency\x12\x19\n\x15\x46REQUENCY_UNSPECIFIED\x10\x00\x12\n\n\x06WEEKLY\x10\x01\x12\x0b\n\x07MONTHLY\x10\x02\x42\x11\n\x0fschedule_config\"B\n\x0eWeeklySchedule\x12\x30\n\x0b\x64\x61y_of_week\x18\x01 \x01(\x0e\x32\x16.google.type.DayOfWeekB\x03\xe0\x41\x02\"\x87\x01\n\x0fMonthlySchedule\x12J\n\x11week_day_of_month\x18\x01 \x01(\x0b\x32(.google.cloud.osconfig.v1.WeekDayOfMonthB\x03\xe0\x41\x02H\x00\x12\x18\n\tmonth_day\x18\x02 \x01(\x05\x42\x03\xe0\x41\x02H\x00\x42\x0e\n\x0c\x64\x61y_of_month\"]\n\x0eWeekDayOfMonth\x12\x19\n\x0cweek_ordinal\x18\x01 \x01(\x05\x42\x03\xe0\x41\x02\x12\x30\n\x0b\x64\x61y_of_week\x18\x02 \x01(\x0e\x32\x16.google.type.DayOfWeekB\x03\xe0\x41\x02\"\xcf\x01\n\x1c\x43reatePatchDeploymentRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12 \n\x13patch_deployment_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12H\n\x10patch_deployment\x18\x03 \x01(\x0b\x32).google.cloud.osconfig.v1.PatchDeploymentB\x03\xe0\x41\x02\"Z\n\x19GetPatchDeploymentRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'osconfig.googleapis.com/PatchDeployment\"\x93\x01\n\x1bListPatchDeploymentsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"}\n\x1cListPatchDeploymentsResponse\x12\x44\n\x11patch_deployments\x18\x01 \x03(\x0b\x32).google.cloud.osconfig.v1.PatchDeployment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"]\n\x1c\x44\x65letePatchDeploymentRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'osconfig.googleapis.com/PatchDeploymentB\xc6\x01\n\x1c\x63om.google.cloud.osconfig.v1B\x10PatchDeploymentsZ@google.golang.org/genproto/googleapis/cloud/osconfig/v1;osconfig\xaa\x02\x18Google.Cloud.OsConfig.V1\xca\x02\x18Google\\Cloud\\OsConfig\\V1\xea\x02\x1bGoogle::Cloud::OsConfig::V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_osconfig_dot_v1_dot_patch__jobs__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_type_dot_datetime__pb2.DESCRIPTOR,google_dot_type_dot_dayofweek__pb2.DESCRIPTOR,google_dot_type_dot_timeofday__pb2.DESCRIPTOR,])
 
@@ -58,8 +58,8 @@ _RECURRINGSCHEDULE_FREQUENCY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1652,
-  serialized_end=1715,
+  serialized_start=1714,
+  serialized_end=1777,
 )
 _sym_db.RegisterEnumDescriptor(_RECURRINGSCHEDULE_FREQUENCY)
 
@@ -142,6 +142,13 @@ _PATCHDEPLOYMENT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rollout', full_name='google.cloud.osconfig.v1.PatchDeployment.rollout', index=10,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -160,7 +167,7 @@ _PATCHDEPLOYMENT = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=333,
-  serialized_end=1022,
+  serialized_end=1084,
 )
 
 
@@ -191,8 +198,8 @@ _ONETIMESCHEDULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1024,
-  serialized_end=1096,
+  serialized_start=1086,
+  serialized_end=1158,
 )
 
 
@@ -285,8 +292,8 @@ _RECURRINGSCHEDULE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1099,
-  serialized_end=1734,
+  serialized_start=1161,
+  serialized_end=1796,
 )
 
 
@@ -317,8 +324,8 @@ _WEEKLYSCHEDULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1736,
-  serialized_end=1802,
+  serialized_start=1798,
+  serialized_end=1864,
 )
 
 
@@ -361,8 +368,8 @@ _MONTHLYSCHEDULE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1805,
-  serialized_end=1940,
+  serialized_start=1867,
+  serialized_end=2002,
 )
 
 
@@ -400,8 +407,8 @@ _WEEKDAYOFMONTH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1942,
-  serialized_end=2035,
+  serialized_start=2004,
+  serialized_end=2097,
 )
 
 
@@ -446,8 +453,8 @@ _CREATEPATCHDEPLOYMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2038,
-  serialized_end=2245,
+  serialized_start=2100,
+  serialized_end=2307,
 )
 
 
@@ -478,8 +485,8 @@ _GETPATCHDEPLOYMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2247,
-  serialized_end=2337,
+  serialized_start=2309,
+  serialized_end=2399,
 )
 
 
@@ -524,8 +531,8 @@ _LISTPATCHDEPLOYMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2340,
-  serialized_end=2487,
+  serialized_start=2402,
+  serialized_end=2549,
 )
 
 
@@ -563,8 +570,8 @@ _LISTPATCHDEPLOYMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2489,
-  serialized_end=2614,
+  serialized_start=2551,
+  serialized_end=2676,
 )
 
 
@@ -595,8 +602,8 @@ _DELETEPATCHDEPLOYMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2616,
-  serialized_end=2709,
+  serialized_start=2678,
+  serialized_end=2771,
 )
 
 _PATCHDEPLOYMENT.fields_by_name['instance_filter'].message_type = google_dot_cloud_dot_osconfig_dot_v1_dot_patch__jobs__pb2._PATCHINSTANCEFILTER
@@ -607,6 +614,7 @@ _PATCHDEPLOYMENT.fields_by_name['recurring_schedule'].message_type = _RECURRINGS
 _PATCHDEPLOYMENT.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _PATCHDEPLOYMENT.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _PATCHDEPLOYMENT.fields_by_name['last_execute_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_PATCHDEPLOYMENT.fields_by_name['rollout'].message_type = google_dot_cloud_dot_osconfig_dot_v1_dot_patch__jobs__pb2._PATCHROLLOUT
 _PATCHDEPLOYMENT.oneofs_by_name['schedule'].fields.append(
   _PATCHDEPLOYMENT.fields_by_name['one_time_schedule'])
 _PATCHDEPLOYMENT.fields_by_name['one_time_schedule'].containing_oneof = _PATCHDEPLOYMENT.oneofs_by_name['schedule']
@@ -742,6 +750,7 @@ _PATCHDEPLOYMENT.fields_by_name['recurring_schedule']._options = None
 _PATCHDEPLOYMENT.fields_by_name['create_time']._options = None
 _PATCHDEPLOYMENT.fields_by_name['update_time']._options = None
 _PATCHDEPLOYMENT.fields_by_name['last_execute_time']._options = None
+_PATCHDEPLOYMENT.fields_by_name['rollout']._options = None
 _PATCHDEPLOYMENT._options = None
 _ONETIMESCHEDULE.fields_by_name['execute_time']._options = None
 _RECURRINGSCHEDULE.fields_by_name['time_zone']._options = None

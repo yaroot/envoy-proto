@@ -26,7 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v4.servicesB&KeywordPlanCampaignKeywordServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V4.Services\312\002 Google\\Ads\\GoogleAds\\V4\\Services\352\002$Google::Ads::GoogleAds::V4::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nLgoogle/ads/googleads/v4/services/keyword_plan_campaign_keyword_service.proto\x12 google.ads.googleads.v4.services\x1a\x45google/ads/googleads/v4/resources/keyword_plan_campaign_keyword.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a google/protobuf/field_mask.proto\x1a\x17google/rpc/status.proto\"z\n$GetKeywordPlanCampaignKeywordRequest\x12R\n\rresource_name\x18\x01 \x01(\tB;\xe0\x41\x02\xfa\x41\x35\n3googleads.googleapis.com/KeywordPlanCampaignKeyword\"\xd4\x01\n(MutateKeywordPlanCampaignKeywordsRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12^\n\noperations\x18\x02 \x03(\x0b\x32\x45.google.ads.googleads.v4.services.KeywordPlanCampaignKeywordOperationB\x03\xe0\x41\x02\x12\x17\n\x0fpartial_failure\x18\x03 \x01(\x08\x12\x15\n\rvalidate_only\x18\x04 \x01(\x08\"\x97\x02\n#KeywordPlanCampaignKeywordOperation\x12/\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12O\n\x06\x63reate\x18\x01 \x01(\x0b\x32=.google.ads.googleads.v4.resources.KeywordPlanCampaignKeywordH\x00\x12O\n\x06update\x18\x02 \x01(\x0b\x32=.google.ads.googleads.v4.resources.KeywordPlanCampaignKeywordH\x00\x12\x10\n\x06remove\x18\x03 \x01(\tH\x00\x42\x0b\n\toperation\"\xb9\x01\n)MutateKeywordPlanCampaignKeywordsResponse\x12\x31\n\x15partial_failure_error\x18\x03 \x01(\x0b\x32\x12.google.rpc.Status\x12Y\n\x07results\x18\x02 \x03(\x0b\x32H.google.ads.googleads.v4.services.MutateKeywordPlanCampaignKeywordResult\"?\n&MutateKeywordPlanCampaignKeywordResult\x12\x15\n\rresource_name\x18\x01 \x01(\t2\xe5\x04\n!KeywordPlanCampaignKeywordService\x12\xfd\x01\n\x1dGetKeywordPlanCampaignKeyword\x12\x46.google.ads.googleads.v4.services.GetKeywordPlanCampaignKeywordRequest\x1a=.google.ads.googleads.v4.resources.KeywordPlanCampaignKeyword\"U\x82\xd3\xe4\x93\x02?\x12=/v4/{resource_name=customers/*/keywordPlanCampaignKeywords/*}\xda\x41\rresource_name\x12\xa2\x02\n!MutateKeywordPlanCampaignKeywords\x12J.google.ads.googleads.v4.services.MutateKeywordPlanCampaignKeywordsRequest\x1aK.google.ads.googleads.v4.services.MutateKeywordPlanCampaignKeywordsResponse\"d\x82\xd3\xe4\x93\x02\x45\"@/v4/customers/{customer_id=*}/keywordPlanCampaignKeywords:mutate:\x01*\xda\x41\x16\x63ustomer_id,operations\x1a\x1b\xca\x41\x18googleads.googleapis.comB\x8d\x02\n$com.google.ads.googleads.v4.servicesB&KeywordPlanCampaignKeywordServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V4.Services\xca\x02 Google\\Ads\\GoogleAds\\V4\\Services\xea\x02$Google::Ads::GoogleAds::V4::Servicesb\x06proto3'
+  serialized_pb=b'\nLgoogle/ads/googleads/v4/services/keyword_plan_campaign_keyword_service.proto\x12 google.ads.googleads.v4.services\x1a\x45google/ads/googleads/v4/resources/keyword_plan_campaign_keyword.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a google/protobuf/field_mask.proto\x1a\x17google/rpc/status.proto\"z\n$GetKeywordPlanCampaignKeywordRequest\x12R\n\rresource_name\x18\x01 \x01(\tB;\xe0\x41\x02\xfa\x41\x35\n3googleads.googleapis.com/KeywordPlanCampaignKeyword\"\xd4\x01\n(MutateKeywordPlanCampaignKeywordsRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12^\n\noperations\x18\x02 \x03(\x0b\x32\x45.google.ads.googleads.v4.services.KeywordPlanCampaignKeywordOperationB\x03\xe0\x41\x02\x12\x17\n\x0fpartial_failure\x18\x03 \x01(\x08\x12\x15\n\rvalidate_only\x18\x04 \x01(\x08\"\xd1\x02\n#KeywordPlanCampaignKeywordOperation\x12/\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12O\n\x06\x63reate\x18\x01 \x01(\x0b\x32=.google.ads.googleads.v4.resources.KeywordPlanCampaignKeywordH\x00\x12O\n\x06update\x18\x02 \x01(\x0b\x32=.google.ads.googleads.v4.resources.KeywordPlanCampaignKeywordH\x00\x12J\n\x06remove\x18\x03 \x01(\tB8\xfa\x41\x35\n3googleads.googleapis.com/KeywordPlanCampaignKeywordH\x00\x42\x0b\n\toperation\"\xb9\x01\n)MutateKeywordPlanCampaignKeywordsResponse\x12\x31\n\x15partial_failure_error\x18\x03 \x01(\x0b\x32\x12.google.rpc.Status\x12Y\n\x07results\x18\x02 \x03(\x0b\x32H.google.ads.googleads.v4.services.MutateKeywordPlanCampaignKeywordResult\"?\n&MutateKeywordPlanCampaignKeywordResult\x12\x15\n\rresource_name\x18\x01 \x01(\t2\x8f\x05\n!KeywordPlanCampaignKeywordService\x12\xfd\x01\n\x1dGetKeywordPlanCampaignKeyword\x12\x46.google.ads.googleads.v4.services.GetKeywordPlanCampaignKeywordRequest\x1a=.google.ads.googleads.v4.resources.KeywordPlanCampaignKeyword\"U\x82\xd3\xe4\x93\x02?\x12=/v4/{resource_name=customers/*/keywordPlanCampaignKeywords/*}\xda\x41\rresource_name\x12\xa2\x02\n!MutateKeywordPlanCampaignKeywords\x12J.google.ads.googleads.v4.services.MutateKeywordPlanCampaignKeywordsRequest\x1aK.google.ads.googleads.v4.services.MutateKeywordPlanCampaignKeywordsResponse\"d\x82\xd3\xe4\x93\x02\x45\"@/v4/customers/{customer_id=*}/keywordPlanCampaignKeywords:mutate:\x01*\xda\x41\x16\x63ustomer_id,operations\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x8d\x02\n$com.google.ads.googleads.v4.servicesB&KeywordPlanCampaignKeywordServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V4.Services\xca\x02 Google\\Ads\\GoogleAds\\V4\\Services\xea\x02$Google::Ads::GoogleAds::V4::Servicesb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v4_dot_resources_dot_keyword__plan__campaign__keyword__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
@@ -153,7 +153,7 @@ _KEYWORDPLANCAMPAIGNKEYWORDOPERATION = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372A5\n3googleads.googleapis.com/KeywordPlanCampaignKeyword', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -172,7 +172,7 @@ _KEYWORDPLANCAMPAIGNKEYWORDOPERATION = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=699,
-  serialized_end=978,
+  serialized_end=1036,
 )
 
 
@@ -210,8 +210,8 @@ _MUTATEKEYWORDPLANCAMPAIGNKEYWORDSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=981,
-  serialized_end=1166,
+  serialized_start=1039,
+  serialized_end=1224,
 )
 
 
@@ -242,8 +242,8 @@ _MUTATEKEYWORDPLANCAMPAIGNKEYWORDRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1168,
-  serialized_end=1231,
+  serialized_start=1226,
+  serialized_end=1289,
 )
 
 _MUTATEKEYWORDPLANCAMPAIGNKEYWORDSREQUEST.fields_by_name['operations'].message_type = _KEYWORDPLANCAMPAIGNKEYWORDOPERATION
@@ -308,16 +308,17 @@ DESCRIPTOR._options = None
 _GETKEYWORDPLANCAMPAIGNKEYWORDREQUEST.fields_by_name['resource_name']._options = None
 _MUTATEKEYWORDPLANCAMPAIGNKEYWORDSREQUEST.fields_by_name['customer_id']._options = None
 _MUTATEKEYWORDPLANCAMPAIGNKEYWORDSREQUEST.fields_by_name['operations']._options = None
+_KEYWORDPLANCAMPAIGNKEYWORDOPERATION.fields_by_name['remove']._options = None
 
 _KEYWORDPLANCAMPAIGNKEYWORDSERVICE = _descriptor.ServiceDescriptor(
   name='KeywordPlanCampaignKeywordService',
   full_name='google.ads.googleads.v4.services.KeywordPlanCampaignKeywordService',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=b'\312A\030googleads.googleapis.com',
+  serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1234,
-  serialized_end=1847,
+  serialized_start=1292,
+  serialized_end=1947,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetKeywordPlanCampaignKeyword',

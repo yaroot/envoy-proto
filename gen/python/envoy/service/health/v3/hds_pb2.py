@@ -11,11 +11,13 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from envoy.config.cluster.v3 import cluster_pb2 as envoy_dot_config_dot_cluster_dot_v3_dot_cluster__pb2
 from envoy.config.core.v3 import base_pb2 as envoy_dot_config_dot_core_dot_v3_dot_base__pb2
 from envoy.config.core.v3 import health_check_pb2 as envoy_dot_config_dot_core_dot_v3_dot_health__check__pb2
 from envoy.config.endpoint.v3 import endpoint_components_pb2 as envoy_dot_config_dot_endpoint_dot_v3_dot_endpoint__components__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
+from udpa.annotations import migrate_pb2 as udpa_dot_annotations_dot_migrate__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from udpa.annotations import versioning_pb2 as udpa_dot_annotations_dot_versioning__pb2
 
@@ -26,9 +28,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n%io.envoyproxy.envoy.service.health.v3B\010HdsProtoP\001\210\001\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n!envoy/service/health/v3/hds.proto\x12\x17\x65nvoy.service.health.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\'envoy/config/core/v3/health_check.proto\x1a\x32\x65nvoy/config/endpoint/v3/endpoint_components.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"\xb2\x01\n\nCapability\x12L\n\x16health_check_protocols\x18\x01 \x03(\x0e\x32,.envoy.service.health.v3.Capability.Protocol\"(\n\x08Protocol\x12\x08\n\x04HTTP\x10\x00\x12\x07\n\x03TCP\x10\x01\x12\t\n\x05REDIS\x10\x02:,\x9a\xc5\x88\x1e\'\n%envoy.service.discovery.v2.Capability\"\xad\x01\n\x12HealthCheckRequest\x12(\n\x04node\x18\x01 \x01(\x0b\x32\x1a.envoy.config.core.v3.Node\x12\x37\n\ncapability\x18\x02 \x01(\x0b\x32#.envoy.service.health.v3.Capability:4\x9a\xc5\x88\x1e/\n-envoy.service.discovery.v2.HealthCheckRequest\"\xb3\x01\n\x0e\x45ndpointHealth\x12\x34\n\x08\x65ndpoint\x18\x01 \x01(\x0b\x32\".envoy.config.endpoint.v3.Endpoint\x12\x39\n\rhealth_status\x18\x02 \x01(\x0e\x32\".envoy.config.core.v3.HealthStatus:0\x9a\xc5\x88\x1e+\n)envoy.service.discovery.v2.EndpointHealth\"\x95\x01\n\x16\x45ndpointHealthResponse\x12\x41\n\x10\x65ndpoints_health\x18\x01 \x03(\x0b\x32\'.envoy.service.health.v3.EndpointHealth:8\x9a\xc5\x88\x1e\x33\n1envoy.service.discovery.v2.EndpointHealthResponse\"\xac\x02\n*HealthCheckRequestOrEndpointHealthResponse\x12K\n\x14health_check_request\x18\x01 \x01(\x0b\x32+.envoy.service.health.v3.HealthCheckRequestH\x00\x12S\n\x18\x65ndpoint_health_response\x18\x02 \x01(\x0b\x32/.envoy.service.health.v3.EndpointHealthResponseH\x00:L\x9a\xc5\x88\x1eG\nEenvoy.service.discovery.v2.HealthCheckRequestOrEndpointHealthResponseB\x0e\n\x0crequest_type\"\xb1\x01\n\x11LocalityEndpoints\x12\x30\n\x08locality\x18\x01 \x01(\x0b\x32\x1e.envoy.config.core.v3.Locality\x12\x35\n\tendpoints\x18\x02 \x03(\x0b\x32\".envoy.config.endpoint.v3.Endpoint:3\x9a\xc5\x88\x1e.\n,envoy.service.discovery.v2.LocalityEndpoints\"\xe2\x01\n\x12\x43lusterHealthCheck\x12\x14\n\x0c\x63luster_name\x18\x01 \x01(\t\x12\x38\n\rhealth_checks\x18\x02 \x03(\x0b\x32!.envoy.config.core.v3.HealthCheck\x12\x46\n\x12locality_endpoints\x18\x03 \x03(\x0b\x32*.envoy.service.health.v3.LocalityEndpoints:4\x9a\xc5\x88\x1e/\n-envoy.service.discovery.v2.ClusterHealthCheck\"\xc7\x01\n\x14HealthCheckSpecifier\x12J\n\x15\x63luster_health_checks\x18\x01 \x03(\x0b\x32+.envoy.service.health.v3.ClusterHealthCheck\x12+\n\x08interval\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration:6\x9a\xc5\x88\x1e\x31\n/envoy.service.discovery.v2.HealthCheckSpecifier2\xde\x02\n\x16HealthDiscoveryService\x12\x8d\x01\n\x11StreamHealthCheck\x12\x43.envoy.service.health.v3.HealthCheckRequestOrEndpointHealthResponse\x1a-.envoy.service.health.v3.HealthCheckSpecifier\"\x00(\x01\x30\x01\x12\xb3\x01\n\x10\x46\x65tchHealthCheck\x12\x43.envoy.service.health.v3.HealthCheckRequestOrEndpointHealthResponse\x1a-.envoy.service.health.v3.HealthCheckSpecifier\"+\x82\xd3\xe4\x93\x02\x1c\"\x1a/v3/discovery:health_check\x82\xd3\xe4\x93\x02\x03:\x01*B>\n%io.envoyproxy.envoy.service.health.v3B\x08HdsProtoP\x01\x88\x01\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n!envoy/service/health/v3/hds.proto\x12\x17\x65nvoy.service.health.v3\x1a%envoy/config/cluster/v3/cluster.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\'envoy/config/core/v3/health_check.proto\x1a\x32\x65nvoy/config/endpoint/v3/endpoint_components.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"\xb2\x01\n\nCapability\x12L\n\x16health_check_protocols\x18\x01 \x03(\x0e\x32,.envoy.service.health.v3.Capability.Protocol\"(\n\x08Protocol\x12\x08\n\x04HTTP\x10\x00\x12\x07\n\x03TCP\x10\x01\x12\t\n\x05REDIS\x10\x02:,\x9a\xc5\x88\x1e\'\n%envoy.service.discovery.v2.Capability\"\xad\x01\n\x12HealthCheckRequest\x12(\n\x04node\x18\x01 \x01(\x0b\x32\x1a.envoy.config.core.v3.Node\x12\x37\n\ncapability\x18\x02 \x01(\x0b\x32#.envoy.service.health.v3.Capability:4\x9a\xc5\x88\x1e/\n-envoy.service.discovery.v2.HealthCheckRequest\"\xb3\x01\n\x0e\x45ndpointHealth\x12\x34\n\x08\x65ndpoint\x18\x01 \x01(\x0b\x32\".envoy.config.endpoint.v3.Endpoint\x12\x39\n\rhealth_status\x18\x02 \x01(\x0e\x32\".envoy.config.core.v3.HealthStatus:0\x9a\xc5\x88\x1e+\n)envoy.service.discovery.v2.EndpointHealth\"\x8e\x01\n\x17LocalityEndpointsHealth\x12\x30\n\x08locality\x18\x01 \x01(\x0b\x32\x1e.envoy.config.core.v3.Locality\x12\x41\n\x10\x65ndpoints_health\x18\x02 \x03(\x0b\x32\'.envoy.service.health.v3.EndpointHealth\"\x83\x01\n\x16\x43lusterEndpointsHealth\x12\x14\n\x0c\x63luster_name\x18\x01 \x01(\t\x12S\n\x19locality_endpoints_health\x18\x02 \x03(\x0b\x32\x30.envoy.service.health.v3.LocalityEndpointsHealth\"\xec\x01\n\x16\x45ndpointHealthResponse\x12\x45\n\x10\x65ndpoints_health\x18\x01 \x03(\x0b\x32\'.envoy.service.health.v3.EndpointHealthB\x02\x18\x01\x12Q\n\x18\x63luster_endpoints_health\x18\x02 \x03(\x0b\x32/.envoy.service.health.v3.ClusterEndpointsHealth:8\x9a\xc5\x88\x1e\x33\n1envoy.service.discovery.v2.EndpointHealthResponse\"\xac\x02\n*HealthCheckRequestOrEndpointHealthResponse\x12K\n\x14health_check_request\x18\x01 \x01(\x0b\x32+.envoy.service.health.v3.HealthCheckRequestH\x00\x12S\n\x18\x65ndpoint_health_response\x18\x02 \x01(\x0b\x32/.envoy.service.health.v3.EndpointHealthResponseH\x00:L\x9a\xc5\x88\x1eG\nEenvoy.service.discovery.v2.HealthCheckRequestOrEndpointHealthResponseB\x0e\n\x0crequest_type\"\xb1\x01\n\x11LocalityEndpoints\x12\x30\n\x08locality\x18\x01 \x01(\x0b\x32\x1e.envoy.config.core.v3.Locality\x12\x35\n\tendpoints\x18\x02 \x03(\x0b\x32\".envoy.config.endpoint.v3.Endpoint:3\x9a\xc5\x88\x1e.\n,envoy.service.discovery.v2.LocalityEndpoints\"\xbb\x02\n\x12\x43lusterHealthCheck\x12\x14\n\x0c\x63luster_name\x18\x01 \x01(\t\x12\x38\n\rhealth_checks\x18\x02 \x03(\x0b\x32!.envoy.config.core.v3.HealthCheck\x12\x46\n\x12locality_endpoints\x18\x03 \x03(\x0b\x32*.envoy.service.health.v3.LocalityEndpoints\x12W\n\x18transport_socket_matches\x18\x04 \x03(\x0b\x32\x35.envoy.config.cluster.v3.Cluster.TransportSocketMatch:4\x9a\xc5\x88\x1e/\n-envoy.service.discovery.v2.ClusterHealthCheck\"\xc7\x01\n\x14HealthCheckSpecifier\x12J\n\x15\x63luster_health_checks\x18\x01 \x03(\x0b\x32+.envoy.service.health.v3.ClusterHealthCheck\x12+\n\x08interval\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration:6\x9a\xc5\x88\x1e\x31\n/envoy.service.discovery.v2.HealthCheckSpecifier2\xde\x02\n\x16HealthDiscoveryService\x12\x8d\x01\n\x11StreamHealthCheck\x12\x43.envoy.service.health.v3.HealthCheckRequestOrEndpointHealthResponse\x1a-.envoy.service.health.v3.HealthCheckSpecifier\"\x00(\x01\x30\x01\x12\xb3\x01\n\x10\x46\x65tchHealthCheck\x12\x43.envoy.service.health.v3.HealthCheckRequestOrEndpointHealthResponse\x1a-.envoy.service.health.v3.HealthCheckSpecifier\"+\x82\xd3\xe4\x93\x02\x1c\"\x1a/v3/discovery:health_check\x82\xd3\xe4\x93\x02\x03:\x01*B>\n%io.envoyproxy.envoy.service.health.v3B\x08HdsProtoP\x01\x88\x01\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_health__check__pb2.DESCRIPTOR,envoy_dot_config_dot_endpoint_dot_v3_dot_endpoint__components__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_cluster_dot_v3_dot_cluster__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_health__check__pb2.DESCRIPTOR,envoy_dot_config_dot_endpoint_dot_v3_dot_endpoint__components__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,udpa_dot_annotations_dot_migrate__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,])
 
 
 
@@ -57,8 +59,8 @@ _CAPABILITY_PROTOCOL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=409,
-  serialized_end=449,
+  serialized_start=480,
+  serialized_end=520,
 )
 _sym_db.RegisterEnumDescriptor(_CAPABILITY_PROTOCOL)
 
@@ -91,8 +93,8 @@ _CAPABILITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=317,
-  serialized_end=495,
+  serialized_start=388,
+  serialized_end=566,
 )
 
 
@@ -130,8 +132,8 @@ _HEALTHCHECKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=498,
-  serialized_end=671,
+  serialized_start=569,
+  serialized_end=742,
 )
 
 
@@ -169,8 +171,86 @@ _ENDPOINTHEALTH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=674,
-  serialized_end=853,
+  serialized_start=745,
+  serialized_end=924,
+)
+
+
+_LOCALITYENDPOINTSHEALTH = _descriptor.Descriptor(
+  name='LocalityEndpointsHealth',
+  full_name='envoy.service.health.v3.LocalityEndpointsHealth',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='locality', full_name='envoy.service.health.v3.LocalityEndpointsHealth.locality', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='endpoints_health', full_name='envoy.service.health.v3.LocalityEndpointsHealth.endpoints_health', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=927,
+  serialized_end=1069,
+)
+
+
+_CLUSTERENDPOINTSHEALTH = _descriptor.Descriptor(
+  name='ClusterEndpointsHealth',
+  full_name='envoy.service.health.v3.ClusterEndpointsHealth',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cluster_name', full_name='envoy.service.health.v3.ClusterEndpointsHealth.cluster_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='locality_endpoints_health', full_name='envoy.service.health.v3.ClusterEndpointsHealth.locality_endpoints_health', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1072,
+  serialized_end=1203,
 )
 
 
@@ -188,6 +268,13 @@ _ENDPOINTHEALTHRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cluster_endpoints_health', full_name='envoy.service.health.v3.EndpointHealthResponse.cluster_endpoints_health', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
@@ -201,8 +288,8 @@ _ENDPOINTHEALTHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=856,
-  serialized_end=1005,
+  serialized_start=1206,
+  serialized_end=1442,
 )
 
 
@@ -245,8 +332,8 @@ _HEALTHCHECKREQUESTORENDPOINTHEALTHRESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1008,
-  serialized_end=1308,
+  serialized_start=1445,
+  serialized_end=1745,
 )
 
 
@@ -284,8 +371,8 @@ _LOCALITYENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1311,
-  serialized_end=1488,
+  serialized_start=1748,
+  serialized_end=1925,
 )
 
 
@@ -318,6 +405,13 @@ _CLUSTERHEALTHCHECK = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='transport_socket_matches', full_name='envoy.service.health.v3.ClusterHealthCheck.transport_socket_matches', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -330,8 +424,8 @@ _CLUSTERHEALTHCHECK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1491,
-  serialized_end=1717,
+  serialized_start=1928,
+  serialized_end=2243,
 )
 
 
@@ -369,8 +463,8 @@ _HEALTHCHECKSPECIFIER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1720,
-  serialized_end=1919,
+  serialized_start=2246,
+  serialized_end=2445,
 )
 
 _CAPABILITY.fields_by_name['health_check_protocols'].enum_type = _CAPABILITY_PROTOCOL
@@ -379,7 +473,11 @@ _HEALTHCHECKREQUEST.fields_by_name['node'].message_type = envoy_dot_config_dot_c
 _HEALTHCHECKREQUEST.fields_by_name['capability'].message_type = _CAPABILITY
 _ENDPOINTHEALTH.fields_by_name['endpoint'].message_type = envoy_dot_config_dot_endpoint_dot_v3_dot_endpoint__components__pb2._ENDPOINT
 _ENDPOINTHEALTH.fields_by_name['health_status'].enum_type = envoy_dot_config_dot_core_dot_v3_dot_health__check__pb2._HEALTHSTATUS
+_LOCALITYENDPOINTSHEALTH.fields_by_name['locality'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._LOCALITY
+_LOCALITYENDPOINTSHEALTH.fields_by_name['endpoints_health'].message_type = _ENDPOINTHEALTH
+_CLUSTERENDPOINTSHEALTH.fields_by_name['locality_endpoints_health'].message_type = _LOCALITYENDPOINTSHEALTH
 _ENDPOINTHEALTHRESPONSE.fields_by_name['endpoints_health'].message_type = _ENDPOINTHEALTH
+_ENDPOINTHEALTHRESPONSE.fields_by_name['cluster_endpoints_health'].message_type = _CLUSTERENDPOINTSHEALTH
 _HEALTHCHECKREQUESTORENDPOINTHEALTHRESPONSE.fields_by_name['health_check_request'].message_type = _HEALTHCHECKREQUEST
 _HEALTHCHECKREQUESTORENDPOINTHEALTHRESPONSE.fields_by_name['endpoint_health_response'].message_type = _ENDPOINTHEALTHRESPONSE
 _HEALTHCHECKREQUESTORENDPOINTHEALTHRESPONSE.oneofs_by_name['request_type'].fields.append(
@@ -392,11 +490,14 @@ _LOCALITYENDPOINTS.fields_by_name['locality'].message_type = envoy_dot_config_do
 _LOCALITYENDPOINTS.fields_by_name['endpoints'].message_type = envoy_dot_config_dot_endpoint_dot_v3_dot_endpoint__components__pb2._ENDPOINT
 _CLUSTERHEALTHCHECK.fields_by_name['health_checks'].message_type = envoy_dot_config_dot_core_dot_v3_dot_health__check__pb2._HEALTHCHECK
 _CLUSTERHEALTHCHECK.fields_by_name['locality_endpoints'].message_type = _LOCALITYENDPOINTS
+_CLUSTERHEALTHCHECK.fields_by_name['transport_socket_matches'].message_type = envoy_dot_config_dot_cluster_dot_v3_dot_cluster__pb2._CLUSTER_TRANSPORTSOCKETMATCH
 _HEALTHCHECKSPECIFIER.fields_by_name['cluster_health_checks'].message_type = _CLUSTERHEALTHCHECK
 _HEALTHCHECKSPECIFIER.fields_by_name['interval'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 DESCRIPTOR.message_types_by_name['Capability'] = _CAPABILITY
 DESCRIPTOR.message_types_by_name['HealthCheckRequest'] = _HEALTHCHECKREQUEST
 DESCRIPTOR.message_types_by_name['EndpointHealth'] = _ENDPOINTHEALTH
+DESCRIPTOR.message_types_by_name['LocalityEndpointsHealth'] = _LOCALITYENDPOINTSHEALTH
+DESCRIPTOR.message_types_by_name['ClusterEndpointsHealth'] = _CLUSTERENDPOINTSHEALTH
 DESCRIPTOR.message_types_by_name['EndpointHealthResponse'] = _ENDPOINTHEALTHRESPONSE
 DESCRIPTOR.message_types_by_name['HealthCheckRequestOrEndpointHealthResponse'] = _HEALTHCHECKREQUESTORENDPOINTHEALTHRESPONSE
 DESCRIPTOR.message_types_by_name['LocalityEndpoints'] = _LOCALITYENDPOINTS
@@ -424,6 +525,20 @@ EndpointHealth = _reflection.GeneratedProtocolMessageType('EndpointHealth', (_me
   # @@protoc_insertion_point(class_scope:envoy.service.health.v3.EndpointHealth)
   })
 _sym_db.RegisterMessage(EndpointHealth)
+
+LocalityEndpointsHealth = _reflection.GeneratedProtocolMessageType('LocalityEndpointsHealth', (_message.Message,), {
+  'DESCRIPTOR' : _LOCALITYENDPOINTSHEALTH,
+  '__module__' : 'envoy.service.health.v3.hds_pb2'
+  # @@protoc_insertion_point(class_scope:envoy.service.health.v3.LocalityEndpointsHealth)
+  })
+_sym_db.RegisterMessage(LocalityEndpointsHealth)
+
+ClusterEndpointsHealth = _reflection.GeneratedProtocolMessageType('ClusterEndpointsHealth', (_message.Message,), {
+  'DESCRIPTOR' : _CLUSTERENDPOINTSHEALTH,
+  '__module__' : 'envoy.service.health.v3.hds_pb2'
+  # @@protoc_insertion_point(class_scope:envoy.service.health.v3.ClusterEndpointsHealth)
+  })
+_sym_db.RegisterMessage(ClusterEndpointsHealth)
 
 EndpointHealthResponse = _reflection.GeneratedProtocolMessageType('EndpointHealthResponse', (_message.Message,), {
   'DESCRIPTOR' : _ENDPOINTHEALTHRESPONSE,
@@ -465,6 +580,7 @@ DESCRIPTOR._options = None
 _CAPABILITY._options = None
 _HEALTHCHECKREQUEST._options = None
 _ENDPOINTHEALTH._options = None
+_ENDPOINTHEALTHRESPONSE.fields_by_name['endpoints_health']._options = None
 _ENDPOINTHEALTHRESPONSE._options = None
 _HEALTHCHECKREQUESTORENDPOINTHEALTHRESPONSE._options = None
 _LOCALITYENDPOINTS._options = None
@@ -478,8 +594,8 @@ _HEALTHDISCOVERYSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1922,
-  serialized_end=2272,
+  serialized_start=2448,
+  serialized_end=2798,
   methods=[
   _descriptor.MethodDescriptor(
     name='StreamHealthCheck',

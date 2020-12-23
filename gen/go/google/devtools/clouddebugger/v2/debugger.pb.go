@@ -23,10 +23,10 @@ package clouddebugger
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -933,7 +933,7 @@ var file_google_devtools_clouddebugger_v2_debugger_proto_goTypes = []interface{}
 	(*Breakpoint)(nil),                                   // 10: google.devtools.clouddebugger.v2.Breakpoint
 	(*Debuggee)(nil),                                     // 11: google.devtools.clouddebugger.v2.Debuggee
 	(Breakpoint_Action)(0),                               // 12: google.devtools.clouddebugger.v2.Breakpoint.Action
-	(*emptypb.Empty)(nil),                                // 13: google.protobuf.Empty
+	(*empty.Empty)(nil),                                  // 13: google.protobuf.Empty
 }
 var file_google_devtools_clouddebugger_v2_debugger_proto_depIdxs = []int32{
 	10, // 0: google.devtools.clouddebugger.v2.SetBreakpointRequest.breakpoint:type_name -> google.devtools.clouddebugger.v2.Breakpoint

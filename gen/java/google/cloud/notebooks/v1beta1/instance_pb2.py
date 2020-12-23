@@ -22,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/notebooks/v1beta1/instance.proto',
   package='google.cloud.notebooks.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n\"com.google.cloud.notebooks.v1beta1B\rInstanceProtoP\001ZGgoogle.golang.org/genproto/googleapis/cloud/notebooks/v1beta1;notebooks\252\002\036Google.Cloud.Notebooks.V1Beta1\312\002\036Google\\Cloud\\Notebooks\\V1Beta1\352\002!Google::Cloud::Notebooks::V1beta1',
+  serialized_options=b'\n\"com.google.cloud.notebooks.v1beta1B\rInstanceProtoP\001ZGgoogle.golang.org/genproto/googleapis/cloud/notebooks/v1beta1;notebooks\252\002\036Google.Cloud.Notebooks.V1Beta1\312\002\036Google\\Cloud\\Notebooks\\V1beta1\352\002!Google::Cloud::Notebooks::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n-google/cloud/notebooks/v1beta1/instance.proto\x12\x1egoogle.cloud.notebooks.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x30google/cloud/notebooks/v1beta1/environment.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xf8\x0f\n\x08Instance\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12;\n\x08vm_image\x18\x02 \x01(\x0b\x32\'.google.cloud.notebooks.v1beta1.VmImageH\x00\x12I\n\x0f\x63ontainer_image\x18\x03 \x01(\x0b\x32..google.cloud.notebooks.v1beta1.ContainerImageH\x00\x12\x1b\n\x13post_startup_script\x18\x04 \x01(\t\x12\x16\n\tproxy_uri\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\x1c\n\x0finstance_owners\x18\x06 \x03(\tB\x03\xe0\x41\x04\x12\x17\n\x0fservice_account\x18\x07 \x01(\t\x12\x19\n\x0cmachine_type\x18\x08 \x01(\tB\x03\xe0\x41\x02\x12V\n\x12\x61\x63\x63\x65lerator_config\x18\t \x01(\x0b\x32:.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig\x12\x42\n\x05state\x18\n \x01(\x0e\x32..google.cloud.notebooks.v1beta1.Instance.StateB\x03\xe0\x41\x03\x12\x1a\n\x12install_gpu_driver\x18\x0b \x01(\x08\x12\x1e\n\x16\x63ustom_gpu_driver_path\x18\x0c \x01(\t\x12N\n\x0e\x62oot_disk_type\x18\r \x01(\x0e\x32\x31.google.cloud.notebooks.v1beta1.Instance.DiskTypeB\x03\xe0\x41\x04\x12\x1e\n\x11\x62oot_disk_size_gb\x18\x0e \x01(\x03\x42\x03\xe0\x41\x04\x12N\n\x0e\x64\x61ta_disk_type\x18\x19 \x01(\x0e\x32\x31.google.cloud.notebooks.v1beta1.Instance.DiskTypeB\x03\xe0\x41\x04\x12\x1e\n\x11\x64\x61ta_disk_size_gb\x18\x1a \x01(\x03\x42\x03\xe0\x41\x04\x12 \n\x13no_remove_data_disk\x18\x1b \x01(\x08\x42\x03\xe0\x41\x04\x12U\n\x0f\x64isk_encryption\x18\x0f \x01(\x0e\x32\x37.google.cloud.notebooks.v1beta1.Instance.DiskEncryptionB\x03\xe0\x41\x04\x12\x14\n\x07kms_key\x18\x10 \x01(\tB\x03\xe0\x41\x04\x12\x14\n\x0cno_public_ip\x18\x11 \x01(\x08\x12\x17\n\x0fno_proxy_access\x18\x12 \x01(\x08\x12\x0f\n\x07network\x18\x13 \x01(\t\x12\x0e\n\x06subnet\x18\x14 \x01(\t\x12\x44\n\x06labels\x18\x15 \x03(\x0b\x32\x34.google.cloud.notebooks.v1beta1.Instance.LabelsEntry\x12H\n\x08metadata\x18\x16 \x03(\x0b\x32\x36.google.cloud.notebooks.v1beta1.Instance.MetadataEntry\x12\x34\n\x0b\x63reate_time\x18\x17 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x18 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1ao\n\x11\x41\x63\x63\x65leratorConfig\x12\x46\n\x04type\x18\x01 \x01(\x0e\x32\x38.google.cloud.notebooks.v1beta1.Instance.AcceleratorType\x12\x12\n\ncore_count\x18\x02 \x01(\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x86\x02\n\x0f\x41\x63\x63\x65leratorType\x12 \n\x1c\x41\x43\x43\x45LERATOR_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10NVIDIA_TESLA_K80\x10\x01\x12\x15\n\x11NVIDIA_TESLA_P100\x10\x02\x12\x15\n\x11NVIDIA_TESLA_V100\x10\x03\x12\x13\n\x0fNVIDIA_TESLA_P4\x10\x04\x12\x13\n\x0fNVIDIA_TESLA_T4\x10\x05\x12\x17\n\x13NVIDIA_TESLA_T4_VWS\x10\x08\x12\x19\n\x15NVIDIA_TESLA_P100_VWS\x10\t\x12\x17\n\x13NVIDIA_TESLA_P4_VWS\x10\n\x12\n\n\x06TPU_V2\x10\x06\x12\n\n\x06TPU_V3\x10\x07\"r\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08STARTING\x10\x01\x12\x10\n\x0cPROVISIONING\x10\x02\x12\n\n\x06\x41\x43TIVE\x10\x03\x12\x0c\n\x08STOPPING\x10\x04\x12\x0b\n\x07STOPPED\x10\x05\x12\x0b\n\x07\x44\x45LETED\x10\x06\"B\n\x08\x44iskType\x12\x19\n\x15\x44ISK_TYPE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bPD_STANDARD\x10\x01\x12\n\n\x06PD_SSD\x10\x02\"E\n\x0e\x44iskEncryption\x12\x1f\n\x1b\x44ISK_ENCRYPTION_UNSPECIFIED\x10\x00\x12\x08\n\x04GMEK\x10\x01\x12\x08\n\x04\x43MEK\x10\x02:O\xea\x41L\n!notebooks.googleapis.com/Instance\x12\'projects/{project}/instances/{instance}B\r\n\x0b\x65nvironmentB\xe4\x01\n\"com.google.cloud.notebooks.v1beta1B\rInstanceProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/notebooks/v1beta1;notebooks\xaa\x02\x1eGoogle.Cloud.Notebooks.V1Beta1\xca\x02\x1eGoogle\\Cloud\\Notebooks\\V1Beta1\xea\x02!Google::Cloud::Notebooks::V1beta1b\x06proto3'
+  serialized_pb=b'\n-google/cloud/notebooks/v1beta1/instance.proto\x12\x1egoogle.cloud.notebooks.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x30google/cloud/notebooks/v1beta1/environment.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xbc\x10\n\x08Instance\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12;\n\x08vm_image\x18\x02 \x01(\x0b\x32\'.google.cloud.notebooks.v1beta1.VmImageH\x00\x12I\n\x0f\x63ontainer_image\x18\x03 \x01(\x0b\x32..google.cloud.notebooks.v1beta1.ContainerImageH\x00\x12\x1b\n\x13post_startup_script\x18\x04 \x01(\t\x12\x16\n\tproxy_uri\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\x1c\n\x0finstance_owners\x18\x06 \x03(\tB\x03\xe0\x41\x04\x12\x17\n\x0fservice_account\x18\x07 \x01(\t\x12\x19\n\x0cmachine_type\x18\x08 \x01(\tB\x03\xe0\x41\x02\x12V\n\x12\x61\x63\x63\x65lerator_config\x18\t \x01(\x0b\x32:.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig\x12\x42\n\x05state\x18\n \x01(\x0e\x32..google.cloud.notebooks.v1beta1.Instance.StateB\x03\xe0\x41\x03\x12\x1a\n\x12install_gpu_driver\x18\x0b \x01(\x08\x12\x1e\n\x16\x63ustom_gpu_driver_path\x18\x0c \x01(\t\x12N\n\x0e\x62oot_disk_type\x18\r \x01(\x0e\x32\x31.google.cloud.notebooks.v1beta1.Instance.DiskTypeB\x03\xe0\x41\x04\x12\x1e\n\x11\x62oot_disk_size_gb\x18\x0e \x01(\x03\x42\x03\xe0\x41\x04\x12N\n\x0e\x64\x61ta_disk_type\x18\x19 \x01(\x0e\x32\x31.google.cloud.notebooks.v1beta1.Instance.DiskTypeB\x03\xe0\x41\x04\x12\x1e\n\x11\x64\x61ta_disk_size_gb\x18\x1a \x01(\x03\x42\x03\xe0\x41\x04\x12 \n\x13no_remove_data_disk\x18\x1b \x01(\x08\x42\x03\xe0\x41\x04\x12U\n\x0f\x64isk_encryption\x18\x0f \x01(\x0e\x32\x37.google.cloud.notebooks.v1beta1.Instance.DiskEncryptionB\x03\xe0\x41\x04\x12\x14\n\x07kms_key\x18\x10 \x01(\tB\x03\xe0\x41\x04\x12\x14\n\x0cno_public_ip\x18\x11 \x01(\x08\x12\x17\n\x0fno_proxy_access\x18\x12 \x01(\x08\x12\x0f\n\x07network\x18\x13 \x01(\t\x12\x0e\n\x06subnet\x18\x14 \x01(\t\x12\x44\n\x06labels\x18\x15 \x03(\x0b\x32\x34.google.cloud.notebooks.v1beta1.Instance.LabelsEntry\x12H\n\x08metadata\x18\x16 \x03(\x0b\x32\x36.google.cloud.notebooks.v1beta1.Instance.MetadataEntry\x12\x34\n\x0b\x63reate_time\x18\x17 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x18 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1ao\n\x11\x41\x63\x63\x65leratorConfig\x12\x46\n\x04type\x18\x01 \x01(\x0e\x32\x38.google.cloud.notebooks.v1beta1.Instance.AcceleratorType\x12\x12\n\ncore_count\x18\x02 \x01(\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x86\x02\n\x0f\x41\x63\x63\x65leratorType\x12 \n\x1c\x41\x43\x43\x45LERATOR_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10NVIDIA_TESLA_K80\x10\x01\x12\x15\n\x11NVIDIA_TESLA_P100\x10\x02\x12\x15\n\x11NVIDIA_TESLA_V100\x10\x03\x12\x13\n\x0fNVIDIA_TESLA_P4\x10\x04\x12\x13\n\x0fNVIDIA_TESLA_T4\x10\x05\x12\x17\n\x13NVIDIA_TESLA_T4_VWS\x10\x08\x12\x19\n\x15NVIDIA_TESLA_P100_VWS\x10\t\x12\x17\n\x13NVIDIA_TESLA_P4_VWS\x10\n\x12\n\n\x06TPU_V2\x10\x06\x12\n\n\x06TPU_V3\x10\x07\"\xa4\x01\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08STARTING\x10\x01\x12\x10\n\x0cPROVISIONING\x10\x02\x12\n\n\x06\x41\x43TIVE\x10\x03\x12\x0c\n\x08STOPPING\x10\x04\x12\x0b\n\x07STOPPED\x10\x05\x12\x0b\n\x07\x44\x45LETED\x10\x06\x12\r\n\tUPGRADING\x10\x07\x12\x10\n\x0cINITIALIZING\x10\x08\x12\x0f\n\x0bREGISTERING\x10\t\"S\n\x08\x44iskType\x12\x19\n\x15\x44ISK_TYPE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bPD_STANDARD\x10\x01\x12\n\n\x06PD_SSD\x10\x02\x12\x0f\n\x0bPD_BALANCED\x10\x03\"E\n\x0e\x44iskEncryption\x12\x1f\n\x1b\x44ISK_ENCRYPTION_UNSPECIFIED\x10\x00\x12\x08\n\x04GMEK\x10\x01\x12\x08\n\x04\x43MEK\x10\x02:O\xea\x41L\n!notebooks.googleapis.com/Instance\x12\'projects/{project}/instances/{instance}B\r\n\x0b\x65nvironmentB\xe4\x01\n\"com.google.cloud.notebooks.v1beta1B\rInstanceProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/notebooks/v1beta1;notebooks\xaa\x02\x1eGoogle.Cloud.Notebooks.V1Beta1\xca\x02\x1eGoogle\\Cloud\\Notebooks\\V1beta1\xea\x02!Google::Cloud::Notebooks::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_notebooks_dot_v1beta1_dot_environment__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -142,11 +142,26 @@ _INSTANCE_STATE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='UPGRADING', index=7, number=7,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='INITIALIZING', index=8, number=8,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='REGISTERING', index=9, number=9,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1946,
-  serialized_end=2060,
+  serialized_start=1947,
+  serialized_end=2111,
 )
 _sym_db.RegisterEnumDescriptor(_INSTANCE_STATE)
 
@@ -172,11 +187,16 @@ _INSTANCE_DISKTYPE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PD_BALANCED', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2062,
-  serialized_end=2128,
+  serialized_start=2113,
+  serialized_end=2196,
 )
 _sym_db.RegisterEnumDescriptor(_INSTANCE_DISKTYPE)
 
@@ -205,8 +225,8 @@ _INSTANCE_DISKENCRYPTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2130,
-  serialized_end=2199,
+  serialized_start=2198,
+  serialized_end=2267,
 )
 _sym_db.RegisterEnumDescriptor(_INSTANCE_DISKENCRYPTION)
 
@@ -544,7 +564,7 @@ _INSTANCE = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=255,
-  serialized_end=2295,
+  serialized_end=2363,
 )
 
 _INSTANCE_ACCELERATORCONFIG.fields_by_name['type'].enum_type = _INSTANCE_ACCELERATORTYPE

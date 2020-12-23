@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v5.servicesB\030LocationViewServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v5/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V5.Services\312\002 Google\\Ads\\GoogleAds\\V5\\Services\352\002$Google::Ads::GoogleAds::V5::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n<google/ads/googleads/v5/services/location_view_service.proto\x12 google.ads.googleads.v5.services\x1a\x35google/ads/googleads/v5/resources/location_view.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"^\n\x16GetLocationViewRequest\x12\x44\n\rresource_name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%googleads.googleapis.com/LocationView2\xfa\x01\n\x13LocationViewService\x12\xc5\x01\n\x0fGetLocationView\x12\x38.google.ads.googleads.v5.services.GetLocationViewRequest\x1a/.google.ads.googleads.v5.resources.LocationView\"G\x82\xd3\xe4\x93\x02\x31\x12//v5/{resource_name=customers/*/locationViews/*}\xda\x41\rresource_name\x1a\x1b\xca\x41\x18googleads.googleapis.comB\xff\x01\n$com.google.ads.googleads.v5.servicesB\x18LocationViewServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v5/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V5.Services\xca\x02 Google\\Ads\\GoogleAds\\V5\\Services\xea\x02$Google::Ads::GoogleAds::V5::Servicesb\x06proto3'
+  serialized_pb=b'\n<google/ads/googleads/v5/services/location_view_service.proto\x12 google.ads.googleads.v5.services\x1a\x35google/ads/googleads/v5/resources/location_view.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"^\n\x16GetLocationViewRequest\x12\x44\n\rresource_name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%googleads.googleapis.com/LocationView2\xa4\x02\n\x13LocationViewService\x12\xc5\x01\n\x0fGetLocationView\x12\x38.google.ads.googleads.v5.services.GetLocationViewRequest\x1a/.google.ads.googleads.v5.resources.LocationView\"G\x82\xd3\xe4\x93\x02\x31\x12//v5/{resource_name=customers/*/locationViews/*}\xda\x41\rresource_name\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\xff\x01\n$com.google.ads.googleads.v5.servicesB\x18LocationViewServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v5/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V5.Services\xca\x02 Google\\Ads\\GoogleAds\\V5\\Services\xea\x02$Google::Ads::GoogleAds::V5::Servicesb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v5_dot_resources_dot_location__view__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
 
@@ -81,10 +81,10 @@ _LOCATIONVIEWSERVICE = _descriptor.ServiceDescriptor(
   full_name='google.ads.googleads.v5.services.LocationViewService',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=b'\312A\030googleads.googleapis.com',
+  serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
   serialized_start=365,
-  serialized_end=615,
+  serialized_end=657,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetLocationView',

@@ -26,7 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v3.servicesB\036KeywordPlanKeywordServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v3/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V3.Services\312\002 Google\\Ads\\GoogleAds\\V3\\Services\352\002$Google::Ads::GoogleAds::V3::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nCgoogle/ads/googleads/v3/services/keyword_plan_keyword_service.proto\x12 google.ads.googleads.v3.services\x1a<google/ads/googleads/v3/resources/keyword_plan_keyword.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a google/protobuf/field_mask.proto\x1a\x17google/rpc/status.proto\"j\n\x1cGetKeywordPlanKeywordRequest\x12J\n\rresource_name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+googleads.googleapis.com/KeywordPlanKeyword\"\xc4\x01\n MutateKeywordPlanKeywordsRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12V\n\noperations\x18\x02 \x03(\x0b\x32=.google.ads.googleads.v3.services.KeywordPlanKeywordOperationB\x03\xe0\x41\x02\x12\x17\n\x0fpartial_failure\x18\x03 \x01(\x08\x12\x15\n\rvalidate_only\x18\x04 \x01(\x08\"\xff\x01\n\x1bKeywordPlanKeywordOperation\x12/\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12G\n\x06\x63reate\x18\x01 \x01(\x0b\x32\x35.google.ads.googleads.v3.resources.KeywordPlanKeywordH\x00\x12G\n\x06update\x18\x02 \x01(\x0b\x32\x35.google.ads.googleads.v3.resources.KeywordPlanKeywordH\x00\x12\x10\n\x06remove\x18\x03 \x01(\tH\x00\x42\x0b\n\toperation\"\xa9\x01\n!MutateKeywordPlanKeywordsResponse\x12\x31\n\x15partial_failure_error\x18\x03 \x01(\x0b\x32\x12.google.rpc.Status\x12Q\n\x07results\x18\x02 \x03(\x0b\x32@.google.ads.googleads.v3.services.MutateKeywordPlanKeywordResult\"7\n\x1eMutateKeywordPlanKeywordResult\x12\x15\n\rresource_name\x18\x01 \x01(\t2\x9d\x04\n\x19KeywordPlanKeywordService\x12\xdd\x01\n\x15GetKeywordPlanKeyword\x12>.google.ads.googleads.v3.services.GetKeywordPlanKeywordRequest\x1a\x35.google.ads.googleads.v3.resources.KeywordPlanKeyword\"M\x82\xd3\xe4\x93\x02\x37\x12\x35/v3/{resource_name=customers/*/keywordPlanKeywords/*}\xda\x41\rresource_name\x12\x82\x02\n\x19MutateKeywordPlanKeywords\x12\x42.google.ads.googleads.v3.services.MutateKeywordPlanKeywordsRequest\x1a\x43.google.ads.googleads.v3.services.MutateKeywordPlanKeywordsResponse\"\\\x82\xd3\xe4\x93\x02=\"8/v3/customers/{customer_id=*}/keywordPlanKeywords:mutate:\x01*\xda\x41\x16\x63ustomer_id,operations\x1a\x1b\xca\x41\x18googleads.googleapis.comB\x85\x02\n$com.google.ads.googleads.v3.servicesB\x1eKeywordPlanKeywordServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v3/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V3.Services\xca\x02 Google\\Ads\\GoogleAds\\V3\\Services\xea\x02$Google::Ads::GoogleAds::V3::Servicesb\x06proto3'
+  serialized_pb=b'\nCgoogle/ads/googleads/v3/services/keyword_plan_keyword_service.proto\x12 google.ads.googleads.v3.services\x1a<google/ads/googleads/v3/resources/keyword_plan_keyword.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a google/protobuf/field_mask.proto\x1a\x17google/rpc/status.proto\"j\n\x1cGetKeywordPlanKeywordRequest\x12J\n\rresource_name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+googleads.googleapis.com/KeywordPlanKeyword\"\xc4\x01\n MutateKeywordPlanKeywordsRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12V\n\noperations\x18\x02 \x03(\x0b\x32=.google.ads.googleads.v3.services.KeywordPlanKeywordOperationB\x03\xe0\x41\x02\x12\x17\n\x0fpartial_failure\x18\x03 \x01(\x08\x12\x15\n\rvalidate_only\x18\x04 \x01(\x08\"\xb1\x02\n\x1bKeywordPlanKeywordOperation\x12/\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12G\n\x06\x63reate\x18\x01 \x01(\x0b\x32\x35.google.ads.googleads.v3.resources.KeywordPlanKeywordH\x00\x12G\n\x06update\x18\x02 \x01(\x0b\x32\x35.google.ads.googleads.v3.resources.KeywordPlanKeywordH\x00\x12\x42\n\x06remove\x18\x03 \x01(\tB0\xfa\x41-\n+googleads.googleapis.com/KeywordPlanKeywordH\x00\x42\x0b\n\toperation\"\xa9\x01\n!MutateKeywordPlanKeywordsResponse\x12\x31\n\x15partial_failure_error\x18\x03 \x01(\x0b\x32\x12.google.rpc.Status\x12Q\n\x07results\x18\x02 \x03(\x0b\x32@.google.ads.googleads.v3.services.MutateKeywordPlanKeywordResult\"7\n\x1eMutateKeywordPlanKeywordResult\x12\x15\n\rresource_name\x18\x01 \x01(\t2\xc7\x04\n\x19KeywordPlanKeywordService\x12\xdd\x01\n\x15GetKeywordPlanKeyword\x12>.google.ads.googleads.v3.services.GetKeywordPlanKeywordRequest\x1a\x35.google.ads.googleads.v3.resources.KeywordPlanKeyword\"M\x82\xd3\xe4\x93\x02\x37\x12\x35/v3/{resource_name=customers/*/keywordPlanKeywords/*}\xda\x41\rresource_name\x12\x82\x02\n\x19MutateKeywordPlanKeywords\x12\x42.google.ads.googleads.v3.services.MutateKeywordPlanKeywordsRequest\x1a\x43.google.ads.googleads.v3.services.MutateKeywordPlanKeywordsResponse\"\\\x82\xd3\xe4\x93\x02=\"8/v3/customers/{customer_id=*}/keywordPlanKeywords:mutate:\x01*\xda\x41\x16\x63ustomer_id,operations\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x85\x02\n$com.google.ads.googleads.v3.servicesB\x1eKeywordPlanKeywordServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v3/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V3.Services\xca\x02 Google\\Ads\\GoogleAds\\V3\\Services\xea\x02$Google::Ads::GoogleAds::V3::Servicesb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v3_dot_resources_dot_keyword__plan__keyword__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
@@ -153,7 +153,7 @@ _KEYWORDPLANKEYWORDOPERATION = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372A-\n+googleads.googleapis.com/KeywordPlanKeyword', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -172,7 +172,7 @@ _KEYWORDPLANKEYWORDOPERATION = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=649,
-  serialized_end=904,
+  serialized_end=954,
 )
 
 
@@ -210,8 +210,8 @@ _MUTATEKEYWORDPLANKEYWORDSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=907,
-  serialized_end=1076,
+  serialized_start=957,
+  serialized_end=1126,
 )
 
 
@@ -242,8 +242,8 @@ _MUTATEKEYWORDPLANKEYWORDRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1078,
-  serialized_end=1133,
+  serialized_start=1128,
+  serialized_end=1183,
 )
 
 _MUTATEKEYWORDPLANKEYWORDSREQUEST.fields_by_name['operations'].message_type = _KEYWORDPLANKEYWORDOPERATION
@@ -308,16 +308,17 @@ DESCRIPTOR._options = None
 _GETKEYWORDPLANKEYWORDREQUEST.fields_by_name['resource_name']._options = None
 _MUTATEKEYWORDPLANKEYWORDSREQUEST.fields_by_name['customer_id']._options = None
 _MUTATEKEYWORDPLANKEYWORDSREQUEST.fields_by_name['operations']._options = None
+_KEYWORDPLANKEYWORDOPERATION.fields_by_name['remove']._options = None
 
 _KEYWORDPLANKEYWORDSERVICE = _descriptor.ServiceDescriptor(
   name='KeywordPlanKeywordService',
   full_name='google.ads.googleads.v3.services.KeywordPlanKeywordService',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=b'\312A\030googleads.googleapis.com',
+  serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1136,
-  serialized_end=1677,
+  serialized_start=1186,
+  serialized_end=1769,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetKeywordPlanKeyword',

@@ -22,11 +22,11 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	common "google.golang.org/genproto/googleapis/ads/googleads/v4/common"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -54,13 +54,13 @@ type CampaignBidModifier struct {
 	// `customers/{customer_id}/campaignBidModifiers/{campaign_id}~{criterion_id}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. The campaign to which this criterion belongs.
-	Campaign *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=campaign,proto3" json:"campaign,omitempty"`
+	Campaign *wrappers.StringValue `protobuf:"bytes,2,opt,name=campaign,proto3" json:"campaign,omitempty"`
 	// Output only. The ID of the criterion to bid modify.
 	//
 	// This field is ignored for mutates.
-	CriterionId *wrapperspb.Int64Value `protobuf:"bytes,3,opt,name=criterion_id,json=criterionId,proto3" json:"criterion_id,omitempty"`
+	CriterionId *wrappers.Int64Value `protobuf:"bytes,3,opt,name=criterion_id,json=criterionId,proto3" json:"criterion_id,omitempty"`
 	// The modifier for the bid when the criterion matches.
-	BidModifier *wrapperspb.DoubleValue `protobuf:"bytes,4,opt,name=bid_modifier,json=bidModifier,proto3" json:"bid_modifier,omitempty"`
+	BidModifier *wrappers.DoubleValue `protobuf:"bytes,4,opt,name=bid_modifier,json=bidModifier,proto3" json:"bid_modifier,omitempty"`
 	// The criterion of this campaign bid modifier.
 	//
 	// Required in create operations starting in V5.
@@ -109,21 +109,21 @@ func (x *CampaignBidModifier) GetResourceName() string {
 	return ""
 }
 
-func (x *CampaignBidModifier) GetCampaign() *wrapperspb.StringValue {
+func (x *CampaignBidModifier) GetCampaign() *wrappers.StringValue {
 	if x != nil {
 		return x.Campaign
 	}
 	return nil
 }
 
-func (x *CampaignBidModifier) GetCriterionId() *wrapperspb.Int64Value {
+func (x *CampaignBidModifier) GetCriterionId() *wrappers.Int64Value {
 	if x != nil {
 		return x.CriterionId
 	}
 	return nil
 }
 
-func (x *CampaignBidModifier) GetBidModifier() *wrapperspb.DoubleValue {
+func (x *CampaignBidModifier) GetBidModifier() *wrappers.DoubleValue {
 	if x != nil {
 		return x.BidModifier
 	}
@@ -246,9 +246,9 @@ func file_google_ads_googleads_v4_resources_campaign_bid_modifier_proto_rawDescG
 var file_google_ads_googleads_v4_resources_campaign_bid_modifier_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v4_resources_campaign_bid_modifier_proto_goTypes = []interface{}{
 	(*CampaignBidModifier)(nil),        // 0: google.ads.googleads.v4.resources.CampaignBidModifier
-	(*wrapperspb.StringValue)(nil),     // 1: google.protobuf.StringValue
-	(*wrapperspb.Int64Value)(nil),      // 2: google.protobuf.Int64Value
-	(*wrapperspb.DoubleValue)(nil),     // 3: google.protobuf.DoubleValue
+	(*wrappers.StringValue)(nil),       // 1: google.protobuf.StringValue
+	(*wrappers.Int64Value)(nil),        // 2: google.protobuf.Int64Value
+	(*wrappers.DoubleValue)(nil),       // 3: google.protobuf.DoubleValue
 	(*common.InteractionTypeInfo)(nil), // 4: google.ads.googleads.v4.common.InteractionTypeInfo
 }
 var file_google_ads_googleads_v4_resources_campaign_bid_modifier_proto_depIdxs = []int32{

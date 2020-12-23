@@ -23,12 +23,12 @@ package managedidentities
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -51,9 +51,9 @@ type OpMetadata struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Output only. The time the operation was created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The time the operation finished running.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	// Output only. Server-defined resource path for the target of the operation.
 	Target string `protobuf:"bytes,3,opt,name=target,proto3" json:"target,omitempty"`
 	// Output only. Name of the verb executed by the operation.
@@ -99,14 +99,14 @@ func (*OpMetadata) Descriptor() ([]byte, []int) {
 	return file_google_cloud_managedidentities_v1beta1_managed_identities_service_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *OpMetadata) GetCreateTime() *timestamppb.Timestamp {
+func (x *OpMetadata) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *OpMetadata) GetEndTime() *timestamppb.Timestamp {
+func (x *OpMetadata) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -550,7 +550,7 @@ type UpdateDomainRequest struct {
 	//  * `labels`
 	//  * `locations`
 	//  * `authorized_networks`
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,1,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,1,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// Domain message with updated fields. Only supported fields specified in
 	// update_mask are updated.
 	Domain *Domain `protobuf:"bytes,2,opt,name=domain,proto3" json:"domain,omitempty"`
@@ -588,7 +588,7 @@ func (*UpdateDomainRequest) Descriptor() ([]byte, []int) {
 	return file_google_cloud_managedidentities_v1beta1_managed_identities_service_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *UpdateDomainRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateDomainRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1170,7 +1170,7 @@ var file_google_cloud_managedidentities_v1beta1_managed_identities_service_proto
 	0x61, 0x70, 0x69, 0x73, 0x2e, 0x63, 0x6f, 0x6d, 0xd2, 0x41, 0x2e, 0x68, 0x74, 0x74, 0x70, 0x73,
 	0x3a, 0x2f, 0x2f, 0x77, 0x77, 0x77, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x70, 0x69,
 	0x73, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x61, 0x75, 0x74, 0x68, 0x2f, 0x63, 0x6c, 0x6f, 0x75, 0x64,
-	0x2d, 0x70, 0x6c, 0x61, 0x74, 0x66, 0x6f, 0x72, 0x6d, 0x42, 0xff, 0x01, 0x0a, 0x2a, 0x63, 0x6f,
+	0x2d, 0x70, 0x6c, 0x61, 0x74, 0x66, 0x6f, 0x72, 0x6d, 0x42, 0xab, 0x02, 0x0a, 0x2a, 0x63, 0x6f,
 	0x6d, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x63, 0x6c, 0x6f, 0x75, 0x64, 0x2e, 0x6d,
 	0x61, 0x6e, 0x61, 0x67, 0x65, 0x64, 0x69, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x69, 0x65, 0x73,
 	0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x42, 0x1d, 0x4d, 0x61, 0x6e, 0x61, 0x67, 0x65,
@@ -1186,8 +1186,10 @@ var file_google_cloud_managedidentities_v1beta1_managed_identities_service_proto
 	0x49, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x69, 0x65, 0x73, 0x2e, 0x56, 0x31, 0x42, 0x65, 0x74,
 	0x61, 0x31, 0xca, 0x02, 0x26, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x5c, 0x43, 0x6c, 0x6f, 0x75,
 	0x64, 0x5c, 0x4d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x64, 0x49, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74,
-	0x69, 0x65, 0x73, 0x5c, 0x56, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+	0x69, 0x65, 0x73, 0x5c, 0x56, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0xea, 0x02, 0x29, 0x47, 0x6f,
+	0x6f, 0x67, 0x6c, 0x65, 0x3a, 0x3a, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x3a, 0x3a, 0x4d, 0x61, 0x6e,
+	0x61, 0x67, 0x65, 0x64, 0x49, 0x64, 0x65, 0x6e, 0x74, 0x69, 0x74, 0x69, 0x65, 0x73, 0x3a, 0x3a,
+	0x56, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1217,9 +1219,9 @@ var file_google_cloud_managedidentities_v1beta1_managed_identities_service_proto
 	(*ReconfigureTrustRequest)(nil),        // 10: google.cloud.managedidentities.v1beta1.ReconfigureTrustRequest
 	(*DetachTrustRequest)(nil),             // 11: google.cloud.managedidentities.v1beta1.DetachTrustRequest
 	(*ValidateTrustRequest)(nil),           // 12: google.cloud.managedidentities.v1beta1.ValidateTrustRequest
-	(*timestamppb.Timestamp)(nil),          // 13: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),            // 13: google.protobuf.Timestamp
 	(*Domain)(nil),                         // 14: google.cloud.managedidentities.v1beta1.Domain
-	(*fieldmaskpb.FieldMask)(nil),          // 15: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),           // 15: google.protobuf.FieldMask
 	(*Trust)(nil),                          // 16: google.cloud.managedidentities.v1beta1.Trust
 	(*longrunning.Operation)(nil),          // 17: google.longrunning.Operation
 }

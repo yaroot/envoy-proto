@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n#io.envoyproxy.envoy.service.auth.v3B\025AttributeContextProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n-envoy/service/auth/v3/attribute_context.proto\x12\x15\x65nvoy.service.auth.v3\x1a\"envoy/config/core/v3/address.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"\x88\n\n\x10\x41ttributeContext\x12<\n\x06source\x18\x01 \x01(\x0b\x32,.envoy.service.auth.v3.AttributeContext.Peer\x12\x41\n\x0b\x64\x65stination\x18\x02 \x01(\x0b\x32,.envoy.service.auth.v3.AttributeContext.Peer\x12@\n\x07request\x18\x04 \x01(\x0b\x32/.envoy.service.auth.v3.AttributeContext.Request\x12Z\n\x12\x63ontext_extensions\x18\n \x03(\x0b\x32>.envoy.service.auth.v3.AttributeContext.ContextExtensionsEntry\x12\x38\n\x10metadata_context\x18\x0b \x01(\x0b\x32\x1e.envoy.config.core.v3.Metadata\x1a\x9c\x02\n\x04Peer\x12.\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12\x0f\n\x07service\x18\x02 \x01(\t\x12H\n\x06labels\x18\x03 \x03(\x0b\x32\x38.envoy.service.auth.v3.AttributeContext.Peer.LabelsEntry\x12\x11\n\tprincipal\x18\x04 \x01(\t\x12\x13\n\x0b\x63\x65rtificate\x18\x05 \x01(\t\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:2\x9a\xc5\x88\x1e-\n+envoy.service.auth.v2.AttributeContext.Peer\x1a\xad\x01\n\x07Request\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x41\n\x04http\x18\x02 \x01(\x0b\x32\x33.envoy.service.auth.v3.AttributeContext.HttpRequest:5\x9a\xc5\x88\x1e\x30\n.envoy.service.auth.v2.AttributeContext.Request\x1a\xe2\x02\n\x0bHttpRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06method\x18\x02 \x01(\t\x12Q\n\x07headers\x18\x03 \x03(\x0b\x32@.envoy.service.auth.v3.AttributeContext.HttpRequest.HeadersEntry\x12\x0c\n\x04path\x18\x04 \x01(\t\x12\x0c\n\x04host\x18\x05 \x01(\t\x12\x0e\n\x06scheme\x18\x06 \x01(\t\x12\r\n\x05query\x18\x07 \x01(\t\x12\x10\n\x08\x66ragment\x18\x08 \x01(\t\x12\x0c\n\x04size\x18\t \x01(\x03\x12\x10\n\x08protocol\x18\n \x01(\t\x12\x0c\n\x04\x62ody\x18\x0b \x01(\t\x1a.\n\x0cHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:9\x9a\xc5\x88\x1e\x34\n2envoy.service.auth.v2.AttributeContext.HttpRequest\x1a\x38\n\x16\x43ontextExtensionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:-\x9a\xc5\x88\x1e(\n&envoy.service.auth.v2.AttributeContextBF\n#io.envoyproxy.envoy.service.auth.v3B\x15\x41ttributeContextProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n-envoy/service/auth/v3/attribute_context.proto\x12\x15\x65nvoy.service.auth.v3\x1a\"envoy/config/core/v3/address.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"\x9a\n\n\x10\x41ttributeContext\x12<\n\x06source\x18\x01 \x01(\x0b\x32,.envoy.service.auth.v3.AttributeContext.Peer\x12\x41\n\x0b\x64\x65stination\x18\x02 \x01(\x0b\x32,.envoy.service.auth.v3.AttributeContext.Peer\x12@\n\x07request\x18\x04 \x01(\x0b\x32/.envoy.service.auth.v3.AttributeContext.Request\x12Z\n\x12\x63ontext_extensions\x18\n \x03(\x0b\x32>.envoy.service.auth.v3.AttributeContext.ContextExtensionsEntry\x12\x38\n\x10metadata_context\x18\x0b \x01(\x0b\x32\x1e.envoy.config.core.v3.Metadata\x1a\x9c\x02\n\x04Peer\x12.\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12\x0f\n\x07service\x18\x02 \x01(\t\x12H\n\x06labels\x18\x03 \x03(\x0b\x32\x38.envoy.service.auth.v3.AttributeContext.Peer.LabelsEntry\x12\x11\n\tprincipal\x18\x04 \x01(\t\x12\x13\n\x0b\x63\x65rtificate\x18\x05 \x01(\t\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:2\x9a\xc5\x88\x1e-\n+envoy.service.auth.v2.AttributeContext.Peer\x1a\xad\x01\n\x07Request\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x41\n\x04http\x18\x02 \x01(\x0b\x32\x33.envoy.service.auth.v3.AttributeContext.HttpRequest:5\x9a\xc5\x88\x1e\x30\n.envoy.service.auth.v2.AttributeContext.Request\x1a\xf4\x02\n\x0bHttpRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06method\x18\x02 \x01(\t\x12Q\n\x07headers\x18\x03 \x03(\x0b\x32@.envoy.service.auth.v3.AttributeContext.HttpRequest.HeadersEntry\x12\x0c\n\x04path\x18\x04 \x01(\t\x12\x0c\n\x04host\x18\x05 \x01(\t\x12\x0e\n\x06scheme\x18\x06 \x01(\t\x12\r\n\x05query\x18\x07 \x01(\t\x12\x10\n\x08\x66ragment\x18\x08 \x01(\t\x12\x0c\n\x04size\x18\t \x01(\x03\x12\x10\n\x08protocol\x18\n \x01(\t\x12\x0c\n\x04\x62ody\x18\x0b \x01(\t\x12\x10\n\x08raw_body\x18\x0c \x01(\x0c\x1a.\n\x0cHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:9\x9a\xc5\x88\x1e\x34\n2envoy.service.auth.v2.AttributeContext.HttpRequest\x1a\x38\n\x16\x43ontextExtensionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:-\x9a\xc5\x88\x1e(\n&envoy.service.auth.v2.AttributeContextBF\n#io.envoyproxy.envoy.service.auth.v3B\x15\x41ttributeContextProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,])
 
@@ -200,8 +200,8 @@ _ATTRIBUTECONTEXT_HTTPREQUEST_HEADERSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1319,
-  serialized_end=1365,
+  serialized_start=1337,
+  serialized_end=1383,
 )
 
 _ATTRIBUTECONTEXT_HTTPREQUEST = _descriptor.Descriptor(
@@ -289,6 +289,13 @@ _ATTRIBUTECONTEXT_HTTPREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='raw_body', full_name='envoy.service.auth.v3.AttributeContext.HttpRequest.raw_body', index=11,
+      number=12, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -302,7 +309,7 @@ _ATTRIBUTECONTEXT_HTTPREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1070,
-  serialized_end=1424,
+  serialized_end=1442,
 )
 
 _ATTRIBUTECONTEXT_CONTEXTEXTENSIONSENTRY = _descriptor.Descriptor(
@@ -339,8 +346,8 @@ _ATTRIBUTECONTEXT_CONTEXTEXTENSIONSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1426,
-  serialized_end=1482,
+  serialized_start=1444,
+  serialized_end=1500,
 )
 
 _ATTRIBUTECONTEXT = _descriptor.Descriptor(
@@ -399,7 +406,7 @@ _ATTRIBUTECONTEXT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=241,
-  serialized_end=1529,
+  serialized_end=1547,
 )
 
 _ATTRIBUTECONTEXT_PEER_LABELSENTRY.containing_type = _ATTRIBUTECONTEXT_PEER

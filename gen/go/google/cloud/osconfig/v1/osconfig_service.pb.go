@@ -22,10 +22,10 @@ package osconfig
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 )
 
@@ -204,7 +204,7 @@ var file_google_cloud_osconfig_v1_osconfig_service_proto_goTypes = []interface{}
 	(*ListPatchJobInstanceDetailsResponse)(nil), // 11: google.cloud.osconfig.v1.ListPatchJobInstanceDetailsResponse
 	(*PatchDeployment)(nil),                     // 12: google.cloud.osconfig.v1.PatchDeployment
 	(*ListPatchDeploymentsResponse)(nil),        // 13: google.cloud.osconfig.v1.ListPatchDeploymentsResponse
-	(*emptypb.Empty)(nil),                       // 14: google.protobuf.Empty
+	(*empty.Empty)(nil),                         // 14: google.protobuf.Empty
 }
 var file_google_cloud_osconfig_v1_osconfig_service_proto_depIdxs = []int32{
 	0,  // 0: google.cloud.osconfig.v1.OsConfigService.ExecutePatchJob:input_type -> google.cloud.osconfig.v1.ExecutePatchJobRequest

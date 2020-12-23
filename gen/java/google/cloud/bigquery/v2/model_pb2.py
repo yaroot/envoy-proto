@@ -16,6 +16,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.cloud.bigquery.v2 import encryption_config_pb2 as google_dot_cloud_dot_bigquery_dot_v2_dot_encryption__config__pb2
 from google.cloud.bigquery.v2 import model_reference_pb2 as google_dot_cloud_dot_bigquery_dot_v2_dot_model__reference__pb2
 from google.cloud.bigquery.v2 import standard_sql_pb2 as google_dot_cloud_dot_bigquery_dot_v2_dot_standard__sql__pb2
+from google.cloud.bigquery.v2 import table_reference_pb2 as google_dot_cloud_dot_bigquery_dot_v2_dot_table__reference__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
@@ -28,11 +29,61 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\034com.google.cloud.bigquery.v2B\nModelProtoZ@google.golang.org/genproto/googleapis/cloud/bigquery/v2;bigquery',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n$google/cloud/bigquery/v2/model.proto\x12\x18google.cloud.bigquery.v2\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x30google/cloud/bigquery/v2/encryption_config.proto\x1a.google/cloud/bigquery/v2/model_reference.proto\x1a+google/cloud/bigquery/v2/standard_sql.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1cgoogle/api/annotations.proto\"\x9b\x35\n\x05Model\x12\x11\n\x04\x65tag\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x46\n\x0fmodel_reference\x18\x02 \x01(\x0b\x32(.google.cloud.bigquery.v2.ModelReferenceB\x03\xe0\x41\x02\x12\x1a\n\rcreation_time\x18\x05 \x01(\x03\x42\x03\xe0\x41\x03\x12\x1f\n\x12last_modified_time\x18\x06 \x01(\x03\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x64\x65scription\x18\x0c \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rfriendly_name\x18\x0e \x01(\tB\x03\xe0\x41\x01\x12;\n\x06labels\x18\x0f \x03(\x0b\x32+.google.cloud.bigquery.v2.Model.LabelsEntry\x12\x1c\n\x0f\x65xpiration_time\x18\x10 \x01(\x03\x42\x03\xe0\x41\x01\x12\x15\n\x08location\x18\r \x01(\tB\x03\xe0\x41\x03\x12S\n\x18\x65ncryption_configuration\x18\x11 \x01(\x0b\x32\x31.google.cloud.bigquery.v2.EncryptionConfiguration\x12\x42\n\nmodel_type\x18\x07 \x01(\x0e\x32).google.cloud.bigquery.v2.Model.ModelTypeB\x03\xe0\x41\x03\x12G\n\rtraining_runs\x18\t \x03(\x0b\x32+.google.cloud.bigquery.v2.Model.TrainingRunB\x03\xe0\x41\x03\x12H\n\x0f\x66\x65\x61ture_columns\x18\n \x03(\x0b\x32*.google.cloud.bigquery.v2.StandardSqlFieldB\x03\xe0\x41\x03\x12\x46\n\rlabel_columns\x18\x0b \x03(\x0b\x32*.google.cloud.bigquery.v2.StandardSqlFieldB\x03\xe0\x41\x03\x1aq\n\x0bKmeansEnums\"b\n\x1aKmeansInitializationMethod\x12,\n(KMEANS_INITIALIZATION_METHOD_UNSPECIFIED\x10\x00\x12\n\n\x06RANDOM\x10\x01\x12\n\n\x06\x43USTOM\x10\x02\x1a\xb4\x02\n\x11RegressionMetrics\x12\x39\n\x13mean_absolute_error\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x38\n\x12mean_squared_error\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12<\n\x16mean_squared_log_error\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12;\n\x15median_absolute_error\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12/\n\tr_squared\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x1a\xef\x02\n\x1e\x41ggregateClassificationMetrics\x12/\n\tprecision\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12,\n\x06recall\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12.\n\x08\x61\x63\x63uracy\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12/\n\tthreshold\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12.\n\x08\x66\x31_score\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12.\n\x08log_loss\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12-\n\x07roc_auc\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x1a\x9f\x06\n\x1b\x42inaryClassificationMetrics\x12h\n aggregate_classification_metrics\x18\x01 \x01(\x0b\x32>.google.cloud.bigquery.v2.Model.AggregateClassificationMetrics\x12w\n\x1c\x62inary_confusion_matrix_list\x18\x02 \x03(\x0b\x32Q.google.cloud.bigquery.v2.Model.BinaryClassificationMetrics.BinaryConfusionMatrix\x12\x16\n\x0epositive_label\x18\x03 \x01(\t\x12\x16\n\x0enegative_label\x18\x04 \x01(\t\x1a\xec\x03\n\x15\x42inaryConfusionMatrix\x12>\n\x18positive_class_threshold\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x33\n\x0etrue_positives\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x34\n\x0f\x66\x61lse_positives\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x33\n\x0etrue_negatives\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x34\n\x0f\x66\x61lse_negatives\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12/\n\tprecision\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12,\n\x06recall\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12.\n\x08\x66\x31_score\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12.\n\x08\x61\x63\x63uracy\x18\t \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x1a\x87\x05\n\x1fMultiClassClassificationMetrics\x12h\n aggregate_classification_metrics\x18\x01 \x01(\x0b\x32>.google.cloud.bigquery.v2.Model.AggregateClassificationMetrics\x12n\n\x15\x63onfusion_matrix_list\x18\x02 \x03(\x0b\x32O.google.cloud.bigquery.v2.Model.MultiClassClassificationMetrics.ConfusionMatrix\x1a\x89\x03\n\x0f\x43onfusionMatrix\x12:\n\x14\x63onfidence_threshold\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x61\n\x04rows\x18\x02 \x03(\x0b\x32S.google.cloud.bigquery.v2.Model.MultiClassClassificationMetrics.ConfusionMatrix.Row\x1aQ\n\x05\x45ntry\x12\x17\n\x0fpredicted_label\x18\x01 \x01(\t\x12/\n\nitem_count\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x1a\x83\x01\n\x03Row\x12\x14\n\x0c\x61\x63tual_label\x18\x01 \x01(\t\x12\x66\n\x07\x65ntries\x18\x02 \x03(\x0b\x32U.google.cloud.bigquery.v2.Model.MultiClassClassificationMetrics.ConfusionMatrix.Entry\x1a\xcb\x06\n\x11\x43lusteringMetrics\x12:\n\x14\x64\x61vies_bouldin_index\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12;\n\x15mean_squared_distance\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12K\n\x08\x63lusters\x18\x03 \x03(\x0b\x32\x39.google.cloud.bigquery.v2.Model.ClusteringMetrics.Cluster\x1a\xef\x04\n\x07\x43luster\x12\x13\n\x0b\x63\x65ntroid_id\x18\x01 \x01(\x03\x12^\n\x0e\x66\x65\x61ture_values\x18\x02 \x03(\x0b\x32\x46.google.cloud.bigquery.v2.Model.ClusteringMetrics.Cluster.FeatureValue\x12*\n\x05\x63ount\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x1a\xc2\x03\n\x0c\x46\x65\x61tureValue\x12\x16\n\x0e\x66\x65\x61ture_column\x18\x01 \x01(\t\x12\x37\n\x0fnumerical_value\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.DoubleValueH\x00\x12t\n\x11\x63\x61tegorical_value\x18\x03 \x01(\x0b\x32W.google.cloud.bigquery.v2.Model.ClusteringMetrics.Cluster.FeatureValue.CategoricalValueH\x00\x1a\xe1\x01\n\x10\x43\x61tegoricalValue\x12~\n\x0f\x63\x61tegory_counts\x18\x01 \x03(\x0b\x32\x65.google.cloud.bigquery.v2.Model.ClusteringMetrics.Cluster.FeatureValue.CategoricalValue.CategoryCount\x1aM\n\rCategoryCount\x12\x10\n\x08\x63\x61tegory\x18\x01 \x01(\t\x12*\n\x05\x63ount\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueB\x07\n\x05value\x1a\x95\x03\n\x11\x45valuationMetrics\x12O\n\x12regression_metrics\x18\x01 \x01(\x0b\x32\x31.google.cloud.bigquery.v2.Model.RegressionMetricsH\x00\x12\x64\n\x1d\x62inary_classification_metrics\x18\x02 \x01(\x0b\x32;.google.cloud.bigquery.v2.Model.BinaryClassificationMetricsH\x00\x12m\n\"multi_class_classification_metrics\x18\x03 \x01(\x0b\x32?.google.cloud.bigquery.v2.Model.MultiClassClassificationMetricsH\x00\x12O\n\x12\x63lustering_metrics\x18\x04 \x01(\x0b\x32\x31.google.cloud.bigquery.v2.Model.ClusteringMetricsH\x00\x42\t\n\x07metrics\x1a\xab\x0f\n\x0bTrainingRun\x12U\n\x10training_options\x18\x01 \x01(\x0b\x32;.google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions\x12.\n\nstart_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12L\n\x07results\x18\x06 \x03(\x0b\x32;.google.cloud.bigquery.v2.Model.TrainingRun.IterationResult\x12M\n\x12\x65valuation_metrics\x18\x07 \x01(\x0b\x32\x31.google.cloud.bigquery.v2.Model.EvaluationMetrics\x1a\x9d\t\n\x0fTrainingOptions\x12\x16\n\x0emax_iterations\x18\x01 \x01(\x03\x12;\n\tloss_type\x18\x02 \x01(\x0e\x32(.google.cloud.bigquery.v2.Model.LossType\x12\x12\n\nlearn_rate\x18\x03 \x01(\x01\x12\x37\n\x11l1_regularization\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x37\n\x11l2_regularization\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12;\n\x15min_relative_progress\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12.\n\nwarm_start\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12.\n\nearly_stop\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x1b\n\x13input_label_columns\x18\t \x03(\t\x12J\n\x11\x64\x61ta_split_method\x18\n \x01(\x0e\x32/.google.cloud.bigquery.v2.Model.DataSplitMethod\x12 \n\x18\x64\x61ta_split_eval_fraction\x18\x0b \x01(\x01\x12\x19\n\x11\x64\x61ta_split_column\x18\x0c \x01(\t\x12N\n\x13learn_rate_strategy\x18\r \x01(\x0e\x32\x31.google.cloud.bigquery.v2.Model.LearnRateStrategy\x12\x1a\n\x12initial_learn_rate\x18\x10 \x01(\x01\x12o\n\x13label_class_weights\x18\x11 \x03(\x0b\x32R.google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.LabelClassWeightsEntry\x12\x43\n\rdistance_type\x18\x14 \x01(\x0e\x32,.google.cloud.bigquery.v2.Model.DistanceType\x12\x14\n\x0cnum_clusters\x18\x15 \x01(\x03\x12\x11\n\tmodel_uri\x18\x16 \x01(\t\x12S\n\x15optimization_strategy\x18\x17 \x01(\x0e\x32\x34.google.cloud.bigquery.v2.Model.OptimizationStrategy\x12l\n\x1ckmeans_initialization_method\x18! \x01(\x0e\x32\x46.google.cloud.bigquery.v2.Model.KmeansEnums.KmeansInitializationMethod\x12$\n\x1ckmeans_initialization_column\x18\" \x01(\t\x1a\x38\n\x16LabelClassWeightsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x01:\x02\x38\x01\x1a\xd7\x03\n\x0fIterationResult\x12*\n\x05index\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x30\n\x0b\x64uration_ms\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x33\n\rtraining_loss\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12/\n\teval_loss\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x12\n\nlearn_rate\x18\x07 \x01(\x01\x12^\n\rcluster_infos\x18\x08 \x03(\x0b\x32G.google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ClusterInfo\x1a\x8b\x01\n\x0b\x43lusterInfo\x12\x13\n\x0b\x63\x65ntroid_id\x18\x01 \x01(\x03\x12\x34\n\x0e\x63luster_radius\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x31\n\x0c\x63luster_size\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"s\n\tModelType\x12\x1a\n\x16MODEL_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11LINEAR_REGRESSION\x10\x01\x12\x17\n\x13LOGISTIC_REGRESSION\x10\x02\x12\n\n\x06KMEANS\x10\x03\x12\x0e\n\nTENSORFLOW\x10\x06\"O\n\x08LossType\x12\x19\n\x15LOSS_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11MEAN_SQUARED_LOSS\x10\x01\x12\x11\n\rMEAN_LOG_LOSS\x10\x02\"H\n\x0c\x44istanceType\x12\x1d\n\x19\x44ISTANCE_TYPE_UNSPECIFIED\x10\x00\x12\r\n\tEUCLIDEAN\x10\x01\x12\n\n\x06\x43OSINE\x10\x02\"z\n\x0f\x44\x61taSplitMethod\x12!\n\x1d\x44\x41TA_SPLIT_METHOD_UNSPECIFIED\x10\x00\x12\n\n\x06RANDOM\x10\x01\x12\n\n\x06\x43USTOM\x10\x02\x12\x0e\n\nSEQUENTIAL\x10\x03\x12\x0c\n\x08NO_SPLIT\x10\x04\x12\x0e\n\nAUTO_SPLIT\x10\x05\"W\n\x11LearnRateStrategy\x12#\n\x1fLEARN_RATE_STRATEGY_UNSPECIFIED\x10\x00\x12\x0f\n\x0bLINE_SEARCH\x10\x01\x12\x0c\n\x08\x43ONSTANT\x10\x02\"n\n\x14OptimizationStrategy\x12%\n!OPTIMIZATION_STRATEGY_UNSPECIFIED\x10\x00\x12\x1a\n\x16\x42\x41TCH_GRADIENT_DESCENT\x10\x01\x12\x13\n\x0fNORMAL_EQUATION\x10\x02\"Z\n\x0fGetModelRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ndataset_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08model_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"\x91\x01\n\x11PatchModelRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ndataset_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08model_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x33\n\x05model\x18\x04 \x01(\x0b\x32\x1f.google.cloud.bigquery.v2.ModelB\x03\xe0\x41\x02\"]\n\x12\x44\x65leteModelRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ndataset_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08model_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"\x8c\x01\n\x11ListModelsRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ndataset_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x31\n\x0bmax_results\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x12\n\npage_token\x18\x04 \x01(\t\"^\n\x12ListModelsResponse\x12/\n\x06models\x18\x01 \x03(\x0b\x32\x1f.google.cloud.bigquery.v2.Model\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xfa\x05\n\x0cModelService\x12y\n\x08GetModel\x12).google.cloud.bigquery.v2.GetModelRequest\x1a\x1f.google.cloud.bigquery.v2.Model\"!\xda\x41\x1eproject_id,dataset_id,model_id\x12\x8d\x01\n\nListModels\x12+.google.cloud.bigquery.v2.ListModelsRequest\x1a,.google.cloud.bigquery.v2.ListModelsResponse\"$\xda\x41!project_id,dataset_id,max_results\x12\x83\x01\n\nPatchModel\x12+.google.cloud.bigquery.v2.PatchModelRequest\x1a\x1f.google.cloud.bigquery.v2.Model\"\'\xda\x41$project_id,dataset_id,model_id,model\x12v\n\x0b\x44\x65leteModel\x12,.google.cloud.bigquery.v2.DeleteModelRequest\x1a\x16.google.protobuf.Empty\"!\xda\x41\x1eproject_id,dataset_id,model_id\x1a\xe0\x01\xca\x41\x17\x62igquery.googleapis.com\xd2\x41\xc2\x01https://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/bigquery.readonly,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-platform.read-onlyBl\n\x1c\x63om.google.cloud.bigquery.v2B\nModelProtoZ@google.golang.org/genproto/googleapis/cloud/bigquery/v2;bigqueryb\x06proto3'
+  serialized_pb=b'\n$google/cloud/bigquery/v2/model.proto\x12\x18google.cloud.bigquery.v2\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x30google/cloud/bigquery/v2/encryption_config.proto\x1a.google/cloud/bigquery/v2/model_reference.proto\x1a+google/cloud/bigquery/v2/standard_sql.proto\x1a.google/cloud/bigquery/v2/table_reference.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1cgoogle/api/annotations.proto\"\xa9Z\n\x05Model\x12\x11\n\x04\x65tag\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x46\n\x0fmodel_reference\x18\x02 \x01(\x0b\x32(.google.cloud.bigquery.v2.ModelReferenceB\x03\xe0\x41\x02\x12\x1a\n\rcreation_time\x18\x05 \x01(\x03\x42\x03\xe0\x41\x03\x12\x1f\n\x12last_modified_time\x18\x06 \x01(\x03\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x64\x65scription\x18\x0c \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rfriendly_name\x18\x0e \x01(\tB\x03\xe0\x41\x01\x12;\n\x06labels\x18\x0f \x03(\x0b\x32+.google.cloud.bigquery.v2.Model.LabelsEntry\x12\x1c\n\x0f\x65xpiration_time\x18\x10 \x01(\x03\x42\x03\xe0\x41\x01\x12\x15\n\x08location\x18\r \x01(\tB\x03\xe0\x41\x03\x12S\n\x18\x65ncryption_configuration\x18\x11 \x01(\x0b\x32\x31.google.cloud.bigquery.v2.EncryptionConfiguration\x12\x42\n\nmodel_type\x18\x07 \x01(\x0e\x32).google.cloud.bigquery.v2.Model.ModelTypeB\x03\xe0\x41\x03\x12G\n\rtraining_runs\x18\t \x03(\x0b\x32+.google.cloud.bigquery.v2.Model.TrainingRunB\x03\xe0\x41\x03\x12H\n\x0f\x66\x65\x61ture_columns\x18\n \x03(\x0b\x32*.google.cloud.bigquery.v2.StandardSqlFieldB\x03\xe0\x41\x03\x12\x46\n\rlabel_columns\x18\x0b \x03(\x0b\x32*.google.cloud.bigquery.v2.StandardSqlFieldB\x03\xe0\x41\x03\x1a\xa0\x01\n\x0eSeasonalPeriod\"\x8d\x01\n\x12SeasonalPeriodType\x12$\n SEASONAL_PERIOD_TYPE_UNSPECIFIED\x10\x00\x12\x12\n\x0eNO_SEASONALITY\x10\x01\x12\t\n\x05\x44\x41ILY\x10\x02\x12\n\n\x06WEEKLY\x10\x03\x12\x0b\n\x07MONTHLY\x10\x04\x12\r\n\tQUARTERLY\x10\x05\x12\n\n\x06YEARLY\x10\x06\x1a\x87\x01\n\x0bKmeansEnums\"x\n\x1aKmeansInitializationMethod\x12,\n(KMEANS_INITIALIZATION_METHOD_UNSPECIFIED\x10\x00\x12\n\n\x06RANDOM\x10\x01\x12\n\n\x06\x43USTOM\x10\x02\x12\x14\n\x10KMEANS_PLUS_PLUS\x10\x03\x1a\xb4\x02\n\x11RegressionMetrics\x12\x39\n\x13mean_absolute_error\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x38\n\x12mean_squared_error\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12<\n\x16mean_squared_log_error\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12;\n\x15median_absolute_error\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12/\n\tr_squared\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x1a\xef\x02\n\x1e\x41ggregateClassificationMetrics\x12/\n\tprecision\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12,\n\x06recall\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12.\n\x08\x61\x63\x63uracy\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12/\n\tthreshold\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12.\n\x08\x66\x31_score\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12.\n\x08log_loss\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12-\n\x07roc_auc\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x1a\x9f\x06\n\x1b\x42inaryClassificationMetrics\x12h\n aggregate_classification_metrics\x18\x01 \x01(\x0b\x32>.google.cloud.bigquery.v2.Model.AggregateClassificationMetrics\x12w\n\x1c\x62inary_confusion_matrix_list\x18\x02 \x03(\x0b\x32Q.google.cloud.bigquery.v2.Model.BinaryClassificationMetrics.BinaryConfusionMatrix\x12\x16\n\x0epositive_label\x18\x03 \x01(\t\x12\x16\n\x0enegative_label\x18\x04 \x01(\t\x1a\xec\x03\n\x15\x42inaryConfusionMatrix\x12>\n\x18positive_class_threshold\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x33\n\x0etrue_positives\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x34\n\x0f\x66\x61lse_positives\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x33\n\x0etrue_negatives\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x34\n\x0f\x66\x61lse_negatives\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12/\n\tprecision\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12,\n\x06recall\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12.\n\x08\x66\x31_score\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12.\n\x08\x61\x63\x63uracy\x18\t \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x1a\x87\x05\n\x1fMultiClassClassificationMetrics\x12h\n aggregate_classification_metrics\x18\x01 \x01(\x0b\x32>.google.cloud.bigquery.v2.Model.AggregateClassificationMetrics\x12n\n\x15\x63onfusion_matrix_list\x18\x02 \x03(\x0b\x32O.google.cloud.bigquery.v2.Model.MultiClassClassificationMetrics.ConfusionMatrix\x1a\x89\x03\n\x0f\x43onfusionMatrix\x12:\n\x14\x63onfidence_threshold\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x61\n\x04rows\x18\x02 \x03(\x0b\x32S.google.cloud.bigquery.v2.Model.MultiClassClassificationMetrics.ConfusionMatrix.Row\x1aQ\n\x05\x45ntry\x12\x17\n\x0fpredicted_label\x18\x01 \x01(\t\x12/\n\nitem_count\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x1a\x83\x01\n\x03Row\x12\x14\n\x0c\x61\x63tual_label\x18\x01 \x01(\t\x12\x66\n\x07\x65ntries\x18\x02 \x03(\x0b\x32U.google.cloud.bigquery.v2.Model.MultiClassClassificationMetrics.ConfusionMatrix.Entry\x1a\xcb\x06\n\x11\x43lusteringMetrics\x12:\n\x14\x64\x61vies_bouldin_index\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12;\n\x15mean_squared_distance\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12K\n\x08\x63lusters\x18\x03 \x03(\x0b\x32\x39.google.cloud.bigquery.v2.Model.ClusteringMetrics.Cluster\x1a\xef\x04\n\x07\x43luster\x12\x13\n\x0b\x63\x65ntroid_id\x18\x01 \x01(\x03\x12^\n\x0e\x66\x65\x61ture_values\x18\x02 \x03(\x0b\x32\x46.google.cloud.bigquery.v2.Model.ClusteringMetrics.Cluster.FeatureValue\x12*\n\x05\x63ount\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x1a\xc2\x03\n\x0c\x46\x65\x61tureValue\x12\x16\n\x0e\x66\x65\x61ture_column\x18\x01 \x01(\t\x12\x37\n\x0fnumerical_value\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.DoubleValueH\x00\x12t\n\x11\x63\x61tegorical_value\x18\x03 \x01(\x0b\x32W.google.cloud.bigquery.v2.Model.ClusteringMetrics.Cluster.FeatureValue.CategoricalValueH\x00\x1a\xe1\x01\n\x10\x43\x61tegoricalValue\x12~\n\x0f\x63\x61tegory_counts\x18\x01 \x03(\x0b\x32\x65.google.cloud.bigquery.v2.Model.ClusteringMetrics.Cluster.FeatureValue.CategoricalValue.CategoryCount\x1aM\n\rCategoryCount\x12\x10\n\x08\x63\x61tegory\x18\x01 \x01(\t\x12*\n\x05\x63ount\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueB\x07\n\x05value\x1a\x89\x02\n\x0eRankingMetrics\x12<\n\x16mean_average_precision\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x38\n\x12mean_squared_error\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12K\n%normalized_discounted_cumulative_gain\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x32\n\x0c\x61verage_rank\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x1a\x95\x06\n\x17\x41rimaForecastingMetrics\x12\x46\n\x12non_seasonal_order\x18\x01 \x03(\x0b\x32*.google.cloud.bigquery.v2.Model.ArimaOrder\x12R\n\x15\x61rima_fitting_metrics\x18\x02 \x03(\x0b\x32\x33.google.cloud.bigquery.v2.Model.ArimaFittingMetrics\x12[\n\x10seasonal_periods\x18\x03 \x03(\x0e\x32\x41.google.cloud.bigquery.v2.Model.SeasonalPeriod.SeasonalPeriodType\x12\x11\n\thas_drift\x18\x04 \x03(\x08\x12\x16\n\x0etime_series_id\x18\x05 \x03(\t\x12\x8a\x01\n&arima_single_model_forecasting_metrics\x18\x06 \x03(\x0b\x32Z.google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.ArimaSingleModelForecastingMetrics\x1a\xc8\x02\n\"ArimaSingleModelForecastingMetrics\x12\x46\n\x12non_seasonal_order\x18\x01 \x01(\x0b\x32*.google.cloud.bigquery.v2.Model.ArimaOrder\x12R\n\x15\x61rima_fitting_metrics\x18\x02 \x01(\x0b\x32\x33.google.cloud.bigquery.v2.Model.ArimaFittingMetrics\x12\x11\n\thas_drift\x18\x03 \x01(\x08\x12\x16\n\x0etime_series_id\x18\x04 \x01(\t\x12[\n\x10seasonal_periods\x18\x05 \x03(\x0e\x32\x41.google.cloud.bigquery.v2.Model.SeasonalPeriod.SeasonalPeriodType\x1a\xbe\x04\n\x11\x45valuationMetrics\x12O\n\x12regression_metrics\x18\x01 \x01(\x0b\x32\x31.google.cloud.bigquery.v2.Model.RegressionMetricsH\x00\x12\x64\n\x1d\x62inary_classification_metrics\x18\x02 \x01(\x0b\x32;.google.cloud.bigquery.v2.Model.BinaryClassificationMetricsH\x00\x12m\n\"multi_class_classification_metrics\x18\x03 \x01(\x0b\x32?.google.cloud.bigquery.v2.Model.MultiClassClassificationMetricsH\x00\x12O\n\x12\x63lustering_metrics\x18\x04 \x01(\x0b\x32\x31.google.cloud.bigquery.v2.Model.ClusteringMetricsH\x00\x12I\n\x0franking_metrics\x18\x05 \x01(\x0b\x32..google.cloud.bigquery.v2.Model.RankingMetricsH\x00\x12\\\n\x19\x61rima_forecasting_metrics\x18\x06 \x01(\x0b\x32\x37.google.cloud.bigquery.v2.Model.ArimaForecastingMetricsH\x00\x42\t\n\x07metrics\x1a\x97\x01\n\x0f\x44\x61taSplitResult\x12@\n\x0etraining_table\x18\x01 \x01(\x0b\x32(.google.cloud.bigquery.v2.TableReference\x12\x42\n\x10\x65valuation_table\x18\x02 \x01(\x0b\x32(.google.cloud.bigquery.v2.TableReference\x1a-\n\nArimaOrder\x12\t\n\x01p\x18\x01 \x01(\x03\x12\t\n\x01\x64\x18\x02 \x01(\x03\x12\t\n\x01q\x18\x03 \x01(\x03\x1aL\n\x13\x41rimaFittingMetrics\x12\x16\n\x0elog_likelihood\x18\x01 \x01(\x01\x12\x0b\n\x03\x61ic\x18\x02 \x01(\x01\x12\x10\n\x08variance\x18\x03 \x01(\x01\x1a\xd5\x01\n\x11GlobalExplanation\x12S\n\x0c\x65xplanations\x18\x01 \x03(\x0b\x32=.google.cloud.bigquery.v2.Model.GlobalExplanation.Explanation\x12\x13\n\x0b\x63lass_label\x18\x02 \x01(\t\x1aV\n\x0b\x45xplanation\x12\x14\n\x0c\x66\x65\x61ture_name\x18\x01 \x01(\t\x12\x31\n\x0b\x61ttribution\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x1a\xd8\x1d\n\x0bTrainingRun\x12U\n\x10training_options\x18\x01 \x01(\x0b\x32;.google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions\x12.\n\nstart_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12L\n\x07results\x18\x06 \x03(\x0b\x32;.google.cloud.bigquery.v2.Model.TrainingRun.IterationResult\x12M\n\x12\x65valuation_metrics\x18\x07 \x01(\x0b\x32\x31.google.cloud.bigquery.v2.Model.EvaluationMetrics\x12J\n\x11\x64\x61ta_split_result\x18\t \x01(\x0b\x32/.google.cloud.bigquery.v2.Model.DataSplitResult\x12N\n\x13global_explanations\x18\n \x03(\x0b\x32\x31.google.cloud.bigquery.v2.Model.GlobalExplanation\x1a\xc3\x0f\n\x0fTrainingOptions\x12\x16\n\x0emax_iterations\x18\x01 \x01(\x03\x12;\n\tloss_type\x18\x02 \x01(\x0e\x32(.google.cloud.bigquery.v2.Model.LossType\x12\x12\n\nlearn_rate\x18\x03 \x01(\x01\x12\x37\n\x11l1_regularization\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x37\n\x11l2_regularization\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12;\n\x15min_relative_progress\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12.\n\nwarm_start\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12.\n\nearly_stop\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x1b\n\x13input_label_columns\x18\t \x03(\t\x12J\n\x11\x64\x61ta_split_method\x18\n \x01(\x0e\x32/.google.cloud.bigquery.v2.Model.DataSplitMethod\x12 \n\x18\x64\x61ta_split_eval_fraction\x18\x0b \x01(\x01\x12\x19\n\x11\x64\x61ta_split_column\x18\x0c \x01(\t\x12N\n\x13learn_rate_strategy\x18\r \x01(\x0e\x32\x31.google.cloud.bigquery.v2.Model.LearnRateStrategy\x12\x1a\n\x12initial_learn_rate\x18\x10 \x01(\x01\x12o\n\x13label_class_weights\x18\x11 \x03(\x0b\x32R.google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.LabelClassWeightsEntry\x12\x13\n\x0buser_column\x18\x12 \x01(\t\x12\x13\n\x0bitem_column\x18\x13 \x01(\t\x12\x43\n\rdistance_type\x18\x14 \x01(\x0e\x32,.google.cloud.bigquery.v2.Model.DistanceType\x12\x14\n\x0cnum_clusters\x18\x15 \x01(\x03\x12\x11\n\tmodel_uri\x18\x16 \x01(\t\x12S\n\x15optimization_strategy\x18\x17 \x01(\x0e\x32\x34.google.cloud.bigquery.v2.Model.OptimizationStrategy\x12\x14\n\x0chidden_units\x18\x18 \x03(\x03\x12\x12\n\nbatch_size\x18\x19 \x01(\x03\x12-\n\x07\x64ropout\x18\x1a \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x16\n\x0emax_tree_depth\x18\x1b \x01(\x03\x12\x11\n\tsubsample\x18\x1c \x01(\x01\x12\x34\n\x0emin_split_loss\x18\x1d \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x13\n\x0bnum_factors\x18\x1e \x01(\x03\x12\x43\n\rfeedback_type\x18\x1f \x01(\x0e\x32,.google.cloud.bigquery.v2.Model.FeedbackType\x12\x30\n\nwals_alpha\x18  \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12l\n\x1ckmeans_initialization_method\x18! \x01(\x0e\x32\x46.google.cloud.bigquery.v2.Model.KmeansEnums.KmeansInitializationMethod\x12$\n\x1ckmeans_initialization_column\x18\" \x01(\t\x12$\n\x1ctime_series_timestamp_column\x18# \x01(\t\x12\x1f\n\x17time_series_data_column\x18$ \x01(\t\x12\x12\n\nauto_arima\x18% \x01(\x08\x12\x46\n\x12non_seasonal_order\x18& \x01(\x0b\x32*.google.cloud.bigquery.v2.Model.ArimaOrder\x12\x45\n\x0e\x64\x61ta_frequency\x18\' \x01(\x0e\x32-.google.cloud.bigquery.v2.Model.DataFrequency\x12\x15\n\rinclude_drift\x18) \x01(\x08\x12\x45\n\x0eholiday_region\x18* \x01(\x0e\x32-.google.cloud.bigquery.v2.Model.HolidayRegion\x12\x1d\n\x15time_series_id_column\x18+ \x01(\t\x12\x0f\n\x07horizon\x18, \x01(\x03\x12\x1e\n\x16preserve_input_structs\x18- \x01(\x08\x12\x1c\n\x14\x61uto_arima_max_order\x18. \x01(\x03\x1a\x38\n\x16LabelClassWeightsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x01:\x02\x38\x01\x1a\xc2\n\n\x0fIterationResult\x12*\n\x05index\x18\x01 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x12\x30\n\x0b\x64uration_ms\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x12\x33\n\rtraining_loss\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12/\n\teval_loss\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x12\n\nlearn_rate\x18\x07 \x01(\x01\x12^\n\rcluster_infos\x18\x08 \x03(\x0b\x32G.google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ClusterInfo\x12]\n\x0c\x61rima_result\x18\t \x01(\x0b\x32G.google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult\x1a\x8b\x01\n\x0b\x43lusterInfo\x12\x13\n\x0b\x63\x65ntroid_id\x18\x01 \x01(\x03\x12\x34\n\x0e\x63luster_radius\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.DoubleValue\x12\x31\n\x0c\x63luster_size\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64Value\x1a\x89\x06\n\x0b\x41rimaResult\x12p\n\x10\x61rima_model_info\x18\x01 \x03(\x0b\x32V.google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaModelInfo\x12[\n\x10seasonal_periods\x18\x02 \x03(\x0e\x32\x41.google.cloud.bigquery.v2.Model.SeasonalPeriod.SeasonalPeriodType\x1a}\n\x11\x41rimaCoefficients\x12$\n\x1c\x61uto_regressive_coefficients\x18\x01 \x03(\x01\x12#\n\x1bmoving_average_coefficients\x18\x02 \x03(\x01\x12\x1d\n\x15intercept_coefficient\x18\x03 \x01(\x01\x1a\xab\x03\n\x0e\x41rimaModelInfo\x12\x46\n\x12non_seasonal_order\x18\x01 \x01(\x0b\x32*.google.cloud.bigquery.v2.Model.ArimaOrder\x12u\n\x12\x61rima_coefficients\x18\x02 \x01(\x0b\x32Y.google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaCoefficients\x12R\n\x15\x61rima_fitting_metrics\x18\x03 \x01(\x0b\x32\x33.google.cloud.bigquery.v2.Model.ArimaFittingMetrics\x12\x11\n\thas_drift\x18\x04 \x01(\x08\x12\x16\n\x0etime_series_id\x18\x05 \x01(\t\x12[\n\x10seasonal_periods\x18\x06 \x03(\x0e\x32\x41.google.cloud.bigquery.v2.Model.SeasonalPeriod.SeasonalPeriodType\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xa5\x02\n\tModelType\x12\x1a\n\x16MODEL_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11LINEAR_REGRESSION\x10\x01\x12\x17\n\x13LOGISTIC_REGRESSION\x10\x02\x12\n\n\x06KMEANS\x10\x03\x12\x18\n\x14MATRIX_FACTORIZATION\x10\x04\x12\x12\n\x0e\x44NN_CLASSIFIER\x10\x05\x12\x0e\n\nTENSORFLOW\x10\x06\x12\x11\n\rDNN_REGRESSOR\x10\x07\x12\x1a\n\x16\x42OOSTED_TREE_REGRESSOR\x10\t\x12\x1b\n\x17\x42OOSTED_TREE_CLASSIFIER\x10\n\x12\t\n\x05\x41RIMA\x10\x0b\x12\x14\n\x10\x41UTOML_REGRESSOR\x10\x0c\x12\x15\n\x11\x41UTOML_CLASSIFIER\x10\r\"O\n\x08LossType\x12\x19\n\x15LOSS_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11MEAN_SQUARED_LOSS\x10\x01\x12\x11\n\rMEAN_LOG_LOSS\x10\x02\"H\n\x0c\x44istanceType\x12\x1d\n\x19\x44ISTANCE_TYPE_UNSPECIFIED\x10\x00\x12\r\n\tEUCLIDEAN\x10\x01\x12\n\n\x06\x43OSINE\x10\x02\"z\n\x0f\x44\x61taSplitMethod\x12!\n\x1d\x44\x41TA_SPLIT_METHOD_UNSPECIFIED\x10\x00\x12\n\n\x06RANDOM\x10\x01\x12\n\n\x06\x43USTOM\x10\x02\x12\x0e\n\nSEQUENTIAL\x10\x03\x12\x0c\n\x08NO_SPLIT\x10\x04\x12\x0e\n\nAUTO_SPLIT\x10\x05\"\x8e\x01\n\rDataFrequency\x12\x1e\n\x1a\x44\x41TA_FREQUENCY_UNSPECIFIED\x10\x00\x12\x12\n\x0e\x41UTO_FREQUENCY\x10\x01\x12\n\n\x06YEARLY\x10\x02\x12\r\n\tQUARTERLY\x10\x03\x12\x0b\n\x07MONTHLY\x10\x04\x12\n\n\x06WEEKLY\x10\x05\x12\t\n\x05\x44\x41ILY\x10\x06\x12\n\n\x06HOURLY\x10\x07\"\xd9\x04\n\rHolidayRegion\x12\x1e\n\x1aHOLIDAY_REGION_UNSPECIFIED\x10\x00\x12\n\n\x06GLOBAL\x10\x01\x12\x06\n\x02NA\x10\x02\x12\t\n\x05JAPAC\x10\x03\x12\x08\n\x04\x45MEA\x10\x04\x12\x07\n\x03LAC\x10\x05\x12\x06\n\x02\x41\x45\x10\x06\x12\x06\n\x02\x41R\x10\x07\x12\x06\n\x02\x41T\x10\x08\x12\x06\n\x02\x41U\x10\t\x12\x06\n\x02\x42\x45\x10\n\x12\x06\n\x02\x42R\x10\x0b\x12\x06\n\x02\x43\x41\x10\x0c\x12\x06\n\x02\x43H\x10\r\x12\x06\n\x02\x43L\x10\x0e\x12\x06\n\x02\x43N\x10\x0f\x12\x06\n\x02\x43O\x10\x10\x12\x06\n\x02\x43S\x10\x11\x12\x06\n\x02\x43Z\x10\x12\x12\x06\n\x02\x44\x45\x10\x13\x12\x06\n\x02\x44K\x10\x14\x12\x06\n\x02\x44Z\x10\x15\x12\x06\n\x02\x45\x43\x10\x16\x12\x06\n\x02\x45\x45\x10\x17\x12\x06\n\x02\x45G\x10\x18\x12\x06\n\x02\x45S\x10\x19\x12\x06\n\x02\x46I\x10\x1a\x12\x06\n\x02\x46R\x10\x1b\x12\x06\n\x02GB\x10\x1c\x12\x06\n\x02GR\x10\x1d\x12\x06\n\x02HK\x10\x1e\x12\x06\n\x02HU\x10\x1f\x12\x06\n\x02ID\x10 \x12\x06\n\x02IE\x10!\x12\x06\n\x02IL\x10\"\x12\x06\n\x02IN\x10#\x12\x06\n\x02IR\x10$\x12\x06\n\x02IT\x10%\x12\x06\n\x02JP\x10&\x12\x06\n\x02KR\x10\'\x12\x06\n\x02LV\x10(\x12\x06\n\x02MA\x10)\x12\x06\n\x02MX\x10*\x12\x06\n\x02MY\x10+\x12\x06\n\x02NG\x10,\x12\x06\n\x02NL\x10-\x12\x06\n\x02NO\x10.\x12\x06\n\x02NZ\x10/\x12\x06\n\x02PE\x10\x30\x12\x06\n\x02PH\x10\x31\x12\x06\n\x02PK\x10\x32\x12\x06\n\x02PL\x10\x33\x12\x06\n\x02PT\x10\x34\x12\x06\n\x02RO\x10\x35\x12\x06\n\x02RS\x10\x36\x12\x06\n\x02RU\x10\x37\x12\x06\n\x02SA\x10\x38\x12\x06\n\x02SE\x10\x39\x12\x06\n\x02SG\x10:\x12\x06\n\x02SI\x10;\x12\x06\n\x02SK\x10<\x12\x06\n\x02TH\x10=\x12\x06\n\x02TR\x10>\x12\x06\n\x02TW\x10?\x12\x06\n\x02UA\x10@\x12\x06\n\x02US\x10\x41\x12\x06\n\x02VE\x10\x42\x12\x06\n\x02VN\x10\x43\x12\x06\n\x02ZA\x10\x44\"W\n\x11LearnRateStrategy\x12#\n\x1fLEARN_RATE_STRATEGY_UNSPECIFIED\x10\x00\x12\x0f\n\x0bLINE_SEARCH\x10\x01\x12\x0c\n\x08\x43ONSTANT\x10\x02\"n\n\x14OptimizationStrategy\x12%\n!OPTIMIZATION_STRATEGY_UNSPECIFIED\x10\x00\x12\x1a\n\x16\x42\x41TCH_GRADIENT_DESCENT\x10\x01\x12\x13\n\x0fNORMAL_EQUATION\x10\x02\"I\n\x0c\x46\x65\x65\x64\x62\x61\x63kType\x12\x1d\n\x19\x46\x45\x45\x44\x42\x41\x43K_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08IMPLICIT\x10\x01\x12\x0c\n\x08\x45XPLICIT\x10\x02\"Z\n\x0fGetModelRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ndataset_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08model_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"\x91\x01\n\x11PatchModelRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ndataset_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08model_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x33\n\x05model\x18\x04 \x01(\x0b\x32\x1f.google.cloud.bigquery.v2.ModelB\x03\xe0\x41\x02\"]\n\x12\x44\x65leteModelRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ndataset_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08model_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"\x8c\x01\n\x11ListModelsRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ndataset_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x31\n\x0bmax_results\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x12\n\npage_token\x18\x04 \x01(\t\"^\n\x12ListModelsResponse\x12/\n\x06models\x18\x01 \x03(\x0b\x32\x1f.google.cloud.bigquery.v2.Model\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xfa\x05\n\x0cModelService\x12y\n\x08GetModel\x12).google.cloud.bigquery.v2.GetModelRequest\x1a\x1f.google.cloud.bigquery.v2.Model\"!\xda\x41\x1eproject_id,dataset_id,model_id\x12\x8d\x01\n\nListModels\x12+.google.cloud.bigquery.v2.ListModelsRequest\x1a,.google.cloud.bigquery.v2.ListModelsResponse\"$\xda\x41!project_id,dataset_id,max_results\x12\x83\x01\n\nPatchModel\x12+.google.cloud.bigquery.v2.PatchModelRequest\x1a\x1f.google.cloud.bigquery.v2.Model\"\'\xda\x41$project_id,dataset_id,model_id,model\x12v\n\x0b\x44\x65leteModel\x12,.google.cloud.bigquery.v2.DeleteModelRequest\x1a\x16.google.protobuf.Empty\"!\xda\x41\x1eproject_id,dataset_id,model_id\x1a\xe0\x01\xca\x41\x17\x62igquery.googleapis.com\xd2\x41\xc2\x01https://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/bigquery.readonly,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-platform.read-onlyBl\n\x1c\x63om.google.cloud.bigquery.v2B\nModelProtoZ@google.golang.org/genproto/googleapis/cloud/bigquery/v2;bigqueryb\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_v2_dot_encryption__config__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_v2_dot_model__reference__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_v2_dot_standard__sql__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_v2_dot_encryption__config__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_v2_dot_model__reference__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_v2_dot_standard__sql__pb2.DESCRIPTOR,google_dot_cloud_dot_bigquery_dot_v2_dot_table__reference__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
+
+_MODEL_SEASONALPERIOD_SEASONALPERIODTYPE = _descriptor.EnumDescriptor(
+  name='SeasonalPeriodType',
+  full_name='google.cloud.bigquery.v2.Model.SeasonalPeriod.SeasonalPeriodType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SEASONAL_PERIOD_TYPE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='NO_SEASONALITY', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='DAILY', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='WEEKLY', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='MONTHLY', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='QUARTERLY', index=5, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='YEARLY', index=6, number=6,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1161,
+  serialized_end=1302,
+)
+_sym_db.RegisterEnumDescriptor(_MODEL_SEASONALPERIOD_SEASONALPERIODTYPE)
 
 _MODEL_KMEANSENUMS_KMEANSINITIALIZATIONMETHOD = _descriptor.EnumDescriptor(
   name='KmeansInitializationMethod',
@@ -56,11 +107,16 @@ _MODEL_KMEANSENUMS_KMEANSINITIALIZATIONMETHOD = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='KMEANS_PLUS_PLUS', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1108,
-  serialized_end=1206,
+  serialized_start=1320,
+  serialized_end=1440,
 )
 _sym_db.RegisterEnumDescriptor(_MODEL_KMEANSENUMS_KMEANSINITIALIZATIONMETHOD)
 
@@ -92,15 +148,55 @@ _MODEL_MODELTYPE = _descriptor.EnumDescriptor(
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TENSORFLOW', index=4, number=6,
+      name='MATRIX_FACTORIZATION', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='DNN_CLASSIFIER', index=5, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TENSORFLOW', index=6, number=6,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='DNN_REGRESSOR', index=7, number=7,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='BOOSTED_TREE_REGRESSOR', index=8, number=9,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='BOOSTED_TREE_CLASSIFIER', index=9, number=10,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ARIMA', index=10, number=11,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='AUTOML_REGRESSOR', index=11, number=12,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='AUTOML_CLASSIFIER', index=12, number=13,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6608,
-  serialized_end=6723,
+  serialized_start=10404,
+  serialized_end=10697,
 )
 _sym_db.RegisterEnumDescriptor(_MODEL_MODELTYPE)
 
@@ -129,8 +225,8 @@ _MODEL_LOSSTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6725,
-  serialized_end=6804,
+  serialized_start=10699,
+  serialized_end=10778,
 )
 _sym_db.RegisterEnumDescriptor(_MODEL_LOSSTYPE)
 
@@ -159,8 +255,8 @@ _MODEL_DISTANCETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6806,
-  serialized_end=6878,
+  serialized_start=10780,
+  serialized_end=10852,
 )
 _sym_db.RegisterEnumDescriptor(_MODEL_DISTANCETYPE)
 
@@ -204,10 +300,425 @@ _MODEL_DATASPLITMETHOD = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6880,
-  serialized_end=7002,
+  serialized_start=10854,
+  serialized_end=10976,
 )
 _sym_db.RegisterEnumDescriptor(_MODEL_DATASPLITMETHOD)
+
+_MODEL_DATAFREQUENCY = _descriptor.EnumDescriptor(
+  name='DataFrequency',
+  full_name='google.cloud.bigquery.v2.Model.DataFrequency',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='DATA_FREQUENCY_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='AUTO_FREQUENCY', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='YEARLY', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='QUARTERLY', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='MONTHLY', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='WEEKLY', index=5, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='DAILY', index=6, number=6,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='HOURLY', index=7, number=7,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=10979,
+  serialized_end=11121,
+)
+_sym_db.RegisterEnumDescriptor(_MODEL_DATAFREQUENCY)
+
+_MODEL_HOLIDAYREGION = _descriptor.EnumDescriptor(
+  name='HolidayRegion',
+  full_name='google.cloud.bigquery.v2.Model.HolidayRegion',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='HOLIDAY_REGION_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='GLOBAL', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='NA', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='JAPAC', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='EMEA', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='LAC', index=5, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='AE', index=6, number=6,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='AR', index=7, number=7,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='AT', index=8, number=8,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='AU', index=9, number=9,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='BE', index=10, number=10,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='BR', index=11, number=11,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CA', index=12, number=12,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CH', index=13, number=13,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CL', index=14, number=14,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CN', index=15, number=15,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CO', index=16, number=16,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CS', index=17, number=17,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CZ', index=18, number=18,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='DE', index=19, number=19,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='DK', index=20, number=20,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='DZ', index=21, number=21,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='EC', index=22, number=22,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='EE', index=23, number=23,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='EG', index=24, number=24,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ES', index=25, number=25,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FI', index=26, number=26,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FR', index=27, number=27,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='GB', index=28, number=28,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='GR', index=29, number=29,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='HK', index=30, number=30,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='HU', index=31, number=31,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ID', index=32, number=32,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='IE', index=33, number=33,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='IL', index=34, number=34,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='IN', index=35, number=35,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='IR', index=36, number=36,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='IT', index=37, number=37,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='JP', index=38, number=38,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='KR', index=39, number=39,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='LV', index=40, number=40,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='MA', index=41, number=41,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='MX', index=42, number=42,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='MY', index=43, number=43,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='NG', index=44, number=44,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='NL', index=45, number=45,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='NO', index=46, number=46,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='NZ', index=47, number=47,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PE', index=48, number=48,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PH', index=49, number=49,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PK', index=50, number=50,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PL', index=51, number=51,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PT', index=52, number=52,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='RO', index=53, number=53,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='RS', index=54, number=54,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='RU', index=55, number=55,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SA', index=56, number=56,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SE', index=57, number=57,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SG', index=58, number=58,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SI', index=59, number=59,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SK', index=60, number=60,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TH', index=61, number=61,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TR', index=62, number=62,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TW', index=63, number=63,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='UA', index=64, number=64,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='US', index=65, number=65,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='VE', index=66, number=66,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='VN', index=67, number=67,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ZA', index=68, number=68,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=11124,
+  serialized_end=11725,
+)
+_sym_db.RegisterEnumDescriptor(_MODEL_HOLIDAYREGION)
 
 _MODEL_LEARNRATESTRATEGY = _descriptor.EnumDescriptor(
   name='LearnRateStrategy',
@@ -234,8 +745,8 @@ _MODEL_LEARNRATESTRATEGY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7004,
-  serialized_end=7091,
+  serialized_start=11727,
+  serialized_end=11814,
 )
 _sym_db.RegisterEnumDescriptor(_MODEL_LEARNRATESTRATEGY)
 
@@ -264,11 +775,66 @@ _MODEL_OPTIMIZATIONSTRATEGY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7093,
-  serialized_end=7203,
+  serialized_start=11816,
+  serialized_end=11926,
 )
 _sym_db.RegisterEnumDescriptor(_MODEL_OPTIMIZATIONSTRATEGY)
 
+_MODEL_FEEDBACKTYPE = _descriptor.EnumDescriptor(
+  name='FeedbackType',
+  full_name='google.cloud.bigquery.v2.Model.FeedbackType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='FEEDBACK_TYPE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='IMPLICIT', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='EXPLICIT', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=11928,
+  serialized_end=12001,
+)
+_sym_db.RegisterEnumDescriptor(_MODEL_FEEDBACKTYPE)
+
+
+_MODEL_SEASONALPERIOD = _descriptor.Descriptor(
+  name='SeasonalPeriod',
+  full_name='google.cloud.bigquery.v2.Model.SeasonalPeriod',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _MODEL_SEASONALPERIOD_SEASONALPERIODTYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1142,
+  serialized_end=1302,
+)
 
 _MODEL_KMEANSENUMS = _descriptor.Descriptor(
   name='KmeansEnums',
@@ -291,8 +857,8 @@ _MODEL_KMEANSENUMS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1093,
-  serialized_end=1206,
+  serialized_start=1305,
+  serialized_end=1440,
 )
 
 _MODEL_REGRESSIONMETRICS = _descriptor.Descriptor(
@@ -350,8 +916,8 @@ _MODEL_REGRESSIONMETRICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1209,
-  serialized_end=1517,
+  serialized_start=1443,
+  serialized_end=1751,
 )
 
 _MODEL_AGGREGATECLASSIFICATIONMETRICS = _descriptor.Descriptor(
@@ -423,8 +989,8 @@ _MODEL_AGGREGATECLASSIFICATIONMETRICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1520,
-  serialized_end=1887,
+  serialized_start=1754,
+  serialized_end=2121,
 )
 
 _MODEL_BINARYCLASSIFICATIONMETRICS_BINARYCONFUSIONMATRIX = _descriptor.Descriptor(
@@ -510,8 +1076,8 @@ _MODEL_BINARYCLASSIFICATIONMETRICS_BINARYCONFUSIONMATRIX = _descriptor.Descripto
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2197,
-  serialized_end=2689,
+  serialized_start=2431,
+  serialized_end=2923,
 )
 
 _MODEL_BINARYCLASSIFICATIONMETRICS = _descriptor.Descriptor(
@@ -562,8 +1128,8 @@ _MODEL_BINARYCLASSIFICATIONMETRICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1890,
-  serialized_end=2689,
+  serialized_start=2124,
+  serialized_end=2923,
 )
 
 _MODEL_MULTICLASSCLASSIFICATIONMETRICS_CONFUSIONMATRIX_ENTRY = _descriptor.Descriptor(
@@ -600,8 +1166,8 @@ _MODEL_MULTICLASSCLASSIFICATIONMETRICS_CONFUSIONMATRIX_ENTRY = _descriptor.Descr
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3124,
-  serialized_end=3205,
+  serialized_start=3358,
+  serialized_end=3439,
 )
 
 _MODEL_MULTICLASSCLASSIFICATIONMETRICS_CONFUSIONMATRIX_ROW = _descriptor.Descriptor(
@@ -638,8 +1204,8 @@ _MODEL_MULTICLASSCLASSIFICATIONMETRICS_CONFUSIONMATRIX_ROW = _descriptor.Descrip
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3208,
-  serialized_end=3339,
+  serialized_start=3442,
+  serialized_end=3573,
 )
 
 _MODEL_MULTICLASSCLASSIFICATIONMETRICS_CONFUSIONMATRIX = _descriptor.Descriptor(
@@ -676,8 +1242,8 @@ _MODEL_MULTICLASSCLASSIFICATIONMETRICS_CONFUSIONMATRIX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2946,
-  serialized_end=3339,
+  serialized_start=3180,
+  serialized_end=3573,
 )
 
 _MODEL_MULTICLASSCLASSIFICATIONMETRICS = _descriptor.Descriptor(
@@ -714,8 +1280,8 @@ _MODEL_MULTICLASSCLASSIFICATIONMETRICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2692,
-  serialized_end=3339,
+  serialized_start=2926,
+  serialized_end=3573,
 )
 
 _MODEL_CLUSTERINGMETRICS_CLUSTER_FEATUREVALUE_CATEGORICALVALUE_CATEGORYCOUNT = _descriptor.Descriptor(
@@ -752,8 +1318,8 @@ _MODEL_CLUSTERINGMETRICS_CLUSTER_FEATUREVALUE_CATEGORICALVALUE_CATEGORYCOUNT = _
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4099,
-  serialized_end=4176,
+  serialized_start=4333,
+  serialized_end=4410,
 )
 
 _MODEL_CLUSTERINGMETRICS_CLUSTER_FEATUREVALUE_CATEGORICALVALUE = _descriptor.Descriptor(
@@ -783,8 +1349,8 @@ _MODEL_CLUSTERINGMETRICS_CLUSTER_FEATUREVALUE_CATEGORICALVALUE = _descriptor.Des
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3951,
-  serialized_end=4176,
+  serialized_start=4185,
+  serialized_end=4410,
 )
 
 _MODEL_CLUSTERINGMETRICS_CLUSTER_FEATUREVALUE = _descriptor.Descriptor(
@@ -833,8 +1399,8 @@ _MODEL_CLUSTERINGMETRICS_CLUSTER_FEATUREVALUE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3735,
-  serialized_end=4185,
+  serialized_start=3969,
+  serialized_end=4419,
 )
 
 _MODEL_CLUSTERINGMETRICS_CLUSTER = _descriptor.Descriptor(
@@ -878,8 +1444,8 @@ _MODEL_CLUSTERINGMETRICS_CLUSTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3562,
-  serialized_end=4185,
+  serialized_start=3796,
+  serialized_end=4419,
 )
 
 _MODEL_CLUSTERINGMETRICS = _descriptor.Descriptor(
@@ -923,8 +1489,185 @@ _MODEL_CLUSTERINGMETRICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3342,
-  serialized_end=4185,
+  serialized_start=3576,
+  serialized_end=4419,
+)
+
+_MODEL_RANKINGMETRICS = _descriptor.Descriptor(
+  name='RankingMetrics',
+  full_name='google.cloud.bigquery.v2.Model.RankingMetrics',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='mean_average_precision', full_name='google.cloud.bigquery.v2.Model.RankingMetrics.mean_average_precision', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='mean_squared_error', full_name='google.cloud.bigquery.v2.Model.RankingMetrics.mean_squared_error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='normalized_discounted_cumulative_gain', full_name='google.cloud.bigquery.v2.Model.RankingMetrics.normalized_discounted_cumulative_gain', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='average_rank', full_name='google.cloud.bigquery.v2.Model.RankingMetrics.average_rank', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4422,
+  serialized_end=4687,
+)
+
+_MODEL_ARIMAFORECASTINGMETRICS_ARIMASINGLEMODELFORECASTINGMETRICS = _descriptor.Descriptor(
+  name='ArimaSingleModelForecastingMetrics',
+  full_name='google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.ArimaSingleModelForecastingMetrics',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='non_seasonal_order', full_name='google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.ArimaSingleModelForecastingMetrics.non_seasonal_order', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='arima_fitting_metrics', full_name='google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.ArimaSingleModelForecastingMetrics.arima_fitting_metrics', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='has_drift', full_name='google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.ArimaSingleModelForecastingMetrics.has_drift', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time_series_id', full_name='google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.ArimaSingleModelForecastingMetrics.time_series_id', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='seasonal_periods', full_name='google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.ArimaSingleModelForecastingMetrics.seasonal_periods', index=4,
+      number=5, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5151,
+  serialized_end=5479,
+)
+
+_MODEL_ARIMAFORECASTINGMETRICS = _descriptor.Descriptor(
+  name='ArimaForecastingMetrics',
+  full_name='google.cloud.bigquery.v2.Model.ArimaForecastingMetrics',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='non_seasonal_order', full_name='google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.non_seasonal_order', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='arima_fitting_metrics', full_name='google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.arima_fitting_metrics', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='seasonal_periods', full_name='google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.seasonal_periods', index=2,
+      number=3, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='has_drift', full_name='google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.has_drift', index=3,
+      number=4, type=8, cpp_type=7, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time_series_id', full_name='google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.time_series_id', index=4,
+      number=5, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='arima_single_model_forecasting_metrics', full_name='google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.arima_single_model_forecasting_metrics', index=5,
+      number=6, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_MODEL_ARIMAFORECASTINGMETRICS_ARIMASINGLEMODELFORECASTINGMETRICS, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4690,
+  serialized_end=5479,
 )
 
 _MODEL_EVALUATIONMETRICS = _descriptor.Descriptor(
@@ -963,6 +1706,20 @@ _MODEL_EVALUATIONMETRICS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ranking_metrics', full_name='google.cloud.bigquery.v2.Model.EvaluationMetrics.ranking_metrics', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='arima_forecasting_metrics', full_name='google.cloud.bigquery.v2.Model.EvaluationMetrics.arima_forecasting_metrics', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -980,8 +1737,212 @@ _MODEL_EVALUATIONMETRICS = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4188,
-  serialized_end=4593,
+  serialized_start=5482,
+  serialized_end=6056,
+)
+
+_MODEL_DATASPLITRESULT = _descriptor.Descriptor(
+  name='DataSplitResult',
+  full_name='google.cloud.bigquery.v2.Model.DataSplitResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='training_table', full_name='google.cloud.bigquery.v2.Model.DataSplitResult.training_table', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='evaluation_table', full_name='google.cloud.bigquery.v2.Model.DataSplitResult.evaluation_table', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6059,
+  serialized_end=6210,
+)
+
+_MODEL_ARIMAORDER = _descriptor.Descriptor(
+  name='ArimaOrder',
+  full_name='google.cloud.bigquery.v2.Model.ArimaOrder',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='p', full_name='google.cloud.bigquery.v2.Model.ArimaOrder.p', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='d', full_name='google.cloud.bigquery.v2.Model.ArimaOrder.d', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='q', full_name='google.cloud.bigquery.v2.Model.ArimaOrder.q', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6212,
+  serialized_end=6257,
+)
+
+_MODEL_ARIMAFITTINGMETRICS = _descriptor.Descriptor(
+  name='ArimaFittingMetrics',
+  full_name='google.cloud.bigquery.v2.Model.ArimaFittingMetrics',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='log_likelihood', full_name='google.cloud.bigquery.v2.Model.ArimaFittingMetrics.log_likelihood', index=0,
+      number=1, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='aic', full_name='google.cloud.bigquery.v2.Model.ArimaFittingMetrics.aic', index=1,
+      number=2, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='variance', full_name='google.cloud.bigquery.v2.Model.ArimaFittingMetrics.variance', index=2,
+      number=3, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6259,
+  serialized_end=6335,
+)
+
+_MODEL_GLOBALEXPLANATION_EXPLANATION = _descriptor.Descriptor(
+  name='Explanation',
+  full_name='google.cloud.bigquery.v2.Model.GlobalExplanation.Explanation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='feature_name', full_name='google.cloud.bigquery.v2.Model.GlobalExplanation.Explanation.feature_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='attribution', full_name='google.cloud.bigquery.v2.Model.GlobalExplanation.Explanation.attribution', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6465,
+  serialized_end=6551,
+)
+
+_MODEL_GLOBALEXPLANATION = _descriptor.Descriptor(
+  name='GlobalExplanation',
+  full_name='google.cloud.bigquery.v2.Model.GlobalExplanation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='explanations', full_name='google.cloud.bigquery.v2.Model.GlobalExplanation.explanations', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='class_label', full_name='google.cloud.bigquery.v2.Model.GlobalExplanation.class_label', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_MODEL_GLOBALEXPLANATION_EXPLANATION, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6338,
+  serialized_end=6551,
 )
 
 _MODEL_TRAININGRUN_TRAININGOPTIONS_LABELCLASSWEIGHTSENTRY = _descriptor.Descriptor(
@@ -1018,8 +1979,8 @@ _MODEL_TRAININGRUN_TRAININGOPTIONS_LABELCLASSWEIGHTSENTRY = _descriptor.Descript
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6029,
-  serialized_end=6085,
+  serialized_start=8949,
+  serialized_end=9005,
 )
 
 _MODEL_TRAININGRUN_TRAININGOPTIONS = _descriptor.Descriptor(
@@ -1136,44 +2097,198 @@ _MODEL_TRAININGRUN_TRAININGOPTIONS = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='distance_type', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.distance_type', index=15,
+      name='user_column', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.user_column', index=15,
+      number=18, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='item_column', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.item_column', index=16,
+      number=19, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='distance_type', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.distance_type', index=17,
       number=20, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='num_clusters', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.num_clusters', index=16,
+      name='num_clusters', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.num_clusters', index=18,
       number=21, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='model_uri', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.model_uri', index=17,
+      name='model_uri', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.model_uri', index=19,
       number=22, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='optimization_strategy', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.optimization_strategy', index=18,
+      name='optimization_strategy', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.optimization_strategy', index=20,
       number=23, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='kmeans_initialization_method', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.kmeans_initialization_method', index=19,
+      name='hidden_units', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.hidden_units', index=21,
+      number=24, type=3, cpp_type=2, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='batch_size', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.batch_size', index=22,
+      number=25, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dropout', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.dropout', index=23,
+      number=26, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='max_tree_depth', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.max_tree_depth', index=24,
+      number=27, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='subsample', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.subsample', index=25,
+      number=28, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='min_split_loss', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.min_split_loss', index=26,
+      number=29, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='num_factors', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.num_factors', index=27,
+      number=30, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='feedback_type', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.feedback_type', index=28,
+      number=31, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='wals_alpha', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.wals_alpha', index=29,
+      number=32, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='kmeans_initialization_method', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.kmeans_initialization_method', index=30,
       number=33, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='kmeans_initialization_column', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.kmeans_initialization_column', index=20,
+      name='kmeans_initialization_column', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.kmeans_initialization_column', index=31,
       number=34, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time_series_timestamp_column', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.time_series_timestamp_column', index=32,
+      number=35, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time_series_data_column', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.time_series_data_column', index=33,
+      number=36, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='auto_arima', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.auto_arima', index=34,
+      number=37, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='non_seasonal_order', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.non_seasonal_order', index=35,
+      number=38, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data_frequency', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.data_frequency', index=36,
+      number=39, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='include_drift', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.include_drift', index=37,
+      number=41, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='holiday_region', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.holiday_region', index=38,
+      number=42, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time_series_id_column', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.time_series_id_column', index=39,
+      number=43, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='horizon', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.horizon', index=40,
+      number=44, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='preserve_input_structs', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.preserve_input_structs', index=41,
+      number=45, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='auto_arima_max_order', full_name='google.cloud.bigquery.v2.Model.TrainingRun.TrainingOptions.auto_arima_max_order', index=42,
+      number=46, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -1189,8 +2304,8 @@ _MODEL_TRAININGRUN_TRAININGOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4904,
-  serialized_end=6085,
+  serialized_start=7018,
+  serialized_end=9005,
 )
 
 _MODEL_TRAININGRUN_ITERATIONRESULT_CLUSTERINFO = _descriptor.Descriptor(
@@ -1234,8 +2349,157 @@ _MODEL_TRAININGRUN_ITERATIONRESULT_CLUSTERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6420,
-  serialized_end=6559,
+  serialized_start=9435,
+  serialized_end=9574,
+)
+
+_MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMACOEFFICIENTS = _descriptor.Descriptor(
+  name='ArimaCoefficients',
+  full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaCoefficients',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='auto_regressive_coefficients', full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaCoefficients.auto_regressive_coefficients', index=0,
+      number=1, type=1, cpp_type=5, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='moving_average_coefficients', full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaCoefficients.moving_average_coefficients', index=1,
+      number=2, type=1, cpp_type=5, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='intercept_coefficient', full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaCoefficients.intercept_coefficient', index=2,
+      number=3, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9799,
+  serialized_end=9924,
+)
+
+_MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMAMODELINFO = _descriptor.Descriptor(
+  name='ArimaModelInfo',
+  full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaModelInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='non_seasonal_order', full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaModelInfo.non_seasonal_order', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='arima_coefficients', full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaModelInfo.arima_coefficients', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='arima_fitting_metrics', full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaModelInfo.arima_fitting_metrics', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='has_drift', full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaModelInfo.has_drift', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time_series_id', full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaModelInfo.time_series_id', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='seasonal_periods', full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaModelInfo.seasonal_periods', index=5,
+      number=6, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9927,
+  serialized_end=10354,
+)
+
+_MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT = _descriptor.Descriptor(
+  name='ArimaResult',
+  full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='arima_model_info', full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.arima_model_info', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='seasonal_periods', full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.seasonal_periods', index=1,
+      number=2, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMACOEFFICIENTS, _MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMAMODELINFO, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9577,
+  serialized_end=10354,
 )
 
 _MODEL_TRAININGRUN_ITERATIONRESULT = _descriptor.Descriptor(
@@ -1288,10 +2552,17 @@ _MODEL_TRAININGRUN_ITERATIONRESULT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='arima_result', full_name='google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.arima_result', index=6,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_MODEL_TRAININGRUN_ITERATIONRESULT_CLUSTERINFO, ],
+  nested_types=[_MODEL_TRAININGRUN_ITERATIONRESULT_CLUSTERINFO, _MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -1300,8 +2571,8 @@ _MODEL_TRAININGRUN_ITERATIONRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6088,
-  serialized_end=6559,
+  serialized_start=9008,
+  serialized_end=10354,
 )
 
 _MODEL_TRAININGRUN = _descriptor.Descriptor(
@@ -1340,6 +2611,20 @@ _MODEL_TRAININGRUN = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data_split_result', full_name='google.cloud.bigquery.v2.Model.TrainingRun.data_split_result', index=4,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='global_explanations', full_name='google.cloud.bigquery.v2.Model.TrainingRun.global_explanations', index=5,
+      number=10, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1352,8 +2637,8 @@ _MODEL_TRAININGRUN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4596,
-  serialized_end=6559,
+  serialized_start=6554,
+  serialized_end=10354,
 )
 
 _MODEL_LABELSENTRY = _descriptor.Descriptor(
@@ -1390,8 +2675,8 @@ _MODEL_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6561,
-  serialized_end=6606,
+  serialized_start=10356,
+  serialized_end=10401,
 )
 
 _MODEL = _descriptor.Descriptor(
@@ -1503,14 +2788,17 @@ _MODEL = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_MODEL_KMEANSENUMS, _MODEL_REGRESSIONMETRICS, _MODEL_AGGREGATECLASSIFICATIONMETRICS, _MODEL_BINARYCLASSIFICATIONMETRICS, _MODEL_MULTICLASSCLASSIFICATIONMETRICS, _MODEL_CLUSTERINGMETRICS, _MODEL_EVALUATIONMETRICS, _MODEL_TRAININGRUN, _MODEL_LABELSENTRY, ],
+  nested_types=[_MODEL_SEASONALPERIOD, _MODEL_KMEANSENUMS, _MODEL_REGRESSIONMETRICS, _MODEL_AGGREGATECLASSIFICATIONMETRICS, _MODEL_BINARYCLASSIFICATIONMETRICS, _MODEL_MULTICLASSCLASSIFICATIONMETRICS, _MODEL_CLUSTERINGMETRICS, _MODEL_RANKINGMETRICS, _MODEL_ARIMAFORECASTINGMETRICS, _MODEL_EVALUATIONMETRICS, _MODEL_DATASPLITRESULT, _MODEL_ARIMAORDER, _MODEL_ARIMAFITTINGMETRICS, _MODEL_GLOBALEXPLANATION, _MODEL_TRAININGRUN, _MODEL_LABELSENTRY, ],
   enum_types=[
     _MODEL_MODELTYPE,
     _MODEL_LOSSTYPE,
     _MODEL_DISTANCETYPE,
     _MODEL_DATASPLITMETHOD,
+    _MODEL_DATAFREQUENCY,
+    _MODEL_HOLIDAYREGION,
     _MODEL_LEARNRATESTRATEGY,
     _MODEL_OPTIMIZATIONSTRATEGY,
+    _MODEL_FEEDBACKTYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1518,8 +2806,8 @@ _MODEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=392,
-  serialized_end=7203,
+  serialized_start=440,
+  serialized_end=12001,
 )
 
 
@@ -1564,8 +2852,8 @@ _GETMODELREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7205,
-  serialized_end=7295,
+  serialized_start=12003,
+  serialized_end=12093,
 )
 
 
@@ -1617,8 +2905,8 @@ _PATCHMODELREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7298,
-  serialized_end=7443,
+  serialized_start=12096,
+  serialized_end=12241,
 )
 
 
@@ -1663,8 +2951,8 @@ _DELETEMODELREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7445,
-  serialized_end=7538,
+  serialized_start=12243,
+  serialized_end=12336,
 )
 
 
@@ -1716,8 +3004,8 @@ _LISTMODELSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7541,
-  serialized_end=7681,
+  serialized_start=12339,
+  serialized_end=12479,
 )
 
 
@@ -1755,10 +3043,12 @@ _LISTMODELSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7683,
-  serialized_end=7777,
+  serialized_start=12481,
+  serialized_end=12575,
 )
 
+_MODEL_SEASONALPERIOD.containing_type = _MODEL
+_MODEL_SEASONALPERIOD_SEASONALPERIODTYPE.containing_type = _MODEL_SEASONALPERIOD
 _MODEL_KMEANSENUMS.containing_type = _MODEL
 _MODEL_KMEANSENUMS_KMEANSINITIALIZATIONMETHOD.containing_type = _MODEL_KMEANSENUMS
 _MODEL_REGRESSIONMETRICS.fields_by_name['mean_absolute_error'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
@@ -1818,10 +3108,26 @@ _MODEL_CLUSTERINGMETRICS.fields_by_name['davies_bouldin_index'].message_type = g
 _MODEL_CLUSTERINGMETRICS.fields_by_name['mean_squared_distance'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
 _MODEL_CLUSTERINGMETRICS.fields_by_name['clusters'].message_type = _MODEL_CLUSTERINGMETRICS_CLUSTER
 _MODEL_CLUSTERINGMETRICS.containing_type = _MODEL
+_MODEL_RANKINGMETRICS.fields_by_name['mean_average_precision'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
+_MODEL_RANKINGMETRICS.fields_by_name['mean_squared_error'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
+_MODEL_RANKINGMETRICS.fields_by_name['normalized_discounted_cumulative_gain'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
+_MODEL_RANKINGMETRICS.fields_by_name['average_rank'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
+_MODEL_RANKINGMETRICS.containing_type = _MODEL
+_MODEL_ARIMAFORECASTINGMETRICS_ARIMASINGLEMODELFORECASTINGMETRICS.fields_by_name['non_seasonal_order'].message_type = _MODEL_ARIMAORDER
+_MODEL_ARIMAFORECASTINGMETRICS_ARIMASINGLEMODELFORECASTINGMETRICS.fields_by_name['arima_fitting_metrics'].message_type = _MODEL_ARIMAFITTINGMETRICS
+_MODEL_ARIMAFORECASTINGMETRICS_ARIMASINGLEMODELFORECASTINGMETRICS.fields_by_name['seasonal_periods'].enum_type = _MODEL_SEASONALPERIOD_SEASONALPERIODTYPE
+_MODEL_ARIMAFORECASTINGMETRICS_ARIMASINGLEMODELFORECASTINGMETRICS.containing_type = _MODEL_ARIMAFORECASTINGMETRICS
+_MODEL_ARIMAFORECASTINGMETRICS.fields_by_name['non_seasonal_order'].message_type = _MODEL_ARIMAORDER
+_MODEL_ARIMAFORECASTINGMETRICS.fields_by_name['arima_fitting_metrics'].message_type = _MODEL_ARIMAFITTINGMETRICS
+_MODEL_ARIMAFORECASTINGMETRICS.fields_by_name['seasonal_periods'].enum_type = _MODEL_SEASONALPERIOD_SEASONALPERIODTYPE
+_MODEL_ARIMAFORECASTINGMETRICS.fields_by_name['arima_single_model_forecasting_metrics'].message_type = _MODEL_ARIMAFORECASTINGMETRICS_ARIMASINGLEMODELFORECASTINGMETRICS
+_MODEL_ARIMAFORECASTINGMETRICS.containing_type = _MODEL
 _MODEL_EVALUATIONMETRICS.fields_by_name['regression_metrics'].message_type = _MODEL_REGRESSIONMETRICS
 _MODEL_EVALUATIONMETRICS.fields_by_name['binary_classification_metrics'].message_type = _MODEL_BINARYCLASSIFICATIONMETRICS
 _MODEL_EVALUATIONMETRICS.fields_by_name['multi_class_classification_metrics'].message_type = _MODEL_MULTICLASSCLASSIFICATIONMETRICS
 _MODEL_EVALUATIONMETRICS.fields_by_name['clustering_metrics'].message_type = _MODEL_CLUSTERINGMETRICS
+_MODEL_EVALUATIONMETRICS.fields_by_name['ranking_metrics'].message_type = _MODEL_RANKINGMETRICS
+_MODEL_EVALUATIONMETRICS.fields_by_name['arima_forecasting_metrics'].message_type = _MODEL_ARIMAFORECASTINGMETRICS
 _MODEL_EVALUATIONMETRICS.containing_type = _MODEL
 _MODEL_EVALUATIONMETRICS.oneofs_by_name['metrics'].fields.append(
   _MODEL_EVALUATIONMETRICS.fields_by_name['regression_metrics'])
@@ -1835,6 +3141,21 @@ _MODEL_EVALUATIONMETRICS.fields_by_name['multi_class_classification_metrics'].co
 _MODEL_EVALUATIONMETRICS.oneofs_by_name['metrics'].fields.append(
   _MODEL_EVALUATIONMETRICS.fields_by_name['clustering_metrics'])
 _MODEL_EVALUATIONMETRICS.fields_by_name['clustering_metrics'].containing_oneof = _MODEL_EVALUATIONMETRICS.oneofs_by_name['metrics']
+_MODEL_EVALUATIONMETRICS.oneofs_by_name['metrics'].fields.append(
+  _MODEL_EVALUATIONMETRICS.fields_by_name['ranking_metrics'])
+_MODEL_EVALUATIONMETRICS.fields_by_name['ranking_metrics'].containing_oneof = _MODEL_EVALUATIONMETRICS.oneofs_by_name['metrics']
+_MODEL_EVALUATIONMETRICS.oneofs_by_name['metrics'].fields.append(
+  _MODEL_EVALUATIONMETRICS.fields_by_name['arima_forecasting_metrics'])
+_MODEL_EVALUATIONMETRICS.fields_by_name['arima_forecasting_metrics'].containing_oneof = _MODEL_EVALUATIONMETRICS.oneofs_by_name['metrics']
+_MODEL_DATASPLITRESULT.fields_by_name['training_table'].message_type = google_dot_cloud_dot_bigquery_dot_v2_dot_table__reference__pb2._TABLEREFERENCE
+_MODEL_DATASPLITRESULT.fields_by_name['evaluation_table'].message_type = google_dot_cloud_dot_bigquery_dot_v2_dot_table__reference__pb2._TABLEREFERENCE
+_MODEL_DATASPLITRESULT.containing_type = _MODEL
+_MODEL_ARIMAORDER.containing_type = _MODEL
+_MODEL_ARIMAFITTINGMETRICS.containing_type = _MODEL
+_MODEL_GLOBALEXPLANATION_EXPLANATION.fields_by_name['attribution'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
+_MODEL_GLOBALEXPLANATION_EXPLANATION.containing_type = _MODEL_GLOBALEXPLANATION
+_MODEL_GLOBALEXPLANATION.fields_by_name['explanations'].message_type = _MODEL_GLOBALEXPLANATION_EXPLANATION
+_MODEL_GLOBALEXPLANATION.containing_type = _MODEL
 _MODEL_TRAININGRUN_TRAININGOPTIONS_LABELCLASSWEIGHTSENTRY.containing_type = _MODEL_TRAININGRUN_TRAININGOPTIONS
 _MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['loss_type'].enum_type = _MODEL_LOSSTYPE
 _MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['l1_regularization'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
@@ -1847,21 +3168,40 @@ _MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['learn_rate_strategy'].enum_ty
 _MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['label_class_weights'].message_type = _MODEL_TRAININGRUN_TRAININGOPTIONS_LABELCLASSWEIGHTSENTRY
 _MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['distance_type'].enum_type = _MODEL_DISTANCETYPE
 _MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['optimization_strategy'].enum_type = _MODEL_OPTIMIZATIONSTRATEGY
+_MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['dropout'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
+_MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['min_split_loss'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
+_MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['feedback_type'].enum_type = _MODEL_FEEDBACKTYPE
+_MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['wals_alpha'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
 _MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['kmeans_initialization_method'].enum_type = _MODEL_KMEANSENUMS_KMEANSINITIALIZATIONMETHOD
+_MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['non_seasonal_order'].message_type = _MODEL_ARIMAORDER
+_MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['data_frequency'].enum_type = _MODEL_DATAFREQUENCY
+_MODEL_TRAININGRUN_TRAININGOPTIONS.fields_by_name['holiday_region'].enum_type = _MODEL_HOLIDAYREGION
 _MODEL_TRAININGRUN_TRAININGOPTIONS.containing_type = _MODEL_TRAININGRUN
 _MODEL_TRAININGRUN_ITERATIONRESULT_CLUSTERINFO.fields_by_name['cluster_radius'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
 _MODEL_TRAININGRUN_ITERATIONRESULT_CLUSTERINFO.fields_by_name['cluster_size'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT64VALUE
 _MODEL_TRAININGRUN_ITERATIONRESULT_CLUSTERINFO.containing_type = _MODEL_TRAININGRUN_ITERATIONRESULT
+_MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMACOEFFICIENTS.containing_type = _MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT
+_MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMAMODELINFO.fields_by_name['non_seasonal_order'].message_type = _MODEL_ARIMAORDER
+_MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMAMODELINFO.fields_by_name['arima_coefficients'].message_type = _MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMACOEFFICIENTS
+_MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMAMODELINFO.fields_by_name['arima_fitting_metrics'].message_type = _MODEL_ARIMAFITTINGMETRICS
+_MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMAMODELINFO.fields_by_name['seasonal_periods'].enum_type = _MODEL_SEASONALPERIOD_SEASONALPERIODTYPE
+_MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMAMODELINFO.containing_type = _MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT
+_MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT.fields_by_name['arima_model_info'].message_type = _MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMAMODELINFO
+_MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT.fields_by_name['seasonal_periods'].enum_type = _MODEL_SEASONALPERIOD_SEASONALPERIODTYPE
+_MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT.containing_type = _MODEL_TRAININGRUN_ITERATIONRESULT
 _MODEL_TRAININGRUN_ITERATIONRESULT.fields_by_name['index'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT32VALUE
 _MODEL_TRAININGRUN_ITERATIONRESULT.fields_by_name['duration_ms'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT64VALUE
 _MODEL_TRAININGRUN_ITERATIONRESULT.fields_by_name['training_loss'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
 _MODEL_TRAININGRUN_ITERATIONRESULT.fields_by_name['eval_loss'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
 _MODEL_TRAININGRUN_ITERATIONRESULT.fields_by_name['cluster_infos'].message_type = _MODEL_TRAININGRUN_ITERATIONRESULT_CLUSTERINFO
+_MODEL_TRAININGRUN_ITERATIONRESULT.fields_by_name['arima_result'].message_type = _MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT
 _MODEL_TRAININGRUN_ITERATIONRESULT.containing_type = _MODEL_TRAININGRUN
 _MODEL_TRAININGRUN.fields_by_name['training_options'].message_type = _MODEL_TRAININGRUN_TRAININGOPTIONS
 _MODEL_TRAININGRUN.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _MODEL_TRAININGRUN.fields_by_name['results'].message_type = _MODEL_TRAININGRUN_ITERATIONRESULT
 _MODEL_TRAININGRUN.fields_by_name['evaluation_metrics'].message_type = _MODEL_EVALUATIONMETRICS
+_MODEL_TRAININGRUN.fields_by_name['data_split_result'].message_type = _MODEL_DATASPLITRESULT
+_MODEL_TRAININGRUN.fields_by_name['global_explanations'].message_type = _MODEL_GLOBALEXPLANATION
 _MODEL_TRAININGRUN.containing_type = _MODEL
 _MODEL_LABELSENTRY.containing_type = _MODEL
 _MODEL.fields_by_name['model_reference'].message_type = google_dot_cloud_dot_bigquery_dot_v2_dot_model__reference__pb2._MODELREFERENCE
@@ -1875,8 +3215,11 @@ _MODEL_MODELTYPE.containing_type = _MODEL
 _MODEL_LOSSTYPE.containing_type = _MODEL
 _MODEL_DISTANCETYPE.containing_type = _MODEL
 _MODEL_DATASPLITMETHOD.containing_type = _MODEL
+_MODEL_DATAFREQUENCY.containing_type = _MODEL
+_MODEL_HOLIDAYREGION.containing_type = _MODEL
 _MODEL_LEARNRATESTRATEGY.containing_type = _MODEL
 _MODEL_OPTIMIZATIONSTRATEGY.containing_type = _MODEL
+_MODEL_FEEDBACKTYPE.containing_type = _MODEL
 _PATCHMODELREQUEST.fields_by_name['model'].message_type = _MODEL
 _LISTMODELSREQUEST.fields_by_name['max_results'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _LISTMODELSRESPONSE.fields_by_name['models'].message_type = _MODEL
@@ -1889,6 +3232,13 @@ DESCRIPTOR.message_types_by_name['ListModelsResponse'] = _LISTMODELSRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Model = _reflection.GeneratedProtocolMessageType('Model', (_message.Message,), {
+
+  'SeasonalPeriod' : _reflection.GeneratedProtocolMessageType('SeasonalPeriod', (_message.Message,), {
+    'DESCRIPTOR' : _MODEL_SEASONALPERIOD,
+    '__module__' : 'google.cloud.bigquery.v2.model_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.SeasonalPeriod)
+    })
+  ,
 
   'KmeansEnums' : _reflection.GeneratedProtocolMessageType('KmeansEnums', (_message.Message,), {
     'DESCRIPTOR' : _MODEL_KMEANSENUMS,
@@ -1988,10 +3338,66 @@ Model = _reflection.GeneratedProtocolMessageType('Model', (_message.Message,), {
     })
   ,
 
+  'RankingMetrics' : _reflection.GeneratedProtocolMessageType('RankingMetrics', (_message.Message,), {
+    'DESCRIPTOR' : _MODEL_RANKINGMETRICS,
+    '__module__' : 'google.cloud.bigquery.v2.model_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.RankingMetrics)
+    })
+  ,
+
+  'ArimaForecastingMetrics' : _reflection.GeneratedProtocolMessageType('ArimaForecastingMetrics', (_message.Message,), {
+
+    'ArimaSingleModelForecastingMetrics' : _reflection.GeneratedProtocolMessageType('ArimaSingleModelForecastingMetrics', (_message.Message,), {
+      'DESCRIPTOR' : _MODEL_ARIMAFORECASTINGMETRICS_ARIMASINGLEMODELFORECASTINGMETRICS,
+      '__module__' : 'google.cloud.bigquery.v2.model_pb2'
+      # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.ArimaForecastingMetrics.ArimaSingleModelForecastingMetrics)
+      })
+    ,
+    'DESCRIPTOR' : _MODEL_ARIMAFORECASTINGMETRICS,
+    '__module__' : 'google.cloud.bigquery.v2.model_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.ArimaForecastingMetrics)
+    })
+  ,
+
   'EvaluationMetrics' : _reflection.GeneratedProtocolMessageType('EvaluationMetrics', (_message.Message,), {
     'DESCRIPTOR' : _MODEL_EVALUATIONMETRICS,
     '__module__' : 'google.cloud.bigquery.v2.model_pb2'
     # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.EvaluationMetrics)
+    })
+  ,
+
+  'DataSplitResult' : _reflection.GeneratedProtocolMessageType('DataSplitResult', (_message.Message,), {
+    'DESCRIPTOR' : _MODEL_DATASPLITRESULT,
+    '__module__' : 'google.cloud.bigquery.v2.model_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.DataSplitResult)
+    })
+  ,
+
+  'ArimaOrder' : _reflection.GeneratedProtocolMessageType('ArimaOrder', (_message.Message,), {
+    'DESCRIPTOR' : _MODEL_ARIMAORDER,
+    '__module__' : 'google.cloud.bigquery.v2.model_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.ArimaOrder)
+    })
+  ,
+
+  'ArimaFittingMetrics' : _reflection.GeneratedProtocolMessageType('ArimaFittingMetrics', (_message.Message,), {
+    'DESCRIPTOR' : _MODEL_ARIMAFITTINGMETRICS,
+    '__module__' : 'google.cloud.bigquery.v2.model_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.ArimaFittingMetrics)
+    })
+  ,
+
+  'GlobalExplanation' : _reflection.GeneratedProtocolMessageType('GlobalExplanation', (_message.Message,), {
+
+    'Explanation' : _reflection.GeneratedProtocolMessageType('Explanation', (_message.Message,), {
+      'DESCRIPTOR' : _MODEL_GLOBALEXPLANATION_EXPLANATION,
+      '__module__' : 'google.cloud.bigquery.v2.model_pb2'
+      # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.GlobalExplanation.Explanation)
+      })
+    ,
+    'DESCRIPTOR' : _MODEL_GLOBALEXPLANATION,
+    '__module__' : 'google.cloud.bigquery.v2.model_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.GlobalExplanation)
     })
   ,
 
@@ -2019,6 +3425,27 @@ Model = _reflection.GeneratedProtocolMessageType('Model', (_message.Message,), {
         # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ClusterInfo)
         })
       ,
+
+      'ArimaResult' : _reflection.GeneratedProtocolMessageType('ArimaResult', (_message.Message,), {
+
+        'ArimaCoefficients' : _reflection.GeneratedProtocolMessageType('ArimaCoefficients', (_message.Message,), {
+          'DESCRIPTOR' : _MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMACOEFFICIENTS,
+          '__module__' : 'google.cloud.bigquery.v2.model_pb2'
+          # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaCoefficients)
+          })
+        ,
+
+        'ArimaModelInfo' : _reflection.GeneratedProtocolMessageType('ArimaModelInfo', (_message.Message,), {
+          'DESCRIPTOR' : _MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT_ARIMAMODELINFO,
+          '__module__' : 'google.cloud.bigquery.v2.model_pb2'
+          # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult.ArimaModelInfo)
+          })
+        ,
+        'DESCRIPTOR' : _MODEL_TRAININGRUN_ITERATIONRESULT_ARIMARESULT,
+        '__module__' : 'google.cloud.bigquery.v2.model_pb2'
+        # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.TrainingRun.IterationResult.ArimaResult)
+        })
+      ,
       'DESCRIPTOR' : _MODEL_TRAININGRUN_ITERATIONRESULT,
       '__module__' : 'google.cloud.bigquery.v2.model_pb2'
       # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model.TrainingRun.IterationResult)
@@ -2041,6 +3468,7 @@ Model = _reflection.GeneratedProtocolMessageType('Model', (_message.Message,), {
   # @@protoc_insertion_point(class_scope:google.cloud.bigquery.v2.Model)
   })
 _sym_db.RegisterMessage(Model)
+_sym_db.RegisterMessage(Model.SeasonalPeriod)
 _sym_db.RegisterMessage(Model.KmeansEnums)
 _sym_db.RegisterMessage(Model.RegressionMetrics)
 _sym_db.RegisterMessage(Model.AggregateClassificationMetrics)
@@ -2055,12 +3483,23 @@ _sym_db.RegisterMessage(Model.ClusteringMetrics.Cluster)
 _sym_db.RegisterMessage(Model.ClusteringMetrics.Cluster.FeatureValue)
 _sym_db.RegisterMessage(Model.ClusteringMetrics.Cluster.FeatureValue.CategoricalValue)
 _sym_db.RegisterMessage(Model.ClusteringMetrics.Cluster.FeatureValue.CategoricalValue.CategoryCount)
+_sym_db.RegisterMessage(Model.RankingMetrics)
+_sym_db.RegisterMessage(Model.ArimaForecastingMetrics)
+_sym_db.RegisterMessage(Model.ArimaForecastingMetrics.ArimaSingleModelForecastingMetrics)
 _sym_db.RegisterMessage(Model.EvaluationMetrics)
+_sym_db.RegisterMessage(Model.DataSplitResult)
+_sym_db.RegisterMessage(Model.ArimaOrder)
+_sym_db.RegisterMessage(Model.ArimaFittingMetrics)
+_sym_db.RegisterMessage(Model.GlobalExplanation)
+_sym_db.RegisterMessage(Model.GlobalExplanation.Explanation)
 _sym_db.RegisterMessage(Model.TrainingRun)
 _sym_db.RegisterMessage(Model.TrainingRun.TrainingOptions)
 _sym_db.RegisterMessage(Model.TrainingRun.TrainingOptions.LabelClassWeightsEntry)
 _sym_db.RegisterMessage(Model.TrainingRun.IterationResult)
 _sym_db.RegisterMessage(Model.TrainingRun.IterationResult.ClusterInfo)
+_sym_db.RegisterMessage(Model.TrainingRun.IterationResult.ArimaResult)
+_sym_db.RegisterMessage(Model.TrainingRun.IterationResult.ArimaResult.ArimaCoefficients)
+_sym_db.RegisterMessage(Model.TrainingRun.IterationResult.ArimaResult.ArimaModelInfo)
 _sym_db.RegisterMessage(Model.LabelsEntry)
 
 GetModelRequest = _reflection.GeneratedProtocolMessageType('GetModelRequest', (_message.Message,), {
@@ -2134,8 +3573,8 @@ _MODELSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\027bigquery.googleapis.com\322A\302\001https://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/bigquery.readonly,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-platform.read-only',
   create_key=_descriptor._internal_create_key,
-  serialized_start=7780,
-  serialized_end=8542,
+  serialized_start=12578,
+  serialized_end=13340,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetModel',

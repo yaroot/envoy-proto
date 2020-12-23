@@ -23,14 +23,14 @@ package vision
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
 	status "google.golang.org/genproto/googleapis/rpc/status"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -236,7 +236,7 @@ type ProductSet struct {
 	// never been indexed, this field is 0.
 	//
 	// This field is ignored when creating a ProductSet.
-	IndexTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=index_time,json=indexTime,proto3" json:"index_time,omitempty"`
+	IndexTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=index_time,json=indexTime,proto3" json:"index_time,omitempty"`
 	// Output only. If there was an error with indexing the product set, the field
 	// is populated.
 	//
@@ -290,7 +290,7 @@ func (x *ProductSet) GetDisplayName() string {
 	return ""
 }
 
-func (x *ProductSet) GetIndexTime() *timestamppb.Timestamp {
+func (x *ProductSet) GetIndexTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.IndexTime
 	}
@@ -655,7 +655,7 @@ type UpdateProductRequest struct {
 	// If update_mask isn't specified, all mutable fields are to be updated.
 	// Valid mask paths include `product_labels`, `display_name`, and
 	// `description`.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateProductRequest) Reset() {
@@ -697,7 +697,7 @@ func (x *UpdateProductRequest) GetProduct() *Product {
 	return nil
 }
 
-func (x *UpdateProductRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateProductRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1020,7 +1020,7 @@ type UpdateProductSetRequest struct {
 	// update.
 	// If update_mask isn't specified, all mutable fields are to be updated.
 	// Valid mask path is `display_name`.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateProductSetRequest) Reset() {
@@ -1062,7 +1062,7 @@ func (x *UpdateProductSetRequest) GetProductSet() *ProductSet {
 	return nil
 }
 
-func (x *UpdateProductSetRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateProductSetRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -2016,11 +2016,11 @@ type BatchOperationMetadata struct {
 	// The current state of the batch operation.
 	State BatchOperationMetadata_State `protobuf:"varint,1,opt,name=state,proto3,enum=google.cloud.vision.v1p3beta1.BatchOperationMetadata_State" json:"state,omitempty"`
 	// The time when the batch request was submitted to the server.
-	SubmitTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
+	SubmitTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=submit_time,json=submitTime,proto3" json:"submit_time,omitempty"`
 	// The time when the batch request is finished and
 	// [google.longrunning.Operation.done][google.longrunning.Operation.done] is
 	// set to true.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 }
 
 func (x *BatchOperationMetadata) Reset() {
@@ -2062,14 +2062,14 @@ func (x *BatchOperationMetadata) GetState() BatchOperationMetadata_State {
 	return BatchOperationMetadata_STATE_UNSPECIFIED
 }
 
-func (x *BatchOperationMetadata) GetSubmitTime() *timestamppb.Timestamp {
+func (x *BatchOperationMetadata) GetSubmitTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.SubmitTime
 	}
 	return nil
 }
 
-func (x *BatchOperationMetadata) GetEndTime() *timestamppb.Timestamp {
+func (x *BatchOperationMetadata) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -2776,11 +2776,11 @@ var file_google_cloud_vision_v1p3beta1_product_search_service_proto_goTypes = []
 	(*ImportProductSetsResponse)(nil),          // 28: google.cloud.vision.v1p3beta1.ImportProductSetsResponse
 	(*BatchOperationMetadata)(nil),             // 29: google.cloud.vision.v1p3beta1.BatchOperationMetadata
 	(*Product_KeyValue)(nil),                   // 30: google.cloud.vision.v1p3beta1.Product.KeyValue
-	(*timestamppb.Timestamp)(nil),              // 31: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),                // 31: google.protobuf.Timestamp
 	(*status.Status)(nil),                      // 32: google.rpc.Status
 	(*BoundingPoly)(nil),                       // 33: google.cloud.vision.v1p3beta1.BoundingPoly
-	(*fieldmaskpb.FieldMask)(nil),              // 34: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),                      // 35: google.protobuf.Empty
+	(*field_mask.FieldMask)(nil),               // 34: google.protobuf.FieldMask
+	(*empty.Empty)(nil),                        // 35: google.protobuf.Empty
 	(*longrunning.Operation)(nil),              // 36: google.longrunning.Operation
 }
 var file_google_cloud_vision_v1p3beta1_product_search_service_proto_depIdxs = []int32{

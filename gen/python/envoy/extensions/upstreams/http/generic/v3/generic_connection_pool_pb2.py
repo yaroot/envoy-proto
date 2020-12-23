@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='envoy/extensions/upstreams/http/generic/v3/generic_connection_pool.proto',
   package='envoy.extensions.upstreams.http.generic.v3',
   syntax='proto3',
-  serialized_options=b'\n8io.envoyproxy.envoy.extensions.upstreams.http.generic.v3B\032GenericConnectionPoolProtoP\001\272\200\310\321\006\002\020\002',
+  serialized_options=b'\n8io.envoyproxy.envoy.extensions.upstreams.http.generic.v3B$GenericConnectionPoolProtoOuterClassP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nHenvoy/extensions/upstreams/http/generic/v3/generic_connection_pool.proto\x12*envoy.extensions.upstreams.http.generic.v3\x1a\x1dudpa/annotations/status.proto\"\x1c\n\x1aGenericConnectionPoolProtoB`\n8io.envoyproxy.envoy.extensions.upstreams.http.generic.v3B\x1aGenericConnectionPoolProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\nHenvoy/extensions/upstreams/http/generic/v3/generic_connection_pool.proto\x12*envoy.extensions.upstreams.http.generic.v3\x1a\x1dudpa/annotations/status.proto\"\x1c\n\x1aGenericConnectionPoolProtoBj\n8io.envoyproxy.envoy.extensions.upstreams.http.generic.v3B$GenericConnectionPoolProtoOuterClassP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,])
 

@@ -9,9 +9,9 @@ package envoy_api_v2_core
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -37,13 +37,13 @@ type BackoffStrategy struct {
 	// The base interval to be used for the next back off computation. It should
 	// be greater than zero and less than or equal to :ref:`max_interval
 	// <envoy_api_field_core.BackoffStrategy.max_interval>`.
-	BaseInterval *durationpb.Duration `protobuf:"bytes,1,opt,name=base_interval,json=baseInterval,proto3" json:"base_interval,omitempty"`
+	BaseInterval *duration.Duration `protobuf:"bytes,1,opt,name=base_interval,json=baseInterval,proto3" json:"base_interval,omitempty"`
 	// Specifies the maximum interval between retries. This parameter is optional,
 	// but must be greater than or equal to the :ref:`base_interval
 	// <envoy_api_field_core.BackoffStrategy.base_interval>` if set. The default
 	// is 10 times the :ref:`base_interval
 	// <envoy_api_field_core.BackoffStrategy.base_interval>`.
-	MaxInterval *durationpb.Duration `protobuf:"bytes,2,opt,name=max_interval,json=maxInterval,proto3" json:"max_interval,omitempty"`
+	MaxInterval *duration.Duration `protobuf:"bytes,2,opt,name=max_interval,json=maxInterval,proto3" json:"max_interval,omitempty"`
 }
 
 func (x *BackoffStrategy) Reset() {
@@ -78,14 +78,14 @@ func (*BackoffStrategy) Descriptor() ([]byte, []int) {
 	return file_envoy_api_v2_core_backoff_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *BackoffStrategy) GetBaseInterval() *durationpb.Duration {
+func (x *BackoffStrategy) GetBaseInterval() *duration.Duration {
 	if x != nil {
 		return x.BaseInterval
 	}
 	return nil
 }
 
-func (x *BackoffStrategy) GetMaxInterval() *durationpb.Duration {
+func (x *BackoffStrategy) GetMaxInterval() *duration.Duration {
 	if x != nil {
 		return x.MaxInterval
 	}
@@ -139,8 +139,8 @@ func file_envoy_api_v2_core_backoff_proto_rawDescGZIP() []byte {
 
 var file_envoy_api_v2_core_backoff_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_envoy_api_v2_core_backoff_proto_goTypes = []interface{}{
-	(*BackoffStrategy)(nil),     // 0: envoy.api.v2.core.BackoffStrategy
-	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
+	(*BackoffStrategy)(nil),   // 0: envoy.api.v2.core.BackoffStrategy
+	(*duration.Duration)(nil), // 1: google.protobuf.Duration
 }
 var file_envoy_api_v2_core_backoff_proto_depIdxs = []int32{
 	1, // 0: envoy.api.v2.core.BackoffStrategy.base_interval:type_name -> google.protobuf.Duration

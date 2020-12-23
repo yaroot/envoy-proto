@@ -10,9 +10,9 @@ import (
 	v3 "envoy/config/core/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -103,7 +103,7 @@ func (x *FileAccessLog) GetFormat() string {
 }
 
 // Deprecated: Do not use.
-func (x *FileAccessLog) GetJsonFormat() *structpb.Struct {
+func (x *FileAccessLog) GetJsonFormat() *_struct.Struct {
 	if x, ok := x.GetAccessLogFormat().(*FileAccessLog_JsonFormat); ok {
 		return x.JsonFormat
 	}
@@ -111,7 +111,7 @@ func (x *FileAccessLog) GetJsonFormat() *structpb.Struct {
 }
 
 // Deprecated: Do not use.
-func (x *FileAccessLog) GetTypedJsonFormat() *structpb.Struct {
+func (x *FileAccessLog) GetTypedJsonFormat() *_struct.Struct {
 	if x, ok := x.GetAccessLogFormat().(*FileAccessLog_TypedJsonFormat); ok {
 		return x.TypedJsonFormat
 	}
@@ -147,7 +147,7 @@ type FileAccessLog_JsonFormat struct {
 	// Please use :ref:`log_format <envoy_v3_api_field_extensions.access_loggers.file.v3.FileAccessLog.log_format>`.
 	//
 	// Deprecated: Do not use.
-	JsonFormat *structpb.Struct `protobuf:"bytes,3,opt,name=json_format,json=jsonFormat,proto3,oneof"`
+	JsonFormat *_struct.Struct `protobuf:"bytes,3,opt,name=json_format,json=jsonFormat,proto3,oneof"`
 }
 
 type FileAccessLog_TypedJsonFormat struct {
@@ -159,7 +159,7 @@ type FileAccessLog_TypedJsonFormat struct {
 	// Please use :ref:`log_format <envoy_v3_api_field_extensions.access_loggers.file.v3.FileAccessLog.log_format>`.
 	//
 	// Deprecated: Do not use.
-	TypedJsonFormat *structpb.Struct `protobuf:"bytes,4,opt,name=typed_json_format,json=typedJsonFormat,proto3,oneof"`
+	TypedJsonFormat *_struct.Struct `protobuf:"bytes,4,opt,name=typed_json_format,json=typedJsonFormat,proto3,oneof"`
 }
 
 type FileAccessLog_LogFormat struct {
@@ -198,7 +198,7 @@ var file_envoy_extensions_access_loggers_file_v3_file_proto_rawDesc = []byte{
 	0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xf5, 0x02,
 	0x0a, 0x0d, 0x46, 0x69, 0x6c, 0x65, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x4c, 0x6f, 0x67, 0x12,
 	0x1b, 0x0a, 0x04, 0x70, 0x61, 0x74, 0x68, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x72, 0x02, 0x20, 0x01, 0x52, 0x04, 0x70, 0x61, 0x74, 0x68, 0x12, 0x1c, 0x0a, 0x06,
+	0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x04, 0x70, 0x61, 0x74, 0x68, 0x12, 0x1c, 0x0a, 0x06,
 	0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x42, 0x02, 0x18, 0x01,
 	0x48, 0x00, 0x52, 0x06, 0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x12, 0x3e, 0x0a, 0x0b, 0x6a, 0x73,
 	0x6f, 0x6e, 0x5f, 0x66, 0x6f, 0x72, 0x6d, 0x61, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32,
@@ -242,7 +242,7 @@ func file_envoy_extensions_access_loggers_file_v3_file_proto_rawDescGZIP() []byt
 var file_envoy_extensions_access_loggers_file_v3_file_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_envoy_extensions_access_loggers_file_v3_file_proto_goTypes = []interface{}{
 	(*FileAccessLog)(nil),               // 0: envoy.extensions.access_loggers.file.v3.FileAccessLog
-	(*structpb.Struct)(nil),             // 1: google.protobuf.Struct
+	(*_struct.Struct)(nil),              // 1: google.protobuf.Struct
 	(*v3.SubstitutionFormatString)(nil), // 2: envoy.config.core.v3.SubstitutionFormatString
 }
 var file_envoy_extensions_access_loggers_file_v3_file_proto_depIdxs = []int32{

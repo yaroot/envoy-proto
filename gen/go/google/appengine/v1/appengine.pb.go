@@ -22,12 +22,12 @@ package appengine
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -315,7 +315,7 @@ type UpdateApplicationRequest struct {
 	// An Application containing the updated resource.
 	Application *Application `protobuf:"bytes,2,opt,name=application,proto3" json:"application,omitempty"`
 	// Standard field mask for the set of fields to be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateApplicationRequest) Reset() {
@@ -364,7 +364,7 @@ func (x *UpdateApplicationRequest) GetApplication() *Application {
 	return nil
 }
 
-func (x *UpdateApplicationRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateApplicationRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -606,7 +606,7 @@ type UpdateServiceRequest struct {
 	// field mask will be updated.
 	Service *Service `protobuf:"bytes,2,opt,name=service,proto3" json:"service,omitempty"`
 	// Standard field mask for the set of fields to be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// Set to `true` to gradually shift traffic to one or more versions that you
 	// specify. By default, traffic is shifted immediately.
 	// For gradual traffic migration, the target versions
@@ -668,7 +668,7 @@ func (x *UpdateServiceRequest) GetService() *Service {
 	return nil
 }
 
-func (x *UpdateServiceRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateServiceRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -997,7 +997,7 @@ type UpdateVersionRequest struct {
 	// mask will be updated.
 	Version *Version `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
 	// Standard field mask for the set of fields to be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateVersionRequest) Reset() {
@@ -1046,7 +1046,7 @@ func (x *UpdateVersionRequest) GetVersion() *Version {
 	return nil
 }
 
-func (x *UpdateVersionRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateVersionRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1769,7 +1769,7 @@ type UpdateIngressRuleRequest struct {
 	// A FirewallRule containing the updated resource
 	Rule *FirewallRule `protobuf:"bytes,2,opt,name=rule,proto3" json:"rule,omitempty"`
 	// Standard field mask for the set of fields to be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateIngressRuleRequest) Reset() {
@@ -1818,7 +1818,7 @@ func (x *UpdateIngressRuleRequest) GetRule() *FirewallRule {
 	return nil
 }
 
-func (x *UpdateIngressRuleRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateIngressRuleRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -2265,7 +2265,7 @@ type UpdateAuthorizedCertificateRequest struct {
 	Certificate *AuthorizedCertificate `protobuf:"bytes,2,opt,name=certificate,proto3" json:"certificate,omitempty"`
 	// Standard field mask for the set of fields to be updated. Updates are only
 	// supported on the `certificate_raw_data` and `display_name` fields.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateAuthorizedCertificateRequest) Reset() {
@@ -2314,7 +2314,7 @@ func (x *UpdateAuthorizedCertificateRequest) GetCertificate() *AuthorizedCertifi
 	return nil
 }
 
-func (x *UpdateAuthorizedCertificateRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateAuthorizedCertificateRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -2627,7 +2627,7 @@ type UpdateDomainMappingRequest struct {
 	// in the field mask will be updated.
 	DomainMapping *DomainMapping `protobuf:"bytes,2,opt,name=domain_mapping,json=domainMapping,proto3" json:"domain_mapping,omitempty"`
 	// Standard field mask for the set of fields to be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateDomainMappingRequest) Reset() {
@@ -2676,7 +2676,7 @@ func (x *UpdateDomainMappingRequest) GetDomainMapping() *DomainMapping {
 	return nil
 }
 
-func (x *UpdateDomainMappingRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateDomainMappingRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -3612,7 +3612,7 @@ var file_google_appengine_v1_appengine_proto_goTypes = []interface{}{
 	(*UpdateDomainMappingRequest)(nil),         // 43: google.appengine.v1.UpdateDomainMappingRequest
 	(*DeleteDomainMappingRequest)(nil),         // 44: google.appengine.v1.DeleteDomainMappingRequest
 	(*Application)(nil),                        // 45: google.appengine.v1.Application
-	(*fieldmaskpb.FieldMask)(nil),              // 46: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),               // 46: google.protobuf.FieldMask
 	(*Service)(nil),                            // 47: google.appengine.v1.Service
 	(*Version)(nil),                            // 48: google.appengine.v1.Version
 	(*Instance)(nil),                           // 49: google.appengine.v1.Instance
@@ -3621,7 +3621,7 @@ var file_google_appengine_v1_appengine_proto_goTypes = []interface{}{
 	(*AuthorizedCertificate)(nil),              // 52: google.appengine.v1.AuthorizedCertificate
 	(*DomainMapping)(nil),                      // 53: google.appengine.v1.DomainMapping
 	(*longrunning.Operation)(nil),              // 54: google.longrunning.Operation
-	(*emptypb.Empty)(nil),                      // 55: google.protobuf.Empty
+	(*empty.Empty)(nil),                        // 55: google.protobuf.Empty
 }
 var file_google_appengine_v1_appengine_proto_depIdxs = []int32{
 	45, // 0: google.appengine.v1.CreateApplicationRequest.application:type_name -> google.appengine.v1.Application

@@ -8,11 +8,11 @@ package validate
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	descriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	descriptorpb "google.golang.org/protobuf/types/descriptorpb"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -2801,25 +2801,25 @@ type DurationRules struct {
 	// Required specifies that this field must be set
 	Required *bool `protobuf:"varint,1,opt,name=required" json:"required,omitempty"`
 	// Const specifies that this field must be exactly the specified value
-	Const *durationpb.Duration `protobuf:"bytes,2,opt,name=const" json:"const,omitempty"`
+	Const *duration.Duration `protobuf:"bytes,2,opt,name=const" json:"const,omitempty"`
 	// Lt specifies that this field must be less than the specified value,
 	// exclusive
-	Lt *durationpb.Duration `protobuf:"bytes,3,opt,name=lt" json:"lt,omitempty"`
+	Lt *duration.Duration `protobuf:"bytes,3,opt,name=lt" json:"lt,omitempty"`
 	// Lt specifies that this field must be less than the specified value,
 	// inclusive
-	Lte *durationpb.Duration `protobuf:"bytes,4,opt,name=lte" json:"lte,omitempty"`
+	Lte *duration.Duration `protobuf:"bytes,4,opt,name=lte" json:"lte,omitempty"`
 	// Gt specifies that this field must be greater than the specified value,
 	// exclusive
-	Gt *durationpb.Duration `protobuf:"bytes,5,opt,name=gt" json:"gt,omitempty"`
+	Gt *duration.Duration `protobuf:"bytes,5,opt,name=gt" json:"gt,omitempty"`
 	// Gte specifies that this field must be greater than the specified value,
 	// inclusive
-	Gte *durationpb.Duration `protobuf:"bytes,6,opt,name=gte" json:"gte,omitempty"`
+	Gte *duration.Duration `protobuf:"bytes,6,opt,name=gte" json:"gte,omitempty"`
 	// In specifies that this field must be equal to one of the specified
 	// values
-	In []*durationpb.Duration `protobuf:"bytes,7,rep,name=in" json:"in,omitempty"`
+	In []*duration.Duration `protobuf:"bytes,7,rep,name=in" json:"in,omitempty"`
 	// NotIn specifies that this field cannot be equal to one of the specified
 	// values
-	NotIn []*durationpb.Duration `protobuf:"bytes,8,rep,name=not_in,json=notIn" json:"not_in,omitempty"`
+	NotIn []*duration.Duration `protobuf:"bytes,8,rep,name=not_in,json=notIn" json:"not_in,omitempty"`
 }
 
 func (x *DurationRules) Reset() {
@@ -2861,49 +2861,49 @@ func (x *DurationRules) GetRequired() bool {
 	return false
 }
 
-func (x *DurationRules) GetConst() *durationpb.Duration {
+func (x *DurationRules) GetConst() *duration.Duration {
 	if x != nil {
 		return x.Const
 	}
 	return nil
 }
 
-func (x *DurationRules) GetLt() *durationpb.Duration {
+func (x *DurationRules) GetLt() *duration.Duration {
 	if x != nil {
 		return x.Lt
 	}
 	return nil
 }
 
-func (x *DurationRules) GetLte() *durationpb.Duration {
+func (x *DurationRules) GetLte() *duration.Duration {
 	if x != nil {
 		return x.Lte
 	}
 	return nil
 }
 
-func (x *DurationRules) GetGt() *durationpb.Duration {
+func (x *DurationRules) GetGt() *duration.Duration {
 	if x != nil {
 		return x.Gt
 	}
 	return nil
 }
 
-func (x *DurationRules) GetGte() *durationpb.Duration {
+func (x *DurationRules) GetGte() *duration.Duration {
 	if x != nil {
 		return x.Gte
 	}
 	return nil
 }
 
-func (x *DurationRules) GetIn() []*durationpb.Duration {
+func (x *DurationRules) GetIn() []*duration.Duration {
 	if x != nil {
 		return x.In
 	}
 	return nil
 }
 
-func (x *DurationRules) GetNotIn() []*durationpb.Duration {
+func (x *DurationRules) GetNotIn() []*duration.Duration {
 	if x != nil {
 		return x.NotIn
 	}
@@ -2920,19 +2920,19 @@ type TimestampRules struct {
 	// Required specifies that this field must be set
 	Required *bool `protobuf:"varint,1,opt,name=required" json:"required,omitempty"`
 	// Const specifies that this field must be exactly the specified value
-	Const *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=const" json:"const,omitempty"`
+	Const *timestamp.Timestamp `protobuf:"bytes,2,opt,name=const" json:"const,omitempty"`
 	// Lt specifies that this field must be less than the specified value,
 	// exclusive
-	Lt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=lt" json:"lt,omitempty"`
+	Lt *timestamp.Timestamp `protobuf:"bytes,3,opt,name=lt" json:"lt,omitempty"`
 	// Lte specifies that this field must be less than the specified value,
 	// inclusive
-	Lte *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=lte" json:"lte,omitempty"`
+	Lte *timestamp.Timestamp `protobuf:"bytes,4,opt,name=lte" json:"lte,omitempty"`
 	// Gt specifies that this field must be greater than the specified value,
 	// exclusive
-	Gt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=gt" json:"gt,omitempty"`
+	Gt *timestamp.Timestamp `protobuf:"bytes,5,opt,name=gt" json:"gt,omitempty"`
 	// Gte specifies that this field must be greater than the specified value,
 	// inclusive
-	Gte *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=gte" json:"gte,omitempty"`
+	Gte *timestamp.Timestamp `protobuf:"bytes,6,opt,name=gte" json:"gte,omitempty"`
 	// LtNow specifies that this must be less than the current time. LtNow
 	// can only be used with the Within rule.
 	LtNow *bool `protobuf:"varint,7,opt,name=lt_now,json=ltNow" json:"lt_now,omitempty"`
@@ -2942,7 +2942,7 @@ type TimestampRules struct {
 	// Within specifies that this field must be within this duration of the
 	// current time. This constraint can be used alone or with the LtNow and
 	// GtNow rules.
-	Within *durationpb.Duration `protobuf:"bytes,9,opt,name=within" json:"within,omitempty"`
+	Within *duration.Duration `protobuf:"bytes,9,opt,name=within" json:"within,omitempty"`
 }
 
 func (x *TimestampRules) Reset() {
@@ -2984,35 +2984,35 @@ func (x *TimestampRules) GetRequired() bool {
 	return false
 }
 
-func (x *TimestampRules) GetConst() *timestamppb.Timestamp {
+func (x *TimestampRules) GetConst() *timestamp.Timestamp {
 	if x != nil {
 		return x.Const
 	}
 	return nil
 }
 
-func (x *TimestampRules) GetLt() *timestamppb.Timestamp {
+func (x *TimestampRules) GetLt() *timestamp.Timestamp {
 	if x != nil {
 		return x.Lt
 	}
 	return nil
 }
 
-func (x *TimestampRules) GetLte() *timestamppb.Timestamp {
+func (x *TimestampRules) GetLte() *timestamp.Timestamp {
 	if x != nil {
 		return x.Lte
 	}
 	return nil
 }
 
-func (x *TimestampRules) GetGt() *timestamppb.Timestamp {
+func (x *TimestampRules) GetGt() *timestamp.Timestamp {
 	if x != nil {
 		return x.Gt
 	}
 	return nil
 }
 
-func (x *TimestampRules) GetGte() *timestamppb.Timestamp {
+func (x *TimestampRules) GetGte() *timestamp.Timestamp {
 	if x != nil {
 		return x.Gte
 	}
@@ -3033,7 +3033,7 @@ func (x *TimestampRules) GetGtNow() bool {
 	return false
 }
 
-func (x *TimestampRules) GetWithin() *durationpb.Duration {
+func (x *TimestampRules) GetWithin() *duration.Duration {
 	if x != nil {
 		return x.Within
 	}
@@ -3042,7 +3042,7 @@ func (x *TimestampRules) GetWithin() *durationpb.Duration {
 
 var file_validate_validate_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
-		ExtendedType:  (*descriptorpb.MessageOptions)(nil),
+		ExtendedType:  (*descriptor.MessageOptions)(nil),
 		ExtensionType: (*bool)(nil),
 		Field:         1071,
 		Name:          "validate.disabled",
@@ -3050,7 +3050,15 @@ var file_validate_validate_proto_extTypes = []protoimpl.ExtensionInfo{
 		Filename:      "validate/validate.proto",
 	},
 	{
-		ExtendedType:  (*descriptorpb.OneofOptions)(nil),
+		ExtendedType:  (*descriptor.MessageOptions)(nil),
+		ExtensionType: (*bool)(nil),
+		Field:         1072,
+		Name:          "validate.ignored",
+		Tag:           "varint,1072,opt,name=ignored",
+		Filename:      "validate/validate.proto",
+	},
+	{
+		ExtendedType:  (*descriptor.OneofOptions)(nil),
 		ExtensionType: (*bool)(nil),
 		Field:         1071,
 		Name:          "validate.required",
@@ -3058,7 +3066,7 @@ var file_validate_validate_proto_extTypes = []protoimpl.ExtensionInfo{
 		Filename:      "validate/validate.proto",
 	},
 	{
-		ExtendedType:  (*descriptorpb.FieldOptions)(nil),
+		ExtendedType:  (*descriptor.FieldOptions)(nil),
 		ExtensionType: (*FieldRules)(nil),
 		Field:         1071,
 		Name:          "validate.rules",
@@ -3067,31 +3075,35 @@ var file_validate_validate_proto_extTypes = []protoimpl.ExtensionInfo{
 	},
 }
 
-// Extension fields to descriptorpb.MessageOptions.
+// Extension fields to descriptor.MessageOptions.
 var (
 	// Disabled nullifies any validation rules for this message, including any
 	// message fields associated with it that do support validation.
 	//
 	// optional bool disabled = 1071;
 	E_Disabled = &file_validate_validate_proto_extTypes[0]
+	// Ignore skips generation of validation methods for this message.
+	//
+	// optional bool ignored = 1072;
+	E_Ignored = &file_validate_validate_proto_extTypes[1]
 )
 
-// Extension fields to descriptorpb.OneofOptions.
+// Extension fields to descriptor.OneofOptions.
 var (
 	// Required ensures that exactly one the field options in a oneof is set;
 	// validation fails if no fields in the oneof are set.
 	//
 	// optional bool required = 1071;
-	E_Required = &file_validate_validate_proto_extTypes[1]
+	E_Required = &file_validate_validate_proto_extTypes[2]
 )
 
-// Extension fields to descriptorpb.FieldOptions.
+// Extension fields to descriptor.FieldOptions.
 var (
 	// Rules specify the validations to be performed on this field. By default,
 	// no validation is performed against a field.
 	//
 	// optional validate.FieldRules rules = 1071;
-	E_Rules = &file_validate_validate_proto_extTypes[2]
+	E_Rules = &file_validate_validate_proto_extTypes[3]
 )
 
 var File_validate_validate_proto protoreflect.FileDescriptor
@@ -3439,21 +3451,24 @@ var file_validate_validate_proto_rawDesc = []byte{
 	0x69, 0x73, 0x61, 0x62, 0x6c, 0x65, 0x64, 0x12, 0x1f, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
 	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67,
 	0x65, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x18, 0xaf, 0x08, 0x20, 0x01, 0x28, 0x08, 0x52,
-	0x08, 0x64, 0x69, 0x73, 0x61, 0x62, 0x6c, 0x65, 0x64, 0x3a, 0x3a, 0x0a, 0x08, 0x72, 0x65, 0x71,
-	0x75, 0x69, 0x72, 0x65, 0x64, 0x12, 0x1d, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x4f, 0x6e, 0x65, 0x6f, 0x66, 0x4f, 0x70, 0x74,
-	0x69, 0x6f, 0x6e, 0x73, 0x18, 0xaf, 0x08, 0x20, 0x01, 0x28, 0x08, 0x52, 0x08, 0x72, 0x65, 0x71,
-	0x75, 0x69, 0x72, 0x65, 0x64, 0x3a, 0x4a, 0x0a, 0x05, 0x72, 0x75, 0x6c, 0x65, 0x73, 0x12, 0x1d,
-	0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66,
-	0x2e, 0x46, 0x69, 0x65, 0x6c, 0x64, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x18, 0xaf, 0x08,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x2e,
-	0x46, 0x69, 0x65, 0x6c, 0x64, 0x52, 0x75, 0x6c, 0x65, 0x73, 0x52, 0x05, 0x72, 0x75, 0x6c, 0x65,
-	0x73, 0x42, 0x50, 0x0a, 0x1a, 0x69, 0x6f, 0x2e, 0x65, 0x6e, 0x76, 0x6f, 0x79, 0x70, 0x72, 0x6f,
-	0x78, 0x79, 0x2e, 0x70, 0x67, 0x76, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x5a,
-	0x32, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x6e, 0x76, 0x6f,
-	0x79, 0x70, 0x72, 0x6f, 0x78, 0x79, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x2d, 0x67, 0x65,
-	0x6e, 0x2d, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64,
-	0x61, 0x74, 0x65,
+	0x08, 0x64, 0x69, 0x73, 0x61, 0x62, 0x6c, 0x65, 0x64, 0x3a, 0x3a, 0x0a, 0x07, 0x69, 0x67, 0x6e,
+	0x6f, 0x72, 0x65, 0x64, 0x12, 0x1f, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x4f, 0x70,
+	0x74, 0x69, 0x6f, 0x6e, 0x73, 0x18, 0xb0, 0x08, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x69, 0x67,
+	0x6e, 0x6f, 0x72, 0x65, 0x64, 0x3a, 0x3a, 0x0a, 0x08, 0x72, 0x65, 0x71, 0x75, 0x69, 0x72, 0x65,
+	0x64, 0x12, 0x1d, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x62, 0x75, 0x66, 0x2e, 0x4f, 0x6e, 0x65, 0x6f, 0x66, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73,
+	0x18, 0xaf, 0x08, 0x20, 0x01, 0x28, 0x08, 0x52, 0x08, 0x72, 0x65, 0x71, 0x75, 0x69, 0x72, 0x65,
+	0x64, 0x3a, 0x4a, 0x0a, 0x05, 0x72, 0x75, 0x6c, 0x65, 0x73, 0x12, 0x1d, 0x2e, 0x67, 0x6f, 0x6f,
+	0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x46, 0x69, 0x65,
+	0x6c, 0x64, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x18, 0xaf, 0x08, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x14, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x2e, 0x46, 0x69, 0x65, 0x6c,
+	0x64, 0x52, 0x75, 0x6c, 0x65, 0x73, 0x52, 0x05, 0x72, 0x75, 0x6c, 0x65, 0x73, 0x42, 0x50, 0x0a,
+	0x1a, 0x69, 0x6f, 0x2e, 0x65, 0x6e, 0x76, 0x6f, 0x79, 0x70, 0x72, 0x6f, 0x78, 0x79, 0x2e, 0x70,
+	0x67, 0x76, 0x2e, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x5a, 0x32, 0x67, 0x69, 0x74,
+	0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x6e, 0x76, 0x6f, 0x79, 0x70, 0x72, 0x6f,
+	0x78, 0x79, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x2d, 0x67, 0x65, 0x6e, 0x2d, 0x76, 0x61,
+	0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65,
 }
 
 var (
@@ -3471,35 +3486,35 @@ func file_validate_validate_proto_rawDescGZIP() []byte {
 var file_validate_validate_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_validate_validate_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
 var file_validate_validate_proto_goTypes = []interface{}{
-	(KnownRegex)(0),                     // 0: validate.KnownRegex
-	(*FieldRules)(nil),                  // 1: validate.FieldRules
-	(*FloatRules)(nil),                  // 2: validate.FloatRules
-	(*DoubleRules)(nil),                 // 3: validate.DoubleRules
-	(*Int32Rules)(nil),                  // 4: validate.Int32Rules
-	(*Int64Rules)(nil),                  // 5: validate.Int64Rules
-	(*UInt32Rules)(nil),                 // 6: validate.UInt32Rules
-	(*UInt64Rules)(nil),                 // 7: validate.UInt64Rules
-	(*SInt32Rules)(nil),                 // 8: validate.SInt32Rules
-	(*SInt64Rules)(nil),                 // 9: validate.SInt64Rules
-	(*Fixed32Rules)(nil),                // 10: validate.Fixed32Rules
-	(*Fixed64Rules)(nil),                // 11: validate.Fixed64Rules
-	(*SFixed32Rules)(nil),               // 12: validate.SFixed32Rules
-	(*SFixed64Rules)(nil),               // 13: validate.SFixed64Rules
-	(*BoolRules)(nil),                   // 14: validate.BoolRules
-	(*StringRules)(nil),                 // 15: validate.StringRules
-	(*BytesRules)(nil),                  // 16: validate.BytesRules
-	(*EnumRules)(nil),                   // 17: validate.EnumRules
-	(*MessageRules)(nil),                // 18: validate.MessageRules
-	(*RepeatedRules)(nil),               // 19: validate.RepeatedRules
-	(*MapRules)(nil),                    // 20: validate.MapRules
-	(*AnyRules)(nil),                    // 21: validate.AnyRules
-	(*DurationRules)(nil),               // 22: validate.DurationRules
-	(*TimestampRules)(nil),              // 23: validate.TimestampRules
-	(*durationpb.Duration)(nil),         // 24: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil),       // 25: google.protobuf.Timestamp
-	(*descriptorpb.MessageOptions)(nil), // 26: google.protobuf.MessageOptions
-	(*descriptorpb.OneofOptions)(nil),   // 27: google.protobuf.OneofOptions
-	(*descriptorpb.FieldOptions)(nil),   // 28: google.protobuf.FieldOptions
+	(KnownRegex)(0),                   // 0: validate.KnownRegex
+	(*FieldRules)(nil),                // 1: validate.FieldRules
+	(*FloatRules)(nil),                // 2: validate.FloatRules
+	(*DoubleRules)(nil),               // 3: validate.DoubleRules
+	(*Int32Rules)(nil),                // 4: validate.Int32Rules
+	(*Int64Rules)(nil),                // 5: validate.Int64Rules
+	(*UInt32Rules)(nil),               // 6: validate.UInt32Rules
+	(*UInt64Rules)(nil),               // 7: validate.UInt64Rules
+	(*SInt32Rules)(nil),               // 8: validate.SInt32Rules
+	(*SInt64Rules)(nil),               // 9: validate.SInt64Rules
+	(*Fixed32Rules)(nil),              // 10: validate.Fixed32Rules
+	(*Fixed64Rules)(nil),              // 11: validate.Fixed64Rules
+	(*SFixed32Rules)(nil),             // 12: validate.SFixed32Rules
+	(*SFixed64Rules)(nil),             // 13: validate.SFixed64Rules
+	(*BoolRules)(nil),                 // 14: validate.BoolRules
+	(*StringRules)(nil),               // 15: validate.StringRules
+	(*BytesRules)(nil),                // 16: validate.BytesRules
+	(*EnumRules)(nil),                 // 17: validate.EnumRules
+	(*MessageRules)(nil),              // 18: validate.MessageRules
+	(*RepeatedRules)(nil),             // 19: validate.RepeatedRules
+	(*MapRules)(nil),                  // 20: validate.MapRules
+	(*AnyRules)(nil),                  // 21: validate.AnyRules
+	(*DurationRules)(nil),             // 22: validate.DurationRules
+	(*TimestampRules)(nil),            // 23: validate.TimestampRules
+	(*duration.Duration)(nil),         // 24: google.protobuf.Duration
+	(*timestamp.Timestamp)(nil),       // 25: google.protobuf.Timestamp
+	(*descriptor.MessageOptions)(nil), // 26: google.protobuf.MessageOptions
+	(*descriptor.OneofOptions)(nil),   // 27: google.protobuf.OneofOptions
+	(*descriptor.FieldOptions)(nil),   // 28: google.protobuf.FieldOptions
 }
 var file_validate_validate_proto_depIdxs = []int32{
 	18, // 0: validate.FieldRules.message:type_name -> validate.MessageRules
@@ -3542,13 +3557,14 @@ var file_validate_validate_proto_depIdxs = []int32{
 	25, // 37: validate.TimestampRules.gte:type_name -> google.protobuf.Timestamp
 	24, // 38: validate.TimestampRules.within:type_name -> google.protobuf.Duration
 	26, // 39: validate.disabled:extendee -> google.protobuf.MessageOptions
-	27, // 40: validate.required:extendee -> google.protobuf.OneofOptions
-	28, // 41: validate.rules:extendee -> google.protobuf.FieldOptions
-	1,  // 42: validate.rules:type_name -> validate.FieldRules
-	43, // [43:43] is the sub-list for method output_type
-	43, // [43:43] is the sub-list for method input_type
-	42, // [42:43] is the sub-list for extension type_name
-	39, // [39:42] is the sub-list for extension extendee
+	26, // 40: validate.ignored:extendee -> google.protobuf.MessageOptions
+	27, // 41: validate.required:extendee -> google.protobuf.OneofOptions
+	28, // 42: validate.rules:extendee -> google.protobuf.FieldOptions
+	1,  // 43: validate.rules:type_name -> validate.FieldRules
+	44, // [44:44] is the sub-list for method output_type
+	44, // [44:44] is the sub-list for method input_type
+	43, // [43:44] is the sub-list for extension type_name
+	39, // [39:43] is the sub-list for extension extendee
 	0,  // [0:39] is the sub-list for field type_name
 }
 
@@ -3882,7 +3898,7 @@ func file_validate_validate_proto_init() {
 			RawDescriptor: file_validate_validate_proto_rawDesc,
 			NumEnums:      1,
 			NumMessages:   23,
-			NumExtensions: 3,
+			NumExtensions: 4,
 			NumServices:   0,
 		},
 		GoTypes:           file_validate_validate_proto_goTypes,

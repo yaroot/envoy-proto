@@ -22,12 +22,12 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	common "google.golang.org/genproto/googleapis/ads/googleads/v4/common"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v4/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -57,13 +57,13 @@ type UserInterest struct {
 	// Output only. Taxonomy type of the user interest.
 	TaxonomyType enums.UserInterestTaxonomyTypeEnum_UserInterestTaxonomyType `protobuf:"varint,2,opt,name=taxonomy_type,json=taxonomyType,proto3,enum=google.ads.googleads.v4.enums.UserInterestTaxonomyTypeEnum_UserInterestTaxonomyType" json:"taxonomy_type,omitempty"`
 	// Output only. The ID of the user interest.
-	UserInterestId *wrapperspb.Int64Value `protobuf:"bytes,3,opt,name=user_interest_id,json=userInterestId,proto3" json:"user_interest_id,omitempty"`
+	UserInterestId *wrappers.Int64Value `protobuf:"bytes,3,opt,name=user_interest_id,json=userInterestId,proto3" json:"user_interest_id,omitempty"`
 	// Output only. The name of the user interest.
-	Name *wrapperspb.StringValue `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	Name *wrappers.StringValue `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Output only. The parent of the user interest.
-	UserInterestParent *wrapperspb.StringValue `protobuf:"bytes,5,opt,name=user_interest_parent,json=userInterestParent,proto3" json:"user_interest_parent,omitempty"`
+	UserInterestParent *wrappers.StringValue `protobuf:"bytes,5,opt,name=user_interest_parent,json=userInterestParent,proto3" json:"user_interest_parent,omitempty"`
 	// Output only. True if the user interest is launched to all channels and locales.
-	LaunchedToAll *wrapperspb.BoolValue `protobuf:"bytes,6,opt,name=launched_to_all,json=launchedToAll,proto3" json:"launched_to_all,omitempty"`
+	LaunchedToAll *wrappers.BoolValue `protobuf:"bytes,6,opt,name=launched_to_all,json=launchedToAll,proto3" json:"launched_to_all,omitempty"`
 	// Output only. Availability information of the user interest.
 	Availabilities []*common.CriterionCategoryAvailability `protobuf:"bytes,7,rep,name=availabilities,proto3" json:"availabilities,omitempty"`
 }
@@ -114,28 +114,28 @@ func (x *UserInterest) GetTaxonomyType() enums.UserInterestTaxonomyTypeEnum_User
 	return enums.UserInterestTaxonomyTypeEnum_UNSPECIFIED
 }
 
-func (x *UserInterest) GetUserInterestId() *wrapperspb.Int64Value {
+func (x *UserInterest) GetUserInterestId() *wrappers.Int64Value {
 	if x != nil {
 		return x.UserInterestId
 	}
 	return nil
 }
 
-func (x *UserInterest) GetName() *wrapperspb.StringValue {
+func (x *UserInterest) GetName() *wrappers.StringValue {
 	if x != nil {
 		return x.Name
 	}
 	return nil
 }
 
-func (x *UserInterest) GetUserInterestParent() *wrapperspb.StringValue {
+func (x *UserInterest) GetUserInterestParent() *wrappers.StringValue {
 	if x != nil {
 		return x.UserInterestParent
 	}
 	return nil
 }
 
-func (x *UserInterest) GetLaunchedToAll() *wrapperspb.BoolValue {
+func (x *UserInterest) GetLaunchedToAll() *wrappers.BoolValue {
 	if x != nil {
 		return x.LaunchedToAll
 	}
@@ -256,9 +256,9 @@ var file_google_ads_googleads_v4_resources_user_interest_proto_msgTypes = make([
 var file_google_ads_googleads_v4_resources_user_interest_proto_goTypes = []interface{}{
 	(*UserInterest)(nil), // 0: google.ads.googleads.v4.resources.UserInterest
 	(enums.UserInterestTaxonomyTypeEnum_UserInterestTaxonomyType)(0), // 1: google.ads.googleads.v4.enums.UserInterestTaxonomyTypeEnum.UserInterestTaxonomyType
-	(*wrapperspb.Int64Value)(nil),                                    // 2: google.protobuf.Int64Value
-	(*wrapperspb.StringValue)(nil),                                   // 3: google.protobuf.StringValue
-	(*wrapperspb.BoolValue)(nil),                                     // 4: google.protobuf.BoolValue
+	(*wrappers.Int64Value)(nil),                                      // 2: google.protobuf.Int64Value
+	(*wrappers.StringValue)(nil),                                     // 3: google.protobuf.StringValue
+	(*wrappers.BoolValue)(nil),                                       // 4: google.protobuf.BoolValue
 	(*common.CriterionCategoryAvailability)(nil),                     // 5: google.ads.googleads.v4.common.CriterionCategoryAvailability
 }
 var file_google_ads_googleads_v4_resources_user_interest_proto_depIdxs = []int32{

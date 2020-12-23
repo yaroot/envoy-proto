@@ -22,11 +22,11 @@ package monitoring
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	monitoredres "google.golang.org/genproto/googleapis/api/monitoredres"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -881,7 +881,7 @@ var file_google_monitoring_v3_group_service_proto_goTypes = []interface{}{
 	(*Group)(nil),                          // 8: google.monitoring.v3.Group
 	(*TimeInterval)(nil),                   // 9: google.monitoring.v3.TimeInterval
 	(*monitoredres.MonitoredResource)(nil), // 10: google.api.MonitoredResource
-	(*emptypb.Empty)(nil),                  // 11: google.protobuf.Empty
+	(*empty.Empty)(nil),                    // 11: google.protobuf.Empty
 }
 var file_google_monitoring_v3_group_service_proto_depIdxs = []int32{
 	8,  // 0: google.monitoring.v3.ListGroupsResponse.group:type_name -> google.monitoring.v3.Group

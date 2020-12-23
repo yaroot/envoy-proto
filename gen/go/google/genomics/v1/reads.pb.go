@@ -22,12 +22,12 @@ package genomics
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -483,7 +483,7 @@ type UpdateReadGroupSetRequest struct {
 	//
 	// Leaving `updateMask` unset is equivalent to specifying all mutable
 	// fields.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateReadGroupSetRequest) Reset() {
@@ -532,7 +532,7 @@ func (x *UpdateReadGroupSetRequest) GetReadGroupSet() *ReadGroupSet {
 	return nil
 }
 
-func (x *UpdateReadGroupSetRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateReadGroupSetRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1540,11 +1540,11 @@ var file_google_genomics_v1_reads_proto_goTypes = []interface{}{
 	(*StreamReadsRequest)(nil),                        // 14: google.genomics.v1.StreamReadsRequest
 	(*StreamReadsResponse)(nil),                       // 15: google.genomics.v1.StreamReadsResponse
 	(*ReadGroupSet)(nil),                              // 16: google.genomics.v1.ReadGroupSet
-	(*fieldmaskpb.FieldMask)(nil),                     // 17: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),                      // 17: google.protobuf.FieldMask
 	(*Range)(nil),                                     // 18: google.genomics.v1.Range
 	(*Read)(nil),                                      // 19: google.genomics.v1.Read
 	(*longrunning.Operation)(nil),                     // 20: google.longrunning.Operation
-	(*emptypb.Empty)(nil),                             // 21: google.protobuf.Empty
+	(*empty.Empty)(nil),                               // 21: google.protobuf.Empty
 }
 var file_google_genomics_v1_reads_proto_depIdxs = []int32{
 	16, // 0: google.genomics.v1.SearchReadGroupSetsResponse.read_group_sets:type_name -> google.genomics.v1.ReadGroupSet

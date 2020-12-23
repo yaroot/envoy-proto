@@ -22,9 +22,9 @@ package pubsub
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -1692,7 +1692,7 @@ var file_google_pubsub_v1beta2_pubsub_proto_goTypes = []interface{}{
 	(*AcknowledgeRequest)(nil),             // 21: google.pubsub.v1beta2.AcknowledgeRequest
 	nil,                                    // 22: google.pubsub.v1beta2.PubsubMessage.AttributesEntry
 	nil,                                    // 23: google.pubsub.v1beta2.PushConfig.AttributesEntry
-	(*emptypb.Empty)(nil),                  // 24: google.protobuf.Empty
+	(*empty.Empty)(nil),                    // 24: google.protobuf.Empty
 }
 var file_google_pubsub_v1beta2_pubsub_proto_depIdxs = []int32{
 	22, // 0: google.pubsub.v1beta2.PubsubMessage.attributes:type_name -> google.pubsub.v1beta2.PubsubMessage.AttributesEntry

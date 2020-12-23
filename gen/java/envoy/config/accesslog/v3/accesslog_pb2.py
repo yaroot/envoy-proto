@@ -13,9 +13,11 @@ _sym_db = _symbol_database.Default()
 
 from envoy.config.core.v3 import base_pb2 as envoy_dot_config_dot_core_dot_v3_dot_base__pb2
 from envoy.config.route.v3 import route_components_pb2 as envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2
+from envoy.type.matcher.v3 import metadata_pb2 as envoy_dot_type_dot_matcher_dot_v3_dot_metadata__pb2
 from envoy.type.v3 import percent_pb2 as envoy_dot_type_dot_v3_dot_percent__pb2
 from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from udpa.annotations import versioning_pb2 as udpa_dot_annotations_dot_versioning__pb2
 from validate import validate_pb2 as validate_dot_validate__pb2
@@ -27,9 +29,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\'io.envoyproxy.envoy.config.accesslog.v3B\016AccesslogProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)envoy/config/accesslog/v3/accesslog.proto\x12\x19\x65nvoy.config.accesslog.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a,envoy/config/route/v3/route_components.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x19google/protobuf/any.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xd3\x01\n\tAccessLog\x12\x0c\n\x04name\x18\x01 \x01(\t\x12:\n\x06\x66ilter\x18\x02 \x01(\x0b\x32*.envoy.config.accesslog.v3.AccessLogFilter\x12,\n\x0ctyped_config\x18\x04 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:1\x9a\xc5\x88\x1e,\n*envoy.config.filter.accesslog.v2.AccessLogB\r\n\x0b\x63onfig_typeJ\x04\x08\x03\x10\x04R\x06\x63onfig\"\xee\x06\n\x0f\x41\x63\x63\x65ssLogFilter\x12I\n\x12status_code_filter\x18\x01 \x01(\x0b\x32+.envoy.config.accesslog.v3.StatusCodeFilterH\x00\x12\x44\n\x0f\x64uration_filter\x18\x02 \x01(\x0b\x32).envoy.config.accesslog.v3.DurationFilterH\x00\x12R\n\x17not_health_check_filter\x18\x03 \x01(\x0b\x32/.envoy.config.accesslog.v3.NotHealthCheckFilterH\x00\x12\x46\n\x10traceable_filter\x18\x04 \x01(\x0b\x32*.envoy.config.accesslog.v3.TraceableFilterH\x00\x12\x42\n\x0eruntime_filter\x18\x05 \x01(\x0b\x32(.envoy.config.accesslog.v3.RuntimeFilterH\x00\x12:\n\nand_filter\x18\x06 \x01(\x0b\x32$.envoy.config.accesslog.v3.AndFilterH\x00\x12\x38\n\tor_filter\x18\x07 \x01(\x0b\x32#.envoy.config.accesslog.v3.OrFilterH\x00\x12@\n\rheader_filter\x18\x08 \x01(\x0b\x32\'.envoy.config.accesslog.v3.HeaderFilterH\x00\x12M\n\x14response_flag_filter\x18\t \x01(\x0b\x32-.envoy.config.accesslog.v3.ResponseFlagFilterH\x00\x12I\n\x12grpc_status_filter\x18\n \x01(\x0b\x32+.envoy.config.accesslog.v3.GrpcStatusFilterH\x00\x12\x46\n\x10\x65xtension_filter\x18\x0b \x01(\x0b\x32*.envoy.config.accesslog.v3.ExtensionFilterH\x00:7\x9a\xc5\x88\x1e\x32\n0envoy.config.filter.accesslog.v2.AccessLogFilterB\x17\n\x10\x66ilter_specifier\x12\x03\xf8\x42\x01\"\xe4\x01\n\x10\x43omparisonFilter\x12\x44\n\x02op\x18\x01 \x01(\x0e\x32..envoy.config.accesslog.v3.ComparisonFilter.OpB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x32\n\x05value\x18\x02 \x01(\x0b\x32#.envoy.config.core.v3.RuntimeUInt32\"\x1c\n\x02Op\x12\x06\n\x02\x45Q\x10\x00\x12\x06\n\x02GE\x10\x01\x12\x06\n\x02LE\x10\x02:8\x9a\xc5\x88\x1e\x33\n1envoy.config.filter.accesslog.v2.ComparisonFilter\"\x97\x01\n\x10StatusCodeFilter\x12I\n\ncomparison\x18\x01 \x01(\x0b\x32+.envoy.config.accesslog.v3.ComparisonFilterB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:8\x9a\xc5\x88\x1e\x33\n1envoy.config.filter.accesslog.v2.StatusCodeFilter\"\x93\x01\n\x0e\x44urationFilter\x12I\n\ncomparison\x18\x01 \x01(\x0b\x32+.envoy.config.accesslog.v3.ComparisonFilterB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:6\x9a\xc5\x88\x1e\x31\n/envoy.config.filter.accesslog.v2.DurationFilter\"T\n\x14NotHealthCheckFilter:<\x9a\xc5\x88\x1e\x37\n5envoy.config.filter.accesslog.v2.NotHealthCheckFilter\"J\n\x0fTraceableFilter:7\x9a\xc5\x88\x1e\x32\n0envoy.config.filter.accesslog.v2.TraceableFilter\"\xc3\x01\n\rRuntimeFilter\x12\x1c\n\x0bruntime_key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x39\n\x0fpercent_sampled\x18\x02 \x01(\x0b\x32 .envoy.type.v3.FractionalPercent\x12\"\n\x1ause_independent_randomness\x18\x03 \x01(\x08:5\x9a\xc5\x88\x1e\x30\n.envoy.config.filter.accesslog.v2.RuntimeFilter\"\x85\x01\n\tAndFilter\x12\x45\n\x07\x66ilters\x18\x01 \x03(\x0b\x32*.envoy.config.accesslog.v3.AccessLogFilterB\x08\xfa\x42\x05\x92\x01\x02\x08\x02:1\x9a\xc5\x88\x1e,\n*envoy.config.filter.accesslog.v2.AndFilter\"\x83\x01\n\x08OrFilter\x12\x45\n\x07\x66ilters\x18\x02 \x03(\x0b\x32*.envoy.config.accesslog.v3.AccessLogFilterB\x08\xfa\x42\x05\x92\x01\x02\x08\x02:0\x9a\xc5\x88\x1e+\n)envoy.config.filter.accesslog.v2.OrFilter\"\x84\x01\n\x0cHeaderFilter\x12>\n\x06header\x18\x01 \x01(\x0b\x32$.envoy.config.route.v3.HeaderMatcherB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:4\x9a\xc5\x88\x1e/\n-envoy.config.filter.accesslog.v2.HeaderFilter\"\xca\x01\n\x12ResponseFlagFilter\x12x\n\x05\x66lags\x18\x01 \x03(\tBi\xfa\x42\x66\x92\x01\x63\"ar_R\x02LHR\x02UHR\x02UTR\x02LRR\x02URR\x02UFR\x02UCR\x02UOR\x02NRR\x02\x44IR\x02\x46IR\x02RLR\x04UAEXR\x04RLSER\x02\x44\x43R\x03URXR\x02SIR\x02IHR\x03\x44PER\x05UMSDRR\x04RFCF::\x9a\xc5\x88\x1e\x35\n3envoy.config.filter.accesslog.v2.ResponseFlagFilter\"\xed\x03\n\x10GrpcStatusFilter\x12S\n\x08statuses\x18\x01 \x03(\x0e\x32\x32.envoy.config.accesslog.v3.GrpcStatusFilter.StatusB\r\xfa\x42\n\x92\x01\x07\"\x05\x82\x01\x02\x10\x01\x12\x0f\n\x07\x65xclude\x18\x02 \x01(\x08\"\xb8\x02\n\x06Status\x12\x06\n\x02OK\x10\x00\x12\x0c\n\x08\x43\x41NCELED\x10\x01\x12\x0b\n\x07UNKNOWN\x10\x02\x12\x14\n\x10INVALID_ARGUMENT\x10\x03\x12\x15\n\x11\x44\x45\x41\x44LINE_EXCEEDED\x10\x04\x12\r\n\tNOT_FOUND\x10\x05\x12\x12\n\x0e\x41LREADY_EXISTS\x10\x06\x12\x15\n\x11PERMISSION_DENIED\x10\x07\x12\x16\n\x12RESOURCE_EXHAUSTED\x10\x08\x12\x17\n\x13\x46\x41ILED_PRECONDITION\x10\t\x12\x0b\n\x07\x41\x42ORTED\x10\n\x12\x10\n\x0cOUT_OF_RANGE\x10\x0b\x12\x11\n\rUNIMPLEMENTED\x10\x0c\x12\x0c\n\x08INTERNAL\x10\r\x12\x0f\n\x0bUNAVAILABLE\x10\x0e\x12\r\n\tDATA_LOSS\x10\x0f\x12\x13\n\x0fUNAUTHENTICATED\x10\x10:8\x9a\xc5\x88\x1e\x33\n1envoy.config.filter.accesslog.v2.GrpcStatusFilter\"\xa3\x01\n\x0f\x45xtensionFilter\x12\x0c\n\x04name\x18\x01 \x01(\t\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:7\x9a\xc5\x88\x1e\x32\n0envoy.config.filter.accesslog.v2.ExtensionFilterB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfigBC\n\'io.envoyproxy.envoy.config.accesslog.v3B\x0e\x41\x63\x63\x65sslogProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n)envoy/config/accesslog/v3/accesslog.proto\x12\x19\x65nvoy.config.accesslog.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a,envoy/config/route/v3/route_components.proto\x1a$envoy/type/matcher/v3/metadata.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x19google/protobuf/any.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xd3\x01\n\tAccessLog\x12\x0c\n\x04name\x18\x01 \x01(\t\x12:\n\x06\x66ilter\x18\x02 \x01(\x0b\x32*.envoy.config.accesslog.v3.AccessLogFilter\x12,\n\x0ctyped_config\x18\x04 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:1\x9a\xc5\x88\x1e,\n*envoy.config.filter.accesslog.v2.AccessLogB\r\n\x0b\x63onfig_typeJ\x04\x08\x03\x10\x04R\x06\x63onfig\"\xb4\x07\n\x0f\x41\x63\x63\x65ssLogFilter\x12I\n\x12status_code_filter\x18\x01 \x01(\x0b\x32+.envoy.config.accesslog.v3.StatusCodeFilterH\x00\x12\x44\n\x0f\x64uration_filter\x18\x02 \x01(\x0b\x32).envoy.config.accesslog.v3.DurationFilterH\x00\x12R\n\x17not_health_check_filter\x18\x03 \x01(\x0b\x32/.envoy.config.accesslog.v3.NotHealthCheckFilterH\x00\x12\x46\n\x10traceable_filter\x18\x04 \x01(\x0b\x32*.envoy.config.accesslog.v3.TraceableFilterH\x00\x12\x42\n\x0eruntime_filter\x18\x05 \x01(\x0b\x32(.envoy.config.accesslog.v3.RuntimeFilterH\x00\x12:\n\nand_filter\x18\x06 \x01(\x0b\x32$.envoy.config.accesslog.v3.AndFilterH\x00\x12\x38\n\tor_filter\x18\x07 \x01(\x0b\x32#.envoy.config.accesslog.v3.OrFilterH\x00\x12@\n\rheader_filter\x18\x08 \x01(\x0b\x32\'.envoy.config.accesslog.v3.HeaderFilterH\x00\x12M\n\x14response_flag_filter\x18\t \x01(\x0b\x32-.envoy.config.accesslog.v3.ResponseFlagFilterH\x00\x12I\n\x12grpc_status_filter\x18\n \x01(\x0b\x32+.envoy.config.accesslog.v3.GrpcStatusFilterH\x00\x12\x46\n\x10\x65xtension_filter\x18\x0b \x01(\x0b\x32*.envoy.config.accesslog.v3.ExtensionFilterH\x00\x12\x44\n\x0fmetadata_filter\x18\x0c \x01(\x0b\x32).envoy.config.accesslog.v3.MetadataFilterH\x00:7\x9a\xc5\x88\x1e\x32\n0envoy.config.filter.accesslog.v2.AccessLogFilterB\x17\n\x10\x66ilter_specifier\x12\x03\xf8\x42\x01\"\xe4\x01\n\x10\x43omparisonFilter\x12\x44\n\x02op\x18\x01 \x01(\x0e\x32..envoy.config.accesslog.v3.ComparisonFilter.OpB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x32\n\x05value\x18\x02 \x01(\x0b\x32#.envoy.config.core.v3.RuntimeUInt32\"\x1c\n\x02Op\x12\x06\n\x02\x45Q\x10\x00\x12\x06\n\x02GE\x10\x01\x12\x06\n\x02LE\x10\x02:8\x9a\xc5\x88\x1e\x33\n1envoy.config.filter.accesslog.v2.ComparisonFilter\"\x97\x01\n\x10StatusCodeFilter\x12I\n\ncomparison\x18\x01 \x01(\x0b\x32+.envoy.config.accesslog.v3.ComparisonFilterB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:8\x9a\xc5\x88\x1e\x33\n1envoy.config.filter.accesslog.v2.StatusCodeFilter\"\x93\x01\n\x0e\x44urationFilter\x12I\n\ncomparison\x18\x01 \x01(\x0b\x32+.envoy.config.accesslog.v3.ComparisonFilterB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:6\x9a\xc5\x88\x1e\x31\n/envoy.config.filter.accesslog.v2.DurationFilter\"T\n\x14NotHealthCheckFilter:<\x9a\xc5\x88\x1e\x37\n5envoy.config.filter.accesslog.v2.NotHealthCheckFilter\"J\n\x0fTraceableFilter:7\x9a\xc5\x88\x1e\x32\n0envoy.config.filter.accesslog.v2.TraceableFilter\"\xc3\x01\n\rRuntimeFilter\x12\x1c\n\x0bruntime_key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x39\n\x0fpercent_sampled\x18\x02 \x01(\x0b\x32 .envoy.type.v3.FractionalPercent\x12\"\n\x1ause_independent_randomness\x18\x03 \x01(\x08:5\x9a\xc5\x88\x1e\x30\n.envoy.config.filter.accesslog.v2.RuntimeFilter\"\x85\x01\n\tAndFilter\x12\x45\n\x07\x66ilters\x18\x01 \x03(\x0b\x32*.envoy.config.accesslog.v3.AccessLogFilterB\x08\xfa\x42\x05\x92\x01\x02\x08\x02:1\x9a\xc5\x88\x1e,\n*envoy.config.filter.accesslog.v2.AndFilter\"\x83\x01\n\x08OrFilter\x12\x45\n\x07\x66ilters\x18\x02 \x03(\x0b\x32*.envoy.config.accesslog.v3.AccessLogFilterB\x08\xfa\x42\x05\x92\x01\x02\x08\x02:0\x9a\xc5\x88\x1e+\n)envoy.config.filter.accesslog.v2.OrFilter\"\x84\x01\n\x0cHeaderFilter\x12>\n\x06header\x18\x01 \x01(\x0b\x32$.envoy.config.route.v3.HeaderMatcherB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:4\x9a\xc5\x88\x1e/\n-envoy.config.filter.accesslog.v2.HeaderFilter\"\xd5\x01\n\x12ResponseFlagFilter\x12\x82\x01\n\x05\x66lags\x18\x01 \x03(\tBs\xfa\x42p\x92\x01m\"kriR\x02LHR\x02UHR\x02UTR\x02LRR\x02URR\x02UFR\x02UCR\x02UOR\x02NRR\x02\x44IR\x02\x46IR\x02RLR\x04UAEXR\x04RLSER\x02\x44\x43R\x03URXR\x02SIR\x02IHR\x03\x44PER\x05UMSDRR\x04RFCFR\x04NFCFR\x02\x44T::\x9a\xc5\x88\x1e\x35\n3envoy.config.filter.accesslog.v2.ResponseFlagFilter\"\xed\x03\n\x10GrpcStatusFilter\x12S\n\x08statuses\x18\x01 \x03(\x0e\x32\x32.envoy.config.accesslog.v3.GrpcStatusFilter.StatusB\r\xfa\x42\n\x92\x01\x07\"\x05\x82\x01\x02\x10\x01\x12\x0f\n\x07\x65xclude\x18\x02 \x01(\x08\"\xb8\x02\n\x06Status\x12\x06\n\x02OK\x10\x00\x12\x0c\n\x08\x43\x41NCELED\x10\x01\x12\x0b\n\x07UNKNOWN\x10\x02\x12\x14\n\x10INVALID_ARGUMENT\x10\x03\x12\x15\n\x11\x44\x45\x41\x44LINE_EXCEEDED\x10\x04\x12\r\n\tNOT_FOUND\x10\x05\x12\x12\n\x0e\x41LREADY_EXISTS\x10\x06\x12\x15\n\x11PERMISSION_DENIED\x10\x07\x12\x16\n\x12RESOURCE_EXHAUSTED\x10\x08\x12\x17\n\x13\x46\x41ILED_PRECONDITION\x10\t\x12\x0b\n\x07\x41\x42ORTED\x10\n\x12\x10\n\x0cOUT_OF_RANGE\x10\x0b\x12\x11\n\rUNIMPLEMENTED\x10\x0c\x12\x0c\n\x08INTERNAL\x10\r\x12\x0f\n\x0bUNAVAILABLE\x10\x0e\x12\r\n\tDATA_LOSS\x10\x0f\x12\x13\n\x0fUNAUTHENTICATED\x10\x10:8\x9a\xc5\x88\x1e\x33\n1envoy.config.filter.accesslog.v2.GrpcStatusFilter\"\xbd\x01\n\x0eMetadataFilter\x12\x37\n\x07matcher\x18\x01 \x01(\x0b\x32&.envoy.type.matcher.v3.MetadataMatcher\x12:\n\x16match_if_key_not_found\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:6\x9a\xc5\x88\x1e\x31\n/envoy.config.filter.accesslog.v2.MetadataFilter\"\xa3\x01\n\x0f\x45xtensionFilter\x12\x0c\n\x04name\x18\x01 \x01(\t\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:7\x9a\xc5\x88\x1e\x32\n0envoy.config.filter.accesslog.v2.ExtensionFilterB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfigBC\n\'io.envoyproxy.envoy.config.accesslog.v3B\x0e\x41\x63\x63\x65sslogProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v3_dot_metadata__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -58,8 +60,8 @@ _COMPARISONFILTER_OP = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1566,
-  serialized_end=1594,
+  serialized_start=1706,
+  serialized_end=1734,
 )
 _sym_db.RegisterEnumDescriptor(_COMPARISONFILTER_OP)
 
@@ -158,8 +160,8 @@ _GRPCSTATUSFILTER_STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3052,
-  serialized_end=3364,
+  serialized_start=3203,
+  serialized_end=3515,
 )
 _sym_db.RegisterEnumDescriptor(_GRPCSTATUSFILTER_STATUS)
 
@@ -210,8 +212,8 @@ _ACCESSLOG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=329,
-  serialized_end=540,
+  serialized_start=399,
+  serialized_end=610,
 )
 
 
@@ -300,6 +302,13 @@ _ACCESSLOGFILTER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='metadata_filter', full_name='envoy.config.accesslog.v3.AccessLogFilter.metadata_filter', index=11,
+      number=12, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -317,8 +326,8 @@ _ACCESSLOGFILTER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=543,
-  serialized_end=1421,
+  serialized_start=613,
+  serialized_end=1561,
 )
 
 
@@ -357,8 +366,8 @@ _COMPARISONFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1424,
-  serialized_end=1652,
+  serialized_start=1564,
+  serialized_end=1792,
 )
 
 
@@ -389,8 +398,8 @@ _STATUSCODEFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1655,
-  serialized_end=1806,
+  serialized_start=1795,
+  serialized_end=1946,
 )
 
 
@@ -421,8 +430,8 @@ _DURATIONFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1809,
-  serialized_end=1956,
+  serialized_start=1949,
+  serialized_end=2096,
 )
 
 
@@ -446,8 +455,8 @@ _NOTHEALTHCHECKFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1958,
-  serialized_end=2042,
+  serialized_start=2098,
+  serialized_end=2182,
 )
 
 
@@ -471,8 +480,8 @@ _TRACEABLEFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2044,
-  serialized_end=2118,
+  serialized_start=2184,
+  serialized_end=2258,
 )
 
 
@@ -490,7 +499,7 @@ _RUNTIMEFILTER = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='percent_sampled', full_name='envoy.config.accesslog.v3.RuntimeFilter.percent_sampled', index=1,
       number=2, type=11, cpp_type=10, label=1,
@@ -517,8 +526,8 @@ _RUNTIMEFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2121,
-  serialized_end=2316,
+  serialized_start=2261,
+  serialized_end=2456,
 )
 
 
@@ -549,8 +558,8 @@ _ANDFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2319,
-  serialized_end=2452,
+  serialized_start=2459,
+  serialized_end=2592,
 )
 
 
@@ -581,8 +590,8 @@ _ORFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2455,
-  serialized_end=2586,
+  serialized_start=2595,
+  serialized_end=2726,
 )
 
 
@@ -613,8 +622,8 @@ _HEADERFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2589,
-  serialized_end=2721,
+  serialized_start=2729,
+  serialized_end=2861,
 )
 
 
@@ -632,7 +641,7 @@ _RESPONSEFLAGFILTER = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372Bf\222\001c\"ar_R\002LHR\002UHR\002UTR\002LRR\002URR\002UFR\002UCR\002UOR\002NRR\002DIR\002FIR\002RLR\004UAEXR\004RLSER\002DCR\003URXR\002SIR\002IHR\003DPER\005UMSDRR\004RFCF', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372Bp\222\001m\"kriR\002LHR\002UHR\002UTR\002LRR\002URR\002UFR\002UCR\002UOR\002NRR\002DIR\002FIR\002RLR\004UAEXR\004RLSER\002DCR\003URXR\002SIR\002IHR\003DPER\005UMSDRR\004RFCFR\004NFCFR\002DT', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -645,8 +654,8 @@ _RESPONSEFLAGFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2724,
-  serialized_end=2926,
+  serialized_start=2864,
+  serialized_end=3077,
 )
 
 
@@ -685,8 +694,47 @@ _GRPCSTATUSFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2929,
-  serialized_end=3422,
+  serialized_start=3080,
+  serialized_end=3573,
+)
+
+
+_METADATAFILTER = _descriptor.Descriptor(
+  name='MetadataFilter',
+  full_name='envoy.config.accesslog.v3.MetadataFilter',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='matcher', full_name='envoy.config.accesslog.v3.MetadataFilter.matcher', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='match_if_key_not_found', full_name='envoy.config.accesslog.v3.MetadataFilter.match_if_key_not_found', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\232\305\210\0361\n/envoy.config.filter.accesslog.v2.MetadataFilter',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3576,
+  serialized_end=3765,
 )
 
 
@@ -729,8 +777,8 @@ _EXTENSIONFILTER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3425,
-  serialized_end=3588,
+  serialized_start=3768,
+  serialized_end=3931,
 )
 
 _ACCESSLOG.fields_by_name['filter'].message_type = _ACCESSLOGFILTER
@@ -749,6 +797,7 @@ _ACCESSLOGFILTER.fields_by_name['header_filter'].message_type = _HEADERFILTER
 _ACCESSLOGFILTER.fields_by_name['response_flag_filter'].message_type = _RESPONSEFLAGFILTER
 _ACCESSLOGFILTER.fields_by_name['grpc_status_filter'].message_type = _GRPCSTATUSFILTER
 _ACCESSLOGFILTER.fields_by_name['extension_filter'].message_type = _EXTENSIONFILTER
+_ACCESSLOGFILTER.fields_by_name['metadata_filter'].message_type = _METADATAFILTER
 _ACCESSLOGFILTER.oneofs_by_name['filter_specifier'].fields.append(
   _ACCESSLOGFILTER.fields_by_name['status_code_filter'])
 _ACCESSLOGFILTER.fields_by_name['status_code_filter'].containing_oneof = _ACCESSLOGFILTER.oneofs_by_name['filter_specifier']
@@ -782,6 +831,9 @@ _ACCESSLOGFILTER.fields_by_name['grpc_status_filter'].containing_oneof = _ACCESS
 _ACCESSLOGFILTER.oneofs_by_name['filter_specifier'].fields.append(
   _ACCESSLOGFILTER.fields_by_name['extension_filter'])
 _ACCESSLOGFILTER.fields_by_name['extension_filter'].containing_oneof = _ACCESSLOGFILTER.oneofs_by_name['filter_specifier']
+_ACCESSLOGFILTER.oneofs_by_name['filter_specifier'].fields.append(
+  _ACCESSLOGFILTER.fields_by_name['metadata_filter'])
+_ACCESSLOGFILTER.fields_by_name['metadata_filter'].containing_oneof = _ACCESSLOGFILTER.oneofs_by_name['filter_specifier']
 _COMPARISONFILTER.fields_by_name['op'].enum_type = _COMPARISONFILTER_OP
 _COMPARISONFILTER.fields_by_name['value'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._RUNTIMEUINT32
 _COMPARISONFILTER_OP.containing_type = _COMPARISONFILTER
@@ -793,6 +845,8 @@ _ORFILTER.fields_by_name['filters'].message_type = _ACCESSLOGFILTER
 _HEADERFILTER.fields_by_name['header'].message_type = envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2._HEADERMATCHER
 _GRPCSTATUSFILTER.fields_by_name['statuses'].enum_type = _GRPCSTATUSFILTER_STATUS
 _GRPCSTATUSFILTER_STATUS.containing_type = _GRPCSTATUSFILTER
+_METADATAFILTER.fields_by_name['matcher'].message_type = envoy_dot_type_dot_matcher_dot_v3_dot_metadata__pb2._METADATAMATCHER
+_METADATAFILTER.fields_by_name['match_if_key_not_found'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _EXTENSIONFILTER.fields_by_name['typed_config'].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _EXTENSIONFILTER.oneofs_by_name['config_type'].fields.append(
   _EXTENSIONFILTER.fields_by_name['typed_config'])
@@ -810,6 +864,7 @@ DESCRIPTOR.message_types_by_name['OrFilter'] = _ORFILTER
 DESCRIPTOR.message_types_by_name['HeaderFilter'] = _HEADERFILTER
 DESCRIPTOR.message_types_by_name['ResponseFlagFilter'] = _RESPONSEFLAGFILTER
 DESCRIPTOR.message_types_by_name['GrpcStatusFilter'] = _GRPCSTATUSFILTER
+DESCRIPTOR.message_types_by_name['MetadataFilter'] = _METADATAFILTER
 DESCRIPTOR.message_types_by_name['ExtensionFilter'] = _EXTENSIONFILTER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -904,6 +959,13 @@ GrpcStatusFilter = _reflection.GeneratedProtocolMessageType('GrpcStatusFilter', 
   })
 _sym_db.RegisterMessage(GrpcStatusFilter)
 
+MetadataFilter = _reflection.GeneratedProtocolMessageType('MetadataFilter', (_message.Message,), {
+  'DESCRIPTOR' : _METADATAFILTER,
+  '__module__' : 'envoy.config.accesslog.v3.accesslog_pb2'
+  # @@protoc_insertion_point(class_scope:envoy.config.accesslog.v3.MetadataFilter)
+  })
+_sym_db.RegisterMessage(MetadataFilter)
+
 ExtensionFilter = _reflection.GeneratedProtocolMessageType('ExtensionFilter', (_message.Message,), {
   'DESCRIPTOR' : _EXTENSIONFILTER,
   '__module__' : 'envoy.config.accesslog.v3.accesslog_pb2'
@@ -936,5 +998,6 @@ _RESPONSEFLAGFILTER.fields_by_name['flags']._options = None
 _RESPONSEFLAGFILTER._options = None
 _GRPCSTATUSFILTER.fields_by_name['statuses']._options = None
 _GRPCSTATUSFILTER._options = None
+_METADATAFILTER._options = None
 _EXTENSIONFILTER._options = None
 # @@protoc_insertion_point(module_scope)

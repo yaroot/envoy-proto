@@ -23,13 +23,13 @@ package remoteworkers
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	status "google.golang.org/genproto/googleapis/rpc/status"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -301,7 +301,7 @@ type BotSession struct {
 	Leases []*Lease `protobuf:"bytes,5,rep,name=leases,proto3" json:"leases,omitempty"`
 	// The time at which this bot session will expire, unless the bot calls
 	// UpdateBotSession again. Output only.
-	ExpireTime *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
+	ExpireTime *timestamp.Timestamp `protobuf:"bytes,6,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
 	// The version of the bot code currently running. The server may use this
 	// information to issue an admin action to tell the bot to update itself.
 	Version string `protobuf:"bytes,7,opt,name=version,proto3" json:"version,omitempty"`
@@ -374,7 +374,7 @@ func (x *BotSession) GetLeases() []*Lease {
 	return nil
 }
 
-func (x *BotSession) GetExpireTime() *timestamppb.Timestamp {
+func (x *BotSession) GetExpireTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ExpireTime
 	}
@@ -416,12 +416,12 @@ type Lease struct {
 	// The actual work to be performed, if any. May be omitted by the server if
 	// the lease is not in the `PENDING` state. The message must be meaningful to
 	// the bot. Output only (must only be set by the server).
-	Payload *anypb.Any `protobuf:"bytes,8,opt,name=payload,proto3" json:"payload,omitempty"`
+	Payload *any.Any `protobuf:"bytes,8,opt,name=payload,proto3" json:"payload,omitempty"`
 	// Any result the bot wishes to provide about the lease. Must not be changed
 	// after the first call with the lease in the `COMPLETED` or `CANCELLED`
 	// state. Input only (must only be set by the bot, will not be echoed by the
 	// server).
-	Result *anypb.Any `protobuf:"bytes,9,opt,name=result,proto3" json:"result,omitempty"`
+	Result *any.Any `protobuf:"bytes,9,opt,name=result,proto3" json:"result,omitempty"`
 	// The state of the lease. See LeaseState for more information.
 	State LeaseState `protobuf:"varint,2,opt,name=state,proto3,enum=google.devtools.remoteworkers.v1test2.LeaseState" json:"state,omitempty"`
 	// The final status of the lease (should be populated by the bot if the state
@@ -438,7 +438,7 @@ type Lease struct {
 	// The time at which this lease expires. The server *may* extend this over
 	// time, but due to race conditions, the bot is not *required* to respect any
 	// expiry date except the first one.
-	ExpireTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
+	ExpireTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
 	// DEPRECATED. The assignment should be provided to the bot via the `payload`
 	// field. Clients that wish to use a simple name (such as a queue of work
 	// provided elsewhere) should define a custom message type and encode it into
@@ -449,7 +449,7 @@ type Lease struct {
 	// DEPRECATED. Use `payload` instead.
 	//
 	// Deprecated: Do not use.
-	InlineAssignment *anypb.Any `protobuf:"bytes,6,opt,name=inline_assignment,json=inlineAssignment,proto3" json:"inline_assignment,omitempty"`
+	InlineAssignment *any.Any `protobuf:"bytes,6,opt,name=inline_assignment,json=inlineAssignment,proto3" json:"inline_assignment,omitempty"`
 }
 
 func (x *Lease) Reset() {
@@ -491,14 +491,14 @@ func (x *Lease) GetId() string {
 	return ""
 }
 
-func (x *Lease) GetPayload() *anypb.Any {
+func (x *Lease) GetPayload() *any.Any {
 	if x != nil {
 		return x.Payload
 	}
 	return nil
 }
 
-func (x *Lease) GetResult() *anypb.Any {
+func (x *Lease) GetResult() *any.Any {
 	if x != nil {
 		return x.Result
 	}
@@ -526,7 +526,7 @@ func (x *Lease) GetRequirements() *Worker {
 	return nil
 }
 
-func (x *Lease) GetExpireTime() *timestamppb.Timestamp {
+func (x *Lease) GetExpireTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ExpireTime
 	}
@@ -542,7 +542,7 @@ func (x *Lease) GetAssignment() string {
 }
 
 // Deprecated: Do not use.
-func (x *Lease) GetInlineAssignment() *anypb.Any {
+func (x *Lease) GetInlineAssignment() *any.Any {
 	if x != nil {
 		return x.InlineAssignment
 	}
@@ -688,7 +688,7 @@ type UpdateBotSessionRequest struct {
 	BotSession *BotSession `protobuf:"bytes,2,opt,name=bot_session,json=botSession,proto3" json:"bot_session,omitempty"`
 	// Required. The fields on the bot that should be updated. See the BotSession resource
 	// for which fields are updatable by which caller.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateBotSessionRequest) Reset() {
@@ -737,7 +737,7 @@ func (x *UpdateBotSessionRequest) GetBotSession() *BotSession {
 	return nil
 }
 
-func (x *UpdateBotSessionRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateBotSessionRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -950,10 +950,10 @@ var file_google_devtools_remoteworkers_v1test2_bots_proto_goTypes = []interface{
 	(*CreateBotSessionRequest)(nil), // 6: google.devtools.remoteworkers.v1test2.CreateBotSessionRequest
 	(*UpdateBotSessionRequest)(nil), // 7: google.devtools.remoteworkers.v1test2.UpdateBotSessionRequest
 	(*Worker)(nil),                  // 8: google.devtools.remoteworkers.v1test2.Worker
-	(*timestamppb.Timestamp)(nil),   // 9: google.protobuf.Timestamp
-	(*anypb.Any)(nil),               // 10: google.protobuf.Any
+	(*timestamp.Timestamp)(nil),     // 9: google.protobuf.Timestamp
+	(*any.Any)(nil),                 // 10: google.protobuf.Any
 	(*status.Status)(nil),           // 11: google.rpc.Status
-	(*fieldmaskpb.FieldMask)(nil),   // 12: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),    // 12: google.protobuf.FieldMask
 }
 var file_google_devtools_remoteworkers_v1test2_bots_proto_depIdxs = []int32{
 	0,  // 0: google.devtools.remoteworkers.v1test2.BotSession.status:type_name -> google.devtools.remoteworkers.v1test2.BotStatus

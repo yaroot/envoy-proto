@@ -11,9 +11,9 @@ import (
 	v3 "envoy/type/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -129,7 +129,7 @@ func (m *FaultDelay) GetFaultDelaySecifier() isFaultDelay_FaultDelaySecifier {
 	return nil
 }
 
-func (x *FaultDelay) GetFixedDelay() *durationpb.Duration {
+func (x *FaultDelay) GetFixedDelay() *duration.Duration {
 	if x, ok := x.GetFaultDelaySecifier().(*FaultDelay_FixedDelay); ok {
 		return x.FixedDelay
 	}
@@ -161,7 +161,7 @@ type FaultDelay_FixedDelay struct {
 	// delay will be injected before a new request/operation. For TCP
 	// connections, the proxying of the connection upstream will be delayed
 	// for the specified period. This is required if type is FIXED.
-	FixedDelay *durationpb.Duration `protobuf:"bytes,3,opt,name=fixed_delay,json=fixedDelay,proto3,oneof"`
+	FixedDelay *duration.Duration `protobuf:"bytes,3,opt,name=fixed_delay,json=fixedDelay,proto3,oneof"`
 }
 
 type FaultDelay_HeaderDelay_ struct {
@@ -509,7 +509,7 @@ var file_envoy_extensions_filters_common_fault_v3_fault_proto_goTypes = []interf
 	(*FaultDelay_HeaderDelay)(nil),     // 3: envoy.extensions.filters.common.fault.v3.FaultDelay.HeaderDelay
 	(*FaultRateLimit_FixedLimit)(nil),  // 4: envoy.extensions.filters.common.fault.v3.FaultRateLimit.FixedLimit
 	(*FaultRateLimit_HeaderLimit)(nil), // 5: envoy.extensions.filters.common.fault.v3.FaultRateLimit.HeaderLimit
-	(*durationpb.Duration)(nil),        // 6: google.protobuf.Duration
+	(*duration.Duration)(nil),          // 6: google.protobuf.Duration
 	(*v3.FractionalPercent)(nil),       // 7: envoy.type.v3.FractionalPercent
 }
 var file_envoy_extensions_filters_common_fault_v3_fault_proto_depIdxs = []int32{

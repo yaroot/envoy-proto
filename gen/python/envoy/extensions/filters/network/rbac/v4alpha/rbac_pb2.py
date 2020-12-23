@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n;io.envoyproxy.envoy.extensions.filters.network.rbac.v4alphaB\tRbacProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n8envoy/extensions/filters/network/rbac/v4alpha/rbac.proto\x12-envoy.extensions.filters.network.rbac.v4alpha\x1a$envoy/config/rbac/v4alpha/rbac.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xdf\x02\n\x04RBAC\x12.\n\x05rules\x18\x01 \x01(\x0b\x32\x1f.envoy.config.rbac.v4alpha.RBAC\x12\x35\n\x0cshadow_rules\x18\x02 \x01(\x0b\x32\x1f.envoy.config.rbac.v4alpha.RBAC\x12\x1c\n\x0bstat_prefix\x18\x03 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12]\n\x10\x65nforcement_type\x18\x04 \x01(\x0e\x32\x43.envoy.extensions.filters.network.rbac.v4alpha.RBAC.EnforcementType\"=\n\x0f\x45nforcementType\x12\x1a\n\x16ONE_TIME_ON_FIRST_BYTE\x10\x00\x12\x0e\n\nCONTINUOUS\x10\x01:4\x9a\xc5\x88\x1e/\n-envoy.extensions.filters.network.rbac.v3.RBACBR\n;io.envoyproxy.envoy.extensions.filters.network.rbac.v4alphaB\tRbacProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n8envoy/extensions/filters/network/rbac/v4alpha/rbac.proto\x12-envoy.extensions.filters.network.rbac.v4alpha\x1a$envoy/config/rbac/v4alpha/rbac.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xdf\x02\n\x04RBAC\x12.\n\x05rules\x18\x01 \x01(\x0b\x32\x1f.envoy.config.rbac.v4alpha.RBAC\x12\x35\n\x0cshadow_rules\x18\x02 \x01(\x0b\x32\x1f.envoy.config.rbac.v4alpha.RBAC\x12\x1c\n\x0bstat_prefix\x18\x03 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12]\n\x10\x65nforcement_type\x18\x04 \x01(\x0e\x32\x43.envoy.extensions.filters.network.rbac.v4alpha.RBAC.EnforcementType\"=\n\x0f\x45nforcementType\x12\x1a\n\x16ONE_TIME_ON_FIRST_BYTE\x10\x00\x12\x0e\n\nCONTINUOUS\x10\x01:4\x9a\xc5\x88\x1e/\n-envoy.extensions.filters.network.rbac.v3.RBACBR\n;io.envoyproxy.envoy.extensions.filters.network.rbac.v4alphaB\tRbacProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_rbac_dot_v4alpha_dot_rbac__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -83,7 +83,7 @@ _RBAC = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='enforcement_type', full_name='envoy.extensions.filters.network.rbac.v4alpha.RBAC.enforcement_type', index=3,
       number=4, type=14, cpp_type=8, label=1,

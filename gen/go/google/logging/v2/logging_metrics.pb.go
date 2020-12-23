@@ -22,15 +22,15 @@ package logging
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/duration"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	distribution "google.golang.org/genproto/googleapis/api/distribution"
 	metric "google.golang.org/genproto/googleapis/api/metric"
+	_ "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/durationpb"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	_ "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -98,8 +98,8 @@ func (LogMetric_ApiVersion) EnumDescriptor() ([]byte, []int) {
 // Describes a logs-based metric. The value of the metric is the number of log
 // entries that match a logs filter in a given time interval.
 //
-// Logs-based metric can also be used to extract values from logs and create a
-// a distribution of the values. The distribution records the statistics of the
+// Logs-based metrics can also be used to extract values from logs and create a
+// distribution of the values. The distribution records the statistics of the
 // extracted values along with an optional histogram of the values as specified
 // by the bucket options.
 type LogMetric struct {
@@ -196,11 +196,11 @@ type LogMetric struct {
 	// Output only. The creation timestamp of the metric.
 	//
 	// This field may not be present for older metrics.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,9,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The last update timestamp of the metric.
 	//
 	// This field may not be present for older metrics.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,10,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// Deprecated. The API version that created or updated this metric.
 	// The v2 format is used by default and cannot be changed.
 	//
@@ -289,14 +289,14 @@ func (x *LogMetric) GetBucketOptions() *distribution.Distribution_BucketOptions 
 	return nil
 }
 
-func (x *LogMetric) GetCreateTime() *timestamppb.Timestamp {
+func (x *LogMetric) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *LogMetric) GetUpdateTime() *timestamppb.Timestamp {
+func (x *LogMetric) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -907,8 +907,8 @@ var file_google_logging_v2_logging_metrics_proto_goTypes = []interface{}{
 	nil,                                             // 8: google.logging.v2.LogMetric.LabelExtractorsEntry
 	(*metric.MetricDescriptor)(nil),                 // 9: google.api.MetricDescriptor
 	(*distribution.Distribution_BucketOptions)(nil), // 10: google.api.Distribution.BucketOptions
-	(*timestamppb.Timestamp)(nil),                   // 11: google.protobuf.Timestamp
-	(*emptypb.Empty)(nil),                           // 12: google.protobuf.Empty
+	(*timestamp.Timestamp)(nil),                     // 11: google.protobuf.Timestamp
+	(*empty.Empty)(nil),                             // 12: google.protobuf.Empty
 }
 var file_google_logging_v2_logging_metrics_proto_depIdxs = []int32{
 	9,  // 0: google.logging.v2.LogMetric.metric_descriptor:type_name -> google.api.MetricDescriptor

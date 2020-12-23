@@ -22,11 +22,11 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v4/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -54,18 +54,18 @@ type GeoTargetConstant struct {
 	// `geoTargetConstants/{geo_target_constant_id}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. The ID of the geo target constant.
-	Id *wrapperspb.Int64Value `protobuf:"bytes,3,opt,name=id,proto3" json:"id,omitempty"`
+	Id *wrappers.Int64Value `protobuf:"bytes,3,opt,name=id,proto3" json:"id,omitempty"`
 	// Output only. Geo target constant English name.
-	Name *wrapperspb.StringValue `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
+	Name *wrappers.StringValue `protobuf:"bytes,4,opt,name=name,proto3" json:"name,omitempty"`
 	// Output only. The ISO-3166-1 alpha-2 country code that is associated with the target.
-	CountryCode *wrapperspb.StringValue `protobuf:"bytes,5,opt,name=country_code,json=countryCode,proto3" json:"country_code,omitempty"`
+	CountryCode *wrappers.StringValue `protobuf:"bytes,5,opt,name=country_code,json=countryCode,proto3" json:"country_code,omitempty"`
 	// Output only. Geo target constant target type.
-	TargetType *wrapperspb.StringValue `protobuf:"bytes,6,opt,name=target_type,json=targetType,proto3" json:"target_type,omitempty"`
+	TargetType *wrappers.StringValue `protobuf:"bytes,6,opt,name=target_type,json=targetType,proto3" json:"target_type,omitempty"`
 	// Output only. Geo target constant status.
 	Status enums.GeoTargetConstantStatusEnum_GeoTargetConstantStatus `protobuf:"varint,7,opt,name=status,proto3,enum=google.ads.googleads.v4.enums.GeoTargetConstantStatusEnum_GeoTargetConstantStatus" json:"status,omitempty"`
 	// Output only. The fully qualified English name, consisting of the target's name and that
 	// of its parent and country.
-	CanonicalName *wrapperspb.StringValue `protobuf:"bytes,8,opt,name=canonical_name,json=canonicalName,proto3" json:"canonical_name,omitempty"`
+	CanonicalName *wrappers.StringValue `protobuf:"bytes,8,opt,name=canonical_name,json=canonicalName,proto3" json:"canonical_name,omitempty"`
 }
 
 func (x *GeoTargetConstant) Reset() {
@@ -107,28 +107,28 @@ func (x *GeoTargetConstant) GetResourceName() string {
 	return ""
 }
 
-func (x *GeoTargetConstant) GetId() *wrapperspb.Int64Value {
+func (x *GeoTargetConstant) GetId() *wrappers.Int64Value {
 	if x != nil {
 		return x.Id
 	}
 	return nil
 }
 
-func (x *GeoTargetConstant) GetName() *wrapperspb.StringValue {
+func (x *GeoTargetConstant) GetName() *wrappers.StringValue {
 	if x != nil {
 		return x.Name
 	}
 	return nil
 }
 
-func (x *GeoTargetConstant) GetCountryCode() *wrapperspb.StringValue {
+func (x *GeoTargetConstant) GetCountryCode() *wrappers.StringValue {
 	if x != nil {
 		return x.CountryCode
 	}
 	return nil
 }
 
-func (x *GeoTargetConstant) GetTargetType() *wrapperspb.StringValue {
+func (x *GeoTargetConstant) GetTargetType() *wrappers.StringValue {
 	if x != nil {
 		return x.TargetType
 	}
@@ -142,7 +142,7 @@ func (x *GeoTargetConstant) GetStatus() enums.GeoTargetConstantStatusEnum_GeoTar
 	return enums.GeoTargetConstantStatusEnum_UNSPECIFIED
 }
 
-func (x *GeoTargetConstant) GetCanonicalName() *wrapperspb.StringValue {
+func (x *GeoTargetConstant) GetCanonicalName() *wrappers.StringValue {
 	if x != nil {
 		return x.CanonicalName
 	}
@@ -243,8 +243,8 @@ func file_google_ads_googleads_v4_resources_geo_target_constant_proto_rawDescGZI
 var file_google_ads_googleads_v4_resources_geo_target_constant_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v4_resources_geo_target_constant_proto_goTypes = []interface{}{
 	(*GeoTargetConstant)(nil),                                      // 0: google.ads.googleads.v4.resources.GeoTargetConstant
-	(*wrapperspb.Int64Value)(nil),                                  // 1: google.protobuf.Int64Value
-	(*wrapperspb.StringValue)(nil),                                 // 2: google.protobuf.StringValue
+	(*wrappers.Int64Value)(nil),                                    // 1: google.protobuf.Int64Value
+	(*wrappers.StringValue)(nil),                                   // 2: google.protobuf.StringValue
 	(enums.GeoTargetConstantStatusEnum_GeoTargetConstantStatus)(0), // 3: google.ads.googleads.v4.enums.GeoTargetConstantStatusEnum.GeoTargetConstantStatus
 }
 var file_google_ads_googleads_v4_resources_geo_target_constant_proto_depIdxs = []int32{

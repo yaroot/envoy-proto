@@ -10,11 +10,11 @@ import (
 	v3 "envoy/type/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -162,12 +162,12 @@ type ClusterLoadAssignment_Policy struct {
 	//
 	// Read more at :ref:`priority levels <arch_overview_load_balancing_priority_levels>` and
 	// :ref:`localities <arch_overview_load_balancing_locality_weighted_lb>`.
-	OverprovisioningFactor *wrapperspb.UInt32Value `protobuf:"bytes,3,opt,name=overprovisioning_factor,json=overprovisioningFactor,proto3" json:"overprovisioning_factor,omitempty"`
+	OverprovisioningFactor *wrappers.UInt32Value `protobuf:"bytes,3,opt,name=overprovisioning_factor,json=overprovisioningFactor,proto3" json:"overprovisioning_factor,omitempty"`
 	// The max time until which the endpoints from this assignment can be used.
 	// If no new assignments are received before this time expires the endpoints
 	// are considered stale and should be marked unhealthy.
 	// Defaults to 0 which means endpoints never go stale.
-	EndpointStaleAfter *durationpb.Duration `protobuf:"bytes,4,opt,name=endpoint_stale_after,json=endpointStaleAfter,proto3" json:"endpoint_stale_after,omitempty"`
+	EndpointStaleAfter *duration.Duration `protobuf:"bytes,4,opt,name=endpoint_stale_after,json=endpointStaleAfter,proto3" json:"endpoint_stale_after,omitempty"`
 }
 
 func (x *ClusterLoadAssignment_Policy) Reset() {
@@ -209,14 +209,14 @@ func (x *ClusterLoadAssignment_Policy) GetDropOverloads() []*ClusterLoadAssignme
 	return nil
 }
 
-func (x *ClusterLoadAssignment_Policy) GetOverprovisioningFactor() *wrapperspb.UInt32Value {
+func (x *ClusterLoadAssignment_Policy) GetOverprovisioningFactor() *wrappers.UInt32Value {
 	if x != nil {
 		return x.OverprovisioningFactor
 	}
 	return nil
 }
 
-func (x *ClusterLoadAssignment_Policy) GetEndpointStaleAfter() *durationpb.Duration {
+func (x *ClusterLoadAssignment_Policy) GetEndpointStaleAfter() *duration.Duration {
 	if x != nil {
 		return x.EndpointStaleAfter
 	}
@@ -308,7 +308,7 @@ var file_envoy_config_endpoint_v3_endpoint_proto_rawDesc = []byte{
 	0x0a, 0x15, 0x43, 0x6c, 0x75, 0x73, 0x74, 0x65, 0x72, 0x4c, 0x6f, 0x61, 0x64, 0x41, 0x73, 0x73,
 	0x69, 0x67, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x12, 0x2a, 0x0a, 0x0c, 0x63, 0x6c, 0x75, 0x73, 0x74,
 	0x65, 0x72, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa,
-	0x42, 0x04, 0x72, 0x02, 0x20, 0x01, 0x52, 0x0b, 0x63, 0x6c, 0x75, 0x73, 0x74, 0x65, 0x72, 0x4e,
+	0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0b, 0x63, 0x6c, 0x75, 0x73, 0x74, 0x65, 0x72, 0x4e,
 	0x61, 0x6d, 0x65, 0x12, 0x4b, 0x0a, 0x09, 0x65, 0x6e, 0x64, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x73,
 	0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x2d, 0x2e, 0x65, 0x6e, 0x76, 0x6f, 0x79, 0x2e, 0x63,
 	0x6f, 0x6e, 0x66, 0x69, 0x67, 0x2e, 0x65, 0x6e, 0x64, 0x70, 0x6f, 0x69, 0x6e, 0x74, 0x2e, 0x76,
@@ -347,7 +347,7 @@ var file_envoy_config_endpoint_v3_endpoint_proto_rawDesc = []byte{
 	0x6e, 0x74, 0x53, 0x74, 0x61, 0x6c, 0x65, 0x41, 0x66, 0x74, 0x65, 0x72, 0x1a, 0xbd, 0x01, 0x0a,
 	0x0c, 0x44, 0x72, 0x6f, 0x70, 0x4f, 0x76, 0x65, 0x72, 0x6c, 0x6f, 0x61, 0x64, 0x12, 0x23, 0x0a,
 	0x08, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42,
-	0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x20, 0x01, 0x52, 0x08, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f,
+	0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x08, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f,
 	0x72, 0x79, 0x12, 0x49, 0x0a, 0x0f, 0x64, 0x72, 0x6f, 0x70, 0x5f, 0x70, 0x65, 0x72, 0x63, 0x65,
 	0x6e, 0x74, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x20, 0x2e, 0x65, 0x6e,
 	0x76, 0x6f, 0x79, 0x2e, 0x74, 0x79, 0x70, 0x65, 0x2e, 0x76, 0x33, 0x2e, 0x46, 0x72, 0x61, 0x63,
@@ -398,8 +398,8 @@ var file_envoy_config_endpoint_v3_endpoint_proto_goTypes = []interface{}{
 	nil,                                  // 2: envoy.config.endpoint.v3.ClusterLoadAssignment.NamedEndpointsEntry
 	(*ClusterLoadAssignment_Policy_DropOverload)(nil), // 3: envoy.config.endpoint.v3.ClusterLoadAssignment.Policy.DropOverload
 	(*LocalityLbEndpoints)(nil),                       // 4: envoy.config.endpoint.v3.LocalityLbEndpoints
-	(*wrapperspb.UInt32Value)(nil),                    // 5: google.protobuf.UInt32Value
-	(*durationpb.Duration)(nil),                       // 6: google.protobuf.Duration
+	(*wrappers.UInt32Value)(nil),                      // 5: google.protobuf.UInt32Value
+	(*duration.Duration)(nil),                         // 6: google.protobuf.Duration
 	(*Endpoint)(nil),                                  // 7: envoy.config.endpoint.v3.Endpoint
 	(*v3.FractionalPercent)(nil),                      // 8: envoy.type.v3.FractionalPercent
 }

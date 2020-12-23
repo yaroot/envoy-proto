@@ -22,10 +22,10 @@ package publish
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 )
 
@@ -158,7 +158,7 @@ var file_google_streetview_publish_v1_streetview_publish_proto_rawDesc = []byte{
 }
 
 var file_google_streetview_publish_v1_streetview_publish_proto_goTypes = []interface{}{
-	(*emptypb.Empty)(nil),             // 0: google.protobuf.Empty
+	(*empty.Empty)(nil),               // 0: google.protobuf.Empty
 	(*CreatePhotoRequest)(nil),        // 1: google.streetview.publish.v1.CreatePhotoRequest
 	(*GetPhotoRequest)(nil),           // 2: google.streetview.publish.v1.GetPhotoRequest
 	(*BatchGetPhotosRequest)(nil),     // 3: google.streetview.publish.v1.BatchGetPhotosRequest

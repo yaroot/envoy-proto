@@ -22,10 +22,10 @@ package location
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -247,7 +247,7 @@ type Location struct {
 	Labels map[string]string `protobuf:"bytes,2,rep,name=labels,proto3" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// Service-specific metadata. For example the available capacity at the given
 	// location.
-	Metadata *anypb.Any `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	Metadata *any.Any `protobuf:"bytes,3,opt,name=metadata,proto3" json:"metadata,omitempty"`
 }
 
 func (x *Location) Reset() {
@@ -310,7 +310,7 @@ func (x *Location) GetLabels() map[string]string {
 	return nil
 }
 
-func (x *Location) GetMetadata() *anypb.Any {
+func (x *Location) GetMetadata() *any.Any {
 	if x != nil {
 		return x.Metadata
 	}
@@ -411,7 +411,7 @@ var file_google_cloud_location_locations_proto_goTypes = []interface{}{
 	(*GetLocationRequest)(nil),    // 2: google.cloud.location.GetLocationRequest
 	(*Location)(nil),              // 3: google.cloud.location.Location
 	nil,                           // 4: google.cloud.location.Location.LabelsEntry
-	(*anypb.Any)(nil),             // 5: google.protobuf.Any
+	(*any.Any)(nil),               // 5: google.protobuf.Any
 }
 var file_google_cloud_location_locations_proto_depIdxs = []int32{
 	3, // 0: google.cloud.location.ListLocationsResponse.locations:type_name -> google.cloud.location.Location

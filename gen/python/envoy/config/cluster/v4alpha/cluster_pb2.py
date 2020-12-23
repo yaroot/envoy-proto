@@ -41,7 +41,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n*io.envoyproxy.envoy.config.cluster.v4alphaB\014ClusterProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n*envoy/config/cluster/v4alpha/cluster.proto\x12\x1c\x65nvoy.config.cluster.v4alpha\x1a\x32\x65nvoy/config/cluster/v4alpha/circuit_breaker.proto\x1a)envoy/config/cluster/v4alpha/filter.proto\x1a\x34\x65nvoy/config/cluster/v4alpha/outlier_detection.proto\x1a\'envoy/config/core/v4alpha/address.proto\x1a$envoy/config/core/v4alpha/base.proto\x1a-envoy/config/core/v4alpha/config_source.proto\x1a)envoy/config/core/v4alpha/extension.proto\x1a,envoy/config/core/v4alpha/health_check.proto\x1a(envoy/config/core/v4alpha/protocol.proto\x1a\'envoy/config/endpoint/v3/endpoint.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a#udpa/core/v1/collection_entry.proto\x1a#udpa/core/v1/resource_locator.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1fudpa/annotations/security.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"u\n\x11\x43lusterCollection\x12.\n\x07\x65ntries\x18\x01 \x01(\x0b\x32\x1d.udpa.core.v1.CollectionEntry:0\x9a\xc5\x88\x1e+\n)envoy.config.cluster.v3.ClusterCollection\"\x98\x38\n\x07\x43luster\x12\\\n\x18transport_socket_matches\x18+ \x03(\x0b\x32:.envoy.config.cluster.v4alpha.Cluster.TransportSocketMatch\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x15\n\ralt_stat_name\x18\x1c \x01(\t\x12M\n\x04type\x18\x02 \x01(\x0e\x32\x33.envoy.config.cluster.v4alpha.Cluster.DiscoveryTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01H\x00\x12O\n\x0c\x63luster_type\x18& \x01(\x0b\x32\x37.envoy.config.cluster.v4alpha.Cluster.CustomClusterTypeH\x00\x12R\n\x12\x65\x64s_cluster_config\x18\x03 \x01(\x0b\x32\x36.envoy.config.cluster.v4alpha.Cluster.EdsClusterConfig\x12<\n\x0f\x63onnect_timeout\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02*\x00\x12P\n!per_connection_buffer_limit_bytes\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\x8a\x93\xb7*\x02\x10\x01\x12M\n\tlb_policy\x18\x06 \x01(\x0e\x32..envoy.config.cluster.v4alpha.Cluster.LbPolicyB\n\xfa\x42\x07\x82\x01\x04\x10\x01 \x07\x12H\n\x0fload_assignment\x18! \x01(\x0b\x32/.envoy.config.endpoint.v3.ClusterLoadAssignment\x12=\n\rhealth_checks\x18\x08 \x03(\x0b\x32&.envoy.config.core.v4alpha.HealthCheck\x12\x41\n\x1bmax_requests_per_connection\x18\t \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12G\n\x10\x63ircuit_breakers\x18\n \x01(\x0b\x32-.envoy.config.cluster.v4alpha.CircuitBreakers\x12^\n\x1eupstream_http_protocol_options\x18. \x01(\x0b\x32\x36.envoy.config.core.v4alpha.UpstreamHttpProtocolOptions\x12T\n\x1c\x63ommon_http_protocol_options\x18\x1d \x01(\x0b\x32..envoy.config.core.v4alpha.HttpProtocolOptions\x12N\n\x15http_protocol_options\x18\r \x01(\x0b\x32/.envoy.config.core.v4alpha.Http1ProtocolOptions\x12X\n\x16http2_protocol_options\x18\x0e \x01(\x0b\x32/.envoy.config.core.v4alpha.Http2ProtocolOptionsB\x07\x8a\x93\xb7*\x02\x10\x01\x12r\n typed_extension_protocol_options\x18$ \x03(\x0b\x32H.envoy.config.cluster.v4alpha.Cluster.TypedExtensionProtocolOptionsEntry\x12\x41\n\x10\x64ns_refresh_rate\x18\x10 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0c\xfa\x42\t\xaa\x01\x06*\x04\x10\xc0\x84=\x12S\n\x18\x64ns_failure_refresh_rate\x18, \x01(\x0b\x32\x31.envoy.config.cluster.v4alpha.Cluster.RefreshRate\x12\x17\n\x0frespect_dns_ttl\x18\' \x01(\x08\x12Z\n\x11\x64ns_lookup_family\x18\x11 \x01(\x0e\x32\x35.envoy.config.cluster.v4alpha.Cluster.DnsLookupFamilyB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x39\n\rdns_resolvers\x18\x12 \x03(\x0b\x32\".envoy.config.core.v4alpha.Address\x12\x1f\n\x17use_tcp_for_dns_lookups\x18- \x01(\x08\x12I\n\x11outlier_detection\x18\x13 \x01(\x0b\x32..envoy.config.cluster.v4alpha.OutlierDetection\x12=\n\x10\x63leanup_interval\x18\x14 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02*\x00\x12\x43\n\x14upstream_bind_config\x18\x15 \x01(\x0b\x32%.envoy.config.core.v4alpha.BindConfig\x12N\n\x10lb_subset_config\x18\x16 \x01(\x0b\x32\x34.envoy.config.cluster.v4alpha.Cluster.LbSubsetConfig\x12U\n\x13ring_hash_lb_config\x18\x17 \x01(\x0b\x32\x36.envoy.config.cluster.v4alpha.Cluster.RingHashLbConfigH\x01\x12[\n\x16original_dst_lb_config\x18\" \x01(\x0b\x32\x39.envoy.config.cluster.v4alpha.Cluster.OriginalDstLbConfigH\x01\x12]\n\x17least_request_lb_config\x18% \x01(\x0b\x32:.envoy.config.cluster.v4alpha.Cluster.LeastRequestLbConfigH\x01\x12N\n\x10\x63ommon_lb_config\x18\x1b \x01(\x0b\x32\x34.envoy.config.cluster.v4alpha.Cluster.CommonLbConfig\x12\x44\n\x10transport_socket\x18\x18 \x01(\x0b\x32*.envoy.config.core.v4alpha.TransportSocket\x12\x35\n\x08metadata\x18\x19 \x01(\x0b\x32#.envoy.config.core.v4alpha.Metadata\x12Z\n\x12protocol_selection\x18\x1a \x01(\x0e\x32>.envoy.config.cluster.v4alpha.Cluster.ClusterProtocolSelection\x12\\\n\x1bupstream_connection_options\x18\x1e \x01(\x0b\x32\x37.envoy.config.cluster.v4alpha.UpstreamConnectionOptions\x12\x30\n(close_connections_on_host_health_failure\x18\x1f \x01(\x08\x12%\n\x1dignore_health_on_host_removal\x18  \x01(\x08\x12\x35\n\x07\x66ilters\x18( \x03(\x0b\x32$.envoy.config.cluster.v4alpha.Filter\x12P\n\x15load_balancing_policy\x18) \x01(\x0b\x32\x31.envoy.config.cluster.v4alpha.LoadBalancingPolicy\x12;\n\nlrs_server\x18* \x01(\x0b\x32\'.envoy.config.core.v4alpha.ConfigSource\x12\x1d\n\x15track_timeout_budgets\x18/ \x01(\x08\x12H\n\x0fupstream_config\x18\x30 \x01(\x0b\x32/.envoy.config.core.v4alpha.TypedExtensionConfig\x1a\xd8\x01\n\x14TransportSocketMatch\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12&\n\x05match\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x44\n\x10transport_socket\x18\x03 \x01(\x0b\x32*.envoy.config.core.v4alpha.TransportSocket:;\x9a\xc5\x88\x1e\x36\n4envoy.config.cluster.v3.Cluster.TransportSocketMatch\x1a\x90\x01\n\x11\x43ustomClusterType\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12*\n\x0ctyped_config\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:8\x9a\xc5\x88\x1e\x33\n1envoy.config.cluster.v3.Cluster.CustomClusterType\x1a\xf1\x01\n\x10\x45\x64sClusterConfig\x12;\n\neds_config\x18\x01 \x01(\x0b\x32\'.envoy.config.core.v4alpha.ConfigSource\x12\x16\n\x0cservice_name\x18\x02 \x01(\tH\x00\x12=\n\x14\x65\x64s_resource_locator\x18\x03 \x01(\x0b\x32\x1d.udpa.core.v1.ResourceLocatorH\x00:7\x9a\xc5\x88\x1e\x32\n0envoy.config.cluster.v3.Cluster.EdsClusterConfigB\x10\n\x0ename_specifier\x1a\x93\x07\n\x0eLbSubsetConfig\x12n\n\x0f\x66\x61llback_policy\x18\x01 \x01(\x0e\x32K.envoy.config.cluster.v4alpha.Cluster.LbSubsetConfig.LbSubsetFallbackPolicyB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12/\n\x0e\x64\x65\x66\x61ult_subset\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12_\n\x10subset_selectors\x18\x03 \x03(\x0b\x32\x45.envoy.config.cluster.v4alpha.Cluster.LbSubsetConfig.LbSubsetSelector\x12\x1d\n\x15locality_weight_aware\x18\x04 \x01(\x08\x12\x1d\n\x15scale_locality_weight\x18\x05 \x01(\x08\x12\x16\n\x0epanic_mode_any\x18\x06 \x01(\x08\x12\x13\n\x0blist_as_any\x18\x07 \x01(\x08\x1a\x8b\x03\n\x10LbSubsetSelector\x12\x0c\n\x04keys\x18\x01 \x03(\t\x12\x87\x01\n\x0f\x66\x61llback_policy\x18\x02 \x01(\x0e\x32\x64.envoy.config.cluster.v4alpha.Cluster.LbSubsetConfig.LbSubsetSelector.LbSubsetSelectorFallbackPolicyB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x1c\n\x14\x66\x61llback_keys_subset\x18\x03 \x03(\t\"y\n\x1eLbSubsetSelectorFallbackPolicy\x12\x0f\n\x0bNOT_DEFINED\x10\x00\x12\x0f\n\x0bNO_FALLBACK\x10\x01\x12\x10\n\x0c\x41NY_ENDPOINT\x10\x02\x12\x12\n\x0e\x44\x45\x46\x41ULT_SUBSET\x10\x03\x12\x0f\n\x0bKEYS_SUBSET\x10\x04:F\x9a\xc5\x88\x1e\x41\n?envoy.config.cluster.v3.Cluster.LbSubsetConfig.LbSubsetSelector\"O\n\x16LbSubsetFallbackPolicy\x12\x0f\n\x0bNO_FALLBACK\x10\x00\x12\x10\n\x0c\x41NY_ENDPOINT\x10\x01\x12\x12\n\x0e\x44\x45\x46\x41ULT_SUBSET\x10\x02:5\x9a\xc5\x88\x1e\x30\n.envoy.config.cluster.v3.Cluster.LbSubsetConfig\x1a\x90\x01\n\x14LeastRequestLbConfig\x12;\n\x0c\x63hoice_count\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x02:;\x9a\xc5\x88\x1e\x36\n4envoy.config.cluster.v3.Cluster.LeastRequestLbConfig\x1a\xf1\x02\n\x10RingHashLbConfig\x12\x43\n\x11minimum_ring_size\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt64ValueB\n\xfa\x42\x07\x32\x05\x18\x80\x80\x80\x04\x12\x64\n\rhash_function\x18\x03 \x01(\x0e\x32\x43.envoy.config.cluster.v4alpha.Cluster.RingHashLbConfig.HashFunctionB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x43\n\x11maximum_ring_size\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt64ValueB\n\xfa\x42\x07\x32\x05\x18\x80\x80\x80\x04\".\n\x0cHashFunction\x12\x0b\n\x07XX_HASH\x10\x00\x12\x11\n\rMURMUR_HASH_2\x10\x01:7\x9a\xc5\x88\x1e\x32\n0envoy.config.cluster.v3.Cluster.RingHashLbConfigJ\x04\x08\x02\x10\x03\x1aj\n\x13OriginalDstLbConfig\x12\x17\n\x0fuse_http_header\x18\x01 \x01(\x08::\x9a\xc5\x88\x1e\x35\n3envoy.config.cluster.v3.Cluster.OriginalDstLbConfig\x1a\xe4\x08\n\x0e\x43ommonLbConfig\x12\x37\n\x17healthy_panic_threshold\x18\x01 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x66\n\x14zone_aware_lb_config\x18\x02 \x01(\x0b\x32\x46.envoy.config.cluster.v4alpha.Cluster.CommonLbConfig.ZoneAwareLbConfigH\x00\x12t\n\x1blocality_weighted_lb_config\x18\x03 \x01(\x0b\x32M.envoy.config.cluster.v4alpha.Cluster.CommonLbConfig.LocalityWeightedLbConfigH\x00\x12\x36\n\x13update_merge_window\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\'\n\x1fignore_new_hosts_until_first_hc\x18\x05 \x01(\x08\x12,\n$close_connections_on_host_set_change\x18\x06 \x01(\x08\x12t\n\x1c\x63onsistent_hashing_lb_config\x18\x07 \x01(\x0b\x32N.envoy.config.cluster.v4alpha.Cluster.CommonLbConfig.ConsistentHashingLbConfig\x1a\xe4\x01\n\x11ZoneAwareLbConfig\x12/\n\x0frouting_enabled\x18\x01 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x36\n\x10min_cluster_size\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt64Value\x12\x1d\n\x15\x66\x61il_traffic_on_panic\x18\x03 \x01(\x08:G\x9a\xc5\x88\x1e\x42\n@envoy.config.cluster.v3.Cluster.CommonLbConfig.ZoneAwareLbConfig\x1aj\n\x18LocalityWeightedLbConfig:N\x9a\xc5\x88\x1eI\nGenvoy.config.cluster.v3.Cluster.CommonLbConfig.LocalityWeightedLbConfig\x1a\x8e\x01\n\x19\x43onsistentHashingLbConfig\x12 \n\x18use_hostname_for_hashing\x18\x01 \x01(\x08:O\x9a\xc5\x88\x1eJ\nHenvoy.config.cluster.v3.Cluster.CommonLbConfig.ConsistentHashingLbConfig:5\x9a\xc5\x88\x1e\x30\n.envoy.config.cluster.v3.Cluster.CommonLbConfigB\x1b\n\x19locality_config_specifier\x1a\xc2\x01\n\x0bRefreshRate\x12@\n\rbase_interval\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0e\xfa\x42\x0b\xaa\x01\x08\x08\x01*\x04\x10\xc0\x84=\x12=\n\x0cmax_interval\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0c\xfa\x42\t\xaa\x01\x06*\x04\x10\xc0\x84=:2\x9a\xc5\x88\x1e-\n+envoy.config.cluster.v3.Cluster.RefreshRate\x1aZ\n\"TypedExtensionProtocolOptionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01\"W\n\rDiscoveryType\x12\n\n\x06STATIC\x10\x00\x12\x0e\n\nSTRICT_DNS\x10\x01\x12\x0f\n\x0bLOGICAL_DNS\x10\x02\x12\x07\n\x03\x45\x44S\x10\x03\x12\x10\n\x0cORIGINAL_DST\x10\x04\"\xa4\x01\n\x08LbPolicy\x12\x0f\n\x0bROUND_ROBIN\x10\x00\x12\x11\n\rLEAST_REQUEST\x10\x01\x12\r\n\tRING_HASH\x10\x02\x12\n\n\x06RANDOM\x10\x03\x12\n\n\x06MAGLEV\x10\x05\x12\x14\n\x10\x43LUSTER_PROVIDED\x10\x06\x12 \n\x1cLOAD_BALANCING_POLICY_CONFIG\x10\x07\"\x04\x08\x04\x10\x04*\x0fORIGINAL_DST_LB\"5\n\x0f\x44nsLookupFamily\x12\x08\n\x04\x41UTO\x10\x00\x12\x0b\n\x07V4_ONLY\x10\x01\x12\x0b\n\x07V6_ONLY\x10\x02\"T\n\x18\x43lusterProtocolSelection\x12\x1b\n\x17USE_CONFIGURED_PROTOCOL\x10\x00\x12\x1b\n\x17USE_DOWNSTREAM_PROTOCOL\x10\x01:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.cluster.v3.ClusterB\x18\n\x16\x63luster_discovery_typeB\x0b\n\tlb_configJ\x04\x08\x0c\x10\rJ\x04\x08\x0f\x10\x10J\x04\x08\x07\x10\x08J\x04\x08\x0b\x10\x0cJ\x04\x08#\x10$R\x05hostsR\x0btls_contextR\x1a\x65xtension_protocol_options\"\xa3\x02\n\x13LoadBalancingPolicy\x12J\n\x08policies\x18\x01 \x03(\x0b\x32\x38.envoy.config.cluster.v4alpha.LoadBalancingPolicy.Policy\x1a\x8b\x01\n\x06Policy\x12\x0c\n\x04name\x18\x01 \x01(\t\x12*\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any:9\x9a\xc5\x88\x1e\x34\n2envoy.config.cluster.v3.LoadBalancingPolicy.PolicyJ\x04\x08\x02\x10\x03R\x06\x63onfig:2\x9a\xc5\x88\x1e-\n+envoy.config.cluster.v3.LoadBalancingPolicy\"\x83\x01\n\x12UpstreamBindConfig\x12:\n\x0esource_address\x18\x01 \x01(\x0b\x32\".envoy.config.core.v4alpha.Address:1\x9a\xc5\x88\x1e,\n*envoy.config.cluster.v3.UpstreamBindConfig\"\x95\x01\n\x19UpstreamConnectionOptions\x12>\n\rtcp_keepalive\x18\x01 \x01(\x0b\x32\'.envoy.config.core.v4alpha.TcpKeepalive:8\x9a\xc5\x88\x1e\x33\n1envoy.config.cluster.v3.UpstreamConnectionOptionsBD\n*io.envoyproxy.envoy.config.cluster.v4alphaB\x0c\x43lusterProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n*envoy/config/cluster/v4alpha/cluster.proto\x12\x1c\x65nvoy.config.cluster.v4alpha\x1a\x32\x65nvoy/config/cluster/v4alpha/circuit_breaker.proto\x1a)envoy/config/cluster/v4alpha/filter.proto\x1a\x34\x65nvoy/config/cluster/v4alpha/outlier_detection.proto\x1a\'envoy/config/core/v4alpha/address.proto\x1a$envoy/config/core/v4alpha/base.proto\x1a-envoy/config/core/v4alpha/config_source.proto\x1a)envoy/config/core/v4alpha/extension.proto\x1a,envoy/config/core/v4alpha/health_check.proto\x1a(envoy/config/core/v4alpha/protocol.proto\x1a\'envoy/config/endpoint/v3/endpoint.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a#udpa/core/v1/collection_entry.proto\x1a#udpa/core/v1/resource_locator.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1fudpa/annotations/security.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"u\n\x11\x43lusterCollection\x12.\n\x07\x65ntries\x18\x01 \x01(\x0b\x32\x1d.udpa.core.v1.CollectionEntry:0\x9a\xc5\x88\x1e+\n)envoy.config.cluster.v3.ClusterCollection\"\xde>\n\x07\x43luster\x12\\\n\x18transport_socket_matches\x18+ \x03(\x0b\x32:.envoy.config.cluster.v4alpha.Cluster.TransportSocketMatch\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x15\n\ralt_stat_name\x18\x1c \x01(\t\x12M\n\x04type\x18\x02 \x01(\x0e\x32\x33.envoy.config.cluster.v4alpha.Cluster.DiscoveryTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01H\x00\x12O\n\x0c\x63luster_type\x18& \x01(\x0b\x32\x37.envoy.config.cluster.v4alpha.Cluster.CustomClusterTypeH\x00\x12R\n\x12\x65\x64s_cluster_config\x18\x03 \x01(\x0b\x32\x36.envoy.config.cluster.v4alpha.Cluster.EdsClusterConfig\x12<\n\x0f\x63onnect_timeout\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02*\x00\x12P\n!per_connection_buffer_limit_bytes\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\x8a\x93\xb7*\x02\x10\x01\x12M\n\tlb_policy\x18\x06 \x01(\x0e\x32..envoy.config.cluster.v4alpha.Cluster.LbPolicyB\n\xfa\x42\x07\x82\x01\x04\x10\x01 \x07\x12H\n\x0fload_assignment\x18! \x01(\x0b\x32/.envoy.config.endpoint.v3.ClusterLoadAssignment\x12=\n\rhealth_checks\x18\x08 \x03(\x0b\x32&.envoy.config.core.v4alpha.HealthCheck\x12\x41\n\x1bmax_requests_per_connection\x18\t \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12G\n\x10\x63ircuit_breakers\x18\n \x01(\x0b\x32-.envoy.config.cluster.v4alpha.CircuitBreakers\x12^\n\x1eupstream_http_protocol_options\x18. \x01(\x0b\x32\x36.envoy.config.core.v4alpha.UpstreamHttpProtocolOptions\x12T\n\x1c\x63ommon_http_protocol_options\x18\x1d \x01(\x0b\x32..envoy.config.core.v4alpha.HttpProtocolOptions\x12N\n\x15http_protocol_options\x18\r \x01(\x0b\x32/.envoy.config.core.v4alpha.Http1ProtocolOptions\x12X\n\x16http2_protocol_options\x18\x0e \x01(\x0b\x32/.envoy.config.core.v4alpha.Http2ProtocolOptionsB\x07\x8a\x93\xb7*\x02\x10\x01\x12r\n typed_extension_protocol_options\x18$ \x03(\x0b\x32H.envoy.config.cluster.v4alpha.Cluster.TypedExtensionProtocolOptionsEntry\x12\x41\n\x10\x64ns_refresh_rate\x18\x10 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0c\xfa\x42\t\xaa\x01\x06*\x04\x10\xc0\x84=\x12S\n\x18\x64ns_failure_refresh_rate\x18, \x01(\x0b\x32\x31.envoy.config.cluster.v4alpha.Cluster.RefreshRate\x12\x17\n\x0frespect_dns_ttl\x18\' \x01(\x08\x12Z\n\x11\x64ns_lookup_family\x18\x11 \x01(\x0e\x32\x35.envoy.config.cluster.v4alpha.Cluster.DnsLookupFamilyB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x39\n\rdns_resolvers\x18\x12 \x03(\x0b\x32\".envoy.config.core.v4alpha.Address\x12\x1f\n\x17use_tcp_for_dns_lookups\x18- \x01(\x08\x12I\n\x11outlier_detection\x18\x13 \x01(\x0b\x32..envoy.config.cluster.v4alpha.OutlierDetection\x12=\n\x10\x63leanup_interval\x18\x14 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02*\x00\x12\x43\n\x14upstream_bind_config\x18\x15 \x01(\x0b\x32%.envoy.config.core.v4alpha.BindConfig\x12N\n\x10lb_subset_config\x18\x16 \x01(\x0b\x32\x34.envoy.config.cluster.v4alpha.Cluster.LbSubsetConfig\x12U\n\x13ring_hash_lb_config\x18\x17 \x01(\x0b\x32\x36.envoy.config.cluster.v4alpha.Cluster.RingHashLbConfigH\x01\x12P\n\x10maglev_lb_config\x18\x34 \x01(\x0b\x32\x34.envoy.config.cluster.v4alpha.Cluster.MaglevLbConfigH\x01\x12[\n\x16original_dst_lb_config\x18\" \x01(\x0b\x32\x39.envoy.config.cluster.v4alpha.Cluster.OriginalDstLbConfigH\x01\x12]\n\x17least_request_lb_config\x18% \x01(\x0b\x32:.envoy.config.cluster.v4alpha.Cluster.LeastRequestLbConfigH\x01\x12N\n\x10\x63ommon_lb_config\x18\x1b \x01(\x0b\x32\x34.envoy.config.cluster.v4alpha.Cluster.CommonLbConfig\x12\x44\n\x10transport_socket\x18\x18 \x01(\x0b\x32*.envoy.config.core.v4alpha.TransportSocket\x12\x35\n\x08metadata\x18\x19 \x01(\x0b\x32#.envoy.config.core.v4alpha.Metadata\x12Z\n\x12protocol_selection\x18\x1a \x01(\x0e\x32>.envoy.config.cluster.v4alpha.Cluster.ClusterProtocolSelection\x12\\\n\x1bupstream_connection_options\x18\x1e \x01(\x0b\x32\x37.envoy.config.cluster.v4alpha.UpstreamConnectionOptions\x12\x30\n(close_connections_on_host_health_failure\x18\x1f \x01(\x08\x12%\n\x1dignore_health_on_host_removal\x18  \x01(\x08\x12\x35\n\x07\x66ilters\x18( \x03(\x0b\x32$.envoy.config.cluster.v4alpha.Filter\x12P\n\x15load_balancing_policy\x18) \x01(\x0b\x32\x31.envoy.config.cluster.v4alpha.LoadBalancingPolicy\x12;\n\nlrs_server\x18* \x01(\x0b\x32\'.envoy.config.core.v4alpha.ConfigSource\x12H\n\x0fupstream_config\x18\x30 \x01(\x0b\x32/.envoy.config.core.v4alpha.TypedExtensionConfig\x12L\n\x13track_cluster_stats\x18\x31 \x01(\x0b\x32/.envoy.config.cluster.v4alpha.TrackClusterStats\x12M\n\x0fprefetch_policy\x18\x32 \x01(\x0b\x32\x34.envoy.config.cluster.v4alpha.Cluster.PrefetchPolicy\x12\x31\n)connection_pool_per_downstream_connection\x18\x33 \x01(\x08\x1a\xd8\x01\n\x14TransportSocketMatch\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12&\n\x05match\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x44\n\x10transport_socket\x18\x03 \x01(\x0b\x32*.envoy.config.core.v4alpha.TransportSocket:;\x9a\xc5\x88\x1e\x36\n4envoy.config.cluster.v3.Cluster.TransportSocketMatch\x1a\x90\x01\n\x11\x43ustomClusterType\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12*\n\x0ctyped_config\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:8\x9a\xc5\x88\x1e\x33\n1envoy.config.cluster.v3.Cluster.CustomClusterType\x1a\xf1\x01\n\x10\x45\x64sClusterConfig\x12;\n\neds_config\x18\x01 \x01(\x0b\x32\'.envoy.config.core.v4alpha.ConfigSource\x12\x16\n\x0cservice_name\x18\x02 \x01(\tH\x00\x12=\n\x14\x65\x64s_resource_locator\x18\x03 \x01(\x0b\x32\x1d.udpa.core.v1.ResourceLocatorH\x00:7\x9a\xc5\x88\x1e\x32\n0envoy.config.cluster.v3.Cluster.EdsClusterConfigB\x10\n\x0ename_specifier\x1a\xb3\x07\n\x0eLbSubsetConfig\x12n\n\x0f\x66\x61llback_policy\x18\x01 \x01(\x0e\x32K.envoy.config.cluster.v4alpha.Cluster.LbSubsetConfig.LbSubsetFallbackPolicyB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12/\n\x0e\x64\x65\x66\x61ult_subset\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12_\n\x10subset_selectors\x18\x03 \x03(\x0b\x32\x45.envoy.config.cluster.v4alpha.Cluster.LbSubsetConfig.LbSubsetSelector\x12\x1d\n\x15locality_weight_aware\x18\x04 \x01(\x08\x12\x1d\n\x15scale_locality_weight\x18\x05 \x01(\x08\x12\x16\n\x0epanic_mode_any\x18\x06 \x01(\x08\x12\x13\n\x0blist_as_any\x18\x07 \x01(\x08\x1a\xab\x03\n\x10LbSubsetSelector\x12\x0c\n\x04keys\x18\x01 \x03(\t\x12\x1e\n\x16single_host_per_subset\x18\x04 \x01(\x08\x12\x87\x01\n\x0f\x66\x61llback_policy\x18\x02 \x01(\x0e\x32\x64.envoy.config.cluster.v4alpha.Cluster.LbSubsetConfig.LbSubsetSelector.LbSubsetSelectorFallbackPolicyB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x1c\n\x14\x66\x61llback_keys_subset\x18\x03 \x03(\t\"y\n\x1eLbSubsetSelectorFallbackPolicy\x12\x0f\n\x0bNOT_DEFINED\x10\x00\x12\x0f\n\x0bNO_FALLBACK\x10\x01\x12\x10\n\x0c\x41NY_ENDPOINT\x10\x02\x12\x12\n\x0e\x44\x45\x46\x41ULT_SUBSET\x10\x03\x12\x0f\n\x0bKEYS_SUBSET\x10\x04:F\x9a\xc5\x88\x1e\x41\n?envoy.config.cluster.v3.Cluster.LbSubsetConfig.LbSubsetSelector\"O\n\x16LbSubsetFallbackPolicy\x12\x0f\n\x0bNO_FALLBACK\x10\x00\x12\x10\n\x0c\x41NY_ENDPOINT\x10\x01\x12\x12\n\x0e\x44\x45\x46\x41ULT_SUBSET\x10\x02:5\x9a\xc5\x88\x1e\x30\n.envoy.config.cluster.v3.Cluster.LbSubsetConfig\x1a\xd7\x01\n\x14LeastRequestLbConfig\x12;\n\x0c\x63hoice_count\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x02\x12\x45\n\x13\x61\x63tive_request_bias\x18\x02 \x01(\x0b\x32(.envoy.config.core.v4alpha.RuntimeDouble:;\x9a\xc5\x88\x1e\x36\n4envoy.config.cluster.v3.Cluster.LeastRequestLbConfig\x1a\xf1\x02\n\x10RingHashLbConfig\x12\x43\n\x11minimum_ring_size\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt64ValueB\n\xfa\x42\x07\x32\x05\x18\x80\x80\x80\x04\x12\x64\n\rhash_function\x18\x03 \x01(\x0e\x32\x43.envoy.config.cluster.v4alpha.Cluster.RingHashLbConfig.HashFunctionB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x43\n\x11maximum_ring_size\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt64ValueB\n\xfa\x42\x07\x32\x05\x18\x80\x80\x80\x04\".\n\x0cHashFunction\x12\x0b\n\x07XX_HASH\x10\x00\x12\x11\n\rMURMUR_HASH_2\x10\x01:7\x9a\xc5\x88\x1e\x32\n0envoy.config.cluster.v3.Cluster.RingHashLbConfigJ\x04\x08\x02\x10\x03\x1ay\n\x0eMaglevLbConfig\x12\x30\n\ntable_size\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt64Value:5\x9a\xc5\x88\x1e\x30\n.envoy.config.cluster.v3.Cluster.MaglevLbConfig\x1aj\n\x13OriginalDstLbConfig\x12\x17\n\x0fuse_http_header\x18\x01 \x01(\x08::\x9a\xc5\x88\x1e\x35\n3envoy.config.cluster.v3.Cluster.OriginalDstLbConfig\x1a\xa8\t\n\x0e\x43ommonLbConfig\x12\x37\n\x17healthy_panic_threshold\x18\x01 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x66\n\x14zone_aware_lb_config\x18\x02 \x01(\x0b\x32\x46.envoy.config.cluster.v4alpha.Cluster.CommonLbConfig.ZoneAwareLbConfigH\x00\x12t\n\x1blocality_weighted_lb_config\x18\x03 \x01(\x0b\x32M.envoy.config.cluster.v4alpha.Cluster.CommonLbConfig.LocalityWeightedLbConfigH\x00\x12\x36\n\x13update_merge_window\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\'\n\x1fignore_new_hosts_until_first_hc\x18\x05 \x01(\x08\x12,\n$close_connections_on_host_set_change\x18\x06 \x01(\x08\x12t\n\x1c\x63onsistent_hashing_lb_config\x18\x07 \x01(\x0b\x32N.envoy.config.cluster.v4alpha.Cluster.CommonLbConfig.ConsistentHashingLbConfig\x1a\xe4\x01\n\x11ZoneAwareLbConfig\x12/\n\x0frouting_enabled\x18\x01 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x36\n\x10min_cluster_size\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt64Value\x12\x1d\n\x15\x66\x61il_traffic_on_panic\x18\x03 \x01(\x08:G\x9a\xc5\x88\x1e\x42\n@envoy.config.cluster.v3.Cluster.CommonLbConfig.ZoneAwareLbConfig\x1aj\n\x18LocalityWeightedLbConfig:N\x9a\xc5\x88\x1eI\nGenvoy.config.cluster.v3.Cluster.CommonLbConfig.LocalityWeightedLbConfig\x1a\xd2\x01\n\x19\x43onsistentHashingLbConfig\x12 \n\x18use_hostname_for_hashing\x18\x01 \x01(\x08\x12\x42\n\x13hash_balance_factor\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(d:O\x9a\xc5\x88\x1eJ\nHenvoy.config.cluster.v3.Cluster.CommonLbConfig.ConsistentHashingLbConfig:5\x9a\xc5\x88\x1e\x30\n.envoy.config.cluster.v3.Cluster.CommonLbConfigB\x1b\n\x19locality_config_specifier\x1a\xc2\x01\n\x0bRefreshRate\x12@\n\rbase_interval\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0e\xfa\x42\x0b\xaa\x01\x08\x08\x01*\x04\x10\xc0\x84=\x12=\n\x0cmax_interval\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0c\xfa\x42\t\xaa\x01\x06*\x04\x10\xc0\x84=:2\x9a\xc5\x88\x1e-\n+envoy.config.cluster.v3.Cluster.RefreshRate\x1a\xfd\x01\n\x0ePrefetchPolicy\x12Z\n\x1bper_upstream_prefetch_ratio\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.DoubleValueB\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\x08@)\x00\x00\x00\x00\x00\x00\xf0?\x12X\n\x19predictive_prefetch_ratio\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.DoubleValueB\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\x08@)\x00\x00\x00\x00\x00\x00\xf0?:5\x9a\xc5\x88\x1e\x30\n.envoy.config.cluster.v3.Cluster.PrefetchPolicy\x1aZ\n\"TypedExtensionProtocolOptionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01\"W\n\rDiscoveryType\x12\n\n\x06STATIC\x10\x00\x12\x0e\n\nSTRICT_DNS\x10\x01\x12\x0f\n\x0bLOGICAL_DNS\x10\x02\x12\x07\n\x03\x45\x44S\x10\x03\x12\x10\n\x0cORIGINAL_DST\x10\x04\"\xa4\x01\n\x08LbPolicy\x12\x0f\n\x0bROUND_ROBIN\x10\x00\x12\x11\n\rLEAST_REQUEST\x10\x01\x12\r\n\tRING_HASH\x10\x02\x12\n\n\x06RANDOM\x10\x03\x12\n\n\x06MAGLEV\x10\x05\x12\x14\n\x10\x43LUSTER_PROVIDED\x10\x06\x12 \n\x1cLOAD_BALANCING_POLICY_CONFIG\x10\x07\"\x04\x08\x04\x10\x04*\x0fORIGINAL_DST_LB\"5\n\x0f\x44nsLookupFamily\x12\x08\n\x04\x41UTO\x10\x00\x12\x0b\n\x07V4_ONLY\x10\x01\x12\x0b\n\x07V6_ONLY\x10\x02\"T\n\x18\x43lusterProtocolSelection\x12\x1b\n\x17USE_CONFIGURED_PROTOCOL\x10\x00\x12\x1b\n\x17USE_DOWNSTREAM_PROTOCOL\x10\x01:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.cluster.v3.ClusterB\x18\n\x16\x63luster_discovery_typeB\x0b\n\tlb_configJ\x04\x08\x0c\x10\rJ\x04\x08\x0f\x10\x10J\x04\x08\x07\x10\x08J\x04\x08\x0b\x10\x0cJ\x04\x08#\x10$J\x04\x08/\x10\x30R\x05hostsR\x0btls_contextR\x1a\x65xtension_protocol_optionsR\x15track_timeout_budgets\"\xa3\x02\n\x13LoadBalancingPolicy\x12J\n\x08policies\x18\x01 \x03(\x0b\x32\x38.envoy.config.cluster.v4alpha.LoadBalancingPolicy.Policy\x1a\x8b\x01\n\x06Policy\x12\x0c\n\x04name\x18\x01 \x01(\t\x12*\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any:9\x9a\xc5\x88\x1e\x34\n2envoy.config.cluster.v3.LoadBalancingPolicy.PolicyJ\x04\x08\x02\x10\x03R\x06\x63onfig:2\x9a\xc5\x88\x1e-\n+envoy.config.cluster.v3.LoadBalancingPolicy\"\x83\x01\n\x12UpstreamBindConfig\x12:\n\x0esource_address\x18\x01 \x01(\x0b\x32\".envoy.config.core.v4alpha.Address:1\x9a\xc5\x88\x1e,\n*envoy.config.cluster.v3.UpstreamBindConfig\"\x95\x01\n\x19UpstreamConnectionOptions\x12>\n\rtcp_keepalive\x18\x01 \x01(\x0b\x32\'.envoy.config.core.v4alpha.TcpKeepalive:8\x9a\xc5\x88\x1e\x33\n1envoy.config.cluster.v3.UpstreamConnectionOptions\"~\n\x11TrackClusterStats\x12\x17\n\x0ftimeout_budgets\x18\x01 \x01(\x08\x12\x1e\n\x16request_response_sizes\x18\x02 \x01(\x08:0\x9a\xc5\x88\x1e+\n)envoy.config.cluster.v3.TrackClusterStatsBD\n*io.envoyproxy.envoy.config.cluster.v4alphaB\x0c\x43lusterProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_cluster_dot_v4alpha_dot_circuit__breaker__pb2.DESCRIPTOR,envoy_dot_config_dot_cluster_dot_v4alpha_dot_filter__pb2.DESCRIPTOR,envoy_dot_config_dot_cluster_dot_v4alpha_dot_outlier__detection__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_config__source__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_extension__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_health__check__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_protocol__pb2.DESCRIPTOR,envoy_dot_config_dot_endpoint_dot_v3_dot_endpoint__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_core_dot_v1_dot_collection__entry__pb2.DESCRIPTOR,udpa_dot_core_dot_v1_dot_resource__locator__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_security__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -82,8 +82,8 @@ _CLUSTER_LBSUBSETCONFIG_LBSUBSETSELECTOR_LBSUBSETSELECTORFALLBACKPOLICY = _descr
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5294,
-  serialized_end=5415,
+  serialized_start=5585,
+  serialized_end=5706,
 )
 _sym_db.RegisterEnumDescriptor(_CLUSTER_LBSUBSETCONFIG_LBSUBSETSELECTOR_LBSUBSETSELECTORFALLBACKPOLICY)
 
@@ -112,8 +112,8 @@ _CLUSTER_LBSUBSETCONFIG_LBSUBSETFALLBACKPOLICY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5489,
-  serialized_end=5568,
+  serialized_start=5780,
+  serialized_end=5859,
 )
 _sym_db.RegisterEnumDescriptor(_CLUSTER_LBSUBSETCONFIG_LBSUBSETFALLBACKPOLICY)
 
@@ -137,8 +137,8 @@ _CLUSTER_RINGHASHLBCONFIG_HASHFUNCTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6033,
-  serialized_end=6079,
+  serialized_start=6395,
+  serialized_end=6441,
 )
 _sym_db.RegisterEnumDescriptor(_CLUSTER_RINGHASHLBCONFIG_HASHFUNCTION)
 
@@ -177,8 +177,8 @@ _CLUSTER_DISCOVERYTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7668,
-  serialized_end=7755,
+  serialized_start=8477,
+  serialized_end=8564,
 )
 _sym_db.RegisterEnumDescriptor(_CLUSTER_DISCOVERYTYPE)
 
@@ -227,8 +227,8 @@ _CLUSTER_LBPOLICY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7758,
-  serialized_end=7922,
+  serialized_start=8567,
+  serialized_end=8731,
 )
 _sym_db.RegisterEnumDescriptor(_CLUSTER_LBPOLICY)
 
@@ -257,8 +257,8 @@ _CLUSTER_DNSLOOKUPFAMILY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7924,
-  serialized_end=7977,
+  serialized_start=8733,
+  serialized_end=8786,
 )
 _sym_db.RegisterEnumDescriptor(_CLUSTER_DNSLOOKUPFAMILY)
 
@@ -282,8 +282,8 @@ _CLUSTER_CLUSTERPROTOCOLSELECTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7979,
-  serialized_end=8063,
+  serialized_start=8788,
+  serialized_end=8872,
 )
 _sym_db.RegisterEnumDescriptor(_CLUSTER_CLUSTERPROTOCOLSELECTION)
 
@@ -361,8 +361,8 @@ _CLUSTER_TRANSPORTSOCKETMATCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4098,
-  serialized_end=4314,
+  serialized_start=4357,
+  serialized_end=4573,
 )
 
 _CLUSTER_CUSTOMCLUSTERTYPE = _descriptor.Descriptor(
@@ -379,7 +379,7 @@ _CLUSTER_CUSTOMCLUSTERTYPE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='typed_config', full_name='envoy.config.cluster.v4alpha.Cluster.CustomClusterType.typed_config', index=1,
       number=2, type=11, cpp_type=10, label=1,
@@ -399,8 +399,8 @@ _CLUSTER_CUSTOMCLUSTERTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4317,
-  serialized_end=4461,
+  serialized_start=4576,
+  serialized_end=4720,
 )
 
 _CLUSTER_EDSCLUSTERCONFIG = _descriptor.Descriptor(
@@ -449,8 +449,8 @@ _CLUSTER_EDSCLUSTERCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4464,
-  serialized_end=4705,
+  serialized_start=4723,
+  serialized_end=4964,
 )
 
 _CLUSTER_LBSUBSETCONFIG_LBSUBSETSELECTOR = _descriptor.Descriptor(
@@ -469,14 +469,21 @@ _CLUSTER_LBSUBSETCONFIG_LBSUBSETSELECTOR = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='fallback_policy', full_name='envoy.config.cluster.v4alpha.Cluster.LbSubsetConfig.LbSubsetSelector.fallback_policy', index=1,
+      name='single_host_per_subset', full_name='envoy.config.cluster.v4alpha.Cluster.LbSubsetConfig.LbSubsetSelector.single_host_per_subset', index=1,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='fallback_policy', full_name='envoy.config.cluster.v4alpha.Cluster.LbSubsetConfig.LbSubsetSelector.fallback_policy', index=2,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\005\202\001\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='fallback_keys_subset', full_name='envoy.config.cluster.v4alpha.Cluster.LbSubsetConfig.LbSubsetSelector.fallback_keys_subset', index=2,
+      name='fallback_keys_subset', full_name='envoy.config.cluster.v4alpha.Cluster.LbSubsetConfig.LbSubsetSelector.fallback_keys_subset', index=3,
       number=3, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -495,8 +502,8 @@ _CLUSTER_LBSUBSETCONFIG_LBSUBSETSELECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5092,
-  serialized_end=5487,
+  serialized_start=5351,
+  serialized_end=5778,
 )
 
 _CLUSTER_LBSUBSETCONFIG = _descriptor.Descriptor(
@@ -569,8 +576,8 @@ _CLUSTER_LBSUBSETCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4708,
-  serialized_end=5623,
+  serialized_start=4967,
+  serialized_end=5914,
 )
 
 _CLUSTER_LEASTREQUESTLBCONFIG = _descriptor.Descriptor(
@@ -588,6 +595,13 @@ _CLUSTER_LEASTREQUESTLBCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\004*\002(\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='active_request_bias', full_name='envoy.config.cluster.v4alpha.Cluster.LeastRequestLbConfig.active_request_bias', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -600,8 +614,8 @@ _CLUSTER_LEASTREQUESTLBCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5626,
-  serialized_end=5770,
+  serialized_start=5917,
+  serialized_end=6132,
 )
 
 _CLUSTER_RINGHASHLBCONFIG = _descriptor.Descriptor(
@@ -646,8 +660,39 @@ _CLUSTER_RINGHASHLBCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5773,
-  serialized_end=6142,
+  serialized_start=6135,
+  serialized_end=6504,
+)
+
+_CLUSTER_MAGLEVLBCONFIG = _descriptor.Descriptor(
+  name='MaglevLbConfig',
+  full_name='envoy.config.cluster.v4alpha.Cluster.MaglevLbConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='table_size', full_name='envoy.config.cluster.v4alpha.Cluster.MaglevLbConfig.table_size', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\232\305\210\0360\n.envoy.config.cluster.v3.Cluster.MaglevLbConfig',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6506,
+  serialized_end=6627,
 )
 
 _CLUSTER_ORIGINALDSTLBCONFIG = _descriptor.Descriptor(
@@ -677,8 +722,8 @@ _CLUSTER_ORIGINALDSTLBCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6144,
-  serialized_end=6250,
+  serialized_start=6629,
+  serialized_end=6735,
 )
 
 _CLUSTER_COMMONLBCONFIG_ZONEAWARELBCONFIG = _descriptor.Descriptor(
@@ -722,8 +767,8 @@ _CLUSTER_COMMONLBCONFIG_ZONEAWARELBCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6812,
-  serialized_end=7040,
+  serialized_start=7297,
+  serialized_end=7525,
 )
 
 _CLUSTER_COMMONLBCONFIG_LOCALITYWEIGHTEDLBCONFIG = _descriptor.Descriptor(
@@ -746,8 +791,8 @@ _CLUSTER_COMMONLBCONFIG_LOCALITYWEIGHTEDLBCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7042,
-  serialized_end=7148,
+  serialized_start=7527,
+  serialized_end=7633,
 )
 
 _CLUSTER_COMMONLBCONFIG_CONSISTENTHASHINGLBCONFIG = _descriptor.Descriptor(
@@ -765,6 +810,13 @@ _CLUSTER_COMMONLBCONFIG_CONSISTENTHASHINGLBCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='hash_balance_factor', full_name='envoy.config.cluster.v4alpha.Cluster.CommonLbConfig.ConsistentHashingLbConfig.hash_balance_factor', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\004*\002(d', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -777,8 +829,8 @@ _CLUSTER_COMMONLBCONFIG_CONSISTENTHASHINGLBCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7151,
-  serialized_end=7293,
+  serialized_start=7636,
+  serialized_end=7846,
 )
 
 _CLUSTER_COMMONLBCONFIG = _descriptor.Descriptor(
@@ -855,8 +907,8 @@ _CLUSTER_COMMONLBCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=6253,
-  serialized_end=7377,
+  serialized_start=6738,
+  serialized_end=7930,
 )
 
 _CLUSTER_REFRESHRATE = _descriptor.Descriptor(
@@ -893,8 +945,46 @@ _CLUSTER_REFRESHRATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7380,
-  serialized_end=7574,
+  serialized_start=7933,
+  serialized_end=8127,
+)
+
+_CLUSTER_PREFETCHPOLICY = _descriptor.Descriptor(
+  name='PrefetchPolicy',
+  full_name='envoy.config.cluster.v4alpha.Cluster.PrefetchPolicy',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='per_upstream_prefetch_ratio', full_name='envoy.config.cluster.v4alpha.Cluster.PrefetchPolicy.per_upstream_prefetch_ratio', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\024\022\022\031\000\000\000\000\000\000\010@)\000\000\000\000\000\000\360?', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='predictive_prefetch_ratio', full_name='envoy.config.cluster.v4alpha.Cluster.PrefetchPolicy.predictive_prefetch_ratio', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\024\022\022\031\000\000\000\000\000\000\010@)\000\000\000\000\000\000\360?', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\232\305\210\0360\n.envoy.config.cluster.v3.Cluster.PrefetchPolicy',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8130,
+  serialized_end=8383,
 )
 
 _CLUSTER_TYPEDEXTENSIONPROTOCOLOPTIONSENTRY = _descriptor.Descriptor(
@@ -931,8 +1021,8 @@ _CLUSTER_TYPEDEXTENSIONPROTOCOLOPTIONSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7576,
-  serialized_end=7666,
+  serialized_start=8385,
+  serialized_end=8475,
 )
 
 _CLUSTER = _descriptor.Descriptor(
@@ -956,7 +1046,7 @@ _CLUSTER = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='alt_stat_name', full_name='envoy.config.cluster.v4alpha.Cluster.alt_stat_name', index=2,
       number=28, type=9, cpp_type=9, label=1,
@@ -1147,93 +1237,93 @@ _CLUSTER = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='original_dst_lb_config', full_name='envoy.config.cluster.v4alpha.Cluster.original_dst_lb_config', index=29,
+      name='maglev_lb_config', full_name='envoy.config.cluster.v4alpha.Cluster.maglev_lb_config', index=29,
+      number=52, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='original_dst_lb_config', full_name='envoy.config.cluster.v4alpha.Cluster.original_dst_lb_config', index=30,
       number=34, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='least_request_lb_config', full_name='envoy.config.cluster.v4alpha.Cluster.least_request_lb_config', index=30,
+      name='least_request_lb_config', full_name='envoy.config.cluster.v4alpha.Cluster.least_request_lb_config', index=31,
       number=37, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='common_lb_config', full_name='envoy.config.cluster.v4alpha.Cluster.common_lb_config', index=31,
+      name='common_lb_config', full_name='envoy.config.cluster.v4alpha.Cluster.common_lb_config', index=32,
       number=27, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='transport_socket', full_name='envoy.config.cluster.v4alpha.Cluster.transport_socket', index=32,
+      name='transport_socket', full_name='envoy.config.cluster.v4alpha.Cluster.transport_socket', index=33,
       number=24, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='metadata', full_name='envoy.config.cluster.v4alpha.Cluster.metadata', index=33,
+      name='metadata', full_name='envoy.config.cluster.v4alpha.Cluster.metadata', index=34,
       number=25, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='protocol_selection', full_name='envoy.config.cluster.v4alpha.Cluster.protocol_selection', index=34,
+      name='protocol_selection', full_name='envoy.config.cluster.v4alpha.Cluster.protocol_selection', index=35,
       number=26, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='upstream_connection_options', full_name='envoy.config.cluster.v4alpha.Cluster.upstream_connection_options', index=35,
+      name='upstream_connection_options', full_name='envoy.config.cluster.v4alpha.Cluster.upstream_connection_options', index=36,
       number=30, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='close_connections_on_host_health_failure', full_name='envoy.config.cluster.v4alpha.Cluster.close_connections_on_host_health_failure', index=36,
+      name='close_connections_on_host_health_failure', full_name='envoy.config.cluster.v4alpha.Cluster.close_connections_on_host_health_failure', index=37,
       number=31, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ignore_health_on_host_removal', full_name='envoy.config.cluster.v4alpha.Cluster.ignore_health_on_host_removal', index=37,
+      name='ignore_health_on_host_removal', full_name='envoy.config.cluster.v4alpha.Cluster.ignore_health_on_host_removal', index=38,
       number=32, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='filters', full_name='envoy.config.cluster.v4alpha.Cluster.filters', index=38,
+      name='filters', full_name='envoy.config.cluster.v4alpha.Cluster.filters', index=39,
       number=40, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='load_balancing_policy', full_name='envoy.config.cluster.v4alpha.Cluster.load_balancing_policy', index=39,
+      name='load_balancing_policy', full_name='envoy.config.cluster.v4alpha.Cluster.load_balancing_policy', index=40,
       number=41, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='lrs_server', full_name='envoy.config.cluster.v4alpha.Cluster.lrs_server', index=40,
+      name='lrs_server', full_name='envoy.config.cluster.v4alpha.Cluster.lrs_server', index=41,
       number=42, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='track_timeout_budgets', full_name='envoy.config.cluster.v4alpha.Cluster.track_timeout_budgets', index=41,
-      number=47, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -1244,10 +1334,31 @@ _CLUSTER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='track_cluster_stats', full_name='envoy.config.cluster.v4alpha.Cluster.track_cluster_stats', index=43,
+      number=49, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='prefetch_policy', full_name='envoy.config.cluster.v4alpha.Cluster.prefetch_policy', index=44,
+      number=50, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='connection_pool_per_downstream_connection', full_name='envoy.config.cluster.v4alpha.Cluster.connection_pool_per_downstream_connection', index=45,
+      number=51, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_CLUSTER_TRANSPORTSOCKETMATCH, _CLUSTER_CUSTOMCLUSTERTYPE, _CLUSTER_EDSCLUSTERCONFIG, _CLUSTER_LBSUBSETCONFIG, _CLUSTER_LEASTREQUESTLBCONFIG, _CLUSTER_RINGHASHLBCONFIG, _CLUSTER_ORIGINALDSTLBCONFIG, _CLUSTER_COMMONLBCONFIG, _CLUSTER_REFRESHRATE, _CLUSTER_TYPEDEXTENSIONPROTOCOLOPTIONSENTRY, ],
+  nested_types=[_CLUSTER_TRANSPORTSOCKETMATCH, _CLUSTER_CUSTOMCLUSTERTYPE, _CLUSTER_EDSCLUSTERCONFIG, _CLUSTER_LBSUBSETCONFIG, _CLUSTER_LEASTREQUESTLBCONFIG, _CLUSTER_RINGHASHLBCONFIG, _CLUSTER_MAGLEVLBCONFIG, _CLUSTER_ORIGINALDSTLBCONFIG, _CLUSTER_COMMONLBCONFIG, _CLUSTER_REFRESHRATE, _CLUSTER_PREFETCHPOLICY, _CLUSTER_TYPEDEXTENSIONPROTOCOLOPTIONSENTRY, ],
   enum_types=[
     _CLUSTER_DISCOVERYTYPE,
     _CLUSTER_LBPOLICY,
@@ -1271,7 +1382,7 @@ _CLUSTER = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=1028,
-  serialized_end=8220,
+  serialized_end=9058,
 )
 
 
@@ -1309,8 +1420,8 @@ _LOADBALANCINGPOLICY_POLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8323,
-  serialized_end=8462,
+  serialized_start=9161,
+  serialized_end=9300,
 )
 
 _LOADBALANCINGPOLICY = _descriptor.Descriptor(
@@ -1340,8 +1451,8 @@ _LOADBALANCINGPOLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8223,
-  serialized_end=8514,
+  serialized_start=9061,
+  serialized_end=9352,
 )
 
 
@@ -1372,8 +1483,8 @@ _UPSTREAMBINDCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8517,
-  serialized_end=8648,
+  serialized_start=9355,
+  serialized_end=9486,
 )
 
 
@@ -1404,8 +1515,47 @@ _UPSTREAMCONNECTIONOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8651,
-  serialized_end=8800,
+  serialized_start=9489,
+  serialized_end=9638,
+)
+
+
+_TRACKCLUSTERSTATS = _descriptor.Descriptor(
+  name='TrackClusterStats',
+  full_name='envoy.config.cluster.v4alpha.TrackClusterStats',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='timeout_budgets', full_name='envoy.config.cluster.v4alpha.TrackClusterStats.timeout_budgets', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_response_sizes', full_name='envoy.config.cluster.v4alpha.TrackClusterStats.request_response_sizes', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\232\305\210\036+\n)envoy.config.cluster.v3.TrackClusterStats',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9640,
+  serialized_end=9766,
 )
 
 _CLUSTERCOLLECTION.fields_by_name['entries'].message_type = udpa_dot_core_dot_v1_dot_collection__entry__pb2._COLLECTIONENTRY
@@ -1432,17 +1582,21 @@ _CLUSTER_LBSUBSETCONFIG.fields_by_name['subset_selectors'].message_type = _CLUST
 _CLUSTER_LBSUBSETCONFIG.containing_type = _CLUSTER
 _CLUSTER_LBSUBSETCONFIG_LBSUBSETFALLBACKPOLICY.containing_type = _CLUSTER_LBSUBSETCONFIG
 _CLUSTER_LEASTREQUESTLBCONFIG.fields_by_name['choice_count'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
+_CLUSTER_LEASTREQUESTLBCONFIG.fields_by_name['active_request_bias'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2._RUNTIMEDOUBLE
 _CLUSTER_LEASTREQUESTLBCONFIG.containing_type = _CLUSTER
 _CLUSTER_RINGHASHLBCONFIG.fields_by_name['minimum_ring_size'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT64VALUE
 _CLUSTER_RINGHASHLBCONFIG.fields_by_name['hash_function'].enum_type = _CLUSTER_RINGHASHLBCONFIG_HASHFUNCTION
 _CLUSTER_RINGHASHLBCONFIG.fields_by_name['maximum_ring_size'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT64VALUE
 _CLUSTER_RINGHASHLBCONFIG.containing_type = _CLUSTER
 _CLUSTER_RINGHASHLBCONFIG_HASHFUNCTION.containing_type = _CLUSTER_RINGHASHLBCONFIG
+_CLUSTER_MAGLEVLBCONFIG.fields_by_name['table_size'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT64VALUE
+_CLUSTER_MAGLEVLBCONFIG.containing_type = _CLUSTER
 _CLUSTER_ORIGINALDSTLBCONFIG.containing_type = _CLUSTER
 _CLUSTER_COMMONLBCONFIG_ZONEAWARELBCONFIG.fields_by_name['routing_enabled'].message_type = envoy_dot_type_dot_v3_dot_percent__pb2._PERCENT
 _CLUSTER_COMMONLBCONFIG_ZONEAWARELBCONFIG.fields_by_name['min_cluster_size'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT64VALUE
 _CLUSTER_COMMONLBCONFIG_ZONEAWARELBCONFIG.containing_type = _CLUSTER_COMMONLBCONFIG
 _CLUSTER_COMMONLBCONFIG_LOCALITYWEIGHTEDLBCONFIG.containing_type = _CLUSTER_COMMONLBCONFIG
+_CLUSTER_COMMONLBCONFIG_CONSISTENTHASHINGLBCONFIG.fields_by_name['hash_balance_factor'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _CLUSTER_COMMONLBCONFIG_CONSISTENTHASHINGLBCONFIG.containing_type = _CLUSTER_COMMONLBCONFIG
 _CLUSTER_COMMONLBCONFIG.fields_by_name['healthy_panic_threshold'].message_type = envoy_dot_type_dot_v3_dot_percent__pb2._PERCENT
 _CLUSTER_COMMONLBCONFIG.fields_by_name['zone_aware_lb_config'].message_type = _CLUSTER_COMMONLBCONFIG_ZONEAWARELBCONFIG
@@ -1459,6 +1613,9 @@ _CLUSTER_COMMONLBCONFIG.fields_by_name['locality_weighted_lb_config'].containing
 _CLUSTER_REFRESHRATE.fields_by_name['base_interval'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _CLUSTER_REFRESHRATE.fields_by_name['max_interval'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _CLUSTER_REFRESHRATE.containing_type = _CLUSTER
+_CLUSTER_PREFETCHPOLICY.fields_by_name['per_upstream_prefetch_ratio'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
+_CLUSTER_PREFETCHPOLICY.fields_by_name['predictive_prefetch_ratio'].message_type = google_dot_protobuf_dot_wrappers__pb2._DOUBLEVALUE
+_CLUSTER_PREFETCHPOLICY.containing_type = _CLUSTER
 _CLUSTER_TYPEDEXTENSIONPROTOCOLOPTIONSENTRY.fields_by_name['value'].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _CLUSTER_TYPEDEXTENSIONPROTOCOLOPTIONSENTRY.containing_type = _CLUSTER
 _CLUSTER.fields_by_name['transport_socket_matches'].message_type = _CLUSTER_TRANSPORTSOCKETMATCH
@@ -1486,6 +1643,7 @@ _CLUSTER.fields_by_name['cleanup_interval'].message_type = google_dot_protobuf_d
 _CLUSTER.fields_by_name['upstream_bind_config'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_address__pb2._BINDCONFIG
 _CLUSTER.fields_by_name['lb_subset_config'].message_type = _CLUSTER_LBSUBSETCONFIG
 _CLUSTER.fields_by_name['ring_hash_lb_config'].message_type = _CLUSTER_RINGHASHLBCONFIG
+_CLUSTER.fields_by_name['maglev_lb_config'].message_type = _CLUSTER_MAGLEVLBCONFIG
 _CLUSTER.fields_by_name['original_dst_lb_config'].message_type = _CLUSTER_ORIGINALDSTLBCONFIG
 _CLUSTER.fields_by_name['least_request_lb_config'].message_type = _CLUSTER_LEASTREQUESTLBCONFIG
 _CLUSTER.fields_by_name['common_lb_config'].message_type = _CLUSTER_COMMONLBCONFIG
@@ -1497,6 +1655,8 @@ _CLUSTER.fields_by_name['filters'].message_type = envoy_dot_config_dot_cluster_d
 _CLUSTER.fields_by_name['load_balancing_policy'].message_type = _LOADBALANCINGPOLICY
 _CLUSTER.fields_by_name['lrs_server'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_config__source__pb2._CONFIGSOURCE
 _CLUSTER.fields_by_name['upstream_config'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_extension__pb2._TYPEDEXTENSIONCONFIG
+_CLUSTER.fields_by_name['track_cluster_stats'].message_type = _TRACKCLUSTERSTATS
+_CLUSTER.fields_by_name['prefetch_policy'].message_type = _CLUSTER_PREFETCHPOLICY
 _CLUSTER_DISCOVERYTYPE.containing_type = _CLUSTER
 _CLUSTER_LBPOLICY.containing_type = _CLUSTER
 _CLUSTER_DNSLOOKUPFAMILY.containing_type = _CLUSTER
@@ -1510,6 +1670,9 @@ _CLUSTER.fields_by_name['cluster_type'].containing_oneof = _CLUSTER.oneofs_by_na
 _CLUSTER.oneofs_by_name['lb_config'].fields.append(
   _CLUSTER.fields_by_name['ring_hash_lb_config'])
 _CLUSTER.fields_by_name['ring_hash_lb_config'].containing_oneof = _CLUSTER.oneofs_by_name['lb_config']
+_CLUSTER.oneofs_by_name['lb_config'].fields.append(
+  _CLUSTER.fields_by_name['maglev_lb_config'])
+_CLUSTER.fields_by_name['maglev_lb_config'].containing_oneof = _CLUSTER.oneofs_by_name['lb_config']
 _CLUSTER.oneofs_by_name['lb_config'].fields.append(
   _CLUSTER.fields_by_name['original_dst_lb_config'])
 _CLUSTER.fields_by_name['original_dst_lb_config'].containing_oneof = _CLUSTER.oneofs_by_name['lb_config']
@@ -1526,6 +1689,7 @@ DESCRIPTOR.message_types_by_name['Cluster'] = _CLUSTER
 DESCRIPTOR.message_types_by_name['LoadBalancingPolicy'] = _LOADBALANCINGPOLICY
 DESCRIPTOR.message_types_by_name['UpstreamBindConfig'] = _UPSTREAMBINDCONFIG
 DESCRIPTOR.message_types_by_name['UpstreamConnectionOptions'] = _UPSTREAMCONNECTIONOPTIONS
+DESCRIPTOR.message_types_by_name['TrackClusterStats'] = _TRACKCLUSTERSTATS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ClusterCollection = _reflection.GeneratedProtocolMessageType('ClusterCollection', (_message.Message,), {
@@ -1586,6 +1750,13 @@ Cluster = _reflection.GeneratedProtocolMessageType('Cluster', (_message.Message,
     })
   ,
 
+  'MaglevLbConfig' : _reflection.GeneratedProtocolMessageType('MaglevLbConfig', (_message.Message,), {
+    'DESCRIPTOR' : _CLUSTER_MAGLEVLBCONFIG,
+    '__module__' : 'envoy.config.cluster.v4alpha.cluster_pb2'
+    # @@protoc_insertion_point(class_scope:envoy.config.cluster.v4alpha.Cluster.MaglevLbConfig)
+    })
+  ,
+
   'OriginalDstLbConfig' : _reflection.GeneratedProtocolMessageType('OriginalDstLbConfig', (_message.Message,), {
     'DESCRIPTOR' : _CLUSTER_ORIGINALDSTLBCONFIG,
     '__module__' : 'envoy.config.cluster.v4alpha.cluster_pb2'
@@ -1628,6 +1799,13 @@ Cluster = _reflection.GeneratedProtocolMessageType('Cluster', (_message.Message,
     })
   ,
 
+  'PrefetchPolicy' : _reflection.GeneratedProtocolMessageType('PrefetchPolicy', (_message.Message,), {
+    'DESCRIPTOR' : _CLUSTER_PREFETCHPOLICY,
+    '__module__' : 'envoy.config.cluster.v4alpha.cluster_pb2'
+    # @@protoc_insertion_point(class_scope:envoy.config.cluster.v4alpha.Cluster.PrefetchPolicy)
+    })
+  ,
+
   'TypedExtensionProtocolOptionsEntry' : _reflection.GeneratedProtocolMessageType('TypedExtensionProtocolOptionsEntry', (_message.Message,), {
     'DESCRIPTOR' : _CLUSTER_TYPEDEXTENSIONPROTOCOLOPTIONSENTRY,
     '__module__' : 'envoy.config.cluster.v4alpha.cluster_pb2'
@@ -1646,12 +1824,14 @@ _sym_db.RegisterMessage(Cluster.LbSubsetConfig)
 _sym_db.RegisterMessage(Cluster.LbSubsetConfig.LbSubsetSelector)
 _sym_db.RegisterMessage(Cluster.LeastRequestLbConfig)
 _sym_db.RegisterMessage(Cluster.RingHashLbConfig)
+_sym_db.RegisterMessage(Cluster.MaglevLbConfig)
 _sym_db.RegisterMessage(Cluster.OriginalDstLbConfig)
 _sym_db.RegisterMessage(Cluster.CommonLbConfig)
 _sym_db.RegisterMessage(Cluster.CommonLbConfig.ZoneAwareLbConfig)
 _sym_db.RegisterMessage(Cluster.CommonLbConfig.LocalityWeightedLbConfig)
 _sym_db.RegisterMessage(Cluster.CommonLbConfig.ConsistentHashingLbConfig)
 _sym_db.RegisterMessage(Cluster.RefreshRate)
+_sym_db.RegisterMessage(Cluster.PrefetchPolicy)
 _sym_db.RegisterMessage(Cluster.TypedExtensionProtocolOptionsEntry)
 
 LoadBalancingPolicy = _reflection.GeneratedProtocolMessageType('LoadBalancingPolicy', (_message.Message,), {
@@ -1683,6 +1863,13 @@ UpstreamConnectionOptions = _reflection.GeneratedProtocolMessageType('UpstreamCo
   })
 _sym_db.RegisterMessage(UpstreamConnectionOptions)
 
+TrackClusterStats = _reflection.GeneratedProtocolMessageType('TrackClusterStats', (_message.Message,), {
+  'DESCRIPTOR' : _TRACKCLUSTERSTATS,
+  '__module__' : 'envoy.config.cluster.v4alpha.cluster_pb2'
+  # @@protoc_insertion_point(class_scope:envoy.config.cluster.v4alpha.TrackClusterStats)
+  })
+_sym_db.RegisterMessage(TrackClusterStats)
+
 
 DESCRIPTOR._options = None
 _CLUSTERCOLLECTION._options = None
@@ -1701,14 +1888,19 @@ _CLUSTER_RINGHASHLBCONFIG.fields_by_name['minimum_ring_size']._options = None
 _CLUSTER_RINGHASHLBCONFIG.fields_by_name['hash_function']._options = None
 _CLUSTER_RINGHASHLBCONFIG.fields_by_name['maximum_ring_size']._options = None
 _CLUSTER_RINGHASHLBCONFIG._options = None
+_CLUSTER_MAGLEVLBCONFIG._options = None
 _CLUSTER_ORIGINALDSTLBCONFIG._options = None
 _CLUSTER_COMMONLBCONFIG_ZONEAWARELBCONFIG._options = None
 _CLUSTER_COMMONLBCONFIG_LOCALITYWEIGHTEDLBCONFIG._options = None
+_CLUSTER_COMMONLBCONFIG_CONSISTENTHASHINGLBCONFIG.fields_by_name['hash_balance_factor']._options = None
 _CLUSTER_COMMONLBCONFIG_CONSISTENTHASHINGLBCONFIG._options = None
 _CLUSTER_COMMONLBCONFIG._options = None
 _CLUSTER_REFRESHRATE.fields_by_name['base_interval']._options = None
 _CLUSTER_REFRESHRATE.fields_by_name['max_interval']._options = None
 _CLUSTER_REFRESHRATE._options = None
+_CLUSTER_PREFETCHPOLICY.fields_by_name['per_upstream_prefetch_ratio']._options = None
+_CLUSTER_PREFETCHPOLICY.fields_by_name['predictive_prefetch_ratio']._options = None
+_CLUSTER_PREFETCHPOLICY._options = None
 _CLUSTER_TYPEDEXTENSIONPROTOCOLOPTIONSENTRY._options = None
 _CLUSTER.fields_by_name['name']._options = None
 _CLUSTER.fields_by_name['type']._options = None
@@ -1724,4 +1916,5 @@ _LOADBALANCINGPOLICY_POLICY._options = None
 _LOADBALANCINGPOLICY._options = None
 _UPSTREAMBINDCONFIG._options = None
 _UPSTREAMCONNECTIONOPTIONS._options = None
+_TRACKCLUSTERSTATS._options = None
 # @@protoc_insertion_point(module_scope)

@@ -24,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/notebooks/v1beta1/service.proto',
   package='google.cloud.notebooks.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n\"com.google.cloud.notebooks.v1beta1B\016NotebooksProtoP\001ZGgoogle.golang.org/genproto/googleapis/cloud/notebooks/v1beta1;notebooks\252\002\036Google.Cloud.Notebooks.V1Beta1\312\002\036Google\\Cloud\\Notebooks\\V1Beta1\352\002!Google::Cloud::Notebooks::V1beta1',
+  serialized_options=b'\n\"com.google.cloud.notebooks.v1beta1B\016NotebooksProtoP\001ZGgoogle.golang.org/genproto/googleapis/cloud/notebooks/v1beta1;notebooks\252\002\036Google.Cloud.Notebooks.V1Beta1\312\002\036Google\\Cloud\\Notebooks\\V1beta1\352\002!Google::Cloud::Notebooks::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,google/cloud/notebooks/v1beta1/service.proto\x12\x1egoogle.cloud.notebooks.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x30google/cloud/notebooks/v1beta1/environment.proto\x1a-google/cloud/notebooks/v1beta1/instance.proto\x1a#google/longrunning/operations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/api/client.proto\"\xdd\x01\n\x11OperationMetadata\x12/\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0e\n\x06target\x18\x03 \x01(\t\x12\x0c\n\x04verb\x18\x04 \x01(\t\x12\x16\n\x0estatus_message\x18\x05 \x01(\t\x12\x1e\n\x16requested_cancellation\x18\x06 \x01(\x08\x12\x13\n\x0b\x61pi_version\x18\x07 \x01(\t\"R\n\x14ListInstancesRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x82\x01\n\x15ListInstancesResponse\x12;\n\tinstances\x18\x01 \x03(\x0b\x32(.google.cloud.notebooks.v1beta1.Instance\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\'\n\x12GetInstanceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\x87\x01\n\x15\x43reateInstanceRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x0binstance_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12?\n\x08instance\x18\x03 \x01(\x0b\x32(.google.cloud.notebooks.v1beta1.InstanceB\x03\xe0\x41\x02\"H\n\x17RegisterInstanceRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x0binstance_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\x98\x01\n\x1dSetInstanceAcceleratorRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12K\n\x04type\x18\x02 \x01(\x0e\x32\x38.google.cloud.notebooks.v1beta1.Instance.AcceleratorTypeB\x03\xe0\x41\x02\x12\x17\n\ncore_count\x18\x03 \x01(\x03\x42\x03\xe0\x41\x02\"M\n\x1dSetInstanceMachineTypeRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0cmachine_type\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\xb2\x01\n\x18SetInstanceLabelsRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12T\n\x06labels\x18\x02 \x03(\x0b\x32\x44.google.cloud.notebooks.v1beta1.SetInstanceLabelsRequest.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"*\n\x15\x44\x65leteInstanceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\")\n\x14StartInstanceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"(\n\x13StopInstanceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\")\n\x14ResetInstanceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\xce\x01\n\x19ReportInstanceInfoRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05vm_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12Y\n\x08metadata\x18\x03 \x03(\x0b\x32G.google.cloud.notebooks.v1beta1.ReportInstanceInfoRequest.MetadataEntry\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\">\n\x1cIsInstanceUpgradeableRequest\x12\x1e\n\x11notebook_instance\x18\x01 \x01(\tB\x03\xe0\x41\x02\"M\n\x1dIsInstanceUpgradeableResponse\x12\x13\n\x0bupgradeable\x18\x01 \x01(\x08\x12\x17\n\x0fupgrade_version\x18\x02 \x01(\t\"+\n\x16UpgradeInstanceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"G\n\x1eUpgradeInstanceInternalRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05vm_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"U\n\x17ListEnvironmentsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x8b\x01\n\x18ListEnvironmentsResponse\x12\x41\n\x0c\x65nvironments\x18\x01 \x03(\x0b\x32+.google.cloud.notebooks.v1beta1.Environment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"*\n\x15GetEnvironmentRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\x93\x01\n\x18\x43reateEnvironmentRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1b\n\x0e\x65nvironment_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x45\n\x0b\x65nvironment\x18\x03 \x01(\x0b\x32+.google.cloud.notebooks.v1beta1.EnvironmentB\x03\xe0\x41\x02\"-\n\x18\x44\x65leteEnvironmentRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x32\xf8\x1f\n\x0fNotebookService\x12\xb8\x01\n\rListInstances\x12\x34.google.cloud.notebooks.v1beta1.ListInstancesRequest\x1a\x35.google.cloud.notebooks.v1beta1.ListInstancesResponse\":\x82\xd3\xe4\x93\x02\x34\x12\x32/v1beta1/{parent=projects/*/locations/*}/instances\x12\xa7\x01\n\x0bGetInstance\x12\x32.google.cloud.notebooks.v1beta1.GetInstanceRequest\x1a(.google.cloud.notebooks.v1beta1.Instance\":\x82\xd3\xe4\x93\x02\x34\x12\x32/v1beta1/{name=projects/*/locations/*/instances/*}\x12\xcc\x01\n\x0e\x43reateInstance\x12\x35.google.cloud.notebooks.v1beta1.CreateInstanceRequest\x1a\x1d.google.longrunning.Operation\"d\x82\xd3\xe4\x93\x02>\"2/v1beta1/{parent=projects/*/locations/*}/instances:\x08instance\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xd2\x01\n\x10RegisterInstance\x12\x37.google.cloud.notebooks.v1beta1.RegisterInstanceRequest\x1a\x1d.google.longrunning.Operation\"f\x82\xd3\xe4\x93\x02@\";/v1beta1/{parent=projects/*/locations/*}/instances:register:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xe4\x01\n\x16SetInstanceAccelerator\x12=.google.cloud.notebooks.v1beta1.SetInstanceAcceleratorRequest\x1a\x1d.google.longrunning.Operation\"l\x82\xd3\xe4\x93\x02\x46\x32\x41/v1beta1/{name=projects/*/locations/*/instances/*}:setAccelerator:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xe4\x01\n\x16SetInstanceMachineType\x12=.google.cloud.notebooks.v1beta1.SetInstanceMachineTypeRequest\x1a\x1d.google.longrunning.Operation\"l\x82\xd3\xe4\x93\x02\x46\x32\x41/v1beta1/{name=projects/*/locations/*/instances/*}:setMachineType:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xd5\x01\n\x11SetInstanceLabels\x12\x38.google.cloud.notebooks.v1beta1.SetInstanceLabelsRequest\x1a\x1d.google.longrunning.Operation\"g\x82\xd3\xe4\x93\x02\x41\x32</v1beta1/{name=projects/*/locations/*/instances/*}:setLabels:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xcf\x01\n\x0e\x44\x65leteInstance\x12\x35.google.cloud.notebooks.v1beta1.DeleteInstanceRequest\x1a\x1d.google.longrunning.Operation\"g\x82\xd3\xe4\x93\x02\x34*2/v1beta1/{name=projects/*/locations/*/instances/*}\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xc9\x01\n\rStartInstance\x12\x34.google.cloud.notebooks.v1beta1.StartInstanceRequest\x1a\x1d.google.longrunning.Operation\"c\x82\xd3\xe4\x93\x02=\"8/v1beta1/{name=projects/*/locations/*/instances/*}:start:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xc6\x01\n\x0cStopInstance\x12\x33.google.cloud.notebooks.v1beta1.StopInstanceRequest\x1a\x1d.google.longrunning.Operation\"b\x82\xd3\xe4\x93\x02<\"7/v1beta1/{name=projects/*/locations/*/instances/*}:stop:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xc9\x01\n\rResetInstance\x12\x34.google.cloud.notebooks.v1beta1.ResetInstanceRequest\x1a\x1d.google.longrunning.Operation\"c\x82\xd3\xe4\x93\x02=\"8/v1beta1/{name=projects/*/locations/*/instances/*}:reset:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xd4\x01\n\x12ReportInstanceInfo\x12\x39.google.cloud.notebooks.v1beta1.ReportInstanceInfoRequest\x1a\x1d.google.longrunning.Operation\"d\x82\xd3\xe4\x93\x02>\"9/v1beta1/{name=projects/*/locations/*/instances/*}:report:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xeb\x01\n\x15IsInstanceUpgradeable\x12<.google.cloud.notebooks.v1beta1.IsInstanceUpgradeableRequest\x1a=.google.cloud.notebooks.v1beta1.IsInstanceUpgradeableResponse\"U\x82\xd3\xe4\x93\x02O\x12M/v1beta1/{notebook_instance=projects/*/locations/*/instances/*}:isUpgradeable\x12\xcf\x01\n\x0fUpgradeInstance\x12\x36.google.cloud.notebooks.v1beta1.UpgradeInstanceRequest\x1a\x1d.google.longrunning.Operation\"e\x82\xd3\xe4\x93\x02?\":/v1beta1/{name=projects/*/locations/*/instances/*}:upgrade:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xe7\x01\n\x17UpgradeInstanceInternal\x12>.google.cloud.notebooks.v1beta1.UpgradeInstanceInternalRequest\x1a\x1d.google.longrunning.Operation\"m\x82\xd3\xe4\x93\x02G\"B/v1beta1/{name=projects/*/locations/*/instances/*}:upgradeInternal:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xc4\x01\n\x10ListEnvironments\x12\x37.google.cloud.notebooks.v1beta1.ListEnvironmentsRequest\x1a\x38.google.cloud.notebooks.v1beta1.ListEnvironmentsResponse\"=\x82\xd3\xe4\x93\x02\x37\x12\x35/v1beta1/{parent=projects/*/locations/*}/environments\x12\xb3\x01\n\x0eGetEnvironment\x12\x35.google.cloud.notebooks.v1beta1.GetEnvironmentRequest\x1a+.google.cloud.notebooks.v1beta1.Environment\"=\x82\xd3\xe4\x93\x02\x37\x12\x35/v1beta1/{name=projects/*/locations/*/environments/*}\x12\xdb\x01\n\x11\x43reateEnvironment\x12\x38.google.cloud.notebooks.v1beta1.CreateEnvironmentRequest\x1a\x1d.google.longrunning.Operation\"m\x82\xd3\xe4\x93\x02\x44\"5/v1beta1/{parent=projects/*/locations/*}/environments:\x0b\x65nvironment\xca\x41 \n\x0b\x45nvironment\x12\x11OperationMetadata\x12\xd8\x01\n\x11\x44\x65leteEnvironment\x12\x38.google.cloud.notebooks.v1beta1.DeleteEnvironmentRequest\x1a\x1d.google.longrunning.Operation\"j\x82\xd3\xe4\x93\x02\x37*5/v1beta1/{name=projects/*/locations/*/environments/*}\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x1aL\xca\x41\x18notebooks.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xe5\x01\n\"com.google.cloud.notebooks.v1beta1B\x0eNotebooksProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/notebooks/v1beta1;notebooks\xaa\x02\x1eGoogle.Cloud.Notebooks.V1Beta1\xca\x02\x1eGoogle\\Cloud\\Notebooks\\V1Beta1\xea\x02!Google::Cloud::Notebooks::V1beta1b\x06proto3'
+  serialized_pb=b'\n,google/cloud/notebooks/v1beta1/service.proto\x12\x1egoogle.cloud.notebooks.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x30google/cloud/notebooks/v1beta1/environment.proto\x1a-google/cloud/notebooks/v1beta1/instance.proto\x1a#google/longrunning/operations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/api/client.proto\"\xef\x01\n\x11OperationMetadata\x12/\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0e\n\x06target\x18\x03 \x01(\t\x12\x0c\n\x04verb\x18\x04 \x01(\t\x12\x16\n\x0estatus_message\x18\x05 \x01(\t\x12\x1e\n\x16requested_cancellation\x18\x06 \x01(\x08\x12\x13\n\x0b\x61pi_version\x18\x07 \x01(\t\x12\x10\n\x08\x65ndpoint\x18\x08 \x01(\t\"R\n\x14ListInstancesRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x82\x01\n\x15ListInstancesResponse\x12;\n\tinstances\x18\x01 \x03(\x0b\x32(.google.cloud.notebooks.v1beta1.Instance\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\'\n\x12GetInstanceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\x87\x01\n\x15\x43reateInstanceRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x0binstance_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12?\n\x08instance\x18\x03 \x01(\x0b\x32(.google.cloud.notebooks.v1beta1.InstanceB\x03\xe0\x41\x02\"H\n\x17RegisterInstanceRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x0binstance_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\x98\x01\n\x1dSetInstanceAcceleratorRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12K\n\x04type\x18\x02 \x01(\x0e\x32\x38.google.cloud.notebooks.v1beta1.Instance.AcceleratorTypeB\x03\xe0\x41\x02\x12\x17\n\ncore_count\x18\x03 \x01(\x03\x42\x03\xe0\x41\x02\"M\n\x1dSetInstanceMachineTypeRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0cmachine_type\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\xb2\x01\n\x18SetInstanceLabelsRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12T\n\x06labels\x18\x02 \x03(\x0b\x32\x44.google.cloud.notebooks.v1beta1.SetInstanceLabelsRequest.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"*\n\x15\x44\x65leteInstanceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\")\n\x14StartInstanceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"(\n\x13StopInstanceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\")\n\x14ResetInstanceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\xce\x01\n\x19ReportInstanceInfoRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05vm_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12Y\n\x08metadata\x18\x03 \x03(\x0b\x32G.google.cloud.notebooks.v1beta1.ReportInstanceInfoRequest.MetadataEntry\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\">\n\x1cIsInstanceUpgradeableRequest\x12\x1e\n\x11notebook_instance\x18\x01 \x01(\tB\x03\xe0\x41\x02\"c\n\x1dIsInstanceUpgradeableResponse\x12\x13\n\x0bupgradeable\x18\x01 \x01(\x08\x12\x17\n\x0fupgrade_version\x18\x02 \x01(\t\x12\x14\n\x0cupgrade_info\x18\x03 \x01(\t\"+\n\x16UpgradeInstanceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"G\n\x1eUpgradeInstanceInternalRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05vm_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"U\n\x17ListEnvironmentsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x8b\x01\n\x18ListEnvironmentsResponse\x12\x41\n\x0c\x65nvironments\x18\x01 \x03(\x0b\x32+.google.cloud.notebooks.v1beta1.Environment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"*\n\x15GetEnvironmentRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\x93\x01\n\x18\x43reateEnvironmentRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1b\n\x0e\x65nvironment_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x45\n\x0b\x65nvironment\x18\x03 \x01(\x0b\x32+.google.cloud.notebooks.v1beta1.EnvironmentB\x03\xe0\x41\x02\"-\n\x18\x44\x65leteEnvironmentRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x32\xf8\x1f\n\x0fNotebookService\x12\xb8\x01\n\rListInstances\x12\x34.google.cloud.notebooks.v1beta1.ListInstancesRequest\x1a\x35.google.cloud.notebooks.v1beta1.ListInstancesResponse\":\x82\xd3\xe4\x93\x02\x34\x12\x32/v1beta1/{parent=projects/*/locations/*}/instances\x12\xa7\x01\n\x0bGetInstance\x12\x32.google.cloud.notebooks.v1beta1.GetInstanceRequest\x1a(.google.cloud.notebooks.v1beta1.Instance\":\x82\xd3\xe4\x93\x02\x34\x12\x32/v1beta1/{name=projects/*/locations/*/instances/*}\x12\xcc\x01\n\x0e\x43reateInstance\x12\x35.google.cloud.notebooks.v1beta1.CreateInstanceRequest\x1a\x1d.google.longrunning.Operation\"d\x82\xd3\xe4\x93\x02>\"2/v1beta1/{parent=projects/*/locations/*}/instances:\x08instance\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xd2\x01\n\x10RegisterInstance\x12\x37.google.cloud.notebooks.v1beta1.RegisterInstanceRequest\x1a\x1d.google.longrunning.Operation\"f\x82\xd3\xe4\x93\x02@\";/v1beta1/{parent=projects/*/locations/*}/instances:register:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xe4\x01\n\x16SetInstanceAccelerator\x12=.google.cloud.notebooks.v1beta1.SetInstanceAcceleratorRequest\x1a\x1d.google.longrunning.Operation\"l\x82\xd3\xe4\x93\x02\x46\x32\x41/v1beta1/{name=projects/*/locations/*/instances/*}:setAccelerator:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xe4\x01\n\x16SetInstanceMachineType\x12=.google.cloud.notebooks.v1beta1.SetInstanceMachineTypeRequest\x1a\x1d.google.longrunning.Operation\"l\x82\xd3\xe4\x93\x02\x46\x32\x41/v1beta1/{name=projects/*/locations/*/instances/*}:setMachineType:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xd5\x01\n\x11SetInstanceLabels\x12\x38.google.cloud.notebooks.v1beta1.SetInstanceLabelsRequest\x1a\x1d.google.longrunning.Operation\"g\x82\xd3\xe4\x93\x02\x41\x32</v1beta1/{name=projects/*/locations/*/instances/*}:setLabels:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xcf\x01\n\x0e\x44\x65leteInstance\x12\x35.google.cloud.notebooks.v1beta1.DeleteInstanceRequest\x1a\x1d.google.longrunning.Operation\"g\x82\xd3\xe4\x93\x02\x34*2/v1beta1/{name=projects/*/locations/*/instances/*}\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xc9\x01\n\rStartInstance\x12\x34.google.cloud.notebooks.v1beta1.StartInstanceRequest\x1a\x1d.google.longrunning.Operation\"c\x82\xd3\xe4\x93\x02=\"8/v1beta1/{name=projects/*/locations/*/instances/*}:start:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xc6\x01\n\x0cStopInstance\x12\x33.google.cloud.notebooks.v1beta1.StopInstanceRequest\x1a\x1d.google.longrunning.Operation\"b\x82\xd3\xe4\x93\x02<\"7/v1beta1/{name=projects/*/locations/*/instances/*}:stop:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xc9\x01\n\rResetInstance\x12\x34.google.cloud.notebooks.v1beta1.ResetInstanceRequest\x1a\x1d.google.longrunning.Operation\"c\x82\xd3\xe4\x93\x02=\"8/v1beta1/{name=projects/*/locations/*/instances/*}:reset:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xd4\x01\n\x12ReportInstanceInfo\x12\x39.google.cloud.notebooks.v1beta1.ReportInstanceInfoRequest\x1a\x1d.google.longrunning.Operation\"d\x82\xd3\xe4\x93\x02>\"9/v1beta1/{name=projects/*/locations/*/instances/*}:report:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xeb\x01\n\x15IsInstanceUpgradeable\x12<.google.cloud.notebooks.v1beta1.IsInstanceUpgradeableRequest\x1a=.google.cloud.notebooks.v1beta1.IsInstanceUpgradeableResponse\"U\x82\xd3\xe4\x93\x02O\x12M/v1beta1/{notebook_instance=projects/*/locations/*/instances/*}:isUpgradeable\x12\xcf\x01\n\x0fUpgradeInstance\x12\x36.google.cloud.notebooks.v1beta1.UpgradeInstanceRequest\x1a\x1d.google.longrunning.Operation\"e\x82\xd3\xe4\x93\x02?\":/v1beta1/{name=projects/*/locations/*/instances/*}:upgrade:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xe7\x01\n\x17UpgradeInstanceInternal\x12>.google.cloud.notebooks.v1beta1.UpgradeInstanceInternalRequest\x1a\x1d.google.longrunning.Operation\"m\x82\xd3\xe4\x93\x02G\"B/v1beta1/{name=projects/*/locations/*/instances/*}:upgradeInternal:\x01*\xca\x41\x1d\n\x08Instance\x12\x11OperationMetadata\x12\xc4\x01\n\x10ListEnvironments\x12\x37.google.cloud.notebooks.v1beta1.ListEnvironmentsRequest\x1a\x38.google.cloud.notebooks.v1beta1.ListEnvironmentsResponse\"=\x82\xd3\xe4\x93\x02\x37\x12\x35/v1beta1/{parent=projects/*/locations/*}/environments\x12\xb3\x01\n\x0eGetEnvironment\x12\x35.google.cloud.notebooks.v1beta1.GetEnvironmentRequest\x1a+.google.cloud.notebooks.v1beta1.Environment\"=\x82\xd3\xe4\x93\x02\x37\x12\x35/v1beta1/{name=projects/*/locations/*/environments/*}\x12\xdb\x01\n\x11\x43reateEnvironment\x12\x38.google.cloud.notebooks.v1beta1.CreateEnvironmentRequest\x1a\x1d.google.longrunning.Operation\"m\x82\xd3\xe4\x93\x02\x44\"5/v1beta1/{parent=projects/*/locations/*}/environments:\x0b\x65nvironment\xca\x41 \n\x0b\x45nvironment\x12\x11OperationMetadata\x12\xd8\x01\n\x11\x44\x65leteEnvironment\x12\x38.google.cloud.notebooks.v1beta1.DeleteEnvironmentRequest\x1a\x1d.google.longrunning.Operation\"j\x82\xd3\xe4\x93\x02\x37*5/v1beta1/{name=projects/*/locations/*/environments/*}\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x1aL\xca\x41\x18notebooks.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xe5\x01\n\"com.google.cloud.notebooks.v1beta1B\x0eNotebooksProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/notebooks/v1beta1;notebooks\xaa\x02\x1eGoogle.Cloud.Notebooks.V1Beta1\xca\x02\x1eGoogle\\Cloud\\Notebooks\\V1beta1\xea\x02!Google::Cloud::Notebooks::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_cloud_dot_notebooks_dot_v1beta1_dot_environment__pb2.DESCRIPTOR,google_dot_cloud_dot_notebooks_dot_v1beta1_dot_instance__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,])
 
@@ -90,6 +90,13 @@ _OPERATIONMETADATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='endpoint', full_name='google.cloud.notebooks.v1beta1.OperationMetadata.endpoint', index=7,
+      number=8, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -103,7 +110,7 @@ _OPERATIONMETADATA = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=336,
-  serialized_end=557,
+  serialized_end=575,
 )
 
 
@@ -148,8 +155,8 @@ _LISTINSTANCESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=559,
-  serialized_end=641,
+  serialized_start=577,
+  serialized_end=659,
 )
 
 
@@ -194,8 +201,8 @@ _LISTINSTANCESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=644,
-  serialized_end=774,
+  serialized_start=662,
+  serialized_end=792,
 )
 
 
@@ -226,8 +233,8 @@ _GETINSTANCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=776,
-  serialized_end=815,
+  serialized_start=794,
+  serialized_end=833,
 )
 
 
@@ -272,8 +279,8 @@ _CREATEINSTANCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=818,
-  serialized_end=953,
+  serialized_start=836,
+  serialized_end=971,
 )
 
 
@@ -311,8 +318,8 @@ _REGISTERINSTANCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=955,
-  serialized_end=1027,
+  serialized_start=973,
+  serialized_end=1045,
 )
 
 
@@ -357,8 +364,8 @@ _SETINSTANCEACCELERATORREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1030,
-  serialized_end=1182,
+  serialized_start=1048,
+  serialized_end=1200,
 )
 
 
@@ -396,8 +403,8 @@ _SETINSTANCEMACHINETYPEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1184,
-  serialized_end=1261,
+  serialized_start=1202,
+  serialized_end=1279,
 )
 
 
@@ -435,8 +442,8 @@ _SETINSTANCELABELSREQUEST_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1397,
-  serialized_end=1442,
+  serialized_start=1415,
+  serialized_end=1460,
 )
 
 _SETINSTANCELABELSREQUEST = _descriptor.Descriptor(
@@ -473,8 +480,8 @@ _SETINSTANCELABELSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1264,
-  serialized_end=1442,
+  serialized_start=1282,
+  serialized_end=1460,
 )
 
 
@@ -505,8 +512,8 @@ _DELETEINSTANCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1444,
-  serialized_end=1486,
+  serialized_start=1462,
+  serialized_end=1504,
 )
 
 
@@ -537,8 +544,8 @@ _STARTINSTANCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1488,
-  serialized_end=1529,
+  serialized_start=1506,
+  serialized_end=1547,
 )
 
 
@@ -569,8 +576,8 @@ _STOPINSTANCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1531,
-  serialized_end=1571,
+  serialized_start=1549,
+  serialized_end=1589,
 )
 
 
@@ -601,8 +608,8 @@ _RESETINSTANCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1573,
-  serialized_end=1614,
+  serialized_start=1591,
+  serialized_end=1632,
 )
 
 
@@ -640,8 +647,8 @@ _REPORTINSTANCEINFOREQUEST_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1776,
-  serialized_end=1823,
+  serialized_start=1794,
+  serialized_end=1841,
 )
 
 _REPORTINSTANCEINFOREQUEST = _descriptor.Descriptor(
@@ -685,8 +692,8 @@ _REPORTINSTANCEINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1617,
-  serialized_end=1823,
+  serialized_start=1635,
+  serialized_end=1841,
 )
 
 
@@ -717,8 +724,8 @@ _ISINSTANCEUPGRADEABLEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1825,
-  serialized_end=1887,
+  serialized_start=1843,
+  serialized_end=1905,
 )
 
 
@@ -744,6 +751,13 @@ _ISINSTANCEUPGRADEABLERESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='upgrade_info', full_name='google.cloud.notebooks.v1beta1.IsInstanceUpgradeableResponse.upgrade_info', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -756,8 +770,8 @@ _ISINSTANCEUPGRADEABLERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1889,
-  serialized_end=1966,
+  serialized_start=1907,
+  serialized_end=2006,
 )
 
 
@@ -788,8 +802,8 @@ _UPGRADEINSTANCEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1968,
-  serialized_end=2011,
+  serialized_start=2008,
+  serialized_end=2051,
 )
 
 
@@ -827,8 +841,8 @@ _UPGRADEINSTANCEINTERNALREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2013,
-  serialized_end=2084,
+  serialized_start=2053,
+  serialized_end=2124,
 )
 
 
@@ -873,8 +887,8 @@ _LISTENVIRONMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2086,
-  serialized_end=2171,
+  serialized_start=2126,
+  serialized_end=2211,
 )
 
 
@@ -919,8 +933,8 @@ _LISTENVIRONMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2174,
-  serialized_end=2313,
+  serialized_start=2214,
+  serialized_end=2353,
 )
 
 
@@ -951,8 +965,8 @@ _GETENVIRONMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2315,
-  serialized_end=2357,
+  serialized_start=2355,
+  serialized_end=2397,
 )
 
 
@@ -997,8 +1011,8 @@ _CREATEENVIRONMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2360,
-  serialized_end=2507,
+  serialized_start=2400,
+  serialized_end=2547,
 )
 
 
@@ -1029,8 +1043,8 @@ _DELETEENVIRONMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2509,
-  serialized_end=2554,
+  serialized_start=2549,
+  serialized_end=2594,
 )
 
 _OPERATIONMETADATA.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -1287,8 +1301,8 @@ _NOTEBOOKSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\030notebooks.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=2557,
-  serialized_end=6645,
+  serialized_start=2597,
+  serialized_end=6685,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListInstances',

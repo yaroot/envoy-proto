@@ -23,11 +23,11 @@ package containeranalysis
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	v1 "google.golang.org/genproto/googleapis/iam/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -60,9 +60,9 @@ type ScanConfig struct {
 	// Whether the scan is enabled.
 	Enabled bool `protobuf:"varint,3,opt,name=enabled,proto3" json:"enabled,omitempty"`
 	// Output only. The time this scan config was created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The time this scan config was last updated.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 }
 
 func (x *ScanConfig) Reset() {
@@ -118,14 +118,14 @@ func (x *ScanConfig) GetEnabled() bool {
 	return false
 }
 
-func (x *ScanConfig) GetCreateTime() *timestamppb.Timestamp {
+func (x *ScanConfig) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *ScanConfig) GetUpdateTime() *timestamppb.Timestamp {
+func (x *ScanConfig) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -583,7 +583,7 @@ var file_google_devtools_containeranalysis_v1beta1_containeranalysis_proto_goTyp
 	(*ListScanConfigsRequest)(nil),        // 2: google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest
 	(*ListScanConfigsResponse)(nil),       // 3: google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse
 	(*UpdateScanConfigRequest)(nil),       // 4: google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest
-	(*timestamppb.Timestamp)(nil),         // 5: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),           // 5: google.protobuf.Timestamp
 	(*v1.SetIamPolicyRequest)(nil),        // 6: google.iam.v1.SetIamPolicyRequest
 	(*v1.GetIamPolicyRequest)(nil),        // 7: google.iam.v1.GetIamPolicyRequest
 	(*v1.TestIamPermissionsRequest)(nil),  // 8: google.iam.v1.TestIamPermissionsRequest

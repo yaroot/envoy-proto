@@ -22,10 +22,10 @@ package table
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -325,7 +325,7 @@ func (x *GcRule) GetMaxNumVersions() int32 {
 	return 0
 }
 
-func (x *GcRule) GetMaxAge() *durationpb.Duration {
+func (x *GcRule) GetMaxAge() *duration.Duration {
 	if x, ok := x.GetRule().(*GcRule_MaxAge); ok {
 		return x.MaxAge
 	}
@@ -359,7 +359,7 @@ type GcRule_MaxAge struct {
 	// Delete cells in a column older than the given age.
 	// Values must be at least one millisecond, and will be truncated to
 	// microsecond granularity.
-	MaxAge *durationpb.Duration `protobuf:"bytes,2,opt,name=max_age,json=maxAge,proto3,oneof"`
+	MaxAge *duration.Duration `protobuf:"bytes,2,opt,name=max_age,json=maxAge,proto3,oneof"`
 }
 
 type GcRule_Intersection_ struct {
@@ -589,7 +589,7 @@ var file_google_bigtable_admin_table_v1_bigtable_table_data_proto_goTypes = []in
 	(*GcRule_Intersection)(nil),     // 5: google.bigtable.admin.table.v1.GcRule.Intersection
 	(*GcRule_Union)(nil),            // 6: google.bigtable.admin.table.v1.GcRule.Union
 	(*longrunning.Operation)(nil),   // 7: google.longrunning.Operation
-	(*durationpb.Duration)(nil),     // 8: google.protobuf.Duration
+	(*duration.Duration)(nil),       // 8: google.protobuf.Duration
 }
 var file_google_bigtable_admin_table_v1_bigtable_table_data_proto_depIdxs = []int32{
 	7,  // 0: google.bigtable.admin.table.v1.Table.current_operation:type_name -> google.longrunning.Operation

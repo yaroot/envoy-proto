@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\034com.google.cloud.bigquery.v2B\020StandardSqlProtoZ@google.golang.org/genproto/googleapis/cloud/bigquery/v2;bigquery',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n+google/cloud/bigquery/v2/standard_sql.proto\x12\x18google.cloud.bigquery.v2\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/api/annotations.proto\"\xcb\x03\n\x13StandardSqlDataType\x12N\n\ttype_kind\x18\x01 \x01(\x0e\x32\x36.google.cloud.bigquery.v2.StandardSqlDataType.TypeKindB\x03\xe0\x41\x02\x12K\n\x12\x61rray_element_type\x18\x02 \x01(\x0b\x32-.google.cloud.bigquery.v2.StandardSqlDataTypeH\x00\x12\x46\n\x0bstruct_type\x18\x03 \x01(\x0b\x32/.google.cloud.bigquery.v2.StandardSqlStructTypeH\x00\"\xc2\x01\n\x08TypeKind\x12\x19\n\x15TYPE_KIND_UNSPECIFIED\x10\x00\x12\t\n\x05INT64\x10\x02\x12\x08\n\x04\x42OOL\x10\x05\x12\x0b\n\x07\x46LOAT64\x10\x07\x12\n\n\x06STRING\x10\x08\x12\t\n\x05\x42YTES\x10\t\x12\r\n\tTIMESTAMP\x10\x13\x12\x08\n\x04\x44\x41TE\x10\n\x12\x08\n\x04TIME\x10\x14\x12\x0c\n\x08\x44\x41TETIME\x10\x15\x12\r\n\tGEOGRAPHY\x10\x16\x12\x0b\n\x07NUMERIC\x10\x17\x12\t\n\x05\x41RRAY\x10\x10\x12\n\n\x06STRUCT\x10\x11\x42\n\n\x08sub_type\"g\n\x10StandardSqlField\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12@\n\x04type\x18\x02 \x01(\x0b\x32-.google.cloud.bigquery.v2.StandardSqlDataTypeB\x03\xe0\x41\x01\"S\n\x15StandardSqlStructType\x12:\n\x06\x66ields\x18\x01 \x03(\x0b\x32*.google.cloud.bigquery.v2.StandardSqlFieldBr\n\x1c\x63om.google.cloud.bigquery.v2B\x10StandardSqlProtoZ@google.golang.org/genproto/googleapis/cloud/bigquery/v2;bigqueryb\x06proto3'
+  serialized_pb=b'\n+google/cloud/bigquery/v2/standard_sql.proto\x12\x18google.cloud.bigquery.v2\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/api/annotations.proto\"\xdb\x03\n\x13StandardSqlDataType\x12N\n\ttype_kind\x18\x01 \x01(\x0e\x32\x36.google.cloud.bigquery.v2.StandardSqlDataType.TypeKindB\x03\xe0\x41\x02\x12K\n\x12\x61rray_element_type\x18\x02 \x01(\x0b\x32-.google.cloud.bigquery.v2.StandardSqlDataTypeH\x00\x12\x46\n\x0bstruct_type\x18\x03 \x01(\x0b\x32/.google.cloud.bigquery.v2.StandardSqlStructTypeH\x00\"\xd2\x01\n\x08TypeKind\x12\x19\n\x15TYPE_KIND_UNSPECIFIED\x10\x00\x12\t\n\x05INT64\x10\x02\x12\x08\n\x04\x42OOL\x10\x05\x12\x0b\n\x07\x46LOAT64\x10\x07\x12\n\n\x06STRING\x10\x08\x12\t\n\x05\x42YTES\x10\t\x12\r\n\tTIMESTAMP\x10\x13\x12\x08\n\x04\x44\x41TE\x10\n\x12\x08\n\x04TIME\x10\x14\x12\x0c\n\x08\x44\x41TETIME\x10\x15\x12\r\n\tGEOGRAPHY\x10\x16\x12\x0b\n\x07NUMERIC\x10\x17\x12\x0e\n\nBIGNUMERIC\x10\x18\x12\t\n\x05\x41RRAY\x10\x10\x12\n\n\x06STRUCT\x10\x11\x42\n\n\x08sub_type\"g\n\x10StandardSqlField\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12@\n\x04type\x18\x02 \x01(\x0b\x32-.google.cloud.bigquery.v2.StandardSqlDataTypeB\x03\xe0\x41\x01\"S\n\x15StandardSqlStructType\x12:\n\x06\x66ields\x18\x01 \x03(\x0b\x32*.google.cloud.bigquery.v2.StandardSqlFieldBr\n\x1c\x63om.google.cloud.bigquery.v2B\x10StandardSqlProtoZ@google.golang.org/genproto/googleapis/cloud/bigquery/v2;bigqueryb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -95,12 +95,17 @@ _STANDARDSQLDATATYPE_TYPEKIND = _descriptor.EnumDescriptor(
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='ARRAY', index=12, number=16,
+      name='BIGNUMERIC', index=12, number=24,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='STRUCT', index=13, number=17,
+      name='ARRAY', index=13, number=16,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='STRUCT', index=14, number=17,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
@@ -108,7 +113,7 @@ _STANDARDSQLDATATYPE_TYPEKIND = _descriptor.EnumDescriptor(
   containing_type=None,
   serialized_options=None,
   serialized_start=390,
-  serialized_end=584,
+  serialized_end=600,
 )
 _sym_db.RegisterEnumDescriptor(_STANDARDSQLDATATYPE_TYPEKIND)
 
@@ -161,7 +166,7 @@ _STANDARDSQLDATATYPE = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=137,
-  serialized_end=596,
+  serialized_end=612,
 )
 
 
@@ -199,8 +204,8 @@ _STANDARDSQLFIELD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=598,
-  serialized_end=701,
+  serialized_start=614,
+  serialized_end=717,
 )
 
 
@@ -231,8 +236,8 @@ _STANDARDSQLSTRUCTTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=703,
-  serialized_end=786,
+  serialized_start=719,
+  serialized_end=802,
 )
 
 _STANDARDSQLDATATYPE.fields_by_name['type_kind'].enum_type = _STANDARDSQLDATATYPE_TYPEKIND

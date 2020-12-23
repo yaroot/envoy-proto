@@ -22,10 +22,10 @@ package servicecontrol
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -125,11 +125,11 @@ type Operation struct {
 	//     - api`_`key:API_KEY.
 	ConsumerId string `protobuf:"bytes,3,opt,name=consumer_id,json=consumerId,proto3" json:"consumer_id,omitempty"`
 	// Required. Start time of the operation.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// End time of the operation.
 	// Required when the operation is used in [ServiceController.Report][google.api.servicecontrol.v1.ServiceController.Report],
 	// but optional when the operation is used in [ServiceController.Check][google.api.servicecontrol.v1.ServiceController.Check].
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	// Labels describing the operation. Only the following labels are allowed:
 	//
 	// - Labels describing monitored resources as defined in
@@ -163,7 +163,7 @@ type Operation struct {
 	// DO NOT USE. This is an experimental field.
 	Importance Operation_Importance `protobuf:"varint,11,opt,name=importance,proto3,enum=google.api.servicecontrol.v1.Operation_Importance" json:"importance,omitempty"`
 	// Unimplemented.
-	Extensions []*anypb.Any `protobuf:"bytes,16,rep,name=extensions,proto3" json:"extensions,omitempty"`
+	Extensions []*any.Any `protobuf:"bytes,16,rep,name=extensions,proto3" json:"extensions,omitempty"`
 }
 
 func (x *Operation) Reset() {
@@ -219,14 +219,14 @@ func (x *Operation) GetConsumerId() string {
 	return ""
 }
 
-func (x *Operation) GetStartTime() *timestamppb.Timestamp {
+func (x *Operation) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *Operation) GetEndTime() *timestamppb.Timestamp {
+func (x *Operation) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -261,7 +261,7 @@ func (x *Operation) GetImportance() Operation_Importance {
 	return Operation_LOW
 }
 
-func (x *Operation) GetExtensions() []*anypb.Any {
+func (x *Operation) GetExtensions() []*any.Any {
 	if x != nil {
 		return x.Extensions
 	}
@@ -329,7 +329,7 @@ var file_google_api_servicecontrol_v1_operation_proto_rawDesc = []byte{
 	0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61,
 	0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0x1f, 0x0a, 0x0a, 0x49, 0x6d, 0x70, 0x6f, 0x72,
 	0x74, 0x61, 0x6e, 0x63, 0x65, 0x12, 0x07, 0x0a, 0x03, 0x4c, 0x4f, 0x57, 0x10, 0x00, 0x12, 0x08,
-	0x0a, 0x04, 0x48, 0x49, 0x47, 0x48, 0x10, 0x01, 0x42, 0x83, 0x01, 0x0a, 0x20, 0x63, 0x6f, 0x6d,
+	0x0a, 0x04, 0x48, 0x49, 0x47, 0x48, 0x10, 0x01, 0x42, 0xe9, 0x01, 0x0a, 0x20, 0x63, 0x6f, 0x6d,
 	0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x73, 0x65, 0x72, 0x76,
 	0x69, 0x63, 0x65, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x2e, 0x76, 0x31, 0x42, 0x0e, 0x4f,
 	0x70, 0x65, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a,
@@ -337,8 +337,14 @@ var file_google_api_servicecontrol_v1_operation_proto_rawDesc = []byte{
 	0x72, 0x67, 0x2f, 0x67, 0x65, 0x6e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x6f, 0x67,
 	0x6c, 0x65, 0x61, 0x70, 0x69, 0x73, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69,
 	0x63, 0x65, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x2f, 0x76, 0x31, 0x3b, 0x73, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0xf8, 0x01, 0x01, 0x62, 0x06,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x76, 0x69, 0x63, 0x65, 0x63, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0xf8, 0x01, 0x01, 0xaa, 0x02,
+	0x1e, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x2e, 0x53, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x2e, 0x56, 0x31, 0xca,
+	0x02, 0x1e, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x5c, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x5c, 0x53,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c, 0x5c, 0x56, 0x31,
+	0xea, 0x02, 0x21, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x3a, 0x3a, 0x43, 0x6c, 0x6f, 0x75, 0x64,
+	0x3a, 0x3a, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x43, 0x6f, 0x6e, 0x74, 0x72, 0x6f, 0x6c,
+	0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -356,13 +362,13 @@ func file_google_api_servicecontrol_v1_operation_proto_rawDescGZIP() []byte {
 var file_google_api_servicecontrol_v1_operation_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_google_api_servicecontrol_v1_operation_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_google_api_servicecontrol_v1_operation_proto_goTypes = []interface{}{
-	(Operation_Importance)(0),     // 0: google.api.servicecontrol.v1.Operation.Importance
-	(*Operation)(nil),             // 1: google.api.servicecontrol.v1.Operation
-	nil,                           // 2: google.api.servicecontrol.v1.Operation.LabelsEntry
-	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
-	(*MetricValueSet)(nil),        // 4: google.api.servicecontrol.v1.MetricValueSet
-	(*LogEntry)(nil),              // 5: google.api.servicecontrol.v1.LogEntry
-	(*anypb.Any)(nil),             // 6: google.protobuf.Any
+	(Operation_Importance)(0),   // 0: google.api.servicecontrol.v1.Operation.Importance
+	(*Operation)(nil),           // 1: google.api.servicecontrol.v1.Operation
+	nil,                         // 2: google.api.servicecontrol.v1.Operation.LabelsEntry
+	(*timestamp.Timestamp)(nil), // 3: google.protobuf.Timestamp
+	(*MetricValueSet)(nil),      // 4: google.api.servicecontrol.v1.MetricValueSet
+	(*LogEntry)(nil),            // 5: google.api.servicecontrol.v1.LogEntry
+	(*any.Any)(nil),             // 6: google.protobuf.Any
 }
 var file_google_api_servicecontrol_v1_operation_proto_depIdxs = []int32{
 	3, // 0: google.api.servicecontrol.v1.Operation.start_time:type_name -> google.protobuf.Timestamp

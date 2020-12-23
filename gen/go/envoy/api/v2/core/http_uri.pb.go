@@ -9,9 +9,9 @@ package envoy_api_v2_core
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -52,7 +52,7 @@ type HttpUri struct {
 	//	*HttpUri_Cluster
 	HttpUpstreamType isHttpUri_HttpUpstreamType `protobuf_oneof:"http_upstream_type"`
 	// Sets the maximum duration in milliseconds that a response can take to arrive upon request.
-	Timeout *durationpb.Duration `protobuf:"bytes,3,opt,name=timeout,proto3" json:"timeout,omitempty"`
+	Timeout *duration.Duration `protobuf:"bytes,3,opt,name=timeout,proto3" json:"timeout,omitempty"`
 }
 
 func (x *HttpUri) Reset() {
@@ -108,7 +108,7 @@ func (x *HttpUri) GetCluster() string {
 	return ""
 }
 
-func (x *HttpUri) GetTimeout() *durationpb.Duration {
+func (x *HttpUri) GetTimeout() *duration.Duration {
 	if x != nil {
 		return x.Timeout
 	}
@@ -181,8 +181,8 @@ func file_envoy_api_v2_core_http_uri_proto_rawDescGZIP() []byte {
 
 var file_envoy_api_v2_core_http_uri_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_envoy_api_v2_core_http_uri_proto_goTypes = []interface{}{
-	(*HttpUri)(nil),             // 0: envoy.api.v2.core.HttpUri
-	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
+	(*HttpUri)(nil),           // 0: envoy.api.v2.core.HttpUri
+	(*duration.Duration)(nil), // 1: google.protobuf.Duration
 }
 var file_envoy_api_v2_core_http_uri_proto_depIdxs = []int32{
 	1, // 0: envoy.api.v2.core.HttpUri.timeout:type_name -> google.protobuf.Duration

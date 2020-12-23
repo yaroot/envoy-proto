@@ -22,10 +22,10 @@ package datacatalog
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -48,12 +48,12 @@ type SystemTimestamps struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The creation time of the resource within the given system.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// The last-modified time of the resource within the given system.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// Output only. The expiration time of the resource within the given system.
 	// Currently only apllicable to BigQuery resources.
-	ExpireTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
+	ExpireTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
 }
 
 func (x *SystemTimestamps) Reset() {
@@ -88,21 +88,21 @@ func (*SystemTimestamps) Descriptor() ([]byte, []int) {
 	return file_google_cloud_datacatalog_v1beta1_timestamps_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *SystemTimestamps) GetCreateTime() *timestamppb.Timestamp {
+func (x *SystemTimestamps) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *SystemTimestamps) GetUpdateTime() *timestamppb.Timestamp {
+func (x *SystemTimestamps) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
 	return nil
 }
 
-func (x *SystemTimestamps) GetExpireTime() *timestamppb.Timestamp {
+func (x *SystemTimestamps) GetExpireTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ExpireTime
 	}
@@ -166,8 +166,8 @@ func file_google_cloud_datacatalog_v1beta1_timestamps_proto_rawDescGZIP() []byte
 
 var file_google_cloud_datacatalog_v1beta1_timestamps_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_cloud_datacatalog_v1beta1_timestamps_proto_goTypes = []interface{}{
-	(*SystemTimestamps)(nil),      // 0: google.cloud.datacatalog.v1beta1.SystemTimestamps
-	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
+	(*SystemTimestamps)(nil),    // 0: google.cloud.datacatalog.v1beta1.SystemTimestamps
+	(*timestamp.Timestamp)(nil), // 1: google.protobuf.Timestamp
 }
 var file_google_cloud_datacatalog_v1beta1_timestamps_proto_depIdxs = []int32{
 	1, // 0: google.cloud.datacatalog.v1beta1.SystemTimestamps.create_time:type_name -> google.protobuf.Timestamp

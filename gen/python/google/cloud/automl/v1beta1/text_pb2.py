@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\037com.google.cloud.automl.v1beta1B\tTextProtoP\001ZAgoogle.golang.org/genproto/googleapis/cloud/automl/v1beta1;automl\312\002\033Google\\Cloud\\AutoMl\\V1beta1\352\002\036Google::Cloud::AutoML::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n&google/cloud/automl/v1beta1/text.proto\x12\x1bgoogle.cloud.automl.v1beta1\x1a\x30google/cloud/automl/v1beta1/classification.proto\x1a\x1cgoogle/api/annotations.proto\"q\n!TextClassificationDatasetMetadata\x12L\n\x13\x63lassification_type\x18\x01 \x01(\x0e\x32/.google.cloud.automl.v1beta1.ClassificationType\"o\n\x1fTextClassificationModelMetadata\x12L\n\x13\x63lassification_type\x18\x03 \x01(\x0e\x32/.google.cloud.automl.v1beta1.ClassificationType\"\x1f\n\x1dTextExtractionDatasetMetadata\"\x1d\n\x1bTextExtractionModelMetadata\"5\n\x1cTextSentimentDatasetMetadata\x12\x15\n\rsentiment_max\x18\x01 \x01(\x05\"\x1c\n\x1aTextSentimentModelMetadataB\xb0\x01\n\x1f\x63om.google.cloud.automl.v1beta1B\tTextProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/automl/v1beta1;automl\xca\x02\x1bGoogle\\Cloud\\AutoMl\\V1beta1\xea\x02\x1eGoogle::Cloud::AutoML::V1beta1b\x06proto3'
+  serialized_pb=b'\n&google/cloud/automl/v1beta1/text.proto\x12\x1bgoogle.cloud.automl.v1beta1\x1a\x30google/cloud/automl/v1beta1/classification.proto\x1a\x1cgoogle/api/annotations.proto\"q\n!TextClassificationDatasetMetadata\x12L\n\x13\x63lassification_type\x18\x01 \x01(\x0e\x32/.google.cloud.automl.v1beta1.ClassificationType\"o\n\x1fTextClassificationModelMetadata\x12L\n\x13\x63lassification_type\x18\x03 \x01(\x0e\x32/.google.cloud.automl.v1beta1.ClassificationType\"\x1f\n\x1dTextExtractionDatasetMetadata\"1\n\x1bTextExtractionModelMetadata\x12\x12\n\nmodel_hint\x18\x03 \x01(\t\"5\n\x1cTextSentimentDatasetMetadata\x12\x15\n\rsentiment_max\x18\x01 \x01(\x05\"\x1c\n\x1aTextSentimentModelMetadataB\xb0\x01\n\x1f\x63om.google.cloud.automl.v1beta1B\tTextProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/automl/v1beta1;automl\xca\x02\x1bGoogle\\Cloud\\AutoMl\\V1beta1\xea\x02\x1eGoogle::Cloud::AutoML::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_cloud_dot_automl_dot_v1beta1_dot_classification__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -125,6 +125,13 @@ _TEXTEXTRACTIONMODELMETADATA = _descriptor.Descriptor(
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='model_hint', full_name='google.cloud.automl.v1beta1.TextExtractionModelMetadata.model_hint', index=0,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -138,7 +145,7 @@ _TEXTEXTRACTIONMODELMETADATA = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=412,
-  serialized_end=441,
+  serialized_end=461,
 )
 
 
@@ -169,8 +176,8 @@ _TEXTSENTIMENTDATASETMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=443,
-  serialized_end=496,
+  serialized_start=463,
+  serialized_end=516,
 )
 
 
@@ -194,8 +201,8 @@ _TEXTSENTIMENTMODELMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=498,
-  serialized_end=526,
+  serialized_start=518,
+  serialized_end=546,
 )
 
 _TEXTCLASSIFICATIONDATASETMETADATA.fields_by_name['classification_type'].enum_type = google_dot_cloud_dot_automl_dot_v1beta1_dot_classification__pb2._CLASSIFICATIONTYPE

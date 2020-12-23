@@ -29,7 +29,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n#com.google.cloud.dialogflow.v2beta1B\rDocumentProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2beta1;dialogflow\370\001\001\242\002\002DF\252\002\037Google.Cloud.Dialogflow.V2beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.google/cloud/dialogflow/v2beta1/document.proto\x12\x1fgoogle.cloud.dialogflow.v2beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a)google/cloud/dialogflow/v2beta1/gcs.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\x8f\x05\n\x08\x44ocument\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tmime_type\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12U\n\x0fknowledge_types\x18\x04 \x03(\x0e\x32\x37.google.cloud.dialogflow.v2beta1.Document.KnowledgeTypeB\x03\xe0\x41\x02\x12\x15\n\x0b\x63ontent_uri\x18\x05 \x01(\tH\x00\x12\x15\n\x07\x63ontent\x18\x06 \x01(\tB\x02\x18\x01H\x00\x12\x15\n\x0braw_content\x18\t \x01(\x0cH\x00\x12\x1f\n\x12\x65nable_auto_reload\x18\x0b \x01(\x08\x42\x03\xe0\x41\x01\x12Y\n\x14latest_reload_status\x18\x0c \x01(\x0b\x32\x36.google.cloud.dialogflow.v2beta1.Document.ReloadStatusB\x03\xe0\x41\x03\x1a\\\n\x0cReloadStatus\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\"K\n\rKnowledgeType\x12\x1e\n\x1aKNOWLEDGE_TYPE_UNSPECIFIED\x10\x00\x12\x07\n\x03\x46\x41Q\x10\x01\x12\x11\n\rEXTRACTIVE_QA\x10\x02:p\xea\x41m\n\"dialogflow.googleapis.com/Document\x12Gprojects/{project}/knowledgeBases/{knowledge_base}/documents/{document}B\x08\n\x06source\"N\n\x12GetDocumentRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/Document\"y\n\x14ListDocumentsRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/Document\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"n\n\x15ListDocumentsResponse\x12<\n\tdocuments\x18\x01 \x03(\x0b\x32).google.cloud.dialogflow.v2beta1.Document\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x95\x01\n\x15\x43reateDocumentRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/Document\x12@\n\x08\x64ocument\x18\x02 \x01(\x0b\x32).google.cloud.dialogflow.v2beta1.DocumentB\x03\xe0\x41\x02\"Q\n\x15\x44\x65leteDocumentRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/Document\"\x8f\x01\n\x15UpdateDocumentRequest\x12@\n\x08\x64ocument\x18\x01 \x01(\x0b\x32).google.cloud.dialogflow.v2beta1.DocumentB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\"\xb7\x01\n\x1aKnowledgeOperationMetadata\x12U\n\x05state\x18\x01 \x01(\x0e\x32\x41.google.cloud.dialogflow.v2beta1.KnowledgeOperationMetadata.StateB\x03\xe0\x41\x03\"B\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x08\n\x04\x44ONE\x10\x03\"\x9d\x01\n\x15ReloadDocumentRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/Document\x12@\n\ngcs_source\x18\x03 \x01(\x0b\x32*.google.cloud.dialogflow.v2beta1.GcsSourceH\x00\x42\x08\n\x06source\"s\n(AutoApproveSmartMessagingEntriesResponse\x12\x15\n\renabled_count\x18\x01 \x01(\x05\x12\x16\n\x0e\x64isabled_count\x18\x02 \x01(\x05\x12\x18\n\x10unreviewed_count\x18\x03 \x01(\x05\x32\xfd\x0e\n\tDocuments\x12\x8a\x02\n\rListDocuments\x12\x35.google.cloud.dialogflow.v2beta1.ListDocumentsRequest\x1a\x36.google.cloud.dialogflow.v2beta1.ListDocumentsResponse\"\x89\x01\x82\xd3\xe4\x93\x02z\x12\x37/v2beta1/{parent=projects/*/knowledgeBases/*}/documentsZ?\x12=/v2beta1/{parent=projects/*/agent/knowledgeBases/*}/documents\xda\x41\x06parent\x12\xf7\x01\n\x0bGetDocument\x12\x33.google.cloud.dialogflow.v2beta1.GetDocumentRequest\x1a).google.cloud.dialogflow.v2beta1.Document\"\x87\x01\x82\xd3\xe4\x93\x02z\x12\x37/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}Z?\x12=/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}\xda\x41\x04name\x12\xba\x02\n\x0e\x43reateDocument\x12\x36.google.cloud.dialogflow.v2beta1.CreateDocumentRequest\x1a\x1d.google.longrunning.Operation\"\xd0\x01\x82\xd3\xe4\x93\x02\x8e\x01\"7/v2beta1/{parent=projects/*/knowledgeBases/*}/documents:\x08\x64ocumentZI\"=/v2beta1/{parent=projects/*/agent/knowledgeBases/*}/documents:\x08\x64ocument\xda\x41\x0fparent,document\xca\x41&\n\x08\x44ocument\x12\x1aKnowledgeOperationMetadata\x12\xa7\x02\n\x0e\x44\x65leteDocument\x12\x36.google.cloud.dialogflow.v2beta1.DeleteDocumentRequest\x1a\x1d.google.longrunning.Operation\"\xbd\x01\x82\xd3\xe4\x93\x02z*7/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}Z?*=/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}\xda\x41\x04name\xca\x41\x33\n\x15google.protobuf.Empty\x12\x1aKnowledgeOperationMetadata\x12\xdc\x02\n\x0eUpdateDocument\x12\x36.google.cloud.dialogflow.v2beta1.UpdateDocumentRequest\x1a\x1d.google.longrunning.Operation\"\xf2\x01\x82\xd3\xe4\x93\x02\xa0\x01\x32@/v2beta1/{document.name=projects/*/knowledgeBases/*/documents/*}:\x08\x64ocumentZR2F/v2beta1/{document.name=projects/*/agent/knowledgeBases/*/documents/*}:\x08\x64ocument\xda\x41\x14\x64ocument,update_mask\xda\x41\x08\x64ocument\xca\x41&\n\x08\x44ocument\x12\x1aKnowledgeOperationMetadata\x12\xa8\x02\n\x0eReloadDocument\x12\x36.google.cloud.dialogflow.v2beta1.ReloadDocumentRequest\x1a\x1d.google.longrunning.Operation\"\xbe\x01\x82\xd3\xe4\x93\x02\x8e\x01\">/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}:reload:\x01*ZI\"D/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}:reload:\x01*\xca\x41&\n\x08\x44ocument\x12\x1aKnowledgeOperationMetadata\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xab\x01\n#com.google.cloud.dialogflow.v2beta1B\rDocumentProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2beta1;dialogflow\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1fGoogle.Cloud.Dialogflow.V2beta1b\x06proto3'
+  serialized_pb=b'\n.google/cloud/dialogflow/v2beta1/document.proto\x12\x1fgoogle.cloud.dialogflow.v2beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a)google/cloud/dialogflow/v2beta1/gcs.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xef\x05\n\x08\x44ocument\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tmime_type\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12U\n\x0fknowledge_types\x18\x04 \x03(\x0e\x32\x37.google.cloud.dialogflow.v2beta1.Document.KnowledgeTypeB\x03\xe0\x41\x02\x12\x15\n\x0b\x63ontent_uri\x18\x05 \x01(\tH\x00\x12\x15\n\x07\x63ontent\x18\x06 \x01(\tB\x02\x18\x01H\x00\x12\x15\n\x0braw_content\x18\t \x01(\x0cH\x00\x12\x1f\n\x12\x65nable_auto_reload\x18\x0b \x01(\x08\x42\x03\xe0\x41\x01\x12Y\n\x14latest_reload_status\x18\x0c \x01(\x0b\x32\x36.google.cloud.dialogflow.v2beta1.Document.ReloadStatusB\x03\xe0\x41\x03\x1a\\\n\x0cReloadStatus\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\"K\n\rKnowledgeType\x12\x1e\n\x1aKNOWLEDGE_TYPE_UNSPECIFIED\x10\x00\x12\x07\n\x03\x46\x41Q\x10\x01\x12\x11\n\rEXTRACTIVE_QA\x10\x02:\xcf\x01\xea\x41\xcb\x01\n\"dialogflow.googleapis.com/Document\x12Gprojects/{project}/knowledgeBases/{knowledge_base}/documents/{document}\x12\\projects/{project}/locations/{location}/knowledgeBases/{knowledge_base}/documents/{document}B\x08\n\x06source\"N\n\x12GetDocumentRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/Document\"\x89\x01\n\x14ListDocumentsRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/Document\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"n\n\x15ListDocumentsResponse\x12<\n\tdocuments\x18\x01 \x03(\x0b\x32).google.cloud.dialogflow.v2beta1.Document\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb9\x01\n\x15\x43reateDocumentRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/Document\x12@\n\x08\x64ocument\x18\x02 \x01(\x0b\x32).google.cloud.dialogflow.v2beta1.DocumentB\x03\xe0\x41\x02\x12\"\n\x1aimport_gcs_custom_metadata\x18\x03 \x01(\x08\"Q\n\x15\x44\x65leteDocumentRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/Document\"\x8f\x01\n\x15UpdateDocumentRequest\x12@\n\x08\x64ocument\x18\x01 \x01(\x0b\x32).google.cloud.dialogflow.v2beta1.DocumentB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\"\xb7\x01\n\x1aKnowledgeOperationMetadata\x12U\n\x05state\x18\x01 \x01(\x0e\x32\x41.google.cloud.dialogflow.v2beta1.KnowledgeOperationMetadata.StateB\x03\xe0\x41\x03\"B\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x08\n\x04\x44ONE\x10\x03\"\xc1\x01\n\x15ReloadDocumentRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/Document\x12@\n\ngcs_source\x18\x03 \x01(\x0b\x32*.google.cloud.dialogflow.v2beta1.GcsSourceH\x00\x12\"\n\x1aimport_gcs_custom_metadata\x18\x04 \x01(\x08\x42\x08\n\x06source2\xe3\x12\n\tDocuments\x12\xd2\x02\n\rListDocuments\x12\x35.google.cloud.dialogflow.v2beta1.ListDocumentsRequest\x1a\x36.google.cloud.dialogflow.v2beta1.ListDocumentsResponse\"\xd1\x01\x82\xd3\xe4\x93\x02\xc1\x01\x12\x37/v2beta1/{parent=projects/*/knowledgeBases/*}/documentsZE\x12\x43/v2beta1/{parent=projects/*/locations/*/knowledgeBases/*}/documentsZ?\x12=/v2beta1/{parent=projects/*/agent/knowledgeBases/*}/documents\xda\x41\x06parent\x12\xbf\x02\n\x0bGetDocument\x12\x33.google.cloud.dialogflow.v2beta1.GetDocumentRequest\x1a).google.cloud.dialogflow.v2beta1.Document\"\xcf\x01\x82\xd3\xe4\x93\x02\xc1\x01\x12\x37/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}ZE\x12\x43/v2beta1/{name=projects/*/locations/*/knowledgeBases/*/documents/*}Z?\x12=/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}\xda\x41\x04name\x12\x8b\x03\n\x0e\x43reateDocument\x12\x36.google.cloud.dialogflow.v2beta1.CreateDocumentRequest\x1a\x1d.google.longrunning.Operation\"\xa1\x02\x82\xd3\xe4\x93\x02\xdf\x01\"7/v2beta1/{parent=projects/*/knowledgeBases/*}/documents:\x08\x64ocumentZO\"C/v2beta1/{parent=projects/*/locations/*/knowledgeBases/*}/documents:\x08\x64ocumentZI\"=/v2beta1/{parent=projects/*/agent/knowledgeBases/*}/documents:\x08\x64ocument\xda\x41\x0fparent,document\xca\x41&\n\x08\x44ocument\x12\x1aKnowledgeOperationMetadata\x12\xef\x02\n\x0e\x44\x65leteDocument\x12\x36.google.cloud.dialogflow.v2beta1.DeleteDocumentRequest\x1a\x1d.google.longrunning.Operation\"\x85\x02\x82\xd3\xe4\x93\x02\xc1\x01*7/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}ZE*C/v2beta1/{name=projects/*/locations/*/knowledgeBases/*/documents/*}Z?*=/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}\xda\x41\x04name\xca\x41\x33\n\x15google.protobuf.Empty\x12\x1aKnowledgeOperationMetadata\x12\xb6\x03\n\x0eUpdateDocument\x12\x36.google.cloud.dialogflow.v2beta1.UpdateDocumentRequest\x1a\x1d.google.longrunning.Operation\"\xcc\x02\x82\xd3\xe4\x93\x02\xfa\x01\x32@/v2beta1/{document.name=projects/*/knowledgeBases/*/documents/*}:\x08\x64ocumentZX2L/v2beta1/{document.name=projects/*/locations/*/knowledgeBases/*/documents/*}:\x08\x64ocumentZR2F/v2beta1/{document.name=projects/*/agent/knowledgeBases/*/documents/*}:\x08\x64ocument\xda\x41\x14\x64ocument,update_mask\xda\x41\x08\x64ocument\xca\x41&\n\x08\x44ocument\x12\x1aKnowledgeOperationMetadata\x12\x8b\x03\n\x0eReloadDocument\x12\x36.google.cloud.dialogflow.v2beta1.ReloadDocumentRequest\x1a\x1d.google.longrunning.Operation\"\xa1\x02\x82\xd3\xe4\x93\x02\xdf\x01\">/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}:reload:\x01*ZO\"J/v2beta1/{name=projects/*/locations/*/knowledgeBases/*/documents/*}:reload:\x01*ZI\"D/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}:reload:\x01*\xda\x41\x0fname,gcs_source\xca\x41&\n\x08\x44ocument\x12\x1aKnowledgeOperationMetadata\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xab\x01\n#com.google.cloud.dialogflow.v2beta1B\rDocumentProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2beta1;dialogflow\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1fGoogle.Cloud.Dialogflow.V2beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_v2beta1_dot_gcs__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
@@ -95,8 +95,8 @@ _KNOWLEDGEOPERATIONMETADATA_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1871,
-  serialized_end=1937,
+  serialized_start=2020,
+  serialized_end=2086,
 )
 _sym_db.RegisterEnumDescriptor(_KNOWLEDGEOPERATIONMETADATA_STATE)
 
@@ -217,7 +217,7 @@ _DOCUMENT = _descriptor.Descriptor(
   enum_types=[
     _DOCUMENT_KNOWLEDGETYPE,
   ],
-  serialized_options=b'\352Am\n\"dialogflow.googleapis.com/Document\022Gprojects/{project}/knowledgeBases/{knowledge_base}/documents/{document}',
+  serialized_options=b'\352A\313\001\n\"dialogflow.googleapis.com/Document\022Gprojects/{project}/knowledgeBases/{knowledge_base}/documents/{document}\022\\projects/{project}/locations/{location}/knowledgeBases/{knowledge_base}/documents/{document}',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -229,7 +229,7 @@ _DOCUMENT = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=400,
-  serialized_end=1055,
+  serialized_end=1151,
 )
 
 
@@ -260,8 +260,8 @@ _GETDOCUMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1057,
-  serialized_end=1135,
+  serialized_start=1153,
+  serialized_end=1231,
 )
 
 
@@ -294,6 +294,13 @@ _LISTDOCUMENTSREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filter', full_name='google.cloud.dialogflow.v2beta1.ListDocumentsRequest.filter', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -306,8 +313,8 @@ _LISTDOCUMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1137,
-  serialized_end=1258,
+  serialized_start=1234,
+  serialized_end=1371,
 )
 
 
@@ -345,8 +352,8 @@ _LISTDOCUMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1260,
-  serialized_end=1370,
+  serialized_start=1373,
+  serialized_end=1483,
 )
 
 
@@ -372,6 +379,13 @@ _CREATEDOCUMENTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='import_gcs_custom_metadata', full_name='google.cloud.dialogflow.v2beta1.CreateDocumentRequest.import_gcs_custom_metadata', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -384,8 +398,8 @@ _CREATEDOCUMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1373,
-  serialized_end=1522,
+  serialized_start=1486,
+  serialized_end=1671,
 )
 
 
@@ -416,8 +430,8 @@ _DELETEDOCUMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1524,
-  serialized_end=1605,
+  serialized_start=1673,
+  serialized_end=1754,
 )
 
 
@@ -455,8 +469,8 @@ _UPDATEDOCUMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1608,
-  serialized_end=1751,
+  serialized_start=1757,
+  serialized_end=1900,
 )
 
 
@@ -488,8 +502,8 @@ _KNOWLEDGEOPERATIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1754,
-  serialized_end=1937,
+  serialized_start=1903,
+  serialized_end=2086,
 )
 
 
@@ -515,6 +529,13 @@ _RELOADDOCUMENTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='import_gcs_custom_metadata', full_name='google.cloud.dialogflow.v2beta1.ReloadDocumentRequest.import_gcs_custom_metadata', index=2,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -532,54 +553,8 @@ _RELOADDOCUMENTREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1940,
-  serialized_end=2097,
-)
-
-
-_AUTOAPPROVESMARTMESSAGINGENTRIESRESPONSE = _descriptor.Descriptor(
-  name='AutoApproveSmartMessagingEntriesResponse',
-  full_name='google.cloud.dialogflow.v2beta1.AutoApproveSmartMessagingEntriesResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='enabled_count', full_name='google.cloud.dialogflow.v2beta1.AutoApproveSmartMessagingEntriesResponse.enabled_count', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='disabled_count', full_name='google.cloud.dialogflow.v2beta1.AutoApproveSmartMessagingEntriesResponse.disabled_count', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='unreviewed_count', full_name='google.cloud.dialogflow.v2beta1.AutoApproveSmartMessagingEntriesResponse.unreviewed_count', index=2,
-      number=3, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2099,
-  serialized_end=2214,
+  serialized_start=2089,
+  serialized_end=2282,
 )
 
 _DOCUMENT_RELOADSTATUS.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -616,7 +591,6 @@ DESCRIPTOR.message_types_by_name['DeleteDocumentRequest'] = _DELETEDOCUMENTREQUE
 DESCRIPTOR.message_types_by_name['UpdateDocumentRequest'] = _UPDATEDOCUMENTREQUEST
 DESCRIPTOR.message_types_by_name['KnowledgeOperationMetadata'] = _KNOWLEDGEOPERATIONMETADATA
 DESCRIPTOR.message_types_by_name['ReloadDocumentRequest'] = _RELOADDOCUMENTREQUEST
-DESCRIPTOR.message_types_by_name['AutoApproveSmartMessagingEntriesResponse'] = _AUTOAPPROVESMARTMESSAGINGENTRIESRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Document = _reflection.GeneratedProtocolMessageType('Document', (_message.Message,), {
@@ -690,13 +664,6 @@ ReloadDocumentRequest = _reflection.GeneratedProtocolMessageType('ReloadDocument
   })
 _sym_db.RegisterMessage(ReloadDocumentRequest)
 
-AutoApproveSmartMessagingEntriesResponse = _reflection.GeneratedProtocolMessageType('AutoApproveSmartMessagingEntriesResponse', (_message.Message,), {
-  'DESCRIPTOR' : _AUTOAPPROVESMARTMESSAGINGENTRIESRESPONSE,
-  '__module__' : 'google.cloud.dialogflow.v2beta1.document_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.v2beta1.AutoApproveSmartMessagingEntriesResponse)
-  })
-_sym_db.RegisterMessage(AutoApproveSmartMessagingEntriesResponse)
-
 
 DESCRIPTOR._options = None
 _DOCUMENT.fields_by_name['name']._options = None
@@ -724,8 +691,8 @@ _DOCUMENTS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=2217,
-  serialized_end=4134,
+  serialized_start=2285,
+  serialized_end=4688,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListDocuments',
@@ -734,7 +701,7 @@ _DOCUMENTS = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_LISTDOCUMENTSREQUEST,
     output_type=_LISTDOCUMENTSRESPONSE,
-    serialized_options=b'\202\323\344\223\002z\0227/v2beta1/{parent=projects/*/knowledgeBases/*}/documentsZ?\022=/v2beta1/{parent=projects/*/agent/knowledgeBases/*}/documents\332A\006parent',
+    serialized_options=b'\202\323\344\223\002\301\001\0227/v2beta1/{parent=projects/*/knowledgeBases/*}/documentsZE\022C/v2beta1/{parent=projects/*/locations/*/knowledgeBases/*}/documentsZ?\022=/v2beta1/{parent=projects/*/agent/knowledgeBases/*}/documents\332A\006parent',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -744,7 +711,7 @@ _DOCUMENTS = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETDOCUMENTREQUEST,
     output_type=_DOCUMENT,
-    serialized_options=b'\202\323\344\223\002z\0227/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}Z?\022=/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}\332A\004name',
+    serialized_options=b'\202\323\344\223\002\301\001\0227/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}ZE\022C/v2beta1/{name=projects/*/locations/*/knowledgeBases/*/documents/*}Z?\022=/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}\332A\004name',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -754,7 +721,7 @@ _DOCUMENTS = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_CREATEDOCUMENTREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
-    serialized_options=b'\202\323\344\223\002\216\001\"7/v2beta1/{parent=projects/*/knowledgeBases/*}/documents:\010documentZI\"=/v2beta1/{parent=projects/*/agent/knowledgeBases/*}/documents:\010document\332A\017parent,document\312A&\n\010Document\022\032KnowledgeOperationMetadata',
+    serialized_options=b'\202\323\344\223\002\337\001\"7/v2beta1/{parent=projects/*/knowledgeBases/*}/documents:\010documentZO\"C/v2beta1/{parent=projects/*/locations/*/knowledgeBases/*}/documents:\010documentZI\"=/v2beta1/{parent=projects/*/agent/knowledgeBases/*}/documents:\010document\332A\017parent,document\312A&\n\010Document\022\032KnowledgeOperationMetadata',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -764,7 +731,7 @@ _DOCUMENTS = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_DELETEDOCUMENTREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
-    serialized_options=b'\202\323\344\223\002z*7/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}Z?*=/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}\332A\004name\312A3\n\025google.protobuf.Empty\022\032KnowledgeOperationMetadata',
+    serialized_options=b'\202\323\344\223\002\301\001*7/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}ZE*C/v2beta1/{name=projects/*/locations/*/knowledgeBases/*/documents/*}Z?*=/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}\332A\004name\312A3\n\025google.protobuf.Empty\022\032KnowledgeOperationMetadata',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -774,7 +741,7 @@ _DOCUMENTS = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_UPDATEDOCUMENTREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
-    serialized_options=b'\202\323\344\223\002\240\0012@/v2beta1/{document.name=projects/*/knowledgeBases/*/documents/*}:\010documentZR2F/v2beta1/{document.name=projects/*/agent/knowledgeBases/*/documents/*}:\010document\332A\024document,update_mask\332A\010document\312A&\n\010Document\022\032KnowledgeOperationMetadata',
+    serialized_options=b'\202\323\344\223\002\372\0012@/v2beta1/{document.name=projects/*/knowledgeBases/*/documents/*}:\010documentZX2L/v2beta1/{document.name=projects/*/locations/*/knowledgeBases/*/documents/*}:\010documentZR2F/v2beta1/{document.name=projects/*/agent/knowledgeBases/*/documents/*}:\010document\332A\024document,update_mask\332A\010document\312A&\n\010Document\022\032KnowledgeOperationMetadata',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -784,7 +751,7 @@ _DOCUMENTS = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_RELOADDOCUMENTREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
-    serialized_options=b'\202\323\344\223\002\216\001\">/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}:reload:\001*ZI\"D/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}:reload:\001*\312A&\n\010Document\022\032KnowledgeOperationMetadata',
+    serialized_options=b'\202\323\344\223\002\337\001\">/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}:reload:\001*ZO\"J/v2beta1/{name=projects/*/locations/*/knowledgeBases/*/documents/*}:reload:\001*ZI\"D/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}:reload:\001*\332A\017name,gcs_source\312A&\n\010Document\022\032KnowledgeOperationMetadata',
     create_key=_descriptor._internal_create_key,
   ),
 ])

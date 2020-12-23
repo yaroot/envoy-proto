@@ -15,6 +15,7 @@ from google.ads.admob.v1 import admob_resources_pb2 as google_dot_ads_dot_admob_
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\027com.google.ads.admob.v1B\rAdMobApiProtoZ8google.golang.org/genproto/googleapis/ads/admob/v1;admob',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n#google/ads/admob/v1/admob_api.proto\x12\x13google.ads.admob.v1\x1a)google/ads/admob/v1/admob_resources.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\"*\n\x1aGetPublisherAccountRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"E\n\x1cListPublisherAccountsRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\"p\n\x1dListPublisherAccountsResponse\x12\x36\n\x07\x61\x63\x63ount\x18\x01 \x03(\x0b\x32%.google.ads.admob.v1.PublisherAccount\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"o\n\x1eGenerateMediationReportRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12=\n\x0breport_spec\x18\x02 \x01(\x0b\x32(.google.ads.admob.v1.MediationReportSpec\"\xc5\x01\n\x1fGenerateMediationReportResponse\x12\x33\n\x06header\x18\x01 \x01(\x0b\x32!.google.ads.admob.v1.ReportHeaderH\x00\x12-\n\x03row\x18\x02 \x01(\x0b\x32\x1e.google.ads.admob.v1.ReportRowH\x00\x12\x33\n\x06\x66ooter\x18\x03 \x01(\x0b\x32!.google.ads.admob.v1.ReportFooterH\x00\x42\t\n\x07payload\"k\n\x1cGenerateNetworkReportRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12;\n\x0breport_spec\x18\x02 \x01(\x0b\x32&.google.ads.admob.v1.NetworkReportSpec\"\xc3\x01\n\x1dGenerateNetworkReportResponse\x12\x33\n\x06header\x18\x01 \x01(\x0b\x32!.google.ads.admob.v1.ReportHeaderH\x00\x12-\n\x03row\x18\x02 \x01(\x0b\x32\x1e.google.ads.admob.v1.ReportRowH\x00\x12\x33\n\x06\x66ooter\x18\x03 \x01(\x0b\x32!.google.ads.admob.v1.ReportFooterH\x00\x42\t\n\x07payload2\xcd\x05\n\x08\x41\x64MobApi\x12\x8c\x01\n\x13GetPublisherAccount\x12/.google.ads.admob.v1.GetPublisherAccountRequest\x1a%.google.ads.admob.v1.PublisherAccount\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/v1/{name=accounts/*}\x12\x94\x01\n\x15ListPublisherAccounts\x12\x31.google.ads.admob.v1.ListPublisherAccountsRequest\x1a\x32.google.ads.admob.v1.ListPublisherAccountsResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/accounts\x12\xbb\x01\n\x15GenerateNetworkReport\x12\x31.google.ads.admob.v1.GenerateNetworkReportRequest\x1a\x32.google.ads.admob.v1.GenerateNetworkReportResponse\"9\x82\xd3\xe4\x93\x02\x33\"./v1/{parent=accounts/*}/networkReport:generate:\x01*0\x01\x12\xc3\x01\n\x17GenerateMediationReport\x12\x33.google.ads.admob.v1.GenerateMediationReportRequest\x1a\x34.google.ads.admob.v1.GenerateMediationReportResponse\";\x82\xd3\xe4\x93\x02\x35\"0/v1/{parent=accounts/*}/mediationReport:generate:\x01*0\x01\x1a\x17\xca\x41\x14\x61\x64mob.googleapis.comBb\n\x17\x63om.google.ads.admob.v1B\rAdMobApiProtoZ8google.golang.org/genproto/googleapis/ads/admob/v1;admobb\x06proto3'
+  serialized_pb=b'\n#google/ads/admob/v1/admob_api.proto\x12\x13google.ads.admob.v1\x1a)google/ads/admob/v1/admob_resources.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"*\n\x1aGetPublisherAccountRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"E\n\x1cListPublisherAccountsRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\"p\n\x1dListPublisherAccountsResponse\x12\x36\n\x07\x61\x63\x63ount\x18\x01 \x03(\x0b\x32%.google.ads.admob.v1.PublisherAccount\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"o\n\x1eGenerateMediationReportRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12=\n\x0breport_spec\x18\x02 \x01(\x0b\x32(.google.ads.admob.v1.MediationReportSpec\"\xc5\x01\n\x1fGenerateMediationReportResponse\x12\x33\n\x06header\x18\x01 \x01(\x0b\x32!.google.ads.admob.v1.ReportHeaderH\x00\x12-\n\x03row\x18\x02 \x01(\x0b\x32\x1e.google.ads.admob.v1.ReportRowH\x00\x12\x33\n\x06\x66ooter\x18\x03 \x01(\x0b\x32!.google.ads.admob.v1.ReportFooterH\x00\x42\t\n\x07payload\"k\n\x1cGenerateNetworkReportRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12;\n\x0breport_spec\x18\x02 \x01(\x0b\x32&.google.ads.admob.v1.NetworkReportSpec\"\xc3\x01\n\x1dGenerateNetworkReportResponse\x12\x33\n\x06header\x18\x01 \x01(\x0b\x32!.google.ads.admob.v1.ReportHeaderH\x00\x12-\n\x03row\x18\x02 \x01(\x0b\x32\x1e.google.ads.admob.v1.ReportRowH\x00\x12\x33\n\x06\x66ooter\x18\x03 \x01(\x0b\x32!.google.ads.admob.v1.ReportFooterH\x00\x42\t\n\x07payload2\x83\x06\n\x08\x41\x64MobApi\x12\x93\x01\n\x13GetPublisherAccount\x12/.google.ads.admob.v1.GetPublisherAccountRequest\x1a%.google.ads.admob.v1.PublisherAccount\"$\x82\xd3\xe4\x93\x02\x17\x12\x15/v1/{name=accounts/*}\xda\x41\x04name\x12\x94\x01\n\x15ListPublisherAccounts\x12\x31.google.ads.admob.v1.ListPublisherAccountsRequest\x1a\x32.google.ads.admob.v1.ListPublisherAccountsResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/accounts\x12\xbb\x01\n\x15GenerateNetworkReport\x12\x31.google.ads.admob.v1.GenerateNetworkReportRequest\x1a\x32.google.ads.admob.v1.GenerateNetworkReportResponse\"9\x82\xd3\xe4\x93\x02\x33\"./v1/{parent=accounts/*}/networkReport:generate:\x01*0\x01\x12\xc3\x01\n\x17GenerateMediationReport\x12\x33.google.ads.admob.v1.GenerateMediationReportRequest\x1a\x34.google.ads.admob.v1.GenerateMediationReportResponse\";\x82\xd3\xe4\x93\x02\x35\"0/v1/{parent=accounts/*}/mediationReport:generate:\x01*0\x01\x1a\x46\xca\x41\x14\x61\x64mob.googleapis.com\xd2\x41,https://www.googleapis.com/auth/admob.reportBb\n\x17\x63om.google.ads.admob.v1B\rAdMobApiProtoZ8google.golang.org/genproto/googleapis/ads/admob/v1;admobb\x06proto3'
   ,
-  dependencies=[google_dot_ads_dot_admob_dot_v1_dot_admob__resources__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_ads_dot_admob_dot_v1_dot_admob__resources__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
 
 
 
@@ -57,8 +58,8 @@ _GETPUBLISHERACCOUNTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=191,
-  serialized_end=233,
+  serialized_start=218,
+  serialized_end=260,
 )
 
 
@@ -96,8 +97,8 @@ _LISTPUBLISHERACCOUNTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=235,
-  serialized_end=304,
+  serialized_start=262,
+  serialized_end=331,
 )
 
 
@@ -135,8 +136,8 @@ _LISTPUBLISHERACCOUNTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=306,
-  serialized_end=418,
+  serialized_start=333,
+  serialized_end=445,
 )
 
 
@@ -174,8 +175,8 @@ _GENERATEMEDIATIONREPORTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=420,
-  serialized_end=531,
+  serialized_start=447,
+  serialized_end=558,
 )
 
 
@@ -225,8 +226,8 @@ _GENERATEMEDIATIONREPORTRESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=534,
-  serialized_end=731,
+  serialized_start=561,
+  serialized_end=758,
 )
 
 
@@ -264,8 +265,8 @@ _GENERATENETWORKREPORTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=733,
-  serialized_end=840,
+  serialized_start=760,
+  serialized_end=867,
 )
 
 
@@ -315,8 +316,8 @@ _GENERATENETWORKREPORTRESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=843,
-  serialized_end=1038,
+  serialized_start=870,
+  serialized_end=1065,
 )
 
 _LISTPUBLISHERACCOUNTSRESPONSE.fields_by_name['account'].message_type = google_dot_ads_dot_admob_dot_v1_dot_admob__resources__pb2._PUBLISHERACCOUNT
@@ -412,10 +413,10 @@ _ADMOBAPI = _descriptor.ServiceDescriptor(
   full_name='google.ads.admob.v1.AdMobApi',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=b'\312A\024admob.googleapis.com',
+  serialized_options=b'\312A\024admob.googleapis.com\322A,https://www.googleapis.com/auth/admob.report',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1041,
-  serialized_end=1758,
+  serialized_start=1068,
+  serialized_end=1839,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetPublisherAccount',
@@ -424,7 +425,7 @@ _ADMOBAPI = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETPUBLISHERACCOUNTREQUEST,
     output_type=google_dot_ads_dot_admob_dot_v1_dot_admob__resources__pb2._PUBLISHERACCOUNT,
-    serialized_options=b'\202\323\344\223\002\027\022\025/v1/{name=accounts/*}',
+    serialized_options=b'\202\323\344\223\002\027\022\025/v1/{name=accounts/*}\332A\004name',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(

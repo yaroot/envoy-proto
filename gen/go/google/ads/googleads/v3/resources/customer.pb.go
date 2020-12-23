@@ -22,11 +22,11 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	enums "google.golang.org/genproto/googleapis/ads/googleads/v3/enums"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -54,29 +54,29 @@ type Customer struct {
 	// `customers/{customer_id}`
 	ResourceName string `protobuf:"bytes,1,opt,name=resource_name,json=resourceName,proto3" json:"resource_name,omitempty"`
 	// Output only. The ID of the customer.
-	Id *wrapperspb.Int64Value `protobuf:"bytes,3,opt,name=id,proto3" json:"id,omitempty"`
+	Id *wrappers.Int64Value `protobuf:"bytes,3,opt,name=id,proto3" json:"id,omitempty"`
 	// Optional, non-unique descriptive name of the customer.
-	DescriptiveName *wrapperspb.StringValue `protobuf:"bytes,4,opt,name=descriptive_name,json=descriptiveName,proto3" json:"descriptive_name,omitempty"`
+	DescriptiveName *wrappers.StringValue `protobuf:"bytes,4,opt,name=descriptive_name,json=descriptiveName,proto3" json:"descriptive_name,omitempty"`
 	// Immutable. The currency in which the account operates.
 	// A subset of the currency codes from the ISO 4217 standard is
 	// supported.
-	CurrencyCode *wrapperspb.StringValue `protobuf:"bytes,5,opt,name=currency_code,json=currencyCode,proto3" json:"currency_code,omitempty"`
+	CurrencyCode *wrappers.StringValue `protobuf:"bytes,5,opt,name=currency_code,json=currencyCode,proto3" json:"currency_code,omitempty"`
 	// Immutable. The local timezone ID of the customer.
-	TimeZone *wrapperspb.StringValue `protobuf:"bytes,6,opt,name=time_zone,json=timeZone,proto3" json:"time_zone,omitempty"`
+	TimeZone *wrappers.StringValue `protobuf:"bytes,6,opt,name=time_zone,json=timeZone,proto3" json:"time_zone,omitempty"`
 	// The URL template for constructing a tracking URL out of parameters.
-	TrackingUrlTemplate *wrapperspb.StringValue `protobuf:"bytes,7,opt,name=tracking_url_template,json=trackingUrlTemplate,proto3" json:"tracking_url_template,omitempty"`
+	TrackingUrlTemplate *wrappers.StringValue `protobuf:"bytes,7,opt,name=tracking_url_template,json=trackingUrlTemplate,proto3" json:"tracking_url_template,omitempty"`
 	// The URL template for appending params to the final URL
-	FinalUrlSuffix *wrapperspb.StringValue `protobuf:"bytes,11,opt,name=final_url_suffix,json=finalUrlSuffix,proto3" json:"final_url_suffix,omitempty"`
+	FinalUrlSuffix *wrappers.StringValue `protobuf:"bytes,11,opt,name=final_url_suffix,json=finalUrlSuffix,proto3" json:"final_url_suffix,omitempty"`
 	// Whether auto-tagging is enabled for the customer.
-	AutoTaggingEnabled *wrapperspb.BoolValue `protobuf:"bytes,8,opt,name=auto_tagging_enabled,json=autoTaggingEnabled,proto3" json:"auto_tagging_enabled,omitempty"`
+	AutoTaggingEnabled *wrappers.BoolValue `protobuf:"bytes,8,opt,name=auto_tagging_enabled,json=autoTaggingEnabled,proto3" json:"auto_tagging_enabled,omitempty"`
 	// Output only. Whether the Customer has a Partners program badge. If the Customer is not
 	// associated with the Partners program, this will be false. For more
 	// information, see https://support.google.com/partners/answer/3125774.
-	HasPartnersBadge *wrapperspb.BoolValue `protobuf:"bytes,9,opt,name=has_partners_badge,json=hasPartnersBadge,proto3" json:"has_partners_badge,omitempty"`
+	HasPartnersBadge *wrappers.BoolValue `protobuf:"bytes,9,opt,name=has_partners_badge,json=hasPartnersBadge,proto3" json:"has_partners_badge,omitempty"`
 	// Output only. Whether the customer is a manager.
-	Manager *wrapperspb.BoolValue `protobuf:"bytes,12,opt,name=manager,proto3" json:"manager,omitempty"`
+	Manager *wrappers.BoolValue `protobuf:"bytes,12,opt,name=manager,proto3" json:"manager,omitempty"`
 	// Output only. Whether the customer is a test account.
-	TestAccount *wrapperspb.BoolValue `protobuf:"bytes,13,opt,name=test_account,json=testAccount,proto3" json:"test_account,omitempty"`
+	TestAccount *wrappers.BoolValue `protobuf:"bytes,13,opt,name=test_account,json=testAccount,proto3" json:"test_account,omitempty"`
 	// Call reporting setting for a customer.
 	CallReportingSetting *CallReportingSetting `protobuf:"bytes,10,opt,name=call_reporting_setting,json=callReportingSetting,proto3" json:"call_reporting_setting,omitempty"`
 	// Output only. Conversion tracking setting for a customer.
@@ -127,70 +127,70 @@ func (x *Customer) GetResourceName() string {
 	return ""
 }
 
-func (x *Customer) GetId() *wrapperspb.Int64Value {
+func (x *Customer) GetId() *wrappers.Int64Value {
 	if x != nil {
 		return x.Id
 	}
 	return nil
 }
 
-func (x *Customer) GetDescriptiveName() *wrapperspb.StringValue {
+func (x *Customer) GetDescriptiveName() *wrappers.StringValue {
 	if x != nil {
 		return x.DescriptiveName
 	}
 	return nil
 }
 
-func (x *Customer) GetCurrencyCode() *wrapperspb.StringValue {
+func (x *Customer) GetCurrencyCode() *wrappers.StringValue {
 	if x != nil {
 		return x.CurrencyCode
 	}
 	return nil
 }
 
-func (x *Customer) GetTimeZone() *wrapperspb.StringValue {
+func (x *Customer) GetTimeZone() *wrappers.StringValue {
 	if x != nil {
 		return x.TimeZone
 	}
 	return nil
 }
 
-func (x *Customer) GetTrackingUrlTemplate() *wrapperspb.StringValue {
+func (x *Customer) GetTrackingUrlTemplate() *wrappers.StringValue {
 	if x != nil {
 		return x.TrackingUrlTemplate
 	}
 	return nil
 }
 
-func (x *Customer) GetFinalUrlSuffix() *wrapperspb.StringValue {
+func (x *Customer) GetFinalUrlSuffix() *wrappers.StringValue {
 	if x != nil {
 		return x.FinalUrlSuffix
 	}
 	return nil
 }
 
-func (x *Customer) GetAutoTaggingEnabled() *wrapperspb.BoolValue {
+func (x *Customer) GetAutoTaggingEnabled() *wrappers.BoolValue {
 	if x != nil {
 		return x.AutoTaggingEnabled
 	}
 	return nil
 }
 
-func (x *Customer) GetHasPartnersBadge() *wrapperspb.BoolValue {
+func (x *Customer) GetHasPartnersBadge() *wrappers.BoolValue {
 	if x != nil {
 		return x.HasPartnersBadge
 	}
 	return nil
 }
 
-func (x *Customer) GetManager() *wrapperspb.BoolValue {
+func (x *Customer) GetManager() *wrappers.BoolValue {
 	if x != nil {
 		return x.Manager
 	}
 	return nil
 }
 
-func (x *Customer) GetTestAccount() *wrapperspb.BoolValue {
+func (x *Customer) GetTestAccount() *wrappers.BoolValue {
 	if x != nil {
 		return x.TestAccount
 	}
@@ -233,13 +233,13 @@ type CallReportingSetting struct {
 
 	// Enable reporting of phone call events by redirecting them via Google
 	// System.
-	CallReportingEnabled *wrapperspb.BoolValue `protobuf:"bytes,1,opt,name=call_reporting_enabled,json=callReportingEnabled,proto3" json:"call_reporting_enabled,omitempty"`
+	CallReportingEnabled *wrappers.BoolValue `protobuf:"bytes,1,opt,name=call_reporting_enabled,json=callReportingEnabled,proto3" json:"call_reporting_enabled,omitempty"`
 	// Whether to enable call conversion reporting.
-	CallConversionReportingEnabled *wrapperspb.BoolValue `protobuf:"bytes,2,opt,name=call_conversion_reporting_enabled,json=callConversionReportingEnabled,proto3" json:"call_conversion_reporting_enabled,omitempty"`
+	CallConversionReportingEnabled *wrappers.BoolValue `protobuf:"bytes,2,opt,name=call_conversion_reporting_enabled,json=callConversionReportingEnabled,proto3" json:"call_conversion_reporting_enabled,omitempty"`
 	// Customer-level call conversion action to attribute a call conversion to.
 	// If not set a default conversion action is used. Only in effect when
 	// call_conversion_reporting_enabled is set to true.
-	CallConversionAction *wrapperspb.StringValue `protobuf:"bytes,9,opt,name=call_conversion_action,json=callConversionAction,proto3" json:"call_conversion_action,omitempty"`
+	CallConversionAction *wrappers.StringValue `protobuf:"bytes,9,opt,name=call_conversion_action,json=callConversionAction,proto3" json:"call_conversion_action,omitempty"`
 }
 
 func (x *CallReportingSetting) Reset() {
@@ -274,21 +274,21 @@ func (*CallReportingSetting) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_resources_customer_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CallReportingSetting) GetCallReportingEnabled() *wrapperspb.BoolValue {
+func (x *CallReportingSetting) GetCallReportingEnabled() *wrappers.BoolValue {
 	if x != nil {
 		return x.CallReportingEnabled
 	}
 	return nil
 }
 
-func (x *CallReportingSetting) GetCallConversionReportingEnabled() *wrapperspb.BoolValue {
+func (x *CallReportingSetting) GetCallConversionReportingEnabled() *wrappers.BoolValue {
 	if x != nil {
 		return x.CallConversionReportingEnabled
 	}
 	return nil
 }
 
-func (x *CallReportingSetting) GetCallConversionAction() *wrapperspb.StringValue {
+func (x *CallReportingSetting) GetCallConversionAction() *wrappers.StringValue {
 	if x != nil {
 		return x.CallConversionAction
 	}
@@ -305,12 +305,12 @@ type ConversionTrackingSetting struct {
 	// Output only. The conversion tracking id used for this account. This id is automatically
 	// assigned after any conversion tracking feature is used. If the customer
 	// doesn't use conversion tracking, this is 0. This field is read-only.
-	ConversionTrackingId *wrapperspb.Int64Value `protobuf:"bytes,1,opt,name=conversion_tracking_id,json=conversionTrackingId,proto3" json:"conversion_tracking_id,omitempty"`
+	ConversionTrackingId *wrappers.Int64Value `protobuf:"bytes,1,opt,name=conversion_tracking_id,json=conversionTrackingId,proto3" json:"conversion_tracking_id,omitempty"`
 	// Output only. The conversion tracking id of the customer's manager. This is set when the
 	// customer is opted into cross account conversion tracking, and it overrides
 	// conversion_tracking_id. This field can only be managed through the Google
 	// Ads UI. This field is read-only.
-	CrossAccountConversionTrackingId *wrapperspb.Int64Value `protobuf:"bytes,2,opt,name=cross_account_conversion_tracking_id,json=crossAccountConversionTrackingId,proto3" json:"cross_account_conversion_tracking_id,omitempty"`
+	CrossAccountConversionTrackingId *wrappers.Int64Value `protobuf:"bytes,2,opt,name=cross_account_conversion_tracking_id,json=crossAccountConversionTrackingId,proto3" json:"cross_account_conversion_tracking_id,omitempty"`
 }
 
 func (x *ConversionTrackingSetting) Reset() {
@@ -345,14 +345,14 @@ func (*ConversionTrackingSetting) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_resources_customer_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *ConversionTrackingSetting) GetConversionTrackingId() *wrapperspb.Int64Value {
+func (x *ConversionTrackingSetting) GetConversionTrackingId() *wrappers.Int64Value {
 	if x != nil {
 		return x.ConversionTrackingId
 	}
 	return nil
 }
 
-func (x *ConversionTrackingSetting) GetCrossAccountConversionTrackingId() *wrapperspb.Int64Value {
+func (x *ConversionTrackingSetting) GetCrossAccountConversionTrackingId() *wrappers.Int64Value {
 	if x != nil {
 		return x.CrossAccountConversionTrackingId
 	}
@@ -366,7 +366,7 @@ type RemarketingSetting struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Output only. The Google global site tag.
-	GoogleGlobalSiteTag *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=google_global_site_tag,json=googleGlobalSiteTag,proto3" json:"google_global_site_tag,omitempty"`
+	GoogleGlobalSiteTag *wrappers.StringValue `protobuf:"bytes,1,opt,name=google_global_site_tag,json=googleGlobalSiteTag,proto3" json:"google_global_site_tag,omitempty"`
 }
 
 func (x *RemarketingSetting) Reset() {
@@ -401,7 +401,7 @@ func (*RemarketingSetting) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_resources_customer_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *RemarketingSetting) GetGoogleGlobalSiteTag() *wrapperspb.StringValue {
+func (x *RemarketingSetting) GetGoogleGlobalSiteTag() *wrappers.StringValue {
 	if x != nil {
 		return x.GoogleGlobalSiteTag
 	}
@@ -600,9 +600,9 @@ var file_google_ads_googleads_v3_resources_customer_proto_goTypes = []interface{
 	(*CallReportingSetting)(nil),      // 1: google.ads.googleads.v3.resources.CallReportingSetting
 	(*ConversionTrackingSetting)(nil), // 2: google.ads.googleads.v3.resources.ConversionTrackingSetting
 	(*RemarketingSetting)(nil),        // 3: google.ads.googleads.v3.resources.RemarketingSetting
-	(*wrapperspb.Int64Value)(nil),     // 4: google.protobuf.Int64Value
-	(*wrapperspb.StringValue)(nil),    // 5: google.protobuf.StringValue
-	(*wrapperspb.BoolValue)(nil),      // 6: google.protobuf.BoolValue
+	(*wrappers.Int64Value)(nil),       // 4: google.protobuf.Int64Value
+	(*wrappers.StringValue)(nil),      // 5: google.protobuf.StringValue
+	(*wrappers.BoolValue)(nil),        // 6: google.protobuf.BoolValue
 	(enums.CustomerPayPerConversionEligibilityFailureReasonEnum_CustomerPayPerConversionEligibilityFailureReason)(0), // 7: google.ads.googleads.v3.enums.CustomerPayPerConversionEligibilityFailureReasonEnum.CustomerPayPerConversionEligibilityFailureReason
 }
 var file_google_ads_googleads_v3_resources_customer_proto_depIdxs = []int32{

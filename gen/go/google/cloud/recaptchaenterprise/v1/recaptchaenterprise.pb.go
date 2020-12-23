@@ -22,12 +22,12 @@ package recaptchaenterprise
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -757,7 +757,7 @@ type TokenProperties struct {
 	// Reason associated with the response when valid = false.
 	InvalidReason TokenProperties_InvalidReason `protobuf:"varint,2,opt,name=invalid_reason,json=invalidReason,proto3,enum=google.cloud.recaptchaenterprise.v1.TokenProperties_InvalidReason" json:"invalid_reason,omitempty"`
 	// The timestamp corresponding to the generation of the token.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// The hostname of the page on which the token was generated.
 	Hostname string `protobuf:"bytes,4,opt,name=hostname,proto3" json:"hostname,omitempty"`
 	// Action name provided at token generation.
@@ -810,7 +810,7 @@ func (x *TokenProperties) GetInvalidReason() TokenProperties_InvalidReason {
 	return TokenProperties_INVALID_REASON_UNSPECIFIED
 }
 
-func (x *TokenProperties) GetCreateTime() *timestamppb.Timestamp {
+func (x *TokenProperties) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -1079,7 +1079,7 @@ type UpdateKeyRequest struct {
 	Key *Key `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
 	// Optional. The mask to control which field of the key get updated. If the mask is not
 	// present, all fields will be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateKeyRequest) Reset() {
@@ -1121,7 +1121,7 @@ func (x *UpdateKeyRequest) GetKey() *Key {
 	return nil
 }
 
-func (x *UpdateKeyRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateKeyRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1202,7 +1202,7 @@ type Key struct {
 	// Creating and managing labels</a>.
 	Labels map[string]string `protobuf:"bytes,6,rep,name=labels,proto3" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// The timestamp corresponding to the creation of this Key.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 }
 
 func (x *Key) Reset() {
@@ -1286,7 +1286,7 @@ func (x *Key) GetLabels() map[string]string {
 	return nil
 }
 
-func (x *Key) GetCreateTime() *timestamppb.Timestamp {
+func (x *Key) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -1924,9 +1924,9 @@ var file_google_cloud_recaptchaenterprise_v1_recaptchaenterprise_proto_goTypes =
 	(*AndroidKeySettings)(nil),                      // 20: google.cloud.recaptchaenterprise.v1.AndroidKeySettings
 	(*IOSKeySettings)(nil),                          // 21: google.cloud.recaptchaenterprise.v1.IOSKeySettings
 	nil,                                             // 22: google.cloud.recaptchaenterprise.v1.Key.LabelsEntry
-	(*timestamppb.Timestamp)(nil),                   // 23: google.protobuf.Timestamp
-	(*fieldmaskpb.FieldMask)(nil),                   // 24: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),                           // 25: google.protobuf.Empty
+	(*timestamp.Timestamp)(nil),                     // 23: google.protobuf.Timestamp
+	(*field_mask.FieldMask)(nil),                    // 24: google.protobuf.FieldMask
+	(*empty.Empty)(nil),                             // 25: google.protobuf.Empty
 }
 var file_google_cloud_recaptchaenterprise_v1_recaptchaenterprise_proto_depIdxs = []int32{
 	8,  // 0: google.cloud.recaptchaenterprise.v1.CreateAssessmentRequest.assessment:type_name -> google.cloud.recaptchaenterprise.v1.Assessment

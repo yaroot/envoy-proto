@@ -22,12 +22,12 @@ package accessapproval
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -312,9 +312,9 @@ type ApproveDecision struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The time at which approval was granted.
-	ApproveTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=approve_time,json=approveTime,proto3" json:"approve_time,omitempty"`
+	ApproveTime *timestamp.Timestamp `protobuf:"bytes,1,opt,name=approve_time,json=approveTime,proto3" json:"approve_time,omitempty"`
 	// The time at which the approval expires.
-	ExpireTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
+	ExpireTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
 }
 
 func (x *ApproveDecision) Reset() {
@@ -349,14 +349,14 @@ func (*ApproveDecision) Descriptor() ([]byte, []int) {
 	return file_google_cloud_accessapproval_v1_accessapproval_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *ApproveDecision) GetApproveTime() *timestamppb.Timestamp {
+func (x *ApproveDecision) GetApproveTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ApproveTime
 	}
 	return nil
 }
 
-func (x *ApproveDecision) GetExpireTime() *timestamppb.Timestamp {
+func (x *ApproveDecision) GetExpireTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ExpireTime
 	}
@@ -370,7 +370,7 @@ type DismissDecision struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The time at which the approval request was dismissed.
-	DismissTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=dismiss_time,json=dismissTime,proto3" json:"dismiss_time,omitempty"`
+	DismissTime *timestamp.Timestamp `protobuf:"bytes,1,opt,name=dismiss_time,json=dismissTime,proto3" json:"dismiss_time,omitempty"`
 }
 
 func (x *DismissDecision) Reset() {
@@ -405,7 +405,7 @@ func (*DismissDecision) Descriptor() ([]byte, []int) {
 	return file_google_cloud_accessapproval_v1_accessapproval_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *DismissDecision) GetDismissTime() *timestamppb.Timestamp {
+func (x *DismissDecision) GetDismissTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.DismissTime
 	}
@@ -486,10 +486,10 @@ type ApprovalRequest struct {
 	// The locations for which approval is being requested.
 	RequestedLocations *AccessLocations `protobuf:"bytes,4,opt,name=requested_locations,json=requestedLocations,proto3" json:"requested_locations,omitempty"`
 	// The time at which approval was requested.
-	RequestTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=request_time,json=requestTime,proto3" json:"request_time,omitempty"`
+	RequestTime *timestamp.Timestamp `protobuf:"bytes,5,opt,name=request_time,json=requestTime,proto3" json:"request_time,omitempty"`
 	// The requested expiration for the approval. If the request is approved,
 	// access will be granted from the time of approval until the expiration time.
-	RequestedExpiration *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=requested_expiration,json=requestedExpiration,proto3" json:"requested_expiration,omitempty"`
+	RequestedExpiration *timestamp.Timestamp `protobuf:"bytes,6,opt,name=requested_expiration,json=requestedExpiration,proto3" json:"requested_expiration,omitempty"`
 	// The current decision on the approval request.
 	//
 	// Types that are assignable to Decision:
@@ -565,14 +565,14 @@ func (x *ApprovalRequest) GetRequestedLocations() *AccessLocations {
 	return nil
 }
 
-func (x *ApprovalRequest) GetRequestTime() *timestamppb.Timestamp {
+func (x *ApprovalRequest) GetRequestTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.RequestTime
 	}
 	return nil
 }
 
-func (x *ApprovalRequest) GetRequestedExpiration() *timestamppb.Timestamp {
+func (x *ApprovalRequest) GetRequestedExpiration() *timestamp.Timestamp {
 	if x != nil {
 		return x.RequestedExpiration
 	}
@@ -988,7 +988,7 @@ type ApproveApprovalRequestMessage struct {
 	// Name of the approval request to approve.
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// The expiration time of this approval.
-	ExpireTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
+	ExpireTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
 }
 
 func (x *ApproveApprovalRequestMessage) Reset() {
@@ -1030,7 +1030,7 @@ func (x *ApproveApprovalRequestMessage) GetName() string {
 	return ""
 }
 
-func (x *ApproveApprovalRequestMessage) GetExpireTime() *timestamppb.Timestamp {
+func (x *ApproveApprovalRequestMessage) GetExpireTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ExpireTime
 	}
@@ -1153,7 +1153,7 @@ type UpdateAccessApprovalSettingsMessage struct {
 	// https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
 	// If this field is left unset, only the notification_emails field will be
 	// updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateAccessApprovalSettingsMessage) Reset() {
@@ -1195,7 +1195,7 @@ func (x *UpdateAccessApprovalSettingsMessage) GetSettings() *AccessApprovalSetti
 	return nil
 }
 
-func (x *UpdateAccessApprovalSettingsMessage) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateAccessApprovalSettingsMessage) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1583,7 +1583,7 @@ var file_google_cloud_accessapproval_v1_accessapproval_proto_rawDesc = []byte{
 	0x41, 0x2e, 0x68, 0x74, 0x74, 0x70, 0x73, 0x3a, 0x2f, 0x2f, 0x77, 0x77, 0x77, 0x2e, 0x67, 0x6f,
 	0x6f, 0x67, 0x6c, 0x65, 0x61, 0x70, 0x69, 0x73, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x61, 0x75, 0x74,
 	0x68, 0x2f, 0x63, 0x6c, 0x6f, 0x75, 0x64, 0x2d, 0x70, 0x6c, 0x61, 0x74, 0x66, 0x6f, 0x72, 0x6d,
-	0x42, 0xad, 0x01, 0x0a, 0x22, 0x63, 0x6f, 0x6d, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e,
+	0x42, 0xef, 0x01, 0x0a, 0x22, 0x63, 0x6f, 0x6d, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e,
 	0x63, 0x6c, 0x6f, 0x75, 0x64, 0x2e, 0x61, 0x63, 0x63, 0x65, 0x73, 0x73, 0x61, 0x70, 0x70, 0x72,
 	0x6f, 0x76, 0x61, 0x6c, 0x2e, 0x76, 0x31, 0x42, 0x13, 0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x41,
 	0x70, 0x70, 0x72, 0x6f, 0x76, 0x61, 0x6c, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x4c,
@@ -1591,10 +1591,14 @@ var file_google_cloud_accessapproval_v1_accessapproval_proto_rawDesc = []byte{
 	0x67, 0x2f, 0x67, 0x65, 0x6e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x6f, 0x67, 0x6c,
 	0x65, 0x61, 0x70, 0x69, 0x73, 0x2f, 0x63, 0x6c, 0x6f, 0x75, 0x64, 0x2f, 0x61, 0x63, 0x63, 0x65,
 	0x73, 0x73, 0x61, 0x70, 0x70, 0x72, 0x6f, 0x76, 0x61, 0x6c, 0x2f, 0x76, 0x31, 0x3b, 0x61, 0x63,
-	0x63, 0x65, 0x73, 0x73, 0x61, 0x70, 0x70, 0x72, 0x6f, 0x76, 0x61, 0x6c, 0xea, 0x02, 0x21, 0x47,
-	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x3a, 0x3a, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x3a, 0x3a, 0x41, 0x63,
-	0x63, 0x65, 0x73, 0x73, 0x41, 0x70, 0x70, 0x72, 0x6f, 0x76, 0x61, 0x6c, 0x3a, 0x3a, 0x56, 0x31,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x63, 0x65, 0x73, 0x73, 0x61, 0x70, 0x70, 0x72, 0x6f, 0x76, 0x61, 0x6c, 0xaa, 0x02, 0x1e, 0x47,
+	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x2e, 0x41, 0x63, 0x63, 0x65,
+	0x73, 0x73, 0x41, 0x70, 0x70, 0x72, 0x6f, 0x76, 0x61, 0x6c, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x1e,
+	0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x5c, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x5c, 0x41, 0x63, 0x63,
+	0x65, 0x73, 0x73, 0x41, 0x70, 0x70, 0x72, 0x6f, 0x76, 0x61, 0x6c, 0x5c, 0x56, 0x31, 0xea, 0x02,
+	0x21, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x3a, 0x3a, 0x43, 0x6c, 0x6f, 0x75, 0x64, 0x3a, 0x3a,
+	0x41, 0x63, 0x63, 0x65, 0x73, 0x73, 0x41, 0x70, 0x70, 0x72, 0x6f, 0x76, 0x61, 0x6c, 0x3a, 0x3a,
+	0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1630,9 +1634,9 @@ var file_google_cloud_accessapproval_v1_accessapproval_proto_goTypes = []interfa
 	(*GetAccessApprovalSettingsMessage)(nil),    // 15: google.cloud.accessapproval.v1.GetAccessApprovalSettingsMessage
 	(*UpdateAccessApprovalSettingsMessage)(nil), // 16: google.cloud.accessapproval.v1.UpdateAccessApprovalSettingsMessage
 	(*DeleteAccessApprovalSettingsMessage)(nil), // 17: google.cloud.accessapproval.v1.DeleteAccessApprovalSettingsMessage
-	(*timestamppb.Timestamp)(nil),               // 18: google.protobuf.Timestamp
-	(*fieldmaskpb.FieldMask)(nil),               // 19: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),                       // 20: google.protobuf.Empty
+	(*timestamp.Timestamp)(nil),                 // 18: google.protobuf.Timestamp
+	(*field_mask.FieldMask)(nil),                // 19: google.protobuf.FieldMask
+	(*empty.Empty)(nil),                         // 20: google.protobuf.Empty
 }
 var file_google_cloud_accessapproval_v1_accessapproval_proto_depIdxs = []int32{
 	1,  // 0: google.cloud.accessapproval.v1.AccessReason.type:type_name -> google.cloud.accessapproval.v1.AccessReason.Type

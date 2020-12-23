@@ -9,9 +9,9 @@ package udpa_core_v1
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -133,7 +133,7 @@ type CollectionEntry_InlineEntry struct {
 	// resource name at a given version with different resource payloads.
 	Version string `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
 	// The resource payload, including type URL.
-	Resource *anypb.Any `protobuf:"bytes,3,opt,name=resource,proto3" json:"resource,omitempty"`
+	Resource *any.Any `protobuf:"bytes,3,opt,name=resource,proto3" json:"resource,omitempty"`
 }
 
 func (x *CollectionEntry_InlineEntry) Reset() {
@@ -182,7 +182,7 @@ func (x *CollectionEntry_InlineEntry) GetVersion() string {
 	return ""
 }
 
-func (x *CollectionEntry_InlineEntry) GetResource() *anypb.Any {
+func (x *CollectionEntry_InlineEntry) GetResource() *any.Any {
 	if x != nil {
 		return x.Resource
 	}
@@ -247,7 +247,7 @@ var file_udpa_core_v1_collection_entry_proto_goTypes = []interface{}{
 	(*CollectionEntry)(nil),             // 0: udpa.core.v1.CollectionEntry
 	(*CollectionEntry_InlineEntry)(nil), // 1: udpa.core.v1.CollectionEntry.InlineEntry
 	(*ResourceLocator)(nil),             // 2: udpa.core.v1.ResourceLocator
-	(*anypb.Any)(nil),                   // 3: google.protobuf.Any
+	(*any.Any)(nil),                     // 3: google.protobuf.Any
 }
 var file_udpa_core_v1_collection_entry_proto_depIdxs = []int32{
 	2, // 0: udpa.core.v1.CollectionEntry.locator:type_name -> udpa.core.v1.ResourceLocator

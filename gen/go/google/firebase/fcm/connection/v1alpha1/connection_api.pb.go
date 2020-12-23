@@ -23,10 +23,10 @@ package connection
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -246,9 +246,9 @@ type Message struct {
 	// The identifier of the message. Used to ack the message.
 	MessageId string `protobuf:"bytes,1,opt,name=message_id,json=messageId,proto3" json:"message_id,omitempty"`
 	// Time the message was received in FCM.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Expiry time of the message. Currently it is always 4 weeks.
-	ExpireTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
+	ExpireTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
 	// The arbitrary payload set in the [Send
 	// API](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#resource-message).
 	Data map[string]string `protobuf:"bytes,4,rep,name=data,proto3" json:"data,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
@@ -293,14 +293,14 @@ func (x *Message) GetMessageId() string {
 	return ""
 }
 
-func (x *Message) GetCreateTime() *timestamppb.Timestamp {
+func (x *Message) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *Message) GetExpireTime() *timestamppb.Timestamp {
+func (x *Message) GetExpireTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ExpireTime
 	}
@@ -397,12 +397,12 @@ func file_google_firebase_fcm_connection_v1alpha1_connection_api_proto_rawDescGZ
 
 var file_google_firebase_fcm_connection_v1alpha1_connection_api_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_google_firebase_fcm_connection_v1alpha1_connection_api_proto_goTypes = []interface{}{
-	(*UpstreamRequest)(nil),       // 0: google.firebase.fcm.connection.v1alpha1.UpstreamRequest
-	(*DownstreamResponse)(nil),    // 1: google.firebase.fcm.connection.v1alpha1.DownstreamResponse
-	(*Ack)(nil),                   // 2: google.firebase.fcm.connection.v1alpha1.Ack
-	(*Message)(nil),               // 3: google.firebase.fcm.connection.v1alpha1.Message
-	nil,                           // 4: google.firebase.fcm.connection.v1alpha1.Message.DataEntry
-	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
+	(*UpstreamRequest)(nil),     // 0: google.firebase.fcm.connection.v1alpha1.UpstreamRequest
+	(*DownstreamResponse)(nil),  // 1: google.firebase.fcm.connection.v1alpha1.DownstreamResponse
+	(*Ack)(nil),                 // 2: google.firebase.fcm.connection.v1alpha1.Ack
+	(*Message)(nil),             // 3: google.firebase.fcm.connection.v1alpha1.Message
+	nil,                         // 4: google.firebase.fcm.connection.v1alpha1.Message.DataEntry
+	(*timestamp.Timestamp)(nil), // 5: google.protobuf.Timestamp
 }
 var file_google_firebase_fcm_connection_v1alpha1_connection_api_proto_depIdxs = []int32{
 	2, // 0: google.firebase.fcm.connection.v1alpha1.UpstreamRequest.ack:type_name -> google.firebase.fcm.connection.v1alpha1.Ack

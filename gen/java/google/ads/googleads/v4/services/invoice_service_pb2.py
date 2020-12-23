@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v4.servicesB\023InvoiceServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V4.Services\312\002 Google\\Ads\\GoogleAds\\V4\\Services\352\002$Google::Ads::GoogleAds::V4::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n6google/ads/googleads/v4/services/invoice_service.proto\x12 google.ads.googleads.v4.services\x1a\x31google/ads/googleads/v4/enums/month_of_year.proto\x1a/google/ads/googleads/v4/resources/invoice.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\"\xba\x01\n\x13ListInvoicesRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rbilling_setup\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nissue_year\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12T\n\x0bissue_month\x18\x04 \x01(\x0e\x32:.google.ads.googleads.v4.enums.MonthOfYearEnum.MonthOfYearB\x03\xe0\x41\x02\"T\n\x14ListInvoicesResponse\x12<\n\x08invoices\x18\x01 \x03(\x0b\x32*.google.ads.googleads.v4.resources.Invoice2\x90\x02\n\x0eInvoiceService\x12\xe0\x01\n\x0cListInvoices\x12\x35.google.ads.googleads.v4.services.ListInvoicesRequest\x1a\x36.google.ads.googleads.v4.services.ListInvoicesResponse\"a\x82\xd3\xe4\x93\x02(\x12&/v4/customers/{customer_id=*}/invoices\xda\x41\x30\x63ustomer_id,billing_setup,issue_year,issue_month\x1a\x1b\xca\x41\x18googleads.googleapis.comB\xfa\x01\n$com.google.ads.googleads.v4.servicesB\x13InvoiceServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V4.Services\xca\x02 Google\\Ads\\GoogleAds\\V4\\Services\xea\x02$Google::Ads::GoogleAds::V4::Servicesb\x06proto3'
+  serialized_pb=b'\n6google/ads/googleads/v4/services/invoice_service.proto\x12 google.ads.googleads.v4.services\x1a\x31google/ads/googleads/v4/enums/month_of_year.proto\x1a/google/ads/googleads/v4/resources/invoice.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\"\xba\x01\n\x13ListInvoicesRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rbilling_setup\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nissue_year\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12T\n\x0bissue_month\x18\x04 \x01(\x0e\x32:.google.ads.googleads.v4.enums.MonthOfYearEnum.MonthOfYearB\x03\xe0\x41\x02\"T\n\x14ListInvoicesResponse\x12<\n\x08invoices\x18\x01 \x03(\x0b\x32*.google.ads.googleads.v4.resources.Invoice2\xba\x02\n\x0eInvoiceService\x12\xe0\x01\n\x0cListInvoices\x12\x35.google.ads.googleads.v4.services.ListInvoicesRequest\x1a\x36.google.ads.googleads.v4.services.ListInvoicesResponse\"a\x82\xd3\xe4\x93\x02(\x12&/v4/customers/{customer_id=*}/invoices\xda\x41\x30\x63ustomer_id,billing_setup,issue_year,issue_month\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\xfa\x01\n$com.google.ads.googleads.v4.servicesB\x13InvoiceServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v4/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V4.Services\xca\x02 Google\\Ads\\GoogleAds\\V4\\Services\xea\x02$Google::Ads::GoogleAds::V4::Servicesb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v4_dot_enums_dot_month__of__year__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v4_dot_resources_dot_invoice__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,])
 
@@ -147,10 +147,10 @@ _INVOICESERVICE = _descriptor.ServiceDescriptor(
   full_name='google.ads.googleads.v4.services.InvoiceService',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=b'\312A\030googleads.googleapis.com',
+  serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
   serialized_start=556,
-  serialized_end=828,
+  serialized_end=870,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListInvoices',

@@ -22,15 +22,15 @@ package asset
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/any"
+	_struct "github.com/golang/protobuf/ptypes/struct"
+	_ "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	v11 "google.golang.org/genproto/googleapis/cloud/orgpolicy/v1"
 	v1 "google.golang.org/genproto/googleapis/iam/v1"
 	v12 "google.golang.org/genproto/googleapis/identity/accesscontextmanager/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/anypb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
-	_ "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -248,7 +248,7 @@ type Resource struct {
 	Parent string `protobuf:"bytes,5,opt,name=parent,proto3" json:"parent,omitempty"`
 	// The content of the resource, in which some sensitive fields are scrubbed
 	// away and may not be present.
-	Data *structpb.Struct `protobuf:"bytes,6,opt,name=data,proto3" json:"data,omitempty"`
+	Data *_struct.Struct `protobuf:"bytes,6,opt,name=data,proto3" json:"data,omitempty"`
 }
 
 func (x *Resource) Reset() {
@@ -318,7 +318,7 @@ func (x *Resource) GetParent() string {
 	return ""
 }
 
-func (x *Resource) GetData() *structpb.Struct {
+func (x *Resource) GetData() *_struct.Struct {
 	if x != nil {
 		return x.Data
 	}
@@ -448,7 +448,7 @@ var file_google_cloud_asset_v1p5beta1_assets_proto_goTypes = []interface{}{
 	(*v12.AccessPolicy)(nil),     // 4: google.identity.accesscontextmanager.v1.AccessPolicy
 	(*v12.AccessLevel)(nil),      // 5: google.identity.accesscontextmanager.v1.AccessLevel
 	(*v12.ServicePerimeter)(nil), // 6: google.identity.accesscontextmanager.v1.ServicePerimeter
-	(*structpb.Struct)(nil),      // 7: google.protobuf.Struct
+	(*_struct.Struct)(nil),       // 7: google.protobuf.Struct
 }
 var file_google_cloud_asset_v1p5beta1_assets_proto_depIdxs = []int32{
 	1, // 0: google.cloud.asset.v1p5beta1.Asset.resource:type_name -> google.cloud.asset.v1p5beta1.Resource

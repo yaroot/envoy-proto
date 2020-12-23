@@ -22,11 +22,11 @@ package monitoring
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -353,7 +353,7 @@ type UpdateAlertPolicyRequest struct {
 	//     the supplied condition includes the `name` field with that
 	//     `[CONDITION_ID]`. If the supplied condition omits the `name` field,
 	//     then a new `[CONDITION_ID]` is created.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// Required. The updated alerting policy or the updated values for the
 	// fields listed in `update_mask`.
 	// If `update_mask` is not empty, any fields in this policy that are
@@ -393,7 +393,7 @@ func (*UpdateAlertPolicyRequest) Descriptor() ([]byte, []int) {
 	return file_google_monitoring_v3_alert_service_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *UpdateAlertPolicyRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateAlertPolicyRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -638,8 +638,8 @@ var file_google_monitoring_v3_alert_service_proto_goTypes = []interface{}{
 	(*UpdateAlertPolicyRequest)(nil),  // 4: google.monitoring.v3.UpdateAlertPolicyRequest
 	(*DeleteAlertPolicyRequest)(nil),  // 5: google.monitoring.v3.DeleteAlertPolicyRequest
 	(*AlertPolicy)(nil),               // 6: google.monitoring.v3.AlertPolicy
-	(*fieldmaskpb.FieldMask)(nil),     // 7: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),             // 8: google.protobuf.Empty
+	(*field_mask.FieldMask)(nil),      // 7: google.protobuf.FieldMask
+	(*empty.Empty)(nil),               // 8: google.protobuf.Empty
 }
 var file_google_monitoring_v3_alert_service_proto_depIdxs = []int32{
 	6, // 0: google.monitoring.v3.CreateAlertPolicyRequest.alert_policy:type_name -> google.monitoring.v3.AlertPolicy

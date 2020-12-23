@@ -22,13 +22,13 @@ package genomics
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	_struct "github.com/golang/protobuf/ptypes/struct"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -288,7 +288,7 @@ type VariantSetMetadata struct {
 	Description string `protobuf:"bytes,7,opt,name=description,proto3" json:"description,omitempty"`
 	// Remaining structured metadata key-value pairs. This must be of the form
 	// map<string, string[]> (string key mapping to a list of string values).
-	Info map[string]*structpb.ListValue `protobuf:"bytes,3,rep,name=info,proto3" json:"info,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Info map[string]*_struct.ListValue `protobuf:"bytes,3,rep,name=info,proto3" json:"info,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *VariantSetMetadata) Reset() {
@@ -365,7 +365,7 @@ func (x *VariantSetMetadata) GetDescription() string {
 	return ""
 }
 
-func (x *VariantSetMetadata) GetInfo() map[string]*structpb.ListValue {
+func (x *VariantSetMetadata) GetInfo() map[string]*_struct.ListValue {
 	if x != nil {
 		return x.Info
 	}
@@ -538,7 +538,7 @@ type Variant struct {
 	Filter []string `protobuf:"bytes,9,rep,name=filter,proto3" json:"filter,omitempty"`
 	// A map of additional variant information. This must be of the form
 	// map<string, string[]> (string key mapping to a list of string values).
-	Info map[string]*structpb.ListValue `protobuf:"bytes,10,rep,name=info,proto3" json:"info,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Info map[string]*_struct.ListValue `protobuf:"bytes,10,rep,name=info,proto3" json:"info,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// The variant calls for this particular variant. Each one represents the
 	// determination of genotype with respect to this variant.
 	Calls []*VariantCall `protobuf:"bytes,11,rep,name=calls,proto3" json:"calls,omitempty"`
@@ -653,7 +653,7 @@ func (x *Variant) GetFilter() []string {
 	return nil
 }
 
-func (x *Variant) GetInfo() map[string]*structpb.ListValue {
+func (x *Variant) GetInfo() map[string]*_struct.ListValue {
 	if x != nil {
 		return x.Info
 	}
@@ -708,7 +708,7 @@ type VariantCall struct {
 	GenotypeLikelihood []float64 `protobuf:"fixed64,6,rep,packed,name=genotype_likelihood,json=genotypeLikelihood,proto3" json:"genotype_likelihood,omitempty"`
 	// A map of additional variant call information. This must be of the form
 	// map<string, string[]> (string key mapping to a list of string values).
-	Info map[string]*structpb.ListValue `protobuf:"bytes,2,rep,name=info,proto3" json:"info,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Info map[string]*_struct.ListValue `protobuf:"bytes,2,rep,name=info,proto3" json:"info,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *VariantCall) Reset() {
@@ -778,7 +778,7 @@ func (x *VariantCall) GetGenotypeLikelihood() []float64 {
 	return nil
 }
 
-func (x *VariantCall) GetInfo() map[string]*structpb.ListValue {
+func (x *VariantCall) GetInfo() map[string]*_struct.ListValue {
 	if x != nil {
 		return x.Info
 	}
@@ -811,7 +811,7 @@ type CallSet struct {
 	Created int64 `protobuf:"varint,5,opt,name=created,proto3" json:"created,omitempty"`
 	// A map of additional call set information. This must be of the form
 	// map<string, string[]> (string key mapping to a list of string values).
-	Info map[string]*structpb.ListValue `protobuf:"bytes,4,rep,name=info,proto3" json:"info,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Info map[string]*_struct.ListValue `protobuf:"bytes,4,rep,name=info,proto3" json:"info,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *CallSet) Reset() {
@@ -881,7 +881,7 @@ func (x *CallSet) GetCreated() int64 {
 	return 0
 }
 
-func (x *CallSet) GetInfo() map[string]*structpb.ListValue {
+func (x *CallSet) GetInfo() map[string]*_struct.ListValue {
 	if x != nil {
 		return x.Info
 	}
@@ -1492,7 +1492,7 @@ type UpdateVariantSetRequest struct {
 	//
 	// Leaving `updateMask` unset is equivalent to specifying all mutable
 	// fields.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,5,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,5,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateVariantSetRequest) Reset() {
@@ -1541,7 +1541,7 @@ func (x *UpdateVariantSetRequest) GetVariantSet() *VariantSet {
 	return nil
 }
 
-func (x *UpdateVariantSetRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateVariantSetRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1802,7 +1802,7 @@ type UpdateVariantRequest struct {
 	// fields are [names][google.genomics.v1.Variant.names] and
 	// [info][google.genomics.v1.Variant.info]. Acceptable values are "names" and
 	// "info". If unspecified, all mutable fields will be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateVariantRequest) Reset() {
@@ -1851,7 +1851,7 @@ func (x *UpdateVariantRequest) GetVariant() *Variant {
 	return nil
 }
 
-func (x *UpdateVariantRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateVariantRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -2223,7 +2223,7 @@ type UpdateCallSetRequest struct {
 	// mutable field is [name][google.genomics.v1.CallSet.name]. The only
 	// acceptable value is "name". If unspecified, all mutable fields will be
 	// updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateCallSetRequest) Reset() {
@@ -2272,7 +2272,7 @@ func (x *UpdateCallSetRequest) GetCallSet() *CallSet {
 	return nil
 }
 
-func (x *UpdateCallSetRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateCallSetRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -3119,10 +3119,10 @@ var file_google_genomics_v1_variants_proto_goTypes = []interface{}{
 	nil,                                 // 37: google.genomics.v1.CallSet.InfoEntry
 	nil,                                 // 38: google.genomics.v1.ImportVariantsRequest.InfoMergeConfigEntry
 	nil,                                 // 39: google.genomics.v1.MergeVariantsRequest.InfoMergeConfigEntry
-	(*fieldmaskpb.FieldMask)(nil),       // 40: google.protobuf.FieldMask
-	(*structpb.ListValue)(nil),          // 41: google.protobuf.ListValue
+	(*field_mask.FieldMask)(nil),        // 40: google.protobuf.FieldMask
+	(*_struct.ListValue)(nil),           // 41: google.protobuf.ListValue
 	(*longrunning.Operation)(nil),       // 42: google.longrunning.Operation
-	(*emptypb.Empty)(nil),               // 43: google.protobuf.Empty
+	(*empty.Empty)(nil),                 // 43: google.protobuf.Empty
 }
 var file_google_genomics_v1_variants_proto_depIdxs = []int32{
 	1,  // 0: google.genomics.v1.VariantSetMetadata.type:type_name -> google.genomics.v1.VariantSetMetadata.Type

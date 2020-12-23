@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 from envoy.config.core.v3 import config_source_pb2 as envoy_dot_config_dot_core_dot_v3_dot_config__source__pb2
 from envoy.config.core.v3 import grpc_service_pb2 as envoy_dot_config_dot_core_dot_v3_dot_grpc__service__pb2
+from envoy.type.matcher.v3 import metadata_pb2 as envoy_dot_type_dot_matcher_dot_v3_dot_metadata__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from udpa.annotations import versioning_pb2 as udpa_dot_annotations_dot_versioning__pb2
 from validate import validate_pb2 as validate_dot_validate__pb2
@@ -24,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n;io.envoyproxy.envoy.extensions.filters.network.ext_authz.v3B\rExtAuthzProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n=envoy/extensions/filters/network/ext_authz/v3/ext_authz.proto\x12-envoy.extensions.filters.network.ext_authz.v3\x1a(envoy/config/core/v3/config_source.proto\x1a\'envoy/config/core/v3/grpc_service.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xa4\x02\n\x08\x45xtAuthz\x12\x1c\n\x0bstat_prefix\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12\x37\n\x0cgrpc_service\x18\x02 \x01(\x0b\x32!.envoy.config.core.v3.GrpcService\x12\x1a\n\x12\x66\x61ilure_mode_allow\x18\x03 \x01(\x08\x12 \n\x18include_peer_certificate\x18\x04 \x01(\x08\x12I\n\x15transport_api_version\x18\x05 \x01(\x0e\x32 .envoy.config.core.v3.ApiVersionB\x08\xfa\x42\x05\x82\x01\x02\x10\x01:8\x9a\xc5\x88\x1e\x33\n1envoy.config.filter.network.ext_authz.v2.ExtAuthzBV\n;io.envoyproxy.envoy.extensions.filters.network.ext_authz.v3B\rExtAuthzProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n=envoy/extensions/filters/network/ext_authz/v3/ext_authz.proto\x12-envoy.extensions.filters.network.ext_authz.v3\x1a(envoy/config/core/v3/config_source.proto\x1a\'envoy/config/core/v3/grpc_service.proto\x1a$envoy/type/matcher/v3/metadata.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xed\x02\n\x08\x45xtAuthz\x12\x1c\n\x0bstat_prefix\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x37\n\x0cgrpc_service\x18\x02 \x01(\x0b\x32!.envoy.config.core.v3.GrpcService\x12\x1a\n\x12\x66\x61ilure_mode_allow\x18\x03 \x01(\x08\x12 \n\x18include_peer_certificate\x18\x04 \x01(\x08\x12I\n\x15transport_api_version\x18\x05 \x01(\x0e\x32 .envoy.config.core.v3.ApiVersionB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12G\n\x17\x66ilter_enabled_metadata\x18\x06 \x01(\x0b\x32&.envoy.type.matcher.v3.MetadataMatcher:8\x9a\xc5\x88\x1e\x33\n1envoy.config.filter.network.ext_authz.v2.ExtAuthzBV\n;io.envoyproxy.envoy.extensions.filters.network.ext_authz.v3B\rExtAuthzProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_config__source__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_grpc__service__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_config__source__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_grpc__service__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v3_dot_metadata__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -45,7 +46,7 @@ _EXTAUTHZ = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='grpc_service', full_name='envoy.extensions.filters.network.ext_authz.v3.ExtAuthz.grpc_service', index=1,
       number=2, type=11, cpp_type=10, label=1,
@@ -74,6 +75,13 @@ _EXTAUTHZ = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\005\202\001\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filter_enabled_metadata', full_name='envoy.extensions.filters.network.ext_authz.v3.ExtAuthz.filter_enabled_metadata', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -86,12 +94,13 @@ _EXTAUTHZ = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=287,
-  serialized_end=579,
+  serialized_start=325,
+  serialized_end=690,
 )
 
 _EXTAUTHZ.fields_by_name['grpc_service'].message_type = envoy_dot_config_dot_core_dot_v3_dot_grpc__service__pb2._GRPCSERVICE
 _EXTAUTHZ.fields_by_name['transport_api_version'].enum_type = envoy_dot_config_dot_core_dot_v3_dot_config__source__pb2._APIVERSION
+_EXTAUTHZ.fields_by_name['filter_enabled_metadata'].message_type = envoy_dot_type_dot_matcher_dot_v3_dot_metadata__pb2._METADATAMATCHER
 DESCRIPTOR.message_types_by_name['ExtAuthz'] = _EXTAUTHZ
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

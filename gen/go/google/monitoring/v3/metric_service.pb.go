@@ -22,14 +22,14 @@ package monitoring
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/duration"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	metric "google.golang.org/genproto/googleapis/api/metric"
 	monitoredres "google.golang.org/genproto/googleapis/api/monitoredres"
 	status "google.golang.org/genproto/googleapis/rpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/durationpb"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -1714,7 +1714,7 @@ var file_google_monitoring_v3_metric_service_proto_goTypes = []interface{}{
 	(*TimeSeriesDescriptor)(nil),                     // 24: google.monitoring.v3.TimeSeriesDescriptor
 	(*TimeSeriesData)(nil),                           // 25: google.monitoring.v3.TimeSeriesData
 	(*QueryError)(nil),                               // 26: google.monitoring.v3.QueryError
-	(*emptypb.Empty)(nil),                            // 27: google.protobuf.Empty
+	(*empty.Empty)(nil),                              // 27: google.protobuf.Empty
 }
 var file_google_monitoring_v3_metric_service_proto_depIdxs = []int32{
 	18, // 0: google.monitoring.v3.ListMonitoredResourceDescriptorsResponse.resource_descriptors:type_name -> google.api.MonitoredResourceDescriptor

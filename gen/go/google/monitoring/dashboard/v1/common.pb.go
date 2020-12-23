@@ -22,10 +22,10 @@ package dashboard
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
 	_ "google.golang.org/genproto/googleapis/api/distribution"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -614,7 +614,7 @@ type Aggregation struct {
 	// `ALIGN_NONE` is specified, this field is required or an error is returned.
 	// If no per-series aligner is specified, or the aligner `ALIGN_NONE` is
 	// specified, then this field is ignored.
-	AlignmentPeriod *durationpb.Duration `protobuf:"bytes,1,opt,name=alignment_period,json=alignmentPeriod,proto3" json:"alignment_period,omitempty"`
+	AlignmentPeriod *duration.Duration `protobuf:"bytes,1,opt,name=alignment_period,json=alignmentPeriod,proto3" json:"alignment_period,omitempty"`
 	// An `Aligner` describes how to bring the data points in a single
 	// time series into temporal alignment. Except for `ALIGN_NONE`, all
 	// alignments cause all the data points in an `alignment_period` to be
@@ -696,7 +696,7 @@ func (*Aggregation) Descriptor() ([]byte, []int) {
 	return file_google_monitoring_dashboard_v1_common_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Aggregation) GetAlignmentPeriod() *durationpb.Duration {
+func (x *Aggregation) GetAlignmentPeriod() *duration.Duration {
 	if x != nil {
 		return x.AlignmentPeriod
 	}
@@ -1018,7 +1018,7 @@ var file_google_monitoring_dashboard_v1_common_proto_goTypes = []interface{}{
 	(*Aggregation)(nil),                     // 5: google.monitoring.dashboard.v1.Aggregation
 	(*PickTimeSeriesFilter)(nil),            // 6: google.monitoring.dashboard.v1.PickTimeSeriesFilter
 	(*StatisticalTimeSeriesFilter)(nil),     // 7: google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter
-	(*durationpb.Duration)(nil),             // 8: google.protobuf.Duration
+	(*duration.Duration)(nil),               // 8: google.protobuf.Duration
 }
 var file_google_monitoring_dashboard_v1_common_proto_depIdxs = []int32{
 	8, // 0: google.monitoring.dashboard.v1.Aggregation.alignment_period:type_name -> google.protobuf.Duration

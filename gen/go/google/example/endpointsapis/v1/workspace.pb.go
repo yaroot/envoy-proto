@@ -22,10 +22,10 @@ package google_example_endpointsapis_v1
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -564,7 +564,7 @@ var file_google_example_endpointsapis_v1_workspace_proto_goTypes = []interface{}
 	(*CreateWorkspaceRequest)(nil), // 4: google.example.endpointsapis.v1.CreateWorkspaceRequest
 	(*UpdateWorkspaceRequest)(nil), // 5: google.example.endpointsapis.v1.UpdateWorkspaceRequest
 	(*DeleteWorkspaceRequest)(nil), // 6: google.example.endpointsapis.v1.DeleteWorkspaceRequest
-	(*emptypb.Empty)(nil),          // 7: google.protobuf.Empty
+	(*empty.Empty)(nil),            // 7: google.protobuf.Empty
 }
 var file_google_example_endpointsapis_v1_workspace_proto_depIdxs = []int32{
 	0, // 0: google.example.endpointsapis.v1.ListWorkspacesResponse.items:type_name -> google.example.endpointsapis.v1.Workspace

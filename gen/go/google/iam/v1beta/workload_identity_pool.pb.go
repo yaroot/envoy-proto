@@ -24,9 +24,9 @@ import (
 	proto "github.com/golang/protobuf/proto"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -281,7 +281,7 @@ type WorkloadIdentityPoolProvider struct {
 	// * `google.subject`: The principal IAM is authenticating. You can reference
 	//                     this value in IAM bindings. This is also the
 	//                     subject that appears in Cloud Logging logs.
-	//                     Cannot exceed 100 characters.
+	//                     Cannot exceed 127 characters.
 	//
 	// * `google.groups`: Groups the external identity belongs to. You can grant
 	//                    groups access to resources using an IAM `principalSet`
@@ -291,7 +291,7 @@ type WorkloadIdentityPoolProvider struct {
 	// `attribute.{custom_attribute}`, where `{custom_attribute}` is the name of
 	// the custom attribute to be mapped. You can define a maximum of 50 custom
 	// attributes. The maximum length of a mapped attribute key is
-	// 100 characters, and the key may only contain the characters [a-z0-9-].
+	// 100 characters, and the key may only contain the characters [a-z0-9_].
 	//
 	// You can reference these attributes in IAM policies to define fine-grained
 	// access for a workload to Google Cloud resources. For example:
@@ -771,7 +771,7 @@ type UpdateWorkloadIdentityPoolRequest struct {
 	// Required. The pool to update. The `name` field is used to identify the pool.
 	WorkloadIdentityPool *WorkloadIdentityPool `protobuf:"bytes,1,opt,name=workload_identity_pool,json=workloadIdentityPool,proto3" json:"workload_identity_pool,omitempty"`
 	// Required. The list of fields update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateWorkloadIdentityPoolRequest) Reset() {
@@ -813,7 +813,7 @@ func (x *UpdateWorkloadIdentityPoolRequest) GetWorkloadIdentityPool() *WorkloadI
 	return nil
 }
 
-func (x *UpdateWorkloadIdentityPoolRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateWorkloadIdentityPoolRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1185,7 +1185,7 @@ type UpdateWorkloadIdentityPoolProviderRequest struct {
 	// Required. The provider to update.
 	WorkloadIdentityPoolProvider *WorkloadIdentityPoolProvider `protobuf:"bytes,1,opt,name=workload_identity_pool_provider,json=workloadIdentityPoolProvider,proto3" json:"workload_identity_pool_provider,omitempty"`
 	// Required. The list of fields to update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateWorkloadIdentityPoolProviderRequest) Reset() {
@@ -1227,7 +1227,7 @@ func (x *UpdateWorkloadIdentityPoolProviderRequest) GetWorkloadIdentityPoolProvi
 	return nil
 }
 
-func (x *UpdateWorkloadIdentityPoolProviderRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateWorkloadIdentityPoolProviderRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -2076,7 +2076,7 @@ var file_google_iam_v1beta_workload_identity_pool_proto_goTypes = []interface{}{
 	(*WorkloadIdentityPoolProvider_Aws)(nil),              // 20: google.iam.v1beta.WorkloadIdentityPoolProvider.Aws
 	(*WorkloadIdentityPoolProvider_Oidc)(nil),             // 21: google.iam.v1beta.WorkloadIdentityPoolProvider.Oidc
 	nil,                           // 22: google.iam.v1beta.WorkloadIdentityPoolProvider.AttributeMappingEntry
-	(*fieldmaskpb.FieldMask)(nil), // 23: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),  // 23: google.protobuf.FieldMask
 	(*longrunning.Operation)(nil), // 24: google.longrunning.Operation
 }
 var file_google_iam_v1beta_workload_identity_pool_proto_depIdxs = []int32{

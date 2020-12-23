@@ -22,10 +22,10 @@ package gaming
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -524,9 +524,9 @@ type GameServerConfig struct {
 	// `projects/my-project/locations/global/gameServerDeployments/my-game/configs/my-config`.
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// Output only. The creation time.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The last-modified time.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// The labels associated with this game server config. Each label is a
 	// key-value pair.
 	Labels map[string]string `protobuf:"bytes,4,rep,name=labels,proto3" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
@@ -578,14 +578,14 @@ func (x *GameServerConfig) GetName() string {
 	return ""
 }
 
-func (x *GameServerConfig) GetCreateTime() *timestamppb.Timestamp {
+func (x *GameServerConfig) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *GameServerConfig) GetUpdateTime() *timestamppb.Timestamp {
+func (x *GameServerConfig) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -789,7 +789,7 @@ var file_google_cloud_gaming_v1beta_game_server_configs_proto_goTypes = []interf
 	nil,                                   // 8: google.cloud.gaming.v1beta.GameServerConfig.LabelsEntry
 	(*LabelSelector)(nil),                 // 9: google.cloud.gaming.v1beta.LabelSelector
 	(*Schedule)(nil),                      // 10: google.cloud.gaming.v1beta.Schedule
-	(*timestamppb.Timestamp)(nil),         // 11: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),           // 11: google.protobuf.Timestamp
 }
 var file_google_cloud_gaming_v1beta_game_server_configs_proto_depIdxs = []int32{
 	7,  // 0: google.cloud.gaming.v1beta.ListGameServerConfigsResponse.game_server_configs:type_name -> google.cloud.gaming.v1beta.GameServerConfig

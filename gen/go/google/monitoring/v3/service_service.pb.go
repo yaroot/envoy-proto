@@ -22,11 +22,11 @@ package monitoring
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -330,7 +330,7 @@ type UpdateServiceRequest struct {
 	// The given `name` specifies the resource to update.
 	Service *Service `protobuf:"bytes,1,opt,name=service,proto3" json:"service,omitempty"`
 	// A set of field paths defining which fields to use for the update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateServiceRequest) Reset() {
@@ -372,7 +372,7 @@ func (x *UpdateServiceRequest) GetService() *Service {
 	return nil
 }
 
-func (x *UpdateServiceRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateServiceRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -731,7 +731,7 @@ type UpdateServiceLevelObjectiveRequest struct {
 	// The given `name` specifies the resource to update.
 	ServiceLevelObjective *ServiceLevelObjective `protobuf:"bytes,1,opt,name=service_level_objective,json=serviceLevelObjective,proto3" json:"service_level_objective,omitempty"`
 	// A set of field paths defining which fields to use for the update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateServiceLevelObjectiveRequest) Reset() {
@@ -773,7 +773,7 @@ func (x *UpdateServiceLevelObjectiveRequest) GetServiceLevelObjective() *Service
 	return nil
 }
 
-func (x *UpdateServiceLevelObjectiveRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateServiceLevelObjectiveRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1148,10 +1148,10 @@ var file_google_monitoring_v3_service_service_proto_goTypes = []interface{}{
 	(*UpdateServiceLevelObjectiveRequest)(nil), // 10: google.monitoring.v3.UpdateServiceLevelObjectiveRequest
 	(*DeleteServiceLevelObjectiveRequest)(nil), // 11: google.monitoring.v3.DeleteServiceLevelObjectiveRequest
 	(*Service)(nil),                            // 12: google.monitoring.v3.Service
-	(*fieldmaskpb.FieldMask)(nil),              // 13: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),               // 13: google.protobuf.FieldMask
 	(*ServiceLevelObjective)(nil),              // 14: google.monitoring.v3.ServiceLevelObjective
 	(ServiceLevelObjective_View)(0),            // 15: google.monitoring.v3.ServiceLevelObjective.View
-	(*emptypb.Empty)(nil),                      // 16: google.protobuf.Empty
+	(*empty.Empty)(nil),                        // 16: google.protobuf.Empty
 }
 var file_google_monitoring_v3_service_service_proto_depIdxs = []int32{
 	12, // 0: google.monitoring.v3.CreateServiceRequest.service:type_name -> google.monitoring.v3.Service

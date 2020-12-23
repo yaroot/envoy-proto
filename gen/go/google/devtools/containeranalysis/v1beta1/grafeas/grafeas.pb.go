@@ -22,6 +22,8 @@ package grafeas
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	attestation "google.golang.org/genproto/googleapis/devtools/containeranalysis/v1beta1/attestation"
 	build "google.golang.org/genproto/googleapis/devtools/containeranalysis/v1beta1/build"
@@ -32,11 +34,9 @@ import (
 	_package "google.golang.org/genproto/googleapis/devtools/containeranalysis/v1beta1/package"
 	provenance "google.golang.org/genproto/googleapis/devtools/containeranalysis/v1beta1/provenance"
 	vulnerability "google.golang.org/genproto/googleapis/devtools/containeranalysis/v1beta1/vulnerability"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -73,9 +73,9 @@ type Occurrence struct {
 	// A description of actions that can be taken to remedy the note.
 	Remediation string `protobuf:"bytes,5,opt,name=remediation,proto3" json:"remediation,omitempty"`
 	// Output only. The time this occurrence was created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,6,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The time this occurrence was last updated.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,7,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// Required. Immutable. Describes the details of the note kind found on this
 	// resource.
 	//
@@ -157,14 +157,14 @@ func (x *Occurrence) GetRemediation() string {
 	return ""
 }
 
-func (x *Occurrence) GetCreateTime() *timestamppb.Timestamp {
+func (x *Occurrence) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *Occurrence) GetUpdateTime() *timestamppb.Timestamp {
+func (x *Occurrence) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -369,13 +369,13 @@ type Note struct {
 	// URLs associated with this note.
 	RelatedUrl []*common.RelatedUrl `protobuf:"bytes,5,rep,name=related_url,json=relatedUrl,proto3" json:"related_url,omitempty"`
 	// Time of expiration for this note. Empty if note does not expire.
-	ExpirationTime *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=expiration_time,json=expirationTime,proto3" json:"expiration_time,omitempty"`
+	ExpirationTime *timestamp.Timestamp `protobuf:"bytes,6,opt,name=expiration_time,json=expirationTime,proto3" json:"expiration_time,omitempty"`
 	// Output only. The time this note was created. This field can be used as a
 	// filter in list requests.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,7,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The time this note was last updated. This field can be used as
 	// a filter in list requests.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,8,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	// Other notes related to this note.
 	RelatedNoteNames []string `protobuf:"bytes,9,rep,name=related_note_names,json=relatedNoteNames,proto3" json:"related_note_names,omitempty"`
 	// Required. Immutable. The type of analysis this note represents.
@@ -458,21 +458,21 @@ func (x *Note) GetRelatedUrl() []*common.RelatedUrl {
 	return nil
 }
 
-func (x *Note) GetExpirationTime() *timestamppb.Timestamp {
+func (x *Note) GetExpirationTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ExpirationTime
 	}
 	return nil
 }
 
-func (x *Note) GetCreateTime() *timestamppb.Timestamp {
+func (x *Note) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *Note) GetUpdateTime() *timestamppb.Timestamp {
+func (x *Note) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -903,7 +903,7 @@ type UpdateOccurrenceRequest struct {
 	// The updated occurrence.
 	Occurrence *Occurrence `protobuf:"bytes,2,opt,name=occurrence,proto3" json:"occurrence,omitempty"`
 	// The fields to update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateOccurrenceRequest) Reset() {
@@ -952,7 +952,7 @@ func (x *UpdateOccurrenceRequest) GetOccurrence() *Occurrence {
 	return nil
 }
 
-func (x *UpdateOccurrenceRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateOccurrenceRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1326,7 +1326,7 @@ type UpdateNoteRequest struct {
 	// The updated note.
 	Note *Note `protobuf:"bytes,2,opt,name=note,proto3" json:"note,omitempty"`
 	// The fields to update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateNoteRequest) Reset() {
@@ -1375,7 +1375,7 @@ func (x *UpdateNoteRequest) GetNote() *Note {
 	return nil
 }
 
-func (x *UpdateNoteRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateNoteRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -2446,7 +2446,7 @@ var file_google_devtools_containeranalysis_v1beta1_grafeas_grafeas_proto_goTypes
 	nil,                                                          // 24: grafeas.v1beta1.BatchCreateNotesRequest.NotesEntry
 	(*VulnerabilityOccurrencesSummary_FixableTotalByDigest)(nil), // 25: grafeas.v1beta1.VulnerabilityOccurrencesSummary.FixableTotalByDigest
 	(common.NoteKind)(0),                                         // 26: grafeas.v1beta1.NoteKind
-	(*timestamppb.Timestamp)(nil),                                // 27: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),                                  // 27: google.protobuf.Timestamp
 	(*vulnerability.Details)(nil),                                // 28: grafeas.v1beta1.vulnerability.Details
 	(*build.Details)(nil),                                        // 29: grafeas.v1beta1.build.Details
 	(*image.Details)(nil),                                        // 30: grafeas.v1beta1.image.Details
@@ -2463,9 +2463,9 @@ var file_google_devtools_containeranalysis_v1beta1_grafeas_grafeas_proto_goTypes
 	(*deployment.Deployable)(nil),                                // 41: grafeas.v1beta1.deployment.Deployable
 	(*discovery.Discovery)(nil),                                  // 42: grafeas.v1beta1.discovery.Discovery
 	(*attestation.Authority)(nil),                                // 43: grafeas.v1beta1.attestation.Authority
-	(*fieldmaskpb.FieldMask)(nil),                                // 44: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),                                 // 44: google.protobuf.FieldMask
 	(vulnerability.Severity)(0),                                  // 45: grafeas.v1beta1.vulnerability.Severity
-	(*emptypb.Empty)(nil),                                        // 46: google.protobuf.Empty
+	(*empty.Empty)(nil),                                          // 46: google.protobuf.Empty
 }
 var file_google_devtools_containeranalysis_v1beta1_grafeas_grafeas_proto_depIdxs = []int32{
 	1,  // 0: grafeas.v1beta1.Occurrence.resource:type_name -> grafeas.v1beta1.Resource

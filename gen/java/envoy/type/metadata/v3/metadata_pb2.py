@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$io.envoyproxy.envoy.type.metadata.v3B\rMetadataProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n%envoy/type/metadata/v3/metadata.proto\x12\x16\x65nvoy.type.metadata.v3\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x85\x02\n\x0bMetadataKey\x12\x14\n\x03key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01\x12G\n\x04path\x18\x02 \x03(\x0b\x32/.envoy.type.metadata.v3.MetadataKey.PathSegmentB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1al\n\x0bPathSegment\x12\x16\n\x03key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02 \x01H\x00:5\x9a\xc5\x88\x1e\x30\n.envoy.type.metadata.v2.MetadataKey.PathSegmentB\x0e\n\x07segment\x12\x03\xf8\x42\x01:)\x9a\xc5\x88\x1e$\n\"envoy.type.metadata.v2.MetadataKey\"\xb3\x04\n\x0cMetadataKind\x12?\n\x07request\x18\x01 \x01(\x0b\x32,.envoy.type.metadata.v3.MetadataKind.RequestH\x00\x12;\n\x05route\x18\x02 \x01(\x0b\x32*.envoy.type.metadata.v3.MetadataKind.RouteH\x00\x12?\n\x07\x63luster\x18\x03 \x01(\x0b\x32,.envoy.type.metadata.v3.MetadataKind.ClusterH\x00\x12\x39\n\x04host\x18\x04 \x01(\x0b\x32).envoy.type.metadata.v3.MetadataKind.HostH\x00\x1a=\n\x07Request:2\x9a\xc5\x88\x1e-\n+envoy.type.metadata.v2.MetadataKind.Request\x1a\x39\n\x05Route:0\x9a\xc5\x88\x1e+\n)envoy.type.metadata.v2.MetadataKind.Route\x1a=\n\x07\x43luster:2\x9a\xc5\x88\x1e-\n+envoy.type.metadata.v2.MetadataKind.Cluster\x1a\x37\n\x04Host:/\x9a\xc5\x88\x1e*\n(envoy.type.metadata.v2.MetadataKind.Host:*\x9a\xc5\x88\x1e%\n#envoy.type.metadata.v2.MetadataKindB\x0b\n\x04kind\x12\x03\xf8\x42\x01\x42?\n$io.envoyproxy.envoy.type.metadata.v3B\rMetadataProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n%envoy/type/metadata/v3/metadata.proto\x12\x16\x65nvoy.type.metadata.v3\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x85\x02\n\x0bMetadataKey\x12\x14\n\x03key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12G\n\x04path\x18\x02 \x03(\x0b\x32/.envoy.type.metadata.v3.MetadataKey.PathSegmentB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1al\n\x0bPathSegment\x12\x16\n\x03key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00:5\x9a\xc5\x88\x1e\x30\n.envoy.type.metadata.v2.MetadataKey.PathSegmentB\x0e\n\x07segment\x12\x03\xf8\x42\x01:)\x9a\xc5\x88\x1e$\n\"envoy.type.metadata.v2.MetadataKey\"\xb3\x04\n\x0cMetadataKind\x12?\n\x07request\x18\x01 \x01(\x0b\x32,.envoy.type.metadata.v3.MetadataKind.RequestH\x00\x12;\n\x05route\x18\x02 \x01(\x0b\x32*.envoy.type.metadata.v3.MetadataKind.RouteH\x00\x12?\n\x07\x63luster\x18\x03 \x01(\x0b\x32,.envoy.type.metadata.v3.MetadataKind.ClusterH\x00\x12\x39\n\x04host\x18\x04 \x01(\x0b\x32).envoy.type.metadata.v3.MetadataKind.HostH\x00\x1a=\n\x07Request:2\x9a\xc5\x88\x1e-\n+envoy.type.metadata.v2.MetadataKind.Request\x1a\x39\n\x05Route:0\x9a\xc5\x88\x1e+\n)envoy.type.metadata.v2.MetadataKind.Route\x1a=\n\x07\x43luster:2\x9a\xc5\x88\x1e-\n+envoy.type.metadata.v2.MetadataKind.Cluster\x1a\x37\n\x04Host:/\x9a\xc5\x88\x1e*\n(envoy.type.metadata.v2.MetadataKind.Host:*\x9a\xc5\x88\x1e%\n#envoy.type.metadata.v2.MetadataKindB\x0b\n\x04kind\x12\x03\xf8\x42\x01\x42?\n$io.envoyproxy.envoy.type.metadata.v3B\rMetadataProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -43,7 +43,7 @@ _METADATAKEY_PATHSEGMENT = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -79,7 +79,7 @@ _METADATAKEY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002 \001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='path', full_name='envoy.type.metadata.v3.MetadataKey.path', index=1,
       number=2, type=11, cpp_type=10, label=3,

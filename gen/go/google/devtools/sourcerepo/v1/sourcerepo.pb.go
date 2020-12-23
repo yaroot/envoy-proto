@@ -22,11 +22,11 @@ package sourcerepo
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	v1 "google.golang.org/genproto/googleapis/iam/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -642,7 +642,7 @@ var file_google_devtools_sourcerepo_v1_sourcerepo_proto_goTypes = []interface{}{
 	(*v1.SetIamPolicyRequest)(nil),        // 7: google.iam.v1.SetIamPolicyRequest
 	(*v1.GetIamPolicyRequest)(nil),        // 8: google.iam.v1.GetIamPolicyRequest
 	(*v1.TestIamPermissionsRequest)(nil),  // 9: google.iam.v1.TestIamPermissionsRequest
-	(*emptypb.Empty)(nil),                 // 10: google.protobuf.Empty
+	(*empty.Empty)(nil),                   // 10: google.protobuf.Empty
 	(*v1.Policy)(nil),                     // 11: google.iam.v1.Policy
 	(*v1.TestIamPermissionsResponse)(nil), // 12: google.iam.v1.TestIamPermissionsResponse
 }

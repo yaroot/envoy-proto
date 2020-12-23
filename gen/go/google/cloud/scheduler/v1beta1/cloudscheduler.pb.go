@@ -23,11 +23,11 @@ package scheduler
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -311,7 +311,7 @@ type UpdateJobRequest struct {
 	// Any value specified for an output only field will be ignored.
 	Job *Job `protobuf:"bytes,1,opt,name=job,proto3" json:"job,omitempty"`
 	// A  mask used to specify which fields of the job are being updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateJobRequest) Reset() {
@@ -353,7 +353,7 @@ func (x *UpdateJobRequest) GetJob() *Job {
 	return nil
 }
 
-func (x *UpdateJobRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateJobRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -761,18 +761,18 @@ func file_google_cloud_scheduler_v1beta1_cloudscheduler_proto_rawDescGZIP() []by
 
 var file_google_cloud_scheduler_v1beta1_cloudscheduler_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_google_cloud_scheduler_v1beta1_cloudscheduler_proto_goTypes = []interface{}{
-	(*ListJobsRequest)(nil),       // 0: google.cloud.scheduler.v1beta1.ListJobsRequest
-	(*ListJobsResponse)(nil),      // 1: google.cloud.scheduler.v1beta1.ListJobsResponse
-	(*GetJobRequest)(nil),         // 2: google.cloud.scheduler.v1beta1.GetJobRequest
-	(*CreateJobRequest)(nil),      // 3: google.cloud.scheduler.v1beta1.CreateJobRequest
-	(*UpdateJobRequest)(nil),      // 4: google.cloud.scheduler.v1beta1.UpdateJobRequest
-	(*DeleteJobRequest)(nil),      // 5: google.cloud.scheduler.v1beta1.DeleteJobRequest
-	(*PauseJobRequest)(nil),       // 6: google.cloud.scheduler.v1beta1.PauseJobRequest
-	(*ResumeJobRequest)(nil),      // 7: google.cloud.scheduler.v1beta1.ResumeJobRequest
-	(*RunJobRequest)(nil),         // 8: google.cloud.scheduler.v1beta1.RunJobRequest
-	(*Job)(nil),                   // 9: google.cloud.scheduler.v1beta1.Job
-	(*fieldmaskpb.FieldMask)(nil), // 10: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),         // 11: google.protobuf.Empty
+	(*ListJobsRequest)(nil),      // 0: google.cloud.scheduler.v1beta1.ListJobsRequest
+	(*ListJobsResponse)(nil),     // 1: google.cloud.scheduler.v1beta1.ListJobsResponse
+	(*GetJobRequest)(nil),        // 2: google.cloud.scheduler.v1beta1.GetJobRequest
+	(*CreateJobRequest)(nil),     // 3: google.cloud.scheduler.v1beta1.CreateJobRequest
+	(*UpdateJobRequest)(nil),     // 4: google.cloud.scheduler.v1beta1.UpdateJobRequest
+	(*DeleteJobRequest)(nil),     // 5: google.cloud.scheduler.v1beta1.DeleteJobRequest
+	(*PauseJobRequest)(nil),      // 6: google.cloud.scheduler.v1beta1.PauseJobRequest
+	(*ResumeJobRequest)(nil),     // 7: google.cloud.scheduler.v1beta1.ResumeJobRequest
+	(*RunJobRequest)(nil),        // 8: google.cloud.scheduler.v1beta1.RunJobRequest
+	(*Job)(nil),                  // 9: google.cloud.scheduler.v1beta1.Job
+	(*field_mask.FieldMask)(nil), // 10: google.protobuf.FieldMask
+	(*empty.Empty)(nil),          // 11: google.protobuf.Empty
 }
 var file_google_cloud_scheduler_v1beta1_cloudscheduler_proto_depIdxs = []int32{
 	9,  // 0: google.cloud.scheduler.v1beta1.ListJobsResponse.jobs:type_name -> google.cloud.scheduler.v1beta1.Job

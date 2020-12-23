@@ -23,12 +23,12 @@ package oslogin
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	common "google.golang.org/genproto/googleapis/cloud/oslogin/common"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -461,7 +461,7 @@ type UpdateSshPublicKeyRequest struct {
 	// Required. The SSH public key and expiration time.
 	SshPublicKey *common.SshPublicKey `protobuf:"bytes,2,opt,name=ssh_public_key,json=sshPublicKey,proto3" json:"ssh_public_key,omitempty"`
 	// Mask to control which fields get updated. Updates all if not present.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateSshPublicKeyRequest) Reset() {
@@ -510,7 +510,7 @@ func (x *UpdateSshPublicKeyRequest) GetSshPublicKey() *common.SshPublicKey {
 	return nil
 }
 
-func (x *UpdateSshPublicKeyRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateSshPublicKeyRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -738,8 +738,8 @@ var file_google_cloud_oslogin_v1_oslogin_proto_goTypes = []interface{}{
 	nil,                                // 8: google.cloud.oslogin.v1.LoginProfile.SshPublicKeysEntry
 	(*common.PosixAccount)(nil),        // 9: google.cloud.oslogin.common.PosixAccount
 	(*common.SshPublicKey)(nil),        // 10: google.cloud.oslogin.common.SshPublicKey
-	(*fieldmaskpb.FieldMask)(nil),      // 11: google.protobuf.FieldMask
-	(*emptypb.Empty)(nil),              // 12: google.protobuf.Empty
+	(*field_mask.FieldMask)(nil),       // 11: google.protobuf.FieldMask
+	(*empty.Empty)(nil),                // 12: google.protobuf.Empty
 }
 var file_google_cloud_oslogin_v1_oslogin_proto_depIdxs = []int32{
 	9,  // 0: google.cloud.oslogin.v1.LoginProfile.posix_accounts:type_name -> google.cloud.oslogin.common.PosixAccount

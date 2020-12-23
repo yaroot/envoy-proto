@@ -22,11 +22,11 @@ package gaming
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	duration "github.com/golang/protobuf/ptypes/duration"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	durationpb "google.golang.org/protobuf/types/known/durationpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -101,9 +101,9 @@ type OperationMetadata struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Output only. The time the operation was created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,1,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. The time the operation finished running.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	// Output only. Server-defined resource path for the target of the operation.
 	Target string `protobuf:"bytes,3,opt,name=target,proto3" json:"target,omitempty"`
 	// Output only. Name of the verb executed by the operation.
@@ -158,14 +158,14 @@ func (*OperationMetadata) Descriptor() ([]byte, []int) {
 	return file_google_cloud_gaming_v1_common_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *OperationMetadata) GetCreateTime() *timestamppb.Timestamp {
+func (x *OperationMetadata) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *OperationMetadata) GetEndTime() *timestamppb.Timestamp {
+func (x *OperationMetadata) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
@@ -399,12 +399,12 @@ type Schedule struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The start time of the event.
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	StartTime *timestamp.Timestamp `protobuf:"bytes,1,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
 	// The end time of the event.
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	EndTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 	// The duration for the cron job event. The duration of the event is effective
 	// after the cron job's start time.
-	CronJobDuration *durationpb.Duration `protobuf:"bytes,3,opt,name=cron_job_duration,json=cronJobDuration,proto3" json:"cron_job_duration,omitempty"`
+	CronJobDuration *duration.Duration `protobuf:"bytes,3,opt,name=cron_job_duration,json=cronJobDuration,proto3" json:"cron_job_duration,omitempty"`
 	// The cron definition of the scheduled event. See
 	// https://en.wikipedia.org/wiki/Cron. Cron spec specifies the local time as
 	// defined by the realm.
@@ -443,21 +443,21 @@ func (*Schedule) Descriptor() ([]byte, []int) {
 	return file_google_cloud_gaming_v1_common_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *Schedule) GetStartTime() *timestamppb.Timestamp {
+func (x *Schedule) GetStartTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.StartTime
 	}
 	return nil
 }
 
-func (x *Schedule) GetEndTime() *timestamppb.Timestamp {
+func (x *Schedule) GetEndTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.EndTime
 	}
 	return nil
 }
 
-func (x *Schedule) GetCronJobDuration() *durationpb.Duration {
+func (x *Schedule) GetCronJobDuration() *duration.Duration {
 	if x != nil {
 		return x.CronJobDuration
 	}
@@ -1355,8 +1355,8 @@ var file_google_cloud_gaming_v1_common_proto_goTypes = []interface{}{
 	(*DeployedFleetDetails_DeployedFleet)(nil),                     // 15: google.cloud.gaming.v1.DeployedFleetDetails.DeployedFleet
 	(*DeployedFleetDetails_DeployedFleetAutoscaler)(nil),           // 16: google.cloud.gaming.v1.DeployedFleetDetails.DeployedFleetAutoscaler
 	(*DeployedFleetDetails_DeployedFleet_DeployedFleetStatus)(nil), // 17: google.cloud.gaming.v1.DeployedFleetDetails.DeployedFleet.DeployedFleetStatus
-	(*timestamppb.Timestamp)(nil),                                  // 18: google.protobuf.Timestamp
-	(*durationpb.Duration)(nil),                                    // 19: google.protobuf.Duration
+	(*timestamp.Timestamp)(nil),                                    // 18: google.protobuf.Timestamp
+	(*duration.Duration)(nil),                                      // 19: google.protobuf.Duration
 }
 var file_google_cloud_gaming_v1_common_proto_depIdxs = []int32{
 	18, // 0: google.cloud.gaming.v1.OperationMetadata.create_time:type_name -> google.protobuf.Timestamp

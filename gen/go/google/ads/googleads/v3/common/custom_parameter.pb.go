@@ -22,10 +22,10 @@ package common
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -49,9 +49,9 @@ type CustomParameter struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The key matching the parameter tag name.
-	Key *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Key *wrappers.StringValue `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
 	// The value to be substituted.
-	Value *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	Value *wrappers.StringValue `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
 }
 
 func (x *CustomParameter) Reset() {
@@ -86,14 +86,14 @@ func (*CustomParameter) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_common_custom_parameter_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CustomParameter) GetKey() *wrapperspb.StringValue {
+func (x *CustomParameter) GetKey() *wrappers.StringValue {
 	if x != nil {
 		return x.Key
 	}
 	return nil
 }
 
-func (x *CustomParameter) GetValue() *wrapperspb.StringValue {
+func (x *CustomParameter) GetValue() *wrappers.StringValue {
 	if x != nil {
 		return x.Value
 	}
@@ -152,8 +152,8 @@ func file_google_ads_googleads_v3_common_custom_parameter_proto_rawDescGZIP() []
 
 var file_google_ads_googleads_v3_common_custom_parameter_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v3_common_custom_parameter_proto_goTypes = []interface{}{
-	(*CustomParameter)(nil),        // 0: google.ads.googleads.v3.common.CustomParameter
-	(*wrapperspb.StringValue)(nil), // 1: google.protobuf.StringValue
+	(*CustomParameter)(nil),      // 0: google.ads.googleads.v3.common.CustomParameter
+	(*wrappers.StringValue)(nil), // 1: google.protobuf.StringValue
 }
 var file_google_ads_googleads_v3_common_custom_parameter_proto_depIdxs = []int32{
 	1, // 0: google.ads.googleads.v3.common.CustomParameter.key:type_name -> google.protobuf.StringValue

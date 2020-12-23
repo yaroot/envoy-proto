@@ -22,12 +22,11 @@ package recommendationengine
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	status "google.golang.org/genproto/googleapis/rpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
-	_ "google/cloud/recommendationengine/v1beta1"
 	reflect "reflect"
 	sync "sync"
 )
@@ -545,14 +544,14 @@ type ImportMetadata struct {
 	// was passed in the request.
 	RequestId string `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
 	// Operation create time.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Count of entries that were processed successfully.
 	SuccessCount int64 `protobuf:"varint,1,opt,name=success_count,json=successCount,proto3" json:"success_count,omitempty"`
 	// Count of entries that encountered errors while processing.
 	FailureCount int64 `protobuf:"varint,2,opt,name=failure_count,json=failureCount,proto3" json:"failure_count,omitempty"`
 	// Operation last update time. If the operation is done, this is also the
 	// finish time.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,6,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 }
 
 func (x *ImportMetadata) Reset() {
@@ -601,7 +600,7 @@ func (x *ImportMetadata) GetRequestId() string {
 	return ""
 }
 
-func (x *ImportMetadata) GetCreateTime() *timestamppb.Timestamp {
+func (x *ImportMetadata) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
@@ -622,7 +621,7 @@ func (x *ImportMetadata) GetFailureCount() int64 {
 	return 0
 }
 
-func (x *ImportMetadata) GetUpdateTime() *timestamppb.Timestamp {
+func (x *ImportMetadata) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -1041,7 +1040,7 @@ var file_google_cloud_recommendationengine_v1beta1_import_proto_goTypes = []inte
 	(*UserEventImportSummary)(nil),     // 10: google.cloud.recommendationengine.v1beta1.UserEventImportSummary
 	(*CatalogItem)(nil),                // 11: google.cloud.recommendationengine.v1beta1.CatalogItem
 	(*UserEvent)(nil),                  // 12: google.cloud.recommendationengine.v1beta1.UserEvent
-	(*timestamppb.Timestamp)(nil),      // 13: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),        // 13: google.protobuf.Timestamp
 	(*status.Status)(nil),              // 14: google.rpc.Status
 }
 var file_google_cloud_recommendationengine_v1beta1_import_proto_depIdxs = []int32{
@@ -1075,6 +1074,7 @@ func file_google_cloud_recommendationengine_v1beta1_import_proto_init() {
 	}
 	file_google_cloud_recommendationengine_v1beta1_catalog_proto_init()
 	file_google_cloud_recommendationengine_v1beta1_user_event_proto_init()
+	file_google_cloud_recommendationengine_v1beta1_recommendationengine_resources_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_google_cloud_recommendationengine_v1beta1_import_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GcsSource); i {

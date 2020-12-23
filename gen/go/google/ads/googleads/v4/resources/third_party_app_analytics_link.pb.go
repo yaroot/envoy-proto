@@ -22,10 +22,10 @@ package resources
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -56,7 +56,7 @@ type ThirdPartyAppAnalyticsLink struct {
 	// Output only. The shareable link ID that should be provided to the third party when
 	// setting up app analytics. This is able to be regenerated using regenerate
 	// method in the ThirdPartyAppAnalyticsLinkService.
-	ShareableLinkId *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=shareable_link_id,json=shareableLinkId,proto3" json:"shareable_link_id,omitempty"`
+	ShareableLinkId *wrappers.StringValue `protobuf:"bytes,2,opt,name=shareable_link_id,json=shareableLinkId,proto3" json:"shareable_link_id,omitempty"`
 }
 
 func (x *ThirdPartyAppAnalyticsLink) Reset() {
@@ -98,7 +98,7 @@ func (x *ThirdPartyAppAnalyticsLink) GetResourceName() string {
 	return ""
 }
 
-func (x *ThirdPartyAppAnalyticsLink) GetShareableLinkId() *wrapperspb.StringValue {
+func (x *ThirdPartyAppAnalyticsLink) GetShareableLinkId() *wrappers.StringValue {
 	if x != nil {
 		return x.ShareableLinkId
 	}
@@ -179,7 +179,7 @@ func file_google_ads_googleads_v4_resources_third_party_app_analytics_link_proto
 var file_google_ads_googleads_v4_resources_third_party_app_analytics_link_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v4_resources_third_party_app_analytics_link_proto_goTypes = []interface{}{
 	(*ThirdPartyAppAnalyticsLink)(nil), // 0: google.ads.googleads.v4.resources.ThirdPartyAppAnalyticsLink
-	(*wrapperspb.StringValue)(nil),     // 1: google.protobuf.StringValue
+	(*wrappers.StringValue)(nil),       // 1: google.protobuf.StringValue
 }
 var file_google_ads_googleads_v4_resources_third_party_app_analytics_link_proto_depIdxs = []int32{
 	1, // 0: google.ads.googleads.v4.resources.ThirdPartyAppAnalyticsLink.shareable_link_id:type_name -> google.protobuf.StringValue

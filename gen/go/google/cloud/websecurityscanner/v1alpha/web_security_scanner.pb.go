@@ -23,11 +23,11 @@ package websecurityscanner
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -287,7 +287,7 @@ type UpdateScanConfigRequest struct {
 	// Required. The update mask applies to the resource. For the `FieldMask` definition,
 	// see
 	// https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateScanConfigRequest) Reset() {
@@ -329,7 +329,7 @@ func (x *UpdateScanConfigRequest) GetScanConfig() *ScanConfig {
 	return nil
 }
 
-func (x *UpdateScanConfigRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateScanConfigRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1525,12 +1525,12 @@ var file_google_cloud_websecurityscanner_v1alpha_web_security_scanner_proto_goTy
 	(*ListFindingTypeStatsRequest)(nil),  // 16: google.cloud.websecurityscanner.v1alpha.ListFindingTypeStatsRequest
 	(*ListFindingTypeStatsResponse)(nil), // 17: google.cloud.websecurityscanner.v1alpha.ListFindingTypeStatsResponse
 	(*ScanConfig)(nil),                   // 18: google.cloud.websecurityscanner.v1alpha.ScanConfig
-	(*fieldmaskpb.FieldMask)(nil),        // 19: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),         // 19: google.protobuf.FieldMask
 	(*ScanRun)(nil),                      // 20: google.cloud.websecurityscanner.v1alpha.ScanRun
 	(*CrawledUrl)(nil),                   // 21: google.cloud.websecurityscanner.v1alpha.CrawledUrl
 	(*Finding)(nil),                      // 22: google.cloud.websecurityscanner.v1alpha.Finding
 	(*FindingTypeStats)(nil),             // 23: google.cloud.websecurityscanner.v1alpha.FindingTypeStats
-	(*emptypb.Empty)(nil),                // 24: google.protobuf.Empty
+	(*empty.Empty)(nil),                  // 24: google.protobuf.Empty
 }
 var file_google_cloud_websecurityscanner_v1alpha_web_security_scanner_proto_depIdxs = []int32{
 	18, // 0: google.cloud.websecurityscanner.v1alpha.CreateScanConfigRequest.scan_config:type_name -> google.cloud.websecurityscanner.v1alpha.ScanConfig

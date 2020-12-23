@@ -22,10 +22,10 @@ package common
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -50,7 +50,7 @@ type ExplorerAutoOptimizerSetting struct {
 	unknownFields protoimpl.UnknownFields
 
 	// Indicates whether the optimizer is turned on.
-	OptIn *wrapperspb.BoolValue `protobuf:"bytes,1,opt,name=opt_in,json=optIn,proto3" json:"opt_in,omitempty"`
+	OptIn *wrappers.BoolValue `protobuf:"bytes,1,opt,name=opt_in,json=optIn,proto3" json:"opt_in,omitempty"`
 }
 
 func (x *ExplorerAutoOptimizerSetting) Reset() {
@@ -85,7 +85,7 @@ func (*ExplorerAutoOptimizerSetting) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_common_explorer_auto_optimizer_setting_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *ExplorerAutoOptimizerSetting) GetOptIn() *wrapperspb.BoolValue {
+func (x *ExplorerAutoOptimizerSetting) GetOptIn() *wrappers.BoolValue {
 	if x != nil {
 		return x.OptIn
 	}
@@ -144,7 +144,7 @@ func file_google_ads_googleads_v3_common_explorer_auto_optimizer_setting_proto_r
 var file_google_ads_googleads_v3_common_explorer_auto_optimizer_setting_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_google_ads_googleads_v3_common_explorer_auto_optimizer_setting_proto_goTypes = []interface{}{
 	(*ExplorerAutoOptimizerSetting)(nil), // 0: google.ads.googleads.v3.common.ExplorerAutoOptimizerSetting
-	(*wrapperspb.BoolValue)(nil),         // 1: google.protobuf.BoolValue
+	(*wrappers.BoolValue)(nil),           // 1: google.protobuf.BoolValue
 }
 var file_google_ads_googleads_v3_common_explorer_auto_optimizer_setting_proto_depIdxs = []int32{
 	1, // 0: google.ads.googleads.v3.common.ExplorerAutoOptimizerSetting.opt_in:type_name -> google.protobuf.BoolValue

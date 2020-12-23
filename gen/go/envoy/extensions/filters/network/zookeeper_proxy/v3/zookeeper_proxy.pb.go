@@ -9,9 +9,9 @@ package envoy_extensions_filters_network_zookeeper_proxy_v3
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -47,7 +47,7 @@ type ZooKeeperProxy struct {
 	// https://zookeeper.apache.org/doc/r3.4.10/zookeeperAdmin.html#Unsafe+Options
 	//
 	// if that is set. If it isn't, ZooKeeper's default is also 1Mb.
-	MaxPacketBytes *wrapperspb.UInt32Value `protobuf:"bytes,3,opt,name=max_packet_bytes,json=maxPacketBytes,proto3" json:"max_packet_bytes,omitempty"`
+	MaxPacketBytes *wrappers.UInt32Value `protobuf:"bytes,3,opt,name=max_packet_bytes,json=maxPacketBytes,proto3" json:"max_packet_bytes,omitempty"`
 }
 
 func (x *ZooKeeperProxy) Reset() {
@@ -96,7 +96,7 @@ func (x *ZooKeeperProxy) GetAccessLog() string {
 	return ""
 }
 
-func (x *ZooKeeperProxy) GetMaxPacketBytes() *wrapperspb.UInt32Value {
+func (x *ZooKeeperProxy) GetMaxPacketBytes() *wrappers.UInt32Value {
 	if x != nil {
 		return x.MaxPacketBytes
 	}
@@ -124,7 +124,7 @@ var file_envoy_extensions_filters_network_zookeeper_proxy_v3_zookeeper_proxy_pro
 	0x69, 0x64, 0x61, 0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xed, 0x01, 0x0a, 0x0e,
 	0x5a, 0x6f, 0x6f, 0x4b, 0x65, 0x65, 0x70, 0x65, 0x72, 0x50, 0x72, 0x6f, 0x78, 0x79, 0x12, 0x28,
 	0x0a, 0x0b, 0x73, 0x74, 0x61, 0x74, 0x5f, 0x70, 0x72, 0x65, 0x66, 0x69, 0x78, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x20, 0x01, 0x52, 0x0a, 0x73, 0x74,
+	0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0a, 0x73, 0x74,
 	0x61, 0x74, 0x50, 0x72, 0x65, 0x66, 0x69, 0x78, 0x12, 0x1d, 0x0a, 0x0a, 0x61, 0x63, 0x63, 0x65,
 	0x73, 0x73, 0x5f, 0x6c, 0x6f, 0x67, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x61, 0x63,
 	0x63, 0x65, 0x73, 0x73, 0x4c, 0x6f, 0x67, 0x12, 0x46, 0x0a, 0x10, 0x6d, 0x61, 0x78, 0x5f, 0x70,
@@ -160,8 +160,8 @@ func file_envoy_extensions_filters_network_zookeeper_proxy_v3_zookeeper_proxy_pr
 
 var file_envoy_extensions_filters_network_zookeeper_proxy_v3_zookeeper_proxy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_envoy_extensions_filters_network_zookeeper_proxy_v3_zookeeper_proxy_proto_goTypes = []interface{}{
-	(*ZooKeeperProxy)(nil),         // 0: envoy.extensions.filters.network.zookeeper_proxy.v3.ZooKeeperProxy
-	(*wrapperspb.UInt32Value)(nil), // 1: google.protobuf.UInt32Value
+	(*ZooKeeperProxy)(nil),       // 0: envoy.extensions.filters.network.zookeeper_proxy.v3.ZooKeeperProxy
+	(*wrappers.UInt32Value)(nil), // 1: google.protobuf.UInt32Value
 }
 var file_envoy_extensions_filters_network_zookeeper_proxy_v3_zookeeper_proxy_proto_depIdxs = []int32{
 	1, // 0: envoy.extensions.filters.network.zookeeper_proxy.v3.ZooKeeperProxy.max_packet_bytes:type_name -> google.protobuf.UInt32Value

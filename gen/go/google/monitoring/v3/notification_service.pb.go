@@ -22,13 +22,13 @@ package monitoring
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	_ "github.com/golang/protobuf/ptypes/struct"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	_ "google.golang.org/protobuf/types/known/structpb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -527,7 +527,7 @@ type UpdateNotificationChannelRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The fields to update.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 	// Required. A description of the changes to be applied to the specified
 	// notification channel. The description must provide a definition for
 	// fields to be updated; the names of these fields should also be
@@ -567,7 +567,7 @@ func (*UpdateNotificationChannelRequest) Descriptor() ([]byte, []int) {
 	return file_google_monitoring_v3_notification_service_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *UpdateNotificationChannelRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateNotificationChannelRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -712,7 +712,7 @@ type GetNotificationChannelVerificationCodeRequest struct {
 	// permissible expiration (so specifying an expiration may extend the
 	// code's lifetime over omitting an expiration, even though the API does
 	// impose an upper limit on the maximum expiration that is permitted).
-	ExpireTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
+	ExpireTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
 }
 
 func (x *GetNotificationChannelVerificationCodeRequest) Reset() {
@@ -754,7 +754,7 @@ func (x *GetNotificationChannelVerificationCodeRequest) GetName() string {
 	return ""
 }
 
-func (x *GetNotificationChannelVerificationCodeRequest) GetExpireTime() *timestamppb.Timestamp {
+func (x *GetNotificationChannelVerificationCodeRequest) GetExpireTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ExpireTime
 	}
@@ -775,7 +775,7 @@ type GetNotificationChannelVerificationCodeResponse struct {
 	// The expiration time associated with the code that was returned. If
 	// an expiration was provided in the request, this is the minimum of the
 	// requested expiration in the request and the max permitted expiration.
-	ExpireTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
+	ExpireTime *timestamp.Timestamp `protobuf:"bytes,2,opt,name=expire_time,json=expireTime,proto3" json:"expire_time,omitempty"`
 }
 
 func (x *GetNotificationChannelVerificationCodeResponse) Reset() {
@@ -817,7 +817,7 @@ func (x *GetNotificationChannelVerificationCodeResponse) GetCode() string {
 	return ""
 }
 
-func (x *GetNotificationChannelVerificationCodeResponse) GetExpireTime() *timestamppb.Timestamp {
+func (x *GetNotificationChannelVerificationCodeResponse) GetExpireTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.ExpireTime
 	}
@@ -1242,9 +1242,9 @@ var file_google_monitoring_v3_notification_service_proto_goTypes = []interface{}
 	(*VerifyNotificationChannelRequest)(nil),               // 12: google.monitoring.v3.VerifyNotificationChannelRequest
 	(*NotificationChannelDescriptor)(nil),                  // 13: google.monitoring.v3.NotificationChannelDescriptor
 	(*NotificationChannel)(nil),                            // 14: google.monitoring.v3.NotificationChannel
-	(*fieldmaskpb.FieldMask)(nil),                          // 15: google.protobuf.FieldMask
-	(*timestamppb.Timestamp)(nil),                          // 16: google.protobuf.Timestamp
-	(*emptypb.Empty)(nil),                                  // 17: google.protobuf.Empty
+	(*field_mask.FieldMask)(nil),                           // 15: google.protobuf.FieldMask
+	(*timestamp.Timestamp)(nil),                            // 16: google.protobuf.Timestamp
+	(*empty.Empty)(nil),                                    // 17: google.protobuf.Empty
 }
 var file_google_monitoring_v3_notification_service_proto_depIdxs = []int32{
 	13, // 0: google.monitoring.v3.ListNotificationChannelDescriptorsResponse.channel_descriptors:type_name -> google.monitoring.v3.NotificationChannelDescriptor

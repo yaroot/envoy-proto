@@ -10,9 +10,9 @@ import (
 	v3 "envoy/config/core/v3"
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -47,7 +47,7 @@ type StreamEventsRequest struct {
 	//
 	// * :ref:`HealthCheckEvent <envoy_api_msg_data.core.v3.HealthCheckEvent>`
 	// * :ref:`OutlierDetectionEvent <envoy_api_msg_data.cluster.v3.OutlierDetectionEvent>`
-	Events []*anypb.Any `protobuf:"bytes,2,rep,name=events,proto3" json:"events,omitempty"`
+	Events []*any.Any `protobuf:"bytes,2,rep,name=events,proto3" json:"events,omitempty"`
 }
 
 func (x *StreamEventsRequest) Reset() {
@@ -89,7 +89,7 @@ func (x *StreamEventsRequest) GetIdentifier() *StreamEventsRequest_Identifier {
 	return nil
 }
 
-func (x *StreamEventsRequest) GetEvents() []*anypb.Any {
+func (x *StreamEventsRequest) GetEvents() []*any.Any {
 	if x != nil {
 		return x.Events
 	}
@@ -272,7 +272,7 @@ var file_envoy_service_event_reporting_v3_event_reporting_service_proto_goTypes 
 	(*StreamEventsRequest)(nil),            // 0: envoy.service.event_reporting.v3.StreamEventsRequest
 	(*StreamEventsResponse)(nil),           // 1: envoy.service.event_reporting.v3.StreamEventsResponse
 	(*StreamEventsRequest_Identifier)(nil), // 2: envoy.service.event_reporting.v3.StreamEventsRequest.Identifier
-	(*anypb.Any)(nil),                      // 3: google.protobuf.Any
+	(*any.Any)(nil),                        // 3: google.protobuf.Any
 	(*v3.Node)(nil),                        // 4: envoy.config.core.v3.Node
 }
 var file_envoy_service_event_reporting_v3_event_reporting_service_proto_depIdxs = []int32{

@@ -22,11 +22,11 @@ package services
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	status "google.golang.org/genproto/googleapis/rpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -345,24 +345,24 @@ type ClickConversion struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The Google click ID (gclid) associated with this conversion.
-	Gclid *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=gclid,proto3" json:"gclid,omitempty"`
+	Gclid *wrappers.StringValue `protobuf:"bytes,1,opt,name=gclid,proto3" json:"gclid,omitempty"`
 	// Resource name of the conversion action associated with this conversion.
 	// Note: Although this resource name consists of a customer id and a
 	// conversion action id, validation will ignore the customer id and use the
 	// conversion action id as the sole identifier of the conversion action.
-	ConversionAction *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=conversion_action,json=conversionAction,proto3" json:"conversion_action,omitempty"`
+	ConversionAction *wrappers.StringValue `protobuf:"bytes,2,opt,name=conversion_action,json=conversionAction,proto3" json:"conversion_action,omitempty"`
 	// The date time at which the conversion occurred. Must be after
 	// the click time. The timezone must be specified. The format is
 	// "yyyy-mm-dd hh:mm:ss+|-hh:mm", e.g. “2019-01-01 12:32:45-08:00”.
-	ConversionDateTime *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=conversion_date_time,json=conversionDateTime,proto3" json:"conversion_date_time,omitempty"`
+	ConversionDateTime *wrappers.StringValue `protobuf:"bytes,3,opt,name=conversion_date_time,json=conversionDateTime,proto3" json:"conversion_date_time,omitempty"`
 	// The value of the conversion for the advertiser.
-	ConversionValue *wrapperspb.DoubleValue `protobuf:"bytes,4,opt,name=conversion_value,json=conversionValue,proto3" json:"conversion_value,omitempty"`
+	ConversionValue *wrappers.DoubleValue `protobuf:"bytes,4,opt,name=conversion_value,json=conversionValue,proto3" json:"conversion_value,omitempty"`
 	// Currency associated with the conversion value. This is the ISO 4217
 	// 3-character currency code. For example: USD, EUR.
-	CurrencyCode *wrapperspb.StringValue `protobuf:"bytes,5,opt,name=currency_code,json=currencyCode,proto3" json:"currency_code,omitempty"`
+	CurrencyCode *wrappers.StringValue `protobuf:"bytes,5,opt,name=currency_code,json=currencyCode,proto3" json:"currency_code,omitempty"`
 	// The order ID associated with the conversion. An order id can only be used
 	// for one conversion per conversion action.
-	OrderId *wrapperspb.StringValue `protobuf:"bytes,6,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
+	OrderId *wrappers.StringValue `protobuf:"bytes,6,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
 	// Additional data about externally attributed conversions. This field
 	// is required for conversions with an externally attributed conversion
 	// action, but should not be set otherwise.
@@ -401,42 +401,42 @@ func (*ClickConversion) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_services_conversion_upload_service_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *ClickConversion) GetGclid() *wrapperspb.StringValue {
+func (x *ClickConversion) GetGclid() *wrappers.StringValue {
 	if x != nil {
 		return x.Gclid
 	}
 	return nil
 }
 
-func (x *ClickConversion) GetConversionAction() *wrapperspb.StringValue {
+func (x *ClickConversion) GetConversionAction() *wrappers.StringValue {
 	if x != nil {
 		return x.ConversionAction
 	}
 	return nil
 }
 
-func (x *ClickConversion) GetConversionDateTime() *wrapperspb.StringValue {
+func (x *ClickConversion) GetConversionDateTime() *wrappers.StringValue {
 	if x != nil {
 		return x.ConversionDateTime
 	}
 	return nil
 }
 
-func (x *ClickConversion) GetConversionValue() *wrapperspb.DoubleValue {
+func (x *ClickConversion) GetConversionValue() *wrappers.DoubleValue {
 	if x != nil {
 		return x.ConversionValue
 	}
 	return nil
 }
 
-func (x *ClickConversion) GetCurrencyCode() *wrapperspb.StringValue {
+func (x *ClickConversion) GetCurrencyCode() *wrappers.StringValue {
 	if x != nil {
 		return x.CurrencyCode
 	}
 	return nil
 }
 
-func (x *ClickConversion) GetOrderId() *wrapperspb.StringValue {
+func (x *ClickConversion) GetOrderId() *wrappers.StringValue {
 	if x != nil {
 		return x.OrderId
 	}
@@ -458,25 +458,25 @@ type CallConversion struct {
 
 	// The caller id from which this call was placed. Caller id is expected to be
 	// in E.164 format with preceding '+' sign. e.g. "+16502531234".
-	CallerId *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=caller_id,json=callerId,proto3" json:"caller_id,omitempty"`
+	CallerId *wrappers.StringValue `protobuf:"bytes,1,opt,name=caller_id,json=callerId,proto3" json:"caller_id,omitempty"`
 	// The date time at which the call occurred. The timezone must be specified.
 	// The format is "yyyy-mm-dd hh:mm:ss+|-hh:mm",
 	// e.g. "2019-01-01 12:32:45-08:00".
-	CallStartDateTime *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=call_start_date_time,json=callStartDateTime,proto3" json:"call_start_date_time,omitempty"`
+	CallStartDateTime *wrappers.StringValue `protobuf:"bytes,2,opt,name=call_start_date_time,json=callStartDateTime,proto3" json:"call_start_date_time,omitempty"`
 	// Resource name of the conversion action associated with this conversion.
 	// Note: Although this resource name consists of a customer id and a
 	// conversion action id, validation will ignore the customer id and use the
 	// conversion action id as the sole identifier of the conversion action.
-	ConversionAction *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=conversion_action,json=conversionAction,proto3" json:"conversion_action,omitempty"`
+	ConversionAction *wrappers.StringValue `protobuf:"bytes,3,opt,name=conversion_action,json=conversionAction,proto3" json:"conversion_action,omitempty"`
 	// The date time at which the conversion occurred. Must be after the call
 	// time. The timezone must be specified. The format is
 	// "yyyy-mm-dd hh:mm:ss+|-hh:mm", e.g. "2019-01-01 12:32:45-08:00".
-	ConversionDateTime *wrapperspb.StringValue `protobuf:"bytes,4,opt,name=conversion_date_time,json=conversionDateTime,proto3" json:"conversion_date_time,omitempty"`
+	ConversionDateTime *wrappers.StringValue `protobuf:"bytes,4,opt,name=conversion_date_time,json=conversionDateTime,proto3" json:"conversion_date_time,omitempty"`
 	// The value of the conversion for the advertiser.
-	ConversionValue *wrapperspb.DoubleValue `protobuf:"bytes,5,opt,name=conversion_value,json=conversionValue,proto3" json:"conversion_value,omitempty"`
+	ConversionValue *wrappers.DoubleValue `protobuf:"bytes,5,opt,name=conversion_value,json=conversionValue,proto3" json:"conversion_value,omitempty"`
 	// Currency associated with the conversion value. This is the ISO 4217
 	// 3-character currency code. For example: USD, EUR.
-	CurrencyCode *wrapperspb.StringValue `protobuf:"bytes,6,opt,name=currency_code,json=currencyCode,proto3" json:"currency_code,omitempty"`
+	CurrencyCode *wrappers.StringValue `protobuf:"bytes,6,opt,name=currency_code,json=currencyCode,proto3" json:"currency_code,omitempty"`
 }
 
 func (x *CallConversion) Reset() {
@@ -511,42 +511,42 @@ func (*CallConversion) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_services_conversion_upload_service_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *CallConversion) GetCallerId() *wrapperspb.StringValue {
+func (x *CallConversion) GetCallerId() *wrappers.StringValue {
 	if x != nil {
 		return x.CallerId
 	}
 	return nil
 }
 
-func (x *CallConversion) GetCallStartDateTime() *wrapperspb.StringValue {
+func (x *CallConversion) GetCallStartDateTime() *wrappers.StringValue {
 	if x != nil {
 		return x.CallStartDateTime
 	}
 	return nil
 }
 
-func (x *CallConversion) GetConversionAction() *wrapperspb.StringValue {
+func (x *CallConversion) GetConversionAction() *wrappers.StringValue {
 	if x != nil {
 		return x.ConversionAction
 	}
 	return nil
 }
 
-func (x *CallConversion) GetConversionDateTime() *wrapperspb.StringValue {
+func (x *CallConversion) GetConversionDateTime() *wrappers.StringValue {
 	if x != nil {
 		return x.ConversionDateTime
 	}
 	return nil
 }
 
-func (x *CallConversion) GetConversionValue() *wrapperspb.DoubleValue {
+func (x *CallConversion) GetConversionValue() *wrappers.DoubleValue {
 	if x != nil {
 		return x.ConversionValue
 	}
 	return nil
 }
 
-func (x *CallConversion) GetCurrencyCode() *wrapperspb.StringValue {
+func (x *CallConversion) GetCurrencyCode() *wrappers.StringValue {
 	if x != nil {
 		return x.CurrencyCode
 	}
@@ -561,9 +561,9 @@ type ExternalAttributionData struct {
 
 	// Represents the fraction of the conversion that is attributed to the
 	// Google Ads click.
-	ExternalAttributionCredit *wrapperspb.DoubleValue `protobuf:"bytes,1,opt,name=external_attribution_credit,json=externalAttributionCredit,proto3" json:"external_attribution_credit,omitempty"`
+	ExternalAttributionCredit *wrappers.DoubleValue `protobuf:"bytes,1,opt,name=external_attribution_credit,json=externalAttributionCredit,proto3" json:"external_attribution_credit,omitempty"`
 	// Specifies the attribution model name.
-	ExternalAttributionModel *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=external_attribution_model,json=externalAttributionModel,proto3" json:"external_attribution_model,omitempty"`
+	ExternalAttributionModel *wrappers.StringValue `protobuf:"bytes,2,opt,name=external_attribution_model,json=externalAttributionModel,proto3" json:"external_attribution_model,omitempty"`
 }
 
 func (x *ExternalAttributionData) Reset() {
@@ -598,14 +598,14 @@ func (*ExternalAttributionData) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_services_conversion_upload_service_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *ExternalAttributionData) GetExternalAttributionCredit() *wrapperspb.DoubleValue {
+func (x *ExternalAttributionData) GetExternalAttributionCredit() *wrappers.DoubleValue {
 	if x != nil {
 		return x.ExternalAttributionCredit
 	}
 	return nil
 }
 
-func (x *ExternalAttributionData) GetExternalAttributionModel() *wrapperspb.StringValue {
+func (x *ExternalAttributionData) GetExternalAttributionModel() *wrappers.StringValue {
 	if x != nil {
 		return x.ExternalAttributionModel
 	}
@@ -619,12 +619,12 @@ type ClickConversionResult struct {
 	unknownFields protoimpl.UnknownFields
 
 	// The Google Click ID (gclid) associated with this conversion.
-	Gclid *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=gclid,proto3" json:"gclid,omitempty"`
+	Gclid *wrappers.StringValue `protobuf:"bytes,1,opt,name=gclid,proto3" json:"gclid,omitempty"`
 	// Resource name of the conversion action associated with this conversion.
-	ConversionAction *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=conversion_action,json=conversionAction,proto3" json:"conversion_action,omitempty"`
+	ConversionAction *wrappers.StringValue `protobuf:"bytes,2,opt,name=conversion_action,json=conversionAction,proto3" json:"conversion_action,omitempty"`
 	// The date time at which the conversion occurred. The format is
 	// "yyyy-mm-dd hh:mm:ss+|-hh:mm", e.g. “2019-01-01 12:32:45-08:00”.
-	ConversionDateTime *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=conversion_date_time,json=conversionDateTime,proto3" json:"conversion_date_time,omitempty"`
+	ConversionDateTime *wrappers.StringValue `protobuf:"bytes,3,opt,name=conversion_date_time,json=conversionDateTime,proto3" json:"conversion_date_time,omitempty"`
 }
 
 func (x *ClickConversionResult) Reset() {
@@ -659,21 +659,21 @@ func (*ClickConversionResult) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_services_conversion_upload_service_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *ClickConversionResult) GetGclid() *wrapperspb.StringValue {
+func (x *ClickConversionResult) GetGclid() *wrappers.StringValue {
 	if x != nil {
 		return x.Gclid
 	}
 	return nil
 }
 
-func (x *ClickConversionResult) GetConversionAction() *wrapperspb.StringValue {
+func (x *ClickConversionResult) GetConversionAction() *wrappers.StringValue {
 	if x != nil {
 		return x.ConversionAction
 	}
 	return nil
 }
 
-func (x *ClickConversionResult) GetConversionDateTime() *wrapperspb.StringValue {
+func (x *ClickConversionResult) GetConversionDateTime() *wrappers.StringValue {
 	if x != nil {
 		return x.ConversionDateTime
 	}
@@ -688,15 +688,15 @@ type CallConversionResult struct {
 
 	// The caller id from which this call was placed. Caller id is expected to be
 	// in E.164 format with preceding '+' sign.
-	CallerId *wrapperspb.StringValue `protobuf:"bytes,1,opt,name=caller_id,json=callerId,proto3" json:"caller_id,omitempty"`
+	CallerId *wrappers.StringValue `protobuf:"bytes,1,opt,name=caller_id,json=callerId,proto3" json:"caller_id,omitempty"`
 	// The date time at which the call occurred. The format is
 	// "yyyy-mm-dd hh:mm:ss+|-hh:mm", e.g. "2019-01-01 12:32:45-08:00".
-	CallStartDateTime *wrapperspb.StringValue `protobuf:"bytes,2,opt,name=call_start_date_time,json=callStartDateTime,proto3" json:"call_start_date_time,omitempty"`
+	CallStartDateTime *wrappers.StringValue `protobuf:"bytes,2,opt,name=call_start_date_time,json=callStartDateTime,proto3" json:"call_start_date_time,omitempty"`
 	// Resource name of the conversion action associated with this conversion.
-	ConversionAction *wrapperspb.StringValue `protobuf:"bytes,3,opt,name=conversion_action,json=conversionAction,proto3" json:"conversion_action,omitempty"`
+	ConversionAction *wrappers.StringValue `protobuf:"bytes,3,opt,name=conversion_action,json=conversionAction,proto3" json:"conversion_action,omitempty"`
 	// The date time at which the conversion occurred. The format is
 	// "yyyy-mm-dd hh:mm:ss+|-hh:mm", e.g. "2019-01-01 12:32:45-08:00".
-	ConversionDateTime *wrapperspb.StringValue `protobuf:"bytes,4,opt,name=conversion_date_time,json=conversionDateTime,proto3" json:"conversion_date_time,omitempty"`
+	ConversionDateTime *wrappers.StringValue `protobuf:"bytes,4,opt,name=conversion_date_time,json=conversionDateTime,proto3" json:"conversion_date_time,omitempty"`
 }
 
 func (x *CallConversionResult) Reset() {
@@ -731,28 +731,28 @@ func (*CallConversionResult) Descriptor() ([]byte, []int) {
 	return file_google_ads_googleads_v3_services_conversion_upload_service_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *CallConversionResult) GetCallerId() *wrapperspb.StringValue {
+func (x *CallConversionResult) GetCallerId() *wrappers.StringValue {
 	if x != nil {
 		return x.CallerId
 	}
 	return nil
 }
 
-func (x *CallConversionResult) GetCallStartDateTime() *wrapperspb.StringValue {
+func (x *CallConversionResult) GetCallStartDateTime() *wrappers.StringValue {
 	if x != nil {
 		return x.CallStartDateTime
 	}
 	return nil
 }
 
-func (x *CallConversionResult) GetConversionAction() *wrapperspb.StringValue {
+func (x *CallConversionResult) GetConversionAction() *wrappers.StringValue {
 	if x != nil {
 		return x.ConversionAction
 	}
 	return nil
 }
 
-func (x *CallConversionResult) GetConversionDateTime() *wrapperspb.StringValue {
+func (x *CallConversionResult) GetConversionDateTime() *wrappers.StringValue {
 	if x != nil {
 		return x.ConversionDateTime
 	}
@@ -941,7 +941,7 @@ var file_google_ads_googleads_v3_services_conversion_upload_service_proto_rawDes
 	0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70,
 	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61,
 	0x6c, 0x75, 0x65, 0x52, 0x12, 0x63, 0x6f, 0x6e, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x44,
-	0x61, 0x74, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x32, 0xc4, 0x04, 0x0a, 0x17, 0x43, 0x6f, 0x6e, 0x76,
+	0x61, 0x74, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x32, 0xee, 0x04, 0x0a, 0x17, 0x43, 0x6f, 0x6e, 0x76,
 	0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x65, 0x72, 0x76,
 	0x69, 0x63, 0x65, 0x12, 0x86, 0x02, 0x0a, 0x16, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x43, 0x6c,
 	0x69, 0x63, 0x6b, 0x43, 0x6f, 0x6e, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x12, 0x3f,
@@ -976,25 +976,28 @@ var file_google_ads_googleads_v3_services_conversion_upload_service_proto_rawDes
 	0x69, 0x6f, 0x6e, 0x73, 0x3a, 0x01, 0x2a, 0xda, 0x41, 0x27, 0x63, 0x75, 0x73, 0x74, 0x6f, 0x6d,
 	0x65, 0x72, 0x5f, 0x69, 0x64, 0x2c, 0x63, 0x6f, 0x6e, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e,
 	0x73, 0x2c, 0x70, 0x61, 0x72, 0x74, 0x69, 0x61, 0x6c, 0x5f, 0x66, 0x61, 0x69, 0x6c, 0x75, 0x72,
-	0x65, 0x1a, 0x1b, 0xca, 0x41, 0x18, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e,
-	0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x70, 0x69, 0x73, 0x2e, 0x63, 0x6f, 0x6d, 0x42, 0x83,
-	0x02, 0x0a, 0x24, 0x63, 0x6f, 0x6d, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x64,
-	0x73, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x33, 0x2e, 0x73,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x42, 0x1c, 0x43, 0x6f, 0x6e, 0x76, 0x65, 0x72, 0x73,
-	0x69, 0x6f, 0x6e, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x48, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e,
-	0x67, 0x6f, 0x6c, 0x61, 0x6e, 0x67, 0x2e, 0x6f, 0x72, 0x67, 0x2f, 0x67, 0x65, 0x6e, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x70, 0x69, 0x73, 0x2f, 0x61,
-	0x64, 0x73, 0x2f, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2f, 0x76, 0x33, 0x2f,
-	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x3b, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x73, 0xa2, 0x02, 0x03, 0x47, 0x41, 0x41, 0xaa, 0x02, 0x20, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
-	0x2e, 0x41, 0x64, 0x73, 0x2e, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x41, 0x64, 0x73, 0x2e, 0x56,
-	0x33, 0x2e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0xca, 0x02, 0x20, 0x47, 0x6f, 0x6f,
-	0x67, 0x6c, 0x65, 0x5c, 0x41, 0x64, 0x73, 0x5c, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x41, 0x64,
-	0x73, 0x5c, 0x56, 0x33, 0x5c, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0xea, 0x02, 0x24,
-	0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x3a, 0x3a, 0x41, 0x64, 0x73, 0x3a, 0x3a, 0x47, 0x6f, 0x6f,
-	0x67, 0x6c, 0x65, 0x41, 0x64, 0x73, 0x3a, 0x3a, 0x56, 0x33, 0x3a, 0x3a, 0x53, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x1a, 0x45, 0xca, 0x41, 0x18, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e,
+	0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x61, 0x70, 0x69, 0x73, 0x2e, 0x63, 0x6f, 0x6d, 0xd2, 0x41,
+	0x27, 0x68, 0x74, 0x74, 0x70, 0x73, 0x3a, 0x2f, 0x2f, 0x77, 0x77, 0x77, 0x2e, 0x67, 0x6f, 0x6f,
+	0x67, 0x6c, 0x65, 0x61, 0x70, 0x69, 0x73, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x61, 0x75, 0x74, 0x68,
+	0x2f, 0x61, 0x64, 0x77, 0x6f, 0x72, 0x64, 0x73, 0x42, 0x83, 0x02, 0x0a, 0x24, 0x63, 0x6f, 0x6d,
+	0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x61, 0x64, 0x73, 0x2e, 0x67, 0x6f, 0x6f, 0x67,
+	0x6c, 0x65, 0x61, 0x64, 0x73, 0x2e, 0x76, 0x33, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x73, 0x42, 0x1c, 0x43, 0x6f, 0x6e, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x55, 0x70, 0x6c,
+	0x6f, 0x61, 0x64, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50,
+	0x01, 0x5a, 0x48, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x67, 0x6f, 0x6c, 0x61, 0x6e, 0x67,
+	0x2e, 0x6f, 0x72, 0x67, 0x2f, 0x67, 0x65, 0x6e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f,
+	0x6f, 0x67, 0x6c, 0x65, 0x61, 0x70, 0x69, 0x73, 0x2f, 0x61, 0x64, 0x73, 0x2f, 0x67, 0x6f, 0x6f,
+	0x67, 0x6c, 0x65, 0x61, 0x64, 0x73, 0x2f, 0x76, 0x33, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x73, 0x3b, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0xa2, 0x02, 0x03, 0x47, 0x41,
+	0x41, 0xaa, 0x02, 0x20, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x41, 0x64, 0x73, 0x2e, 0x47,
+	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x41, 0x64, 0x73, 0x2e, 0x56, 0x33, 0x2e, 0x53, 0x65, 0x72, 0x76,
+	0x69, 0x63, 0x65, 0x73, 0xca, 0x02, 0x20, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x5c, 0x41, 0x64,
+	0x73, 0x5c, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x41, 0x64, 0x73, 0x5c, 0x56, 0x33, 0x5c, 0x53,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0xea, 0x02, 0x24, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
+	0x3a, 0x3a, 0x41, 0x64, 0x73, 0x3a, 0x3a, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x41, 0x64, 0x73,
+	0x3a, 0x3a, 0x56, 0x33, 0x3a, 0x3a, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1021,8 +1024,8 @@ var file_google_ads_googleads_v3_services_conversion_upload_service_proto_goType
 	(*ClickConversionResult)(nil),          // 7: google.ads.googleads.v3.services.ClickConversionResult
 	(*CallConversionResult)(nil),           // 8: google.ads.googleads.v3.services.CallConversionResult
 	(*status.Status)(nil),                  // 9: google.rpc.Status
-	(*wrapperspb.StringValue)(nil),         // 10: google.protobuf.StringValue
-	(*wrapperspb.DoubleValue)(nil),         // 11: google.protobuf.DoubleValue
+	(*wrappers.StringValue)(nil),           // 10: google.protobuf.StringValue
+	(*wrappers.DoubleValue)(nil),           // 11: google.protobuf.DoubleValue
 }
 var file_google_ads_googleads_v3_services_conversion_upload_service_proto_depIdxs = []int32{
 	4,  // 0: google.ads.googleads.v3.services.UploadClickConversionsRequest.conversions:type_name -> google.ads.googleads.v3.services.ClickConversion

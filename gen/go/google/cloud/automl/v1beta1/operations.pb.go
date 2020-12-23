@@ -22,12 +22,12 @@ package automl
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	_ "github.com/golang/protobuf/ptypes/empty"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	status "google.golang.org/genproto/googleapis/rpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/known/emptypb"
-	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -72,9 +72,9 @@ type OperationMetadata struct {
 	// Status details field will contain standard GCP error details.
 	PartialFailures []*status.Status `protobuf:"bytes,2,rep,name=partial_failures,json=partialFailures,proto3" json:"partial_failures,omitempty"`
 	// Output only. Time when the operation was created.
-	CreateTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	CreateTime *timestamp.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	// Output only. Time when the operation was updated for the last time.
-	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	UpdateTime *timestamp.Timestamp `protobuf:"bytes,4,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 }
 
 func (x *OperationMetadata) Reset() {
@@ -193,14 +193,14 @@ func (x *OperationMetadata) GetPartialFailures() []*status.Status {
 	return nil
 }
 
-func (x *OperationMetadata) GetCreateTime() *timestamppb.Timestamp {
+func (x *OperationMetadata) GetCreateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.CreateTime
 	}
 	return nil
 }
 
-func (x *OperationMetadata) GetUpdateTime() *timestamppb.Timestamp {
+func (x *OperationMetadata) GetUpdateTime() *timestamp.Timestamp {
 	if x != nil {
 		return x.UpdateTime
 	}
@@ -1196,7 +1196,7 @@ var file_google_cloud_automl_v1beta1_operations_proto_goTypes = []interface{}{
 	(*ExportModelOperationMetadata_ExportModelOutputInfo)(nil),                         // 12: google.cloud.automl.v1beta1.ExportModelOperationMetadata.ExportModelOutputInfo
 	(*ExportEvaluatedExamplesOperationMetadata_ExportEvaluatedExamplesOutputInfo)(nil), // 13: google.cloud.automl.v1beta1.ExportEvaluatedExamplesOperationMetadata.ExportEvaluatedExamplesOutputInfo
 	(*status.Status)(nil),                                                              // 14: google.rpc.Status
-	(*timestamppb.Timestamp)(nil),                                                      // 15: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil),                                                        // 15: google.protobuf.Timestamp
 	(*BatchPredictInputConfig)(nil),                                                    // 16: google.cloud.automl.v1beta1.BatchPredictInputConfig
 }
 var file_google_cloud_automl_v1beta1_operations_proto_depIdxs = []int32{

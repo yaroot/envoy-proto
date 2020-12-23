@@ -23,13 +23,13 @@ package iot
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	v1 "google.golang.org/genproto/googleapis/iam/v1"
 	_ "google.golang.org/genproto/googleapis/rpc/status"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -221,7 +221,7 @@ type UpdateDeviceRegistryRequest struct {
 	// are immutable or only set by the server.
 	// Mutable top-level fields: `event_notification_config`, `http_config`,
 	// `mqtt_config`, and `state_notification_config`.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateDeviceRegistryRequest) Reset() {
@@ -263,7 +263,7 @@ func (x *UpdateDeviceRegistryRequest) GetDeviceRegistry() *DeviceRegistry {
 	return nil
 }
 
-func (x *UpdateDeviceRegistryRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateDeviceRegistryRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -477,7 +477,7 @@ type GetDeviceRequest struct {
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// The fields of the `Device` resource to be returned in the response. If the
 	// field mask is unset or empty, all fields are returned.
-	FieldMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=field_mask,json=fieldMask,proto3" json:"field_mask,omitempty"`
+	FieldMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=field_mask,json=fieldMask,proto3" json:"field_mask,omitempty"`
 }
 
 func (x *GetDeviceRequest) Reset() {
@@ -519,7 +519,7 @@ func (x *GetDeviceRequest) GetName() string {
 	return ""
 }
 
-func (x *GetDeviceRequest) GetFieldMask() *fieldmaskpb.FieldMask {
+func (x *GetDeviceRequest) GetFieldMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.FieldMask
 	}
@@ -541,7 +541,7 @@ type UpdateDeviceRequest struct {
 	// The field mask must not be empty, and it must not contain fields that
 	// are immutable or only set by the server.
 	// Mutable top-level fields: `credentials`, `blocked`, and `metadata`
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateDeviceRequest) Reset() {
@@ -583,7 +583,7 @@ func (x *UpdateDeviceRequest) GetDevice() *Device {
 	return nil
 }
 
-func (x *UpdateDeviceRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateDeviceRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -659,7 +659,7 @@ type ListDevicesRequest struct {
 	// The fields of the `Device` resource to be returned in the response. The
 	// fields `id` and `num_id` are always returned, along with any
 	// other fields specified.
-	FieldMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=field_mask,json=fieldMask,proto3" json:"field_mask,omitempty"`
+	FieldMask *field_mask.FieldMask `protobuf:"bytes,4,opt,name=field_mask,json=fieldMask,proto3" json:"field_mask,omitempty"`
 	// Options related to gateways.
 	GatewayListOptions *GatewayListOptions `protobuf:"bytes,6,opt,name=gateway_list_options,json=gatewayListOptions,proto3" json:"gateway_list_options,omitempty"`
 	// The maximum number of devices to return in the response. If this value
@@ -726,7 +726,7 @@ func (x *ListDevicesRequest) GetDeviceIds() []string {
 	return nil
 }
 
-func (x *ListDevicesRequest) GetFieldMask() *fieldmaskpb.FieldMask {
+func (x *ListDevicesRequest) GetFieldMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.FieldMask
 	}
@@ -2139,7 +2139,7 @@ var file_google_cloud_iot_v1_device_manager_proto_goTypes = []interface{}{
 	(*UnbindDeviceFromGatewayRequest)(nil),   // 22: google.cloud.iot.v1.UnbindDeviceFromGatewayRequest
 	(*UnbindDeviceFromGatewayResponse)(nil),  // 23: google.cloud.iot.v1.UnbindDeviceFromGatewayResponse
 	(*DeviceRegistry)(nil),                   // 24: google.cloud.iot.v1.DeviceRegistry
-	(*fieldmaskpb.FieldMask)(nil),            // 25: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),             // 25: google.protobuf.FieldMask
 	(*Device)(nil),                           // 26: google.cloud.iot.v1.Device
 	(GatewayType)(0),                         // 27: google.cloud.iot.v1.GatewayType
 	(*DeviceConfig)(nil),                     // 28: google.cloud.iot.v1.DeviceConfig
@@ -2147,7 +2147,7 @@ var file_google_cloud_iot_v1_device_manager_proto_goTypes = []interface{}{
 	(*v1.SetIamPolicyRequest)(nil),           // 30: google.iam.v1.SetIamPolicyRequest
 	(*v1.GetIamPolicyRequest)(nil),           // 31: google.iam.v1.GetIamPolicyRequest
 	(*v1.TestIamPermissionsRequest)(nil),     // 32: google.iam.v1.TestIamPermissionsRequest
-	(*emptypb.Empty)(nil),                    // 33: google.protobuf.Empty
+	(*empty.Empty)(nil),                      // 33: google.protobuf.Empty
 	(*v1.Policy)(nil),                        // 34: google.iam.v1.Policy
 	(*v1.TestIamPermissionsResponse)(nil),    // 35: google.iam.v1.TestIamPermissionsResponse
 }

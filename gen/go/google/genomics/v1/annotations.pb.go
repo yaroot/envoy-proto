@@ -22,14 +22,14 @@ package genomics
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	_struct "github.com/golang/protobuf/ptypes/struct"
+	wrappers "github.com/golang/protobuf/ptypes/wrappers"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	status "google.golang.org/genproto/googleapis/rpc/status"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
-	structpb "google.golang.org/protobuf/types/known/structpb"
-	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -385,7 +385,7 @@ type AnnotationSet struct {
 	Type AnnotationType `protobuf:"varint,6,opt,name=type,proto3,enum=google.genomics.v1.AnnotationType" json:"type,omitempty"`
 	// A map of additional read alignment information. This must be of the form
 	// map<string, string[]> (string key mapping to a list of string values).
-	Info map[string]*structpb.ListValue `protobuf:"bytes,17,rep,name=info,proto3" json:"info,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Info map[string]*_struct.ListValue `protobuf:"bytes,17,rep,name=info,proto3" json:"info,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *AnnotationSet) Reset() {
@@ -462,7 +462,7 @@ func (x *AnnotationSet) GetType() AnnotationType {
 	return AnnotationType_ANNOTATION_TYPE_UNSPECIFIED
 }
 
-func (x *AnnotationSet) GetInfo() map[string]*structpb.ListValue {
+func (x *AnnotationSet) GetInfo() map[string]*_struct.ListValue {
 	if x != nil {
 		return x.Info
 	}
@@ -508,7 +508,7 @@ type Annotation struct {
 	Value isAnnotation_Value `protobuf_oneof:"value"`
 	// A map of additional read alignment information. This must be of the form
 	// map<string, string[]> (string key mapping to a list of string values).
-	Info map[string]*structpb.ListValue `protobuf:"bytes,12,rep,name=info,proto3" json:"info,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Info map[string]*_struct.ListValue `protobuf:"bytes,12,rep,name=info,proto3" json:"info,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *Annotation) Reset() {
@@ -627,7 +627,7 @@ func (x *Annotation) GetTranscript() *Transcript {
 	return nil
 }
 
-func (x *Annotation) GetInfo() map[string]*structpb.ListValue {
+func (x *Annotation) GetInfo() map[string]*_struct.ListValue {
 	if x != nil {
 		return x.Info
 	}
@@ -1028,7 +1028,7 @@ type UpdateAnnotationSetRequest struct {
 	// [source_uri][google.genomics.v1.AnnotationSet.source_uri], and
 	// [info][google.genomics.v1.AnnotationSet.info]. If unspecified, all
 	// mutable fields will be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateAnnotationSetRequest) Reset() {
@@ -1077,7 +1077,7 @@ func (x *UpdateAnnotationSetRequest) GetAnnotationSet() *AnnotationSet {
 	return nil
 }
 
-func (x *UpdateAnnotationSetRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateAnnotationSetRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1515,7 +1515,7 @@ type UpdateAnnotationRequest struct {
 	// [transcript][google.genomics.v1.Annotation.transcript], and
 	// [info][google.genomics.v1.Annotation.info]. If unspecified, all mutable
 	// fields will be updated.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateAnnotationRequest) Reset() {
@@ -1564,7 +1564,7 @@ func (x *UpdateAnnotationRequest) GetAnnotation() *Annotation {
 	return nil
 }
 
-func (x *UpdateAnnotationRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateAnnotationRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1923,7 +1923,7 @@ type Transcript_Exon struct {
 	// Unset if this exon does not intersect the coding sequence. Upon creation
 	// of a transcript, the frame must be populated for all or none of the
 	// coding exons.
-	Frame *wrapperspb.Int32Value `protobuf:"bytes,3,opt,name=frame,proto3" json:"frame,omitempty"`
+	Frame *wrappers.Int32Value `protobuf:"bytes,3,opt,name=frame,proto3" json:"frame,omitempty"`
 }
 
 func (x *Transcript_Exon) Reset() {
@@ -1972,7 +1972,7 @@ func (x *Transcript_Exon) GetEnd() int64 {
 	return 0
 }
 
-func (x *Transcript_Exon) GetFrame() *wrapperspb.Int32Value {
+func (x *Transcript_Exon) GetFrame() *wrappers.Int32Value {
 	if x != nil {
 		return x.Frame
 	}
@@ -2571,11 +2571,11 @@ var file_google_genomics_v1_annotations_proto_goTypes = []interface{}{
 	(*Transcript_Exon)(nil),                      // 26: google.genomics.v1.Transcript.Exon
 	(*Transcript_CodingSequence)(nil),            // 27: google.genomics.v1.Transcript.CodingSequence
 	(*BatchCreateAnnotationsResponse_Entry)(nil), // 28: google.genomics.v1.BatchCreateAnnotationsResponse.Entry
-	(*fieldmaskpb.FieldMask)(nil),                // 29: google.protobuf.FieldMask
-	(*structpb.ListValue)(nil),                   // 30: google.protobuf.ListValue
-	(*wrapperspb.Int32Value)(nil),                // 31: google.protobuf.Int32Value
+	(*field_mask.FieldMask)(nil),                 // 29: google.protobuf.FieldMask
+	(*_struct.ListValue)(nil),                    // 30: google.protobuf.ListValue
+	(*wrappers.Int32Value)(nil),                  // 31: google.protobuf.Int32Value
 	(*status.Status)(nil),                        // 32: google.rpc.Status
-	(*emptypb.Empty)(nil),                        // 33: google.protobuf.Empty
+	(*empty.Empty)(nil),                          // 33: google.protobuf.Empty
 }
 var file_google_genomics_v1_annotations_proto_depIdxs = []int32{
 	0,  // 0: google.genomics.v1.AnnotationSet.type:type_name -> google.genomics.v1.AnnotationType

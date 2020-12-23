@@ -23,12 +23,12 @@ package admin
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	longrunning "google.golang.org/genproto/googleapis/longrunning"
+	field_mask "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -351,7 +351,7 @@ type UpdateFieldRequest struct {
 	Field *Field `protobuf:"bytes,1,opt,name=field,proto3" json:"field,omitempty"`
 	// A mask, relative to the field. If specified, only configuration specified
 	// by this field_mask will be updated in the field.
-	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
+	UpdateMask *field_mask.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask,proto3" json:"update_mask,omitempty"`
 }
 
 func (x *UpdateFieldRequest) Reset() {
@@ -393,7 +393,7 @@ func (x *UpdateFieldRequest) GetField() *Field {
 	return nil
 }
 
-func (x *UpdateFieldRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+func (x *UpdateFieldRequest) GetUpdateMask() *field_mask.FieldMask {
 	if x != nil {
 		return x.UpdateMask
 	}
@@ -1036,9 +1036,9 @@ var file_google_firestore_admin_v1_firestore_admin_proto_goTypes = []interface{}
 	(*ImportDocumentsRequest)(nil), // 10: google.firestore.admin.v1.ImportDocumentsRequest
 	(*Index)(nil),                  // 11: google.firestore.admin.v1.Index
 	(*Field)(nil),                  // 12: google.firestore.admin.v1.Field
-	(*fieldmaskpb.FieldMask)(nil),  // 13: google.protobuf.FieldMask
+	(*field_mask.FieldMask)(nil),   // 13: google.protobuf.FieldMask
 	(*longrunning.Operation)(nil),  // 14: google.longrunning.Operation
-	(*emptypb.Empty)(nil),          // 15: google.protobuf.Empty
+	(*empty.Empty)(nil),            // 15: google.protobuf.Empty
 }
 var file_google_firestore_admin_v1_firestore_admin_proto_depIdxs = []int32{
 	11, // 0: google.firestore.admin.v1.CreateIndexRequest.index:type_name -> google.firestore.admin.v1.Index

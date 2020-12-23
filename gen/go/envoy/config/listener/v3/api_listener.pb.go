@@ -8,9 +8,9 @@ package envoy_config_listener_v3
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	anypb "google.golang.org/protobuf/types/known/anypb"
 	reflect "reflect"
 	sync "sync"
 	_ "udpa/annotations"
@@ -42,7 +42,7 @@ type ApiListener struct {
 	// it would have caused circular dependencies for go protos: lds.proto depends on this file,
 	// and http_connection_manager.proto depends on rds.proto, which is in the same directory as
 	// lds.proto, so lds.proto cannot depend on this file.]
-	ApiListener *anypb.Any `protobuf:"bytes,1,opt,name=api_listener,json=apiListener,proto3" json:"api_listener,omitempty"`
+	ApiListener *any.Any `protobuf:"bytes,1,opt,name=api_listener,json=apiListener,proto3" json:"api_listener,omitempty"`
 }
 
 func (x *ApiListener) Reset() {
@@ -77,7 +77,7 @@ func (*ApiListener) Descriptor() ([]byte, []int) {
 	return file_envoy_config_listener_v3_api_listener_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *ApiListener) GetApiListener() *anypb.Any {
+func (x *ApiListener) GetApiListener() *any.Any {
 	if x != nil {
 		return x.ApiListener
 	}
@@ -127,7 +127,7 @@ func file_envoy_config_listener_v3_api_listener_proto_rawDescGZIP() []byte {
 var file_envoy_config_listener_v3_api_listener_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_envoy_config_listener_v3_api_listener_proto_goTypes = []interface{}{
 	(*ApiListener)(nil), // 0: envoy.config.listener.v3.ApiListener
-	(*anypb.Any)(nil),   // 1: google.protobuf.Any
+	(*any.Any)(nil),     // 1: google.protobuf.Any
 }
 var file_envoy_config_listener_v3_api_listener_proto_depIdxs = []int32{
 	1, // 0: envoy.config.listener.v3.ApiListener.api_listener:type_name -> google.protobuf.Any

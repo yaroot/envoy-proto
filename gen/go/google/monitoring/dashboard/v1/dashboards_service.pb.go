@@ -22,11 +22,11 @@ package dashboard
 
 import (
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
+	_ "google.golang.org/genproto/protobuf/field_mask"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
-	_ "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	sync "sync"
 )
@@ -559,7 +559,7 @@ var file_google_monitoring_dashboard_v1_dashboards_service_proto_goTypes = []int
 	(*DeleteDashboardRequest)(nil), // 4: google.monitoring.dashboard.v1.DeleteDashboardRequest
 	(*UpdateDashboardRequest)(nil), // 5: google.monitoring.dashboard.v1.UpdateDashboardRequest
 	(*Dashboard)(nil),              // 6: google.monitoring.dashboard.v1.Dashboard
-	(*emptypb.Empty)(nil),          // 7: google.protobuf.Empty
+	(*empty.Empty)(nil),            // 7: google.protobuf.Empty
 }
 var file_google_monitoring_dashboard_v1_dashboards_service_proto_depIdxs = []int32{
 	6, // 0: google.monitoring.dashboard.v1.CreateDashboardRequest.dashboard:type_name -> google.monitoring.dashboard.v1.Dashboard
