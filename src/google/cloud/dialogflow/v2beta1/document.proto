@@ -50,6 +50,9 @@ service Documents {
     option (google.api.http) = {
       get: "/v2beta1/{parent=projects/*/knowledgeBases/*}/documents"
       additional_bindings {
+        get: "/v2beta1/{parent=projects/*/locations/*/knowledgeBases/*}/documents"
+      }
+      additional_bindings {
         get: "/v2beta1/{parent=projects/*/agent/knowledgeBases/*}/documents"
       }
     };
@@ -63,6 +66,9 @@ service Documents {
   rpc GetDocument(GetDocumentRequest) returns (Document) {
     option (google.api.http) = {
       get: "/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}"
+      additional_bindings {
+        get: "/v2beta1/{name=projects/*/locations/*/knowledgeBases/*/documents/*}"
+      }
       additional_bindings {
         get: "/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}"
       }
@@ -78,6 +84,10 @@ service Documents {
     option (google.api.http) = {
       post: "/v2beta1/{parent=projects/*/knowledgeBases/*}/documents"
       body: "document"
+      additional_bindings {
+        post: "/v2beta1/{parent=projects/*/locations/*/knowledgeBases/*}/documents"
+        body: "document"
+      }
       additional_bindings {
         post: "/v2beta1/{parent=projects/*/agent/knowledgeBases/*}/documents"
         body: "document"
@@ -98,6 +108,9 @@ service Documents {
     option (google.api.http) = {
       delete: "/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}"
       additional_bindings {
+        delete: "/v2beta1/{name=projects/*/locations/*/knowledgeBases/*/documents/*}"
+      }
+      additional_bindings {
         delete: "/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}"
       }
     };
@@ -117,6 +130,10 @@ service Documents {
       patch: "/v2beta1/{document.name=projects/*/knowledgeBases/*/documents/*}"
       body: "document"
       additional_bindings {
+        patch: "/v2beta1/{document.name=projects/*/locations/*/knowledgeBases/*/documents/*}"
+        body: "document"
+      }
+      additional_bindings {
         patch: "/v2beta1/{document.name=projects/*/agent/knowledgeBases/*/documents/*}"
         body: "document"
       }
@@ -133,6 +150,9 @@ service Documents {
   // content. The previously loaded content of the document will be deleted.
   // Note: Even when the content of the document has not changed, there still
   // may be side effects because of internal implementation changes.
+  // Note: If the document source is Google Cloud Storage URI, its metadata will
+  // be replaced with the custom metadata from Google Cloud Storage if the
+  // `import_gcs_custom_metadata` field is set to true in the request.
   //
   // Note: The `projects.agent.knowledgeBases.documents` resource is deprecated;
   // only use `projects.knowledgeBases.documents`.
@@ -141,10 +161,15 @@ service Documents {
       post: "/v2beta1/{name=projects/*/knowledgeBases/*/documents/*}:reload"
       body: "*"
       additional_bindings {
+        post: "/v2beta1/{name=projects/*/locations/*/knowledgeBases/*/documents/*}:reload"
+        body: "*"
+      }
+      additional_bindings {
         post: "/v2beta1/{name=projects/*/agent/knowledgeBases/*/documents/*}:reload"
         body: "*"
       }
     };
+    option (google.api.method_signature) = "name,gcs_source";
     option (google.longrunning.operation_info) = {
       response_type: "Document"
       metadata_type: "KnowledgeOperationMetadata"
@@ -163,6 +188,7 @@ message Document {
   option (google.api.resource) = {
     type: "dialogflow.googleapis.com/Document"
     pattern: "projects/{project}/knowledgeBases/{knowledge_base}/documents/{document}"
+    pattern: "projects/{project}/locations/{location}/knowledgeBases/{knowledge_base}/documents/{document}"
   };
 
   // The status of a reload attempt.
@@ -197,8 +223,8 @@ message Document {
 
   // Optional. The document resource name.
   // The name must be empty when creating a document.
-  // Format: `projects/<Project ID>/knowledgeBases/<Knowledge Base
-  // ID>/documents/<Document ID>`.
+  // Format: `projects/<Project ID>/locations/<Location
+  // ID>/knowledgeBases/<Knowledge Base ID>/documents/<Document ID>`.
   string name = 1 [(google.api.field_behavior) = OPTIONAL];
 
   // Required. The display name of the document. The name must be 1024 bytes or
@@ -262,8 +288,8 @@ message Document {
 // Request message for [Documents.GetDocument][google.cloud.dialogflow.v2beta1.Documents.GetDocument].
 message GetDocumentRequest {
   // Required. The name of the document to retrieve.
-  // Format `projects/<Project ID>/knowledgeBases/<Knowledge Base
-  // ID>/documents/<Document ID>`.
+  // Format `projects/<Project ID>/locations/<Location
+  // ID>/knowledgeBases/<Knowledge Base ID>/documents/<Document ID>`.
   string name = 1 [
     (google.api.field_behavior) = REQUIRED,
     (google.api.resource_reference) = {
@@ -275,7 +301,8 @@ message GetDocumentRequest {
 // Request message for [Documents.ListDocuments][google.cloud.dialogflow.v2beta1.Documents.ListDocuments].
 message ListDocumentsRequest {
   // Required. The knowledge base to list all documents for.
-  // Format: `projects/<Project ID>/knowledgeBases/<Knowledge Base ID>`.
+  // Format: `projects/<Project ID>/locations/<Location
+  // ID>/knowledgeBases/<Knowledge Base ID>`.
   string parent = 1 [
     (google.api.field_behavior) = REQUIRED,
     (google.api.resource_reference) = {
@@ -289,6 +316,29 @@ message ListDocumentsRequest {
 
   // The next_page_token value returned from a previous list request.
   string page_token = 3;
+
+  // The filter expression used to filter documents returned by the list method.
+  // The expression has the following syntax:
+  //
+  //   <field> <operator> <value> [AND <field> <operator> <value>] ...
+  //
+  // The following fields and operators are supported:
+  //
+  // * knowledge_types with has(:) operator
+  // * display_name with has(:) operator
+  // * state with equals(=) operator
+  //
+  // Examples:
+  //
+  // * "knowledge_types:FAQ" matches documents with FAQ knowledge type.
+  // * "display_name:customer" matches documents whose display name contains
+  //   "customer".
+  // * "state=ACTIVE" matches documents with ACTIVE state.
+  // * "knowledge_types:FAQ AND state=ACTIVE" matches all active FAQ documents.
+  //
+  // For more information about filtering, see
+  // [API Filtering](https://aip.dev/160).
+  string filter = 4;
 }
 
 // Response message for [Documents.ListDocuments][google.cloud.dialogflow.v2beta1.Documents.ListDocuments].
@@ -303,8 +353,9 @@ message ListDocumentsResponse {
 
 // Request message for [Documents.CreateDocument][google.cloud.dialogflow.v2beta1.Documents.CreateDocument].
 message CreateDocumentRequest {
-  // Required. The knoweldge base to create a document for.
-  // Format: `projects/<Project ID>/knowledgeBases/<Knowledge Base ID>`.
+  // Required. The knowledge base to create a document for.
+  // Format: `projects/<Project ID>/locations/<Location
+  // ID>/knowledgeBases/<Knowledge Base ID>`.
   string parent = 1 [
     (google.api.field_behavior) = REQUIRED,
     (google.api.resource_reference) = {
@@ -314,13 +365,17 @@ message CreateDocumentRequest {
 
   // Required. The document to create.
   Document document = 2 [(google.api.field_behavior) = REQUIRED];
+
+  // Whether to import custom metadata from Google Cloud Storage.
+  // Only valid when the document source is Google Cloud Storage URI.
+  bool import_gcs_custom_metadata = 3;
 }
 
 // Request message for [Documents.DeleteDocument][google.cloud.dialogflow.v2beta1.Documents.DeleteDocument].
 message DeleteDocumentRequest {
   // Required. The name of the document to delete.
-  // Format: `projects/<Project ID>/knowledgeBases/<Knowledge Base
-  // ID>/documents/<Document ID>`.
+  // Format: `projects/<Project ID>/locations/<Location
+  // ID>/knowledgeBases/<Knowledge Base ID>/documents/<Document ID>`.
   string name = 1 [
     (google.api.field_behavior) = REQUIRED,
     (google.api.resource_reference) = {
@@ -364,8 +419,8 @@ message KnowledgeOperationMetadata {
 // Request message for [Documents.ReloadDocument][google.cloud.dialogflow.v2beta1.Documents.ReloadDocument].
 message ReloadDocumentRequest {
   // Required. The name of the document to reload.
-  // Format: `projects/<Project ID>/knowledgeBases/<Knowledge Base
-  // ID>/documents/<Document ID>`
+  // Format: `projects/<Project ID>/locations/<Location
+  // ID>/knowledgeBases/<Knowledge Base ID>/documents/<Document ID>`
   string name = 1 [
     (google.api.field_behavior) = REQUIRED,
     (google.api.resource_reference) = {
@@ -381,16 +436,8 @@ message ReloadDocumentRequest {
     // If not provided, the Document's existing source will be reloaded.
     GcsSource gcs_source = 3;
   }
-}
 
-// Response message for [Documents.AutoApproveSmartMessagingEntries].
-message AutoApproveSmartMessagingEntriesResponse {
-  // Number of smart messaging entries enabled.
-  int32 enabled_count = 1;
-
-  // Number of smart messaging entries disabled.
-  int32 disabled_count = 2;
-
-  // Number of smart messaging entries unreviewed.
-  int32 unreviewed_count = 3;
+  // Whether to import custom metadata from Google Cloud Storage.
+  // Only valid when the document source is Google Cloud Storage URI.
+  bool import_gcs_custom_metadata = 4;
 }

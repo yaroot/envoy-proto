@@ -22,7 +22,7 @@ proto_library(
 proto_library_with_info(
     name = "common_proto_with_info",
     deps = [
-      ":common_proto",
+        ":common_proto",
     ],
 )
 
@@ -69,32 +69,13 @@ go_proto_library(
 ##############################################################################
 load(
     "@com_google_googleapis_imports//:imports.bzl",
-    "moved_proto_library",
-    "py_grpc_library",
-    "py_proto_library",
+    "py_gapic_assembly_pkg",
+    "py_gapic_library",
 )
 
-moved_proto_library(
-    name = "common_moved_proto",
+py_gapic_library(
+    name = "common_py_gapic",
     srcs = [":common_proto"],
-    strip_import_prefix = "google/cloud/oslogin/common",
-    import_prefix = "google/cloud/oslogin/common",
-    deps = [
-        "//google/api:field_behavior_proto",
-        "//google/api:resource_proto",
-    ],
-)
-
-py_proto_library(
-    name = "common_py_proto",
-    plugin = "@protoc_docs_plugin//:docs_plugin",
-    deps = [":common_moved_proto"],
-)
-
-py_grpc_library(
-    name = "common_py_grpc",
-    srcs = [":common_moved_proto"],
-    deps = [":common_py_proto"],
 )
 
 ##############################################################################
@@ -125,7 +106,6 @@ load(
     "nodejs_gapic_assembly_pkg",
     "nodejs_gapic_library",
 )
-
 
 ##############################################################################
 # Ruby

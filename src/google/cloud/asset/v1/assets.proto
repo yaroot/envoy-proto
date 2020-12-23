@@ -21,10 +21,13 @@ import "google/cloud/orgpolicy/v1/orgpolicy.proto";
 import "google/iam/v1/policy.proto";
 import "google/identity/accesscontextmanager/v1/access_level.proto";
 import "google/identity/accesscontextmanager/v1/access_policy.proto";
+import "google/cloud/osconfig/v1/inventory.proto";
 import "google/identity/accesscontextmanager/v1/service_perimeter.proto";
+import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 import "google/rpc/code.proto";
+import "google/api/annotations.proto";
 
 option cc_enable_arenas = true;
 option csharp_namespace = "Google.Cloud.Asset.V1";
@@ -148,9 +151,13 @@ message Asset {
 
     // Please also refer to the [service perimeter user
     // guide](https://cloud.google.com/vpc-service-controls/docs/overview).
-    google.identity.accesscontextmanager.v1.ServicePerimeter service_perimeter =
-        9;
+    google.identity.accesscontextmanager.v1.ServicePerimeter service_perimeter = 9;
   }
+
+  // A representation of runtime OS Inventory information. See [this
+  // topic](https://cloud.google.com/compute/docs/instances/os-inventory-management)
+  // for more information.
+  google.cloud.osconfig.v1.Inventory os_inventory = 12;
 
   // The ancestry path of an asset in Google Cloud [resource
   // hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
@@ -396,24 +403,10 @@ message IamPolicyAnalysisState {
 // IAM Policy analysis result, consisting of one IAM policy binding and derived
 // access control lists.
 message IamPolicyAnalysisResult {
-  // The [full resource
-  // name](https://cloud.google.com/asset-inventory/docs/resource-name-format)
-  // of the resource to which the [iam_binding][iam_binding] policy attaches.
-  // (-- api-linter: core::0122::name-suffix=disabled
-  //     aip.dev/not-precedent: full_resource_name is a public notion in GCP.
-  //     --)
-  string attached_resource_full_name = 1;
-
-  // The Cloud IAM policy binding under analysis.
-  google.iam.v1.Binding iam_binding = 2;
-
   // A Google Cloud resource under analysis.
   message Resource {
     // The [full resource
     // name](https://cloud.google.com/asset-inventory/docs/resource-name-format)
-    // (-- api-linter: core::0122::name-suffix=disabled
-    //     aip.dev/not-precedent: full_resource_name is a public notion in GCP.
-    //     --)
     string full_resource_name = 1;
 
     // The analysis state of this resource.
@@ -435,8 +428,6 @@ message IamPolicyAnalysisResult {
   }
 
   // An identity under analysis.
-  // (-- api-linter: core::0123::resource-annotation=disabled
-  //     aip.dev/not-precedent: Identity name is not a resource. --)
   message Identity {
     // The identity name in any form of members appear in
     // [IAM policy
@@ -449,7 +440,6 @@ message IamPolicyAnalysisResult {
     // - domain:google.com
     // - allUsers
     // - etc.
-    //
     string name = 1;
 
     // The analysis state of this identity.
@@ -494,17 +484,12 @@ message IamPolicyAnalysisResult {
     repeated Access accesses = 2;
 
     // Resource edges of the graph starting from the policy attached
-    // resource to any descendant resources. The [Edge.source_node][] contains
-    // the full resource name of a parent resource and [Edge.target_node][]
+    // resource to any descendant resources. The [Edge.source_node][google.cloud.asset.v1.IamPolicyAnalysisResult.Edge.source_node] contains
+    // the full resource name of a parent resource and [Edge.target_node][google.cloud.asset.v1.IamPolicyAnalysisResult.Edge.target_node]
     // contains the full resource name of a child resource. This field is
     // present only if the output_resource_edges option is enabled in request.
     repeated Edge resource_edges = 3;
   }
-
-  // The access control lists derived from the [iam_binding][iam_binding] that
-  // match or potentially match resource and access selectors specified in the
-  // request.
-  repeated AccessControlList access_control_lists = 3;
 
   // The identities and group edges.
   message IdentityList {
@@ -515,20 +500,32 @@ message IamPolicyAnalysisResult {
     repeated Identity identities = 1;
 
     // Group identity edges of the graph starting from the binding's
-    // group members to any node of the [identities][]. The [Edge.source_node][]
+    // group members to any node of the [identities][google.cloud.asset.v1.IamPolicyAnalysisResult.IdentityList.identities]. The [Edge.source_node][google.cloud.asset.v1.IamPolicyAnalysisResult.Edge.source_node]
     // contains a group, such as `group:parent@google.com`. The
-    // [Edge.target_node][] contains a member of the group,
+    // [Edge.target_node][google.cloud.asset.v1.IamPolicyAnalysisResult.Edge.target_node] contains a member of the group,
     // such as `group:child@google.com` or `user:foo@google.com`.
     // This field is present only if the output_group_edges option is enabled in
     // request.
     repeated Edge group_edges = 2;
   }
 
-  // The identity list derived from members of the [iam_binding][iam_binding]
-  // that match or potentially match identity selector specified in the request.
+  // The [full resource
+  // name](https://cloud.google.com/asset-inventory/docs/resource-name-format)
+  // of the resource to which the [iam_binding][google.cloud.asset.v1.IamPolicyAnalysisResult.iam_binding] policy attaches.
+  string attached_resource_full_name = 1;
+
+  // The Cloud IAM policy binding under analysis.
+  google.iam.v1.Binding iam_binding = 2;
+
+  // The access control lists derived from the [iam_binding][google.cloud.asset.v1.IamPolicyAnalysisResult.iam_binding] that match or
+  // potentially match resource and access selectors specified in the request.
+  repeated AccessControlList access_control_lists = 3;
+
+  // The identity list derived from members of the [iam_binding][google.cloud.asset.v1.IamPolicyAnalysisResult.iam_binding] that match or
+  // potentially match identity selector specified in the request.
   IdentityList identity_list = 4;
 
-  // Represents whether all analyses on the [iam_binding][iam_binding] have
-  // successfully finished.
+  // Represents whether all analyses on the [iam_binding][google.cloud.asset.v1.IamPolicyAnalysisResult.iam_binding] have successfully
+  // finished.
   bool fully_explored = 5;
 }

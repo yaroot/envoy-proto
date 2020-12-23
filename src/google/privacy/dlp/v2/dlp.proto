@@ -1157,7 +1157,8 @@ message RedactImageRequest {
   // Parent resource name.
   //
   // The format of this value varies depending on whether you have [specified a
-  // processing location](/dlp/docs/specifying-location):
+  // processing
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>
@@ -1221,7 +1222,8 @@ message DeidentifyContentRequest {
   // Parent resource name.
   //
   // The format of this value varies depending on whether you have [specified a
-  // processing location](/dlp/docs/specifying-location):
+  // processing
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>
@@ -1282,7 +1284,8 @@ message ReidentifyContentRequest {
   // Required. Parent resource name.
   //
   // The format of this value varies depending on whether you have [specified a
-  // processing location](/dlp/docs/specifying-location):
+  // processing
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>
@@ -1353,7 +1356,8 @@ message InspectContentRequest {
   // Parent resource name.
   //
   // The format of this value varies depending on whether you have [specified a
-  // processing location](/dlp/docs/specifying-location):
+  // processing
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>
@@ -2029,6 +2033,12 @@ message AnalyzeDataSourceRiskDetails {
     repeated DeltaPresenceEstimationHistogramBucket delta_presence_estimation_histogram = 1;
   }
 
+  // Risk analysis options.
+  message RequestedRiskAnalysisOptions {
+    // The job config for the risk job.
+    RiskAnalysisJobConfig job_config = 1;
+  }
+
   // Privacy metric to compute.
   PrivacyMetric requested_privacy_metric = 1;
 
@@ -2055,6 +2065,9 @@ message AnalyzeDataSourceRiskDetails {
     // Delta-presence result
     DeltaPresenceEstimationResult delta_presence_estimation_result = 9;
   }
+
+  // The configuration used for this job.
+  RequestedRiskAnalysisOptions requested_options = 10;
 }
 
 // A value of a field, including its frequency.
@@ -3133,7 +3146,7 @@ message CreateInspectTemplateRequest {
   //
   // The format of this value varies depending on the scope of the request
   // (project or organization) and whether you have [specified a processing
-  // location](/dlp/docs/specifying-location):
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>
@@ -3161,7 +3174,7 @@ message CreateInspectTemplateRequest {
 
   // The template id can contain uppercase and lowercase letters,
   // numbers, and hyphens; that is, it must match the regular
-  // expression: `[a-zA-Z\\d-_]+`. The maximum length is 100
+  // expression: `[a-zA-Z\d-_]+`. The maximum length is 100
   // characters. Can be empty to allow the system to generate one.
   string template_id = 3;
 
@@ -3207,7 +3220,7 @@ message ListInspectTemplatesRequest {
   //
   // The format of this value varies depending on the scope of the request
   // (project or organization) and whether you have [specified a processing
-  // location](/dlp/docs/specifying-location):
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>
@@ -3285,7 +3298,8 @@ message CreateJobTriggerRequest {
   // Required. Parent resource name.
   //
   // The format of this value varies depending on whether you have [specified a
-  // processing location](/dlp/docs/specifying-location):
+  // processing
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>
@@ -3309,7 +3323,7 @@ message CreateJobTriggerRequest {
 
   // The trigger id can contain uppercase and lowercase letters,
   // numbers, and hyphens; that is, it must match the regular
-  // expression: `[a-zA-Z\\d-_]+`. The maximum length is 100
+  // expression: `[a-zA-Z\d-_]+`. The maximum length is 100
   // characters. Can be empty to allow the system to generate one.
   string trigger_id = 3;
 
@@ -3366,7 +3380,8 @@ message CreateDlpJobRequest {
   // Required. Parent resource name.
   //
   // The format of this value varies depending on whether you have [specified a
-  // processing location](/dlp/docs/specifying-location):
+  // processing
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>
@@ -3396,7 +3411,7 @@ message CreateDlpJobRequest {
 
   // The job id can contain uppercase and lowercase letters,
   // numbers, and hyphens; that is, it must match the regular
-  // expression: `[a-zA-Z\\d-_]+`. The maximum length is 100
+  // expression: `[a-zA-Z\d-_]+`. The maximum length is 100
   // characters. Can be empty to allow the system to generate one.
   string job_id = 4;
 
@@ -3409,7 +3424,8 @@ message ListJobTriggersRequest {
   // Required. Parent resource name.
   //
   // The format of this value varies depending on whether you have [specified a
-  // processing location](/dlp/docs/specifying-location):
+  // processing
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>
@@ -3608,7 +3624,8 @@ message ListDlpJobsRequest {
   // Required. Parent resource name.
   //
   // The format of this value varies depending on whether you have [specified a
-  // processing location](/dlp/docs/specifying-location):
+  // processing
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>
@@ -3733,7 +3750,7 @@ message CreateDeidentifyTemplateRequest {
   //
   // The format of this value varies depending on the scope of the request
   // (project or organization) and whether you have [specified a processing
-  // location](/dlp/docs/specifying-location):
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>
@@ -3761,7 +3778,7 @@ message CreateDeidentifyTemplateRequest {
 
   // The template id can contain uppercase and lowercase letters,
   // numbers, and hyphens; that is, it must match the regular
-  // expression: `[a-zA-Z\\d-_]+`. The maximum length is 100
+  // expression: `[a-zA-Z\d-_]+`. The maximum length is 100
   // characters. Can be empty to allow the system to generate one.
   string template_id = 3;
 
@@ -3807,7 +3824,7 @@ message ListDeidentifyTemplatesRequest {
   //
   // The format of this value varies depending on the scope of the request
   // (project or organization) and whether you have [specified a processing
-  // location](/dlp/docs/specifying-location):
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>
@@ -4002,7 +4019,7 @@ message CreateStoredInfoTypeRequest {
   //
   // The format of this value varies depending on the scope of the request
   // (project or organization) and whether you have [specified a processing
-  // location](/dlp/docs/specifying-location):
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>
@@ -4030,7 +4047,7 @@ message CreateStoredInfoTypeRequest {
 
   // The storedInfoType ID can contain uppercase and lowercase letters,
   // numbers, and hyphens; that is, it must match the regular
-  // expression: `[a-zA-Z\\d-_]+`. The maximum length is 100
+  // expression: `[a-zA-Z\d-_]+`. The maximum length is 100
   // characters. Can be empty to allow the system to generate one.
   string stored_info_type_id = 3;
 
@@ -4078,7 +4095,7 @@ message ListStoredInfoTypesRequest {
   //
   // The format of this value varies depending on the scope of the request
   // (project or organization) and whether you have [specified a processing
-  // location](/dlp/docs/specifying-location):
+  // location](https://cloud.google.com/dlp/docs/specifying-location):
   //
   // + Projects scope, location specified:<br/>
   //   `projects/`<var>PROJECT_ID</var>`/locations/`<var>LOCATION_ID</var>

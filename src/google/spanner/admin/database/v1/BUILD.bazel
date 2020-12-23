@@ -63,11 +63,9 @@ java_grpc_library(
 
 java_gapic_library(
     name = "database_java_gapic",
-    src = ":database_proto_with_info",
+    srcs = [":database_proto_with_info"],
     gapic_yaml = "spanner_admin_database_gapic.yaml",
     grpc_service_config = "spanner_admin_database_grpc_service_config.json",
-    package = "google.spanner.admin.database.v1",
-    service_yaml = "spanner_admin_database.yaml",
     test_deps = [
         ":database_java_grpc",
         "//google/iam/v1:iam_java_grpc",
@@ -129,9 +127,9 @@ go_gapic_library(
     deps = [
         ":database_go_proto",
         "//google/iam/v1:iam_go_proto",
-        "//google/longrunning:longrunning_go_gapic",
         "//google/longrunning:longrunning_go_proto",
         "@com_google_cloud_go//longrunning:go_default_library",
+        "@com_google_cloud_go//longrunning/autogen:go_default_library",
     ],
 )
 
@@ -157,62 +155,24 @@ go_gapic_assembly_pkg(
 ##############################################################################
 load(
     "@com_google_googleapis_imports//:imports.bzl",
-    "moved_proto_library",
     "py_gapic_assembly_pkg",
     "py_gapic_library",
-    "py_grpc_library",
-    "py_proto_library",
-)
-
-moved_proto_library(
-    name = "database_moved_proto",
-    srcs = [":database_proto"],
-    deps = [
-        "//google/api:annotations_proto",
-        "//google/api:client_proto",
-        "//google/api:field_behavior_proto",
-        "//google/api:resource_proto",
-        "//google/iam/v1:iam_policy_proto",
-        "//google/iam/v1:policy_proto",
-        "//google/longrunning:operations_proto",
-        "@com_google_protobuf//:empty_proto",
-        "@com_google_protobuf//:field_mask_proto",
-        "@com_google_protobuf//:timestamp_proto",
-    ],
-)
-
-py_proto_library(
-    name = "database_py_proto",
-    plugin = "@protoc_docs_plugin//:docs_plugin",
-    deps = [":database_moved_proto"],
-)
-
-py_grpc_library(
-    name = "database_py_grpc",
-    srcs = [":database_moved_proto"],
-    deps = [":database_py_proto"],
 )
 
 py_gapic_library(
     name = "database_py_gapic",
-    src = ":database_proto_with_info",
-    gapic_yaml = "spanner_admin_database_gapic.yaml",
+    srcs = [":database_proto"],
     grpc_service_config = "spanner_admin_database_grpc_service_config.json",
-    package = "google.spanner.admin.database.v1",
-    service_yaml = "spanner_admin_database.yaml",
-    deps = [
-        ":database_py_grpc",
-        ":database_py_proto",
+    opt_args = [
+        "python-gapic-namespace=google.cloud",
+        "python-gapic-name=spanner_admin_database",
     ],
 )
 
-# Open Source Packages
 py_gapic_assembly_pkg(
     name = "admin-database-v1-py",
     deps = [
         ":database_py_gapic",
-        ":database_py_grpc",
-        ":database_py_proto",
     ],
 )
 
@@ -273,6 +233,7 @@ load(
 nodejs_gapic_library(
     name = "database_nodejs_gapic",
     src = ":database_proto_with_info",
+    extra_protoc_parameters = ["metadata"],
     grpc_service_config = "spanner_admin_database_grpc_service_config.json",
     package = "google.spanner.admin.database.v1",
     service_yaml = "spanner_admin_database.yaml",
@@ -355,10 +316,9 @@ csharp_grpc_library(
 
 csharp_gapic_library(
     name = "database_csharp_gapic",
-    src = ":database_proto_with_info",
-    gapic_yaml = "spanner_admin_database_gapic.yaml",
-    package = "google.spanner.admin.database.v1",
-    service_yaml = "spanner_admin_database.yaml",
+    srcs = [":database_proto_with_info"],
+    common_resources_config = "@gax_dotnet//:Google.Api.Gax/ResourceNames/CommonResourcesConfig.json",
+    grpc_service_config = "spanner_admin_database_grpc_service_config.json",
     deps = [
         ":database_csharp_grpc",
         ":database_csharp_proto",
@@ -381,7 +341,8 @@ csharp_gapic_assembly_pkg(
 load(
     "@com_google_googleapis_imports//:imports.bzl",
     "cc_grpc_library",
-    "cc_proto_library")
+    "cc_proto_library",
+)
 
 cc_proto_library(
     name = "database_cc_proto",

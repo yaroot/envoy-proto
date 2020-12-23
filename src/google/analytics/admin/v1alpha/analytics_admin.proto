@@ -29,7 +29,7 @@ option java_multiple_files = true;
 option java_outer_classname = "AnalyticsAdminProto";
 option java_package = "com.google.analytics.admin.v1alpha";
 
-// Service Interface for the Analytics Admin API (App+Web).
+// Service Interface for the Analytics Admin API (GA4).
 service AnalyticsAdminService {
   option (google.api.default_host) = "analyticsadmin.googleapis.com";
   option (google.api.oauth_scopes) =
@@ -50,7 +50,7 @@ service AnalyticsAdminService {
 
   // Returns all accounts accessible by the caller.
   //
-  // Note that these accounts might not currently have App+Web properties.
+  // Note that these accounts might not currently have GA4 properties.
   // Soft-deleted (ie: "trashed") accounts are excluded by default.
   // Returns an empty list if no relevant accounts are found.
   rpc ListAccounts(ListAccountsRequest) returns (ListAccountsResponse) {
@@ -94,10 +94,17 @@ service AnalyticsAdminService {
     };
   }
 
-  // Lookup for a single "App+Web" Property.
+  // Returns summaries of all accounts accessible by the caller.
+  rpc ListAccountSummaries(ListAccountSummariesRequest) returns (ListAccountSummariesResponse) {
+    option (google.api.http) = {
+      get: "/v1alpha/accountSummaries"
+    };
+  }
+
+  // Lookup for a single "GA4" Property.
   //
   // Throws "Target not found" if no such property found, if property is not
-  // of the type "App+Web", or if caller does not have permissions to access it.
+  // of the type "GA4", or if caller does not have permissions to access it.
   rpc GetProperty(GetPropertyRequest) returns (Property) {
     option (google.api.http) = {
       get: "/v1alpha/{name=properties/*}"
@@ -107,7 +114,7 @@ service AnalyticsAdminService {
 
   // Returns child Properties under the specified parent Account.
   //
-  // Only "App+Web" properties will be returned.
+  // Only "GA4" properties will be returned.
   // Properties will be excluded if the caller does not have access.
   // Soft-deleted (ie: "trashed") properties are excluded by default.
   // Returns an empty list if no relevant properties are found.
@@ -117,7 +124,7 @@ service AnalyticsAdminService {
     };
   }
 
-  // Creates an "App+Web" property with the specified location and attributes.
+  // Creates an "GA4" property with the specified location and attributes.
   rpc CreateProperty(CreatePropertyRequest) returns (Property) {
     option (google.api.http) = {
       post: "/v1alpha/properties"
@@ -136,7 +143,7 @@ service AnalyticsAdminService {
   // will be permanently purged.
   // https://support.google.com/analytics/answer/6154772
   //
-  // Returns an error if the target is not found, or is not an App+Web Property.
+  // Returns an error if the target is not found, or is not an GA4 Property.
   rpc DeleteProperty(DeletePropertyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       delete: "/v1alpha/{name=properties/*}"
@@ -834,8 +841,8 @@ message CreateUserLinkRequest {
     }
   ];
 
-  // Optional. If notify_new_user is set, then email new user that they've been given
-  // permissions on the resource.
+  // Optional. If set, then email the new user notifying them that they've been granted
+  // permissions to the resource.
   bool notify_new_user = 2 [(google.api.field_behavior) = OPTIONAL];
 
   // Required. The user link to create.
@@ -848,15 +855,21 @@ message BatchCreateUserLinksRequest {
   // This field is required. The parent field in the CreateUserLinkRequest
   // messages must either be empty or match this field.
   // Example format: accounts/1234
-  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+  string parent = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      child_type: "analyticsadmin.googleapis.com/UserLink"
+    }
+  ];
 
-  // Optional. If notify_new_users is set, then email new users that they've been given
-  // permissions on the resource.
+  // Optional. If set, then email the new users notifying them that they've been granted
+  // permissions to the resource. Regardless of whether this is set or not,
+  // notify_new_user field inside each individual request is ignored.
   bool notify_new_users = 2 [(google.api.field_behavior) = OPTIONAL];
 
-  // The requests specifying the user links to create.
+  // Required. The requests specifying the user links to create.
   // A maximum of 1000 user links can be created in a batch.
-  repeated CreateUserLinkRequest requests = 3;
+  repeated CreateUserLinkRequest requests = 3 [(google.api.field_behavior) = REQUIRED];
 }
 
 // Response message for BatchCreateUserLinks RPC.
@@ -877,11 +890,16 @@ message BatchUpdateUserLinksRequest {
   // for. The parent field in the UpdateUserLinkRequest messages must either be
   // empty or match this field.
   // Example format: accounts/1234
-  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+  string parent = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      child_type: "analyticsadmin.googleapis.com/UserLink"
+    }
+  ];
 
-  // The requests specifying the user links to update.
+  // Required. The requests specifying the user links to update.
   // A maximum of 1000 user links can be updated in a batch.
-  repeated UpdateUserLinkRequest requests = 2;
+  repeated UpdateUserLinkRequest requests = 2 [(google.api.field_behavior) = REQUIRED];
 }
 
 // Response message for BatchUpdateUserLinks RPC.
@@ -907,11 +925,16 @@ message BatchDeleteUserLinksRequest {
   // for. The parent of all values for user link names to delete must match this
   // field.
   // Example format: accounts/1234
-  string parent = 1 [(google.api.field_behavior) = REQUIRED];
+  string parent = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      child_type: "analyticsadmin.googleapis.com/UserLink"
+    }
+  ];
 
-  // The requests specifying the user links to update.
+  // Required. The requests specifying the user links to update.
   // A maximum of 1000 user links can be updated in a batch.
-  repeated DeleteUserLinkRequest requests = 2;
+  repeated DeleteUserLinkRequest requests = 2 [(google.api.field_behavior) = REQUIRED];
 }
 
 // Request message for GetWebDataStream RPC.
@@ -1175,6 +1198,7 @@ message ListAndroidAppDataStreamsResponse {
 message GetEnhancedMeasurementSettingsRequest {
   // Required. The name of the settings to lookup.
   // Format:
+  //
   // properties/{property_id}/webDataStreams/{stream_id}/enhancedMeasurementSettings
   // Example: "properties/1000/webDataStreams/2000/enhancedMeasurementSettings"
   string name = 1 [
@@ -1341,4 +1365,29 @@ message GetDataSharingSettingsRequest {
       type: "analyticsadmin.googleapis.com/DataSharingSettings"
     }
   ];
+}
+
+// Request message for ListAccountSummaries RPC.
+message ListAccountSummariesRequest {
+  // The maximum number of AccountSummary resources to return. The service may
+  // return fewer than this value, even if there are additional pages.
+  // If unspecified, at most 50 resources will be returned.
+  // The maximum value is 200; (higher values will be coerced to the maximum)
+  int32 page_size = 1;
+
+  // A page token, received from a previous `ListAccountSummaries` call.
+  // Provide this to retrieve the subsequent page.
+  // When paginating, all other parameters provided to `ListAccountSummaries`
+  // must match the call that provided the page token.
+  string page_token = 2;
+}
+
+// Response message for ListAccountSummaries RPC.
+message ListAccountSummariesResponse {
+  // Account summaries of all accounts the caller has access to.
+  repeated AccountSummary account_summaries = 1;
+
+  // A token, which can be sent as `page_token` to retrieve the next page.
+  // If this field is omitted, there are no subsequent pages.
+  string next_page_token = 2;
 }

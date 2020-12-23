@@ -23,6 +23,7 @@ import "google/api/resource.proto";
 import "google/cloud/dialogflow/v2beta1/agent.proto";
 import "google/cloud/dialogflow/v2beta1/audio_config.proto";
 import "google/cloud/dialogflow/v2beta1/context.proto";
+import "google/cloud/dialogflow/v2beta1/gcs.proto";
 import "google/cloud/dialogflow/v2beta1/intent.proto";
 import "google/cloud/dialogflow/v2beta1/session_entity_type.proto";
 import "google/protobuf/duration.proto";
@@ -59,6 +60,10 @@ service Sessions {
   // as a result. This method is not idempotent, because it may cause contexts
   // and session entity types to be updated, which in turn might affect
   // results of future queries.
+  //
+  // Note: Always use agent versions for production traffic.
+  // See [Versions and
+  // environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
   rpc DetectIntent(DetectIntentRequest) returns (DetectIntentResponse) {
     option (google.api.http) = {
       post: "/v2beta1/{session=projects/*/agent/sessions/*}:detectIntent"
@@ -82,24 +87,38 @@ service Sessions {
   // Processes a natural language query in audio format in a streaming fashion
   // and returns structured, actionable data as a result. This method is only
   // available via the gRPC API (not REST).
+  //
+  // Note: Always use agent versions for production traffic.
+  // See [Versions and
+  // environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
   rpc StreamingDetectIntent(stream StreamingDetectIntentRequest) returns (stream StreamingDetectIntentResponse) {
   }
 }
 
 // The request to detect user's intent.
 message DetectIntentRequest {
-  // Required. The name of the session this query is sent to. Format:
-  // `projects/<Project ID>/agent/sessions/<Session ID>`, or
-  // `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
-  // ID>/sessions/<Session ID>`. If `Environment ID` is not specified, we assume
-  // default 'draft' environment. If `User ID` is not specified, we are using
-  // "-". It's up to the API caller to choose an appropriate `Session ID` and
-  // `User Id`. They can be a random number or some type of user and session
-  // identifiers (preferably hashed). The length of the `Session ID` and
-  // `User ID` must not exceed 36 characters.
+  // Required. The name of the session this query is sent to. Supported formats:
+  // - `projects/<Project ID>/agent/sessions/<Session ID>,
+  // - `projects/<Project ID>/locations/<Location ID>/agent/sessions/<Session
+  //   ID>`,
+  // - `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
+  //   ID>/sessions/<Session ID>`,
+  // - `projects/<Project ID>/locations/<Location
+  //   ID>/agent/environments/<Environment ID>/users/<User ID>/sessions/<Session
+  //   ID>`,
   //
+  // If `Location ID` is not specified we assume default 'us' location. If
+  // `Environment ID` is not specified, we assume default 'draft' environment.
+  // If `User ID` is not specified, we are using "-". It's up to the API caller
+  // to choose an appropriate `Session ID` and `User Id`. They can be a random
+  // number or some type of user and session identifiers (preferably hashed).
+  // The length of the `Session ID` and `User ID` must not exceed 36 characters.
   // For more information, see the [API interactions
   // guide](https://cloud.google.com/dialogflow/docs/api-overview).
+  //
+  // Note: Always use agent versions for production traffic.
+  // See [Versions and
+  // environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
   string session = 1 [
     (google.api.field_behavior) = REQUIRED,
     (google.api.resource_reference) = {
@@ -216,7 +235,7 @@ message QueryParameters {
 
   // Configures the type of sentiment analysis to perform. If not
   // provided, sentiment analysis is not performed.
-  // Note: Sentiment Analysis is only currently available for Enterprise Edition
+  // Note: Sentiment Analysis is only currently available for Essentials Edition
   // agents.
   SentimentAnalysisRequestConfig sentiment_analysis_request_config = 10;
 
@@ -227,7 +246,7 @@ message QueryParameters {
   repeated SubAgent sub_agents = 13;
 
   // This field can be used to pass HTTP headers for a webhook
-  // call. These headers will be sent to webhook alone with the headers that
+  // call. These headers will be sent to webhook along with the headers that
   // have been configured through Dialogflow web console. The headers defined
   // within this field will overwrite the headers configured through Dialogflow
   // console if there is a conflict. Header names are case-insensitive.
@@ -302,7 +321,8 @@ message QueryResult {
   // -   MapKey value: parameter name
   // -   MapValue type:
   //     -   If parameter's entity type is a composite entity: map
-  //     -   Else: string or number, depending on parameter value type
+  //     -   Else: depending on parameter value type, could be one of string,
+  //         number, boolean, null, list or map
   // -   MapValue value:
   //     -   If parameter's entity type is a composite entity:
   //         map from composite entity property names to property values
@@ -461,19 +481,35 @@ message KnowledgeAnswers {
 // After you sent all input, you must half-close or abort the request stream.
 message StreamingDetectIntentRequest {
   // Required. The name of the session the query is sent to.
-  // Format of the session name:
-  // `projects/<Project ID>/agent/sessions/<Session ID>`, or
-  // `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
-  // ID>/sessions/<Session ID>`. If `Environment ID` is not specified, we assume
-  // default 'draft' environment. If `User ID` is not specified, we are using
-  // "-". It's up to the API caller to choose an appropriate `Session ID` and
-  // `User Id`. They can be a random number or some type of user and session
-  // identifiers (preferably hashed). The length of the `Session ID` and
-  // `User ID` must not exceed 36 characters.
+  // Supported formats:
+  // - `projects/<Project ID>/agent/sessions/<Session ID>,
+  // - `projects/<Project ID>/locations/<Location ID>/agent/sessions/<Session
+  //   ID>`,
+  // - `projects/<Project ID>/agent/environments/<Environment ID>/users/<User
+  //   ID>/sessions/<Session ID>`,
+  // - `projects/<Project ID>/locations/<Location
+  //   ID>/agent/environments/<Environment ID>/users/<User ID>/sessions/<Session
+  //   ID>`,
+  //
+  // If `Location ID` is not specified we assume default 'us' location. If
+  // `Environment ID` is not specified, we assume default 'draft' environment.
+  // If `User ID` is not specified, we are using "-". It's up to the API caller
+  // to choose an appropriate `Session ID` and `User Id`. They can be a random
+  // number or some type of user and session identifiers (preferably hashed).
+  // The length of the `Session ID` and `User ID` must not exceed 36 characters.
   //
   // For more information, see the [API interactions
   // guide](https://cloud.google.com/dialogflow/docs/api-overview).
-  string session = 1 [(google.api.field_behavior) = REQUIRED];
+  //
+  // Note: Always use agent versions for production traffic.
+  // See [Versions and
+  // environments](https://cloud.google.com/dialogflow/es/docs/agents-versions).
+  string session = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      type: "dialogflow.googleapis.com/Session"
+    }
+  ];
 
   // The parameters of this query.
   QueryParameters query_params = 2;
@@ -497,7 +533,7 @@ message StreamingDetectIntentRequest {
   // client should close the stream and start a new request with a new stream as
   // needed.
   // This setting is ignored when `query_input` is a piece of text or an event.
-  bool single_utterance = 4;
+  bool single_utterance = 4 [deprecated = true];
 
   // Instructs the speech synthesizer how to generate the output
   // audio. If this field is not set and agent-level speech synthesizer is not
@@ -668,6 +704,9 @@ message StreamingRecognitionResult {
   // Time offset of the end of this Speech recognition result relative to the
   // beginning of the audio. Only populated for `message_type` = `TRANSCRIPT`.
   google.protobuf.Duration speech_end_offset = 8;
+
+  // DTMF digits. Populated if and only if `message_type` = `DTMF_DIGITS`.
+  TelephonyDtmfEvents dtmf_digits = 5;
 }
 
 // Represents the natural language text to be processed.
@@ -702,7 +741,8 @@ message EventInput {
   // -   MapKey value: parameter name
   // -   MapValue type:
   //     -   If parameter's entity type is a composite entity: map
-  //     -   Else: string or number, depending on parameter value type
+  //     -   Else: depending on parameter value type, could be one of string,
+  //         number, boolean, null, list or map
   // -   MapValue value:
   //     -   If parameter's entity type is a composite entity:
   //         map from composite entity property names to property values
@@ -727,9 +767,9 @@ message SentimentAnalysisRequestConfig {
 // The result of sentiment analysis. Sentiment analysis inspects user input
 // and identifies the prevailing subjective opinion, especially to determine a
 // user's attitude as positive, negative, or neutral.
-// For [Participants.AnalyzeContent][google.cloud.dialogflow.v2beta1.Participants.AnalyzeContent], it needs to be configured in
+// For [Participants.DetectIntent][], it needs to be configured in
 // [DetectIntentRequest.query_params][google.cloud.dialogflow.v2beta1.DetectIntentRequest.query_params]. For
-// [Participants.StreamingAnalyzeContent][google.cloud.dialogflow.v2beta1.Participants.StreamingAnalyzeContent], it needs to be configured in
+// [Participants.StreamingDetectIntent][], it needs to be configured in
 // [StreamingDetectIntentRequest.query_params][google.cloud.dialogflow.v2beta1.StreamingDetectIntentRequest.query_params].
 // And for [Participants.AnalyzeContent][google.cloud.dialogflow.v2beta1.Participants.AnalyzeContent] and
 // [Participants.StreamingAnalyzeContent][google.cloud.dialogflow.v2beta1.Participants.StreamingAnalyzeContent], it needs to be configured in

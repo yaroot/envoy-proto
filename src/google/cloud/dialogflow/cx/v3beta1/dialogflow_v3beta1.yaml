@@ -7,9 +7,11 @@ apis:
 - name: google.cloud.dialogflow.cx.v3beta1.Agents
 - name: google.cloud.dialogflow.cx.v3beta1.EntityTypes
 - name: google.cloud.dialogflow.cx.v3beta1.Environments
+- name: google.cloud.dialogflow.cx.v3beta1.Experiments
 - name: google.cloud.dialogflow.cx.v3beta1.Flows
 - name: google.cloud.dialogflow.cx.v3beta1.Intents
 - name: google.cloud.dialogflow.cx.v3beta1.Pages
+- name: google.cloud.dialogflow.cx.v3beta1.SecuritySettingsService
 - name: google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes
 - name: google.cloud.dialogflow.cx.v3beta1.Sessions
 - name: google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroups
@@ -50,11 +52,15 @@ backend:
     deadline: 60.0
   - selector: 'google.cloud.dialogflow.cx.v3beta1.Environments.*'
     deadline: 60.0
+  - selector: 'google.cloud.dialogflow.cx.v3beta1.Experiments.*'
+    deadline: 60.0
   - selector: 'google.cloud.dialogflow.cx.v3beta1.Flows.*'
     deadline: 60.0
   - selector: 'google.cloud.dialogflow.cx.v3beta1.Intents.*'
     deadline: 60.0
   - selector: 'google.cloud.dialogflow.cx.v3beta1.Pages.*'
+    deadline: 60.0
+  - selector: 'google.cloud.dialogflow.cx.v3beta1.SecuritySettingsService.*'
     deadline: 60.0
   - selector: 'google.cloud.dialogflow.cx.v3beta1.SessionEntityTypes.*'
     deadline: 60.0
@@ -92,6 +98,11 @@ authentication:
       canonical_scopes: |-
         https://www.googleapis.com/auth/cloud-platform,
         https://www.googleapis.com/auth/dialogflow
+  - selector: 'google.cloud.dialogflow.cx.v3beta1.Experiments.*'
+    oauth:
+      canonical_scopes: |-
+        https://www.googleapis.com/auth/cloud-platform,
+        https://www.googleapis.com/auth/dialogflow
   - selector: 'google.cloud.dialogflow.cx.v3beta1.Flows.*'
     oauth:
       canonical_scopes: |-
@@ -103,6 +114,11 @@ authentication:
         https://www.googleapis.com/auth/cloud-platform,
         https://www.googleapis.com/auth/dialogflow
   - selector: 'google.cloud.dialogflow.cx.v3beta1.Pages.*'
+    oauth:
+      canonical_scopes: |-
+        https://www.googleapis.com/auth/cloud-platform,
+        https://www.googleapis.com/auth/dialogflow
+  - selector: 'google.cloud.dialogflow.cx.v3beta1.SecuritySettingsService.*'
     oauth:
       canonical_scopes: |-
         https://www.googleapis.com/auth/cloud-platform,

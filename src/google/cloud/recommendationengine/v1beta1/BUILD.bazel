@@ -27,14 +27,14 @@ load(
     "php_grpc_library",
     "php_proto_library",
     "proto_library_with_info",
-    "py_gapic_assembly_pkg",
-    "py_gapic_library",
     "py_grpc_library",
     "py_proto_library",
     "ruby_gapic_assembly_pkg",
     "ruby_gapic_library",
     "ruby_grpc_library",
     "ruby_proto_library",
+    py_gapic_assembly_pkg = "py_gapic_assembly_pkg_legacy",
+    py_gapic_library = "py_gapic_library_legacy",
 )
 
 # This is an API workspace, having public visibility by default makes perfect sense.
@@ -92,11 +92,9 @@ java_grpc_library(
 
 java_gapic_library(
     name = "recommendationengine_java_gapic",
-    src = ":recommendationengine_proto_with_info",
+    srcs = [":recommendationengine_proto_with_info"],
     gapic_yaml = "recommendationengine_gapic.yaml",
     grpc_service_config = "recommendationengine_grpc_service_config.json",
-    package = "google.cloud.recommendationengine.v1beta1",
-    service_yaml = "recommendationengine_v1beta1.yaml",
     test_deps = [
         ":recommendationengine_java_grpc",
     ],
@@ -151,9 +149,9 @@ go_gapic_library(
     deps = [
         ":recommendationengine_go_proto",
         "//google/api:httpbody_go_proto",
-        "//google/longrunning:longrunning_go_gapic",
         "//google/longrunning:longrunning_go_proto",
         "@com_google_cloud_go//longrunning:go_default_library",
+        "@com_google_cloud_go//longrunning/autogen:go_default_library",
         "@io_bazel_rules_go//proto/wkt:struct_go_proto",
     ],
 )
@@ -266,6 +264,7 @@ php_gapic_assembly_pkg(
 nodejs_gapic_library(
     name = "recommendationengine_nodejs_gapic",
     src = ":recommendationengine_proto_with_info",
+    extra_protoc_parameters = ["metadata"],
     grpc_service_config = "recommendationengine_grpc_service_config.json",
     package = "google.cloud.recommendationengine.v1beta1",
     service_yaml = "recommendationengine_v1beta1.yaml",
@@ -324,27 +323,27 @@ csharp_grpc_library(
     deps = [":recommendationengine_csharp_proto"],
 )
 
-csharp_gapic_library(
-    name = "recommendationengine_csharp_gapic",
-    src = ":recommendationengine_proto_with_info",
-    gapic_yaml = "recommendationengine_gapic.yaml",
-    package = "google.cloud.recommendationengine.v1beta1",
-    service_yaml = "recommendationengine_v1beta1.yaml",
-    deps = [
-        ":recommendationengine_csharp_grpc",
-        ":recommendationengine_csharp_proto",
-    ],
-)
+# Invalid C# namespaces, cannot build.
+# csharp_gapic_library(
+#     name = "recommendationengine_csharp_gapic",
+#     srcs = [":recommendationengine_proto_with_info"],
+#     grpc_service_config = "recommendationengine_grpc_service_config.json",
+#     common_resources_config = "@gax_dotnet//:Google.Api.Gax/ResourceNames/CommonResourcesConfig.json",
+#     deps = [
+#         ":recommendationengine_csharp_grpc",
+#         ":recommendationengine_csharp_proto",
+#     ],
+# )
 
-# Open Source Packages
-csharp_gapic_assembly_pkg(
-    name = "google-cloud-recommendationengine-v1beta1-csharp",
-    deps = [
-        ":recommendationengine_csharp_gapic",
-        ":recommendationengine_csharp_grpc",
-        ":recommendationengine_csharp_proto",
-    ],
-)
+# # Open Source Packages
+# csharp_gapic_assembly_pkg(
+#     name = "google-cloud-recommendationengine-v1beta1-csharp",
+#     deps = [
+#         ":recommendationengine_csharp_gapic",
+#         ":recommendationengine_csharp_grpc",
+#         ":recommendationengine_csharp_proto",
+#     ],
+# )
 
 ##############################################################################
 # C++
