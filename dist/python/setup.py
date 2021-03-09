@@ -21,7 +21,9 @@ setup(
     py_modules=['metrics_pb2'],
 
     install_requires=[
-        'grpcio',
         'protobuf',
+    ],
+    extras_require=[
+        'grpc': ['grpcio'],
     ],
 )
