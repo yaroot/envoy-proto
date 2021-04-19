@@ -6,7 +6,7 @@ here = path.abspath(path.dirname(__file__))
 
 setup(
     name='envoy-proto',
-    version='20201223.2',
+    version='20210309.1',
 
     # You can just specify package directories manually here if your project is
     # simple. Or you can use find_packages().
@@ -23,7 +23,7 @@ setup(
     install_requires=[
         'protobuf',
     ],
-    extras_require=[
+    extras_require={
         'grpc': ['grpcio'],
-    ],
+    },
 )
