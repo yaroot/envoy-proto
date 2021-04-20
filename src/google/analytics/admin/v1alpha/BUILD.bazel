@@ -82,7 +82,6 @@ java_gapic_library(
 java_gapic_test(
     name = "admin_java_gapic_test_suite",
     test_classes = [
-        "com.google.analytics.admin.v1alpha.AnalyticsAdminServiceClientTest",
     ],
     runtime_deps = [":admin_java_gapic_test"],
 )
@@ -150,7 +149,6 @@ go_gapic_assembly_pkg(
 ##############################################################################
 # Python
 ##############################################################################
-
 load(
     "@com_google_googleapis_imports//:imports.bzl",
     "py_gapic_assembly_pkg",

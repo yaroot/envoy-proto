@@ -14,13 +14,23 @@ apis:
 - name: google.cloud.dialogflow.cx.v3.SecuritySettingsService
 - name: google.cloud.dialogflow.cx.v3.SessionEntityTypes
 - name: google.cloud.dialogflow.cx.v3.Sessions
+- name: google.cloud.dialogflow.cx.v3.TestCases
 - name: google.cloud.dialogflow.cx.v3.TransitionRouteGroups
 - name: google.cloud.dialogflow.cx.v3.Versions
 - name: google.cloud.dialogflow.cx.v3.Webhooks
 
 types:
+- name: google.cloud.dialogflow.cx.v3.BatchRunTestCasesMetadata
+- name: google.cloud.dialogflow.cx.v3.BatchRunTestCasesResponse
 - name: google.cloud.dialogflow.cx.v3.CreateVersionOperationMetadata
 - name: google.cloud.dialogflow.cx.v3.ExportAgentResponse
+- name: google.cloud.dialogflow.cx.v3.ExportTestCasesMetadata
+- name: google.cloud.dialogflow.cx.v3.ExportTestCasesResponse
+- name: google.cloud.dialogflow.cx.v3.ImportTestCasesMetadata
+- name: google.cloud.dialogflow.cx.v3.ImportTestCasesResponse
+- name: google.cloud.dialogflow.cx.v3.RunTestCaseMetadata
+- name: google.cloud.dialogflow.cx.v3.RunTestCaseResponse
+- name: google.cloud.dialogflow.cx.v3.TestError
 - name: google.cloud.dialogflow.cx.v3.WebhookRequest
 - name: google.cloud.dialogflow.cx.v3.WebhookResponse
 
@@ -72,6 +82,8 @@ backend:
     deadline: 60.0
   - selector: google.cloud.dialogflow.cx.v3.Sessions.StreamingDetectIntent
     deadline: 220.0
+  - selector: 'google.cloud.dialogflow.cx.v3.TestCases.*'
+    deadline: 60.0
   - selector: 'google.cloud.dialogflow.cx.v3.TransitionRouteGroups.*'
     deadline: 60.0
   - selector: 'google.cloud.dialogflow.cx.v3.Versions.*'
@@ -80,6 +92,21 @@ backend:
     deadline: 60.0
   - selector: 'google.longrunning.Operations.*'
     deadline: 60.0
+
+http:
+  rules:
+  - selector: google.longrunning.Operations.CancelOperation
+    post: '/v3/{name=projects/*/operations/*}:cancel'
+    additional_bindings:
+    - post: '/v3/{name=projects/*/locations/*/operations/*}:cancel'
+  - selector: google.longrunning.Operations.GetOperation
+    get: '/v3/{name=projects/*/operations/*}'
+    additional_bindings:
+    - get: '/v3/{name=projects/*/locations/*/operations/*}'
+  - selector: google.longrunning.Operations.ListOperations
+    get: '/v3/{name=projects/*}/operations'
+    additional_bindings:
+    - get: '/v3/{name=projects/*/locations/*}/operations'
 
 authentication:
   rules:
@@ -129,6 +156,11 @@ authentication:
         https://www.googleapis.com/auth/cloud-platform,
         https://www.googleapis.com/auth/dialogflow
   - selector: 'google.cloud.dialogflow.cx.v3.Sessions.*'
+    oauth:
+      canonical_scopes: |-
+        https://www.googleapis.com/auth/cloud-platform,
+        https://www.googleapis.com/auth/dialogflow
+  - selector: 'google.cloud.dialogflow.cx.v3.TestCases.*'
     oauth:
       canonical_scopes: |-
         https://www.googleapis.com/auth/cloud-platform,

@@ -1,4 +1,4 @@
-// Copyright 2020 Google LLC
+// Copyright 2021 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -108,6 +108,25 @@ service Agents {
       metadata_type: "google.protobuf.Struct"
     };
   }
+
+  // Validates the specified agent and creates or updates validation results.
+  // The agent in draft version is validated. Please call this API after the
+  // training is completed to get the complete validation results.
+  rpc ValidateAgent(ValidateAgentRequest) returns (AgentValidationResult) {
+    option (google.api.http) = {
+      post: "/v3/{name=projects/*/locations/*/agents/*}:validate"
+      body: "*"
+    };
+  }
+
+  // Gets the latest agent validation result. Agent validation is performed
+  // when ValidateAgent is called.
+  rpc GetAgentValidationResult(GetAgentValidationResultRequest) returns (AgentValidationResult) {
+    option (google.api.http) = {
+      get: "/v3/{name=projects/*/locations/*/agents/*/validationResult}"
+    };
+    option (google.api.method_signature) = "name";
+  }
 }
 
 // Settings related to speech recognition.
@@ -141,7 +160,7 @@ message Agent {
 
   // Immutable. The default language of the agent as a language tag.
   // See [Language
-  // Support](https://cloud.google.com/dialogflow/docs/reference/language)
+  // Support](https://cloud.google.com/dialogflow/cx/docs/reference/language)
   // for a list of the currently supported language codes.
   // This field cannot be set by the [Agents.UpdateAgent][google.cloud.dialogflow.cx.v3.Agents.UpdateAgent] method.
   string default_language_code = 3 [(google.api.field_behavior) = IMMUTABLE];
@@ -175,6 +194,13 @@ message Agent {
       type: "dialogflow.googleapis.com/Flow"
     }
   ];
+
+  // Name of the [SecuritySettings][google.cloud.dialogflow.cx.v3.SecuritySettings] reference for the agent.
+  // Format: `projects/<Project ID>/locations/<Location
+  // ID>/securitySettings/<Security Settings ID>`.
+  string security_settings = 17 [(google.api.resource_reference) = {
+                                   type: "dialogflow.googleapis.com/SecuritySettings"
+                                 }];
 
   // Indicates if stackdriver logging is enabled for the agent.
   bool enable_stackdriver_logging = 18;
@@ -296,6 +322,21 @@ message ExportAgentResponse {
 
 // The request message for [Agents.RestoreAgent][google.cloud.dialogflow.cx.v3.Agents.RestoreAgent].
 message RestoreAgentRequest {
+  // Restore option.
+  enum RestoreOption {
+    // Unspecified. Treated as KEEP.
+    RESTORE_OPTION_UNSPECIFIED = 0;
+
+    // Always respect the settings from the exported agent file. It may cause
+    // a restoration failure if some settings (e.g. model type) are not
+    // supported in the target agent.
+    KEEP = 1;
+
+    // Fallback to default settings if some settings are not supported in the
+    // target agent.
+    FALLBACK = 2;
+  }
+
   // Required. The name of the agent to restore into.
   // Format: `projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>`.
   string name = 1 [
@@ -315,4 +356,54 @@ message RestoreAgentRequest {
     // Uncompressed raw byte content for agent.
     bytes agent_content = 3;
   }
+
+  // Agent restore mode. If not specified, `KEEP` is assumed.
+  RestoreOption restore_option = 5;
+}
+
+// The request message for [Agents.ValidateAgent][google.cloud.dialogflow.cx.v3.Agents.ValidateAgent].
+message ValidateAgentRequest {
+  // Required. The agent to validate.
+  // Format: `projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>`.
+  string name = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      type: "dialogflow.googleapis.com/Agent"
+    }
+  ];
+
+  // If not specified, the agent's default language is used.
+  string language_code = 2;
+}
+
+// The request message for [Agents.GetAgentValidationResult][google.cloud.dialogflow.cx.v3.Agents.GetAgentValidationResult].
+message GetAgentValidationResultRequest {
+  // Required. The agent name.
+  // Format: `projects/<Project ID>/locations/<Location ID>/agents/<Agent
+  // ID>/validationResult`.
+  string name = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      type: "dialogflow.googleapis.com/AgentValidationResult"
+    }
+  ];
+
+  // If not specified, the agent's default language is used.
+  string language_code = 2;
+}
+
+// The response message for [Agents.GetAgentValidationResult][google.cloud.dialogflow.cx.v3.Agents.GetAgentValidationResult].
+message AgentValidationResult {
+  option (google.api.resource) = {
+    type: "dialogflow.googleapis.com/AgentValidationResult"
+    pattern: "projects/{project}/locations/{location}/agents/{agent}/validationResult"
+  };
+
+  // The unique identifier of the agent validation result.
+  // Format: `projects/<Project ID>/locations/<Location ID>/agents/<Agent
+  // ID>/validationResult`.
+  string name = 1;
+
+  // Contains all flow validation results.
+  repeated FlowValidationResult flow_validation_results = 2;
 }

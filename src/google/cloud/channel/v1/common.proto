@@ -1,4 +1,4 @@
-// Copyright 2020 Google LLC
+// Copyright 2021 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -29,19 +29,19 @@ option java_package = "com.google.cloud.channel.v1";
 message EduData {
   // Enum to specify the institute type.
   enum InstituteType {
-    // Default value.  This state is never returned unless an error occurs.
+    // Default value.  This state doesn't show unless an error occurs.
     INSTITUTE_TYPE_UNSPECIFIED = 0;
 
-    // Elementary/ Secondary Schools & Districts
+    // Elementary/Secondary Schools & Districts
     K12 = 1;
 
     // Higher Education Universities & Colleges
     UNIVERSITY = 2;
   }
 
-  // Number of students/staff the institute has.
+  // Number of students and staff the institute has.
   enum InstituteSize {
-    // Default value.  This state is never returned unless an error occurs.
+    // Default value. This state doesn't show unless an error occurs.
     INSTITUTE_SIZE_UNSPECIFIED = 0;
 
     // 1 - 100
@@ -80,7 +80,7 @@ message EduData {
 message CloudIdentityInfo {
   // CustomerType of the customer
   enum CustomerType {
-    // Default value. This state is never returned unless an error occurs.
+    // Default value. This state doesn't show unless an error occurs.
     CUSTOMER_TYPE_UNSPECIFIED = 0;
 
     // Domain-owning customer which needs domain verification to use services.
@@ -95,6 +95,13 @@ message CloudIdentityInfo {
 
   // Output only. The primary domain name.
   string primary_domain = 9 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  // Output only. Whether the domain is verified.
+  // This field is not returned for a Customer's cloud_identity_info resource.
+  // Partners can use the domains.get() method of the Workspace SDK's
+  // Directory API, or listen to the PRIMARY_DOMAIN_VERIFIED Pub/Sub event in
+  // to track domain verification of their resolve Workspace customers.
+  bool is_domain_verified = 4 [(google.api.field_behavior) = OUTPUT_ONLY];
 
   // The alternate email.
   string alternate_email = 6;
@@ -127,5 +134,20 @@ message Value {
 
     // Represents an 'Any' proto value.
     google.protobuf.Any proto_value = 4;
+
+    // Represents a boolean value.
+    bool bool_value = 5;
   }
+}
+
+// Information needed to create an Admin User for Google Workspace.
+message AdminUser {
+  // Primary email of the admin user.
+  string email = 1;
+
+  // Given name of the admin user.
+  string given_name = 2;
+
+  // Family name of the admin user.
+  string family_name = 3;
 }

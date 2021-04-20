@@ -16,12 +16,12 @@ syntax = "proto3";
 
 package grafeas.v1;
 
-option go_package = "github.com/grafeas/grafeas/proto/v1/grafeas_go_proto";
+import "grafeas/v1/common.proto";
+
+option go_package = "google.golang.org/genproto/googleapis/grafeas/v1;grafeas";
 option java_multiple_files = true;
 option java_package = "io.grafeas.v1";
 option objc_class_prefix = "GRA";
-
-import "grafeas/v1/common.proto";
 
 // An attestation wrapper with a PGP-compatible signature. This message only
 // supports `ATTACHED` signatures, where the payload that is signed is included
@@ -53,13 +53,6 @@ message AttestationNote {
   Hint hint = 1;
 }
 
-message Jwt {
-  // The compact encoding of a JWS, which is always three base64 encoded strings
-  // joined by periods. For details, see:
-  // https://tools.ietf.org/html/rfc7515.html#section-3.1
-  string compact_jwt = 1;
-}
-
 // Occurrence that represents a single "attestation". The authenticity of an
 // attestation can be verified using the attached signature. If the verifier
 // trusts the public key of the signer, then verifying the signature is
@@ -69,21 +62,12 @@ message Jwt {
 // verified) and intent (for which authority this attestation was intended to
 // sign.
 message AttestationOccurrence {
-  // Required. The serialized payload that is verified by one or more `signatures`.
+  // Required. The serialized payload that is verified by one or more
+  // `signatures`.
   bytes serialized_payload = 1;
   // One or more signatures over `serialized_payload`.  Verifier implementations
   // should consider this attestation message verified if at least one
   // `signature` verifies `serialized_payload`.  See `Signature` in common.proto
   // for more details on signature structure and verification.
   repeated Signature signatures = 2;
-  // One or more JWTs encoding a self-contained attestation.
-  // Each JWT encodes the payload that it verifies within the JWT itself. 
-  // Verifier implementation SHOULD ignore the `serialized_payload` field 
-  // when verifying these JWTs.
-  // If only JWTs are present on this AttestationOccurrence, then the
-  // `serialized_payload` SHOULD be left empty.
-  // Each JWT SHOULD encode a claim specific to the `resource_uri` of this
-  // Occurrence, but this is not validated by Grafeas metadata API
-  // implementations.  The JWT itself is opaque to Grafeas.
-  repeated Jwt jwts = 3;
 }

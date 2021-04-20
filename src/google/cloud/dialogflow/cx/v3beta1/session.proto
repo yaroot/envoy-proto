@@ -1,4 +1,4 @@
-// Copyright 2020 Google LLC
+// Copyright 2021 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -388,6 +388,24 @@ message QueryParameters {
   //     -   Else: parameter value
   google.protobuf.Struct parameters = 5;
 
+  // The unique identifier of the [page][google.cloud.dialogflow.cx.v3beta1.Page] to override the [current
+  // page][QueryResult.current_page] in the session. Format: `projects/<Project
+  // ID>/locations/<Location ID>/agents/<Agent ID>/pages/<page ID>`.
+  //
+  // If `current_page` is specified, the previous state of the session will be
+  // ignored by Dialogflow, including the [previous
+  // page][QueryResult.current_page] and the [previous session
+  // parameters][QueryResult.parameters].
+  // In most cases, [current_page][google.cloud.dialogflow.cx.v3beta1.QueryParameters.current_page] and
+  // [parameters][google.cloud.dialogflow.cx.v3beta1.QueryParameters.parameters] should be configured together to
+  // direct a session to a specific state.
+  string current_page = 6 [(google.api.resource_reference) = {
+                             type: "dialogflow.googleapis.com/Page"
+                           }];
+
+  // Whether to disable webhook calls for this request.
+  bool disable_webhook = 7;
+
   // Configures whether sentiment analysis should be performed. If not
   // provided, sentiment analysis is not performed.
   bool analyze_query_text_sentiment = 8;
@@ -433,9 +451,9 @@ message QueryInput {
   }
 
   // Required. The language of the input. See [Language
-  // Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
-  // list of the currently supported language codes. Note that queries in the
-  // same session do not necessarily need to specify the same language.
+  // Support](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+  // for a list of the currently supported language codes. Note that queries in
+  // the same session do not necessarily need to specify the same language.
   string language_code = 4 [(google.api.field_behavior) = REQUIRED];
 }
 
@@ -449,10 +467,14 @@ message QueryResult {
 
     // If an [intent][google.cloud.dialogflow.cx.v3beta1.IntentInput] was provided as input, this field will
     // contain a copy of the intent identifier.
-    string trigger_intent = 11;
+    // Format: `projects/<Project ID>/locations/<Location ID>/agents/<Agent
+    // ID>/intents/<Intent ID>`.
+    string trigger_intent = 11 [(google.api.resource_reference) = {
+                                  type: "dialogflow.googleapis.com/Intent"
+                                }];
 
     // If [natural language speech audio][google.cloud.dialogflow.cx.v3beta1.AudioInput] was provided as input,
-    // this field will contain the trascript for the audio.
+    // this field will contain the transcript for the audio.
     string transcript = 12;
 
     // If an [event][google.cloud.dialogflow.cx.v3beta1.EventInput] was provided as input, this field will contain
@@ -462,7 +484,7 @@ message QueryResult {
 
   // The language that was triggered during intent detection.
   // See [Language
-  // Support](https://cloud.google.com/dialogflow/docs/reference/language)
+  // Support](https://cloud.google.com/dialogflow/cx/docs/reference/language)
   // for a list of the currently supported language codes.
   string language_code = 2;
 
@@ -691,10 +713,14 @@ message MatchIntentResponse {
 
     // If an [intent][google.cloud.dialogflow.cx.v3beta1.IntentInput] was provided as input, this field will
     // contain a copy of the intent identifier.
-    string trigger_intent = 2;
+    // Format: `projects/<Project ID>/locations/<Location ID>/agents/<Agent
+    // ID>/intents/<Intent ID>`.
+    string trigger_intent = 2 [(google.api.resource_reference) = {
+                                 type: "dialogflow.googleapis.com/Intent"
+                               }];
 
     // If [natural language speech audio][google.cloud.dialogflow.cx.v3beta1.AudioInput] was provided as input,
-    // this field will contain the trascript for the audio.
+    // this field will contain the transcript for the audio.
     string transcript = 3;
 
     // If an [event][google.cloud.dialogflow.cx.v3beta1.EventInput] was provided as input, this field will
