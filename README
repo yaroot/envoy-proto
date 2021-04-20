@@ -3,9 +3,11 @@ In order to build envoy protobuf files you need files from these repos
 
 https://github.com/census-instrumentation/opencensus-proto
 https://github.com/cncf/udpa
+https://github.com/cncf/xds
 https://github.com/envoyproxy/envoy
 https://github.com/envoyproxy/protoc-gen-validate
 https://github.com/googleapis/googleapis
 https://github.com/grafeas/grafeas
 https://github.com/grpc-ecosystem/grpc-gateway
+https://github.com/open-telemetry/opentelemetry-proto
 https://github.com/prometheus/client_model

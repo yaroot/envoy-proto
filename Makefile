@@ -1,7 +1,7 @@
 
 ENVOY_PROTOS = $(shell find src/ -type f -name '*.proto')
 
-all: clean base gen-java gen-python gen-go dist-python
+all: clean base gen-java gen-python dist-python
 
 clean:
 	rm -rf gen
