@@ -16,13 +16,13 @@ syntax = "proto3";
 
 package grafeas.v1;
 
-import "google/protobuf/timestamp.proto";
-import "grafeas/v1/package.proto";
-
-option go_package = "google.golang.org/genproto/googleapis/grafeas/v1;grafeas";
+option go_package = "github.com/grafeas/grafeas/proto/v1/grafeas_go_proto";
 option java_multiple_files = true;
 option java_package = "io.grafeas.v1";
 option objc_class_prefix = "GRA";
+
+import "google/protobuf/timestamp.proto";
+import "proto/v1/package.proto";
 
 // An Upgrade Note represents a potential upgrade of a package to a given
 // version. For each package version combination (i.e. bash 4.0, bash 4.1,
@@ -49,8 +49,7 @@ message UpgradeDistribution {
   string cpe_uri = 1;
   // The operating system classification of this Upgrade, as specified by the
   // upstream operating system upgrade feed. For Windows the classification is
-  // one of the category_ids listed at
-  // https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ff357803(v=vs.85)
+  // one of the category_ids listed at https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ff357803(v=vs.85)
   string classification = 2;
   // The severity as specified by the upstream operating system.
   string severity = 3;
