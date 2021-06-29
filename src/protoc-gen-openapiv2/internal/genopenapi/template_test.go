@@ -210,7 +210,7 @@ func TestMessageToQueryParametersWithEnumAsInt(t *testing.T) {
 				MessageType:    test.MsgDescs,
 				Service:        []*descriptorpb.ServiceDescriptorProto{},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String(".;example"),
+					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -396,7 +396,7 @@ func TestMessageToQueryParameters(t *testing.T) {
 				MessageType:    test.MsgDescs,
 				Service:        []*descriptorpb.ServiceDescriptorProto{},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String(".;example"),
+					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -521,7 +521,7 @@ func TestMessageToQueryParametersNoRecursive(t *testing.T) {
 				MessageType:    test.MsgDescs,
 				Service:        []*descriptorpb.ServiceDescriptorProto{},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String(".;example"),
+					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -646,7 +646,7 @@ func TestMessageToQueryParametersRecursive(t *testing.T) {
 				MessageType:    test.MsgDescs,
 				Service:        []*descriptorpb.ServiceDescriptorProto{},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String(".;example"),
+					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -759,7 +759,7 @@ func TestMessageToQueryParametersWithJsonName(t *testing.T) {
 				MessageType:    test.MsgDescs,
 				Service:        []*descriptorpb.ServiceDescriptorProto{},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String(".;example"),
+					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -936,7 +936,7 @@ func TestApplyTemplateSimple(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String(".;example"),
+				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -1039,7 +1039,7 @@ func TestApplyTemplateMultiService(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String(".;example"),
+				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -1151,7 +1151,7 @@ func TestApplyTemplateOverrideOperationID(t *testing.T) {
 				MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 				Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String(".;example"),
+					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -1271,7 +1271,7 @@ func TestApplyTemplateExtensions(t *testing.T) {
 				MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 				Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String(".;example"),
+					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -1483,7 +1483,7 @@ func TestApplyTemplateHeaders(t *testing.T) {
 				MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 				Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 				Options: &descriptorpb.FileOptions{
-					GoPackage: proto.String(".;example"),
+					GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 				},
 			},
 			GoPkg: descriptor.GoPackage{
@@ -2092,7 +2092,7 @@ func TestApplyTemplateRequestWithoutClientStreaming(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{msgdesc, nesteddesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String(".;example"),
+				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -2258,7 +2258,7 @@ func TestApplyTemplateRequestWithClientStreaming(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{msgdesc, nesteddesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String(".;example"),
+				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -2425,7 +2425,7 @@ func TestApplyTemplateRequestWithUnusedReferences(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{reqdesc, respdesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String(".;example"),
+				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -2594,7 +2594,7 @@ func TestApplyTemplateRequestWithBodyQueryParameters(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{bookDesc, createDesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String(".;example"),
+				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -3497,6 +3497,22 @@ func TestSchemaOfField(t *testing.T) {
 				ReadOnly: true,
 			},
 		},
+		{
+			field: &descriptor.Field{
+				FieldDescriptorProto: &descriptorpb.FieldDescriptorProto{
+					Name:     proto.String("message_field"),
+					TypeName: proto.String(".example.Message"),
+					Type:     descriptorpb.FieldDescriptorProto_TYPE_MESSAGE.Enum(),
+					Options:  requiredFieldOptions,
+				},
+			},
+			refs: refMap{".example.Message": struct{}{}},
+			expected: openapiSchemaObject{
+				schemaCore: schemaCore{
+					Ref: "#/definitions/exampleMessage",
+				},
+			},
+		},
 	}
 	for _, test := range tests {
 		reg := descriptor.NewRegistry()
@@ -3535,7 +3551,7 @@ func TestSchemaOfField(t *testing.T) {
 					Package:        proto.String("example"),
 					Dependency:     []string{"third_party/google.proto"},
 					Options: &descriptorpb.FileOptions{
-						GoPackage: proto.String(".;example"),
+						GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 					},
 					MessageType: []*descriptorpb.DescriptorProto{
 						{
@@ -3647,6 +3663,7 @@ func TestRenderMessagesAsDefinition(t *testing.T) {
 		schema         map[string]openapi_options.Schema // per-message schema to add
 		defs           openapiDefinitionsObject
 		openAPIOptions *openapiconfig.OpenAPIOptions
+		excludedFields []*descriptor.Field
 	}{
 		{
 			descr: "no OpenAPI options",
@@ -3877,6 +3894,66 @@ func TestRenderMessagesAsDefinition(t *testing.T) {
 			},
 		},
 		{
+			descr: "JSONSchema with excluded fields",
+			msgDescs: []*descriptorpb.DescriptorProto{
+				{
+					Name: proto.String("Message"),
+					Field: []*descriptorpb.FieldDescriptorProto{
+						{
+							Name:    proto.String("aRequiredField"),
+							Type:    descriptorpb.FieldDescriptorProto_TYPE_STRING.Enum(),
+							Number:  proto.Int32(1),
+							Options: requiredField,
+						},
+						{
+							Name:   proto.String("anExcludedField"),
+							Type:   descriptorpb.FieldDescriptorProto_TYPE_STRING.Enum(),
+							Number: proto.Int32(2),
+						},
+					},
+				},
+			},
+			schema: map[string]openapi_options.Schema{
+				"Message": {
+					JsonSchema: &openapi_options.JSONSchema{
+						Title:       "title",
+						Description: "desc",
+						Required:    []string{"req"},
+					},
+				},
+			},
+			defs: map[string]openapiSchemaObject{
+				"Message": {
+					schemaCore: schemaCore{
+						Type: "object",
+					},
+					Title:       "title",
+					Description: "desc",
+					Required:    []string{"req", "aRequiredField"},
+					Properties: &openapiSchemaObjectProperties{
+						{
+							Key: "aRequiredField",
+							Value: openapiSchemaObject{
+								schemaCore: schemaCore{
+									Type: "string",
+								},
+								Description: "field description",
+								Title:       "field title",
+								Required:    []string{"aRequiredField"},
+							},
+						},
+					},
+				},
+			},
+			excludedFields: []*descriptor.Field{
+				{
+					FieldDescriptorProto: &descriptorpb.FieldDescriptorProto{
+						Name: strPtr("anExcludedField"),
+					},
+				},
+			},
+		},
+		{
 			descr: "JSONSchema with required properties via field_behavior",
 			msgDescs: []*descriptorpb.DescriptorProto{
 				{
@@ -3959,7 +4036,7 @@ func TestRenderMessagesAsDefinition(t *testing.T) {
 					EnumType:       []*descriptorpb.EnumDescriptorProto{},
 					Service:        []*descriptorpb.ServiceDescriptorProto{},
 					Options: &descriptorpb.FileOptions{
-						GoPackage: proto.String(".;example"),
+						GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 					},
 				},
 				Messages: msgs,
@@ -3993,13 +4070,17 @@ func TestRenderMessagesAsDefinition(t *testing.T) {
 
 			refs := make(refMap)
 			actual := make(openapiDefinitionsObject)
-			renderMessagesAsDefinition(msgMap, actual, reg, refs)
+			renderMessagesAsDefinition(msgMap, actual, reg, refs, test.excludedFields)
 
 			if !reflect.DeepEqual(actual, test.defs) {
 				t.Errorf("Expected renderMessagesAsDefinition() to add defs %+v, not %+v", test.defs, actual)
 			}
 		})
 	}
+}
+
+func strPtr(s string) *string {
+	return &s
 }
 
 func TestUpdateOpenAPIDataFromComments(t *testing.T) {
@@ -4296,7 +4377,7 @@ func TestMessageOptionsWithGoTemplate(t *testing.T) {
 					EnumType:       []*descriptorpb.EnumDescriptorProto{},
 					Service:        []*descriptorpb.ServiceDescriptorProto{},
 					Options: &descriptorpb.FileOptions{
-						GoPackage: proto.String(".;example"),
+						GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 					},
 				},
 				Messages: msgs,
@@ -4330,7 +4411,7 @@ func TestMessageOptionsWithGoTemplate(t *testing.T) {
 
 			refs := make(refMap)
 			actual := make(openapiDefinitionsObject)
-			renderMessagesAsDefinition(msgMap, actual, reg, refs)
+			renderMessagesAsDefinition(msgMap, actual, reg, refs, nil)
 
 			if !reflect.DeepEqual(actual, test.defs) {
 				t.Errorf("Expected renderMessagesAsDefinition() to add defs %+v, not %+v", test.defs, actual)
@@ -4366,7 +4447,7 @@ func TestTemplateWithoutErrorDefinition(t *testing.T) {
 			MessageType:    []*descriptorpb.DescriptorProto{msgdesc},
 			Service:        []*descriptorpb.ServiceDescriptorProto{svc},
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String(".;example"),
+				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 		GoPkg: descriptor.GoPackage{
@@ -4533,7 +4614,7 @@ func TestParseIncompleteSecurityRequirement(t *testing.T) {
 			Name:           proto.String("example.proto"),
 			Package:        proto.String("example"),
 			Options: &descriptorpb.FileOptions{
-				GoPackage: proto.String(".;example"),
+				GoPackage: proto.String("github.com/grpc-ecosystem/grpc-gateway/runtime/internal/examplepb;example"),
 			},
 		},
 	}
