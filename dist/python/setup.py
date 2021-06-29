@@ -6,7 +6,7 @@ here = path.abspath(path.dirname(__file__))
 
 setup(
     name='envoy-proto',
-    version='20210309.1',
+    version='20210629.1',
 
     # You can just specify package directories manually here if your project is
     # simple. Or you can use find_packages().
