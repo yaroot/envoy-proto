@@ -16,6 +16,7 @@ from envoy.config.core.v4alpha import extension_pb2 as envoy_dot_config_dot_core
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from udpa.annotations import versioning_pb2 as udpa_dot_annotations_dot_versioning__pb2
+from validate import validate_pb2 as validate_dot_validate__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -24,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n>io.envoyproxy.envoy.extensions.filters.http.compressor.v4alphaB\017CompressorProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nAenvoy/extensions/filters/http/compressor/v4alpha/compressor.proto\x12\x30\x65nvoy.extensions.filters.http.compressor.v4alpha\x1a$envoy/config/core/v4alpha/base.proto\x1a)envoy/config/core/v4alpha/extension.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"\x8c\n\n\nCompressor\x12K\n\x12\x63ompressor_library\x18\x06 \x01(\x0b\x32/.envoy.config.core.v4alpha.TypedExtensionConfig\x12u\n\x18request_direction_config\x18\x07 \x01(\x0b\x32S.envoy.extensions.filters.http.compressor.v4alpha.Compressor.RequestDirectionConfig\x12w\n\x19response_direction_config\x18\x08 \x01(\x0b\x32T.envoy.extensions.filters.http.compressor.v4alpha.Compressor.ResponseDirectionConfig\x1a\xfc\x01\n\x15\x43ommonDirectionConfig\x12>\n\x07\x65nabled\x18\x01 \x01(\x0b\x32-.envoy.config.core.v4alpha.RuntimeFeatureFlag\x12\x38\n\x12min_content_length\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x14\n\x0c\x63ontent_type\x18\x03 \x03(\t:S\x9a\xc5\x88\x1eN\nLenvoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig\x1a\xd9\x01\n\x16RequestDirectionConfig\x12i\n\rcommon_config\x18\x01 \x01(\x0b\x32R.envoy.extensions.filters.http.compressor.v4alpha.Compressor.CommonDirectionConfig:T\x9a\xc5\x88\x1eO\nMenvoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig\x1a\xa2\x02\n\x17ResponseDirectionConfig\x12i\n\rcommon_config\x18\x01 \x01(\x0b\x32R.envoy.extensions.filters.http.compressor.v4alpha.Compressor.CommonDirectionConfig\x12\x1e\n\x16\x64isable_on_etag_header\x18\x02 \x01(\x08\x12%\n\x1dremove_accept_encoding_header\x18\x03 \x01(\x08:U\x9a\xc5\x88\x1eP\nNenvoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig:=\x9a\xc5\x88\x1e\x38\n6envoy.extensions.filters.http.compressor.v3.CompressorJ\x04\x08\x01\x10\x02J\x04\x08\x02\x10\x03J\x04\x08\x03\x10\x04J\x04\x08\x04\x10\x05J\x04\x08\x05\x10\x06R\x0e\x63ontent_lengthR\x0c\x63ontent_typeR\x16\x64isable_on_etag_headerR\x1dremove_accept_encoding_headerR\x0fruntime_enabledB[\n>io.envoyproxy.envoy.extensions.filters.http.compressor.v4alphaB\x0f\x43ompressorProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\nAenvoy/extensions/filters/http/compressor/v4alpha/compressor.proto\x12\x30\x65nvoy.extensions.filters.http.compressor.v4alpha\x1a$envoy/config/core/v4alpha/base.proto\x1a)envoy/config/core/v4alpha/extension.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x96\n\n\nCompressor\x12U\n\x12\x63ompressor_library\x18\x06 \x01(\x0b\x32/.envoy.config.core.v4alpha.TypedExtensionConfigB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12u\n\x18request_direction_config\x18\x07 \x01(\x0b\x32S.envoy.extensions.filters.http.compressor.v4alpha.Compressor.RequestDirectionConfig\x12w\n\x19response_direction_config\x18\x08 \x01(\x0b\x32T.envoy.extensions.filters.http.compressor.v4alpha.Compressor.ResponseDirectionConfig\x1a\xfc\x01\n\x15\x43ommonDirectionConfig\x12>\n\x07\x65nabled\x18\x01 \x01(\x0b\x32-.envoy.config.core.v4alpha.RuntimeFeatureFlag\x12\x38\n\x12min_content_length\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x14\n\x0c\x63ontent_type\x18\x03 \x03(\t:S\x9a\xc5\x88\x1eN\nLenvoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig\x1a\xd9\x01\n\x16RequestDirectionConfig\x12i\n\rcommon_config\x18\x01 \x01(\x0b\x32R.envoy.extensions.filters.http.compressor.v4alpha.Compressor.CommonDirectionConfig:T\x9a\xc5\x88\x1eO\nMenvoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig\x1a\xa2\x02\n\x17ResponseDirectionConfig\x12i\n\rcommon_config\x18\x01 \x01(\x0b\x32R.envoy.extensions.filters.http.compressor.v4alpha.Compressor.CommonDirectionConfig\x12\x1e\n\x16\x64isable_on_etag_header\x18\x02 \x01(\x08\x12%\n\x1dremove_accept_encoding_header\x18\x03 \x01(\x08:U\x9a\xc5\x88\x1eP\nNenvoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig:=\x9a\xc5\x88\x1e\x38\n6envoy.extensions.filters.http.compressor.v3.CompressorJ\x04\x08\x01\x10\x02J\x04\x08\x02\x10\x03J\x04\x08\x03\x10\x04J\x04\x08\x04\x10\x05J\x04\x08\x05\x10\x06R\x0e\x63ontent_lengthR\x0c\x63ontent_typeR\x16\x64isable_on_etag_headerR\x1dremove_accept_encoding_headerR\x0fruntime_enabledB[\n>io.envoyproxy.envoy.extensions.filters.http.compressor.v4alphaB\x0f\x43ompressorProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_extension__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_extension__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -72,8 +73,8 @@ _COMPRESSOR_COMMONDIRECTIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=631,
-  serialized_end=883,
+  serialized_start=666,
+  serialized_end=918,
 )
 
 _COMPRESSOR_REQUESTDIRECTIONCONFIG = _descriptor.Descriptor(
@@ -103,8 +104,8 @@ _COMPRESSOR_REQUESTDIRECTIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=886,
-  serialized_end=1103,
+  serialized_start=921,
+  serialized_end=1138,
 )
 
 _COMPRESSOR_RESPONSEDIRECTIONCONFIG = _descriptor.Descriptor(
@@ -148,8 +149,8 @@ _COMPRESSOR_RESPONSEDIRECTIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1106,
-  serialized_end=1396,
+  serialized_start=1141,
+  serialized_end=1431,
 )
 
 _COMPRESSOR = _descriptor.Descriptor(
@@ -166,7 +167,7 @@ _COMPRESSOR = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\005\212\001\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='request_direction_config', full_name='envoy.extensions.filters.http.compressor.v4alpha.Compressor.request_direction_config', index=1,
       number=7, type=11, cpp_type=10, label=1,
@@ -193,8 +194,8 @@ _COMPRESSOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=299,
-  serialized_end=1591,
+  serialized_start=324,
+  serialized_end=1626,
 )
 
 _COMPRESSOR_COMMONDIRECTIONCONFIG.fields_by_name['enabled'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2._RUNTIMEFEATUREFLAG
@@ -246,5 +247,6 @@ DESCRIPTOR._options = None
 _COMPRESSOR_COMMONDIRECTIONCONFIG._options = None
 _COMPRESSOR_REQUESTDIRECTIONCONFIG._options = None
 _COMPRESSOR_RESPONSEDIRECTIONCONFIG._options = None
+_COMPRESSOR.fields_by_name['compressor_library']._options = None
 _COMPRESSOR._options = None
 # @@protoc_insertion_point(module_scope)

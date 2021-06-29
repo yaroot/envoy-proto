@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
@@ -22,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n)com.google.cloud.servicedirectory.v1beta1B\016NamespaceProtoP\001ZUgoogle.golang.org/genproto/googleapis/cloud/servicedirectory/v1beta1;servicedirectory\370\001\001\252\002%Google.Cloud.ServiceDirectory.V1Beta1\312\002%Google\\Cloud\\ServiceDirectory\\V1beta1\352\002(Google::Cloud::ServiceDirectory::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n5google/cloud/servicedirectory/v1beta1/namespace.proto\x12%google.cloud.servicedirectory.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\x90\x02\n\tNamespace\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12Q\n\x06labels\x18\x02 \x03(\x0b\x32<.google.cloud.servicedirectory.v1beta1.Namespace.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:n\xea\x41k\n)servicedirectory.googleapis.com/Namespace\x12>projects/{project}/locations/{location}/namespaces/{namespace}B\x92\x02\n)com.google.cloud.servicedirectory.v1beta1B\x0eNamespaceProtoP\x01ZUgoogle.golang.org/genproto/googleapis/cloud/servicedirectory/v1beta1;servicedirectory\xf8\x01\x01\xaa\x02%Google.Cloud.ServiceDirectory.V1Beta1\xca\x02%Google\\Cloud\\ServiceDirectory\\V1beta1\xea\x02(Google::Cloud::ServiceDirectory::V1beta1b\x06proto3'
+  serialized_pb=b'\n5google/cloud/servicedirectory/v1beta1/namespace.proto\x12%google.cloud.servicedirectory.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xfc\x02\n\tNamespace\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12Q\n\x06labels\x18\x02 \x03(\x0b\x32<.google.cloud.servicedirectory.v1beta1.Namespace.LabelsEntryB\x03\xe0\x41\x01\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:n\xea\x41k\n)servicedirectory.googleapis.com/Namespace\x12>projects/{project}/locations/{location}/namespaces/{namespace}B\x92\x02\n)com.google.cloud.servicedirectory.v1beta1B\x0eNamespaceProtoP\x01ZUgoogle.golang.org/genproto/googleapis/cloud/servicedirectory/v1beta1;servicedirectory\xf8\x01\x01\xaa\x02%Google.Cloud.ServiceDirectory.V1Beta1\xca\x02%Google\\Cloud\\ServiceDirectory\\V1beta1\xea\x02(Google::Cloud::ServiceDirectory::V1beta1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -63,8 +64,8 @@ _NAMESPACE_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=302,
-  serialized_end=347,
+  serialized_start=443,
+  serialized_end=488,
 )
 
 _NAMESPACE = _descriptor.Descriptor(
@@ -89,6 +90,20 @@ _NAMESPACE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='create_time', full_name='google.cloud.servicedirectory.v1beta1.Namespace.create_time', index=2,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_time', full_name='google.cloud.servicedirectory.v1beta1.Namespace.update_time', index=3,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -101,12 +116,14 @@ _NAMESPACE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=187,
-  serialized_end=459,
+  serialized_start=220,
+  serialized_end=600,
 )
 
 _NAMESPACE_LABELSENTRY.containing_type = _NAMESPACE
 _NAMESPACE.fields_by_name['labels'].message_type = _NAMESPACE_LABELSENTRY
+_NAMESPACE.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_NAMESPACE.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 DESCRIPTOR.message_types_by_name['Namespace'] = _NAMESPACE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -130,5 +147,7 @@ DESCRIPTOR._options = None
 _NAMESPACE_LABELSENTRY._options = None
 _NAMESPACE.fields_by_name['name']._options = None
 _NAMESPACE.fields_by_name['labels']._options = None
+_NAMESPACE.fields_by_name['create_time']._options = None
+_NAMESPACE.fields_by_name['update_time']._options = None
 _NAMESPACE._options = None
 # @@protoc_insertion_point(module_scope)

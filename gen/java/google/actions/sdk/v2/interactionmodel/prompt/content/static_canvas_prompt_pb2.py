@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n1com.google.actions.sdk.v2.interactionmodel.promptB\027StaticCanvasPromptProtoP\001ZSgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/prompt;prompt',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nPgoogle/actions/sdk/v2/interactionmodel/prompt/content/static_canvas_prompt.proto\x12-google.actions.sdk.v2.interactionmodel.prompt\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x98\x01\n\x12StaticCanvasPrompt\x12\x10\n\x03url\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12)\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x16.google.protobuf.ValueB\x03\xe0\x41\x01\x12\x19\n\x0csuppress_mic\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\x12*\n\x1dsend_state_data_to_canvas_app\x18\x05 \x01(\x08\x42\x03\xe0\x41\x01\x42\xa3\x01\n1com.google.actions.sdk.v2.interactionmodel.promptB\x17StaticCanvasPromptProtoP\x01ZSgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/prompt;promptb\x06proto3'
+  serialized_pb=b'\nPgoogle/actions/sdk/v2/interactionmodel/prompt/content/static_canvas_prompt.proto\x12-google.actions.sdk.v2.interactionmodel.prompt\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xb9\x01\n\x12StaticCanvasPrompt\x12\x10\n\x03url\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12)\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x16.google.protobuf.ValueB\x03\xe0\x41\x01\x12\x19\n\x0csuppress_mic\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\x12*\n\x1dsend_state_data_to_canvas_app\x18\x05 \x01(\x08\x42\x03\xe0\x41\x01\x12\x1f\n\x12\x65nable_full_screen\x18\x06 \x01(\x08\x42\x03\xe0\x41\x01\x42\xa3\x01\n1com.google.actions.sdk.v2.interactionmodel.promptB\x17StaticCanvasPromptProtoP\x01ZSgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/prompt;promptb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -65,6 +65,13 @@ _STATICCANVASPROMPT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='enable_full_screen', full_name='google.actions.sdk.v2.interactionmodel.prompt.StaticCanvasPrompt.enable_full_screen', index=4,
+      number=6, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -78,7 +85,7 @@ _STATICCANVASPROMPT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=227,
-  serialized_end=379,
+  serialized_end=412,
 )
 
 _STATICCANVASPROMPT.fields_by_name['data'].message_type = google_dot_protobuf_dot_struct__pb2._VALUE
@@ -98,4 +105,5 @@ _STATICCANVASPROMPT.fields_by_name['url']._options = None
 _STATICCANVASPROMPT.fields_by_name['data']._options = None
 _STATICCANVASPROMPT.fields_by_name['suppress_mic']._options = None
 _STATICCANVASPROMPT.fields_by_name['send_state_data_to_canvas_app']._options = None
+_STATICCANVASPROMPT.fields_by_name['enable_full_screen']._options = None
 # @@protoc_insertion_point(module_scope)

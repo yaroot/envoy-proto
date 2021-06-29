@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\026com.google.cloud.auditB\rAuditLogProtoP\001Z7google.golang.org/genproto/googleapis/cloud/audit;audit\370\001\001',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\"google/cloud/audit/audit_log.proto\x12\x12google.cloud.audit\x1a\x19google/protobuf/any.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a*google/rpc/context/attribute_context.proto\x1a\x17google/rpc/status.proto\"\xfa\x04\n\x08\x41uditLog\x12\x14\n\x0cservice_name\x18\x07 \x01(\t\x12\x13\n\x0bmethod_name\x18\x08 \x01(\t\x12\x15\n\rresource_name\x18\x0b \x01(\t\x12?\n\x11resource_location\x18\x14 \x01(\x0b\x32$.google.cloud.audit.ResourceLocation\x12\x38\n\x17resource_original_state\x18\x13 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x1a\n\x12num_response_items\x18\x0c \x01(\x03\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\x12\x43\n\x13\x61uthentication_info\x18\x03 \x01(\x0b\x32&.google.cloud.audit.AuthenticationInfo\x12\x41\n\x12\x61uthorization_info\x18\t \x03(\x0b\x32%.google.cloud.audit.AuthorizationInfo\x12=\n\x10request_metadata\x18\x04 \x01(\x0b\x32#.google.cloud.audit.RequestMetadata\x12(\n\x07request\x18\x10 \x01(\x0b\x32\x17.google.protobuf.Struct\x12)\n\x08response\x18\x11 \x01(\x0b\x32\x17.google.protobuf.Struct\x12)\n\x08metadata\x18\x12 \x01(\x0b\x32\x17.google.protobuf.Struct\x12*\n\x0cservice_data\x18\x0f \x01(\x0b\x32\x14.google.protobuf.Any\"\x99\x02\n\x12\x41uthenticationInfo\x12\x17\n\x0fprincipal_email\x18\x01 \x01(\t\x12\x1a\n\x12\x61uthority_selector\x18\x02 \x01(\t\x12\x36\n\x15third_party_principal\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x12 \n\x18service_account_key_name\x18\x05 \x01(\t\x12Y\n\x1fservice_account_delegation_info\x18\x06 \x03(\x0b\x32\x30.google.cloud.audit.ServiceAccountDelegationInfo\x12\x19\n\x11principal_subject\x18\x08 \x01(\t\"\x96\x01\n\x11\x41uthorizationInfo\x12\x10\n\x08resource\x18\x01 \x01(\t\x12\x12\n\npermission\x18\x02 \x01(\t\x12\x0f\n\x07granted\x18\x03 \x01(\x08\x12J\n\x13resource_attributes\x18\x05 \x01(\x0b\x32-.google.rpc.context.AttributeContext.Resource\"\xf5\x01\n\x0fRequestMetadata\x12\x11\n\tcaller_ip\x18\x01 \x01(\t\x12\"\n\x1a\x63\x61ller_supplied_user_agent\x18\x02 \x01(\t\x12\x16\n\x0e\x63\x61ller_network\x18\x03 \x01(\t\x12H\n\x12request_attributes\x18\x07 \x01(\x0b\x32,.google.rpc.context.AttributeContext.Request\x12I\n\x16\x64\x65stination_attributes\x18\x08 \x01(\x0b\x32).google.rpc.context.AttributeContext.Peer\"I\n\x10ResourceLocation\x12\x19\n\x11\x63urrent_locations\x18\x01 \x03(\t\x12\x1a\n\x12original_locations\x18\x02 \x03(\t\"\xa8\x03\n\x1cServiceAccountDelegationInfo\x12\x65\n\x15\x66irst_party_principal\x18\x01 \x01(\x0b\x32\x44.google.cloud.audit.ServiceAccountDelegationInfo.FirstPartyPrincipalH\x00\x12\x65\n\x15third_party_principal\x18\x02 \x01(\x0b\x32\x44.google.cloud.audit.ServiceAccountDelegationInfo.ThirdPartyPrincipalH\x00\x1a\x61\n\x13\x46irstPartyPrincipal\x12\x17\n\x0fprincipal_email\x18\x01 \x01(\t\x12\x31\n\x10service_metadata\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x1aJ\n\x13ThirdPartyPrincipal\x12\x33\n\x12third_party_claims\x18\x01 \x01(\x0b\x32\x17.google.protobuf.StructB\x0b\n\tAuthorityBe\n\x16\x63om.google.cloud.auditB\rAuditLogProtoP\x01Z7google.golang.org/genproto/googleapis/cloud/audit;audit\xf8\x01\x01\x62\x06proto3'
+  serialized_pb=b'\n\"google/cloud/audit/audit_log.proto\x12\x12google.cloud.audit\x1a\x19google/protobuf/any.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a*google/rpc/context/attribute_context.proto\x1a\x17google/rpc/status.proto\"\xfe\x04\n\x08\x41uditLog\x12\x14\n\x0cservice_name\x18\x07 \x01(\t\x12\x13\n\x0bmethod_name\x18\x08 \x01(\t\x12\x15\n\rresource_name\x18\x0b \x01(\t\x12?\n\x11resource_location\x18\x14 \x01(\x0b\x32$.google.cloud.audit.ResourceLocation\x12\x38\n\x17resource_original_state\x18\x13 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x1a\n\x12num_response_items\x18\x0c \x01(\x03\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\x12\x43\n\x13\x61uthentication_info\x18\x03 \x01(\x0b\x32&.google.cloud.audit.AuthenticationInfo\x12\x41\n\x12\x61uthorization_info\x18\t \x03(\x0b\x32%.google.cloud.audit.AuthorizationInfo\x12=\n\x10request_metadata\x18\x04 \x01(\x0b\x32#.google.cloud.audit.RequestMetadata\x12(\n\x07request\x18\x10 \x01(\x0b\x32\x17.google.protobuf.Struct\x12)\n\x08response\x18\x11 \x01(\x0b\x32\x17.google.protobuf.Struct\x12)\n\x08metadata\x18\x12 \x01(\x0b\x32\x17.google.protobuf.Struct\x12.\n\x0cservice_data\x18\x0f \x01(\x0b\x32\x14.google.protobuf.AnyB\x02\x18\x01\"\x99\x02\n\x12\x41uthenticationInfo\x12\x17\n\x0fprincipal_email\x18\x01 \x01(\t\x12\x1a\n\x12\x61uthority_selector\x18\x02 \x01(\t\x12\x36\n\x15third_party_principal\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x12 \n\x18service_account_key_name\x18\x05 \x01(\t\x12Y\n\x1fservice_account_delegation_info\x18\x06 \x03(\x0b\x32\x30.google.cloud.audit.ServiceAccountDelegationInfo\x12\x19\n\x11principal_subject\x18\x08 \x01(\t\"\x96\x01\n\x11\x41uthorizationInfo\x12\x10\n\x08resource\x18\x01 \x01(\t\x12\x12\n\npermission\x18\x02 \x01(\t\x12\x0f\n\x07granted\x18\x03 \x01(\x08\x12J\n\x13resource_attributes\x18\x05 \x01(\x0b\x32-.google.rpc.context.AttributeContext.Resource\"\xf5\x01\n\x0fRequestMetadata\x12\x11\n\tcaller_ip\x18\x01 \x01(\t\x12\"\n\x1a\x63\x61ller_supplied_user_agent\x18\x02 \x01(\t\x12\x16\n\x0e\x63\x61ller_network\x18\x03 \x01(\t\x12H\n\x12request_attributes\x18\x07 \x01(\x0b\x32,.google.rpc.context.AttributeContext.Request\x12I\n\x16\x64\x65stination_attributes\x18\x08 \x01(\x0b\x32).google.rpc.context.AttributeContext.Peer\"I\n\x10ResourceLocation\x12\x19\n\x11\x63urrent_locations\x18\x01 \x03(\t\x12\x1a\n\x12original_locations\x18\x02 \x03(\t\"\xc3\x03\n\x1cServiceAccountDelegationInfo\x12\x19\n\x11principal_subject\x18\x03 \x01(\t\x12\x65\n\x15\x66irst_party_principal\x18\x01 \x01(\x0b\x32\x44.google.cloud.audit.ServiceAccountDelegationInfo.FirstPartyPrincipalH\x00\x12\x65\n\x15third_party_principal\x18\x02 \x01(\x0b\x32\x44.google.cloud.audit.ServiceAccountDelegationInfo.ThirdPartyPrincipalH\x00\x1a\x61\n\x13\x46irstPartyPrincipal\x12\x17\n\x0fprincipal_email\x18\x01 \x01(\t\x12\x31\n\x10service_metadata\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x1aJ\n\x13ThirdPartyPrincipal\x12\x33\n\x12third_party_claims\x18\x01 \x01(\x0b\x32\x17.google.protobuf.StructB\x0b\n\tAuthorityBe\n\x16\x63om.google.cloud.auditB\rAuditLogProtoP\x01Z7google.golang.org/genproto/googleapis/cloud/audit;audit\xf8\x01\x01\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_rpc_dot_context_dot_attribute__context__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
@@ -135,7 +135,7 @@ _AUDITLOG = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -149,7 +149,7 @@ _AUDITLOG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=185,
-  serialized_end=819,
+  serialized_end=823,
 )
 
 
@@ -215,8 +215,8 @@ _AUTHENTICATIONINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=822,
-  serialized_end=1103,
+  serialized_start=826,
+  serialized_end=1107,
 )
 
 
@@ -268,8 +268,8 @@ _AUTHORIZATIONINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1106,
-  serialized_end=1256,
+  serialized_start=1110,
+  serialized_end=1260,
 )
 
 
@@ -328,8 +328,8 @@ _REQUESTMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1259,
-  serialized_end=1504,
+  serialized_start=1263,
+  serialized_end=1508,
 )
 
 
@@ -367,8 +367,8 @@ _RESOURCELOCATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1506,
-  serialized_end=1579,
+  serialized_start=1510,
+  serialized_end=1583,
 )
 
 
@@ -406,8 +406,8 @@ _SERVICEACCOUNTDELEGATIONINFO_FIRSTPARTYPRINCIPAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1820,
-  serialized_end=1917,
+  serialized_start=1851,
+  serialized_end=1948,
 )
 
 _SERVICEACCOUNTDELEGATIONINFO_THIRDPARTYPRINCIPAL = _descriptor.Descriptor(
@@ -437,8 +437,8 @@ _SERVICEACCOUNTDELEGATIONINFO_THIRDPARTYPRINCIPAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1919,
-  serialized_end=1993,
+  serialized_start=1950,
+  serialized_end=2024,
 )
 
 _SERVICEACCOUNTDELEGATIONINFO = _descriptor.Descriptor(
@@ -450,14 +450,21 @@ _SERVICEACCOUNTDELEGATIONINFO = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='first_party_principal', full_name='google.cloud.audit.ServiceAccountDelegationInfo.first_party_principal', index=0,
+      name='principal_subject', full_name='google.cloud.audit.ServiceAccountDelegationInfo.principal_subject', index=0,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='first_party_principal', full_name='google.cloud.audit.ServiceAccountDelegationInfo.first_party_principal', index=1,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='third_party_principal', full_name='google.cloud.audit.ServiceAccountDelegationInfo.third_party_principal', index=1,
+      name='third_party_principal', full_name='google.cloud.audit.ServiceAccountDelegationInfo.third_party_principal', index=2,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -480,8 +487,8 @@ _SERVICEACCOUNTDELEGATIONINFO = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1582,
-  serialized_end=2006,
+  serialized_start=1586,
+  serialized_end=2037,
 )
 
 _AUDITLOG.fields_by_name['resource_location'].message_type = _RESOURCELOCATION
@@ -579,4 +586,5 @@ _sym_db.RegisterMessage(ServiceAccountDelegationInfo.ThirdPartyPrincipal)
 
 
 DESCRIPTOR._options = None
+_AUDITLOG.fields_by_name['service_data']._options = None
 # @@protoc_insertion_point(module_scope)

@@ -21,6 +21,7 @@ from google.longrunning import operations_pb2 as google_dot_longrunning_dot_oper
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
+from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.type import expr_pb2 as google_dot_type_dot_expr__pb2
 
@@ -31,9 +32,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\031com.google.cloud.asset.v1B\021AssetServiceProtoP\001Z:google.golang.org/genproto/googleapis/cloud/asset/v1;asset\252\002\025Google.Cloud.Asset.V1\312\002\025Google\\Cloud\\Asset\\V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)google/cloud/asset/v1/asset_service.proto\x12\x15google.cloud.asset.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\"google/cloud/asset/v1/assets.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x16google/type/expr.proto\"\x8d\x02\n\x13\x45xportAssetsRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1f\x63loudasset.googleapis.com/Asset\x12-\n\tread_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x13\n\x0b\x61sset_types\x18\x03 \x03(\t\x12\x38\n\x0c\x63ontent_type\x18\x04 \x01(\x0e\x32\".google.cloud.asset.v1.ContentType\x12?\n\routput_config\x18\x05 \x01(\x0b\x32#.google.cloud.asset.v1.OutputConfigB\x03\xe0\x41\x02\"\xbd\x01\n\x14\x45xportAssetsResponse\x12-\n\tread_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12:\n\routput_config\x18\x02 \x01(\x0b\x32#.google.cloud.asset.v1.OutputConfig\x12:\n\routput_result\x18\x03 \x01(\x0b\x32#.google.cloud.asset.v1.OutputResult\"\xed\x01\n\x1c\x42\x61tchGetAssetsHistoryRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1f\x63loudasset.googleapis.com/Asset\x12\x13\n\x0b\x61sset_names\x18\x02 \x03(\t\x12=\n\x0c\x63ontent_type\x18\x03 \x01(\x0e\x32\".google.cloud.asset.v1.ContentTypeB\x03\xe0\x41\x01\x12@\n\x10read_time_window\x18\x04 \x01(\x0b\x32!.google.cloud.asset.v1.TimeWindowB\x03\xe0\x41\x01\"U\n\x1d\x42\x61tchGetAssetsHistoryResponse\x12\x34\n\x06\x61ssets\x18\x01 \x03(\x0b\x32$.google.cloud.asset.v1.TemporalAsset\"n\n\x11\x43reateFeedRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07\x66\x65\x65\x64_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12.\n\x04\x66\x65\x65\x64\x18\x03 \x01(\x0b\x32\x1b.google.cloud.asset.v1.FeedB\x03\xe0\x41\x02\"F\n\x0eGetFeedRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x63loudasset.googleapis.com/Feed\"\'\n\x10ListFeedsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\"?\n\x11ListFeedsResponse\x12*\n\x05\x66\x65\x65\x64s\x18\x01 \x03(\x0b\x32\x1b.google.cloud.asset.v1.Feed\"y\n\x11UpdateFeedRequest\x12.\n\x04\x66\x65\x65\x64\x18\x01 \x01(\x0b\x32\x1b.google.cloud.asset.v1.FeedB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"I\n\x11\x44\x65leteFeedRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x63loudasset.googleapis.com/Feed\"\xab\x01\n\x0cOutputConfig\x12@\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32%.google.cloud.asset.v1.GcsDestinationH\x00\x12J\n\x14\x62igquery_destination\x18\x02 \x01(\x0b\x32*.google.cloud.asset.v1.BigQueryDestinationH\x00\x42\r\n\x0b\x64\x65stination\"V\n\x0cOutputResult\x12<\n\ngcs_result\x18\x01 \x01(\x0b\x32&.google.cloud.asset.v1.GcsOutputResultH\x00\x42\x08\n\x06result\"\x1f\n\x0fGcsOutputResult\x12\x0c\n\x04uris\x18\x01 \x03(\t\"C\n\x0eGcsDestination\x12\r\n\x03uri\x18\x01 \x01(\tH\x00\x12\x14\n\nuri_prefix\x18\x02 \x01(\tH\x00\x42\x0c\n\nobject_uri\"\xb4\x01\n\x13\x42igQueryDestination\x12\x14\n\x07\x64\x61taset\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05table\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12<\n\x0epartition_spec\x18\x04 \x01(\x0b\x32$.google.cloud.asset.v1.PartitionSpec\x12&\n\x1eseparate_tables_per_asset_type\x18\x05 \x01(\x08\"\xa9\x01\n\rPartitionSpec\x12H\n\rpartition_key\x18\x01 \x01(\x0e\x32\x31.google.cloud.asset.v1.PartitionSpec.PartitionKey\"N\n\x0cPartitionKey\x12\x1d\n\x19PARTITION_KEY_UNSPECIFIED\x10\x00\x12\r\n\tREAD_TIME\x10\x01\x12\x10\n\x0cREQUEST_TIME\x10\x02\"\"\n\x11PubsubDestination\x12\r\n\x05topic\x18\x01 \x01(\t\"i\n\x10\x46\x65\x65\x64OutputConfig\x12\x46\n\x12pubsub_destination\x18\x01 \x01(\x0b\x32(.google.cloud.asset.v1.PubsubDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\x81\x03\n\x04\x46\x65\x65\x64\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x61sset_names\x18\x02 \x03(\t\x12\x13\n\x0b\x61sset_types\x18\x03 \x03(\t\x12\x38\n\x0c\x63ontent_type\x18\x04 \x01(\x0e\x32\".google.cloud.asset.v1.ContentType\x12H\n\x12\x66\x65\x65\x64_output_config\x18\x05 \x01(\x0b\x32\'.google.cloud.asset.v1.FeedOutputConfigB\x03\xe0\x41\x02\x12$\n\tcondition\x18\x06 \x01(\x0b\x32\x11.google.type.Expr:\x91\x01\xea\x41\x8d\x01\n\x1e\x63loudasset.googleapis.com/Feed\x12\x1fprojects/{project}/feeds/{feed}\x12\x1d\x66olders/{folder}/feeds/{feed}\x12)organizations/{organization}/feeds/{feed} \x01\"\xa5\x01\n\x19SearchAllResourcesRequest\x12\x12\n\x05scope\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05query\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x18\n\x0b\x61sset_types\x18\x03 \x03(\tB\x03\xe0\x41\x01\x12\x16\n\tpage_size\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x06 \x01(\tB\x03\xe0\x41\x01\"s\n\x1aSearchAllResourcesResponse\x12<\n\x07results\x18\x01 \x03(\x0b\x32+.google.cloud.asset.v1.ResourceSearchResult\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"v\n\x1bSearchAllIamPoliciesRequest\x12\x12\n\x05scope\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05query\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x16\n\tpage_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x04 \x01(\tB\x03\xe0\x41\x01\"v\n\x1cSearchAllIamPoliciesResponse\x12=\n\x07results\x18\x01 \x03(\x0b\x32,.google.cloud.asset.v1.IamPolicySearchResult\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x90\x06\n\x16IamPolicyAnalysisQuery\x12\x12\n\x05scope\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12^\n\x11resource_selector\x18\x02 \x01(\x0b\x32>.google.cloud.asset.v1.IamPolicyAnalysisQuery.ResourceSelectorB\x03\xe0\x41\x01\x12^\n\x11identity_selector\x18\x03 \x01(\x0b\x32>.google.cloud.asset.v1.IamPolicyAnalysisQuery.IdentitySelectorB\x03\xe0\x41\x01\x12Z\n\x0f\x61\x63\x63\x65ss_selector\x18\x04 \x01(\x0b\x32<.google.cloud.asset.v1.IamPolicyAnalysisQuery.AccessSelectorB\x03\xe0\x41\x01\x12K\n\x07options\x18\x05 \x01(\x0b\x32\x35.google.cloud.asset.v1.IamPolicyAnalysisQuery.OptionsB\x03\xe0\x41\x01\x1a\x33\n\x10ResourceSelector\x12\x1f\n\x12\x66ull_resource_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a)\n\x10IdentitySelector\x12\x15\n\x08identity\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a>\n\x0e\x41\x63\x63\x65ssSelector\x12\x12\n\x05roles\x18\x01 \x03(\tB\x03\xe0\x41\x01\x12\x18\n\x0bpermissions\x18\x02 \x03(\tB\x03\xe0\x41\x01\x1a\xd8\x01\n\x07Options\x12\x1a\n\rexpand_groups\x18\x01 \x01(\x08\x42\x03\xe0\x41\x01\x12\x19\n\x0c\x65xpand_roles\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\x12\x1d\n\x10\x65xpand_resources\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\x12\"\n\x15output_resource_edges\x18\x04 \x01(\x08\x42\x03\xe0\x41\x01\x12\x1f\n\x12output_group_edges\x18\x05 \x01(\x08\x42\x03\xe0\x41\x01\x12\x32\n%analyze_service_account_impersonation\x18\x06 \x01(\x08\x42\x03\xe0\x41\x01\"\xa0\x01\n\x17\x41nalyzeIamPolicyRequest\x12J\n\x0e\x61nalysis_query\x18\x01 \x01(\x0b\x32-.google.cloud.asset.v1.IamPolicyAnalysisQueryB\x03\xe0\x41\x02\x12\x39\n\x11\x65xecution_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x01\"\x8a\x04\n\x18\x41nalyzeIamPolicyResponse\x12X\n\rmain_analysis\x18\x01 \x01(\x0b\x32\x41.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis\x12q\n&service_account_impersonation_analysis\x18\x02 \x03(\x0b\x32\x41.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis\x12\x16\n\x0e\x66ully_explored\x18\x03 \x01(\x08\x1a\x88\x02\n\x11IamPolicyAnalysis\x12\x45\n\x0e\x61nalysis_query\x18\x01 \x01(\x0b\x32-.google.cloud.asset.v1.IamPolicyAnalysisQuery\x12H\n\x10\x61nalysis_results\x18\x02 \x03(\x0b\x32..google.cloud.asset.v1.IamPolicyAnalysisResult\x12\x16\n\x0e\x66ully_explored\x18\x03 \x01(\x08\x12J\n\x13non_critical_errors\x18\x05 \x03(\x0b\x32-.google.cloud.asset.v1.IamPolicyAnalysisState\"\xb4\x04\n\x1dIamPolicyAnalysisOutputConfig\x12^\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32\x43.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestinationH\x00\x12h\n\x14\x62igquery_destination\x18\x02 \x01(\x0b\x32H.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestinationH\x00\x1a\"\n\x0eGcsDestination\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x95\x02\n\x13\x42igQueryDestination\x12\x14\n\x07\x64\x61taset\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0ctable_prefix\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12l\n\rpartition_key\x18\x03 \x01(\x0e\x32U.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey\x12\x1e\n\x11write_disposition\x18\x04 \x01(\tB\x03\xe0\x41\x01\"?\n\x0cPartitionKey\x12\x1d\n\x19PARTITION_KEY_UNSPECIFIED\x10\x00\x12\x10\n\x0cREQUEST_TIME\x10\x01\x42\r\n\x0b\x64\x65stination\"\xc2\x01\n\"AnalyzeIamPolicyLongrunningRequest\x12J\n\x0e\x61nalysis_query\x18\x01 \x01(\x0b\x32-.google.cloud.asset.v1.IamPolicyAnalysisQueryB\x03\xe0\x41\x02\x12P\n\routput_config\x18\x02 \x01(\x0b\x32\x34.google.cloud.asset.v1.IamPolicyAnalysisOutputConfigB\x03\xe0\x41\x02\"%\n#AnalyzeIamPolicyLongrunningResponse*~\n\x0b\x43ontentType\x12\x1c\n\x18\x43ONTENT_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08RESOURCE\x10\x01\x12\x0e\n\nIAM_POLICY\x10\x02\x12\x0e\n\nORG_POLICY\x10\x04\x12\x11\n\rACCESS_POLICY\x10\x05\x12\x10\n\x0cOS_INVENTORY\x10\x06\x32\xd9\x0f\n\x0c\x41ssetService\x12\xde\x01\n\x0c\x45xportAssets\x12*.google.cloud.asset.v1.ExportAssetsRequest\x1a\x1d.google.longrunning.Operation\"\x82\x01\x82\xd3\xe4\x93\x02\"\"\x1d/v1/{parent=*/*}:exportAssets:\x01*\xca\x41W\n*google.cloud.asset.v1.ExportAssetsResponse\x12)google.cloud.asset.v1.ExportAssetsRequest\x12\xb2\x01\n\x15\x42\x61tchGetAssetsHistory\x12\x33.google.cloud.asset.v1.BatchGetAssetsHistoryRequest\x1a\x34.google.cloud.asset.v1.BatchGetAssetsHistoryResponse\".\x82\xd3\xe4\x93\x02(\x12&/v1/{parent=*/*}:batchGetAssetsHistory\x12\x7f\n\nCreateFeed\x12(.google.cloud.asset.v1.CreateFeedRequest\x1a\x1b.google.cloud.asset.v1.Feed\"*\x82\xd3\xe4\x93\x02\x1b\"\x16/v1/{parent=*/*}/feeds:\x01*\xda\x41\x06parent\x12t\n\x07GetFeed\x12%.google.cloud.asset.v1.GetFeedRequest\x1a\x1b.google.cloud.asset.v1.Feed\"%\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/{name=*/*/feeds/*}\xda\x41\x04name\x12\x87\x01\n\tListFeeds\x12\'.google.cloud.asset.v1.ListFeedsRequest\x1a(.google.cloud.asset.v1.ListFeedsResponse\"\'\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/{parent=*/*}/feeds\xda\x41\x06parent\x12\x82\x01\n\nUpdateFeed\x12(.google.cloud.asset.v1.UpdateFeedRequest\x1a\x1b.google.cloud.asset.v1.Feed\"-\x82\xd3\xe4\x93\x02 2\x1b/v1/{feed.name=*/*/feeds/*}:\x01*\xda\x41\x04\x66\x65\x65\x64\x12u\n\nDeleteFeed\x12(.google.cloud.asset.v1.DeleteFeedRequest\x1a\x16.google.protobuf.Empty\"%\x82\xd3\xe4\x93\x02\x18*\x16/v1/{name=*/*/feeds/*}\xda\x41\x04name\x12\xbf\x01\n\x12SearchAllResources\x12\x30.google.cloud.asset.v1.SearchAllResourcesRequest\x1a\x31.google.cloud.asset.v1.SearchAllResourcesResponse\"D\x82\xd3\xe4\x93\x02$\x12\"/v1/{scope=*/*}:searchAllResources\xda\x41\x17scope,query,asset_types\x12\xbb\x01\n\x14SearchAllIamPolicies\x12\x32.google.cloud.asset.v1.SearchAllIamPoliciesRequest\x1a\x33.google.cloud.asset.v1.SearchAllIamPoliciesResponse\":\x82\xd3\xe4\x93\x02&\x12$/v1/{scope=*/*}:searchAllIamPolicies\xda\x41\x0bscope,query\x12\xac\x01\n\x10\x41nalyzeIamPolicy\x12..google.cloud.asset.v1.AnalyzeIamPolicyRequest\x1a/.google.cloud.asset.v1.AnalyzeIamPolicyResponse\"7\x82\xd3\xe4\x93\x02\x31\x12//v1/{analysis_query.scope=*/*}:analyzeIamPolicy\x12\xb7\x02\n\x1b\x41nalyzeIamPolicyLongrunning\x12\x39.google.cloud.asset.v1.AnalyzeIamPolicyLongrunningRequest\x1a\x1d.google.longrunning.Operation\"\xbd\x01\x82\xd3\xe4\x93\x02?\":/v1/{analysis_query.scope=*/*}:analyzeIamPolicyLongrunning:\x01*\xca\x41u\n9google.cloud.asset.v1.AnalyzeIamPolicyLongrunningResponse\x12\x38google.cloud.asset.v1.AnalyzeIamPolicyLongrunningRequest\x1aM\xca\x41\x19\x63loudasset.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x9c\x01\n\x19\x63om.google.cloud.asset.v1B\x11\x41ssetServiceProtoP\x01Z:google.golang.org/genproto/googleapis/cloud/asset/v1;asset\xaa\x02\x15Google.Cloud.Asset.V1\xca\x02\x15Google\\Cloud\\Asset\\V1b\x06proto3'
+  serialized_pb=b'\n)google/cloud/asset/v1/asset_service.proto\x12\x15google.cloud.asset.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\"google/cloud/asset/v1/assets.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x16google/type/expr.proto\"\x8d\x02\n\x13\x45xportAssetsRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1f\x63loudasset.googleapis.com/Asset\x12-\n\tread_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x13\n\x0b\x61sset_types\x18\x03 \x03(\t\x12\x38\n\x0c\x63ontent_type\x18\x04 \x01(\x0e\x32\".google.cloud.asset.v1.ContentType\x12?\n\routput_config\x18\x05 \x01(\x0b\x32#.google.cloud.asset.v1.OutputConfigB\x03\xe0\x41\x02\"\xbd\x01\n\x14\x45xportAssetsResponse\x12-\n\tread_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12:\n\routput_config\x18\x02 \x01(\x0b\x32#.google.cloud.asset.v1.OutputConfig\x12:\n\routput_result\x18\x03 \x01(\x0b\x32#.google.cloud.asset.v1.OutputResult\"\xf1\x01\n\x11ListAssetsRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1f\x63loudasset.googleapis.com/Asset\x12-\n\tread_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x13\n\x0b\x61sset_types\x18\x03 \x03(\t\x12\x38\n\x0c\x63ontent_type\x18\x04 \x01(\x0e\x32\".google.cloud.asset.v1.ContentType\x12\x11\n\tpage_size\x18\x05 \x01(\x05\x12\x12\n\npage_token\x18\x06 \x01(\t\"\x8a\x01\n\x12ListAssetsResponse\x12-\n\tread_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x06\x61ssets\x18\x02 \x03(\x0b\x32\x1c.google.cloud.asset.v1.Asset\x12\x17\n\x0fnext_page_token\x18\x03 \x01(\t\"\xed\x01\n\x1c\x42\x61tchGetAssetsHistoryRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1f\x63loudasset.googleapis.com/Asset\x12\x13\n\x0b\x61sset_names\x18\x02 \x03(\t\x12=\n\x0c\x63ontent_type\x18\x03 \x01(\x0e\x32\".google.cloud.asset.v1.ContentTypeB\x03\xe0\x41\x01\x12@\n\x10read_time_window\x18\x04 \x01(\x0b\x32!.google.cloud.asset.v1.TimeWindowB\x03\xe0\x41\x01\"U\n\x1d\x42\x61tchGetAssetsHistoryResponse\x12\x34\n\x06\x61ssets\x18\x01 \x03(\x0b\x32$.google.cloud.asset.v1.TemporalAsset\"n\n\x11\x43reateFeedRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07\x66\x65\x65\x64_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12.\n\x04\x66\x65\x65\x64\x18\x03 \x01(\x0b\x32\x1b.google.cloud.asset.v1.FeedB\x03\xe0\x41\x02\"F\n\x0eGetFeedRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x63loudasset.googleapis.com/Feed\"\'\n\x10ListFeedsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\"?\n\x11ListFeedsResponse\x12*\n\x05\x66\x65\x65\x64s\x18\x01 \x03(\x0b\x32\x1b.google.cloud.asset.v1.Feed\"y\n\x11UpdateFeedRequest\x12.\n\x04\x66\x65\x65\x64\x18\x01 \x01(\x0b\x32\x1b.google.cloud.asset.v1.FeedB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"I\n\x11\x44\x65leteFeedRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x63loudasset.googleapis.com/Feed\"\xab\x01\n\x0cOutputConfig\x12@\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32%.google.cloud.asset.v1.GcsDestinationH\x00\x12J\n\x14\x62igquery_destination\x18\x02 \x01(\x0b\x32*.google.cloud.asset.v1.BigQueryDestinationH\x00\x42\r\n\x0b\x64\x65stination\"V\n\x0cOutputResult\x12<\n\ngcs_result\x18\x01 \x01(\x0b\x32&.google.cloud.asset.v1.GcsOutputResultH\x00\x42\x08\n\x06result\"\x1f\n\x0fGcsOutputResult\x12\x0c\n\x04uris\x18\x01 \x03(\t\"C\n\x0eGcsDestination\x12\r\n\x03uri\x18\x01 \x01(\tH\x00\x12\x14\n\nuri_prefix\x18\x02 \x01(\tH\x00\x42\x0c\n\nobject_uri\"\xb4\x01\n\x13\x42igQueryDestination\x12\x14\n\x07\x64\x61taset\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05table\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12<\n\x0epartition_spec\x18\x04 \x01(\x0b\x32$.google.cloud.asset.v1.PartitionSpec\x12&\n\x1eseparate_tables_per_asset_type\x18\x05 \x01(\x08\"\xa9\x01\n\rPartitionSpec\x12H\n\rpartition_key\x18\x01 \x01(\x0e\x32\x31.google.cloud.asset.v1.PartitionSpec.PartitionKey\"N\n\x0cPartitionKey\x12\x1d\n\x19PARTITION_KEY_UNSPECIFIED\x10\x00\x12\r\n\tREAD_TIME\x10\x01\x12\x10\n\x0cREQUEST_TIME\x10\x02\"\"\n\x11PubsubDestination\x12\r\n\x05topic\x18\x01 \x01(\t\"i\n\x10\x46\x65\x65\x64OutputConfig\x12\x46\n\x12pubsub_destination\x18\x01 \x01(\x0b\x32(.google.cloud.asset.v1.PubsubDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\x81\x03\n\x04\x46\x65\x65\x64\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x61sset_names\x18\x02 \x03(\t\x12\x13\n\x0b\x61sset_types\x18\x03 \x03(\t\x12\x38\n\x0c\x63ontent_type\x18\x04 \x01(\x0e\x32\".google.cloud.asset.v1.ContentType\x12H\n\x12\x66\x65\x65\x64_output_config\x18\x05 \x01(\x0b\x32\'.google.cloud.asset.v1.FeedOutputConfigB\x03\xe0\x41\x02\x12$\n\tcondition\x18\x06 \x01(\x0b\x32\x11.google.type.Expr:\x91\x01\xea\x41\x8d\x01\n\x1e\x63loudasset.googleapis.com/Feed\x12\x1fprojects/{project}/feeds/{feed}\x12\x1d\x66olders/{folder}/feeds/{feed}\x12)organizations/{organization}/feeds/{feed} \x01\"\xa5\x01\n\x19SearchAllResourcesRequest\x12\x12\n\x05scope\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05query\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x18\n\x0b\x61sset_types\x18\x03 \x03(\tB\x03\xe0\x41\x01\x12\x16\n\tpage_size\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x06 \x01(\tB\x03\xe0\x41\x01\"s\n\x1aSearchAllResourcesResponse\x12<\n\x07results\x18\x01 \x03(\x0b\x32+.google.cloud.asset.v1.ResourceSearchResult\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xa7\x01\n\x1bSearchAllIamPoliciesRequest\x12\x12\n\x05scope\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05query\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x16\n\tpage_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x18\n\x0b\x61sset_types\x18\x05 \x03(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x07 \x01(\tB\x03\xe0\x41\x01\"v\n\x1cSearchAllIamPoliciesResponse\x12=\n\x07results\x18\x01 \x03(\x0b\x32,.google.cloud.asset.v1.IamPolicySearchResult\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xc6\x07\n\x16IamPolicyAnalysisQuery\x12\x12\n\x05scope\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12^\n\x11resource_selector\x18\x02 \x01(\x0b\x32>.google.cloud.asset.v1.IamPolicyAnalysisQuery.ResourceSelectorB\x03\xe0\x41\x01\x12^\n\x11identity_selector\x18\x03 \x01(\x0b\x32>.google.cloud.asset.v1.IamPolicyAnalysisQuery.IdentitySelectorB\x03\xe0\x41\x01\x12Z\n\x0f\x61\x63\x63\x65ss_selector\x18\x04 \x01(\x0b\x32<.google.cloud.asset.v1.IamPolicyAnalysisQuery.AccessSelectorB\x03\xe0\x41\x01\x12K\n\x07options\x18\x05 \x01(\x0b\x32\x35.google.cloud.asset.v1.IamPolicyAnalysisQuery.OptionsB\x03\xe0\x41\x01\x12^\n\x11\x63ondition_context\x18\x06 \x01(\x0b\x32>.google.cloud.asset.v1.IamPolicyAnalysisQuery.ConditionContextB\x03\xe0\x41\x01\x1a\x33\n\x10ResourceSelector\x12\x1f\n\x12\x66ull_resource_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a)\n\x10IdentitySelector\x12\x15\n\x08identity\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a>\n\x0e\x41\x63\x63\x65ssSelector\x12\x12\n\x05roles\x18\x01 \x03(\tB\x03\xe0\x41\x01\x12\x18\n\x0bpermissions\x18\x02 \x03(\tB\x03\xe0\x41\x01\x1a\xd8\x01\n\x07Options\x12\x1a\n\rexpand_groups\x18\x01 \x01(\x08\x42\x03\xe0\x41\x01\x12\x19\n\x0c\x65xpand_roles\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\x12\x1d\n\x10\x65xpand_resources\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\x12\"\n\x15output_resource_edges\x18\x04 \x01(\x08\x42\x03\xe0\x41\x01\x12\x1f\n\x12output_group_edges\x18\x05 \x01(\x08\x42\x03\xe0\x41\x01\x12\x32\n%analyze_service_account_impersonation\x18\x06 \x01(\x08\x42\x03\xe0\x41\x01\x1aT\n\x10\x43onditionContext\x12\x31\n\x0b\x61\x63\x63\x65ss_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x42\r\n\x0bTimeContext\"\xa0\x01\n\x17\x41nalyzeIamPolicyRequest\x12J\n\x0e\x61nalysis_query\x18\x01 \x01(\x0b\x32-.google.cloud.asset.v1.IamPolicyAnalysisQueryB\x03\xe0\x41\x02\x12\x39\n\x11\x65xecution_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x01\"\x8a\x04\n\x18\x41nalyzeIamPolicyResponse\x12X\n\rmain_analysis\x18\x01 \x01(\x0b\x32\x41.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis\x12q\n&service_account_impersonation_analysis\x18\x02 \x03(\x0b\x32\x41.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis\x12\x16\n\x0e\x66ully_explored\x18\x03 \x01(\x08\x1a\x88\x02\n\x11IamPolicyAnalysis\x12\x45\n\x0e\x61nalysis_query\x18\x01 \x01(\x0b\x32-.google.cloud.asset.v1.IamPolicyAnalysisQuery\x12H\n\x10\x61nalysis_results\x18\x02 \x03(\x0b\x32..google.cloud.asset.v1.IamPolicyAnalysisResult\x12\x16\n\x0e\x66ully_explored\x18\x03 \x01(\x08\x12J\n\x13non_critical_errors\x18\x05 \x03(\x0b\x32-.google.cloud.asset.v1.IamPolicyAnalysisState\"\xb4\x04\n\x1dIamPolicyAnalysisOutputConfig\x12^\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32\x43.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestinationH\x00\x12h\n\x14\x62igquery_destination\x18\x02 \x01(\x0b\x32H.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestinationH\x00\x1a\"\n\x0eGcsDestination\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x95\x02\n\x13\x42igQueryDestination\x12\x14\n\x07\x64\x61taset\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0ctable_prefix\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12l\n\rpartition_key\x18\x03 \x01(\x0e\x32U.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey\x12\x1e\n\x11write_disposition\x18\x04 \x01(\tB\x03\xe0\x41\x01\"?\n\x0cPartitionKey\x12\x1d\n\x19PARTITION_KEY_UNSPECIFIED\x10\x00\x12\x10\n\x0cREQUEST_TIME\x10\x01\x42\r\n\x0b\x64\x65stination\"\xc2\x01\n\"AnalyzeIamPolicyLongrunningRequest\x12J\n\x0e\x61nalysis_query\x18\x01 \x01(\x0b\x32-.google.cloud.asset.v1.IamPolicyAnalysisQueryB\x03\xe0\x41\x02\x12P\n\routput_config\x18\x02 \x01(\x0b\x32\x34.google.cloud.asset.v1.IamPolicyAnalysisOutputConfigB\x03\xe0\x41\x02\"%\n#AnalyzeIamPolicyLongrunningResponse*~\n\x0b\x43ontentType\x12\x1c\n\x18\x43ONTENT_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08RESOURCE\x10\x01\x12\x0e\n\nIAM_POLICY\x10\x02\x12\x0e\n\nORG_POLICY\x10\x04\x12\x11\n\rACCESS_POLICY\x10\x05\x12\x10\n\x0cOS_INVENTORY\x10\x06\x32\xe7\x10\n\x0c\x41ssetService\x12\xde\x01\n\x0c\x45xportAssets\x12*.google.cloud.asset.v1.ExportAssetsRequest\x1a\x1d.google.longrunning.Operation\"\x82\x01\x82\xd3\xe4\x93\x02\"\"\x1d/v1/{parent=*/*}:exportAssets:\x01*\xca\x41W\n*google.cloud.asset.v1.ExportAssetsResponse\x12)google.cloud.asset.v1.ExportAssetsRequest\x12\x8b\x01\n\nListAssets\x12(.google.cloud.asset.v1.ListAssetsRequest\x1a).google.cloud.asset.v1.ListAssetsResponse\"(\x82\xd3\xe4\x93\x02\x19\x12\x17/v1/{parent=*/*}/assets\xda\x41\x06parent\x12\xb2\x01\n\x15\x42\x61tchGetAssetsHistory\x12\x33.google.cloud.asset.v1.BatchGetAssetsHistoryRequest\x1a\x34.google.cloud.asset.v1.BatchGetAssetsHistoryResponse\".\x82\xd3\xe4\x93\x02(\x12&/v1/{parent=*/*}:batchGetAssetsHistory\x12\x7f\n\nCreateFeed\x12(.google.cloud.asset.v1.CreateFeedRequest\x1a\x1b.google.cloud.asset.v1.Feed\"*\x82\xd3\xe4\x93\x02\x1b\"\x16/v1/{parent=*/*}/feeds:\x01*\xda\x41\x06parent\x12t\n\x07GetFeed\x12%.google.cloud.asset.v1.GetFeedRequest\x1a\x1b.google.cloud.asset.v1.Feed\"%\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/{name=*/*/feeds/*}\xda\x41\x04name\x12\x87\x01\n\tListFeeds\x12\'.google.cloud.asset.v1.ListFeedsRequest\x1a(.google.cloud.asset.v1.ListFeedsResponse\"\'\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/{parent=*/*}/feeds\xda\x41\x06parent\x12\x82\x01\n\nUpdateFeed\x12(.google.cloud.asset.v1.UpdateFeedRequest\x1a\x1b.google.cloud.asset.v1.Feed\"-\x82\xd3\xe4\x93\x02 2\x1b/v1/{feed.name=*/*/feeds/*}:\x01*\xda\x41\x04\x66\x65\x65\x64\x12u\n\nDeleteFeed\x12(.google.cloud.asset.v1.DeleteFeedRequest\x1a\x16.google.protobuf.Empty\"%\x82\xd3\xe4\x93\x02\x18*\x16/v1/{name=*/*/feeds/*}\xda\x41\x04name\x12\xbf\x01\n\x12SearchAllResources\x12\x30.google.cloud.asset.v1.SearchAllResourcesRequest\x1a\x31.google.cloud.asset.v1.SearchAllResourcesResponse\"D\x82\xd3\xe4\x93\x02$\x12\"/v1/{scope=*/*}:searchAllResources\xda\x41\x17scope,query,asset_types\x12\xbb\x01\n\x14SearchAllIamPolicies\x12\x32.google.cloud.asset.v1.SearchAllIamPoliciesRequest\x1a\x33.google.cloud.asset.v1.SearchAllIamPoliciesResponse\":\x82\xd3\xe4\x93\x02&\x12$/v1/{scope=*/*}:searchAllIamPolicies\xda\x41\x0bscope,query\x12\xac\x01\n\x10\x41nalyzeIamPolicy\x12..google.cloud.asset.v1.AnalyzeIamPolicyRequest\x1a/.google.cloud.asset.v1.AnalyzeIamPolicyResponse\"7\x82\xd3\xe4\x93\x02\x31\x12//v1/{analysis_query.scope=*/*}:analyzeIamPolicy\x12\xb7\x02\n\x1b\x41nalyzeIamPolicyLongrunning\x12\x39.google.cloud.asset.v1.AnalyzeIamPolicyLongrunningRequest\x1a\x1d.google.longrunning.Operation\"\xbd\x01\x82\xd3\xe4\x93\x02?\":/v1/{analysis_query.scope=*/*}:analyzeIamPolicyLongrunning:\x01*\xca\x41u\n9google.cloud.asset.v1.AnalyzeIamPolicyLongrunningResponse\x12\x38google.cloud.asset.v1.AnalyzeIamPolicyLongrunningRequest\x1aM\xca\x41\x19\x63loudasset.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x9c\x01\n\x19\x63om.google.cloud.asset.v1B\x11\x41ssetServiceProtoP\x01Z:google.golang.org/genproto/googleapis/cloud/asset/v1;asset\xaa\x02\x15Google.Cloud.Asset.V1\xca\x02\x15Google\\Cloud\\Asset\\V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_asset_dot_v1_dot_assets__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_type_dot_expr__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_asset_dot_v1_dot_assets__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_type_dot_expr__pb2.DESCRIPTOR,])
 
 _CONTENTTYPE = _descriptor.EnumDescriptor(
   name='ContentType',
@@ -75,8 +76,8 @@ _CONTENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5740,
-  serialized_end=5866,
+  serialized_start=6387,
+  serialized_end=6513,
 )
 _sym_db.RegisterEnumDescriptor(_CONTENTTYPE)
 
@@ -114,8 +115,8 @@ _PARTITIONSPEC_PARTITIONKEY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2326,
-  serialized_end=2404,
+  serialized_start=2741,
+  serialized_end=2819,
 )
 _sym_db.RegisterEnumDescriptor(_PARTITIONSPEC_PARTITIONKEY)
 
@@ -139,8 +140,8 @@ _IAMPOLICYANALYSISOUTPUTCONFIG_BIGQUERYDESTINATION_PARTITIONKEY = _descriptor.En
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5424,
-  serialized_end=5487,
+  serialized_start=6071,
+  serialized_end=6134,
 )
 _sym_db.RegisterEnumDescriptor(_IAMPOLICYANALYSISOUTPUTCONFIG_BIGQUERYDESTINATION_PARTITIONKEY)
 
@@ -200,8 +201,8 @@ _EXPORTASSETSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=409,
-  serialized_end=678,
+  serialized_start=439,
+  serialized_end=708,
 )
 
 
@@ -246,8 +247,121 @@ _EXPORTASSETSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=681,
-  serialized_end=870,
+  serialized_start=711,
+  serialized_end=900,
+)
+
+
+_LISTASSETSREQUEST = _descriptor.Descriptor(
+  name='ListAssetsRequest',
+  full_name='google.cloud.asset.v1.ListAssetsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.asset.v1.ListAssetsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A!\022\037cloudasset.googleapis.com/Asset', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='read_time', full_name='google.cloud.asset.v1.ListAssetsRequest.read_time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asset_types', full_name='google.cloud.asset.v1.ListAssetsRequest.asset_types', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='content_type', full_name='google.cloud.asset.v1.ListAssetsRequest.content_type', index=3,
+      number=4, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.cloud.asset.v1.ListAssetsRequest.page_size', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.cloud.asset.v1.ListAssetsRequest.page_token', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=903,
+  serialized_end=1144,
+)
+
+
+_LISTASSETSRESPONSE = _descriptor.Descriptor(
+  name='ListAssetsResponse',
+  full_name='google.cloud.asset.v1.ListAssetsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='read_time', full_name='google.cloud.asset.v1.ListAssetsResponse.read_time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='assets', full_name='google.cloud.asset.v1.ListAssetsResponse.assets', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.cloud.asset.v1.ListAssetsResponse.next_page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1147,
+  serialized_end=1285,
 )
 
 
@@ -299,8 +413,8 @@ _BATCHGETASSETSHISTORYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=873,
-  serialized_end=1110,
+  serialized_start=1288,
+  serialized_end=1525,
 )
 
 
@@ -331,8 +445,8 @@ _BATCHGETASSETSHISTORYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1112,
-  serialized_end=1197,
+  serialized_start=1527,
+  serialized_end=1612,
 )
 
 
@@ -377,8 +491,8 @@ _CREATEFEEDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1199,
-  serialized_end=1309,
+  serialized_start=1614,
+  serialized_end=1724,
 )
 
 
@@ -409,8 +523,8 @@ _GETFEEDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1311,
-  serialized_end=1381,
+  serialized_start=1726,
+  serialized_end=1796,
 )
 
 
@@ -441,8 +555,8 @@ _LISTFEEDSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1383,
-  serialized_end=1422,
+  serialized_start=1798,
+  serialized_end=1837,
 )
 
 
@@ -473,8 +587,8 @@ _LISTFEEDSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1424,
-  serialized_end=1487,
+  serialized_start=1839,
+  serialized_end=1902,
 )
 
 
@@ -512,8 +626,8 @@ _UPDATEFEEDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1489,
-  serialized_end=1610,
+  serialized_start=1904,
+  serialized_end=2025,
 )
 
 
@@ -544,8 +658,8 @@ _DELETEFEEDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1612,
-  serialized_end=1685,
+  serialized_start=2027,
+  serialized_end=2100,
 )
 
 
@@ -588,8 +702,8 @@ _OUTPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1688,
-  serialized_end=1859,
+  serialized_start=2103,
+  serialized_end=2274,
 )
 
 
@@ -625,8 +739,8 @@ _OUTPUTRESULT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1861,
-  serialized_end=1947,
+  serialized_start=2276,
+  serialized_end=2362,
 )
 
 
@@ -657,8 +771,8 @@ _GCSOUTPUTRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1949,
-  serialized_end=1980,
+  serialized_start=2364,
+  serialized_end=2395,
 )
 
 
@@ -701,8 +815,8 @@ _GCSDESTINATION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1982,
-  serialized_end=2049,
+  serialized_start=2397,
+  serialized_end=2464,
 )
 
 
@@ -761,8 +875,8 @@ _BIGQUERYDESTINATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2052,
-  serialized_end=2232,
+  serialized_start=2467,
+  serialized_end=2647,
 )
 
 
@@ -794,8 +908,8 @@ _PARTITIONSPEC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2235,
-  serialized_end=2404,
+  serialized_start=2650,
+  serialized_end=2819,
 )
 
 
@@ -826,8 +940,8 @@ _PUBSUBDESTINATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2406,
-  serialized_end=2440,
+  serialized_start=2821,
+  serialized_end=2855,
 )
 
 
@@ -863,8 +977,8 @@ _FEEDOUTPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2442,
-  serialized_end=2547,
+  serialized_start=2857,
+  serialized_end=2962,
 )
 
 
@@ -930,8 +1044,8 @@ _FEED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2550,
-  serialized_end=2935,
+  serialized_start=2965,
+  serialized_end=3350,
 )
 
 
@@ -997,8 +1111,8 @@ _SEARCHALLRESOURCESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2938,
-  serialized_end=3103,
+  serialized_start=3353,
+  serialized_end=3518,
 )
 
 
@@ -1036,8 +1150,8 @@ _SEARCHALLRESOURCESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3105,
-  serialized_end=3220,
+  serialized_start=3520,
+  serialized_end=3635,
 )
 
 
@@ -1077,6 +1191,20 @@ _SEARCHALLIAMPOLICIESREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asset_types', full_name='google.cloud.asset.v1.SearchAllIamPoliciesRequest.asset_types', index=4,
+      number=5, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='order_by', full_name='google.cloud.asset.v1.SearchAllIamPoliciesRequest.order_by', index=5,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1089,8 +1217,8 @@ _SEARCHALLIAMPOLICIESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3222,
-  serialized_end=3340,
+  serialized_start=3638,
+  serialized_end=3805,
 )
 
 
@@ -1128,8 +1256,8 @@ _SEARCHALLIAMPOLICIESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3342,
-  serialized_end=3460,
+  serialized_start=3807,
+  serialized_end=3925,
 )
 
 
@@ -1160,8 +1288,8 @@ _IAMPOLICYANALYSISQUERY_RESOURCESELECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3870,
-  serialized_end=3921,
+  serialized_start=4431,
+  serialized_end=4482,
 )
 
 _IAMPOLICYANALYSISQUERY_IDENTITYSELECTOR = _descriptor.Descriptor(
@@ -1191,8 +1319,8 @@ _IAMPOLICYANALYSISQUERY_IDENTITYSELECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3923,
-  serialized_end=3964,
+  serialized_start=4484,
+  serialized_end=4525,
 )
 
 _IAMPOLICYANALYSISQUERY_ACCESSSELECTOR = _descriptor.Descriptor(
@@ -1229,8 +1357,8 @@ _IAMPOLICYANALYSISQUERY_ACCESSSELECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3966,
-  serialized_end=4028,
+  serialized_start=4527,
+  serialized_end=4589,
 )
 
 _IAMPOLICYANALYSISQUERY_OPTIONS = _descriptor.Descriptor(
@@ -1295,8 +1423,44 @@ _IAMPOLICYANALYSISQUERY_OPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4031,
-  serialized_end=4247,
+  serialized_start=4592,
+  serialized_end=4808,
+)
+
+_IAMPOLICYANALYSISQUERY_CONDITIONCONTEXT = _descriptor.Descriptor(
+  name='ConditionContext',
+  full_name='google.cloud.asset.v1.IamPolicyAnalysisQuery.ConditionContext',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='access_time', full_name='google.cloud.asset.v1.IamPolicyAnalysisQuery.ConditionContext.access_time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='TimeContext', full_name='google.cloud.asset.v1.IamPolicyAnalysisQuery.ConditionContext.TimeContext',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=4810,
+  serialized_end=4894,
 )
 
 _IAMPOLICYANALYSISQUERY = _descriptor.Descriptor(
@@ -1342,10 +1506,17 @@ _IAMPOLICYANALYSISQUERY = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='condition_context', full_name='google.cloud.asset.v1.IamPolicyAnalysisQuery.condition_context', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_IAMPOLICYANALYSISQUERY_RESOURCESELECTOR, _IAMPOLICYANALYSISQUERY_IDENTITYSELECTOR, _IAMPOLICYANALYSISQUERY_ACCESSSELECTOR, _IAMPOLICYANALYSISQUERY_OPTIONS, ],
+  nested_types=[_IAMPOLICYANALYSISQUERY_RESOURCESELECTOR, _IAMPOLICYANALYSISQUERY_IDENTITYSELECTOR, _IAMPOLICYANALYSISQUERY_ACCESSSELECTOR, _IAMPOLICYANALYSISQUERY_OPTIONS, _IAMPOLICYANALYSISQUERY_CONDITIONCONTEXT, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -1354,8 +1525,8 @@ _IAMPOLICYANALYSISQUERY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3463,
-  serialized_end=4247,
+  serialized_start=3928,
+  serialized_end=4894,
 )
 
 
@@ -1393,8 +1564,8 @@ _ANALYZEIAMPOLICYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4250,
-  serialized_end=4410,
+  serialized_start=4897,
+  serialized_end=5057,
 )
 
 
@@ -1446,8 +1617,8 @@ _ANALYZEIAMPOLICYRESPONSE_IAMPOLICYANALYSIS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4671,
-  serialized_end=4935,
+  serialized_start=5318,
+  serialized_end=5582,
 )
 
 _ANALYZEIAMPOLICYRESPONSE = _descriptor.Descriptor(
@@ -1491,8 +1662,8 @@ _ANALYZEIAMPOLICYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4413,
-  serialized_end=4935,
+  serialized_start=5060,
+  serialized_end=5582,
 )
 
 
@@ -1523,8 +1694,8 @@ _IAMPOLICYANALYSISOUTPUTCONFIG_GCSDESTINATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5173,
-  serialized_end=5207,
+  serialized_start=5820,
+  serialized_end=5854,
 )
 
 _IAMPOLICYANALYSISOUTPUTCONFIG_BIGQUERYDESTINATION = _descriptor.Descriptor(
@@ -1576,8 +1747,8 @@ _IAMPOLICYANALYSISOUTPUTCONFIG_BIGQUERYDESTINATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5210,
-  serialized_end=5487,
+  serialized_start=5857,
+  serialized_end=6134,
 )
 
 _IAMPOLICYANALYSISOUTPUTCONFIG = _descriptor.Descriptor(
@@ -1619,8 +1790,8 @@ _IAMPOLICYANALYSISOUTPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4938,
-  serialized_end=5502,
+  serialized_start=5585,
+  serialized_end=6149,
 )
 
 
@@ -1658,8 +1829,8 @@ _ANALYZEIAMPOLICYLONGRUNNINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5505,
-  serialized_end=5699,
+  serialized_start=6152,
+  serialized_end=6346,
 )
 
 
@@ -1683,8 +1854,8 @@ _ANALYZEIAMPOLICYLONGRUNNINGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5701,
-  serialized_end=5738,
+  serialized_start=6348,
+  serialized_end=6385,
 )
 
 _EXPORTASSETSREQUEST.fields_by_name['read_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -1693,6 +1864,10 @@ _EXPORTASSETSREQUEST.fields_by_name['output_config'].message_type = _OUTPUTCONFI
 _EXPORTASSETSRESPONSE.fields_by_name['read_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _EXPORTASSETSRESPONSE.fields_by_name['output_config'].message_type = _OUTPUTCONFIG
 _EXPORTASSETSRESPONSE.fields_by_name['output_result'].message_type = _OUTPUTRESULT
+_LISTASSETSREQUEST.fields_by_name['read_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_LISTASSETSREQUEST.fields_by_name['content_type'].enum_type = _CONTENTTYPE
+_LISTASSETSRESPONSE.fields_by_name['read_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_LISTASSETSRESPONSE.fields_by_name['assets'].message_type = google_dot_cloud_dot_asset_dot_v1_dot_assets__pb2._ASSET
 _BATCHGETASSETSHISTORYREQUEST.fields_by_name['content_type'].enum_type = _CONTENTTYPE
 _BATCHGETASSETSHISTORYREQUEST.fields_by_name['read_time_window'].message_type = google_dot_cloud_dot_asset_dot_v1_dot_assets__pb2._TIMEWINDOW
 _BATCHGETASSETSHISTORYRESPONSE.fields_by_name['assets'].message_type = google_dot_cloud_dot_asset_dot_v1_dot_assets__pb2._TEMPORALASSET
@@ -1734,10 +1909,16 @@ _IAMPOLICYANALYSISQUERY_RESOURCESELECTOR.containing_type = _IAMPOLICYANALYSISQUE
 _IAMPOLICYANALYSISQUERY_IDENTITYSELECTOR.containing_type = _IAMPOLICYANALYSISQUERY
 _IAMPOLICYANALYSISQUERY_ACCESSSELECTOR.containing_type = _IAMPOLICYANALYSISQUERY
 _IAMPOLICYANALYSISQUERY_OPTIONS.containing_type = _IAMPOLICYANALYSISQUERY
+_IAMPOLICYANALYSISQUERY_CONDITIONCONTEXT.fields_by_name['access_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_IAMPOLICYANALYSISQUERY_CONDITIONCONTEXT.containing_type = _IAMPOLICYANALYSISQUERY
+_IAMPOLICYANALYSISQUERY_CONDITIONCONTEXT.oneofs_by_name['TimeContext'].fields.append(
+  _IAMPOLICYANALYSISQUERY_CONDITIONCONTEXT.fields_by_name['access_time'])
+_IAMPOLICYANALYSISQUERY_CONDITIONCONTEXT.fields_by_name['access_time'].containing_oneof = _IAMPOLICYANALYSISQUERY_CONDITIONCONTEXT.oneofs_by_name['TimeContext']
 _IAMPOLICYANALYSISQUERY.fields_by_name['resource_selector'].message_type = _IAMPOLICYANALYSISQUERY_RESOURCESELECTOR
 _IAMPOLICYANALYSISQUERY.fields_by_name['identity_selector'].message_type = _IAMPOLICYANALYSISQUERY_IDENTITYSELECTOR
 _IAMPOLICYANALYSISQUERY.fields_by_name['access_selector'].message_type = _IAMPOLICYANALYSISQUERY_ACCESSSELECTOR
 _IAMPOLICYANALYSISQUERY.fields_by_name['options'].message_type = _IAMPOLICYANALYSISQUERY_OPTIONS
+_IAMPOLICYANALYSISQUERY.fields_by_name['condition_context'].message_type = _IAMPOLICYANALYSISQUERY_CONDITIONCONTEXT
 _ANALYZEIAMPOLICYREQUEST.fields_by_name['analysis_query'].message_type = _IAMPOLICYANALYSISQUERY
 _ANALYZEIAMPOLICYREQUEST.fields_by_name['execution_timeout'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _ANALYZEIAMPOLICYRESPONSE_IAMPOLICYANALYSIS.fields_by_name['analysis_query'].message_type = _IAMPOLICYANALYSISQUERY
@@ -1762,6 +1943,8 @@ _ANALYZEIAMPOLICYLONGRUNNINGREQUEST.fields_by_name['analysis_query'].message_typ
 _ANALYZEIAMPOLICYLONGRUNNINGREQUEST.fields_by_name['output_config'].message_type = _IAMPOLICYANALYSISOUTPUTCONFIG
 DESCRIPTOR.message_types_by_name['ExportAssetsRequest'] = _EXPORTASSETSREQUEST
 DESCRIPTOR.message_types_by_name['ExportAssetsResponse'] = _EXPORTASSETSRESPONSE
+DESCRIPTOR.message_types_by_name['ListAssetsRequest'] = _LISTASSETSREQUEST
+DESCRIPTOR.message_types_by_name['ListAssetsResponse'] = _LISTASSETSRESPONSE
 DESCRIPTOR.message_types_by_name['BatchGetAssetsHistoryRequest'] = _BATCHGETASSETSHISTORYREQUEST
 DESCRIPTOR.message_types_by_name['BatchGetAssetsHistoryResponse'] = _BATCHGETASSETSHISTORYRESPONSE
 DESCRIPTOR.message_types_by_name['CreateFeedRequest'] = _CREATEFEEDREQUEST
@@ -1805,6 +1988,20 @@ ExportAssetsResponse = _reflection.GeneratedProtocolMessageType('ExportAssetsRes
   # @@protoc_insertion_point(class_scope:google.cloud.asset.v1.ExportAssetsResponse)
   })
 _sym_db.RegisterMessage(ExportAssetsResponse)
+
+ListAssetsRequest = _reflection.GeneratedProtocolMessageType('ListAssetsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTASSETSREQUEST,
+  '__module__' : 'google.cloud.asset.v1.asset_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.asset.v1.ListAssetsRequest)
+  })
+_sym_db.RegisterMessage(ListAssetsRequest)
+
+ListAssetsResponse = _reflection.GeneratedProtocolMessageType('ListAssetsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTASSETSRESPONSE,
+  '__module__' : 'google.cloud.asset.v1.asset_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.asset.v1.ListAssetsResponse)
+  })
+_sym_db.RegisterMessage(ListAssetsResponse)
 
 BatchGetAssetsHistoryRequest = _reflection.GeneratedProtocolMessageType('BatchGetAssetsHistoryRequest', (_message.Message,), {
   'DESCRIPTOR' : _BATCHGETASSETSHISTORYREQUEST,
@@ -1982,6 +2179,13 @@ IamPolicyAnalysisQuery = _reflection.GeneratedProtocolMessageType('IamPolicyAnal
     # @@protoc_insertion_point(class_scope:google.cloud.asset.v1.IamPolicyAnalysisQuery.Options)
     })
   ,
+
+  'ConditionContext' : _reflection.GeneratedProtocolMessageType('ConditionContext', (_message.Message,), {
+    'DESCRIPTOR' : _IAMPOLICYANALYSISQUERY_CONDITIONCONTEXT,
+    '__module__' : 'google.cloud.asset.v1.asset_service_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.asset.v1.IamPolicyAnalysisQuery.ConditionContext)
+    })
+  ,
   'DESCRIPTOR' : _IAMPOLICYANALYSISQUERY,
   '__module__' : 'google.cloud.asset.v1.asset_service_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.asset.v1.IamPolicyAnalysisQuery)
@@ -1991,6 +2195,7 @@ _sym_db.RegisterMessage(IamPolicyAnalysisQuery.ResourceSelector)
 _sym_db.RegisterMessage(IamPolicyAnalysisQuery.IdentitySelector)
 _sym_db.RegisterMessage(IamPolicyAnalysisQuery.AccessSelector)
 _sym_db.RegisterMessage(IamPolicyAnalysisQuery.Options)
+_sym_db.RegisterMessage(IamPolicyAnalysisQuery.ConditionContext)
 
 AnalyzeIamPolicyRequest = _reflection.GeneratedProtocolMessageType('AnalyzeIamPolicyRequest', (_message.Message,), {
   'DESCRIPTOR' : _ANALYZEIAMPOLICYREQUEST,
@@ -2055,6 +2260,7 @@ _sym_db.RegisterMessage(AnalyzeIamPolicyLongrunningResponse)
 DESCRIPTOR._options = None
 _EXPORTASSETSREQUEST.fields_by_name['parent']._options = None
 _EXPORTASSETSREQUEST.fields_by_name['output_config']._options = None
+_LISTASSETSREQUEST.fields_by_name['parent']._options = None
 _BATCHGETASSETSHISTORYREQUEST.fields_by_name['parent']._options = None
 _BATCHGETASSETSHISTORYREQUEST.fields_by_name['content_type']._options = None
 _BATCHGETASSETSHISTORYREQUEST.fields_by_name['read_time_window']._options = None
@@ -2081,6 +2287,8 @@ _SEARCHALLIAMPOLICIESREQUEST.fields_by_name['scope']._options = None
 _SEARCHALLIAMPOLICIESREQUEST.fields_by_name['query']._options = None
 _SEARCHALLIAMPOLICIESREQUEST.fields_by_name['page_size']._options = None
 _SEARCHALLIAMPOLICIESREQUEST.fields_by_name['page_token']._options = None
+_SEARCHALLIAMPOLICIESREQUEST.fields_by_name['asset_types']._options = None
+_SEARCHALLIAMPOLICIESREQUEST.fields_by_name['order_by']._options = None
 _IAMPOLICYANALYSISQUERY_RESOURCESELECTOR.fields_by_name['full_resource_name']._options = None
 _IAMPOLICYANALYSISQUERY_IDENTITYSELECTOR.fields_by_name['identity']._options = None
 _IAMPOLICYANALYSISQUERY_ACCESSSELECTOR.fields_by_name['roles']._options = None
@@ -2096,6 +2304,7 @@ _IAMPOLICYANALYSISQUERY.fields_by_name['resource_selector']._options = None
 _IAMPOLICYANALYSISQUERY.fields_by_name['identity_selector']._options = None
 _IAMPOLICYANALYSISQUERY.fields_by_name['access_selector']._options = None
 _IAMPOLICYANALYSISQUERY.fields_by_name['options']._options = None
+_IAMPOLICYANALYSISQUERY.fields_by_name['condition_context']._options = None
 _ANALYZEIAMPOLICYREQUEST.fields_by_name['analysis_query']._options = None
 _ANALYZEIAMPOLICYREQUEST.fields_by_name['execution_timeout']._options = None
 _IAMPOLICYANALYSISOUTPUTCONFIG_GCSDESTINATION.fields_by_name['uri']._options = None
@@ -2112,8 +2321,8 @@ _ASSETSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031cloudasset.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=5869,
-  serialized_end=7878,
+  serialized_start=6516,
+  serialized_end=8667,
   methods=[
   _descriptor.MethodDescriptor(
     name='ExportAssets',
@@ -2126,9 +2335,19 @@ _ASSETSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='ListAssets',
+    full_name='google.cloud.asset.v1.AssetService.ListAssets',
+    index=1,
+    containing_service=None,
+    input_type=_LISTASSETSREQUEST,
+    output_type=_LISTASSETSRESPONSE,
+    serialized_options=b'\202\323\344\223\002\031\022\027/v1/{parent=*/*}/assets\332A\006parent',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='BatchGetAssetsHistory',
     full_name='google.cloud.asset.v1.AssetService.BatchGetAssetsHistory',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_BATCHGETASSETSHISTORYREQUEST,
     output_type=_BATCHGETASSETSHISTORYRESPONSE,
@@ -2138,7 +2357,7 @@ _ASSETSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateFeed',
     full_name='google.cloud.asset.v1.AssetService.CreateFeed',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_CREATEFEEDREQUEST,
     output_type=_FEED,
@@ -2148,7 +2367,7 @@ _ASSETSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetFeed',
     full_name='google.cloud.asset.v1.AssetService.GetFeed',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=_GETFEEDREQUEST,
     output_type=_FEED,
@@ -2158,7 +2377,7 @@ _ASSETSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListFeeds',
     full_name='google.cloud.asset.v1.AssetService.ListFeeds',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=_LISTFEEDSREQUEST,
     output_type=_LISTFEEDSRESPONSE,
@@ -2168,7 +2387,7 @@ _ASSETSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateFeed',
     full_name='google.cloud.asset.v1.AssetService.UpdateFeed',
-    index=5,
+    index=6,
     containing_service=None,
     input_type=_UPDATEFEEDREQUEST,
     output_type=_FEED,
@@ -2178,7 +2397,7 @@ _ASSETSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteFeed',
     full_name='google.cloud.asset.v1.AssetService.DeleteFeed',
-    index=6,
+    index=7,
     containing_service=None,
     input_type=_DELETEFEEDREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -2188,7 +2407,7 @@ _ASSETSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='SearchAllResources',
     full_name='google.cloud.asset.v1.AssetService.SearchAllResources',
-    index=7,
+    index=8,
     containing_service=None,
     input_type=_SEARCHALLRESOURCESREQUEST,
     output_type=_SEARCHALLRESOURCESRESPONSE,
@@ -2198,7 +2417,7 @@ _ASSETSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='SearchAllIamPolicies',
     full_name='google.cloud.asset.v1.AssetService.SearchAllIamPolicies',
-    index=8,
+    index=9,
     containing_service=None,
     input_type=_SEARCHALLIAMPOLICIESREQUEST,
     output_type=_SEARCHALLIAMPOLICIESRESPONSE,
@@ -2208,7 +2427,7 @@ _ASSETSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='AnalyzeIamPolicy',
     full_name='google.cloud.asset.v1.AssetService.AnalyzeIamPolicy',
-    index=9,
+    index=10,
     containing_service=None,
     input_type=_ANALYZEIAMPOLICYREQUEST,
     output_type=_ANALYZEIAMPOLICYRESPONSE,
@@ -2218,7 +2437,7 @@ _ASSETSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='AnalyzeIamPolicyLongrunning',
     full_name='google.cloud.asset.v1.AssetService.AnalyzeIamPolicyLongrunning',
-    index=10,
+    index=11,
     containing_service=None,
     input_type=_ANALYZEIAMPOLICYLONGRUNNINGREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,

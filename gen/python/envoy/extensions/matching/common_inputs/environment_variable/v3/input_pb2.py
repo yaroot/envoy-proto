@@ -11,9 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from udpa.annotations import migrate_pb2 as udpa_dot_annotations_dot_migrate__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
-from udpa.annotations import versioning_pb2 as udpa_dot_annotations_dot_versioning__pb2
 from validate import validate_pb2 as validate_dot_validate__pb2
 
 
@@ -23,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\nMio.envoyproxy.envoy.extensions.matching.common_inputs.environment_variable.v3B\nInputProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nKenvoy/extensions/matching/common_inputs/environment_variable/v3/input.proto\x12?envoy.extensions.matching.common_inputs.environment_variable.v3\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x1f\n\x06\x43onfig\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x42\x65\nMio.envoyproxy.envoy.extensions.matching.common_inputs.environment_variable.v3B\nInputProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\nKenvoy/extensions/matching/common_inputs/environment_variable/v3/input.proto\x12?envoy.extensions.matching.common_inputs.environment_variable.v3\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\x1f\n\x06\x43onfig\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x42\x65\nMio.envoyproxy.envoy.extensions.matching.common_inputs.environment_variable.v3B\nInputProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[udpa_dot_annotations_dot_migrate__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -57,8 +55,8 @@ _CONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=267,
-  serialized_end=298,
+  serialized_start=200,
+  serialized_end=231,
 )
 
 DESCRIPTOR.message_types_by_name['Config'] = _CONFIG

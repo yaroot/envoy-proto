@@ -19,9 +19,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/actions/sdk/v2/interactionmodel/type/free_text_type.proto',
   package='google.actions.sdk.v2.interactionmodel.type',
   syntax='proto3',
-  serialized_options=b'\n/com.google.actions.sdk.v2.interactionmodel.typeB\021FreeTextTypeProtoP\001ZOgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/type;type',
+  serialized_options=b'\n/com.google.actions.sdk.v2.interactionmodel.typeB\021FreeTextTypeProtoP\001ZJgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/type',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n@google/actions/sdk/v2/interactionmodel/type/free_text_type.proto\x12+google.actions.sdk.v2.interactionmodel.type\x1a@google/actions/sdk/v2/interactionmodel/type/entity_display.proto\x1a\x1fgoogle/api/field_behavior.proto\"`\n\x0c\x46reeTextType\x12P\n\x07\x64isplay\x18\x02 \x01(\x0b\x32:.google.actions.sdk.v2.interactionmodel.type.EntityDisplayB\x03\xe0\x41\x01\x42\x97\x01\n/com.google.actions.sdk.v2.interactionmodel.typeB\x11\x46reeTextTypeProtoP\x01ZOgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/type;typeb\x06proto3'
+  serialized_pb=b'\n@google/actions/sdk/v2/interactionmodel/type/free_text_type.proto\x12+google.actions.sdk.v2.interactionmodel.type\x1a@google/actions/sdk/v2/interactionmodel/type/entity_display.proto\x1a\x1fgoogle/api/field_behavior.proto\"`\n\x0c\x46reeTextType\x12P\n\x07\x64isplay\x18\x02 \x01(\x0b\x32:.google.actions.sdk.v2.interactionmodel.type.EntityDisplayB\x03\xe0\x41\x01\x42\x92\x01\n/com.google.actions.sdk.v2.interactionmodel.typeB\x11\x46reeTextTypeProtoP\x01ZJgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/typeb\x06proto3'
   ,
   dependencies=[google_dot_actions_dot_sdk_dot_v2_dot_interactionmodel_dot_type_dot_entity__display__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,])
 

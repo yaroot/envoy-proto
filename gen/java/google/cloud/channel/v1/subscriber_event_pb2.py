@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\033com.google.cloud.channel.v1B\024SubscriberEventProtoP\001Z>google.golang.org/genproto/googleapis/cloud/channel/v1;channel',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.google/cloud/channel/v1/subscriber_event.proto\x12\x17google.cloud.channel.v1\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\xe4\x01\n\rCustomerEvent\x12;\n\x08\x63ustomer\x18\x01 \x01(\tB)\xfa\x41&\n$cloudchannel.googleapis.com/Customer\x12?\n\nevent_type\x18\x02 \x01(\x0e\x32+.google.cloud.channel.v1.CustomerEvent.Type\"U\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x1a\n\x16PRIMARY_DOMAIN_CHANGED\x10\x01\x12\x1b\n\x17PRIMARY_DOMAIN_VERIFIED\x10\x02\"\x98\x03\n\x10\x45ntitlementEvent\x12\x41\n\x0b\x65ntitlement\x18\x01 \x01(\tB,\xfa\x41)\n\'cloudchannel.googleapis.com/Entitlement\x12\x42\n\nevent_type\x18\x02 \x01(\x0e\x32..google.cloud.channel.v1.EntitlementEvent.Type\"\xfc\x01\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x43REATED\x10\x01\x12\x17\n\x13PRICE_PLAN_SWITCHED\x10\x03\x12\x16\n\x12\x43OMMITMENT_CHANGED\x10\x04\x12\x0b\n\x07RENEWED\x10\x05\x12\r\n\tSUSPENDED\x10\x06\x12\r\n\tACTIVATED\x10\x07\x12\r\n\tCANCELLED\x10\x08\x12\x0f\n\x0bSKU_CHANGED\x10\t\x12\x1b\n\x17RENEWAL_SETTING_CHANGED\x10\n\x12\x18\n\x14PAID_SERVICE_STARTED\x10\x0b\x12\x1e\n\x1aLICENSE_ASSIGNMENT_CHANGED\x10\x0c\"\xa4\x01\n\x0fSubscriberEvent\x12@\n\x0e\x63ustomer_event\x18\x01 \x01(\x0b\x32&.google.cloud.channel.v1.CustomerEventH\x00\x12\x46\n\x11\x65ntitlement_event\x18\x02 \x01(\x0b\x32).google.cloud.channel.v1.EntitlementEventH\x00\x42\x07\n\x05\x65ventBu\n\x1b\x63om.google.cloud.channel.v1B\x14SubscriberEventProtoP\x01Z>google.golang.org/genproto/googleapis/cloud/channel/v1;channelb\x06proto3'
+  serialized_pb=b'\n.google/cloud/channel/v1/subscriber_event.proto\x12\x17google.cloud.channel.v1\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\xe4\x01\n\rCustomerEvent\x12;\n\x08\x63ustomer\x18\x01 \x01(\tB)\xfa\x41&\n$cloudchannel.googleapis.com/Customer\x12?\n\nevent_type\x18\x02 \x01(\x0e\x32+.google.cloud.channel.v1.CustomerEvent.Type\"U\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x1a\n\x16PRIMARY_DOMAIN_CHANGED\x10\x01\x12\x1b\n\x17PRIMARY_DOMAIN_VERIFIED\x10\x02\"\xb1\x03\n\x10\x45ntitlementEvent\x12\x41\n\x0b\x65ntitlement\x18\x01 \x01(\tB,\xfa\x41)\n\'cloudchannel.googleapis.com/Entitlement\x12\x42\n\nevent_type\x18\x02 \x01(\x0e\x32..google.cloud.channel.v1.EntitlementEvent.Type\"\x95\x02\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x43REATED\x10\x01\x12\x17\n\x13PRICE_PLAN_SWITCHED\x10\x03\x12\x16\n\x12\x43OMMITMENT_CHANGED\x10\x04\x12\x0b\n\x07RENEWED\x10\x05\x12\r\n\tSUSPENDED\x10\x06\x12\r\n\tACTIVATED\x10\x07\x12\r\n\tCANCELLED\x10\x08\x12\x0f\n\x0bSKU_CHANGED\x10\t\x12\x1b\n\x17RENEWAL_SETTING_CHANGED\x10\n\x12\x18\n\x14PAID_SERVICE_STARTED\x10\x0b\x12\x1e\n\x1aLICENSE_ASSIGNMENT_CHANGED\x10\x0c\x12\x17\n\x13LICENSE_CAP_CHANGED\x10\r\"\xa4\x01\n\x0fSubscriberEvent\x12@\n\x0e\x63ustomer_event\x18\x01 \x01(\x0b\x32&.google.cloud.channel.v1.CustomerEventH\x00\x12\x46\n\x11\x65ntitlement_event\x18\x02 \x01(\x0b\x32).google.cloud.channel.v1.EntitlementEventH\x00\x42\x07\n\x05\x65ventBu\n\x1b\x63om.google.cloud.channel.v1B\x14SubscriberEventProtoP\x01Z>google.golang.org/genproto/googleapis/cloud/channel/v1;channelb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -124,11 +124,16 @@ _ENTITLEMENTEVENT_TYPE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='LICENSE_CAP_CHANGED', index=12, number=13,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=520,
-  serialized_end=772,
+  serialized_end=797,
 )
 _sym_db.RegisterEnumDescriptor(_ENTITLEMENTEVENT_TYPE)
 
@@ -209,7 +214,7 @@ _ENTITLEMENTEVENT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=364,
-  serialized_end=772,
+  serialized_end=797,
 )
 
 
@@ -252,8 +257,8 @@ _SUBSCRIBEREVENT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=775,
-  serialized_end=939,
+  serialized_start=800,
+  serialized_end=964,
 )
 
 _CUSTOMEREVENT.fields_by_name['event_type'].enum_type = _CUSTOMEREVENT_TYPE

@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 from envoy.type.matcher.v3 import string_pb2 as envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
+from envoy.annotations import deprecation_pb2 as envoy_dot_annotations_dot_deprecation__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from udpa.annotations import versioning_pb2 as udpa_dot_annotations_dot_versioning__pb2
 from validate import validate_pb2 as validate_dot_validate__pb2
@@ -24,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\037io.envoyproxy.envoy.data.dns.v3B\rDnsTableProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n!envoy/data/dns/v3/dns_table.proto\x12\x11\x65nvoy.data.dns.v3\x1a\"envoy/type/matcher/v3/string.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x86\x0b\n\x08\x44nsTable\x12%\n\x14\x65xternal_retry_count\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02\x18\x03\x12\x45\n\x0fvirtual_domains\x18\x02 \x03(\x0b\x32,.envoy.data.dns.v3.DnsTable.DnsVirtualDomain\x12<\n\x0eknown_suffixes\x18\x03 \x03(\x0b\x32$.envoy.type.matcher.v3.StringMatcher\x1a\x62\n\x0b\x41\x64\x64ressList\x12\x1f\n\x07\x61\x64\x64ress\x18\x01 \x03(\tB\x0e\xfa\x42\x0b\x92\x01\x08\x08\x01\"\x04r\x02\x10\x03:2\x9a\xc5\x88\x1e-\n+envoy.data.dns.v2alpha.DnsTable.AddressList\x1a\x64\n\x12\x44nsServiceProtocol\x12\x1a\n\x06number\x18\x01 \x01(\rB\x08\xfa\x42\x05*\x03\x10\xff\x01H\x00\x12\x1a\n\x04name\x18\x02 \x01(\tB\n\xfa\x42\x07r\x05\x10\x01\xc0\x01\x01H\x00\x42\x16\n\x0fprotocol_config\x12\x03\xf8\x42\x01\x1a\xbe\x01\n\x10\x44nsServiceTarget\x12\x1f\n\thost_name\x18\x01 \x01(\tB\n\xfa\x42\x07r\x05\x10\x01\xc0\x01\x01H\x00\x12\"\n\x0c\x63luster_name\x18\x02 \x01(\tB\n\xfa\x42\x07r\x05\x10\x01\xc0\x01\x01H\x00\x12\x1b\n\x08priority\x18\x03 \x01(\rB\t\xfa\x42\x06*\x04\x10\x80\x80\x04\x12\x19\n\x06weight\x18\x04 \x01(\rB\t\xfa\x42\x06*\x04\x10\x80\x80\x04\x12\x17\n\x04port\x18\x05 \x01(\rB\t\xfa\x42\x06*\x04\x10\x80\x80\x04\x42\x14\n\rendpoint_type\x12\x03\xf8\x42\x01\x1a\xed\x01\n\nDnsService\x12 \n\x0cservice_name\x18\x01 \x01(\tB\n\xfa\x42\x07r\x05\x10\x01\xc0\x01\x01\x12@\n\x08protocol\x18\x02 \x01(\x0b\x32..envoy.data.dns.v3.DnsTable.DnsServiceProtocol\x12\x32\n\x03ttl\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\n\xfa\x42\x07\xaa\x01\x04\x32\x02\x08\x01\x12G\n\x07targets\x18\x04 \x03(\x0b\x32,.envoy.data.dns.v3.DnsTable.DnsServiceTargetB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1aT\n\x0e\x44nsServiceList\x12\x42\n\x08services\x18\x01 \x03(\x0b\x32&.envoy.data.dns.v3.DnsTable.DnsServiceB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\xf6\x01\n\x0b\x44nsEndpoint\x12?\n\x0c\x61\x64\x64ress_list\x18\x01 \x01(\x0b\x32\'.envoy.data.dns.v3.DnsTable.AddressListH\x00\x12\x16\n\x0c\x63luster_name\x18\x02 \x01(\tH\x00\x12\x42\n\x0cservice_list\x18\x03 \x01(\x0b\x32*.envoy.data.dns.v3.DnsTable.DnsServiceListH\x00:2\x9a\xc5\x88\x1e-\n+envoy.data.dns.v2alpha.DnsTable.DnsEndpointB\x16\n\x0f\x65ndpoint_config\x12\x03\xf8\x42\x01\x1a\xdb\x01\n\x10\x44nsVirtualDomain\x12\x18\n\x04name\x18\x01 \x01(\tB\n\xfa\x42\x07r\x05\x10\x01\xc0\x01\x01\x12\x39\n\x08\x65ndpoint\x18\x02 \x01(\x0b\x32\'.envoy.data.dns.v3.DnsTable.DnsEndpoint\x12\x39\n\nanswer_ttl\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\n\xfa\x42\x07\xaa\x01\x04\x32\x02\x08\x1e:7\x9a\xc5\x88\x1e\x32\n0envoy.data.dns.v2alpha.DnsTable.DnsVirtualDomain:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.data.dns.v2alpha.DnsTableB:\n\x1fio.envoyproxy.envoy.data.dns.v3B\rDnsTableProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n!envoy/data/dns/v3/dns_table.proto\x12\x11\x65nvoy.data.dns.v3\x1a\"envoy/type/matcher/v3/string.proto\x1a\x1egoogle/protobuf/duration.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x93\x0b\n\x08\x44nsTable\x12%\n\x14\x65xternal_retry_count\x18\x01 \x01(\rB\x07\xfa\x42\x04*\x02\x18\x03\x12\x45\n\x0fvirtual_domains\x18\x02 \x03(\x0b\x32,.envoy.data.dns.v3.DnsTable.DnsVirtualDomain\x12I\n\x0eknown_suffixes\x18\x03 \x03(\x0b\x32$.envoy.type.matcher.v3.StringMatcherB\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x1a\x62\n\x0b\x41\x64\x64ressList\x12\x1f\n\x07\x61\x64\x64ress\x18\x01 \x03(\tB\x0e\xfa\x42\x0b\x92\x01\x08\x08\x01\"\x04r\x02\x10\x03:2\x9a\xc5\x88\x1e-\n+envoy.data.dns.v2alpha.DnsTable.AddressList\x1a\x64\n\x12\x44nsServiceProtocol\x12\x1a\n\x06number\x18\x01 \x01(\rB\x08\xfa\x42\x05*\x03\x10\xff\x01H\x00\x12\x1a\n\x04name\x18\x02 \x01(\tB\n\xfa\x42\x07r\x05\x10\x01\xc0\x01\x01H\x00\x42\x16\n\x0fprotocol_config\x12\x03\xf8\x42\x01\x1a\xbe\x01\n\x10\x44nsServiceTarget\x12\x1f\n\thost_name\x18\x01 \x01(\tB\n\xfa\x42\x07r\x05\x10\x01\xc0\x01\x01H\x00\x12\"\n\x0c\x63luster_name\x18\x02 \x01(\tB\n\xfa\x42\x07r\x05\x10\x01\xc0\x01\x01H\x00\x12\x1b\n\x08priority\x18\x03 \x01(\rB\t\xfa\x42\x06*\x04\x10\x80\x80\x04\x12\x19\n\x06weight\x18\x04 \x01(\rB\t\xfa\x42\x06*\x04\x10\x80\x80\x04\x12\x17\n\x04port\x18\x05 \x01(\rB\t\xfa\x42\x06*\x04\x10\x80\x80\x04\x42\x14\n\rendpoint_type\x12\x03\xf8\x42\x01\x1a\xed\x01\n\nDnsService\x12 \n\x0cservice_name\x18\x01 \x01(\tB\n\xfa\x42\x07r\x05\x10\x01\xc0\x01\x01\x12@\n\x08protocol\x18\x02 \x01(\x0b\x32..envoy.data.dns.v3.DnsTable.DnsServiceProtocol\x12\x32\n\x03ttl\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\n\xfa\x42\x07\xaa\x01\x04\x32\x02\x08\x01\x12G\n\x07targets\x18\x04 \x03(\x0b\x32,.envoy.data.dns.v3.DnsTable.DnsServiceTargetB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1aT\n\x0e\x44nsServiceList\x12\x42\n\x08services\x18\x01 \x03(\x0b\x32&.envoy.data.dns.v3.DnsTable.DnsServiceB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\xf6\x01\n\x0b\x44nsEndpoint\x12?\n\x0c\x61\x64\x64ress_list\x18\x01 \x01(\x0b\x32\'.envoy.data.dns.v3.DnsTable.AddressListH\x00\x12\x16\n\x0c\x63luster_name\x18\x02 \x01(\tH\x00\x12\x42\n\x0cservice_list\x18\x03 \x01(\x0b\x32*.envoy.data.dns.v3.DnsTable.DnsServiceListH\x00:2\x9a\xc5\x88\x1e-\n+envoy.data.dns.v2alpha.DnsTable.DnsEndpointB\x16\n\x0f\x65ndpoint_config\x12\x03\xf8\x42\x01\x1a\xdb\x01\n\x10\x44nsVirtualDomain\x12\x18\n\x04name\x18\x01 \x01(\tB\n\xfa\x42\x07r\x05\x10\x01\xc0\x01\x01\x12\x39\n\x08\x65ndpoint\x18\x02 \x01(\x0b\x32\'.envoy.data.dns.v3.DnsTable.DnsEndpoint\x12\x39\n\nanswer_ttl\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\n\xfa\x42\x07\xaa\x01\x04\x32\x02\x08\x1e:7\x9a\xc5\x88\x1e\x32\n0envoy.data.dns.v2alpha.DnsTable.DnsVirtualDomain:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.data.dns.v2alpha.DnsTableB:\n\x1fio.envoyproxy.envoy.data.dns.v3B\rDnsTableProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -58,8 +59,8 @@ _DNSTABLE_ADDRESSLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=400,
-  serialized_end=498,
+  serialized_start=450,
+  serialized_end=548,
 )
 
 _DNSTABLE_DNSSERVICEPROTOCOL = _descriptor.Descriptor(
@@ -101,8 +102,8 @@ _DNSTABLE_DNSSERVICEPROTOCOL = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=500,
-  serialized_end=600,
+  serialized_start=550,
+  serialized_end=650,
 )
 
 _DNSTABLE_DNSSERVICETARGET = _descriptor.Descriptor(
@@ -165,8 +166,8 @@ _DNSTABLE_DNSSERVICETARGET = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=603,
-  serialized_end=793,
+  serialized_start=653,
+  serialized_end=843,
 )
 
 _DNSTABLE_DNSSERVICE = _descriptor.Descriptor(
@@ -217,8 +218,8 @@ _DNSTABLE_DNSSERVICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=796,
-  serialized_end=1033,
+  serialized_start=846,
+  serialized_end=1083,
 )
 
 _DNSTABLE_DNSSERVICELIST = _descriptor.Descriptor(
@@ -248,8 +249,8 @@ _DNSTABLE_DNSSERVICELIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1035,
-  serialized_end=1119,
+  serialized_start=1085,
+  serialized_end=1169,
 )
 
 _DNSTABLE_DNSENDPOINT = _descriptor.Descriptor(
@@ -298,8 +299,8 @@ _DNSTABLE_DNSENDPOINT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=1122,
-  serialized_end=1368,
+  serialized_start=1172,
+  serialized_end=1418,
 )
 
 _DNSTABLE_DNSVIRTUALDOMAIN = _descriptor.Descriptor(
@@ -343,8 +344,8 @@ _DNSTABLE_DNSVIRTUALDOMAIN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1371,
-  serialized_end=1590,
+  serialized_start=1421,
+  serialized_end=1640,
 )
 
 _DNSTABLE = _descriptor.Descriptor(
@@ -375,7 +376,7 @@ _DNSTABLE = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001\222\307\206\330\004\0033.0', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -388,8 +389,8 @@ _DNSTABLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=216,
-  serialized_end=1630,
+  serialized_start=253,
+  serialized_end=1680,
 )
 
 _DNSTABLE_ADDRESSLIST.containing_type = _DNSTABLE
@@ -519,5 +520,6 @@ _DNSTABLE_DNSVIRTUALDOMAIN.fields_by_name['name']._options = None
 _DNSTABLE_DNSVIRTUALDOMAIN.fields_by_name['answer_ttl']._options = None
 _DNSTABLE_DNSVIRTUALDOMAIN._options = None
 _DNSTABLE.fields_by_name['external_retry_count']._options = None
+_DNSTABLE.fields_by_name['known_suffixes']._options = None
 _DNSTABLE._options = None
 # @@protoc_insertion_point(module_scope)

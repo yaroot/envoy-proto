@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n)com.google.cloud.mediatranslation.v1beta1B\025MediaTranslationProtoP\001ZUgoogle.golang.org/genproto/googleapis/cloud/mediatranslation/v1beta1;mediatranslation\370\001\001\252\002%Google.Cloud.MediaTranslation.V1Beta1\312\002%Google\\Cloud\\MediaTranslation\\V1beta1\352\002(Google::Cloud::MediaTranslation::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n=google/cloud/mediatranslation/v1beta1/media_translation.proto\x12%google.cloud.mediatranslation.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x17google/rpc/status.proto\x1a\x17google/api/client.proto\"\xde\x01\n\x15TranslateSpeechConfig\x12\x1b\n\x0e\x61udio_encoding\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12!\n\x14source_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12.\n!alternative_source_language_codes\x18\x06 \x03(\tB\x03\xe0\x41\x01\x12!\n\x14target_language_code\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x1e\n\x11sample_rate_hertz\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01\x12\x12\n\x05model\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\x98\x01\n\x1eStreamingTranslateSpeechConfig\x12W\n\x0c\x61udio_config\x18\x01 \x01(\x0b\x32<.google.cloud.mediatranslation.v1beta1.TranslateSpeechConfigB\x03\xe0\x41\x02\x12\x1d\n\x10single_utterance\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\"\xb2\x01\n\x1fStreamingTranslateSpeechRequest\x12\x61\n\x10streaming_config\x18\x01 \x01(\x0b\x32\x45.google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechConfigH\x00\x12\x17\n\raudio_content\x18\x02 \x01(\x0cH\x00\x42\x13\n\x11streaming_request\"\xc1\x02\n\x1eStreamingTranslateSpeechResult\x12~\n\x17text_translation_result\x18\x01 \x01(\x0b\x32[.google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechResult.TextTranslationResultH\x00\x12\x1f\n\x12recognition_result\x18\x03 \x01(\tB\x03\xe0\x41\x03\x1at\n\x15TextTranslationResult\x12\x18\n\x0btranslation\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x15\n\x08is_final\x18\x02 \x01(\x08\x42\x03\xe0\x41\x03\x12*\n\x1d\x64\x65tected_source_language_code\x18\x03 \x01(\tB\x03\xe0\x41\x03\x42\x08\n\x06result\"\xf2\x02\n StreamingTranslateSpeechResponse\x12&\n\x05\x65rror\x18\x01 \x01(\x0b\x32\x12.google.rpc.StatusB\x03\xe0\x41\x03\x12Z\n\x06result\x18\x02 \x01(\x0b\x32\x45.google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechResultB\x03\xe0\x41\x03\x12w\n\x11speech_event_type\x18\x03 \x01(\x0e\x32W.google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechResponse.SpeechEventTypeB\x03\xe0\x41\x03\"Q\n\x0fSpeechEventType\x12!\n\x1dSPEECH_EVENT_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n\x17\x45ND_OF_SINGLE_UTTERANCE\x10\x01\x32\xa3\x02\n\x18SpeechTranslationService\x12\xb1\x01\n\x18StreamingTranslateSpeech\x12\x46.google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechRequest\x1aG.google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechResponse\"\x00(\x01\x30\x01\x1aS\xca\x41\x1fmediatranslation.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x99\x02\n)com.google.cloud.mediatranslation.v1beta1B\x15MediaTranslationProtoP\x01ZUgoogle.golang.org/genproto/googleapis/cloud/mediatranslation/v1beta1;mediatranslation\xf8\x01\x01\xaa\x02%Google.Cloud.MediaTranslation.V1Beta1\xca\x02%Google\\Cloud\\MediaTranslation\\V1beta1\xea\x02(Google::Cloud::MediaTranslation::V1beta1b\x06proto3'
+  serialized_pb=b'\n=google/cloud/mediatranslation/v1beta1/media_translation.proto\x12%google.cloud.mediatranslation.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x17google/rpc/status.proto\x1a\x17google/api/client.proto\"\xae\x01\n\x15TranslateSpeechConfig\x12\x1b\n\x0e\x61udio_encoding\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12!\n\x14source_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12!\n\x14target_language_code\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x1e\n\x11sample_rate_hertz\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01\x12\x12\n\x05model\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\x98\x01\n\x1eStreamingTranslateSpeechConfig\x12W\n\x0c\x61udio_config\x18\x01 \x01(\x0b\x32<.google.cloud.mediatranslation.v1beta1.TranslateSpeechConfigB\x03\xe0\x41\x02\x12\x1d\n\x10single_utterance\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\"\xb2\x01\n\x1fStreamingTranslateSpeechRequest\x12\x61\n\x10streaming_config\x18\x01 \x01(\x0b\x32\x45.google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechConfigH\x00\x12\x17\n\raudio_content\x18\x02 \x01(\x0cH\x00\x42\x13\n\x11streaming_request\"\xf4\x01\n\x1eStreamingTranslateSpeechResult\x12~\n\x17text_translation_result\x18\x01 \x01(\x0b\x32[.google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechResult.TextTranslationResultH\x00\x1aH\n\x15TextTranslationResult\x12\x18\n\x0btranslation\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x15\n\x08is_final\x18\x02 \x01(\x08\x42\x03\xe0\x41\x03\x42\x08\n\x06result\"\xf2\x02\n StreamingTranslateSpeechResponse\x12&\n\x05\x65rror\x18\x01 \x01(\x0b\x32\x12.google.rpc.StatusB\x03\xe0\x41\x03\x12Z\n\x06result\x18\x02 \x01(\x0b\x32\x45.google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechResultB\x03\xe0\x41\x03\x12w\n\x11speech_event_type\x18\x03 \x01(\x0e\x32W.google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechResponse.SpeechEventTypeB\x03\xe0\x41\x03\"Q\n\x0fSpeechEventType\x12!\n\x1dSPEECH_EVENT_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n\x17\x45ND_OF_SINGLE_UTTERANCE\x10\x01\x32\xa3\x02\n\x18SpeechTranslationService\x12\xb1\x01\n\x18StreamingTranslateSpeech\x12\x46.google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechRequest\x1aG.google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechResponse\"\x00(\x01\x30\x01\x1aS\xca\x41\x1fmediatranslation.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x99\x02\n)com.google.cloud.mediatranslation.v1beta1B\x15MediaTranslationProtoP\x01ZUgoogle.golang.org/genproto/googleapis/cloud/mediatranslation/v1beta1;mediatranslation\xf8\x01\x01\xaa\x02%Google.Cloud.MediaTranslation.V1Beta1\xca\x02%Google\\Cloud\\MediaTranslation\\V1beta1\xea\x02(Google::Cloud::MediaTranslation::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,])
 
@@ -48,8 +48,8 @@ _STREAMINGTRANSLATESPEECHRESPONSE_SPEECHEVENTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1362,
-  serialized_end=1443,
+  serialized_start=1237,
+  serialized_end=1318,
 )
 _sym_db.RegisterEnumDescriptor(_STREAMINGTRANSLATESPEECHRESPONSE_SPEECHEVENTTYPE)
 
@@ -77,28 +77,21 @@ _TRANSLATESPEECHCONFIG = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='alternative_source_language_codes', full_name='google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig.alternative_source_language_codes', index=2,
-      number=6, type=9, cpp_type=9, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='target_language_code', full_name='google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig.target_language_code', index=3,
+      name='target_language_code', full_name='google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig.target_language_code', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='sample_rate_hertz', full_name='google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig.sample_rate_hertz', index=4,
+      name='sample_rate_hertz', full_name='google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig.sample_rate_hertz', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='model', full_name='google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig.model', index=5,
+      name='model', full_name='google.cloud.mediatranslation.v1beta1.TranslateSpeechConfig.model', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -117,7 +110,7 @@ _TRANSLATESPEECHCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=188,
-  serialized_end=410,
+  serialized_end=362,
 )
 
 
@@ -155,8 +148,8 @@ _STREAMINGTRANSLATESPEECHCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=413,
-  serialized_end=565,
+  serialized_start=365,
+  serialized_end=517,
 )
 
 
@@ -199,8 +192,8 @@ _STREAMINGTRANSLATESPEECHREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=568,
-  serialized_end=746,
+  serialized_start=520,
+  serialized_end=698,
 )
 
 
@@ -226,13 +219,6 @@ _STREAMINGTRANSLATESPEECHRESULT_TEXTTRANSLATIONRESULT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='detected_source_language_code', full_name='google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechResult.TextTranslationResult.detected_source_language_code', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -245,8 +231,8 @@ _STREAMINGTRANSLATESPEECHRESULT_TEXTTRANSLATIONRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=944,
-  serialized_end=1060,
+  serialized_start=863,
+  serialized_end=935,
 )
 
 _STREAMINGTRANSLATESPEECHRESULT = _descriptor.Descriptor(
@@ -264,13 +250,6 @@ _STREAMINGTRANSLATESPEECHRESULT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='recognition_result', full_name='google.cloud.mediatranslation.v1beta1.StreamingTranslateSpeechResult.recognition_result', index=1,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -288,8 +267,8 @@ _STREAMINGTRANSLATESPEECHRESULT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=749,
-  serialized_end=1070,
+  serialized_start=701,
+  serialized_end=945,
 )
 
 
@@ -335,8 +314,8 @@ _STREAMINGTRANSLATESPEECHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1073,
-  serialized_end=1443,
+  serialized_start=948,
+  serialized_end=1318,
 )
 
 _STREAMINGTRANSLATESPEECHCONFIG.fields_by_name['audio_config'].message_type = _TRANSLATESPEECHCONFIG
@@ -410,7 +389,6 @@ _sym_db.RegisterMessage(StreamingTranslateSpeechResponse)
 DESCRIPTOR._options = None
 _TRANSLATESPEECHCONFIG.fields_by_name['audio_encoding']._options = None
 _TRANSLATESPEECHCONFIG.fields_by_name['source_language_code']._options = None
-_TRANSLATESPEECHCONFIG.fields_by_name['alternative_source_language_codes']._options = None
 _TRANSLATESPEECHCONFIG.fields_by_name['target_language_code']._options = None
 _TRANSLATESPEECHCONFIG.fields_by_name['sample_rate_hertz']._options = None
 _TRANSLATESPEECHCONFIG.fields_by_name['model']._options = None
@@ -418,8 +396,6 @@ _STREAMINGTRANSLATESPEECHCONFIG.fields_by_name['audio_config']._options = None
 _STREAMINGTRANSLATESPEECHCONFIG.fields_by_name['single_utterance']._options = None
 _STREAMINGTRANSLATESPEECHRESULT_TEXTTRANSLATIONRESULT.fields_by_name['translation']._options = None
 _STREAMINGTRANSLATESPEECHRESULT_TEXTTRANSLATIONRESULT.fields_by_name['is_final']._options = None
-_STREAMINGTRANSLATESPEECHRESULT_TEXTTRANSLATIONRESULT.fields_by_name['detected_source_language_code']._options = None
-_STREAMINGTRANSLATESPEECHRESULT.fields_by_name['recognition_result']._options = None
 _STREAMINGTRANSLATESPEECHRESPONSE.fields_by_name['error']._options = None
 _STREAMINGTRANSLATESPEECHRESPONSE.fields_by_name['result']._options = None
 _STREAMINGTRANSLATESPEECHRESPONSE.fields_by_name['speech_event_type']._options = None
@@ -431,8 +407,8 @@ _SPEECHTRANSLATIONSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\037mediatranslation.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1446,
-  serialized_end=1737,
+  serialized_start=1321,
+  serialized_end=1612,
   methods=[
   _descriptor.MethodDescriptor(
     name='StreamingTranslateSpeech',

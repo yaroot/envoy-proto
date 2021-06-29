@@ -18,6 +18,7 @@ from envoy.config.core.v3 import base_pb2 as envoy_dot_config_dot_core_dot_v3_do
 from envoy.config.core.v3 import config_source_pb2 as envoy_dot_config_dot_core_dot_v3_dot_config__source__pb2
 from envoy.config.core.v3 import event_service_config_pb2 as envoy_dot_config_dot_core_dot_v3_dot_event__service__config__pb2
 from envoy.config.core.v3 import extension_pb2 as envoy_dot_config_dot_core_dot_v3_dot_extension__pb2
+from envoy.config.core.v3 import resolver_pb2 as envoy_dot_config_dot_core_dot_v3_dot_resolver__pb2
 from envoy.config.core.v3 import socket_option_pb2 as envoy_dot_config_dot_core_dot_v3_dot_socket__option__pb2
 from envoy.config.listener.v3 import listener_pb2 as envoy_dot_config_dot_listener_dot_v3_dot_listener__pb2
 from envoy.config.metrics.v3 import stats_pb2 as envoy_dot_config_dot_metrics_dot_v3_dot_stats__pb2
@@ -42,9 +43,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\'io.envoyproxy.envoy.config.bootstrap.v3B\016BootstrapProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)envoy/config/bootstrap/v3/bootstrap.proto\x12\x19\x65nvoy.config.bootstrap.v3\x1a)envoy/config/accesslog/v3/accesslog.proto\x1a%envoy/config/cluster/v3/cluster.proto\x1a\"envoy/config/core/v3/address.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a(envoy/config/core/v3/config_source.proto\x1a/envoy/config/core/v3/event_service_config.proto\x1a$envoy/config/core/v3/extension.proto\x1a(envoy/config/core/v3/socket_option.proto\x1a\'envoy/config/listener/v3/listener.proto\x1a#envoy/config/metrics/v3/stats.proto\x1a\'envoy/config/overload/v3/overload.proto\x1a\'envoy/config/trace/v3/http_tracer.proto\x1a\x36\x65nvoy/extensions/transport_sockets/tls/v3/secret.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1fudpa/annotations/security.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xc2\x12\n\tBootstrap\x12(\n\x04node\x18\x01 \x01(\x0b\x32\x1a.envoy.config.core.v3.Node\x12\x1b\n\x13node_context_params\x18\x1a \x03(\t\x12N\n\x10static_resources\x18\x02 \x01(\x0b\x32\x34.envoy.config.bootstrap.v3.Bootstrap.StaticResources\x12P\n\x11\x64ynamic_resources\x18\x03 \x01(\x0b\x32\x35.envoy.config.bootstrap.v3.Bootstrap.DynamicResources\x12\x42\n\x0f\x63luster_manager\x18\x04 \x01(\x0b\x32).envoy.config.bootstrap.v3.ClusterManager\x12\x39\n\nhds_config\x18\x0e \x01(\x0b\x32%.envoy.config.core.v3.ApiConfigSource\x12\x12\n\nflags_path\x18\x05 \x01(\t\x12\x37\n\x0bstats_sinks\x18\x06 \x03(\x0b\x32\".envoy.config.metrics.v3.StatsSink\x12:\n\x0cstats_config\x18\r \x01(\x0b\x32$.envoy.config.metrics.v3.StatsConfig\x12]\n\x14stats_flush_interval\x18\x07 \x01(\x0b\x32\x19.google.protobuf.DurationB$\xfa\x42\x0e\xaa\x01\x0b\x1a\x03\x08\xac\x02\x32\x04\x10\xc0\x84=\xf2\x98\xfe\x8f\x05\r\x12\x0bstats_flush\x12\'\n\x14stats_flush_on_admin\x18\x1d \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12\x42\n\x08watchdog\x18\x08 \x01(\x0b\x32#.envoy.config.bootstrap.v3.WatchdogB\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12\x37\n\twatchdogs\x18\x1b \x01(\x0b\x32$.envoy.config.bootstrap.v3.Watchdogs\x12<\n\x07tracing\x18\t \x01(\x0b\x32\x1e.envoy.config.trace.v3.TracingB\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12\x42\n\x0flayered_runtime\x18\x11 \x01(\x0b\x32).envoy.config.bootstrap.v3.LayeredRuntime\x12/\n\x05\x61\x64min\x18\x0c \x01(\x0b\x32 .envoy.config.bootstrap.v3.Admin\x12S\n\x10overload_manager\x18\x0f \x01(\x0b\x32).envoy.config.overload.v3.OverloadManagerB\x0e\x8a\x93\xb7*\x02\x08\x01\x8a\x93\xb7*\x02\x10\x01\x12\x1f\n\x17\x65nable_dispatcher_stats\x18\x10 \x01(\x08\x12\x15\n\rheader_prefix\x18\x12 \x01(\t\x12\x43\n\x1dstats_server_version_override\x18\x13 \x01(\x0b\x32\x1c.google.protobuf.UInt64Value\x12\x1f\n\x17use_tcp_for_dns_lookups\x18\x14 \x01(\x08\x12H\n\x14\x62ootstrap_extensions\x18\x15 \x03(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfig\x12=\n\rfatal_actions\x18\x1c \x03(\x0b\x32&.envoy.config.bootstrap.v3.FatalAction\x12:\n\x0e\x63onfig_sources\x18\x16 \x03(\x0b\x32\".envoy.config.core.v3.ConfigSource\x12\x41\n\x15\x64\x65\x66\x61ult_config_source\x18\x17 \x01(\x0b\x32\".envoy.config.core.v3.ConfigSource\x12 \n\x18\x64\x65\x66\x61ult_socket_interface\x18\x18 \x01(\t\x12n\n\x1e\x63\x65rtificate_provider_instances\x18\x19 \x03(\x0b\x32\x46.envoy.config.bootstrap.v3.Bootstrap.CertificateProviderInstancesEntry\x1a\xfc\x01\n\x0fStaticResources\x12\x35\n\tlisteners\x18\x01 \x03(\x0b\x32\".envoy.config.listener.v3.Listener\x12\x32\n\x08\x63lusters\x18\x02 \x03(\x0b\x32 .envoy.config.cluster.v3.Cluster\x12\x42\n\x07secrets\x18\x03 \x03(\x0b\x32\x31.envoy.extensions.transport_sockets.tls.v3.Secret::\x9a\xc5\x88\x1e\x35\n3envoy.config.bootstrap.v2.Bootstrap.StaticResources\x1a\xbe\x02\n\x10\x44ynamicResources\x12\x36\n\nlds_config\x18\x01 \x01(\x0b\x32\".envoy.config.core.v3.ConfigSource\x12\x1d\n\x15lds_resources_locator\x18\x05 \x01(\t\x12\x36\n\ncds_config\x18\x02 \x01(\x0b\x32\".envoy.config.core.v3.ConfigSource\x12\x1d\n\x15\x63\x64s_resources_locator\x18\x06 \x01(\t\x12\x39\n\nads_config\x18\x03 \x01(\x0b\x32%.envoy.config.core.v3.ApiConfigSource:;\x9a\xc5\x88\x1e\x36\n4envoy.config.bootstrap.v2.Bootstrap.DynamicResourcesJ\x04\x08\x04\x10\x05\x1ao\n!CertificateProviderInstancesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfig:\x02\x38\x01:*\x9a\xc5\x88\x1e%\n#envoy.config.bootstrap.v2.BootstrapB\r\n\x0bstats_flushJ\x04\x08\n\x10\x0bJ\x04\x08\x0b\x10\x0cR\x07runtime\"\x91\x02\n\x05\x41\x64min\x12\x38\n\naccess_log\x18\x05 \x03(\x0b\x32$.envoy.config.accesslog.v3.AccessLog\x12$\n\x0f\x61\x63\x63\x65ss_log_path\x18\x01 \x01(\tB\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12\x14\n\x0cprofile_path\x18\x02 \x01(\t\x12.\n\x07\x61\x64\x64ress\x18\x03 \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12:\n\x0esocket_options\x18\x04 \x03(\x0b\x32\".envoy.config.core.v3.SocketOption:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.bootstrap.v2.Admin\"\xe6\x03\n\x0e\x43lusterManager\x12\x1a\n\x12local_cluster_name\x18\x01 \x01(\t\x12U\n\x11outlier_detection\x18\x02 \x01(\x0b\x32:.envoy.config.bootstrap.v3.ClusterManager.OutlierDetection\x12>\n\x14upstream_bind_config\x18\x03 \x01(\x0b\x32 .envoy.config.core.v3.BindConfig\x12@\n\x11load_stats_config\x18\x04 \x01(\x0b\x32%.envoy.config.core.v3.ApiConfigSource\x1a\xad\x01\n\x10OutlierDetection\x12\x16\n\x0e\x65vent_log_path\x18\x01 \x01(\t\x12?\n\revent_service\x18\x02 \x01(\x0b\x32(.envoy.config.core.v3.EventServiceConfig:@\x9a\xc5\x88\x1e;\n9envoy.config.bootstrap.v2.ClusterManager.OutlierDetection:/\x9a\xc5\x88\x1e*\n(envoy.config.bootstrap.v2.ClusterManager\"\x8c\x01\n\tWatchdogs\x12\x41\n\x14main_thread_watchdog\x18\x01 \x01(\x0b\x32#.envoy.config.bootstrap.v3.Watchdog\x12<\n\x0fworker_watchdog\x18\x02 \x01(\x0b\x32#.envoy.config.bootstrap.v3.Watchdog\"\xbb\x05\n\x08Watchdog\x12\x43\n\x07\x61\x63tions\x18\x07 \x03(\x0b\x32\x32.envoy.config.bootstrap.v3.Watchdog.WatchdogAction\x12/\n\x0cmiss_timeout\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x33\n\x10megamiss_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12/\n\x0ckill_timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x44\n\x17max_kill_timeout_jitter\x18\x06 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02\x32\x00\x12\x34\n\x11multikill_timeout\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x33\n\x13multikill_threshold\x18\x05 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x1a\xf6\x01\n\x0eWatchdogAction\x12:\n\x06\x63onfig\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfig\x12Y\n\x05\x65vent\x18\x02 \x01(\x0e\x32@.envoy.config.bootstrap.v3.Watchdog.WatchdogAction.WatchdogEventB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\"M\n\rWatchdogEvent\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x08\n\x04KILL\x10\x01\x12\r\n\tMULTIKILL\x10\x02\x12\x0c\n\x08MEGAMISS\x10\x03\x12\x08\n\x04MISS\x10\x04:)\x9a\xc5\x88\x1e$\n\"envoy.config.bootstrap.v2.Watchdog\"I\n\x0b\x46\x61talAction\x12:\n\x06\x63onfig\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfig\"\xa5\x01\n\x07Runtime\x12\x14\n\x0csymlink_root\x18\x01 \x01(\t\x12\x14\n\x0csubdirectory\x18\x02 \x01(\t\x12\x1d\n\x15override_subdirectory\x18\x03 \x01(\t\x12%\n\x04\x62\x61se\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct:(\x9a\xc5\x88\x1e#\n!envoy.config.bootstrap.v2.Runtime\"\xe3\x05\n\x0cRuntimeLayer\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12/\n\x0cstatic_layer\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructH\x00\x12G\n\ndisk_layer\x18\x03 \x01(\x0b\x32\x31.envoy.config.bootstrap.v3.RuntimeLayer.DiskLayerH\x00\x12I\n\x0b\x61\x64min_layer\x18\x04 \x01(\x0b\x32\x32.envoy.config.bootstrap.v3.RuntimeLayer.AdminLayerH\x00\x12G\n\nrtds_layer\x18\x05 \x01(\x0b\x32\x31.envoy.config.bootstrap.v3.RuntimeLayer.RtdsLayerH\x00\x1a\x90\x01\n\tDiskLayer\x12\x14\n\x0csymlink_root\x18\x01 \x01(\t\x12\x14\n\x0csubdirectory\x18\x03 \x01(\t\x12\x1e\n\x16\x61ppend_service_cluster\x18\x02 \x01(\x08:7\x9a\xc5\x88\x1e\x32\n0envoy.config.bootstrap.v2.RuntimeLayer.DiskLayer\x1a\x46\n\nAdminLayer:8\x9a\xc5\x88\x1e\x33\n1envoy.config.bootstrap.v2.RuntimeLayer.AdminLayer\x1a\x8b\x01\n\tRtdsLayer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x37\n\x0brtds_config\x18\x02 \x01(\x0b\x32\".envoy.config.core.v3.ConfigSource:7\x9a\xc5\x88\x1e\x32\n0envoy.config.bootstrap.v2.RuntimeLayer.RtdsLayer:-\x9a\xc5\x88\x1e(\n&envoy.config.bootstrap.v2.RuntimeLayerB\x16\n\x0flayer_specifier\x12\x03\xf8\x42\x01\"z\n\x0eLayeredRuntime\x12\x37\n\x06layers\x18\x01 \x03(\x0b\x32\'.envoy.config.bootstrap.v3.RuntimeLayer:/\x9a\xc5\x88\x1e*\n(envoy.config.bootstrap.v2.LayeredRuntimeBC\n\'io.envoyproxy.envoy.config.bootstrap.v3B\x0e\x42ootstrapProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n)envoy/config/bootstrap/v3/bootstrap.proto\x12\x19\x65nvoy.config.bootstrap.v3\x1a)envoy/config/accesslog/v3/accesslog.proto\x1a%envoy/config/cluster/v3/cluster.proto\x1a\"envoy/config/core/v3/address.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a(envoy/config/core/v3/config_source.proto\x1a/envoy/config/core/v3/event_service_config.proto\x1a$envoy/config/core/v3/extension.proto\x1a#envoy/config/core/v3/resolver.proto\x1a(envoy/config/core/v3/socket_option.proto\x1a\'envoy/config/listener/v3/listener.proto\x1a#envoy/config/metrics/v3/stats.proto\x1a\'envoy/config/overload/v3/overload.proto\x1a\'envoy/config/trace/v3/http_tracer.proto\x1a\x36\x65nvoy/extensions/transport_sockets/tls/v3/secret.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1fudpa/annotations/security.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x99\x13\n\tBootstrap\x12(\n\x04node\x18\x01 \x01(\x0b\x32\x1a.envoy.config.core.v3.Node\x12\x1b\n\x13node_context_params\x18\x1a \x03(\t\x12N\n\x10static_resources\x18\x02 \x01(\x0b\x32\x34.envoy.config.bootstrap.v3.Bootstrap.StaticResources\x12P\n\x11\x64ynamic_resources\x18\x03 \x01(\x0b\x32\x35.envoy.config.bootstrap.v3.Bootstrap.DynamicResources\x12\x42\n\x0f\x63luster_manager\x18\x04 \x01(\x0b\x32).envoy.config.bootstrap.v3.ClusterManager\x12\x39\n\nhds_config\x18\x0e \x01(\x0b\x32%.envoy.config.core.v3.ApiConfigSource\x12\x12\n\nflags_path\x18\x05 \x01(\t\x12\x37\n\x0bstats_sinks\x18\x06 \x03(\x0b\x32\".envoy.config.metrics.v3.StatsSink\x12:\n\x0cstats_config\x18\r \x01(\x0b\x32$.envoy.config.metrics.v3.StatsConfig\x12]\n\x14stats_flush_interval\x18\x07 \x01(\x0b\x32\x19.google.protobuf.DurationB$\xfa\x42\x0e\xaa\x01\x0b\x1a\x03\x08\xac\x02\x32\x04\x10\xc0\x84=\xf2\x98\xfe\x8f\x05\r\x12\x0bstats_flush\x12\'\n\x14stats_flush_on_admin\x18\x1d \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12\x42\n\x08watchdog\x18\x08 \x01(\x0b\x32#.envoy.config.bootstrap.v3.WatchdogB\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12\x37\n\twatchdogs\x18\x1b \x01(\x0b\x32$.envoy.config.bootstrap.v3.Watchdogs\x12<\n\x07tracing\x18\t \x01(\x0b\x32\x1e.envoy.config.trace.v3.TracingB\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12\x42\n\x0flayered_runtime\x18\x11 \x01(\x0b\x32).envoy.config.bootstrap.v3.LayeredRuntime\x12/\n\x05\x61\x64min\x18\x0c \x01(\x0b\x32 .envoy.config.bootstrap.v3.Admin\x12S\n\x10overload_manager\x18\x0f \x01(\x0b\x32).envoy.config.overload.v3.OverloadManagerB\x0e\x8a\x93\xb7*\x02\x08\x01\x8a\x93\xb7*\x02\x10\x01\x12\x1f\n\x17\x65nable_dispatcher_stats\x18\x10 \x01(\x08\x12\x15\n\rheader_prefix\x18\x12 \x01(\t\x12\x43\n\x1dstats_server_version_override\x18\x13 \x01(\x0b\x32\x1c.google.protobuf.UInt64Value\x12,\n\x17use_tcp_for_dns_lookups\x18\x14 \x01(\x08\x42\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12H\n\x15\x64ns_resolution_config\x18\x1e \x01(\x0b\x32).envoy.config.core.v3.DnsResolutionConfig\x12H\n\x14\x62ootstrap_extensions\x18\x15 \x03(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfig\x12=\n\rfatal_actions\x18\x1c \x03(\x0b\x32&.envoy.config.bootstrap.v3.FatalAction\x12:\n\x0e\x63onfig_sources\x18\x16 \x03(\x0b\x32\".envoy.config.core.v3.ConfigSource\x12\x41\n\x15\x64\x65\x66\x61ult_config_source\x18\x17 \x01(\x0b\x32\".envoy.config.core.v3.ConfigSource\x12 \n\x18\x64\x65\x66\x61ult_socket_interface\x18\x18 \x01(\t\x12n\n\x1e\x63\x65rtificate_provider_instances\x18\x19 \x03(\x0b\x32\x46.envoy.config.bootstrap.v3.Bootstrap.CertificateProviderInstancesEntry\x1a\xfc\x01\n\x0fStaticResources\x12\x35\n\tlisteners\x18\x01 \x03(\x0b\x32\".envoy.config.listener.v3.Listener\x12\x32\n\x08\x63lusters\x18\x02 \x03(\x0b\x32 .envoy.config.cluster.v3.Cluster\x12\x42\n\x07secrets\x18\x03 \x03(\x0b\x32\x31.envoy.extensions.transport_sockets.tls.v3.Secret::\x9a\xc5\x88\x1e\x35\n3envoy.config.bootstrap.v2.Bootstrap.StaticResources\x1a\xbe\x02\n\x10\x44ynamicResources\x12\x36\n\nlds_config\x18\x01 \x01(\x0b\x32\".envoy.config.core.v3.ConfigSource\x12\x1d\n\x15lds_resources_locator\x18\x05 \x01(\t\x12\x36\n\ncds_config\x18\x02 \x01(\x0b\x32\".envoy.config.core.v3.ConfigSource\x12\x1d\n\x15\x63\x64s_resources_locator\x18\x06 \x01(\t\x12\x39\n\nads_config\x18\x03 \x01(\x0b\x32%.envoy.config.core.v3.ApiConfigSource:;\x9a\xc5\x88\x1e\x36\n4envoy.config.bootstrap.v2.Bootstrap.DynamicResourcesJ\x04\x08\x04\x10\x05\x1ao\n!CertificateProviderInstancesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfig:\x02\x38\x01:*\x9a\xc5\x88\x1e%\n#envoy.config.bootstrap.v2.BootstrapB\r\n\x0bstats_flushJ\x04\x08\n\x10\x0bJ\x04\x08\x0b\x10\x0cR\x07runtime\"\x91\x02\n\x05\x41\x64min\x12\x38\n\naccess_log\x18\x05 \x03(\x0b\x32$.envoy.config.accesslog.v3.AccessLog\x12$\n\x0f\x61\x63\x63\x65ss_log_path\x18\x01 \x01(\tB\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12\x14\n\x0cprofile_path\x18\x02 \x01(\t\x12.\n\x07\x61\x64\x64ress\x18\x03 \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12:\n\x0esocket_options\x18\x04 \x03(\x0b\x32\".envoy.config.core.v3.SocketOption:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.bootstrap.v2.Admin\"\xe6\x03\n\x0e\x43lusterManager\x12\x1a\n\x12local_cluster_name\x18\x01 \x01(\t\x12U\n\x11outlier_detection\x18\x02 \x01(\x0b\x32:.envoy.config.bootstrap.v3.ClusterManager.OutlierDetection\x12>\n\x14upstream_bind_config\x18\x03 \x01(\x0b\x32 .envoy.config.core.v3.BindConfig\x12@\n\x11load_stats_config\x18\x04 \x01(\x0b\x32%.envoy.config.core.v3.ApiConfigSource\x1a\xad\x01\n\x10OutlierDetection\x12\x16\n\x0e\x65vent_log_path\x18\x01 \x01(\t\x12?\n\revent_service\x18\x02 \x01(\x0b\x32(.envoy.config.core.v3.EventServiceConfig:@\x9a\xc5\x88\x1e;\n9envoy.config.bootstrap.v2.ClusterManager.OutlierDetection:/\x9a\xc5\x88\x1e*\n(envoy.config.bootstrap.v2.ClusterManager\"\x8c\x01\n\tWatchdogs\x12\x41\n\x14main_thread_watchdog\x18\x01 \x01(\x0b\x32#.envoy.config.bootstrap.v3.Watchdog\x12<\n\x0fworker_watchdog\x18\x02 \x01(\x0b\x32#.envoy.config.bootstrap.v3.Watchdog\"\xbb\x05\n\x08Watchdog\x12\x43\n\x07\x61\x63tions\x18\x07 \x03(\x0b\x32\x32.envoy.config.bootstrap.v3.Watchdog.WatchdogAction\x12/\n\x0cmiss_timeout\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x33\n\x10megamiss_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12/\n\x0ckill_timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x44\n\x17max_kill_timeout_jitter\x18\x06 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02\x32\x00\x12\x34\n\x11multikill_timeout\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x33\n\x13multikill_threshold\x18\x05 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x1a\xf6\x01\n\x0eWatchdogAction\x12:\n\x06\x63onfig\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfig\x12Y\n\x05\x65vent\x18\x02 \x01(\x0e\x32@.envoy.config.bootstrap.v3.Watchdog.WatchdogAction.WatchdogEventB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\"M\n\rWatchdogEvent\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x08\n\x04KILL\x10\x01\x12\r\n\tMULTIKILL\x10\x02\x12\x0c\n\x08MEGAMISS\x10\x03\x12\x08\n\x04MISS\x10\x04:)\x9a\xc5\x88\x1e$\n\"envoy.config.bootstrap.v2.Watchdog\"I\n\x0b\x46\x61talAction\x12:\n\x06\x63onfig\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfig\"\xa5\x01\n\x07Runtime\x12\x14\n\x0csymlink_root\x18\x01 \x01(\t\x12\x14\n\x0csubdirectory\x18\x02 \x01(\t\x12\x1d\n\x15override_subdirectory\x18\x03 \x01(\t\x12%\n\x04\x62\x61se\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct:(\x9a\xc5\x88\x1e#\n!envoy.config.bootstrap.v2.Runtime\"\xe3\x05\n\x0cRuntimeLayer\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12/\n\x0cstatic_layer\x18\x02 \x01(\x0b\x32\x17.google.protobuf.StructH\x00\x12G\n\ndisk_layer\x18\x03 \x01(\x0b\x32\x31.envoy.config.bootstrap.v3.RuntimeLayer.DiskLayerH\x00\x12I\n\x0b\x61\x64min_layer\x18\x04 \x01(\x0b\x32\x32.envoy.config.bootstrap.v3.RuntimeLayer.AdminLayerH\x00\x12G\n\nrtds_layer\x18\x05 \x01(\x0b\x32\x31.envoy.config.bootstrap.v3.RuntimeLayer.RtdsLayerH\x00\x1a\x90\x01\n\tDiskLayer\x12\x14\n\x0csymlink_root\x18\x01 \x01(\t\x12\x14\n\x0csubdirectory\x18\x03 \x01(\t\x12\x1e\n\x16\x61ppend_service_cluster\x18\x02 \x01(\x08:7\x9a\xc5\x88\x1e\x32\n0envoy.config.bootstrap.v2.RuntimeLayer.DiskLayer\x1a\x46\n\nAdminLayer:8\x9a\xc5\x88\x1e\x33\n1envoy.config.bootstrap.v2.RuntimeLayer.AdminLayer\x1a\x8b\x01\n\tRtdsLayer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x37\n\x0brtds_config\x18\x02 \x01(\x0b\x32\".envoy.config.core.v3.ConfigSource:7\x9a\xc5\x88\x1e\x32\n0envoy.config.bootstrap.v2.RuntimeLayer.RtdsLayer:-\x9a\xc5\x88\x1e(\n&envoy.config.bootstrap.v2.RuntimeLayerB\x16\n\x0flayer_specifier\x12\x03\xf8\x42\x01\"z\n\x0eLayeredRuntime\x12\x37\n\x06layers\x18\x01 \x03(\x0b\x32\'.envoy.config.bootstrap.v3.RuntimeLayer:/\x9a\xc5\x88\x1e*\n(envoy.config.bootstrap.v2.LayeredRuntimeBC\n\'io.envoyproxy.envoy.config.bootstrap.v3B\x0e\x42ootstrapProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_accesslog_dot_v3_dot_accesslog__pb2.DESCRIPTOR,envoy_dot_config_dot_cluster_dot_v3_dot_cluster__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_config__source__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_event__service__config__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_extension__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_socket__option__pb2.DESCRIPTOR,envoy_dot_config_dot_listener_dot_v3_dot_listener__pb2.DESCRIPTOR,envoy_dot_config_dot_metrics_dot_v3_dot_stats__pb2.DESCRIPTOR,envoy_dot_config_dot_overload_dot_v3_dot_overload__pb2.DESCRIPTOR,envoy_dot_config_dot_trace_dot_v3_dot_http__tracer__pb2.DESCRIPTOR,envoy_dot_extensions_dot_transport__sockets_dot_tls_dot_v3_dot_secret__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_migrate__pb2.DESCRIPTOR,udpa_dot_annotations_dot_security__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_accesslog_dot_v3_dot_accesslog__pb2.DESCRIPTOR,envoy_dot_config_dot_cluster_dot_v3_dot_cluster__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_config__source__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_event__service__config__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_extension__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_resolver__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_socket__option__pb2.DESCRIPTOR,envoy_dot_config_dot_listener_dot_v3_dot_listener__pb2.DESCRIPTOR,envoy_dot_config_dot_metrics_dot_v3_dot_stats__pb2.DESCRIPTOR,envoy_dot_config_dot_overload_dot_v3_dot_overload__pb2.DESCRIPTOR,envoy_dot_config_dot_trace_dot_v3_dot_http__tracer__pb2.DESCRIPTOR,envoy_dot_extensions_dot_transport__sockets_dot_tls_dot_v3_dot_secret__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_migrate__pb2.DESCRIPTOR,udpa_dot_annotations_dot_security__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -83,8 +84,8 @@ _WATCHDOG_WATCHDOGACTION_WATCHDOGEVENT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4787,
-  serialized_end=4864,
+  serialized_start=4911,
+  serialized_end=4988,
 )
 _sym_db.RegisterEnumDescriptor(_WATCHDOG_WATCHDOGACTION_WATCHDOGEVENT)
 
@@ -130,8 +131,8 @@ _BOOTSTRAP_STATICRESOURCES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2531,
-  serialized_end=2783,
+  serialized_start=2655,
+  serialized_end=2907,
 )
 
 _BOOTSTRAP_DYNAMICRESOURCES = _descriptor.Descriptor(
@@ -189,8 +190,8 @@ _BOOTSTRAP_DYNAMICRESOURCES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2786,
-  serialized_end=3104,
+  serialized_start=2910,
+  serialized_end=3228,
 )
 
 _BOOTSTRAP_CERTIFICATEPROVIDERINSTANCESENTRY = _descriptor.Descriptor(
@@ -227,8 +228,8 @@ _BOOTSTRAP_CERTIFICATEPROVIDERINSTANCESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3106,
-  serialized_end=3217,
+  serialized_start=3230,
+  serialized_end=3341,
 )
 
 _BOOTSTRAP = _descriptor.Descriptor(
@@ -385,44 +386,51 @@ _BOOTSTRAP = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
+      serialized_options=b'\030\001\222\307\206\330\004\0033.0', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dns_resolution_config', full_name='envoy.config.bootstrap.v3.Bootstrap.dns_resolution_config', index=21,
+      number=30, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='bootstrap_extensions', full_name='envoy.config.bootstrap.v3.Bootstrap.bootstrap_extensions', index=21,
+      name='bootstrap_extensions', full_name='envoy.config.bootstrap.v3.Bootstrap.bootstrap_extensions', index=22,
       number=21, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='fatal_actions', full_name='envoy.config.bootstrap.v3.Bootstrap.fatal_actions', index=22,
+      name='fatal_actions', full_name='envoy.config.bootstrap.v3.Bootstrap.fatal_actions', index=23,
       number=28, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='config_sources', full_name='envoy.config.bootstrap.v3.Bootstrap.config_sources', index=23,
+      name='config_sources', full_name='envoy.config.bootstrap.v3.Bootstrap.config_sources', index=24,
       number=22, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='default_config_source', full_name='envoy.config.bootstrap.v3.Bootstrap.default_config_source', index=24,
+      name='default_config_source', full_name='envoy.config.bootstrap.v3.Bootstrap.default_config_source', index=25,
       number=23, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='default_socket_interface', full_name='envoy.config.bootstrap.v3.Bootstrap.default_socket_interface', index=25,
+      name='default_socket_interface', full_name='envoy.config.bootstrap.v3.Bootstrap.default_socket_interface', index=26,
       number=24, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='certificate_provider_instances', full_name='envoy.config.bootstrap.v3.Bootstrap.certificate_provider_instances', index=26,
+      name='certificate_provider_instances', full_name='envoy.config.bootstrap.v3.Bootstrap.certificate_provider_instances', index=27,
       number=25, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -445,8 +453,8 @@ _BOOTSTRAP = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=927,
-  serialized_end=3297,
+  serialized_start=964,
+  serialized_end=3421,
 )
 
 
@@ -505,8 +513,8 @@ _ADMIN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3300,
-  serialized_end=3573,
+  serialized_start=3424,
+  serialized_end=3697,
 )
 
 
@@ -544,8 +552,8 @@ _CLUSTERMANAGER_OUTLIERDETECTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3840,
-  serialized_end=4013,
+  serialized_start=3964,
+  serialized_end=4137,
 )
 
 _CLUSTERMANAGER = _descriptor.Descriptor(
@@ -596,8 +604,8 @@ _CLUSTERMANAGER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3576,
-  serialized_end=4062,
+  serialized_start=3700,
+  serialized_end=4186,
 )
 
 
@@ -635,8 +643,8 @@ _WATCHDOGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4065,
-  serialized_end=4205,
+  serialized_start=4189,
+  serialized_end=4329,
 )
 
 
@@ -675,8 +683,8 @@ _WATCHDOG_WATCHDOGACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4618,
-  serialized_end=4864,
+  serialized_start=4742,
+  serialized_end=4988,
 )
 
 _WATCHDOG = _descriptor.Descriptor(
@@ -748,8 +756,8 @@ _WATCHDOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4208,
-  serialized_end=4907,
+  serialized_start=4332,
+  serialized_end=5031,
 )
 
 
@@ -780,8 +788,8 @@ _FATALACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4909,
-  serialized_end=4982,
+  serialized_start=5033,
+  serialized_end=5106,
 )
 
 
@@ -833,8 +841,8 @@ _RUNTIME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4985,
-  serialized_end=5150,
+  serialized_start=5109,
+  serialized_end=5274,
 )
 
 
@@ -879,8 +887,8 @@ _RUNTIMELAYER_DISKLAYER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5463,
-  serialized_end=5607,
+  serialized_start=5587,
+  serialized_end=5731,
 )
 
 _RUNTIMELAYER_ADMINLAYER = _descriptor.Descriptor(
@@ -903,8 +911,8 @@ _RUNTIMELAYER_ADMINLAYER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5609,
-  serialized_end=5679,
+  serialized_start=5733,
+  serialized_end=5803,
 )
 
 _RUNTIMELAYER_RTDSLAYER = _descriptor.Descriptor(
@@ -941,8 +949,8 @@ _RUNTIMELAYER_RTDSLAYER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5682,
-  serialized_end=5821,
+  serialized_start=5806,
+  serialized_end=5945,
 )
 
 _RUNTIMELAYER = _descriptor.Descriptor(
@@ -1005,8 +1013,8 @@ _RUNTIMELAYER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=5153,
-  serialized_end=5892,
+  serialized_start=5277,
+  serialized_end=6016,
 )
 
 
@@ -1037,8 +1045,8 @@ _LAYEREDRUNTIME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5894,
-  serialized_end=6016,
+  serialized_start=6018,
+  serialized_end=6140,
 )
 
 _BOOTSTRAP_STATICRESOURCES.fields_by_name['listeners'].message_type = envoy_dot_config_dot_listener_dot_v3_dot_listener__pb2._LISTENER
@@ -1066,6 +1074,7 @@ _BOOTSTRAP.fields_by_name['layered_runtime'].message_type = _LAYEREDRUNTIME
 _BOOTSTRAP.fields_by_name['admin'].message_type = _ADMIN
 _BOOTSTRAP.fields_by_name['overload_manager'].message_type = envoy_dot_config_dot_overload_dot_v3_dot_overload__pb2._OVERLOADMANAGER
 _BOOTSTRAP.fields_by_name['stats_server_version_override'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT64VALUE
+_BOOTSTRAP.fields_by_name['dns_resolution_config'].message_type = envoy_dot_config_dot_core_dot_v3_dot_resolver__pb2._DNSRESOLUTIONCONFIG
 _BOOTSTRAP.fields_by_name['bootstrap_extensions'].message_type = envoy_dot_config_dot_core_dot_v3_dot_extension__pb2._TYPEDEXTENSIONCONFIG
 _BOOTSTRAP.fields_by_name['fatal_actions'].message_type = _FATALACTION
 _BOOTSTRAP.fields_by_name['config_sources'].message_type = envoy_dot_config_dot_core_dot_v3_dot_config__source__pb2._CONFIGSOURCE
@@ -1266,6 +1275,7 @@ _BOOTSTRAP.fields_by_name['stats_flush_on_admin']._options = None
 _BOOTSTRAP.fields_by_name['watchdog']._options = None
 _BOOTSTRAP.fields_by_name['tracing']._options = None
 _BOOTSTRAP.fields_by_name['overload_manager']._options = None
+_BOOTSTRAP.fields_by_name['use_tcp_for_dns_lookups']._options = None
 _BOOTSTRAP._options = None
 _ADMIN.fields_by_name['access_log_path']._options = None
 _ADMIN._options = None

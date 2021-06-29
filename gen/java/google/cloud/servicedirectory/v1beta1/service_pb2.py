@@ -14,6 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.servicedirectory.v1beta1 import endpoint_pb2 as google_dot_cloud_dot_servicedirectory_dot_v1beta1_dot_endpoint__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
@@ -23,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n)com.google.cloud.servicedirectory.v1beta1B\014ServiceProtoP\001ZUgoogle.golang.org/genproto/googleapis/cloud/servicedirectory/v1beta1;servicedirectory\370\001\001\252\002%Google.Cloud.ServiceDirectory.V1Beta1\312\002%Google\\Cloud\\ServiceDirectory\\V1beta1\352\002(Google::Cloud::ServiceDirectory::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n3google/cloud/servicedirectory/v1beta1/service.proto\x12%google.cloud.servicedirectory.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x34google/cloud/servicedirectory/v1beta1/endpoint.proto\x1a\x1cgoogle/api/annotations.proto\"\xec\x02\n\x07Service\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12S\n\x08metadata\x18\x02 \x03(\x0b\x32<.google.cloud.servicedirectory.v1beta1.Service.MetadataEntryB\x03\xe0\x41\x01\x12G\n\tendpoints\x18\x03 \x03(\x0b\x32/.google.cloud.servicedirectory.v1beta1.EndpointB\x03\xe0\x41\x03\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x7f\xea\x41|\n\'servicedirectory.googleapis.com/Service\x12Qprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}B\x90\x02\n)com.google.cloud.servicedirectory.v1beta1B\x0cServiceProtoP\x01ZUgoogle.golang.org/genproto/googleapis/cloud/servicedirectory/v1beta1;servicedirectory\xf8\x01\x01\xaa\x02%Google.Cloud.ServiceDirectory.V1Beta1\xca\x02%Google\\Cloud\\ServiceDirectory\\V1beta1\xea\x02(Google::Cloud::ServiceDirectory::V1beta1b\x06proto3'
+  serialized_pb=b'\n3google/cloud/servicedirectory/v1beta1/service.proto\x12%google.cloud.servicedirectory.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x34google/cloud/servicedirectory/v1beta1/endpoint.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xd8\x03\n\x07Service\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12S\n\x08metadata\x18\x02 \x03(\x0b\x32<.google.cloud.servicedirectory.v1beta1.Service.MetadataEntryB\x03\xe0\x41\x01\x12G\n\tendpoints\x18\x03 \x03(\x0b\x32/.google.cloud.servicedirectory.v1beta1.EndpointB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x7f\xea\x41|\n\'servicedirectory.googleapis.com/Service\x12Qprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}B\x90\x02\n)com.google.cloud.servicedirectory.v1beta1B\x0cServiceProtoP\x01ZUgoogle.golang.org/genproto/googleapis/cloud/servicedirectory/v1beta1;servicedirectory\xf8\x01\x01\xaa\x02%Google.Cloud.ServiceDirectory.V1Beta1\xca\x02%Google\\Cloud\\ServiceDirectory\\V1beta1\xea\x02(Google::Cloud::ServiceDirectory::V1beta1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_servicedirectory_dot_v1beta1_dot_endpoint__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_servicedirectory_dot_v1beta1_dot_endpoint__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -64,8 +65,8 @@ _SERVICE_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=427,
-  serialized_end=474,
+  serialized_start=568,
+  serialized_end=615,
 )
 
 _SERVICE = _descriptor.Descriptor(
@@ -97,6 +98,20 @@ _SERVICE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='create_time', full_name='google.cloud.servicedirectory.v1beta1.Service.create_time', index=3,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_time', full_name='google.cloud.servicedirectory.v1beta1.Service.update_time', index=4,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -109,13 +124,15 @@ _SERVICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=239,
-  serialized_end=603,
+  serialized_start=272,
+  serialized_end=744,
 )
 
 _SERVICE_METADATAENTRY.containing_type = _SERVICE
 _SERVICE.fields_by_name['metadata'].message_type = _SERVICE_METADATAENTRY
 _SERVICE.fields_by_name['endpoints'].message_type = google_dot_cloud_dot_servicedirectory_dot_v1beta1_dot_endpoint__pb2._ENDPOINT
+_SERVICE.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SERVICE.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 DESCRIPTOR.message_types_by_name['Service'] = _SERVICE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -140,5 +157,7 @@ _SERVICE_METADATAENTRY._options = None
 _SERVICE.fields_by_name['name']._options = None
 _SERVICE.fields_by_name['metadata']._options = None
 _SERVICE.fields_by_name['endpoints']._options = None
+_SERVICE.fields_by_name['create_time']._options = None
+_SERVICE.fields_by_name['update_time']._options = None
 _SERVICE._options = None
 # @@protoc_insertion_point(module_scope)

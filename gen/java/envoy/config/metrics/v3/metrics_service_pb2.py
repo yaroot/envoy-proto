@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n%io.envoyproxy.envoy.config.metrics.v3B\023MetricsServiceProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n-envoy/config/metrics/v3/metrics_service.proto\x12\x17\x65nvoy.config.metrics.v3\x1a(envoy/config/core/v3/config_source.proto\x1a\'envoy/config/core/v3/grpc_service.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x98\x02\n\x14MetricsServiceConfig\x12\x41\n\x0cgrpc_service\x18\x01 \x01(\x0b\x32!.envoy.config.core.v3.GrpcServiceB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12I\n\x15transport_api_version\x18\x03 \x01(\x0e\x32 .envoy.config.core.v3.ApiVersionB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12=\n\x19report_counters_as_deltas\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:3\x9a\xc5\x88\x1e.\n,envoy.config.metrics.v2.MetricsServiceConfigBF\n%io.envoyproxy.envoy.config.metrics.v3B\x13MetricsServiceProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n-envoy/config/metrics/v3/metrics_service.proto\x12\x17\x65nvoy.config.metrics.v3\x1a(envoy/config/core/v3/config_source.proto\x1a\'envoy/config/core/v3/grpc_service.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xb5\x02\n\x14MetricsServiceConfig\x12\x41\n\x0cgrpc_service\x18\x01 \x01(\x0b\x32!.envoy.config.core.v3.GrpcServiceB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12I\n\x15transport_api_version\x18\x03 \x01(\x0e\x32 .envoy.config.core.v3.ApiVersionB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12=\n\x19report_counters_as_deltas\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x1b\n\x13\x65mit_tags_as_labels\x18\x04 \x01(\x08:3\x9a\xc5\x88\x1e.\n,envoy.config.metrics.v2.MetricsServiceConfigBF\n%io.envoyproxy.envoy.config.metrics.v3B\x13MetricsServiceProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_config__source__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_grpc__service__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -61,6 +61,13 @@ _METRICSSERVICECONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='emit_tags_as_labels', full_name='envoy.config.metrics.v3.MetricsServiceConfig.emit_tags_as_labels', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -74,7 +81,7 @@ _METRICSSERVICECONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=281,
-  serialized_end=561,
+  serialized_end=590,
 )
 
 _METRICSSERVICECONFIG.fields_by_name['grpc_service'].message_type = envoy_dot_config_dot_core_dot_v3_dot_grpc__service__pb2._GRPCSERVICE

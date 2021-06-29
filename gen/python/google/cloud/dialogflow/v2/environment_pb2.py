@@ -12,12 +12,14 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
+from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.dialogflow.v2 import audio_config_pb2 as google_dot_cloud_dot_dialogflow_dot_v2_dot_audio__config__pb2
+from google.cloud.dialogflow.v2 import fulfillment_pb2 as google_dot_cloud_dot_dialogflow_dot_v2_dot_fulfillment__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
-from google.api import client_pb2 as google_dot_api_dot_client__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -26,9 +28,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\036com.google.cloud.dialogflow.v2B\020EnvironmentProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2;dialogflow\370\001\001\242\002\002DF\252\002\032Google.Cloud.Dialogflow.V2',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,google/cloud/dialogflow/v2/environment.proto\x12\x1agoogle.cloud.dialogflow.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/api/client.proto\"\xf7\x02\n\x0b\x45nvironment\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x18\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\ragent_version\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x41\n\x05state\x18\x04 \x01(\x0e\x32-.google.cloud.dialogflow.v2.Environment.StateB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\"E\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07STOPPED\x10\x01\x12\x0b\n\x07LOADING\x10\x02\x12\x0b\n\x07RUNNING\x10\x03:_\xea\x41\\\n%dialogflow.googleapis.com/Environment\x12\x33projects/{project}/agent/environments/{environment}\"\x89\x01\n\x17ListEnvironmentsRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Environment\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"r\n\x18ListEnvironmentsResponse\x12=\n\x0c\x65nvironments\x18\x01 \x03(\x0b\x32\'.google.cloud.dialogflow.v2.Environment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xf6\x02\n\x0c\x45nvironments\x12\xeb\x01\n\x10ListEnvironments\x12\x33.google.cloud.dialogflow.v2.ListEnvironmentsRequest\x1a\x34.google.cloud.dialogflow.v2.ListEnvironmentsResponse\"l\x82\xd3\xe4\x93\x02\x66\x12*/v2/{parent=projects/*/agent}/environmentsZ8\x12\x36/v2/{parent=projects/*/locations/*/agent}/environments\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\x9f\x01\n\x1e\x63om.google.cloud.dialogflow.v2B\x10\x45nvironmentProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2;dialogflow\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1aGoogle.Cloud.Dialogflow.V2b\x06proto3'
+  serialized_pb=b'\n,google/cloud/dialogflow/v2/environment.proto\x12\x1agoogle.cloud.dialogflow.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/dialogflow/v2/audio_config.proto\x1a,google/cloud/dialogflow/v2/fulfillment.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x84\x05\n\x0b\x45nvironment\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x18\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12@\n\ragent_version\x18\x03 \x01(\tB)\xe0\x41\x01\xfa\x41#\n!dialogflow.googleapis.com/Version\x12\x41\n\x05state\x18\x04 \x01(\x0e\x32-.google.cloud.dialogflow.v2.Environment.StateB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12V\n\x17text_to_speech_settings\x18\x07 \x01(\x0b\x32\x30.google.cloud.dialogflow.v2.TextToSpeechSettingsB\x03\xe0\x41\x01\x12\x41\n\x0b\x66ulfillment\x18\x08 \x01(\x0b\x32\'.google.cloud.dialogflow.v2.FulfillmentB\x03\xe0\x41\x01\"E\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07STOPPED\x10\x01\x12\x0b\n\x07LOADING\x10\x02\x12\x0b\n\x07RUNNING\x10\x03:\xaa\x01\xea\x41\xa6\x01\n%dialogflow.googleapis.com/Environment\x12\x33projects/{project}/agent/environments/{environment}\x12Hprojects/{project}/locations/{location}/agent/environments/{environment}\"\x9a\x03\n\x14TextToSpeechSettings\x12\"\n\x15\x65nable_text_to_speech\x18\x01 \x01(\x08\x42\x03\xe0\x41\x01\x12S\n\x15output_audio_encoding\x18\x02 \x01(\x0e\x32/.google.cloud.dialogflow.v2.OutputAudioEncodingB\x03\xe0\x41\x02\x12\x1e\n\x11sample_rate_hertz\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01\x12u\n\x19synthesize_speech_configs\x18\x04 \x03(\x0b\x32M.google.cloud.dialogflow.v2.TextToSpeechSettings.SynthesizeSpeechConfigsEntryB\x03\xe0\x41\x01\x1ar\n\x1cSynthesizeSpeechConfigsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x41\n\x05value\x18\x02 \x01(\x0b\x32\x32.google.cloud.dialogflow.v2.SynthesizeSpeechConfig:\x02\x38\x01\"\x89\x01\n\x17ListEnvironmentsRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Environment\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"r\n\x18ListEnvironmentsResponse\x12=\n\x0c\x65nvironments\x18\x01 \x03(\x0b\x32\'.google.cloud.dialogflow.v2.Environment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"T\n\x15GetEnvironmentRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\"\xb9\x01\n\x18\x43reateEnvironmentRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Environment\x12\x41\n\x0b\x65nvironment\x18\x02 \x01(\x0b\x32\'.google.cloud.dialogflow.v2.EnvironmentB\x03\xe0\x41\x02\x12\x1b\n\x0e\x65nvironment_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"\xc9\x01\n\x18UpdateEnvironmentRequest\x12\x41\n\x0b\x65nvironment\x18\x01 \x01(\x0b\x32\'.google.cloud.dialogflow.v2.EnvironmentB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x34\n\'allow_load_to_draft_and_discard_changes\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\"W\n\x18\x44\x65leteEnvironmentRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\"\x8e\x01\n\x1cGetEnvironmentHistoryRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xf9\x01\n\x12\x45nvironmentHistory\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12J\n\x07\x65ntries\x18\x02 \x03(\x0b\x32\x34.google.cloud.dialogflow.v2.EnvironmentHistory.EntryB\x03\xe0\x41\x03\x12\x1c\n\x0fnext_page_token\x18\x03 \x01(\tB\x03\xe0\x41\x03\x1a\x64\n\x05\x45ntry\x12\x15\n\ragent_version\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xcb\x0c\n\x0c\x45nvironments\x12\xf4\x01\n\x10ListEnvironments\x12\x33.google.cloud.dialogflow.v2.ListEnvironmentsRequest\x1a\x34.google.cloud.dialogflow.v2.ListEnvironmentsResponse\"u\x82\xd3\xe4\x93\x02\x66\x12*/v2/{parent=projects/*/agent}/environmentsZ8\x12\x36/v2/{parent=projects/*/locations/*/agent}/environments\xda\x41\x06parent\x12\xda\x01\n\x0eGetEnvironment\x12\x31.google.cloud.dialogflow.v2.GetEnvironmentRequest\x1a\'.google.cloud.dialogflow.v2.Environment\"l\x82\xd3\xe4\x93\x02\x66\x12*/v2/{name=projects/*/agent/environments/*}Z8\x12\x36/v2/{name=projects/*/locations/*/agent/environments/*}\x12\xfc\x01\n\x11\x43reateEnvironment\x12\x34.google.cloud.dialogflow.v2.CreateEnvironmentRequest\x1a\'.google.cloud.dialogflow.v2.Environment\"\x87\x01\x82\xd3\xe4\x93\x02\x80\x01\"*/v2/{parent=projects/*/agent}/environments:\x0b\x65nvironmentZE\"6/v2/{parent=projects/*/locations/*/agent}/environments:\x0b\x65nvironment\x12\x94\x02\n\x11UpdateEnvironment\x12\x34.google.cloud.dialogflow.v2.UpdateEnvironmentRequest\x1a\'.google.cloud.dialogflow.v2.Environment\"\x9f\x01\x82\xd3\xe4\x93\x02\x98\x01\x32\x36/v2/{environment.name=projects/*/agent/environments/*}:\x0b\x65nvironmentZQ2B/v2/{environment.name=projects/*/locations/*/agent/environments/*}:\x0b\x65nvironment\x12\xcf\x01\n\x11\x44\x65leteEnvironment\x12\x34.google.cloud.dialogflow.v2.DeleteEnvironmentRequest\x1a\x16.google.protobuf.Empty\"l\x82\xd3\xe4\x93\x02\x66**/v2/{name=projects/*/agent/environments/*}Z8*6/v2/{name=projects/*/locations/*/agent/environments/*}\x12\x84\x02\n\x15GetEnvironmentHistory\x12\x38.google.cloud.dialogflow.v2.GetEnvironmentHistoryRequest\x1a..google.cloud.dialogflow.v2.EnvironmentHistory\"\x80\x01\x82\xd3\xe4\x93\x02z\x12\x34/v2/{parent=projects/*/agent/environments/*}/historyZB\x12@/v2/{parent=projects/*/locations/*/agent/environments/*}/history\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\x9f\x01\n\x1e\x63om.google.cloud.dialogflow.v2B\x10\x45nvironmentProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2;dialogflow\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1aGoogle.Cloud.Dialogflow.V2b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_v2_dot_audio__config__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_v2_dot_fulfillment__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
 
@@ -62,8 +64,8 @@ _ENVIRONMENT_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=497,
-  serialized_end=566,
+  serialized_start=783,
+  serialized_end=852,
 )
 _sym_db.RegisterEnumDescriptor(_ENVIRONMENT_STATE)
 
@@ -96,7 +98,7 @@ _ENVIRONMENT = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\001\372A#\n!dialogflow.googleapis.com/Version', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='state', full_name='google.cloud.dialogflow.v2.Environment.state', index=3,
       number=4, type=14, cpp_type=8, label=1,
@@ -111,6 +113,20 @@ _ENVIRONMENT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='text_to_speech_settings', full_name='google.cloud.dialogflow.v2.Environment.text_to_speech_settings', index=5,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='fulfillment', full_name='google.cloud.dialogflow.v2.Environment.fulfillment', index=6,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -118,14 +134,105 @@ _ENVIRONMENT = _descriptor.Descriptor(
   enum_types=[
     _ENVIRONMENT_STATE,
   ],
-  serialized_options=b'\352A\\\n%dialogflow.googleapis.com/Environment\0223projects/{project}/agent/environments/{environment}',
+  serialized_options=b'\352A\246\001\n%dialogflow.googleapis.com/Environment\0223projects/{project}/agent/environments/{environment}\022Hprojects/{project}/locations/{location}/agent/environments/{environment}',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=288,
-  serialized_end=663,
+  serialized_start=381,
+  serialized_end=1025,
+)
+
+
+_TEXTTOSPEECHSETTINGS_SYNTHESIZESPEECHCONFIGSENTRY = _descriptor.Descriptor(
+  name='SynthesizeSpeechConfigsEntry',
+  full_name='google.cloud.dialogflow.v2.TextToSpeechSettings.SynthesizeSpeechConfigsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.cloud.dialogflow.v2.TextToSpeechSettings.SynthesizeSpeechConfigsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.cloud.dialogflow.v2.TextToSpeechSettings.SynthesizeSpeechConfigsEntry.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1324,
+  serialized_end=1438,
+)
+
+_TEXTTOSPEECHSETTINGS = _descriptor.Descriptor(
+  name='TextToSpeechSettings',
+  full_name='google.cloud.dialogflow.v2.TextToSpeechSettings',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='enable_text_to_speech', full_name='google.cloud.dialogflow.v2.TextToSpeechSettings.enable_text_to_speech', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='output_audio_encoding', full_name='google.cloud.dialogflow.v2.TextToSpeechSettings.output_audio_encoding', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sample_rate_hertz', full_name='google.cloud.dialogflow.v2.TextToSpeechSettings.sample_rate_hertz', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='synthesize_speech_configs', full_name='google.cloud.dialogflow.v2.TextToSpeechSettings.synthesize_speech_configs', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_TEXTTOSPEECHSETTINGS_SYNTHESIZESPEECHCONFIGSENTRY, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1028,
+  serialized_end=1438,
 )
 
 
@@ -170,8 +277,8 @@ _LISTENVIRONMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=666,
-  serialized_end=803,
+  serialized_start=1441,
+  serialized_end=1578,
 )
 
 
@@ -209,17 +316,329 @@ _LISTENVIRONMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=805,
-  serialized_end=919,
+  serialized_start=1580,
+  serialized_end=1694,
+)
+
+
+_GETENVIRONMENTREQUEST = _descriptor.Descriptor(
+  name='GetEnvironmentRequest',
+  full_name='google.cloud.dialogflow.v2.GetEnvironmentRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.dialogflow.v2.GetEnvironmentRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\'\n%dialogflow.googleapis.com/Environment', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1696,
+  serialized_end=1780,
+)
+
+
+_CREATEENVIRONMENTREQUEST = _descriptor.Descriptor(
+  name='CreateEnvironmentRequest',
+  full_name='google.cloud.dialogflow.v2.CreateEnvironmentRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.dialogflow.v2.CreateEnvironmentRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\'\022%dialogflow.googleapis.com/Environment', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='environment', full_name='google.cloud.dialogflow.v2.CreateEnvironmentRequest.environment', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='environment_id', full_name='google.cloud.dialogflow.v2.CreateEnvironmentRequest.environment_id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1783,
+  serialized_end=1968,
+)
+
+
+_UPDATEENVIRONMENTREQUEST = _descriptor.Descriptor(
+  name='UpdateEnvironmentRequest',
+  full_name='google.cloud.dialogflow.v2.UpdateEnvironmentRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='environment', full_name='google.cloud.dialogflow.v2.UpdateEnvironmentRequest.environment', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_mask', full_name='google.cloud.dialogflow.v2.UpdateEnvironmentRequest.update_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allow_load_to_draft_and_discard_changes', full_name='google.cloud.dialogflow.v2.UpdateEnvironmentRequest.allow_load_to_draft_and_discard_changes', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1971,
+  serialized_end=2172,
+)
+
+
+_DELETEENVIRONMENTREQUEST = _descriptor.Descriptor(
+  name='DeleteEnvironmentRequest',
+  full_name='google.cloud.dialogflow.v2.DeleteEnvironmentRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.dialogflow.v2.DeleteEnvironmentRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\'\n%dialogflow.googleapis.com/Environment', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2174,
+  serialized_end=2261,
+)
+
+
+_GETENVIRONMENTHISTORYREQUEST = _descriptor.Descriptor(
+  name='GetEnvironmentHistoryRequest',
+  full_name='google.cloud.dialogflow.v2.GetEnvironmentHistoryRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.dialogflow.v2.GetEnvironmentHistoryRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\'\n%dialogflow.googleapis.com/Environment', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.cloud.dialogflow.v2.GetEnvironmentHistoryRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.cloud.dialogflow.v2.GetEnvironmentHistoryRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2264,
+  serialized_end=2406,
+)
+
+
+_ENVIRONMENTHISTORY_ENTRY = _descriptor.Descriptor(
+  name='Entry',
+  full_name='google.cloud.dialogflow.v2.EnvironmentHistory.Entry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='agent_version', full_name='google.cloud.dialogflow.v2.EnvironmentHistory.Entry.agent_version', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='description', full_name='google.cloud.dialogflow.v2.EnvironmentHistory.Entry.description', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='create_time', full_name='google.cloud.dialogflow.v2.EnvironmentHistory.Entry.create_time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2558,
+  serialized_end=2658,
+)
+
+_ENVIRONMENTHISTORY = _descriptor.Descriptor(
+  name='EnvironmentHistory',
+  full_name='google.cloud.dialogflow.v2.EnvironmentHistory',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.dialogflow.v2.EnvironmentHistory.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='entries', full_name='google.cloud.dialogflow.v2.EnvironmentHistory.entries', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.cloud.dialogflow.v2.EnvironmentHistory.next_page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_ENVIRONMENTHISTORY_ENTRY, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2409,
+  serialized_end=2658,
 )
 
 _ENVIRONMENT.fields_by_name['state'].enum_type = _ENVIRONMENT_STATE
 _ENVIRONMENT.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_ENVIRONMENT.fields_by_name['text_to_speech_settings'].message_type = _TEXTTOSPEECHSETTINGS
+_ENVIRONMENT.fields_by_name['fulfillment'].message_type = google_dot_cloud_dot_dialogflow_dot_v2_dot_fulfillment__pb2._FULFILLMENT
 _ENVIRONMENT_STATE.containing_type = _ENVIRONMENT
+_TEXTTOSPEECHSETTINGS_SYNTHESIZESPEECHCONFIGSENTRY.fields_by_name['value'].message_type = google_dot_cloud_dot_dialogflow_dot_v2_dot_audio__config__pb2._SYNTHESIZESPEECHCONFIG
+_TEXTTOSPEECHSETTINGS_SYNTHESIZESPEECHCONFIGSENTRY.containing_type = _TEXTTOSPEECHSETTINGS
+_TEXTTOSPEECHSETTINGS.fields_by_name['output_audio_encoding'].enum_type = google_dot_cloud_dot_dialogflow_dot_v2_dot_audio__config__pb2._OUTPUTAUDIOENCODING
+_TEXTTOSPEECHSETTINGS.fields_by_name['synthesize_speech_configs'].message_type = _TEXTTOSPEECHSETTINGS_SYNTHESIZESPEECHCONFIGSENTRY
 _LISTENVIRONMENTSRESPONSE.fields_by_name['environments'].message_type = _ENVIRONMENT
+_CREATEENVIRONMENTREQUEST.fields_by_name['environment'].message_type = _ENVIRONMENT
+_UPDATEENVIRONMENTREQUEST.fields_by_name['environment'].message_type = _ENVIRONMENT
+_UPDATEENVIRONMENTREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_ENVIRONMENTHISTORY_ENTRY.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_ENVIRONMENTHISTORY_ENTRY.containing_type = _ENVIRONMENTHISTORY
+_ENVIRONMENTHISTORY.fields_by_name['entries'].message_type = _ENVIRONMENTHISTORY_ENTRY
 DESCRIPTOR.message_types_by_name['Environment'] = _ENVIRONMENT
+DESCRIPTOR.message_types_by_name['TextToSpeechSettings'] = _TEXTTOSPEECHSETTINGS
 DESCRIPTOR.message_types_by_name['ListEnvironmentsRequest'] = _LISTENVIRONMENTSREQUEST
 DESCRIPTOR.message_types_by_name['ListEnvironmentsResponse'] = _LISTENVIRONMENTSRESPONSE
+DESCRIPTOR.message_types_by_name['GetEnvironmentRequest'] = _GETENVIRONMENTREQUEST
+DESCRIPTOR.message_types_by_name['CreateEnvironmentRequest'] = _CREATEENVIRONMENTREQUEST
+DESCRIPTOR.message_types_by_name['UpdateEnvironmentRequest'] = _UPDATEENVIRONMENTREQUEST
+DESCRIPTOR.message_types_by_name['DeleteEnvironmentRequest'] = _DELETEENVIRONMENTREQUEST
+DESCRIPTOR.message_types_by_name['GetEnvironmentHistoryRequest'] = _GETENVIRONMENTHISTORYREQUEST
+DESCRIPTOR.message_types_by_name['EnvironmentHistory'] = _ENVIRONMENTHISTORY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Environment = _reflection.GeneratedProtocolMessageType('Environment', (_message.Message,), {
@@ -228,6 +647,21 @@ Environment = _reflection.GeneratedProtocolMessageType('Environment', (_message.
   # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.v2.Environment)
   })
 _sym_db.RegisterMessage(Environment)
+
+TextToSpeechSettings = _reflection.GeneratedProtocolMessageType('TextToSpeechSettings', (_message.Message,), {
+
+  'SynthesizeSpeechConfigsEntry' : _reflection.GeneratedProtocolMessageType('SynthesizeSpeechConfigsEntry', (_message.Message,), {
+    'DESCRIPTOR' : _TEXTTOSPEECHSETTINGS_SYNTHESIZESPEECHCONFIGSENTRY,
+    '__module__' : 'google.cloud.dialogflow.v2.environment_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.v2.TextToSpeechSettings.SynthesizeSpeechConfigsEntry)
+    })
+  ,
+  'DESCRIPTOR' : _TEXTTOSPEECHSETTINGS,
+  '__module__' : 'google.cloud.dialogflow.v2.environment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.v2.TextToSpeechSettings)
+  })
+_sym_db.RegisterMessage(TextToSpeechSettings)
+_sym_db.RegisterMessage(TextToSpeechSettings.SynthesizeSpeechConfigsEntry)
 
 ListEnvironmentsRequest = _reflection.GeneratedProtocolMessageType('ListEnvironmentsRequest', (_message.Message,), {
   'DESCRIPTOR' : _LISTENVIRONMENTSREQUEST,
@@ -243,6 +677,56 @@ ListEnvironmentsResponse = _reflection.GeneratedProtocolMessageType('ListEnviron
   })
 _sym_db.RegisterMessage(ListEnvironmentsResponse)
 
+GetEnvironmentRequest = _reflection.GeneratedProtocolMessageType('GetEnvironmentRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETENVIRONMENTREQUEST,
+  '__module__' : 'google.cloud.dialogflow.v2.environment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.v2.GetEnvironmentRequest)
+  })
+_sym_db.RegisterMessage(GetEnvironmentRequest)
+
+CreateEnvironmentRequest = _reflection.GeneratedProtocolMessageType('CreateEnvironmentRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEENVIRONMENTREQUEST,
+  '__module__' : 'google.cloud.dialogflow.v2.environment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.v2.CreateEnvironmentRequest)
+  })
+_sym_db.RegisterMessage(CreateEnvironmentRequest)
+
+UpdateEnvironmentRequest = _reflection.GeneratedProtocolMessageType('UpdateEnvironmentRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEENVIRONMENTREQUEST,
+  '__module__' : 'google.cloud.dialogflow.v2.environment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.v2.UpdateEnvironmentRequest)
+  })
+_sym_db.RegisterMessage(UpdateEnvironmentRequest)
+
+DeleteEnvironmentRequest = _reflection.GeneratedProtocolMessageType('DeleteEnvironmentRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEENVIRONMENTREQUEST,
+  '__module__' : 'google.cloud.dialogflow.v2.environment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.v2.DeleteEnvironmentRequest)
+  })
+_sym_db.RegisterMessage(DeleteEnvironmentRequest)
+
+GetEnvironmentHistoryRequest = _reflection.GeneratedProtocolMessageType('GetEnvironmentHistoryRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETENVIRONMENTHISTORYREQUEST,
+  '__module__' : 'google.cloud.dialogflow.v2.environment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.v2.GetEnvironmentHistoryRequest)
+  })
+_sym_db.RegisterMessage(GetEnvironmentHistoryRequest)
+
+EnvironmentHistory = _reflection.GeneratedProtocolMessageType('EnvironmentHistory', (_message.Message,), {
+
+  'Entry' : _reflection.GeneratedProtocolMessageType('Entry', (_message.Message,), {
+    'DESCRIPTOR' : _ENVIRONMENTHISTORY_ENTRY,
+    '__module__' : 'google.cloud.dialogflow.v2.environment_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.v2.EnvironmentHistory.Entry)
+    })
+  ,
+  'DESCRIPTOR' : _ENVIRONMENTHISTORY,
+  '__module__' : 'google.cloud.dialogflow.v2.environment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.v2.EnvironmentHistory)
+  })
+_sym_db.RegisterMessage(EnvironmentHistory)
+_sym_db.RegisterMessage(EnvironmentHistory.Entry)
+
 
 DESCRIPTOR._options = None
 _ENVIRONMENT.fields_by_name['name']._options = None
@@ -250,10 +734,31 @@ _ENVIRONMENT.fields_by_name['description']._options = None
 _ENVIRONMENT.fields_by_name['agent_version']._options = None
 _ENVIRONMENT.fields_by_name['state']._options = None
 _ENVIRONMENT.fields_by_name['update_time']._options = None
+_ENVIRONMENT.fields_by_name['text_to_speech_settings']._options = None
+_ENVIRONMENT.fields_by_name['fulfillment']._options = None
 _ENVIRONMENT._options = None
+_TEXTTOSPEECHSETTINGS_SYNTHESIZESPEECHCONFIGSENTRY._options = None
+_TEXTTOSPEECHSETTINGS.fields_by_name['enable_text_to_speech']._options = None
+_TEXTTOSPEECHSETTINGS.fields_by_name['output_audio_encoding']._options = None
+_TEXTTOSPEECHSETTINGS.fields_by_name['sample_rate_hertz']._options = None
+_TEXTTOSPEECHSETTINGS.fields_by_name['synthesize_speech_configs']._options = None
 _LISTENVIRONMENTSREQUEST.fields_by_name['parent']._options = None
 _LISTENVIRONMENTSREQUEST.fields_by_name['page_size']._options = None
 _LISTENVIRONMENTSREQUEST.fields_by_name['page_token']._options = None
+_GETENVIRONMENTREQUEST.fields_by_name['name']._options = None
+_CREATEENVIRONMENTREQUEST.fields_by_name['parent']._options = None
+_CREATEENVIRONMENTREQUEST.fields_by_name['environment']._options = None
+_CREATEENVIRONMENTREQUEST.fields_by_name['environment_id']._options = None
+_UPDATEENVIRONMENTREQUEST.fields_by_name['environment']._options = None
+_UPDATEENVIRONMENTREQUEST.fields_by_name['update_mask']._options = None
+_UPDATEENVIRONMENTREQUEST.fields_by_name['allow_load_to_draft_and_discard_changes']._options = None
+_DELETEENVIRONMENTREQUEST.fields_by_name['name']._options = None
+_GETENVIRONMENTHISTORYREQUEST.fields_by_name['parent']._options = None
+_GETENVIRONMENTHISTORYREQUEST.fields_by_name['page_size']._options = None
+_GETENVIRONMENTHISTORYREQUEST.fields_by_name['page_token']._options = None
+_ENVIRONMENTHISTORY.fields_by_name['parent']._options = None
+_ENVIRONMENTHISTORY.fields_by_name['entries']._options = None
+_ENVIRONMENTHISTORY.fields_by_name['next_page_token']._options = None
 
 _ENVIRONMENTS = _descriptor.ServiceDescriptor(
   name='Environments',
@@ -262,8 +767,8 @@ _ENVIRONMENTS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=922,
-  serialized_end=1296,
+  serialized_start=2661,
+  serialized_end=4272,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListEnvironments',
@@ -272,7 +777,57 @@ _ENVIRONMENTS = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_LISTENVIRONMENTSREQUEST,
     output_type=_LISTENVIRONMENTSRESPONSE,
-    serialized_options=b'\202\323\344\223\002f\022*/v2/{parent=projects/*/agent}/environmentsZ8\0226/v2/{parent=projects/*/locations/*/agent}/environments',
+    serialized_options=b'\202\323\344\223\002f\022*/v2/{parent=projects/*/agent}/environmentsZ8\0226/v2/{parent=projects/*/locations/*/agent}/environments\332A\006parent',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetEnvironment',
+    full_name='google.cloud.dialogflow.v2.Environments.GetEnvironment',
+    index=1,
+    containing_service=None,
+    input_type=_GETENVIRONMENTREQUEST,
+    output_type=_ENVIRONMENT,
+    serialized_options=b'\202\323\344\223\002f\022*/v2/{name=projects/*/agent/environments/*}Z8\0226/v2/{name=projects/*/locations/*/agent/environments/*}',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='CreateEnvironment',
+    full_name='google.cloud.dialogflow.v2.Environments.CreateEnvironment',
+    index=2,
+    containing_service=None,
+    input_type=_CREATEENVIRONMENTREQUEST,
+    output_type=_ENVIRONMENT,
+    serialized_options=b'\202\323\344\223\002\200\001\"*/v2/{parent=projects/*/agent}/environments:\013environmentZE\"6/v2/{parent=projects/*/locations/*/agent}/environments:\013environment',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UpdateEnvironment',
+    full_name='google.cloud.dialogflow.v2.Environments.UpdateEnvironment',
+    index=3,
+    containing_service=None,
+    input_type=_UPDATEENVIRONMENTREQUEST,
+    output_type=_ENVIRONMENT,
+    serialized_options=b'\202\323\344\223\002\230\00126/v2/{environment.name=projects/*/agent/environments/*}:\013environmentZQ2B/v2/{environment.name=projects/*/locations/*/agent/environments/*}:\013environment',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteEnvironment',
+    full_name='google.cloud.dialogflow.v2.Environments.DeleteEnvironment',
+    index=4,
+    containing_service=None,
+    input_type=_DELETEENVIRONMENTREQUEST,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=b'\202\323\344\223\002f**/v2/{name=projects/*/agent/environments/*}Z8*6/v2/{name=projects/*/locations/*/agent/environments/*}',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetEnvironmentHistory',
+    full_name='google.cloud.dialogflow.v2.Environments.GetEnvironmentHistory',
+    index=5,
+    containing_service=None,
+    input_type=_GETENVIRONMENTHISTORYREQUEST,
+    output_type=_ENVIRONMENTHISTORY,
+    serialized_options=b'\202\323\344\223\002z\0224/v2/{parent=projects/*/agent/environments/*}/historyZB\022@/v2/{parent=projects/*/locations/*/agent/environments/*}/history',
     create_key=_descriptor._internal_create_key,
   ),
 ])

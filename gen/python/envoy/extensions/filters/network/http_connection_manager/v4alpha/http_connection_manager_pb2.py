@@ -38,7 +38,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\nNio.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v4alphaB\032HttpConnectionManagerProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n^envoy/extensions/filters/network/http_connection_manager/v4alpha/http_connection_manager.proto\x12@envoy.extensions.filters.network.http_connection_manager.v4alpha\x1a.envoy/config/accesslog/v4alpha/accesslog.proto\x1a$envoy/config/core/v4alpha/base.proto\x1a-envoy/config/core/v4alpha/config_source.proto\x1a)envoy/config/core/v4alpha/extension.proto\x1a(envoy/config/core/v4alpha/protocol.proto\x1a:envoy/config/core/v4alpha/substitution_format_string.proto\x1a&envoy/config/route/v4alpha/route.proto\x1a-envoy/config/route/v4alpha/scoped_route.proto\x1a,envoy/config/trace/v4alpha/http_tracer.proto\x1a,envoy/type/http/v3/path_transformation.proto\x1a&envoy/type/tracing/v3/custom_tag.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1fudpa/annotations/security.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xea(\n\x15HttpConnectionManager\x12\x7f\n\ncodec_type\x18\x01 \x01(\x0e\x32\x61.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.CodecTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x1c\n\x0bstat_prefix\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12T\n\x03rds\x18\x03 \x01(\x0b\x32\x45.envoy.extensions.filters.network.http_connection_manager.v4alpha.RdsH\x00\x12\x46\n\x0croute_config\x18\x04 \x01(\x0b\x32..envoy.config.route.v4alpha.RouteConfigurationH\x00\x12g\n\rscoped_routes\x18\x1f \x01(\x0b\x32N.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRoutesH\x00\x12\x62\n\x0chttp_filters\x18\x05 \x03(\x0b\x32L.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpFilter\x12\x32\n\x0e\x61\x64\x64_user_agent\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12p\n\x07tracing\x18\x07 \x01(\x0b\x32_.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.Tracing\x12]\n\x1c\x63ommon_http_protocol_options\x18# \x01(\x0b\x32..envoy.config.core.v4alpha.HttpProtocolOptionsB\x07\x8a\x93\xb7*\x02\x08\x01\x12N\n\x15http_protocol_options\x18\x08 \x01(\x0b\x32/.envoy.config.core.v4alpha.Http1ProtocolOptions\x12X\n\x16http2_protocol_options\x18\t \x01(\x0b\x32/.envoy.config.core.v4alpha.Http2ProtocolOptionsB\x07\x8a\x93\xb7*\x02\x08\x01\x12O\n\x16http3_protocol_options\x18, \x01(\x0b\x32/.envoy.config.core.v4alpha.Http3ProtocolOptions\x12 \n\x0bserver_name\x18\n \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00\x12\xa2\x01\n\x1cserver_header_transformation\x18\" \x01(\x0e\x32r.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.ServerHeaderTransformationB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12G\n\x16max_request_headers_kb\x18\x1d \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\t\xfa\x42\x06*\x04\x18` \x00\x12?\n\x13stream_idle_timeout\x18\x18 \x01(\x0b\x32\x19.google.protobuf.DurationB\x07\x8a\x93\xb7*\x02\x08\x01\x12;\n\x0frequest_timeout\x18\x1c \x01(\x0b\x32\x19.google.protobuf.DurationB\x07\x8a\x93\xb7*\x02\x08\x01\x12K\n\x17request_headers_timeout\x18) \x01(\x0b\x32\x19.google.protobuf.DurationB\x0f\xfa\x42\x05\xaa\x01\x02\x32\x00\x8a\x93\xb7*\x02\x08\x01\x12\x30\n\rdrain_timeout\x18\x0c \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x38\n\x15\x64\x65layed_close_timeout\x18\x1a \x01(\x0b\x32\x19.google.protobuf.Duration\x12=\n\naccess_log\x18\r \x03(\x0b\x32).envoy.config.accesslog.v4alpha.AccessLog\x12?\n\x12use_remote_address\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x07\x8a\x93\xb7*\x02\x08\x01\x12\x1c\n\x14xff_num_trusted_hops\x18\x13 \x01(\r\x12\x8e\x01\n\x17internal_address_config\x18\x19 \x01(\x0b\x32m.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.InternalAddressConfig\x12\x17\n\x0fskip_xff_append\x18\x15 \x01(\x08\x12\x18\n\x03via\x18\x16 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00\x12\x37\n\x13generate_request_id\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12$\n\x1cpreserve_external_request_id\x18  \x01(\x08\x12)\n!always_set_request_id_in_response\x18% \x01(\x08\x12\x9f\x01\n\x1b\x66orward_client_cert_details\x18\x10 \x01(\x0e\x32p.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.ForwardClientCertDetailsB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x9c\x01\n\x1fset_current_client_cert_details\x18\x11 \x01(\x0b\x32s.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.SetCurrentClientCertDetails\x12\x1a\n\x12proxy_100_continue\x18\x12 \x01(\x08\x12\x39\n1represent_ipv4_remote_address_as_ipv4_mapped_ipv6\x18\x14 \x01(\x08\x12~\n\x0fupgrade_configs\x18\x17 \x03(\x0b\x32\x65.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.UpgradeConfig\x12\x32\n\x0enormalize_path\x18\x1e \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x15\n\rmerge_slashes\x18! \x01(\x08\x12r\n\x14request_id_extension\x18$ \x01(\x0b\x32T.envoy.extensions.filters.network.http_connection_manager.v4alpha.RequestIDExtension\x12n\n\x12local_reply_config\x18& \x01(\x0b\x32R.envoy.extensions.filters.network.http_connection_manager.v4alpha.LocalReplyConfig\x12\"\n\x18strip_matching_host_port\x18\' \x01(\x08H\x01\x12\x1d\n\x13strip_any_host_port\x18* \x01(\x08H\x01\x12H\n$stream_error_on_invalid_http_message\x18( \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x94\x01\n\x1apath_normalization_options\x18+ \x01(\x0b\x32p.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.PathNormalizationOptions\x1a\x9e\x04\n\x07Tracing\x12/\n\x0f\x63lient_sampling\x18\x03 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12/\n\x0frandom_sampling\x18\x04 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x30\n\x10overall_sampling\x18\x05 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x0f\n\x07verbose\x18\x06 \x01(\x08\x12\x39\n\x13max_path_tag_length\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x35\n\x0b\x63ustom_tags\x18\x08 \x03(\x0b\x32 .envoy.type.tracing.v3.CustomTag\x12:\n\x08provider\x18\t \x01(\x0b\x32(.envoy.config.trace.v4alpha.Tracing.Http\"(\n\rOperationName\x12\x0b\n\x07INGRESS\x10\x00\x12\n\n\x06\x45GRESS\x10\x01:`\x9a\xc5\x88\x1e[\nYenvoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.TracingJ\x04\x08\x01\x10\x02J\x04\x08\x02\x10\x03R\x0eoperation_nameR\x18request_headers_for_tags\x1a\x9d\x01\n\x15InternalAddressConfig\x12\x14\n\x0cunix_sockets\x18\x01 \x01(\x08:n\x9a\xc5\x88\x1ei\ngenvoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.InternalAddressConfig\x1a\xfd\x01\n\x1bSetCurrentClientCertDetails\x12+\n\x07subject\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x0c\n\x04\x63\x65rt\x18\x03 \x01(\x08\x12\r\n\x05\x63hain\x18\x06 \x01(\x08\x12\x0b\n\x03\x64ns\x18\x04 \x01(\x08\x12\x0b\n\x03uri\x18\x05 \x01(\x08:t\x9a\xc5\x88\x1eo\nmenvoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.SetCurrentClientCertDetailsJ\x04\x08\x02\x10\x03\x1a\x99\x02\n\rUpgradeConfig\x12\x14\n\x0cupgrade_type\x18\x01 \x01(\t\x12]\n\x07\x66ilters\x18\x02 \x03(\x0b\x32L.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpFilter\x12+\n\x07\x65nabled\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:f\x9a\xc5\x88\x1e\x61\n_envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.UpgradeConfig\x1a\xa4\x02\n\x18PathNormalizationOptions\x12I\n\x19\x66orwarding_transformation\x18\x01 \x01(\x0b\x32&.envoy.type.http.v3.PathTransformation\x12J\n\x1ahttp_filter_transformation\x18\x02 \x01(\x0b\x32&.envoy.type.http.v3.PathTransformation:q\x9a\xc5\x88\x1el\njenvoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.PathNormalizationOptions\"6\n\tCodecType\x12\x08\n\x04\x41UTO\x10\x00\x12\t\n\x05HTTP1\x10\x01\x12\t\n\x05HTTP2\x10\x02\x12\t\n\x05HTTP3\x10\x03\"S\n\x1aServerHeaderTransformation\x12\r\n\tOVERWRITE\x10\x00\x12\x14\n\x10\x41PPEND_IF_ABSENT\x10\x01\x12\x10\n\x0cPASS_THROUGH\x10\x02\"y\n\x18\x46orwardClientCertDetails\x12\x0c\n\x08SANITIZE\x10\x00\x12\x10\n\x0c\x46ORWARD_ONLY\x10\x01\x12\x12\n\x0e\x41PPEND_FORWARD\x10\x02\x12\x10\n\x0cSANITIZE_SET\x10\x03\x12\x17\n\x13\x41LWAYS_FORWARD_ONLY\x10\x04:X\x9a\xc5\x88\x1eS\nQenvoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManagerB\x16\n\x0froute_specifier\x12\x03\xf8\x42\x01\x42\x11\n\x0fstrip_port_modeJ\x04\x08\x1b\x10\x1cJ\x04\x08\x0b\x10\x0cR\x0cidle_timeout\"\x94\x02\n\x10LocalReplyConfig\x12\x61\n\x07mappers\x18\x01 \x03(\x0b\x32P.envoy.extensions.filters.network.http_connection_manager.v4alpha.ResponseMapper\x12H\n\x0b\x62ody_format\x18\x02 \x01(\x0b\x32\x33.envoy.config.core.v4alpha.SubstitutionFormatString:S\x9a\xc5\x88\x1eN\nLenvoy.extensions.filters.network.http_connection_manager.v3.LocalReplyConfig\"\xc7\x03\n\x0eResponseMapper\x12I\n\x06\x66ilter\x18\x01 \x01(\x0b\x32/.envoy.config.accesslog.v4alpha.AccessLogFilterB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12>\n\x0bstatus_code\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x0b\xfa\x42\x08*\x06\x10\xd8\x04(\xc8\x01\x12\x33\n\x04\x62ody\x18\x03 \x01(\x0b\x32%.envoy.config.core.v4alpha.DataSource\x12Q\n\x14\x62ody_format_override\x18\x04 \x01(\x0b\x32\x33.envoy.config.core.v4alpha.SubstitutionFormatString\x12O\n\x0eheaders_to_add\x18\x05 \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07:Q\x9a\xc5\x88\x1eL\nJenvoy.extensions.filters.network.http_connection_manager.v3.ResponseMapper\"\xb2\x01\n\x03Rds\x12H\n\rconfig_source\x18\x01 \x01(\x0b\x32\'.envoy.config.core.v4alpha.ConfigSourceB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x19\n\x11route_config_name\x18\x02 \x01(\t:F\x9a\xc5\x88\x1e\x41\n?envoy.extensions.filters.network.http_connection_manager.v3.Rds\"\xe6\x01\n\x1dScopedRouteConfigurationsList\x12\x63\n\x1bscoped_route_configurations\x18\x01 \x03(\x0b\x32\x34.envoy.config.route.v4alpha.ScopedRouteConfigurationB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:`\x9a\xc5\x88\x1e[\nYenvoy.extensions.filters.network.http_connection_manager.v3.ScopedRouteConfigurationsList\"\xfc\r\n\x0cScopedRoutes\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x83\x01\n\x11scope_key_builder\x18\x02 \x01(\x0b\x32^.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRoutes.ScopeKeyBuilderB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12L\n\x11rds_config_source\x18\x03 \x01(\x0b\x32\'.envoy.config.core.v4alpha.ConfigSourceB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x8b\x01\n scoped_route_configurations_list\x18\x04 \x01(\x0b\x32_.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRouteConfigurationsListH\x00\x12\x61\n\nscoped_rds\x18\x05 \x01(\x0b\x32K.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRdsH\x00\x1a\xa5\t\n\x0fScopeKeyBuilder\x12\x8b\x01\n\tfragments\x18\x01 \x03(\x0b\x32n.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRoutes.ScopeKeyBuilder.FragmentBuilderB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\xa2\x07\n\x0f\x46ragmentBuilder\x12\xa6\x01\n\x16header_value_extractor\x18\x01 \x01(\x0b\x32\x83\x01.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder.HeaderValueExtractorH\x00\x1a\xe7\x04\n\x14HeaderValueExtractor\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x19\n\x11\x65lement_separator\x18\x02 \x01(\t\x12\x0f\n\x05index\x18\x03 \x01(\rH\x00\x12\xa1\x01\n\x07\x65lement\x18\x04 \x01(\x0b\x32\x8d\x01.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder.HeaderValueExtractor.KvElementH\x00\x1a\xd0\x01\n\tKvElement\x12\x1a\n\tseparator\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x14\n\x03key\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:\x90\x01\x9a\xc5\x88\x1e\x8a\x01\n\x87\x01\x65nvoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder.HeaderValueExtractor.KvElement:\x84\x01\x9a\xc5\x88\x1e\x7f\n}envoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder.HeaderValueExtractorB\x0e\n\x0c\x65xtract_type:o\x9a\xc5\x88\x1ej\nhenvoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutes.ScopeKeyBuilder.FragmentBuilderB\x0b\n\x04type\x12\x03\xf8\x42\x01:_\x9a\xc5\x88\x1eZ\nXenvoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutes.ScopeKeyBuilder:O\x9a\xc5\x88\x1eJ\nHenvoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutesB\x17\n\x10\x63onfig_specifier\x12\x03\xf8\x42\x01\"\xce\x01\n\tScopedRds\x12S\n\x18scoped_rds_config_source\x18\x01 \x01(\x0b\x32\'.envoy.config.core.v4alpha.ConfigSourceB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x1e\n\x16srds_resources_locator\x18\x02 \x01(\t:L\x9a\xc5\x88\x1eG\nEenvoy.extensions.filters.network.http_connection_manager.v3.ScopedRds\"\xa6\x02\n\nHttpFilter\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x04 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x12L\n\x10\x63onfig_discovery\x18\x05 \x01(\x0b\x32\x30.envoy.config.core.v4alpha.ExtensionConfigSourceH\x00\x12\x13\n\x0bis_optional\x18\x06 \x01(\x08:M\x9a\xc5\x88\x1eH\nFenvoy.extensions.filters.network.http_connection_manager.v3.HttpFilterB\r\n\x0b\x63onfig_typeJ\x04\x08\x03\x10\x04J\x04\x08\x02\x10\x03R\x06\x63onfig\"\x97\x01\n\x12RequestIDExtension\x12*\n\x0ctyped_config\x18\x01 \x01(\x0b\x32\x14.google.protobuf.Any:U\x9a\xc5\x88\x1eP\nNenvoy.extensions.filters.network.http_connection_manager.v3.RequestIDExtensionBv\nNio.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v4alphaB\x1aHttpConnectionManagerProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n^envoy/extensions/filters/network/http_connection_manager/v4alpha/http_connection_manager.proto\x12@envoy.extensions.filters.network.http_connection_manager.v4alpha\x1a.envoy/config/accesslog/v4alpha/accesslog.proto\x1a$envoy/config/core/v4alpha/base.proto\x1a-envoy/config/core/v4alpha/config_source.proto\x1a)envoy/config/core/v4alpha/extension.proto\x1a(envoy/config/core/v4alpha/protocol.proto\x1a:envoy/config/core/v4alpha/substitution_format_string.proto\x1a&envoy/config/route/v4alpha/route.proto\x1a-envoy/config/route/v4alpha/scoped_route.proto\x1a,envoy/config/trace/v4alpha/http_tracer.proto\x1a,envoy/type/http/v3/path_transformation.proto\x1a&envoy/type/tracing/v3/custom_tag.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1fudpa/annotations/security.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xa9,\n\x15HttpConnectionManager\x12\x7f\n\ncodec_type\x18\x01 \x01(\x0e\x32\x61.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.CodecTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x1c\n\x0bstat_prefix\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12T\n\x03rds\x18\x03 \x01(\x0b\x32\x45.envoy.extensions.filters.network.http_connection_manager.v4alpha.RdsH\x00\x12\x46\n\x0croute_config\x18\x04 \x01(\x0b\x32..envoy.config.route.v4alpha.RouteConfigurationH\x00\x12g\n\rscoped_routes\x18\x1f \x01(\x0b\x32N.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRoutesH\x00\x12\x62\n\x0chttp_filters\x18\x05 \x03(\x0b\x32L.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpFilter\x12\x32\n\x0e\x61\x64\x64_user_agent\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12p\n\x07tracing\x18\x07 \x01(\x0b\x32_.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.Tracing\x12]\n\x1c\x63ommon_http_protocol_options\x18# \x01(\x0b\x32..envoy.config.core.v4alpha.HttpProtocolOptionsB\x07\x8a\x93\xb7*\x02\x08\x01\x12N\n\x15http_protocol_options\x18\x08 \x01(\x0b\x32/.envoy.config.core.v4alpha.Http1ProtocolOptions\x12X\n\x16http2_protocol_options\x18\t \x01(\x0b\x32/.envoy.config.core.v4alpha.Http2ProtocolOptionsB\x07\x8a\x93\xb7*\x02\x08\x01\x12O\n\x16http3_protocol_options\x18, \x01(\x0b\x32/.envoy.config.core.v4alpha.Http3ProtocolOptions\x12 \n\x0bserver_name\x18\n \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00\x12\xa2\x01\n\x1cserver_header_transformation\x18\" \x01(\x0e\x32r.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.ServerHeaderTransformationB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12H\n\x16max_request_headers_kb\x18\x1d \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\n\xfa\x42\x07*\x05\x18\x80@ \x00\x12?\n\x13stream_idle_timeout\x18\x18 \x01(\x0b\x32\x19.google.protobuf.DurationB\x07\x8a\x93\xb7*\x02\x08\x01\x12;\n\x0frequest_timeout\x18\x1c \x01(\x0b\x32\x19.google.protobuf.DurationB\x07\x8a\x93\xb7*\x02\x08\x01\x12K\n\x17request_headers_timeout\x18) \x01(\x0b\x32\x19.google.protobuf.DurationB\x0f\xfa\x42\x05\xaa\x01\x02\x32\x00\x8a\x93\xb7*\x02\x08\x01\x12\x30\n\rdrain_timeout\x18\x0c \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x38\n\x15\x64\x65layed_close_timeout\x18\x1a \x01(\x0b\x32\x19.google.protobuf.Duration\x12=\n\naccess_log\x18\r \x03(\x0b\x32).envoy.config.accesslog.v4alpha.AccessLog\x12?\n\x12use_remote_address\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x07\x8a\x93\xb7*\x02\x08\x01\x12Y\n original_ip_detection_extensions\x18. \x03(\x0b\x32/.envoy.config.core.v4alpha.TypedExtensionConfig\x12\x8e\x01\n\x17internal_address_config\x18\x19 \x01(\x0b\x32m.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.InternalAddressConfig\x12\x17\n\x0fskip_xff_append\x18\x15 \x01(\x08\x12\x18\n\x03via\x18\x16 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00\x12\x37\n\x13generate_request_id\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12$\n\x1cpreserve_external_request_id\x18  \x01(\x08\x12)\n!always_set_request_id_in_response\x18% \x01(\x08\x12\x9f\x01\n\x1b\x66orward_client_cert_details\x18\x10 \x01(\x0e\x32p.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.ForwardClientCertDetailsB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x9c\x01\n\x1fset_current_client_cert_details\x18\x11 \x01(\x0b\x32s.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.SetCurrentClientCertDetails\x12\x1a\n\x12proxy_100_continue\x18\x12 \x01(\x08\x12\x39\n1represent_ipv4_remote_address_as_ipv4_mapped_ipv6\x18\x14 \x01(\x08\x12~\n\x0fupgrade_configs\x18\x17 \x03(\x0b\x32\x65.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.UpgradeConfig\x12\x32\n\x0enormalize_path\x18\x1e \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x15\n\rmerge_slashes\x18! \x01(\x08\x12\x9e\x01\n path_with_escaped_slashes_action\x18- \x01(\x0e\x32t.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.PathWithEscapedSlashesAction\x12r\n\x14request_id_extension\x18$ \x01(\x0b\x32T.envoy.extensions.filters.network.http_connection_manager.v4alpha.RequestIDExtension\x12n\n\x12local_reply_config\x18& \x01(\x0b\x32R.envoy.extensions.filters.network.http_connection_manager.v4alpha.LocalReplyConfig\x12\"\n\x18strip_matching_host_port\x18\' \x01(\x08H\x01\x12\x1d\n\x13strip_any_host_port\x18* \x01(\x08H\x01\x12H\n$stream_error_on_invalid_http_message\x18( \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x94\x01\n\x1apath_normalization_options\x18+ \x01(\x0b\x32p.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.PathNormalizationOptions\x12\x1f\n\x17strip_trailing_host_dot\x18/ \x01(\x08\x1a\x9e\x04\n\x07Tracing\x12/\n\x0f\x63lient_sampling\x18\x03 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12/\n\x0frandom_sampling\x18\x04 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x30\n\x10overall_sampling\x18\x05 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x0f\n\x07verbose\x18\x06 \x01(\x08\x12\x39\n\x13max_path_tag_length\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x35\n\x0b\x63ustom_tags\x18\x08 \x03(\x0b\x32 .envoy.type.tracing.v3.CustomTag\x12:\n\x08provider\x18\t \x01(\x0b\x32(.envoy.config.trace.v4alpha.Tracing.Http\"(\n\rOperationName\x12\x0b\n\x07INGRESS\x10\x00\x12\n\n\x06\x45GRESS\x10\x01:`\x9a\xc5\x88\x1e[\nYenvoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.TracingJ\x04\x08\x01\x10\x02J\x04\x08\x02\x10\x03R\x0eoperation_nameR\x18request_headers_for_tags\x1a\x9d\x01\n\x15InternalAddressConfig\x12\x14\n\x0cunix_sockets\x18\x01 \x01(\x08:n\x9a\xc5\x88\x1ei\ngenvoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.InternalAddressConfig\x1a\xfd\x01\n\x1bSetCurrentClientCertDetails\x12+\n\x07subject\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x0c\n\x04\x63\x65rt\x18\x03 \x01(\x08\x12\r\n\x05\x63hain\x18\x06 \x01(\x08\x12\x0b\n\x03\x64ns\x18\x04 \x01(\x08\x12\x0b\n\x03uri\x18\x05 \x01(\x08:t\x9a\xc5\x88\x1eo\nmenvoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.SetCurrentClientCertDetailsJ\x04\x08\x02\x10\x03\x1a\x99\x02\n\rUpgradeConfig\x12\x14\n\x0cupgrade_type\x18\x01 \x01(\t\x12]\n\x07\x66ilters\x18\x02 \x03(\x0b\x32L.envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpFilter\x12+\n\x07\x65nabled\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:f\x9a\xc5\x88\x1e\x61\n_envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.UpgradeConfig\x1a\xa4\x02\n\x18PathNormalizationOptions\x12I\n\x19\x66orwarding_transformation\x18\x01 \x01(\x0b\x32&.envoy.type.http.v3.PathTransformation\x12J\n\x1ahttp_filter_transformation\x18\x02 \x01(\x0b\x32&.envoy.type.http.v3.PathTransformation:q\x9a\xc5\x88\x1el\njenvoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.PathNormalizationOptions\"6\n\tCodecType\x12\x08\n\x04\x41UTO\x10\x00\x12\t\n\x05HTTP1\x10\x01\x12\t\n\x05HTTP2\x10\x02\x12\t\n\x05HTTP3\x10\x03\"S\n\x1aServerHeaderTransformation\x12\r\n\tOVERWRITE\x10\x00\x12\x14\n\x10\x41PPEND_IF_ABSENT\x10\x01\x12\x10\n\x0cPASS_THROUGH\x10\x02\"y\n\x18\x46orwardClientCertDetails\x12\x0c\n\x08SANITIZE\x10\x00\x12\x10\n\x0c\x46ORWARD_ONLY\x10\x01\x12\x12\n\x0e\x41PPEND_FORWARD\x10\x02\x12\x10\n\x0cSANITIZE_SET\x10\x03\x12\x17\n\x13\x41LWAYS_FORWARD_ONLY\x10\x04\"\xa0\x01\n\x1cPathWithEscapedSlashesAction\x12#\n\x1fIMPLEMENTATION_SPECIFIC_DEFAULT\x10\x00\x12\x12\n\x0eKEEP_UNCHANGED\x10\x01\x12\x12\n\x0eREJECT_REQUEST\x10\x02\x12\x19\n\x15UNESCAPE_AND_REDIRECT\x10\x03\x12\x18\n\x14UNESCAPE_AND_FORWARD\x10\x04:X\x9a\xc5\x88\x1eS\nQenvoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManagerB\x16\n\x0froute_specifier\x12\x03\xf8\x42\x01\x42\x11\n\x0fstrip_port_modeJ\x04\x08\x1b\x10\x1cJ\x04\x08\x0b\x10\x0cJ\x04\x08\x13\x10\x14R\x0cidle_timeoutR\x14xff_num_trusted_hops\"\x94\x02\n\x10LocalReplyConfig\x12\x61\n\x07mappers\x18\x01 \x03(\x0b\x32P.envoy.extensions.filters.network.http_connection_manager.v4alpha.ResponseMapper\x12H\n\x0b\x62ody_format\x18\x02 \x01(\x0b\x32\x33.envoy.config.core.v4alpha.SubstitutionFormatString:S\x9a\xc5\x88\x1eN\nLenvoy.extensions.filters.network.http_connection_manager.v3.LocalReplyConfig\"\xc7\x03\n\x0eResponseMapper\x12I\n\x06\x66ilter\x18\x01 \x01(\x0b\x32/.envoy.config.accesslog.v4alpha.AccessLogFilterB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12>\n\x0bstatus_code\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x0b\xfa\x42\x08*\x06\x10\xd8\x04(\xc8\x01\x12\x33\n\x04\x62ody\x18\x03 \x01(\x0b\x32%.envoy.config.core.v4alpha.DataSource\x12Q\n\x14\x62ody_format_override\x18\x04 \x01(\x0b\x32\x33.envoy.config.core.v4alpha.SubstitutionFormatString\x12O\n\x0eheaders_to_add\x18\x05 \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07:Q\x9a\xc5\x88\x1eL\nJenvoy.extensions.filters.network.http_connection_manager.v3.ResponseMapper\"\xb2\x01\n\x03Rds\x12H\n\rconfig_source\x18\x01 \x01(\x0b\x32\'.envoy.config.core.v4alpha.ConfigSourceB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x19\n\x11route_config_name\x18\x02 \x01(\t:F\x9a\xc5\x88\x1e\x41\n?envoy.extensions.filters.network.http_connection_manager.v3.Rds\"\xe6\x01\n\x1dScopedRouteConfigurationsList\x12\x63\n\x1bscoped_route_configurations\x18\x01 \x03(\x0b\x32\x34.envoy.config.route.v4alpha.ScopedRouteConfigurationB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:`\x9a\xc5\x88\x1e[\nYenvoy.extensions.filters.network.http_connection_manager.v3.ScopedRouteConfigurationsList\"\xfc\r\n\x0cScopedRoutes\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x83\x01\n\x11scope_key_builder\x18\x02 \x01(\x0b\x32^.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRoutes.ScopeKeyBuilderB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12L\n\x11rds_config_source\x18\x03 \x01(\x0b\x32\'.envoy.config.core.v4alpha.ConfigSourceB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x8b\x01\n scoped_route_configurations_list\x18\x04 \x01(\x0b\x32_.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRouteConfigurationsListH\x00\x12\x61\n\nscoped_rds\x18\x05 \x01(\x0b\x32K.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRdsH\x00\x1a\xa5\t\n\x0fScopeKeyBuilder\x12\x8b\x01\n\tfragments\x18\x01 \x03(\x0b\x32n.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRoutes.ScopeKeyBuilder.FragmentBuilderB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\xa2\x07\n\x0f\x46ragmentBuilder\x12\xa6\x01\n\x16header_value_extractor\x18\x01 \x01(\x0b\x32\x83\x01.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder.HeaderValueExtractorH\x00\x1a\xe7\x04\n\x14HeaderValueExtractor\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x19\n\x11\x65lement_separator\x18\x02 \x01(\t\x12\x0f\n\x05index\x18\x03 \x01(\rH\x00\x12\xa1\x01\n\x07\x65lement\x18\x04 \x01(\x0b\x32\x8d\x01.envoy.extensions.filters.network.http_connection_manager.v4alpha.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder.HeaderValueExtractor.KvElementH\x00\x1a\xd0\x01\n\tKvElement\x12\x1a\n\tseparator\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x14\n\x03key\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:\x90\x01\x9a\xc5\x88\x1e\x8a\x01\n\x87\x01\x65nvoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder.HeaderValueExtractor.KvElement:\x84\x01\x9a\xc5\x88\x1e\x7f\n}envoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutes.ScopeKeyBuilder.FragmentBuilder.HeaderValueExtractorB\x0e\n\x0c\x65xtract_type:o\x9a\xc5\x88\x1ej\nhenvoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutes.ScopeKeyBuilder.FragmentBuilderB\x0b\n\x04type\x12\x03\xf8\x42\x01:_\x9a\xc5\x88\x1eZ\nXenvoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutes.ScopeKeyBuilder:O\x9a\xc5\x88\x1eJ\nHenvoy.extensions.filters.network.http_connection_manager.v3.ScopedRoutesB\x17\n\x10\x63onfig_specifier\x12\x03\xf8\x42\x01\"\xce\x01\n\tScopedRds\x12S\n\x18scoped_rds_config_source\x18\x01 \x01(\x0b\x32\'.envoy.config.core.v4alpha.ConfigSourceB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x1e\n\x16srds_resources_locator\x18\x02 \x01(\t:L\x9a\xc5\x88\x1eG\nEenvoy.extensions.filters.network.http_connection_manager.v3.ScopedRds\"\xa6\x02\n\nHttpFilter\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x04 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x12L\n\x10\x63onfig_discovery\x18\x05 \x01(\x0b\x32\x30.envoy.config.core.v4alpha.ExtensionConfigSourceH\x00\x12\x13\n\x0bis_optional\x18\x06 \x01(\x08:M\x9a\xc5\x88\x1eH\nFenvoy.extensions.filters.network.http_connection_manager.v3.HttpFilterB\r\n\x0b\x63onfig_typeJ\x04\x08\x03\x10\x04J\x04\x08\x02\x10\x03R\x06\x63onfig\"\x97\x01\n\x12RequestIDExtension\x12*\n\x0ctyped_config\x18\x01 \x01(\x0b\x32\x14.google.protobuf.Any:U\x9a\xc5\x88\x1eP\nNenvoy.extensions.filters.network.http_connection_manager.v3.RequestIDExtensionBv\nNio.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v4alphaB\x1aHttpConnectionManagerProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_accesslog_dot_v4alpha_dot_accesslog__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_config__source__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_extension__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_protocol__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_substitution__format__string__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v4alpha_dot_route__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v4alpha_dot_scoped__route__pb2.DESCRIPTOR,envoy_dot_config_dot_trace_dot_v4alpha_dot_http__tracer__pb2.DESCRIPTOR,envoy_dot_type_dot_http_dot_v3_dot_path__transformation__pb2.DESCRIPTOR,envoy_dot_type_dot_tracing_dot_v3_dot_custom__tag__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_security__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -64,8 +64,8 @@ _HTTPCONNECTIONMANAGER_TRACING_OPERATIONNAME = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4522,
-  serialized_end=4562,
+  serialized_start=4778,
+  serialized_end=4818,
 )
 _sym_db.RegisterEnumDescriptor(_HTTPCONNECTIONMANAGER_TRACING_OPERATIONNAME)
 
@@ -99,8 +99,8 @@ _HTTPCONNECTIONMANAGER_CODECTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5711,
-  serialized_end=5765,
+  serialized_start=5967,
+  serialized_end=6021,
 )
 _sym_db.RegisterEnumDescriptor(_HTTPCONNECTIONMANAGER_CODECTYPE)
 
@@ -129,8 +129,8 @@ _HTTPCONNECTIONMANAGER_SERVERHEADERTRANSFORMATION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5767,
-  serialized_end=5850,
+  serialized_start=6023,
+  serialized_end=6106,
 )
 _sym_db.RegisterEnumDescriptor(_HTTPCONNECTIONMANAGER_SERVERHEADERTRANSFORMATION)
 
@@ -169,10 +169,50 @@ _HTTPCONNECTIONMANAGER_FORWARDCLIENTCERTDETAILS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5852,
-  serialized_end=5973,
+  serialized_start=6108,
+  serialized_end=6229,
 )
 _sym_db.RegisterEnumDescriptor(_HTTPCONNECTIONMANAGER_FORWARDCLIENTCERTDETAILS)
+
+_HTTPCONNECTIONMANAGER_PATHWITHESCAPEDSLASHESACTION = _descriptor.EnumDescriptor(
+  name='PathWithEscapedSlashesAction',
+  full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.PathWithEscapedSlashesAction',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='IMPLEMENTATION_SPECIFIC_DEFAULT', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='KEEP_UNCHANGED', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='REJECT_REQUEST', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='UNESCAPE_AND_REDIRECT', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='UNESCAPE_AND_FORWARD', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=6232,
+  serialized_end=6392,
+)
+_sym_db.RegisterEnumDescriptor(_HTTPCONNECTIONMANAGER_PATHWITHESCAPEDSLASHESACTION)
 
 
 _HTTPCONNECTIONMANAGER_TRACING = _descriptor.Descriptor(
@@ -245,8 +285,8 @@ _HTTPCONNECTIONMANAGER_TRACING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4172,
-  serialized_end=4714,
+  serialized_start=4428,
+  serialized_end=4970,
 )
 
 _HTTPCONNECTIONMANAGER_INTERNALADDRESSCONFIG = _descriptor.Descriptor(
@@ -276,8 +316,8 @@ _HTTPCONNECTIONMANAGER_INTERNALADDRESSCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4717,
-  serialized_end=4874,
+  serialized_start=4973,
+  serialized_end=5130,
 )
 
 _HTTPCONNECTIONMANAGER_SETCURRENTCLIENTCERTDETAILS = _descriptor.Descriptor(
@@ -335,8 +375,8 @@ _HTTPCONNECTIONMANAGER_SETCURRENTCLIENTCERTDETAILS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4877,
-  serialized_end=5130,
+  serialized_start=5133,
+  serialized_end=5386,
 )
 
 _HTTPCONNECTIONMANAGER_UPGRADECONFIG = _descriptor.Descriptor(
@@ -380,8 +420,8 @@ _HTTPCONNECTIONMANAGER_UPGRADECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5133,
-  serialized_end=5414,
+  serialized_start=5389,
+  serialized_end=5670,
 )
 
 _HTTPCONNECTIONMANAGER_PATHNORMALIZATIONOPTIONS = _descriptor.Descriptor(
@@ -418,8 +458,8 @@ _HTTPCONNECTIONMANAGER_PATHNORMALIZATIONOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5417,
-  serialized_end=5709,
+  serialized_start=5673,
+  serialized_end=5965,
 )
 
 _HTTPCONNECTIONMANAGER = _descriptor.Descriptor(
@@ -534,7 +574,7 @@ _HTTPCONNECTIONMANAGER = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\006*\004\030` \000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372B\007*\005\030\200@ \000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='stream_idle_timeout', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.stream_idle_timeout', index=15,
       number=24, type=11, cpp_type=10, label=1,
@@ -585,9 +625,9 @@ _HTTPCONNECTIONMANAGER = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\212\223\267*\002\010\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='xff_num_trusted_hops', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.xff_num_trusted_hops', index=22,
-      number=19, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
+      name='original_ip_detection_extensions', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.original_ip_detection_extensions', index=22,
+      number=46, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -683,44 +723,58 @@ _HTTPCONNECTIONMANAGER = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='request_id_extension', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.request_id_extension', index=36,
+      name='path_with_escaped_slashes_action', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.path_with_escaped_slashes_action', index=36,
+      number=45, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id_extension', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.request_id_extension', index=37,
       number=36, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='local_reply_config', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.local_reply_config', index=37,
+      name='local_reply_config', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.local_reply_config', index=38,
       number=38, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='strip_matching_host_port', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.strip_matching_host_port', index=38,
+      name='strip_matching_host_port', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.strip_matching_host_port', index=39,
       number=39, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='strip_any_host_port', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.strip_any_host_port', index=39,
+      name='strip_any_host_port', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.strip_any_host_port', index=40,
       number=42, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='stream_error_on_invalid_http_message', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.stream_error_on_invalid_http_message', index=40,
+      name='stream_error_on_invalid_http_message', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.stream_error_on_invalid_http_message', index=41,
       number=40, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='path_normalization_options', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.path_normalization_options', index=41,
+      name='path_normalization_options', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.path_normalization_options', index=42,
       number=43, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='strip_trailing_host_dot', full_name='envoy.extensions.filters.network.http_connection_manager.v4alpha.HttpConnectionManager.strip_trailing_host_dot', index=43,
+      number=47, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -732,6 +786,7 @@ _HTTPCONNECTIONMANAGER = _descriptor.Descriptor(
     _HTTPCONNECTIONMANAGER_CODECTYPE,
     _HTTPCONNECTIONMANAGER_SERVERHEADERTRANSFORMATION,
     _HTTPCONNECTIONMANAGER_FORWARDCLIENTCERTDETAILS,
+    _HTTPCONNECTIONMANAGER_PATHWITHESCAPEDSLASHESACTION,
   ],
   serialized_options=b'\232\305\210\036S\nQenvoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager',
   is_extendable=False,
@@ -750,7 +805,7 @@ _HTTPCONNECTIONMANAGER = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=906,
-  serialized_end=6132,
+  serialized_end=6579,
 )
 
 
@@ -788,8 +843,8 @@ _LOCALREPLYCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6135,
-  serialized_end=6411,
+  serialized_start=6582,
+  serialized_end=6858,
 )
 
 
@@ -848,8 +903,8 @@ _RESPONSEMAPPER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6414,
-  serialized_end=6869,
+  serialized_start=6861,
+  serialized_end=7316,
 )
 
 
@@ -887,8 +942,8 @@ _RDS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6872,
-  serialized_end=7050,
+  serialized_start=7319,
+  serialized_end=7497,
 )
 
 
@@ -919,8 +974,8 @@ _SCOPEDROUTECONFIGURATIONSLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7053,
-  serialized_end=7283,
+  serialized_start=7500,
+  serialized_end=7730,
 )
 
 
@@ -958,8 +1013,8 @@ _SCOPEDROUTES_SCOPEKEYBUILDER_FRAGMENTBUILDER_HEADERVALUEEXTRACTOR_KVELEMENT = _
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8386,
-  serialized_end=8594,
+  serialized_start=8833,
+  serialized_end=9041,
 )
 
 _SCOPEDROUTES_SCOPEKEYBUILDER_FRAGMENTBUILDER_HEADERVALUEEXTRACTOR = _descriptor.Descriptor(
@@ -1015,8 +1070,8 @@ _SCOPEDROUTES_SCOPEKEYBUILDER_FRAGMENTBUILDER_HEADERVALUEEXTRACTOR = _descriptor
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=8130,
-  serialized_end=8745,
+  serialized_start=8577,
+  serialized_end=9192,
 )
 
 _SCOPEDROUTES_SCOPEKEYBUILDER_FRAGMENTBUILDER = _descriptor.Descriptor(
@@ -1051,8 +1106,8 @@ _SCOPEDROUTES_SCOPEKEYBUILDER_FRAGMENTBUILDER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=7941,
-  serialized_end=8871,
+  serialized_start=8388,
+  serialized_end=9318,
 )
 
 _SCOPEDROUTES_SCOPEKEYBUILDER = _descriptor.Descriptor(
@@ -1082,8 +1137,8 @@ _SCOPEDROUTES_SCOPEKEYBUILDER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7779,
-  serialized_end=8968,
+  serialized_start=8226,
+  serialized_end=9415,
 )
 
 _SCOPEDROUTES = _descriptor.Descriptor(
@@ -1146,8 +1201,8 @@ _SCOPEDROUTES = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=7286,
-  serialized_end=9074,
+  serialized_start=7733,
+  serialized_end=9521,
 )
 
 
@@ -1185,8 +1240,8 @@ _SCOPEDRDS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9077,
-  serialized_end=9283,
+  serialized_start=9524,
+  serialized_end=9730,
 )
 
 
@@ -1243,8 +1298,8 @@ _HTTPFILTER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=9286,
-  serialized_end=9580,
+  serialized_start=9733,
+  serialized_end=10027,
 )
 
 
@@ -1275,8 +1330,8 @@ _REQUESTIDEXTENSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9583,
-  serialized_end=9734,
+  serialized_start=10030,
+  serialized_end=10181,
 )
 
 _HTTPCONNECTIONMANAGER_TRACING.fields_by_name['client_sampling'].message_type = envoy_dot_type_dot_v3_dot_percent__pb2._PERCENT
@@ -1316,12 +1371,14 @@ _HTTPCONNECTIONMANAGER.fields_by_name['drain_timeout'].message_type = google_dot
 _HTTPCONNECTIONMANAGER.fields_by_name['delayed_close_timeout'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _HTTPCONNECTIONMANAGER.fields_by_name['access_log'].message_type = envoy_dot_config_dot_accesslog_dot_v4alpha_dot_accesslog__pb2._ACCESSLOG
 _HTTPCONNECTIONMANAGER.fields_by_name['use_remote_address'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
+_HTTPCONNECTIONMANAGER.fields_by_name['original_ip_detection_extensions'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_extension__pb2._TYPEDEXTENSIONCONFIG
 _HTTPCONNECTIONMANAGER.fields_by_name['internal_address_config'].message_type = _HTTPCONNECTIONMANAGER_INTERNALADDRESSCONFIG
 _HTTPCONNECTIONMANAGER.fields_by_name['generate_request_id'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _HTTPCONNECTIONMANAGER.fields_by_name['forward_client_cert_details'].enum_type = _HTTPCONNECTIONMANAGER_FORWARDCLIENTCERTDETAILS
 _HTTPCONNECTIONMANAGER.fields_by_name['set_current_client_cert_details'].message_type = _HTTPCONNECTIONMANAGER_SETCURRENTCLIENTCERTDETAILS
 _HTTPCONNECTIONMANAGER.fields_by_name['upgrade_configs'].message_type = _HTTPCONNECTIONMANAGER_UPGRADECONFIG
 _HTTPCONNECTIONMANAGER.fields_by_name['normalize_path'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
+_HTTPCONNECTIONMANAGER.fields_by_name['path_with_escaped_slashes_action'].enum_type = _HTTPCONNECTIONMANAGER_PATHWITHESCAPEDSLASHESACTION
 _HTTPCONNECTIONMANAGER.fields_by_name['request_id_extension'].message_type = _REQUESTIDEXTENSION
 _HTTPCONNECTIONMANAGER.fields_by_name['local_reply_config'].message_type = _LOCALREPLYCONFIG
 _HTTPCONNECTIONMANAGER.fields_by_name['stream_error_on_invalid_http_message'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
@@ -1329,6 +1386,7 @@ _HTTPCONNECTIONMANAGER.fields_by_name['path_normalization_options'].message_type
 _HTTPCONNECTIONMANAGER_CODECTYPE.containing_type = _HTTPCONNECTIONMANAGER
 _HTTPCONNECTIONMANAGER_SERVERHEADERTRANSFORMATION.containing_type = _HTTPCONNECTIONMANAGER
 _HTTPCONNECTIONMANAGER_FORWARDCLIENTCERTDETAILS.containing_type = _HTTPCONNECTIONMANAGER
+_HTTPCONNECTIONMANAGER_PATHWITHESCAPEDSLASHESACTION.containing_type = _HTTPCONNECTIONMANAGER
 _HTTPCONNECTIONMANAGER.oneofs_by_name['route_specifier'].fields.append(
   _HTTPCONNECTIONMANAGER.fields_by_name['rds'])
 _HTTPCONNECTIONMANAGER.fields_by_name['rds'].containing_oneof = _HTTPCONNECTIONMANAGER.oneofs_by_name['route_specifier']

@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/monitoring/dashboard/v1/drilldowns.proto',
   package='google.monitoring.dashboard.v1',
   syntax='proto3',
-  serialized_options=b'\n\"com.google.monitoring.dashboard.v1B\017DrilldownsProtoP\001ZGgoogle.golang.org/genproto/googleapis/monitoring/dashboard/v1;dashboard\352\002(Google::Cloud::Monitoring::Dashboard::V1',
+  serialized_options=b'\n\"com.google.monitoring.dashboard.v1B\017DrilldownsProtoP\001ZGgoogle.golang.org/genproto/googleapis/monitoring/dashboard/v1;dashboard\312\002$Google\\Cloud\\Monitoring\\Dashboard\\V1\352\002(Google::Cloud::Monitoring::Dashboard::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n/google/monitoring/dashboard/v1/drilldowns.proto\x12\x1egoogle.monitoring.dashboard.v1\x1a+google/monitoring/dashboard/v1/common.protoB\xab\x01\n\"com.google.monitoring.dashboard.v1B\x0f\x44rilldownsProtoP\x01ZGgoogle.golang.org/genproto/googleapis/monitoring/dashboard/v1;dashboard\xea\x02(Google::Cloud::Monitoring::Dashboard::V1b\x06proto3'
+  serialized_pb=b'\n/google/monitoring/dashboard/v1/drilldowns.proto\x12\x1egoogle.monitoring.dashboard.v1\x1a+google/monitoring/dashboard/v1/common.protoB\xd2\x01\n\"com.google.monitoring.dashboard.v1B\x0f\x44rilldownsProtoP\x01ZGgoogle.golang.org/genproto/googleapis/monitoring/dashboard/v1;dashboard\xca\x02$Google\\Cloud\\Monitoring\\Dashboard\\V1\xea\x02(Google::Cloud::Monitoring::Dashboard::V1b\x06proto3'
   ,
   dependencies=[google_dot_monitoring_dot_dashboard_dot_v1_dot_common__pb2.DESCRIPTOR,])
 

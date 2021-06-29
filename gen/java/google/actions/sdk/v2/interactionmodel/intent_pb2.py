@@ -21,12 +21,74 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n*com.google.actions.sdk.v2.interactionmodelB\013IntentProtoP\001ZVgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel;interactionmodel',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n3google/actions/sdk/v2/interactionmodel/intent.proto\x12&google.actions.sdk.v2.interactionmodel\x1a\x41google/actions/sdk/v2/interactionmodel/type/class_reference.proto\x1a\x1fgoogle/api/field_behavior.proto\"\x81\x02\n\x06Intent\x12R\n\nparameters\x18\x01 \x03(\x0b\x32>.google.actions.sdk.v2.interactionmodel.Intent.IntentParameter\x12\x18\n\x10training_phrases\x18\x02 \x03(\t\x1a\x88\x01\n\x0fIntentParameter\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12P\n\x04type\x18\x02 \x01(\x0b\x32;.google.actions.sdk.v2.interactionmodel.type.ClassReferenceB\x03\xe0\x41\x01H\x00\x42\x10\n\x0eparameter_typeB\x93\x01\n*com.google.actions.sdk.v2.interactionmodelB\x0bIntentProtoP\x01ZVgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel;interactionmodelb\x06proto3'
+  serialized_pb=b'\n3google/actions/sdk/v2/interactionmodel/intent.proto\x12&google.actions.sdk.v2.interactionmodel\x1a\x41google/actions/sdk/v2/interactionmodel/type/class_reference.proto\x1a\x1fgoogle/api/field_behavior.proto\"\xce\x04\n\x06Intent\x12R\n\nparameters\x18\x01 \x03(\x0b\x32>.google.actions.sdk.v2.interactionmodel.Intent.IntentParameter\x12\x18\n\x10training_phrases\x18\x02 \x03(\t\x1a\xd5\x03\n\x0fIntentParameter\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12P\n\x04type\x18\x02 \x01(\x0b\x32;.google.actions.sdk.v2.interactionmodel.type.ClassReferenceB\x03\xe0\x41\x01H\x00\x12x\n\x15\x65ntity_set_references\x18\x03 \x01(\x0b\x32R.google.actions.sdk.v2.interactionmodel.Intent.IntentParameter.EntitySetReferencesB\x03\xe0\x41\x01H\x00\x1a\xd0\x01\n\x13\x45ntitySetReferences\x12\x89\x01\n\x15\x65ntity_set_references\x18\x01 \x03(\x0b\x32\x65.google.actions.sdk.v2.interactionmodel.Intent.IntentParameter.EntitySetReferences.EntitySetReferenceB\x03\xe0\x41\x02\x1a-\n\x12\x45ntitySetReference\x12\x17\n\nentity_set\x18\x01 \x01(\tB\x03\xe0\x41\x02\x42\x10\n\x0eparameter_typeB\x93\x01\n*com.google.actions.sdk.v2.interactionmodelB\x0bIntentProtoP\x01ZVgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel;interactionmodelb\x06proto3'
   ,
   dependencies=[google_dot_actions_dot_sdk_dot_v2_dot_interactionmodel_dot_type_dot_class__reference__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,])
 
 
 
+
+_INTENT_INTENTPARAMETER_ENTITYSETREFERENCES_ENTITYSETREFERENCE = _descriptor.Descriptor(
+  name='EntitySetReference',
+  full_name='google.actions.sdk.v2.interactionmodel.Intent.IntentParameter.EntitySetReferences.EntitySetReference',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='entity_set', full_name='google.actions.sdk.v2.interactionmodel.Intent.IntentParameter.EntitySetReferences.EntitySetReference.entity_set', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=723,
+  serialized_end=768,
+)
+
+_INTENT_INTENTPARAMETER_ENTITYSETREFERENCES = _descriptor.Descriptor(
+  name='EntitySetReferences',
+  full_name='google.actions.sdk.v2.interactionmodel.Intent.IntentParameter.EntitySetReferences',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='entity_set_references', full_name='google.actions.sdk.v2.interactionmodel.Intent.IntentParameter.EntitySetReferences.entity_set_references', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_INTENT_INTENTPARAMETER_ENTITYSETREFERENCES_ENTITYSETREFERENCE, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=560,
+  serialized_end=768,
+)
 
 _INTENT_INTENTPARAMETER = _descriptor.Descriptor(
   name='IntentParameter',
@@ -50,10 +112,17 @@ _INTENT_INTENTPARAMETER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='entity_set_references', full_name='google.actions.sdk.v2.interactionmodel.Intent.IntentParameter.entity_set_references', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_INTENT_INTENTPARAMETER_ENTITYSETREFERENCES, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -68,7 +137,7 @@ _INTENT_INTENTPARAMETER = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=317,
-  serialized_end=453,
+  serialized_end=786,
 )
 
 _INTENT = _descriptor.Descriptor(
@@ -106,14 +175,21 @@ _INTENT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=196,
-  serialized_end=453,
+  serialized_end=786,
 )
 
+_INTENT_INTENTPARAMETER_ENTITYSETREFERENCES_ENTITYSETREFERENCE.containing_type = _INTENT_INTENTPARAMETER_ENTITYSETREFERENCES
+_INTENT_INTENTPARAMETER_ENTITYSETREFERENCES.fields_by_name['entity_set_references'].message_type = _INTENT_INTENTPARAMETER_ENTITYSETREFERENCES_ENTITYSETREFERENCE
+_INTENT_INTENTPARAMETER_ENTITYSETREFERENCES.containing_type = _INTENT_INTENTPARAMETER
 _INTENT_INTENTPARAMETER.fields_by_name['type'].message_type = google_dot_actions_dot_sdk_dot_v2_dot_interactionmodel_dot_type_dot_class__reference__pb2._CLASSREFERENCE
+_INTENT_INTENTPARAMETER.fields_by_name['entity_set_references'].message_type = _INTENT_INTENTPARAMETER_ENTITYSETREFERENCES
 _INTENT_INTENTPARAMETER.containing_type = _INTENT
 _INTENT_INTENTPARAMETER.oneofs_by_name['parameter_type'].fields.append(
   _INTENT_INTENTPARAMETER.fields_by_name['type'])
 _INTENT_INTENTPARAMETER.fields_by_name['type'].containing_oneof = _INTENT_INTENTPARAMETER.oneofs_by_name['parameter_type']
+_INTENT_INTENTPARAMETER.oneofs_by_name['parameter_type'].fields.append(
+  _INTENT_INTENTPARAMETER.fields_by_name['entity_set_references'])
+_INTENT_INTENTPARAMETER.fields_by_name['entity_set_references'].containing_oneof = _INTENT_INTENTPARAMETER.oneofs_by_name['parameter_type']
 _INTENT.fields_by_name['parameters'].message_type = _INTENT_INTENTPARAMETER
 DESCRIPTOR.message_types_by_name['Intent'] = _INTENT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -121,6 +197,20 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 Intent = _reflection.GeneratedProtocolMessageType('Intent', (_message.Message,), {
 
   'IntentParameter' : _reflection.GeneratedProtocolMessageType('IntentParameter', (_message.Message,), {
+
+    'EntitySetReferences' : _reflection.GeneratedProtocolMessageType('EntitySetReferences', (_message.Message,), {
+
+      'EntitySetReference' : _reflection.GeneratedProtocolMessageType('EntitySetReference', (_message.Message,), {
+        'DESCRIPTOR' : _INTENT_INTENTPARAMETER_ENTITYSETREFERENCES_ENTITYSETREFERENCE,
+        '__module__' : 'google.actions.sdk.v2.interactionmodel.intent_pb2'
+        # @@protoc_insertion_point(class_scope:google.actions.sdk.v2.interactionmodel.Intent.IntentParameter.EntitySetReferences.EntitySetReference)
+        })
+      ,
+      'DESCRIPTOR' : _INTENT_INTENTPARAMETER_ENTITYSETREFERENCES,
+      '__module__' : 'google.actions.sdk.v2.interactionmodel.intent_pb2'
+      # @@protoc_insertion_point(class_scope:google.actions.sdk.v2.interactionmodel.Intent.IntentParameter.EntitySetReferences)
+      })
+    ,
     'DESCRIPTOR' : _INTENT_INTENTPARAMETER,
     '__module__' : 'google.actions.sdk.v2.interactionmodel.intent_pb2'
     # @@protoc_insertion_point(class_scope:google.actions.sdk.v2.interactionmodel.Intent.IntentParameter)
@@ -132,9 +222,14 @@ Intent = _reflection.GeneratedProtocolMessageType('Intent', (_message.Message,),
   })
 _sym_db.RegisterMessage(Intent)
 _sym_db.RegisterMessage(Intent.IntentParameter)
+_sym_db.RegisterMessage(Intent.IntentParameter.EntitySetReferences)
+_sym_db.RegisterMessage(Intent.IntentParameter.EntitySetReferences.EntitySetReference)
 
 
 DESCRIPTOR._options = None
+_INTENT_INTENTPARAMETER_ENTITYSETREFERENCES_ENTITYSETREFERENCE.fields_by_name['entity_set']._options = None
+_INTENT_INTENTPARAMETER_ENTITYSETREFERENCES.fields_by_name['entity_set_references']._options = None
 _INTENT_INTENTPARAMETER.fields_by_name['name']._options = None
 _INTENT_INTENTPARAMETER.fields_by_name['type']._options = None
+_INTENT_INTENTPARAMETER.fields_by_name['entity_set_references']._options = None
 # @@protoc_insertion_point(module_scope)

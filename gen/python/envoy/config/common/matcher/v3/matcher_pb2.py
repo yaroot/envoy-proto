@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n,io.envoyproxy.envoy.config.common.matcher.v3B\014MatcherProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,envoy/config/common/matcher/v3/matcher.proto\x12\x1e\x65nvoy.config.common.matcher.v3\x1a$envoy/config/core/v3/extension.proto\x1a,envoy/config/route/v3/route_components.proto\x1a\"envoy/type/matcher/v3/string.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\x8d\x0f\n\x07Matcher\x12K\n\x0cmatcher_list\x18\x01 \x01(\x0b\x32\x33.envoy.config.common.matcher.v3.Matcher.MatcherListH\x00\x12K\n\x0cmatcher_tree\x18\x02 \x01(\x0b\x32\x33.envoy.config.common.matcher.v3.Matcher.MatcherTreeH\x00\x12\x44\n\x0bon_no_match\x18\x03 \x01(\x0b\x32/.envoy.config.common.matcher.v3.Matcher.OnMatch\x1a\x94\x01\n\x07OnMatch\x12:\n\x07matcher\x18\x01 \x01(\x0b\x32\'.envoy.config.common.matcher.v3.MatcherH\x00\x12<\n\x06\x61\x63tion\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigH\x00\x42\x0f\n\x08on_match\x12\x03\xf8\x42\x01\x1a\xcf\x07\n\x0bMatcherList\x12\\\n\x08matchers\x18\x01 \x03(\x0b\x32@.envoy.config.common.matcher.v3.Matcher.MatcherList.FieldMatcherB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\xa7\x05\n\tPredicate\x12i\n\x10single_predicate\x18\x01 \x01(\x0b\x32M.envoy.config.common.matcher.v3.Matcher.MatcherList.Predicate.SinglePredicateH\x00\x12\x61\n\nor_matcher\x18\x02 \x01(\x0b\x32K.envoy.config.common.matcher.v3.Matcher.MatcherList.Predicate.PredicateListH\x00\x12\x62\n\x0b\x61nd_matcher\x18\x03 \x01(\x0b\x32K.envoy.config.common.matcher.v3.Matcher.MatcherList.Predicate.PredicateListH\x00\x1a\xe7\x01\n\x0fSinglePredicate\x12\x43\n\x05input\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12;\n\x0bvalue_match\x18\x02 \x01(\x0b\x32$.envoy.type.matcher.v3.StringMatcherH\x00\x12\x42\n\x0c\x63ustom_match\x18\x03 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigH\x00\x42\x0e\n\x07matcher\x12\x03\xf8\x42\x01\x1ak\n\rPredicateList\x12Z\n\tpredicate\x18\x01 \x03(\x0b\x32=.envoy.config.common.matcher.v3.Matcher.MatcherList.PredicateB\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x42\x11\n\nmatch_type\x12\x03\xf8\x42\x01\x1a\xb7\x01\n\x0c\x46ieldMatcher\x12Z\n\tpredicate\x18\x01 \x01(\x0b\x32=.envoy.config.common.matcher.v3.Matcher.MatcherList.PredicateB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12K\n\x08on_match\x18\x02 \x01(\x0b\x32/.envoy.config.common.matcher.v3.Matcher.OnMatchB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x1a\xa3\x04\n\x0bMatcherTree\x12\x43\n\x05input\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12W\n\x0f\x65xact_match_map\x18\x02 \x01(\x0b\x32<.envoy.config.common.matcher.v3.Matcher.MatcherTree.MatchMapH\x00\x12X\n\x10prefix_match_map\x18\x03 \x01(\x0b\x32<.envoy.config.common.matcher.v3.Matcher.MatcherTree.MatchMapH\x00\x12\x42\n\x0c\x63ustom_match\x18\x04 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigH\x00\x1a\xc5\x01\n\x08MatchMap\x12\\\n\x03map\x18\x01 \x03(\x0b\x32\x45.envoy.config.common.matcher.v3.Matcher.MatcherTree.MatchMap.MapEntryB\x08\xfa\x42\x05\x9a\x01\x02\x08\x01\x1a[\n\x08MapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12>\n\x05value\x18\x02 \x01(\x0b\x32/.envoy.config.common.matcher.v3.Matcher.OnMatch:\x02\x38\x01\x42\x10\n\ttree_type\x12\x03\xf8\x42\x01\x42\x13\n\x0cmatcher_type\x12\x03\xf8\x42\x01\"\x97\x07\n\x0eMatchPredicate\x12K\n\x08or_match\x18\x01 \x01(\x0b\x32\x37.envoy.config.common.matcher.v3.MatchPredicate.MatchSetH\x00\x12L\n\tand_match\x18\x02 \x01(\x0b\x32\x37.envoy.config.common.matcher.v3.MatchPredicate.MatchSetH\x00\x12\x43\n\tnot_match\x18\x03 \x01(\x0b\x32..envoy.config.common.matcher.v3.MatchPredicateH\x00\x12\x1c\n\tany_match\x18\x04 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12V\n\x1ahttp_request_headers_match\x18\x05 \x01(\x0b\x32\x30.envoy.config.common.matcher.v3.HttpHeadersMatchH\x00\x12W\n\x1bhttp_request_trailers_match\x18\x06 \x01(\x0b\x32\x30.envoy.config.common.matcher.v3.HttpHeadersMatchH\x00\x12W\n\x1bhttp_response_headers_match\x18\x07 \x01(\x0b\x32\x30.envoy.config.common.matcher.v3.HttpHeadersMatchH\x00\x12X\n\x1chttp_response_trailers_match\x18\x08 \x01(\x0b\x32\x30.envoy.config.common.matcher.v3.HttpHeadersMatchH\x00\x12_\n\x1fhttp_request_generic_body_match\x18\t \x01(\x0b\x32\x34.envoy.config.common.matcher.v3.HttpGenericBodyMatchH\x00\x12`\n http_response_generic_body_match\x18\n \x01(\x0b\x32\x34.envoy.config.common.matcher.v3.HttpGenericBodyMatchH\x00\x1aS\n\x08MatchSet\x12G\n\x05rules\x18\x01 \x03(\x0b\x32..envoy.config.common.matcher.v3.MatchPredicateB\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x42\x0b\n\x04rule\x12\x03\xf8\x42\x01\"I\n\x10HttpHeadersMatch\x12\x35\n\x07headers\x18\x01 \x03(\x0b\x32$.envoy.config.route.v3.HeaderMatcher\"\xf1\x01\n\x14HttpGenericBodyMatch\x12\x13\n\x0b\x62ytes_limit\x18\x01 \x01(\r\x12\x61\n\x08patterns\x18\x02 \x03(\x0b\x32\x45.envoy.config.common.matcher.v3.HttpGenericBodyMatch.GenericTextMatchB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x61\n\x10GenericTextMatch\x12\x1f\n\x0cstring_match\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\x1f\n\x0c\x62inary_match\x18\x02 \x01(\x0c\x42\x07\xfa\x42\x04z\x02\x10\x01H\x00\x42\x0b\n\x04rule\x12\x03\xf8\x42\x01\x42\x46\n,io.envoyproxy.envoy.config.common.matcher.v3B\x0cMatcherProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n,envoy/config/common/matcher/v3/matcher.proto\x12\x1e\x65nvoy.config.common.matcher.v3\x1a$envoy/config/core/v3/extension.proto\x1a,envoy/config/route/v3/route_components.proto\x1a\"envoy/type/matcher/v3/string.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\xe3\x0f\n\x07Matcher\x12K\n\x0cmatcher_list\x18\x01 \x01(\x0b\x32\x33.envoy.config.common.matcher.v3.Matcher.MatcherListH\x00\x12K\n\x0cmatcher_tree\x18\x02 \x01(\x0b\x32\x33.envoy.config.common.matcher.v3.Matcher.MatcherTreeH\x00\x12\x44\n\x0bon_no_match\x18\x03 \x01(\x0b\x32/.envoy.config.common.matcher.v3.Matcher.OnMatch\x1a\x94\x01\n\x07OnMatch\x12:\n\x07matcher\x18\x01 \x01(\x0b\x32\'.envoy.config.common.matcher.v3.MatcherH\x00\x12<\n\x06\x61\x63tion\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigH\x00\x42\x0f\n\x08on_match\x12\x03\xf8\x42\x01\x1a\xa5\x08\n\x0bMatcherList\x12\\\n\x08matchers\x18\x01 \x03(\x0b\x32@.envoy.config.common.matcher.v3.Matcher.MatcherList.FieldMatcherB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\xfd\x05\n\tPredicate\x12i\n\x10single_predicate\x18\x01 \x01(\x0b\x32M.envoy.config.common.matcher.v3.Matcher.MatcherList.Predicate.SinglePredicateH\x00\x12\x61\n\nor_matcher\x18\x02 \x01(\x0b\x32K.envoy.config.common.matcher.v3.Matcher.MatcherList.Predicate.PredicateListH\x00\x12\x62\n\x0b\x61nd_matcher\x18\x03 \x01(\x0b\x32K.envoy.config.common.matcher.v3.Matcher.MatcherList.Predicate.PredicateListH\x00\x12T\n\x0bnot_matcher\x18\x04 \x01(\x0b\x32=.envoy.config.common.matcher.v3.Matcher.MatcherList.PredicateH\x00\x1a\xe7\x01\n\x0fSinglePredicate\x12\x43\n\x05input\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12;\n\x0bvalue_match\x18\x02 \x01(\x0b\x32$.envoy.type.matcher.v3.StringMatcherH\x00\x12\x42\n\x0c\x63ustom_match\x18\x03 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigH\x00\x42\x0e\n\x07matcher\x12\x03\xf8\x42\x01\x1ak\n\rPredicateList\x12Z\n\tpredicate\x18\x01 \x03(\x0b\x32=.envoy.config.common.matcher.v3.Matcher.MatcherList.PredicateB\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x42\x11\n\nmatch_type\x12\x03\xf8\x42\x01\x1a\xb7\x01\n\x0c\x46ieldMatcher\x12Z\n\tpredicate\x18\x01 \x01(\x0b\x32=.envoy.config.common.matcher.v3.Matcher.MatcherList.PredicateB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12K\n\x08on_match\x18\x02 \x01(\x0b\x32/.envoy.config.common.matcher.v3.Matcher.OnMatchB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x1a\xa3\x04\n\x0bMatcherTree\x12\x43\n\x05input\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12W\n\x0f\x65xact_match_map\x18\x02 \x01(\x0b\x32<.envoy.config.common.matcher.v3.Matcher.MatcherTree.MatchMapH\x00\x12X\n\x10prefix_match_map\x18\x03 \x01(\x0b\x32<.envoy.config.common.matcher.v3.Matcher.MatcherTree.MatchMapH\x00\x12\x42\n\x0c\x63ustom_match\x18\x04 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigH\x00\x1a\xc5\x01\n\x08MatchMap\x12\\\n\x03map\x18\x01 \x03(\x0b\x32\x45.envoy.config.common.matcher.v3.Matcher.MatcherTree.MatchMap.MapEntryB\x08\xfa\x42\x05\x9a\x01\x02\x08\x01\x1a[\n\x08MapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12>\n\x05value\x18\x02 \x01(\x0b\x32/.envoy.config.common.matcher.v3.Matcher.OnMatch:\x02\x38\x01\x42\x10\n\ttree_type\x12\x03\xf8\x42\x01\x42\x13\n\x0cmatcher_type\x12\x03\xf8\x42\x01\"\x97\x07\n\x0eMatchPredicate\x12K\n\x08or_match\x18\x01 \x01(\x0b\x32\x37.envoy.config.common.matcher.v3.MatchPredicate.MatchSetH\x00\x12L\n\tand_match\x18\x02 \x01(\x0b\x32\x37.envoy.config.common.matcher.v3.MatchPredicate.MatchSetH\x00\x12\x43\n\tnot_match\x18\x03 \x01(\x0b\x32..envoy.config.common.matcher.v3.MatchPredicateH\x00\x12\x1c\n\tany_match\x18\x04 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12V\n\x1ahttp_request_headers_match\x18\x05 \x01(\x0b\x32\x30.envoy.config.common.matcher.v3.HttpHeadersMatchH\x00\x12W\n\x1bhttp_request_trailers_match\x18\x06 \x01(\x0b\x32\x30.envoy.config.common.matcher.v3.HttpHeadersMatchH\x00\x12W\n\x1bhttp_response_headers_match\x18\x07 \x01(\x0b\x32\x30.envoy.config.common.matcher.v3.HttpHeadersMatchH\x00\x12X\n\x1chttp_response_trailers_match\x18\x08 \x01(\x0b\x32\x30.envoy.config.common.matcher.v3.HttpHeadersMatchH\x00\x12_\n\x1fhttp_request_generic_body_match\x18\t \x01(\x0b\x32\x34.envoy.config.common.matcher.v3.HttpGenericBodyMatchH\x00\x12`\n http_response_generic_body_match\x18\n \x01(\x0b\x32\x34.envoy.config.common.matcher.v3.HttpGenericBodyMatchH\x00\x1aS\n\x08MatchSet\x12G\n\x05rules\x18\x01 \x03(\x0b\x32..envoy.config.common.matcher.v3.MatchPredicateB\x08\xfa\x42\x05\x92\x01\x02\x08\x02\x42\x0b\n\x04rule\x12\x03\xf8\x42\x01\"I\n\x10HttpHeadersMatch\x12\x35\n\x07headers\x18\x01 \x03(\x0b\x32$.envoy.config.route.v3.HeaderMatcher\"\xf1\x01\n\x14HttpGenericBodyMatch\x12\x13\n\x0b\x62ytes_limit\x18\x01 \x01(\r\x12\x61\n\x08patterns\x18\x02 \x03(\x0b\x32\x45.envoy.config.common.matcher.v3.HttpGenericBodyMatch.GenericTextMatchB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\x61\n\x10GenericTextMatch\x12\x1f\n\x0cstring_match\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\x1f\n\x0c\x62inary_match\x18\x02 \x01(\x0c\x42\x07\xfa\x42\x04z\x02\x10\x01H\x00\x42\x0b\n\x04rule\x12\x03\xf8\x42\x01\x42\x46\n,io.envoyproxy.envoy.config.common.matcher.v3B\x0cMatcherProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_extension__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -120,8 +120,8 @@ _MATCHER_MATCHERLIST_PREDICATE_SINGLEPREDICATE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=1074,
-  serialized_end=1305,
+  serialized_start=1160,
+  serialized_end=1391,
 )
 
 _MATCHER_MATCHERLIST_PREDICATE_PREDICATELIST = _descriptor.Descriptor(
@@ -151,8 +151,8 @@ _MATCHER_MATCHERLIST_PREDICATE_PREDICATELIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1307,
-  serialized_end=1414,
+  serialized_start=1393,
+  serialized_end=1500,
 )
 
 _MATCHER_MATCHERLIST_PREDICATE = _descriptor.Descriptor(
@@ -184,6 +184,13 @@ _MATCHER_MATCHERLIST_PREDICATE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='not_matcher', full_name='envoy.config.common.matcher.v3.Matcher.MatcherList.Predicate.not_matcher', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -202,7 +209,7 @@ _MATCHER_MATCHERLIST_PREDICATE = _descriptor.Descriptor(
     fields=[], serialized_options=b'\370B\001'),
   ],
   serialized_start=754,
-  serialized_end=1433,
+  serialized_end=1519,
 )
 
 _MATCHER_MATCHERLIST_FIELDMATCHER = _descriptor.Descriptor(
@@ -239,8 +246,8 @@ _MATCHER_MATCHERLIST_FIELDMATCHER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1436,
-  serialized_end=1619,
+  serialized_start=1522,
+  serialized_end=1705,
 )
 
 _MATCHER_MATCHERLIST = _descriptor.Descriptor(
@@ -271,7 +278,7 @@ _MATCHER_MATCHERLIST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=644,
-  serialized_end=1619,
+  serialized_end=1705,
 )
 
 _MATCHER_MATCHERTREE_MATCHMAP_MAPENTRY = _descriptor.Descriptor(
@@ -308,8 +315,8 @@ _MATCHER_MATCHERTREE_MATCHMAP_MAPENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2060,
-  serialized_end=2151,
+  serialized_start=2146,
+  serialized_end=2237,
 )
 
 _MATCHER_MATCHERTREE_MATCHMAP = _descriptor.Descriptor(
@@ -339,8 +346,8 @@ _MATCHER_MATCHERTREE_MATCHMAP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1954,
-  serialized_end=2151,
+  serialized_start=2040,
+  serialized_end=2237,
 )
 
 _MATCHER_MATCHERTREE = _descriptor.Descriptor(
@@ -396,8 +403,8 @@ _MATCHER_MATCHERTREE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=1622,
-  serialized_end=2169,
+  serialized_start=1708,
+  serialized_end=2255,
 )
 
 _MATCHER = _descriptor.Descriptor(
@@ -447,7 +454,7 @@ _MATCHER = _descriptor.Descriptor(
     fields=[], serialized_options=b'\370B\001'),
   ],
   serialized_start=257,
-  serialized_end=2190,
+  serialized_end=2276,
 )
 
 
@@ -478,8 +485,8 @@ _MATCHPREDICATE_MATCHSET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3016,
-  serialized_end=3099,
+  serialized_start=3102,
+  serialized_end=3185,
 )
 
 _MATCHPREDICATE = _descriptor.Descriptor(
@@ -577,8 +584,8 @@ _MATCHPREDICATE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=2193,
-  serialized_end=3112,
+  serialized_start=2279,
+  serialized_end=3198,
 )
 
 
@@ -609,8 +616,8 @@ _HTTPHEADERSMATCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3114,
-  serialized_end=3187,
+  serialized_start=3200,
+  serialized_end=3273,
 )
 
 
@@ -653,8 +660,8 @@ _HTTPGENERICBODYMATCH_GENERICTEXTMATCH = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=3334,
-  serialized_end=3431,
+  serialized_start=3420,
+  serialized_end=3517,
 )
 
 _HTTPGENERICBODYMATCH = _descriptor.Descriptor(
@@ -691,8 +698,8 @@ _HTTPGENERICBODYMATCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3190,
-  serialized_end=3431,
+  serialized_start=3276,
+  serialized_end=3517,
 )
 
 _MATCHER_ONMATCH.fields_by_name['matcher'].message_type = _MATCHER
@@ -719,6 +726,7 @@ _MATCHER_MATCHERLIST_PREDICATE_PREDICATELIST.containing_type = _MATCHER_MATCHERL
 _MATCHER_MATCHERLIST_PREDICATE.fields_by_name['single_predicate'].message_type = _MATCHER_MATCHERLIST_PREDICATE_SINGLEPREDICATE
 _MATCHER_MATCHERLIST_PREDICATE.fields_by_name['or_matcher'].message_type = _MATCHER_MATCHERLIST_PREDICATE_PREDICATELIST
 _MATCHER_MATCHERLIST_PREDICATE.fields_by_name['and_matcher'].message_type = _MATCHER_MATCHERLIST_PREDICATE_PREDICATELIST
+_MATCHER_MATCHERLIST_PREDICATE.fields_by_name['not_matcher'].message_type = _MATCHER_MATCHERLIST_PREDICATE
 _MATCHER_MATCHERLIST_PREDICATE.containing_type = _MATCHER_MATCHERLIST
 _MATCHER_MATCHERLIST_PREDICATE.oneofs_by_name['match_type'].fields.append(
   _MATCHER_MATCHERLIST_PREDICATE.fields_by_name['single_predicate'])
@@ -729,6 +737,9 @@ _MATCHER_MATCHERLIST_PREDICATE.fields_by_name['or_matcher'].containing_oneof = _
 _MATCHER_MATCHERLIST_PREDICATE.oneofs_by_name['match_type'].fields.append(
   _MATCHER_MATCHERLIST_PREDICATE.fields_by_name['and_matcher'])
 _MATCHER_MATCHERLIST_PREDICATE.fields_by_name['and_matcher'].containing_oneof = _MATCHER_MATCHERLIST_PREDICATE.oneofs_by_name['match_type']
+_MATCHER_MATCHERLIST_PREDICATE.oneofs_by_name['match_type'].fields.append(
+  _MATCHER_MATCHERLIST_PREDICATE.fields_by_name['not_matcher'])
+_MATCHER_MATCHERLIST_PREDICATE.fields_by_name['not_matcher'].containing_oneof = _MATCHER_MATCHERLIST_PREDICATE.oneofs_by_name['match_type']
 _MATCHER_MATCHERLIST_FIELDMATCHER.fields_by_name['predicate'].message_type = _MATCHER_MATCHERLIST_PREDICATE
 _MATCHER_MATCHERLIST_FIELDMATCHER.fields_by_name['on_match'].message_type = _MATCHER_ONMATCH
 _MATCHER_MATCHERLIST_FIELDMATCHER.containing_type = _MATCHER_MATCHERLIST

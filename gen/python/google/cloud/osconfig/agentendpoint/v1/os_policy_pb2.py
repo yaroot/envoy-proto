@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n*com.google.cloud.osconfig.agentendpoint.v1B\rOSPolicyProtoP\001ZSgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1;agentendpoint',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n6google/cloud/osconfig/agentendpoint/v1/os_policy.proto\x12&google.cloud.osconfig.agentendpoint.v1\x1a\x1fgoogle/api/field_behavior.proto\"\x91 \n\x08OSPolicy\x1a\xc5\x1f\n\x08Resource\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12X\n\x03pkg\x18\x02 \x01(\x0b\x32I.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResourceH\x00\x12\x62\n\nrepository\x18\x03 \x01(\x0b\x32L.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.RepositoryResourceH\x00\x12V\n\x04\x65xec\x18\x04 \x01(\x0b\x32\x46.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.ExecResourceH\x00\x12V\n\x04\x66ile\x18\x05 \x01(\x0b\x32\x46.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileResourceH\x00\x1a\xe2\x02\n\x04\x46ile\x12W\n\x06remote\x18\x01 \x01(\x0b\x32\x45.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.File.RemoteH\x00\x12Q\n\x03gcs\x18\x02 \x01(\x0b\x32\x42.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.File.GcsH\x00\x12\x14\n\nlocal_path\x18\x03 \x01(\tH\x00\x12\x16\n\x0e\x61llow_insecure\x18\x04 \x01(\x08\x1a\x33\n\x06Remote\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\x0fsha256_checksum\x18\x02 \x01(\t\x1a\x43\n\x03Gcs\x12\x13\n\x06\x62ucket\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x06object\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\ngeneration\x18\x03 \x01(\x03\x42\x06\n\x04type\x1a\xbc\n\n\x0fPackageResource\x12r\n\rdesired_state\x18\x01 \x01(\x0e\x32V.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.DesiredStateB\x03\xe0\x41\x02\x12\\\n\x03\x61pt\x18\x02 \x01(\x0b\x32M.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.APTH\x00\x12\\\n\x03\x64\x65\x62\x18\x03 \x01(\x0b\x32M.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.DebH\x00\x12\\\n\x03yum\x18\x04 \x01(\x0b\x32M.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.YUMH\x00\x12\x62\n\x06zypper\x18\x05 \x01(\x0b\x32P.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.ZypperH\x00\x12\\\n\x03rpm\x18\x06 \x01(\x0b\x32M.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.RPMH\x00\x12\x62\n\x06googet\x18\x07 \x01(\x0b\x32P.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.GooGetH\x00\x12\\\n\x03msi\x18\x08 \x01(\x0b\x32M.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.MSIH\x00\x1am\n\x03\x44\x65\x62\x12S\n\x06source\x18\x01 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileB\x03\xe0\x41\x02\x12\x11\n\tpull_deps\x18\x02 \x01(\x08\x1a\x18\n\x03\x41PT\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1am\n\x03RPM\x12S\n\x06source\x18\x01 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileB\x03\xe0\x41\x02\x12\x11\n\tpull_deps\x18\x02 \x01(\x08\x1a\x18\n\x03YUM\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x1b\n\x06Zypper\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x1b\n\x06GooGet\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1an\n\x03MSI\x12S\n\x06source\x18\x01 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileB\x03\xe0\x41\x02\x12\x12\n\nproperties\x18\x02 \x03(\t\"I\n\x0c\x44\x65siredState\x12\x1d\n\x19\x44\x45SIRED_STATE_UNSPECIFIED\x10\x00\x12\r\n\tINSTALLED\x10\x01\x12\x0b\n\x07REMOVED\x10\x02\x42\x10\n\x0esystem_package\x1a\xff\x07\n\x12RepositoryResource\x12i\n\x03\x61pt\x18\x01 \x01(\x0b\x32Z.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.RepositoryResource.AptRepositoryH\x00\x12i\n\x03yum\x18\x02 \x01(\x0b\x32Z.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.RepositoryResource.YumRepositoryH\x00\x12o\n\x06zypper\x18\x03 \x01(\x0b\x32].google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.RepositoryResource.ZypperRepositoryH\x00\x12i\n\x03goo\x18\x04 \x01(\x0b\x32Z.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.RepositoryResource.GooRepositoryH\x00\x1a\xad\x02\n\rAptRepository\x12\x81\x01\n\x0c\x61rchive_type\x18\x01 \x01(\x0e\x32\x66.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.RepositoryResource.AptRepository.ArchiveTypeB\x03\xe0\x41\x02\x12\x10\n\x03uri\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0c\x64istribution\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ncomponents\x18\x04 \x03(\tB\x03\xe0\x41\x02\x12\x0f\n\x07gpg_key\x18\x05 \x01(\t\"A\n\x0b\x41rchiveType\x12\x1c\n\x18\x41RCHIVE_TYPE_UNSPECIFIED\x10\x00\x12\x07\n\x03\x44\x45\x42\x10\x01\x12\x0b\n\x07\x44\x45\x42_SRC\x10\x02\x1a_\n\rYumRepository\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x15\n\x08\x62\x61se_url\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x08gpg_keys\x18\x04 \x03(\t\x1a\x62\n\x10ZypperRepository\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x15\n\x08\x62\x61se_url\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x08gpg_keys\x18\x04 \x03(\t\x1a\x34\n\rGooRepository\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x03url\x18\x02 \x01(\tB\x03\xe0\x41\x02\x42\x0c\n\nrepository\x1a\x97\x04\n\x0c\x45xecResource\x12\x62\n\x08validate\x18\x01 \x01(\x0b\x32K.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.ExecResource.ExecB\x03\xe0\x41\x02\x12\\\n\x07\x65nforce\x18\x02 \x01(\x0b\x32K.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.ExecResource.Exec\x1a\xc4\x02\n\x04\x45xec\x12N\n\x04\x66ile\x18\x01 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileH\x00\x12\x10\n\x06script\x18\x02 \x01(\tH\x00\x12\x0c\n\x04\x61rgs\x18\x03 \x03(\t\x12q\n\x0binterpreter\x18\x04 \x01(\x0e\x32W.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.ExecResource.Exec.InterpreterB\x03\xe0\x41\x02\"O\n\x0bInterpreter\x12\x1b\n\x17INTERPRETER_UNSPECIFIED\x10\x00\x12\x08\n\x04NONE\x10\x01\x12\t\n\x05SHELL\x10\x02\x12\x0e\n\nPOWERSHELL\x10\x03\x42\x08\n\x06source\x1a\xe8\x02\n\x0c\x46ileResource\x12N\n\x04\x66ile\x18\x01 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileH\x00\x12\x11\n\x07\x63ontent\x18\x02 \x01(\tH\x00\x12\x11\n\x04path\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12g\n\x05state\x18\x04 \x01(\x0e\x32S.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileResource.DesiredStateB\x03\xe0\x41\x02\x12\x13\n\x0bpermissions\x18\x05 \x01(\t\"Z\n\x0c\x44\x65siredState\x12\x1d\n\x19\x44\x45SIRED_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PRESENT\x10\x01\x12\n\n\x06\x41\x42SENT\x10\x02\x12\x12\n\x0e\x43ONTENTS_MATCH\x10\x03\x42\x08\n\x06sourceB\x0f\n\rresource_type\"=\n\x04Mode\x12\x14\n\x10MODE_UNSPECIFIED\x10\x00\x12\x0e\n\nVALIDATION\x10\x01\x12\x0f\n\x0b\x45NFORCEMENT\x10\x02\x42\x92\x01\n*com.google.cloud.osconfig.agentendpoint.v1B\rOSPolicyProtoP\x01ZSgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1;agentendpointb\x06proto3'
+  serialized_pb=b'\n6google/cloud/osconfig/agentendpoint/v1/os_policy.proto\x12&google.cloud.osconfig.agentendpoint.v1\x1a\x1fgoogle/api/field_behavior.proto\"\xab \n\x08OSPolicy\x1a\xdf\x1f\n\x08Resource\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12X\n\x03pkg\x18\x02 \x01(\x0b\x32I.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResourceH\x00\x12\x62\n\nrepository\x18\x03 \x01(\x0b\x32L.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.RepositoryResourceH\x00\x12V\n\x04\x65xec\x18\x04 \x01(\x0b\x32\x46.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.ExecResourceH\x00\x12V\n\x04\x66ile\x18\x05 \x01(\x0b\x32\x46.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileResourceH\x00\x1a\xe2\x02\n\x04\x46ile\x12W\n\x06remote\x18\x01 \x01(\x0b\x32\x45.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.File.RemoteH\x00\x12Q\n\x03gcs\x18\x02 \x01(\x0b\x32\x42.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.File.GcsH\x00\x12\x14\n\nlocal_path\x18\x03 \x01(\tH\x00\x12\x16\n\x0e\x61llow_insecure\x18\x04 \x01(\x08\x1a\x33\n\x06Remote\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\x0fsha256_checksum\x18\x02 \x01(\t\x1a\x43\n\x03Gcs\x12\x13\n\x06\x62ucket\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x06object\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\ngeneration\x18\x03 \x01(\x03\x42\x06\n\x04type\x1a\xbc\n\n\x0fPackageResource\x12r\n\rdesired_state\x18\x01 \x01(\x0e\x32V.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.DesiredStateB\x03\xe0\x41\x02\x12\\\n\x03\x61pt\x18\x02 \x01(\x0b\x32M.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.APTH\x00\x12\\\n\x03\x64\x65\x62\x18\x03 \x01(\x0b\x32M.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.DebH\x00\x12\\\n\x03yum\x18\x04 \x01(\x0b\x32M.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.YUMH\x00\x12\x62\n\x06zypper\x18\x05 \x01(\x0b\x32P.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.ZypperH\x00\x12\\\n\x03rpm\x18\x06 \x01(\x0b\x32M.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.RPMH\x00\x12\x62\n\x06googet\x18\x07 \x01(\x0b\x32P.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.GooGetH\x00\x12\\\n\x03msi\x18\x08 \x01(\x0b\x32M.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.PackageResource.MSIH\x00\x1am\n\x03\x44\x65\x62\x12S\n\x06source\x18\x01 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileB\x03\xe0\x41\x02\x12\x11\n\tpull_deps\x18\x02 \x01(\x08\x1a\x18\n\x03\x41PT\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1am\n\x03RPM\x12S\n\x06source\x18\x01 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileB\x03\xe0\x41\x02\x12\x11\n\tpull_deps\x18\x02 \x01(\x08\x1a\x18\n\x03YUM\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x1b\n\x06Zypper\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x1b\n\x06GooGet\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1an\n\x03MSI\x12S\n\x06source\x18\x01 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileB\x03\xe0\x41\x02\x12\x12\n\nproperties\x18\x02 \x03(\t\"I\n\x0c\x44\x65siredState\x12\x1d\n\x19\x44\x45SIRED_STATE_UNSPECIFIED\x10\x00\x12\r\n\tINSTALLED\x10\x01\x12\x0b\n\x07REMOVED\x10\x02\x42\x10\n\x0esystem_package\x1a\xff\x07\n\x12RepositoryResource\x12i\n\x03\x61pt\x18\x01 \x01(\x0b\x32Z.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.RepositoryResource.AptRepositoryH\x00\x12i\n\x03yum\x18\x02 \x01(\x0b\x32Z.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.RepositoryResource.YumRepositoryH\x00\x12o\n\x06zypper\x18\x03 \x01(\x0b\x32].google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.RepositoryResource.ZypperRepositoryH\x00\x12i\n\x03goo\x18\x04 \x01(\x0b\x32Z.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.RepositoryResource.GooRepositoryH\x00\x1a\xad\x02\n\rAptRepository\x12\x81\x01\n\x0c\x61rchive_type\x18\x01 \x01(\x0e\x32\x66.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.RepositoryResource.AptRepository.ArchiveTypeB\x03\xe0\x41\x02\x12\x10\n\x03uri\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0c\x64istribution\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ncomponents\x18\x04 \x03(\tB\x03\xe0\x41\x02\x12\x0f\n\x07gpg_key\x18\x05 \x01(\t\"A\n\x0b\x41rchiveType\x12\x1c\n\x18\x41RCHIVE_TYPE_UNSPECIFIED\x10\x00\x12\x07\n\x03\x44\x45\x42\x10\x01\x12\x0b\n\x07\x44\x45\x42_SRC\x10\x02\x1a_\n\rYumRepository\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x15\n\x08\x62\x61se_url\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x08gpg_keys\x18\x04 \x03(\t\x1a\x62\n\x10ZypperRepository\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x15\n\x08\x62\x61se_url\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x08gpg_keys\x18\x04 \x03(\t\x1a\x34\n\rGooRepository\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x03url\x18\x02 \x01(\tB\x03\xe0\x41\x02\x42\x0c\n\nrepository\x1a\xb1\x04\n\x0c\x45xecResource\x12\x62\n\x08validate\x18\x01 \x01(\x0b\x32K.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.ExecResource.ExecB\x03\xe0\x41\x02\x12\\\n\x07\x65nforce\x18\x02 \x01(\x0b\x32K.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.ExecResource.Exec\x1a\xde\x02\n\x04\x45xec\x12N\n\x04\x66ile\x18\x01 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileH\x00\x12\x10\n\x06script\x18\x02 \x01(\tH\x00\x12\x0c\n\x04\x61rgs\x18\x03 \x03(\t\x12q\n\x0binterpreter\x18\x04 \x01(\x0e\x32W.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.ExecResource.Exec.InterpreterB\x03\xe0\x41\x02\x12\x18\n\x10output_file_path\x18\x05 \x01(\t\"O\n\x0bInterpreter\x12\x1b\n\x17INTERPRETER_UNSPECIFIED\x10\x00\x12\x08\n\x04NONE\x10\x01\x12\t\n\x05SHELL\x10\x02\x12\x0e\n\nPOWERSHELL\x10\x03\x42\x08\n\x06source\x1a\xe8\x02\n\x0c\x46ileResource\x12N\n\x04\x66ile\x18\x01 \x01(\x0b\x32>.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileH\x00\x12\x11\n\x07\x63ontent\x18\x02 \x01(\tH\x00\x12\x11\n\x04path\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12g\n\x05state\x18\x04 \x01(\x0e\x32S.google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.FileResource.DesiredStateB\x03\xe0\x41\x02\x12\x13\n\x0bpermissions\x18\x05 \x01(\t\"Z\n\x0c\x44\x65siredState\x12\x1d\n\x19\x44\x45SIRED_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PRESENT\x10\x01\x12\n\n\x06\x41\x42SENT\x10\x02\x12\x12\n\x0e\x43ONTENTS_MATCH\x10\x03\x42\x08\n\x06sourceB\x0f\n\rresource_type\"=\n\x04Mode\x12\x14\n\x10MODE_UNSPECIFIED\x10\x00\x12\x0e\n\nVALIDATION\x10\x01\x12\x0f\n\x0b\x45NFORCEMENT\x10\x02\x42\x92\x01\n*com.google.cloud.osconfig.agentendpoint.v1B\rOSPolicyProtoP\x01ZSgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1;agentendpointb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,])
 
@@ -116,8 +116,8 @@ _OSPOLICY_RESOURCE_EXECRESOURCE_EXEC_INTERPRETER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3713,
-  serialized_end=3792,
+  serialized_start=3739,
+  serialized_end=3818,
 )
 _sym_db.RegisterEnumDescriptor(_OSPOLICY_RESOURCE_EXECRESOURCE_EXEC_INTERPRETER)
 
@@ -151,8 +151,8 @@ _OSPOLICY_RESOURCE_FILERESOURCE_DESIREDSTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4065,
-  serialized_end=4155,
+  serialized_start=4091,
+  serialized_end=4181,
 )
 _sym_db.RegisterEnumDescriptor(_OSPOLICY_RESOURCE_FILERESOURCE_DESIREDSTATE)
 
@@ -181,8 +181,8 @@ _OSPOLICY_MODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4184,
-  serialized_end=4245,
+  serialized_start=4210,
+  serialized_end=4271,
 )
 _sym_db.RegisterEnumDescriptor(_OSPOLICY_MODE)
 
@@ -946,6 +946,13 @@ _OSPOLICY_RESOURCE_EXECRESOURCE_EXEC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='output_file_path', full_name='google.cloud.osconfig.agentendpoint.v1.OSPolicy.Resource.ExecResource.Exec.output_file_path', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -965,7 +972,7 @@ _OSPOLICY_RESOURCE_EXECRESOURCE_EXEC = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=3478,
-  serialized_end=3802,
+  serialized_end=3828,
 )
 
 _OSPOLICY_RESOURCE_EXECRESOURCE = _descriptor.Descriptor(
@@ -1003,7 +1010,7 @@ _OSPOLICY_RESOURCE_EXECRESOURCE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=3267,
-  serialized_end=3802,
+  serialized_end=3828,
 )
 
 _OSPOLICY_RESOURCE_FILERESOURCE = _descriptor.Descriptor(
@@ -1067,8 +1074,8 @@ _OSPOLICY_RESOURCE_FILERESOURCE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3805,
-  serialized_end=4165,
+  serialized_start=3831,
+  serialized_end=4191,
 )
 
 _OSPOLICY_RESOURCE = _descriptor.Descriptor(
@@ -1132,7 +1139,7 @@ _OSPOLICY_RESOURCE = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=145,
-  serialized_end=4182,
+  serialized_end=4208,
 )
 
 _OSPOLICY = _descriptor.Descriptor(
@@ -1157,7 +1164,7 @@ _OSPOLICY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=132,
-  serialized_end=4245,
+  serialized_end=4271,
 )
 
 _OSPOLICY_RESOURCE_FILE_REMOTE.containing_type = _OSPOLICY_RESOURCE_FILE

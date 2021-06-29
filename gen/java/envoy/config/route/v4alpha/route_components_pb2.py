@@ -34,7 +34,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n(io.envoyproxy.envoy.config.route.v4alphaB\024RouteComponentsProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n1envoy/config/route/v4alpha/route_components.proto\x12\x1a\x65nvoy.config.route.v4alpha\x1a$envoy/config/core/v4alpha/base.proto\x1a)envoy/config/core/v4alpha/extension.proto\x1a.envoy/config/core/v4alpha/proxy_protocol.proto\x1a&envoy/type/matcher/v4alpha/regex.proto\x1a\'envoy/type/matcher/v4alpha/string.proto\x1a%envoy/type/metadata/v3/metadata.proto\x1a&envoy/type/tracing/v3/custom_tag.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x19\x65nvoy/type/v3/range.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xbc\n\n\x0bVirtualHost\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12#\n\x07\x64omains\x18\x02 \x03(\tB\x12\xfa\x42\x0f\x92\x01\x0c\x08\x01\"\x08r\x06\xc0\x01\x02\xc8\x01\x00\x12\x31\n\x06routes\x18\x03 \x03(\x0b\x32!.envoy.config.route.v4alpha.Route\x12Y\n\x0brequire_tls\x18\x04 \x01(\x0e\x32:.envoy.config.route.v4alpha.VirtualHost.TlsRequirementTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x44\n\x10virtual_clusters\x18\x05 \x03(\x0b\x32*.envoy.config.route.v4alpha.VirtualCluster\x12:\n\x0brate_limits\x18\x06 \x03(\x0b\x32%.envoy.config.route.v4alpha.RateLimit\x12W\n\x16request_headers_to_add\x18\x07 \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x35\n\x19request_headers_to_remove\x18\r \x03(\tB\x12\xfa\x42\x0f\x92\x01\x0c\"\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12X\n\x17response_headers_to_add\x18\n \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x36\n\x1aresponse_headers_to_remove\x18\x0b \x03(\tB\x12\xfa\x42\x0f\x92\x01\x0c\"\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12\x34\n\x04\x63ors\x18\x08 \x01(\x0b\x32&.envoy.config.route.v4alpha.CorsPolicy\x12\x62\n\x17typed_per_filter_config\x18\x0f \x03(\x0b\x32\x41.envoy.config.route.v4alpha.VirtualHost.TypedPerFilterConfigEntry\x12%\n\x1dinclude_request_attempt_count\x18\x0e \x01(\x08\x12)\n!include_attempt_count_in_response\x18\x13 \x01(\x08\x12=\n\x0cretry_policy\x18\x10 \x01(\x0b\x32\'.envoy.config.route.v4alpha.RetryPolicy\x12\x37\n\x19retry_policy_typed_config\x18\x14 \x01(\x0b\x32\x14.google.protobuf.Any\x12=\n\x0chedge_policy\x18\x11 \x01(\x0b\x32\'.envoy.config.route.v4alpha.HedgePolicy\x12\x44\n\x1eper_request_buffer_limit_bytes\x18\x12 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x1aQ\n\x19TypedPerFilterConfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01\":\n\x12TlsRequirementType\x12\x08\n\x04NONE\x10\x00\x12\x11\n\rEXTERNAL_ONLY\x10\x01\x12\x07\n\x03\x41LL\x10\x02:(\x9a\xc5\x88\x1e#\n!envoy.config.route.v3.VirtualHostJ\x04\x08\t\x10\nJ\x04\x08\x0c\x10\rR\x11per_filter_config\"_\n\x0c\x46ilterAction\x12$\n\x06\x61\x63tion\x18\x01 \x01(\x0b\x32\x14.google.protobuf.Any:)\x9a\xc5\x88\x1e$\n\"envoy.config.route.v3.FilterAction\"\xf2\x08\n\x05Route\x12\x0c\n\x04name\x18\x0e \x01(\t\x12?\n\x05match\x18\x01 \x01(\x0b\x32&.envoy.config.route.v4alpha.RouteMatchB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x38\n\x05route\x18\x02 \x01(\x0b\x32\'.envoy.config.route.v4alpha.RouteActionH\x00\x12>\n\x08redirect\x18\x03 \x01(\x0b\x32*.envoy.config.route.v4alpha.RedirectActionH\x00\x12K\n\x0f\x64irect_response\x18\x07 \x01(\x0b\x32\x30.envoy.config.route.v4alpha.DirectResponseActionH\x00\x12\x41\n\rfilter_action\x18\x11 \x01(\x0b\x32(.envoy.config.route.v4alpha.FilterActionH\x00\x12\x35\n\x08metadata\x18\x04 \x01(\x0b\x32#.envoy.config.core.v4alpha.Metadata\x12\x38\n\tdecorator\x18\x05 \x01(\x0b\x32%.envoy.config.route.v4alpha.Decorator\x12\\\n\x17typed_per_filter_config\x18\r \x03(\x0b\x32;.envoy.config.route.v4alpha.Route.TypedPerFilterConfigEntry\x12W\n\x16request_headers_to_add\x18\t \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x35\n\x19request_headers_to_remove\x18\x0c \x03(\tB\x12\xfa\x42\x0f\x92\x01\x0c\"\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12X\n\x17response_headers_to_add\x18\n \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x36\n\x1aresponse_headers_to_remove\x18\x0b \x03(\tB\x12\xfa\x42\x0f\x92\x01\x0c\"\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12\x34\n\x07tracing\x18\x0f \x01(\x0b\x32#.envoy.config.route.v4alpha.Tracing\x12\x44\n\x1eper_request_buffer_limit_bytes\x18\x10 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x1aQ\n\x19TypedPerFilterConfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01:\"\x9a\xc5\x88\x1e\x1d\n\x1b\x65nvoy.config.route.v3.RouteB\r\n\x06\x61\x63tion\x12\x03\xf8\x42\x01J\x04\x08\x06\x10\x07J\x04\x08\x08\x10\tR\x11per_filter_config\"\xc5\x07\n\x0fWeightedCluster\x12U\n\x08\x63lusters\x18\x01 \x03(\x0b\x32\x39.envoy.config.route.v4alpha.WeightedCluster.ClusterWeightB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12;\n\x0ctotal_weight\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12\x1a\n\x12runtime_key_prefix\x18\x02 \x01(\t\x1a\xd3\x05\n\rClusterWeight\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x06weight\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12;\n\x0emetadata_match\x18\x03 \x01(\x0b\x32#.envoy.config.core.v4alpha.Metadata\x12W\n\x16request_headers_to_add\x18\x04 \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x33\n\x19request_headers_to_remove\x18\t \x03(\tB\x10\xfa\x42\r\x92\x01\n\"\x08r\x06\xc0\x01\x01\xc8\x01\x00\x12X\n\x17response_headers_to_add\x18\x05 \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x34\n\x1aresponse_headers_to_remove\x18\x06 \x03(\tB\x10\xfa\x42\r\x92\x01\n\"\x08r\x06\xc0\x01\x01\xc8\x01\x00\x12t\n\x17typed_per_filter_config\x18\n \x03(\x0b\x32S.envoy.config.route.v4alpha.WeightedCluster.ClusterWeight.TypedPerFilterConfigEntry\x1aQ\n\x19TypedPerFilterConfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01::\x9a\xc5\x88\x1e\x35\n3envoy.config.route.v3.WeightedCluster.ClusterWeightJ\x04\x08\x07\x10\x08J\x04\x08\x08\x10\tR\x11per_filter_config:,\x9a\xc5\x88\x1e\'\n%envoy.config.route.v3.WeightedCluster\"\xa4\x08\n\nRouteMatch\x12\x10\n\x06prefix\x18\x01 \x01(\tH\x00\x12\x0e\n\x04path\x18\x02 \x01(\tH\x00\x12H\n\nsafe_regex\x18\n \x01(\x0b\x32(.envoy.type.matcher.v4alpha.RegexMatcherB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01H\x00\x12P\n\x0f\x63onnect_matcher\x18\x0c \x01(\x0b\x32\x35.envoy.config.route.v4alpha.RouteMatch.ConnectMatcherH\x00\x12\x32\n\x0e\x63\x61se_sensitive\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12M\n\x10runtime_fraction\x18\t \x01(\x0b\x32\x33.envoy.config.core.v4alpha.RuntimeFractionalPercent\x12:\n\x07headers\x18\x06 \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcher\x12K\n\x10query_parameters\x18\x07 \x03(\x0b\x32\x31.envoy.config.route.v4alpha.QueryParameterMatcher\x12J\n\x04grpc\x18\x08 \x01(\x0b\x32<.envoy.config.route.v4alpha.RouteMatch.GrpcRouteMatchOptions\x12R\n\x0btls_context\x18\x0b \x01(\x0b\x32=.envoy.config.route.v4alpha.RouteMatch.TlsContextMatchOptions\x1aV\n\x15GrpcRouteMatchOptions:=\x9a\xc5\x88\x1e\x38\n6envoy.config.route.v3.RouteMatch.GrpcRouteMatchOptions\x1a\xb6\x01\n\x16TlsContextMatchOptions\x12-\n\tpresented\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12-\n\tvalidated\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:>\x9a\xc5\x88\x1e\x39\n7envoy.config.route.v3.RouteMatch.TlsContextMatchOptions\x1aH\n\x0e\x43onnectMatcher:6\x9a\xc5\x88\x1e\x31\n/envoy.config.route.v3.RouteMatch.ConnectMatcher:\'\x9a\xc5\x88\x1e\"\n envoy.config.route.v3.RouteMatchB\x15\n\x0epath_specifier\x12\x03\xf8\x42\x01J\x04\x08\x05\x10\x06J\x04\x08\x03\x10\x04R\x05regex\"\xff\x03\n\nCorsPolicy\x12L\n\x19\x61llow_origin_string_match\x18\x0b \x03(\x0b\x32).envoy.type.matcher.v4alpha.StringMatcher\x12\x15\n\rallow_methods\x18\x02 \x01(\t\x12\x15\n\rallow_headers\x18\x03 \x01(\t\x12\x16\n\x0e\x65xpose_headers\x18\x04 \x01(\t\x12\x0f\n\x07max_age\x18\x05 \x01(\t\x12\x35\n\x11\x61llow_credentials\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12M\n\x0e\x66ilter_enabled\x18\t \x01(\x0b\x32\x33.envoy.config.core.v4alpha.RuntimeFractionalPercentH\x00\x12K\n\x0eshadow_enabled\x18\n \x01(\x0b\x32\x33.envoy.config.core.v4alpha.RuntimeFractionalPercent:\'\x9a\xc5\x88\x1e\"\n envoy.config.route.v3.CorsPolicyB\x13\n\x11\x65nabled_specifierJ\x04\x08\x01\x10\x02J\x04\x08\x08\x10\tJ\x04\x08\x07\x10\x08R\x0c\x61llow_originR\x12\x61llow_origin_regexR\x07\x65nabled\"\x8e \n\x0bRouteAction\x12\x1a\n\x07\x63luster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\'\n\x0e\x63luster_header\x18\x02 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00H\x00\x12H\n\x11weighted_clusters\x18\x03 \x01(\x0b\x32+.envoy.config.route.v4alpha.WeightedClusterH\x00\x12v\n\x1f\x63luster_not_found_response_code\x18\x14 \x01(\x0e\x32\x43.envoy.config.route.v4alpha.RouteAction.ClusterNotFoundResponseCodeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12;\n\x0emetadata_match\x18\x04 \x01(\x0b\x32#.envoy.config.core.v4alpha.Metadata\x12#\n\x0eprefix_rewrite\x18\x05 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00\x12J\n\rregex_rewrite\x18  \x01(\x0b\x32\x33.envoy.type.matcher.v4alpha.RegexMatchAndSubstitute\x12+\n\x14host_rewrite_literal\x18\x06 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00H\x01\x12\x37\n\x11\x61uto_host_rewrite\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValueH\x01\x12*\n\x13host_rewrite_header\x18\x1d \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x01\xc8\x01\x00H\x01\x12V\n\x17host_rewrite_path_regex\x18# \x01(\x0b\x32\x33.envoy.type.matcher.v4alpha.RegexMatchAndSubstituteH\x01\x12*\n\x07timeout\x18\x08 \x01(\x0b\x32\x19.google.protobuf.Duration\x12/\n\x0cidle_timeout\x18\x18 \x01(\x0b\x32\x19.google.protobuf.Duration\x12=\n\x0cretry_policy\x18\t \x01(\x0b\x32\'.envoy.config.route.v4alpha.RetryPolicy\x12\x37\n\x19retry_policy_typed_config\x18! \x01(\x0b\x32\x14.google.protobuf.Any\x12\\\n\x17request_mirror_policies\x18\x1e \x03(\x0b\x32;.envoy.config.route.v4alpha.RouteAction.RequestMirrorPolicy\x12\x46\n\x08priority\x18\x0b \x01(\x0e\x32*.envoy.config.core.v4alpha.RoutingPriorityB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12:\n\x0brate_limits\x18\r \x03(\x0b\x32%.envoy.config.route.v4alpha.RateLimit\x12G\n\x0bhash_policy\x18\x0f \x03(\x0b\x32\x32.envoy.config.route.v4alpha.RouteAction.HashPolicy\x12\x34\n\x04\x63ors\x18\x11 \x01(\x0b\x32&.envoy.config.route.v4alpha.CorsPolicy\x12N\n\x0fupgrade_configs\x18\x19 \x03(\x0b\x32\x35.envoy.config.route.v4alpha.RouteAction.UpgradeConfig\x12T\n\x18internal_redirect_policy\x18\" \x01(\x0b\x32\x32.envoy.config.route.v4alpha.InternalRedirectPolicy\x12=\n\x0chedge_policy\x18\x1b \x01(\x0b\x32\'.envoy.config.route.v4alpha.HedgePolicy\x12V\n\x13max_stream_duration\x18$ \x01(\x0b\x32\x39.envoy.config.route.v4alpha.RouteAction.MaxStreamDuration\x1a\x82\x02\n\x13RequestMirrorPolicy\x12\x18\n\x07\x63luster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12M\n\x10runtime_fraction\x18\x03 \x01(\x0b\x32\x33.envoy.config.core.v4alpha.RuntimeFractionalPercent\x12\x31\n\rtrace_sampled\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:<\x9a\xc5\x88\x1e\x37\n5envoy.config.route.v3.RouteAction.RequestMirrorPolicyJ\x04\x08\x02\x10\x03R\x0bruntime_key\x1a\xb9\t\n\nHashPolicy\x12K\n\x06header\x18\x01 \x01(\x0b\x32\x39.envoy.config.route.v4alpha.RouteAction.HashPolicy.HeaderH\x00\x12K\n\x06\x63ookie\x18\x02 \x01(\x0b\x32\x39.envoy.config.route.v4alpha.RouteAction.HashPolicy.CookieH\x00\x12h\n\x15\x63onnection_properties\x18\x03 \x01(\x0b\x32G.envoy.config.route.v4alpha.RouteAction.HashPolicy.ConnectionPropertiesH\x00\x12\\\n\x0fquery_parameter\x18\x05 \x01(\x0b\x32\x41.envoy.config.route.v4alpha.RouteAction.HashPolicy.QueryParameterH\x00\x12V\n\x0c\x66ilter_state\x18\x06 \x01(\x0b\x32>.envoy.config.route.v4alpha.RouteAction.HashPolicy.FilterStateH\x00\x12\x10\n\x08terminal\x18\x04 \x01(\x08\x1a\xb4\x01\n\x06Header\x12\"\n\x0bheader_name\x18\x01 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12J\n\rregex_rewrite\x18\x02 \x01(\x0b\x32\x33.envoy.type.matcher.v4alpha.RegexMatchAndSubstitute::\x9a\xc5\x88\x1e\x35\n3envoy.config.route.v3.RouteAction.HashPolicy.Header\x1a\x91\x01\n\x06\x43ookie\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12&\n\x03ttl\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x0c\n\x04path\x18\x03 \x01(\t::\x9a\xc5\x88\x1e\x35\n3envoy.config.route.v3.RouteAction.HashPolicy.Cookie\x1as\n\x14\x43onnectionProperties\x12\x11\n\tsource_ip\x18\x01 \x01(\x08:H\x9a\xc5\x88\x1e\x43\nAenvoy.config.route.v3.RouteAction.HashPolicy.ConnectionProperties\x1ak\n\x0eQueryParameter\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:B\x9a\xc5\x88\x1e=\n;envoy.config.route.v3.RouteAction.HashPolicy.QueryParameter\x1a\x64\n\x0b\x46ilterState\x12\x14\n\x03key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:?\x9a\xc5\x88\x1e:\n8envoy.config.route.v3.RouteAction.HashPolicy.FilterState:3\x9a\xc5\x88\x1e.\n,envoy.config.route.v3.RouteAction.HashPolicyB\x17\n\x10policy_specifier\x12\x03\xf8\x42\x01\x1a\xb1\x03\n\rUpgradeConfig\x12#\n\x0cupgrade_type\x18\x01 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x02\xc8\x01\x00\x12+\n\x07\x65nabled\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12[\n\x0e\x63onnect_config\x18\x03 \x01(\x0b\x32\x43.envoy.config.route.v4alpha.RouteAction.UpgradeConfig.ConnectConfig\x1a\xb8\x01\n\rConnectConfig\x12M\n\x15proxy_protocol_config\x18\x01 \x01(\x0b\x32..envoy.config.core.v4alpha.ProxyProtocolConfig\x12\x12\n\nallow_post\x18\x02 \x01(\x08:D\x9a\xc5\x88\x1e?\n=envoy.config.route.v3.RouteAction.UpgradeConfig.ConnectConfig:6\x9a\xc5\x88\x1e\x31\n/envoy.config.route.v3.RouteAction.UpgradeConfig\x1a\x82\x02\n\x11MaxStreamDuration\x12\x36\n\x13max_stream_duration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12:\n\x17grpc_timeout_header_max\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12=\n\x1agrpc_timeout_header_offset\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration::\x9a\xc5\x88\x1e\x35\n3envoy.config.route.v3.RouteAction.MaxStreamDuration\"E\n\x1b\x43lusterNotFoundResponseCode\x12\x17\n\x13SERVICE_UNAVAILABLE\x10\x00\x12\r\n\tNOT_FOUND\x10\x01:(\x9a\xc5\x88\x1e#\n!envoy.config.route.v3.RouteActionB\x18\n\x11\x63luster_specifier\x12\x03\xf8\x42\x01\x42\x18\n\x16host_rewrite_specifierJ\x04\x08\x0c\x10\rJ\x04\x08\x12\x10\x13J\x04\x08\x13\x10\x14J\x04\x08\x10\x10\x11J\x04\x08\x16\x10\x17J\x04\x08\x15\x10\x16J\x04\x08\n\x10\x0bJ\x04\x08\x0e\x10\x0fJ\x04\x08\x17\x10\x18J\x04\x08\x1c\x10\x1dJ\x04\x08\x1a\x10\x1bJ\x04\x08\x1f\x10 R\x15request_mirror_policyR\x16include_vh_rate_limitsR\x10max_grpc_timeoutR\x13grpc_timeout_offsetR\x18internal_redirect_actionR\x16max_internal_redirects\"\xec\r\n\x0bRetryPolicy\x12\x10\n\x08retry_on\x18\x01 \x01(\t\x12\x31\n\x0bmax_retries\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x32\n\x0fper_try_timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12M\n\x0eretry_priority\x18\x04 \x01(\x0b\x32\x35.envoy.config.route.v4alpha.RetryPolicy.RetryPriority\x12X\n\x14retry_host_predicate\x18\x05 \x03(\x0b\x32:.envoy.config.route.v4alpha.RetryPolicy.RetryHostPredicate\x12)\n!host_selection_retry_max_attempts\x18\x06 \x01(\x03\x12\x1e\n\x16retriable_status_codes\x18\x07 \x03(\r\x12L\n\x0eretry_back_off\x18\x08 \x01(\x0b\x32\x34.envoy.config.route.v4alpha.RetryPolicy.RetryBackOff\x12\x64\n\x1brate_limited_retry_back_off\x18\x0b \x01(\x0b\x32?.envoy.config.route.v4alpha.RetryPolicy.RateLimitedRetryBackOff\x12\x44\n\x11retriable_headers\x18\t \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcher\x12L\n\x19retriable_request_headers\x18\n \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcher\x1a\xa9\x01\n\rRetryPriority\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:6\x9a\xc5\x88\x1e\x31\n/envoy.config.route.v3.RetryPolicy.RetryPriorityB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\x1a\xb3\x01\n\x12RetryHostPredicate\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:;\x9a\xc5\x88\x1e\x36\n4envoy.config.route.v3.RetryPolicy.RetryHostPredicateB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\x1a\xbe\x01\n\x0cRetryBackOff\x12<\n\rbase_interval\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\n\xfa\x42\x07\xaa\x01\x04\x08\x01*\x00\x12\x39\n\x0cmax_interval\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02*\x00:5\x9a\xc5\x88\x1e\x30\n.envoy.config.route.v3.RetryPolicy.RetryBackOff\x1a\xb5\x01\n\x0bResetHeader\x12\x1b\n\x04name\x18\x01 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12S\n\x06\x66ormat\x18\x02 \x01(\x0e\x32\x39.envoy.config.route.v4alpha.RetryPolicy.ResetHeaderFormatB\x08\xfa\x42\x05\x82\x01\x02\x10\x01:4\x9a\xc5\x88\x1e/\n-envoy.config.route.v3.RetryPolicy.ResetHeader\x1a\xec\x01\n\x17RateLimitedRetryBackOff\x12T\n\rreset_headers\x18\x01 \x03(\x0b\x32\x33.envoy.config.route.v4alpha.RetryPolicy.ResetHeaderB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12\x39\n\x0cmax_interval\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02*\x00:@\x9a\xc5\x88\x1e;\n9envoy.config.route.v3.RetryPolicy.RateLimitedRetryBackOff\"4\n\x11ResetHeaderFormat\x12\x0b\n\x07SECONDS\x10\x00\x12\x12\n\x0eUNIX_TIMESTAMP\x10\x01:(\x9a\xc5\x88\x1e#\n!envoy.config.route.v3.RetryPolicy\"\xdf\x01\n\x0bHedgePolicy\x12?\n\x10initial_requests\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12\x43\n\x19\x61\x64\x64itional_request_chance\x18\x02 \x01(\x0b\x32 .envoy.type.v3.FractionalPercent\x12 \n\x18hedge_on_per_try_timeout\x18\x03 \x01(\x08:(\x9a\xc5\x88\x1e#\n!envoy.config.route.v3.HedgePolicy\"\xee\x04\n\x0eRedirectAction\x12\x18\n\x0ehttps_redirect\x18\x04 \x01(\x08H\x00\x12\x19\n\x0fscheme_redirect\x18\x07 \x01(\tH\x00\x12\"\n\rhost_redirect\x18\x01 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00\x12\x15\n\rport_redirect\x18\x08 \x01(\r\x12$\n\rpath_redirect\x18\x02 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00H\x01\x12%\n\x0eprefix_rewrite\x18\x05 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00H\x01\x12L\n\rregex_rewrite\x18\t \x01(\x0b\x32\x33.envoy.type.matcher.v4alpha.RegexMatchAndSubstituteH\x01\x12`\n\rresponse_code\x18\x03 \x01(\x0e\x32?.envoy.config.route.v4alpha.RedirectAction.RedirectResponseCodeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x13\n\x0bstrip_query\x18\x06 \x01(\x08\"w\n\x14RedirectResponseCode\x12\x15\n\x11MOVED_PERMANENTLY\x10\x00\x12\t\n\x05\x46OUND\x10\x01\x12\r\n\tSEE_OTHER\x10\x02\x12\x16\n\x12TEMPORARY_REDIRECT\x10\x03\x12\x16\n\x12PERMANENT_REDIRECT\x10\x04:+\x9a\xc5\x88\x1e&\n$envoy.config.route.v3.RedirectActionB\x1a\n\x18scheme_rewrite_specifierB\x18\n\x16path_rewrite_specifier\"\x9a\x01\n\x14\x44irectResponseAction\x12\x1a\n\x06status\x18\x01 \x01(\rB\n\xfa\x42\x07*\x05\x10\xd8\x04(d\x12\x33\n\x04\x62ody\x18\x02 \x01(\x0b\x32%.envoy.config.core.v4alpha.DataSource:1\x9a\xc5\x88\x1e,\n*envoy.config.route.v3.DirectResponseAction\"~\n\tDecorator\x12\x1a\n\toperation\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12-\n\tpropagate\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.route.v3.Decorator\"\x98\x02\n\x07Tracing\x12\x39\n\x0f\x63lient_sampling\x18\x01 \x01(\x0b\x32 .envoy.type.v3.FractionalPercent\x12\x39\n\x0frandom_sampling\x18\x02 \x01(\x0b\x32 .envoy.type.v3.FractionalPercent\x12:\n\x10overall_sampling\x18\x03 \x01(\x0b\x32 .envoy.type.v3.FractionalPercent\x12\x35\n\x0b\x63ustom_tags\x18\x04 \x03(\x0b\x32 .envoy.type.tracing.v3.CustomTag:$\x9a\xc5\x88\x1e\x1f\n\x1d\x65nvoy.config.route.v3.Tracing\"\xad\x01\n\x0eVirtualCluster\x12:\n\x07headers\x18\x04 \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcher\x12\x15\n\x04name\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:+\x9a\xc5\x88\x1e&\n$envoy.config.route.v3.VirtualClusterJ\x04\x08\x01\x10\x02J\x04\x08\x03\x10\x04R\x07patternR\x06method\"\x8a\x15\n\tRateLimit\x12\x34\n\x05stage\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02\x18\n\x12\x13\n\x0b\x64isable_key\x18\x02 \x01(\t\x12G\n\x07\x61\x63tions\x18\x03 \x03(\x0b\x32,.envoy.config.route.v4alpha.RateLimit.ActionB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12=\n\x05limit\x18\x04 \x01(\x0b\x32..envoy.config.route.v4alpha.RateLimit.Override\x1a\xb2\x10\n\x06\x41\x63tion\x12T\n\x0esource_cluster\x18\x01 \x01(\x0b\x32:.envoy.config.route.v4alpha.RateLimit.Action.SourceClusterH\x00\x12^\n\x13\x64\x65stination_cluster\x18\x02 \x01(\x0b\x32?.envoy.config.route.v4alpha.RateLimit.Action.DestinationClusterH\x00\x12V\n\x0frequest_headers\x18\x03 \x01(\x0b\x32;.envoy.config.route.v4alpha.RateLimit.Action.RequestHeadersH\x00\x12T\n\x0eremote_address\x18\x04 \x01(\x0b\x32:.envoy.config.route.v4alpha.RateLimit.Action.RemoteAddressH\x00\x12N\n\x0bgeneric_key\x18\x05 \x01(\x0b\x32\x37.envoy.config.route.v4alpha.RateLimit.Action.GenericKeyH\x00\x12[\n\x12header_value_match\x18\x06 \x01(\x0b\x32=.envoy.config.route.v4alpha.RateLimit.Action.HeaderValueMatchH\x00\x12I\n\x08metadata\x18\x08 \x01(\x0b\x32\x35.envoy.config.route.v4alpha.RateLimit.Action.MetaDataH\x00\x12\x44\n\textension\x18\t \x01(\x0b\x32/.envoy.config.core.v4alpha.TypedExtensionConfigH\x00\x1aL\n\rSourceCluster:;\x9a\xc5\x88\x1e\x36\n4envoy.config.route.v3.RateLimit.Action.SourceCluster\x1aV\n\x12\x44\x65stinationCluster:@\x9a\xc5\x88\x1e;\n9envoy.config.route.v3.RateLimit.Action.DestinationCluster\x1a\xab\x01\n\x0eRequestHeaders\x12\"\n\x0bheader_name\x18\x01 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12\x1f\n\x0e\x64\x65scriptor_key\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x16\n\x0eskip_if_absent\x18\x03 \x01(\x08:<\x9a\xc5\x88\x1e\x37\n5envoy.config.route.v3.RateLimit.Action.RequestHeaders\x1aL\n\rRemoteAddress:;\x9a\xc5\x88\x1e\x36\n4envoy.config.route.v3.RateLimit.Action.RemoteAddress\x1a\x81\x01\n\nGenericKey\x12!\n\x10\x64\x65scriptor_value\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x16\n\x0e\x64\x65scriptor_key\x18\x02 \x01(\t:8\x9a\xc5\x88\x1e\x33\n1envoy.config.route.v3.RateLimit.Action.GenericKey\x1a\xed\x01\n\x10HeaderValueMatch\x12!\n\x10\x64\x65scriptor_value\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x30\n\x0c\x65xpect_match\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x44\n\x07headers\x18\x03 \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcherB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:>\x9a\xc5\x88\x1e\x39\n7envoy.config.route.v3.RateLimit.Action.HeaderValueMatch\x1a\xcd\x01\n\x0f\x44ynamicMetaData\x12\x1f\n\x0e\x64\x65scriptor_key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x43\n\x0cmetadata_key\x18\x02 \x01(\x0b\x32#.envoy.type.metadata.v3.MetadataKeyB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x15\n\rdefault_value\x18\x03 \x01(\t:=\x9a\xc5\x88\x1e\x38\n6envoy.config.route.v3.RateLimit.Action.DynamicMetaData\x1a\xbf\x02\n\x08MetaData\x12\x1f\n\x0e\x64\x65scriptor_key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x43\n\x0cmetadata_key\x18\x02 \x01(\x0b\x32#.envoy.type.metadata.v3.MetadataKeyB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x15\n\rdefault_value\x18\x03 \x01(\t\x12V\n\x06source\x18\x04 \x01(\x0e\x32<.envoy.config.route.v4alpha.RateLimit.Action.MetaData.SourceB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\"&\n\x06Source\x12\x0b\n\x07\x44YNAMIC\x10\x00\x12\x0f\n\x0bROUTE_ENTRY\x10\x01:6\x9a\xc5\x88\x1e\x31\n/envoy.config.route.v3.RateLimit.Action.MetaData:-\x9a\xc5\x88\x1e(\n&envoy.config.route.v3.RateLimit.ActionB\x17\n\x10\x61\x63tion_specifier\x12\x03\xf8\x42\x01J\x04\x08\x07\x10\x08R\x10\x64ynamic_metadata\x1a\xcc\x02\n\x08Override\x12Z\n\x10\x64ynamic_metadata\x18\x01 \x01(\x0b\x32>.envoy.config.route.v4alpha.RateLimit.Override.DynamicMetadataH\x00\x1a\x97\x01\n\x0f\x44ynamicMetadata\x12\x43\n\x0cmetadata_key\x18\x01 \x01(\x0b\x32#.envoy.type.metadata.v3.MetadataKeyB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:?\x9a\xc5\x88\x1e:\n8envoy.config.route.v3.RateLimit.Override.DynamicMetadata:/\x9a\xc5\x88\x1e*\n(envoy.config.route.v3.RateLimit.OverrideB\x19\n\x12override_specifier\x12\x03\xf8\x42\x01:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.route.v3.RateLimit\"\xb4\x03\n\rHeaderMatcher\x12\x1b\n\x04name\x18\x01 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12\x15\n\x0b\x65xact_match\x18\x04 \x01(\tH\x00\x12\x44\n\x10safe_regex_match\x18\x0b \x01(\x0b\x32(.envoy.type.matcher.v4alpha.RegexMatcherH\x00\x12\x30\n\x0brange_match\x18\x06 \x01(\x0b\x32\x19.envoy.type.v3.Int64RangeH\x00\x12\x17\n\rpresent_match\x18\x07 \x01(\x08H\x00\x12\x1f\n\x0cprefix_match\x18\t \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\x1f\n\x0csuffix_match\x18\n \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12!\n\x0e\x63ontains_match\x18\x0c \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\x14\n\x0cinvert_match\x18\x08 \x01(\x08:*\x9a\xc5\x88\x1e%\n#envoy.config.route.v3.HeaderMatcherB\x18\n\x16header_match_specifierJ\x04\x08\x02\x10\x03J\x04\x08\x03\x10\x04J\x04\x08\x05\x10\x06R\x0bregex_match\"\x88\x02\n\x15QueryParameterMatcher\x12\x18\n\x04name\x18\x01 \x01(\tB\n\xfa\x42\x07r\x05\x10\x01(\x80\x08\x12K\n\x0cstring_match\x18\x05 \x01(\x0b\x32).envoy.type.matcher.v4alpha.StringMatcherB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01H\x00\x12\x17\n\rpresent_match\x18\x06 \x01(\x08H\x00:2\x9a\xc5\x88\x1e-\n+envoy.config.route.v3.QueryParameterMatcherB!\n\x1fquery_parameter_match_specifierJ\x04\x08\x03\x10\x04J\x04\x08\x04\x10\x05R\x05valueR\x05regex\"\xa0\x02\n\x16InternalRedirectPolicy\x12<\n\x16max_internal_redirects\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12)\n\x17redirect_response_codes\x18\x02 \x03(\rB\x08\xfa\x42\x05\x92\x01\x02\x10\x05\x12\x43\n\npredicates\x18\x03 \x03(\x0b\x32/.envoy.config.core.v4alpha.TypedExtensionConfig\x12#\n\x1b\x61llow_cross_scheme_redirect\x18\x04 \x01(\x08:3\x9a\xc5\x88\x1e.\n,envoy.config.route.v3.InternalRedirectPolicy\"t\n\x0c\x46ilterConfig\x12$\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x14.google.protobuf.Any\x12\x13\n\x0bis_optional\x18\x02 \x01(\x08:)\x9a\xc5\x88\x1e$\n\"envoy.config.route.v3.FilterConfigBJ\n(io.envoyproxy.envoy.config.route.v4alphaB\x14RouteComponentsProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n1envoy/config/route/v4alpha/route_components.proto\x12\x1a\x65nvoy.config.route.v4alpha\x1a$envoy/config/core/v4alpha/base.proto\x1a)envoy/config/core/v4alpha/extension.proto\x1a.envoy/config/core/v4alpha/proxy_protocol.proto\x1a&envoy/type/matcher/v4alpha/regex.proto\x1a\'envoy/type/matcher/v4alpha/string.proto\x1a%envoy/type/metadata/v3/metadata.proto\x1a&envoy/type/tracing/v3/custom_tag.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x19\x65nvoy/type/v3/range.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xbc\n\n\x0bVirtualHost\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12#\n\x07\x64omains\x18\x02 \x03(\tB\x12\xfa\x42\x0f\x92\x01\x0c\x08\x01\"\x08r\x06\xc0\x01\x02\xc8\x01\x00\x12\x31\n\x06routes\x18\x03 \x03(\x0b\x32!.envoy.config.route.v4alpha.Route\x12Y\n\x0brequire_tls\x18\x04 \x01(\x0e\x32:.envoy.config.route.v4alpha.VirtualHost.TlsRequirementTypeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x44\n\x10virtual_clusters\x18\x05 \x03(\x0b\x32*.envoy.config.route.v4alpha.VirtualCluster\x12:\n\x0brate_limits\x18\x06 \x03(\x0b\x32%.envoy.config.route.v4alpha.RateLimit\x12W\n\x16request_headers_to_add\x18\x07 \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x35\n\x19request_headers_to_remove\x18\r \x03(\tB\x12\xfa\x42\x0f\x92\x01\x0c\"\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12X\n\x17response_headers_to_add\x18\n \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x36\n\x1aresponse_headers_to_remove\x18\x0b \x03(\tB\x12\xfa\x42\x0f\x92\x01\x0c\"\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12\x34\n\x04\x63ors\x18\x08 \x01(\x0b\x32&.envoy.config.route.v4alpha.CorsPolicy\x12\x62\n\x17typed_per_filter_config\x18\x0f \x03(\x0b\x32\x41.envoy.config.route.v4alpha.VirtualHost.TypedPerFilterConfigEntry\x12%\n\x1dinclude_request_attempt_count\x18\x0e \x01(\x08\x12)\n!include_attempt_count_in_response\x18\x13 \x01(\x08\x12=\n\x0cretry_policy\x18\x10 \x01(\x0b\x32\'.envoy.config.route.v4alpha.RetryPolicy\x12\x37\n\x19retry_policy_typed_config\x18\x14 \x01(\x0b\x32\x14.google.protobuf.Any\x12=\n\x0chedge_policy\x18\x11 \x01(\x0b\x32\'.envoy.config.route.v4alpha.HedgePolicy\x12\x44\n\x1eper_request_buffer_limit_bytes\x18\x12 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x1aQ\n\x19TypedPerFilterConfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01\":\n\x12TlsRequirementType\x12\x08\n\x04NONE\x10\x00\x12\x11\n\rEXTERNAL_ONLY\x10\x01\x12\x07\n\x03\x41LL\x10\x02:(\x9a\xc5\x88\x1e#\n!envoy.config.route.v3.VirtualHostJ\x04\x08\t\x10\nJ\x04\x08\x0c\x10\rR\x11per_filter_config\"_\n\x0c\x46ilterAction\x12$\n\x06\x61\x63tion\x18\x01 \x01(\x0b\x32\x14.google.protobuf.Any:)\x9a\xc5\x88\x1e$\n\"envoy.config.route.v3.FilterAction\"\xc4\t\n\x05Route\x12\x0c\n\x04name\x18\x0e \x01(\t\x12?\n\x05match\x18\x01 \x01(\x0b\x32&.envoy.config.route.v4alpha.RouteMatchB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x38\n\x05route\x18\x02 \x01(\x0b\x32\'.envoy.config.route.v4alpha.RouteActionH\x00\x12>\n\x08redirect\x18\x03 \x01(\x0b\x32*.envoy.config.route.v4alpha.RedirectActionH\x00\x12K\n\x0f\x64irect_response\x18\x07 \x01(\x0b\x32\x30.envoy.config.route.v4alpha.DirectResponseActionH\x00\x12\x41\n\rfilter_action\x18\x11 \x01(\x0b\x32(.envoy.config.route.v4alpha.FilterActionH\x00\x12P\n\x15non_forwarding_action\x18\x12 \x01(\x0b\x32/.envoy.config.route.v4alpha.NonForwardingActionH\x00\x12\x35\n\x08metadata\x18\x04 \x01(\x0b\x32#.envoy.config.core.v4alpha.Metadata\x12\x38\n\tdecorator\x18\x05 \x01(\x0b\x32%.envoy.config.route.v4alpha.Decorator\x12\\\n\x17typed_per_filter_config\x18\r \x03(\x0b\x32;.envoy.config.route.v4alpha.Route.TypedPerFilterConfigEntry\x12W\n\x16request_headers_to_add\x18\t \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x35\n\x19request_headers_to_remove\x18\x0c \x03(\tB\x12\xfa\x42\x0f\x92\x01\x0c\"\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12X\n\x17response_headers_to_add\x18\n \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x36\n\x1aresponse_headers_to_remove\x18\x0b \x03(\tB\x12\xfa\x42\x0f\x92\x01\x0c\"\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12\x34\n\x07tracing\x18\x0f \x01(\x0b\x32#.envoy.config.route.v4alpha.Tracing\x12\x44\n\x1eper_request_buffer_limit_bytes\x18\x10 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x1aQ\n\x19TypedPerFilterConfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01:\"\x9a\xc5\x88\x1e\x1d\n\x1b\x65nvoy.config.route.v3.RouteB\r\n\x06\x61\x63tion\x12\x03\xf8\x42\x01J\x04\x08\x06\x10\x07J\x04\x08\x08\x10\tR\x11per_filter_config\"\x8c\x08\n\x0fWeightedCluster\x12U\n\x08\x63lusters\x18\x01 \x03(\x0b\x32\x39.envoy.config.route.v4alpha.WeightedCluster.ClusterWeightB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12;\n\x0ctotal_weight\x18\x03 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12\x1a\n\x12runtime_key_prefix\x18\x02 \x01(\t\x1a\x9a\x06\n\rClusterWeight\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x06weight\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12;\n\x0emetadata_match\x18\x03 \x01(\x0b\x32#.envoy.config.core.v4alpha.Metadata\x12W\n\x16request_headers_to_add\x18\x04 \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x33\n\x19request_headers_to_remove\x18\t \x03(\tB\x10\xfa\x42\r\x92\x01\n\"\x08r\x06\xc0\x01\x01\xc8\x01\x00\x12X\n\x17response_headers_to_add\x18\x05 \x03(\x0b\x32,.envoy.config.core.v4alpha.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x34\n\x1aresponse_headers_to_remove\x18\x06 \x03(\tB\x10\xfa\x42\r\x92\x01\n\"\x08r\x06\xc0\x01\x01\xc8\x01\x00\x12t\n\x17typed_per_filter_config\x18\n \x03(\x0b\x32S.envoy.config.route.v4alpha.WeightedCluster.ClusterWeight.TypedPerFilterConfigEntry\x12+\n\x14host_rewrite_literal\x18\x0b \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00H\x00\x1aQ\n\x19TypedPerFilterConfigEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01::\x9a\xc5\x88\x1e\x35\n3envoy.config.route.v3.WeightedCluster.ClusterWeightB\x18\n\x16host_rewrite_specifierJ\x04\x08\x07\x10\x08J\x04\x08\x08\x10\tR\x11per_filter_config:,\x9a\xc5\x88\x1e\'\n%envoy.config.route.v3.WeightedCluster\"\xa4\x08\n\nRouteMatch\x12\x10\n\x06prefix\x18\x01 \x01(\tH\x00\x12\x0e\n\x04path\x18\x02 \x01(\tH\x00\x12H\n\nsafe_regex\x18\n \x01(\x0b\x32(.envoy.type.matcher.v4alpha.RegexMatcherB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01H\x00\x12P\n\x0f\x63onnect_matcher\x18\x0c \x01(\x0b\x32\x35.envoy.config.route.v4alpha.RouteMatch.ConnectMatcherH\x00\x12\x32\n\x0e\x63\x61se_sensitive\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12M\n\x10runtime_fraction\x18\t \x01(\x0b\x32\x33.envoy.config.core.v4alpha.RuntimeFractionalPercent\x12:\n\x07headers\x18\x06 \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcher\x12K\n\x10query_parameters\x18\x07 \x03(\x0b\x32\x31.envoy.config.route.v4alpha.QueryParameterMatcher\x12J\n\x04grpc\x18\x08 \x01(\x0b\x32<.envoy.config.route.v4alpha.RouteMatch.GrpcRouteMatchOptions\x12R\n\x0btls_context\x18\x0b \x01(\x0b\x32=.envoy.config.route.v4alpha.RouteMatch.TlsContextMatchOptions\x1aV\n\x15GrpcRouteMatchOptions:=\x9a\xc5\x88\x1e\x38\n6envoy.config.route.v3.RouteMatch.GrpcRouteMatchOptions\x1a\xb6\x01\n\x16TlsContextMatchOptions\x12-\n\tpresented\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12-\n\tvalidated\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:>\x9a\xc5\x88\x1e\x39\n7envoy.config.route.v3.RouteMatch.TlsContextMatchOptions\x1aH\n\x0e\x43onnectMatcher:6\x9a\xc5\x88\x1e\x31\n/envoy.config.route.v3.RouteMatch.ConnectMatcher:\'\x9a\xc5\x88\x1e\"\n envoy.config.route.v3.RouteMatchB\x15\n\x0epath_specifier\x12\x03\xf8\x42\x01J\x04\x08\x05\x10\x06J\x04\x08\x03\x10\x04R\x05regex\"\xff\x03\n\nCorsPolicy\x12L\n\x19\x61llow_origin_string_match\x18\x0b \x03(\x0b\x32).envoy.type.matcher.v4alpha.StringMatcher\x12\x15\n\rallow_methods\x18\x02 \x01(\t\x12\x15\n\rallow_headers\x18\x03 \x01(\t\x12\x16\n\x0e\x65xpose_headers\x18\x04 \x01(\t\x12\x0f\n\x07max_age\x18\x05 \x01(\t\x12\x35\n\x11\x61llow_credentials\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12M\n\x0e\x66ilter_enabled\x18\t \x01(\x0b\x32\x33.envoy.config.core.v4alpha.RuntimeFractionalPercentH\x00\x12K\n\x0eshadow_enabled\x18\n \x01(\x0b\x32\x33.envoy.config.core.v4alpha.RuntimeFractionalPercent:\'\x9a\xc5\x88\x1e\"\n envoy.config.route.v3.CorsPolicyB\x13\n\x11\x65nabled_specifierJ\x04\x08\x01\x10\x02J\x04\x08\x08\x10\tJ\x04\x08\x07\x10\x08R\x0c\x61llow_originR\x12\x61llow_origin_regexR\x07\x65nabled\"\x8e \n\x0bRouteAction\x12\x1a\n\x07\x63luster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\'\n\x0e\x63luster_header\x18\x02 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00H\x00\x12H\n\x11weighted_clusters\x18\x03 \x01(\x0b\x32+.envoy.config.route.v4alpha.WeightedClusterH\x00\x12v\n\x1f\x63luster_not_found_response_code\x18\x14 \x01(\x0e\x32\x43.envoy.config.route.v4alpha.RouteAction.ClusterNotFoundResponseCodeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12;\n\x0emetadata_match\x18\x04 \x01(\x0b\x32#.envoy.config.core.v4alpha.Metadata\x12#\n\x0eprefix_rewrite\x18\x05 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00\x12J\n\rregex_rewrite\x18  \x01(\x0b\x32\x33.envoy.type.matcher.v4alpha.RegexMatchAndSubstitute\x12+\n\x14host_rewrite_literal\x18\x06 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00H\x01\x12\x37\n\x11\x61uto_host_rewrite\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValueH\x01\x12*\n\x13host_rewrite_header\x18\x1d \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x01\xc8\x01\x00H\x01\x12V\n\x17host_rewrite_path_regex\x18# \x01(\x0b\x32\x33.envoy.type.matcher.v4alpha.RegexMatchAndSubstituteH\x01\x12*\n\x07timeout\x18\x08 \x01(\x0b\x32\x19.google.protobuf.Duration\x12/\n\x0cidle_timeout\x18\x18 \x01(\x0b\x32\x19.google.protobuf.Duration\x12=\n\x0cretry_policy\x18\t \x01(\x0b\x32\'.envoy.config.route.v4alpha.RetryPolicy\x12\x37\n\x19retry_policy_typed_config\x18! \x01(\x0b\x32\x14.google.protobuf.Any\x12\\\n\x17request_mirror_policies\x18\x1e \x03(\x0b\x32;.envoy.config.route.v4alpha.RouteAction.RequestMirrorPolicy\x12\x46\n\x08priority\x18\x0b \x01(\x0e\x32*.envoy.config.core.v4alpha.RoutingPriorityB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12:\n\x0brate_limits\x18\r \x03(\x0b\x32%.envoy.config.route.v4alpha.RateLimit\x12G\n\x0bhash_policy\x18\x0f \x03(\x0b\x32\x32.envoy.config.route.v4alpha.RouteAction.HashPolicy\x12\x34\n\x04\x63ors\x18\x11 \x01(\x0b\x32&.envoy.config.route.v4alpha.CorsPolicy\x12N\n\x0fupgrade_configs\x18\x19 \x03(\x0b\x32\x35.envoy.config.route.v4alpha.RouteAction.UpgradeConfig\x12T\n\x18internal_redirect_policy\x18\" \x01(\x0b\x32\x32.envoy.config.route.v4alpha.InternalRedirectPolicy\x12=\n\x0chedge_policy\x18\x1b \x01(\x0b\x32\'.envoy.config.route.v4alpha.HedgePolicy\x12V\n\x13max_stream_duration\x18$ \x01(\x0b\x32\x39.envoy.config.route.v4alpha.RouteAction.MaxStreamDuration\x1a\x82\x02\n\x13RequestMirrorPolicy\x12\x18\n\x07\x63luster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12M\n\x10runtime_fraction\x18\x03 \x01(\x0b\x32\x33.envoy.config.core.v4alpha.RuntimeFractionalPercent\x12\x31\n\rtrace_sampled\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:<\x9a\xc5\x88\x1e\x37\n5envoy.config.route.v3.RouteAction.RequestMirrorPolicyJ\x04\x08\x02\x10\x03R\x0bruntime_key\x1a\xb9\t\n\nHashPolicy\x12K\n\x06header\x18\x01 \x01(\x0b\x32\x39.envoy.config.route.v4alpha.RouteAction.HashPolicy.HeaderH\x00\x12K\n\x06\x63ookie\x18\x02 \x01(\x0b\x32\x39.envoy.config.route.v4alpha.RouteAction.HashPolicy.CookieH\x00\x12h\n\x15\x63onnection_properties\x18\x03 \x01(\x0b\x32G.envoy.config.route.v4alpha.RouteAction.HashPolicy.ConnectionPropertiesH\x00\x12\\\n\x0fquery_parameter\x18\x05 \x01(\x0b\x32\x41.envoy.config.route.v4alpha.RouteAction.HashPolicy.QueryParameterH\x00\x12V\n\x0c\x66ilter_state\x18\x06 \x01(\x0b\x32>.envoy.config.route.v4alpha.RouteAction.HashPolicy.FilterStateH\x00\x12\x10\n\x08terminal\x18\x04 \x01(\x08\x1a\xb4\x01\n\x06Header\x12\"\n\x0bheader_name\x18\x01 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12J\n\rregex_rewrite\x18\x02 \x01(\x0b\x32\x33.envoy.type.matcher.v4alpha.RegexMatchAndSubstitute::\x9a\xc5\x88\x1e\x35\n3envoy.config.route.v3.RouteAction.HashPolicy.Header\x1a\x91\x01\n\x06\x43ookie\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12&\n\x03ttl\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x0c\n\x04path\x18\x03 \x01(\t::\x9a\xc5\x88\x1e\x35\n3envoy.config.route.v3.RouteAction.HashPolicy.Cookie\x1as\n\x14\x43onnectionProperties\x12\x11\n\tsource_ip\x18\x01 \x01(\x08:H\x9a\xc5\x88\x1e\x43\nAenvoy.config.route.v3.RouteAction.HashPolicy.ConnectionProperties\x1ak\n\x0eQueryParameter\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:B\x9a\xc5\x88\x1e=\n;envoy.config.route.v3.RouteAction.HashPolicy.QueryParameter\x1a\x64\n\x0b\x46ilterState\x12\x14\n\x03key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:?\x9a\xc5\x88\x1e:\n8envoy.config.route.v3.RouteAction.HashPolicy.FilterState:3\x9a\xc5\x88\x1e.\n,envoy.config.route.v3.RouteAction.HashPolicyB\x17\n\x10policy_specifier\x12\x03\xf8\x42\x01\x1a\xb1\x03\n\rUpgradeConfig\x12#\n\x0cupgrade_type\x18\x01 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x02\xc8\x01\x00\x12+\n\x07\x65nabled\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12[\n\x0e\x63onnect_config\x18\x03 \x01(\x0b\x32\x43.envoy.config.route.v4alpha.RouteAction.UpgradeConfig.ConnectConfig\x1a\xb8\x01\n\rConnectConfig\x12M\n\x15proxy_protocol_config\x18\x01 \x01(\x0b\x32..envoy.config.core.v4alpha.ProxyProtocolConfig\x12\x12\n\nallow_post\x18\x02 \x01(\x08:D\x9a\xc5\x88\x1e?\n=envoy.config.route.v3.RouteAction.UpgradeConfig.ConnectConfig:6\x9a\xc5\x88\x1e\x31\n/envoy.config.route.v3.RouteAction.UpgradeConfig\x1a\x82\x02\n\x11MaxStreamDuration\x12\x36\n\x13max_stream_duration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12:\n\x17grpc_timeout_header_max\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12=\n\x1agrpc_timeout_header_offset\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration::\x9a\xc5\x88\x1e\x35\n3envoy.config.route.v3.RouteAction.MaxStreamDuration\"E\n\x1b\x43lusterNotFoundResponseCode\x12\x17\n\x13SERVICE_UNAVAILABLE\x10\x00\x12\r\n\tNOT_FOUND\x10\x01:(\x9a\xc5\x88\x1e#\n!envoy.config.route.v3.RouteActionB\x18\n\x11\x63luster_specifier\x12\x03\xf8\x42\x01\x42\x18\n\x16host_rewrite_specifierJ\x04\x08\x0c\x10\rJ\x04\x08\x12\x10\x13J\x04\x08\x13\x10\x14J\x04\x08\x10\x10\x11J\x04\x08\x16\x10\x17J\x04\x08\x15\x10\x16J\x04\x08\n\x10\x0bJ\x04\x08\x0e\x10\x0fJ\x04\x08\x17\x10\x18J\x04\x08\x1c\x10\x1dJ\x04\x08\x1a\x10\x1bJ\x04\x08\x1f\x10 R\x15request_mirror_policyR\x16include_vh_rate_limitsR\x10max_grpc_timeoutR\x13grpc_timeout_offsetR\x18internal_redirect_actionR\x16max_internal_redirects\"\xec\r\n\x0bRetryPolicy\x12\x10\n\x08retry_on\x18\x01 \x01(\t\x12\x31\n\x0bmax_retries\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x32\n\x0fper_try_timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12M\n\x0eretry_priority\x18\x04 \x01(\x0b\x32\x35.envoy.config.route.v4alpha.RetryPolicy.RetryPriority\x12X\n\x14retry_host_predicate\x18\x05 \x03(\x0b\x32:.envoy.config.route.v4alpha.RetryPolicy.RetryHostPredicate\x12)\n!host_selection_retry_max_attempts\x18\x06 \x01(\x03\x12\x1e\n\x16retriable_status_codes\x18\x07 \x03(\r\x12L\n\x0eretry_back_off\x18\x08 \x01(\x0b\x32\x34.envoy.config.route.v4alpha.RetryPolicy.RetryBackOff\x12\x64\n\x1brate_limited_retry_back_off\x18\x0b \x01(\x0b\x32?.envoy.config.route.v4alpha.RetryPolicy.RateLimitedRetryBackOff\x12\x44\n\x11retriable_headers\x18\t \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcher\x12L\n\x19retriable_request_headers\x18\n \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcher\x1a\xa9\x01\n\rRetryPriority\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:6\x9a\xc5\x88\x1e\x31\n/envoy.config.route.v3.RetryPolicy.RetryPriorityB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\x1a\xb3\x01\n\x12RetryHostPredicate\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:;\x9a\xc5\x88\x1e\x36\n4envoy.config.route.v3.RetryPolicy.RetryHostPredicateB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\x1a\xbe\x01\n\x0cRetryBackOff\x12<\n\rbase_interval\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\n\xfa\x42\x07\xaa\x01\x04\x08\x01*\x00\x12\x39\n\x0cmax_interval\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02*\x00:5\x9a\xc5\x88\x1e\x30\n.envoy.config.route.v3.RetryPolicy.RetryBackOff\x1a\xb5\x01\n\x0bResetHeader\x12\x1b\n\x04name\x18\x01 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12S\n\x06\x66ormat\x18\x02 \x01(\x0e\x32\x39.envoy.config.route.v4alpha.RetryPolicy.ResetHeaderFormatB\x08\xfa\x42\x05\x82\x01\x02\x10\x01:4\x9a\xc5\x88\x1e/\n-envoy.config.route.v3.RetryPolicy.ResetHeader\x1a\xec\x01\n\x17RateLimitedRetryBackOff\x12T\n\rreset_headers\x18\x01 \x03(\x0b\x32\x33.envoy.config.route.v4alpha.RetryPolicy.ResetHeaderB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12\x39\n\x0cmax_interval\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02*\x00:@\x9a\xc5\x88\x1e;\n9envoy.config.route.v3.RetryPolicy.RateLimitedRetryBackOff\"4\n\x11ResetHeaderFormat\x12\x0b\n\x07SECONDS\x10\x00\x12\x12\n\x0eUNIX_TIMESTAMP\x10\x01:(\x9a\xc5\x88\x1e#\n!envoy.config.route.v3.RetryPolicy\"\xdf\x01\n\x0bHedgePolicy\x12?\n\x10initial_requests\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12\x43\n\x19\x61\x64\x64itional_request_chance\x18\x02 \x01(\x0b\x32 .envoy.type.v3.FractionalPercent\x12 \n\x18hedge_on_per_try_timeout\x18\x03 \x01(\x08:(\x9a\xc5\x88\x1e#\n!envoy.config.route.v3.HedgePolicy\"\xee\x04\n\x0eRedirectAction\x12\x18\n\x0ehttps_redirect\x18\x04 \x01(\x08H\x00\x12\x19\n\x0fscheme_redirect\x18\x07 \x01(\tH\x00\x12\"\n\rhost_redirect\x18\x01 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00\x12\x15\n\rport_redirect\x18\x08 \x01(\r\x12$\n\rpath_redirect\x18\x02 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00H\x01\x12%\n\x0eprefix_rewrite\x18\x05 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00H\x01\x12L\n\rregex_rewrite\x18\t \x01(\x0b\x32\x33.envoy.type.matcher.v4alpha.RegexMatchAndSubstituteH\x01\x12`\n\rresponse_code\x18\x03 \x01(\x0e\x32?.envoy.config.route.v4alpha.RedirectAction.RedirectResponseCodeB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x13\n\x0bstrip_query\x18\x06 \x01(\x08\"w\n\x14RedirectResponseCode\x12\x15\n\x11MOVED_PERMANENTLY\x10\x00\x12\t\n\x05\x46OUND\x10\x01\x12\r\n\tSEE_OTHER\x10\x02\x12\x16\n\x12TEMPORARY_REDIRECT\x10\x03\x12\x16\n\x12PERMANENT_REDIRECT\x10\x04:+\x9a\xc5\x88\x1e&\n$envoy.config.route.v3.RedirectActionB\x1a\n\x18scheme_rewrite_specifierB\x18\n\x16path_rewrite_specifier\"\x9a\x01\n\x14\x44irectResponseAction\x12\x1a\n\x06status\x18\x01 \x01(\rB\n\xfa\x42\x07*\x05\x10\xd8\x04(d\x12\x33\n\x04\x62ody\x18\x02 \x01(\x0b\x32%.envoy.config.core.v4alpha.DataSource:1\x9a\xc5\x88\x1e,\n*envoy.config.route.v3.DirectResponseAction\"G\n\x13NonForwardingAction:0\x9a\xc5\x88\x1e+\n)envoy.config.route.v3.NonForwardingAction\"~\n\tDecorator\x12\x1a\n\toperation\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12-\n\tpropagate\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.route.v3.Decorator\"\x98\x02\n\x07Tracing\x12\x39\n\x0f\x63lient_sampling\x18\x01 \x01(\x0b\x32 .envoy.type.v3.FractionalPercent\x12\x39\n\x0frandom_sampling\x18\x02 \x01(\x0b\x32 .envoy.type.v3.FractionalPercent\x12:\n\x10overall_sampling\x18\x03 \x01(\x0b\x32 .envoy.type.v3.FractionalPercent\x12\x35\n\x0b\x63ustom_tags\x18\x04 \x03(\x0b\x32 .envoy.type.tracing.v3.CustomTag:$\x9a\xc5\x88\x1e\x1f\n\x1d\x65nvoy.config.route.v3.Tracing\"\xad\x01\n\x0eVirtualCluster\x12:\n\x07headers\x18\x04 \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcher\x12\x15\n\x04name\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:+\x9a\xc5\x88\x1e&\n$envoy.config.route.v3.VirtualClusterJ\x04\x08\x01\x10\x02J\x04\x08\x03\x10\x04R\x07patternR\x06method\"\x8a\x15\n\tRateLimit\x12\x34\n\x05stage\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02\x18\n\x12\x13\n\x0b\x64isable_key\x18\x02 \x01(\t\x12G\n\x07\x61\x63tions\x18\x03 \x03(\x0b\x32,.envoy.config.route.v4alpha.RateLimit.ActionB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12=\n\x05limit\x18\x04 \x01(\x0b\x32..envoy.config.route.v4alpha.RateLimit.Override\x1a\xb2\x10\n\x06\x41\x63tion\x12T\n\x0esource_cluster\x18\x01 \x01(\x0b\x32:.envoy.config.route.v4alpha.RateLimit.Action.SourceClusterH\x00\x12^\n\x13\x64\x65stination_cluster\x18\x02 \x01(\x0b\x32?.envoy.config.route.v4alpha.RateLimit.Action.DestinationClusterH\x00\x12V\n\x0frequest_headers\x18\x03 \x01(\x0b\x32;.envoy.config.route.v4alpha.RateLimit.Action.RequestHeadersH\x00\x12T\n\x0eremote_address\x18\x04 \x01(\x0b\x32:.envoy.config.route.v4alpha.RateLimit.Action.RemoteAddressH\x00\x12N\n\x0bgeneric_key\x18\x05 \x01(\x0b\x32\x37.envoy.config.route.v4alpha.RateLimit.Action.GenericKeyH\x00\x12[\n\x12header_value_match\x18\x06 \x01(\x0b\x32=.envoy.config.route.v4alpha.RateLimit.Action.HeaderValueMatchH\x00\x12I\n\x08metadata\x18\x08 \x01(\x0b\x32\x35.envoy.config.route.v4alpha.RateLimit.Action.MetaDataH\x00\x12\x44\n\textension\x18\t \x01(\x0b\x32/.envoy.config.core.v4alpha.TypedExtensionConfigH\x00\x1aL\n\rSourceCluster:;\x9a\xc5\x88\x1e\x36\n4envoy.config.route.v3.RateLimit.Action.SourceCluster\x1aV\n\x12\x44\x65stinationCluster:@\x9a\xc5\x88\x1e;\n9envoy.config.route.v3.RateLimit.Action.DestinationCluster\x1a\xab\x01\n\x0eRequestHeaders\x12\"\n\x0bheader_name\x18\x01 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12\x1f\n\x0e\x64\x65scriptor_key\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x16\n\x0eskip_if_absent\x18\x03 \x01(\x08:<\x9a\xc5\x88\x1e\x37\n5envoy.config.route.v3.RateLimit.Action.RequestHeaders\x1aL\n\rRemoteAddress:;\x9a\xc5\x88\x1e\x36\n4envoy.config.route.v3.RateLimit.Action.RemoteAddress\x1a\x81\x01\n\nGenericKey\x12!\n\x10\x64\x65scriptor_value\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x16\n\x0e\x64\x65scriptor_key\x18\x02 \x01(\t:8\x9a\xc5\x88\x1e\x33\n1envoy.config.route.v3.RateLimit.Action.GenericKey\x1a\xed\x01\n\x10HeaderValueMatch\x12!\n\x10\x64\x65scriptor_value\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x30\n\x0c\x65xpect_match\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x44\n\x07headers\x18\x03 \x03(\x0b\x32).envoy.config.route.v4alpha.HeaderMatcherB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:>\x9a\xc5\x88\x1e\x39\n7envoy.config.route.v3.RateLimit.Action.HeaderValueMatch\x1a\xcd\x01\n\x0f\x44ynamicMetaData\x12\x1f\n\x0e\x64\x65scriptor_key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x43\n\x0cmetadata_key\x18\x02 \x01(\x0b\x32#.envoy.type.metadata.v3.MetadataKeyB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x15\n\rdefault_value\x18\x03 \x01(\t:=\x9a\xc5\x88\x1e\x38\n6envoy.config.route.v3.RateLimit.Action.DynamicMetaData\x1a\xbf\x02\n\x08MetaData\x12\x1f\n\x0e\x64\x65scriptor_key\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x43\n\x0cmetadata_key\x18\x02 \x01(\x0b\x32#.envoy.type.metadata.v3.MetadataKeyB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x15\n\rdefault_value\x18\x03 \x01(\t\x12V\n\x06source\x18\x04 \x01(\x0e\x32<.envoy.config.route.v4alpha.RateLimit.Action.MetaData.SourceB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\"&\n\x06Source\x12\x0b\n\x07\x44YNAMIC\x10\x00\x12\x0f\n\x0bROUTE_ENTRY\x10\x01:6\x9a\xc5\x88\x1e\x31\n/envoy.config.route.v3.RateLimit.Action.MetaData:-\x9a\xc5\x88\x1e(\n&envoy.config.route.v3.RateLimit.ActionB\x17\n\x10\x61\x63tion_specifier\x12\x03\xf8\x42\x01J\x04\x08\x07\x10\x08R\x10\x64ynamic_metadata\x1a\xcc\x02\n\x08Override\x12Z\n\x10\x64ynamic_metadata\x18\x01 \x01(\x0b\x32>.envoy.config.route.v4alpha.RateLimit.Override.DynamicMetadataH\x00\x1a\x97\x01\n\x0f\x44ynamicMetadata\x12\x43\n\x0cmetadata_key\x18\x01 \x01(\x0b\x32#.envoy.type.metadata.v3.MetadataKeyB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:?\x9a\xc5\x88\x1e:\n8envoy.config.route.v3.RateLimit.Override.DynamicMetadata:/\x9a\xc5\x88\x1e*\n(envoy.config.route.v3.RateLimit.OverrideB\x19\n\x12override_specifier\x12\x03\xf8\x42\x01:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.route.v3.RateLimit\"\xb4\x03\n\rHeaderMatcher\x12\x1b\n\x04name\x18\x01 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12\x15\n\x0b\x65xact_match\x18\x04 \x01(\tH\x00\x12\x44\n\x10safe_regex_match\x18\x0b \x01(\x0b\x32(.envoy.type.matcher.v4alpha.RegexMatcherH\x00\x12\x30\n\x0brange_match\x18\x06 \x01(\x0b\x32\x19.envoy.type.v3.Int64RangeH\x00\x12\x17\n\rpresent_match\x18\x07 \x01(\x08H\x00\x12\x1f\n\x0cprefix_match\x18\t \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\x1f\n\x0csuffix_match\x18\n \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12!\n\x0e\x63ontains_match\x18\x0c \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\x14\n\x0cinvert_match\x18\x08 \x01(\x08:*\x9a\xc5\x88\x1e%\n#envoy.config.route.v3.HeaderMatcherB\x18\n\x16header_match_specifierJ\x04\x08\x02\x10\x03J\x04\x08\x03\x10\x04J\x04\x08\x05\x10\x06R\x0bregex_match\"\x88\x02\n\x15QueryParameterMatcher\x12\x18\n\x04name\x18\x01 \x01(\tB\n\xfa\x42\x07r\x05\x10\x01(\x80\x08\x12K\n\x0cstring_match\x18\x05 \x01(\x0b\x32).envoy.type.matcher.v4alpha.StringMatcherB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01H\x00\x12\x17\n\rpresent_match\x18\x06 \x01(\x08H\x00:2\x9a\xc5\x88\x1e-\n+envoy.config.route.v3.QueryParameterMatcherB!\n\x1fquery_parameter_match_specifierJ\x04\x08\x03\x10\x04J\x04\x08\x04\x10\x05R\x05valueR\x05regex\"\xa0\x02\n\x16InternalRedirectPolicy\x12<\n\x16max_internal_redirects\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12)\n\x17redirect_response_codes\x18\x02 \x03(\rB\x08\xfa\x42\x05\x92\x01\x02\x10\x05\x12\x43\n\npredicates\x18\x03 \x03(\x0b\x32/.envoy.config.core.v4alpha.TypedExtensionConfig\x12#\n\x1b\x61llow_cross_scheme_redirect\x18\x04 \x01(\x08:3\x9a\xc5\x88\x1e.\n,envoy.config.route.v3.InternalRedirectPolicy\"t\n\x0c\x46ilterConfig\x12$\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x14.google.protobuf.Any\x12\x13\n\x0bis_optional\x18\x02 \x01(\x08:)\x9a\xc5\x88\x1e$\n\"envoy.config.route.v3.FilterConfigBJ\n(io.envoyproxy.envoy.config.route.v4alphaB\x14RouteComponentsProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_extension__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_proxy__protocol__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v4alpha_dot_regex__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v4alpha_dot_string__pb2.DESCRIPTOR,envoy_dot_type_dot_metadata_dot_v3_dot_metadata__pb2.DESCRIPTOR,envoy_dot_type_dot_tracing_dot_v3_dot_custom__tag__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_range__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -90,8 +90,8 @@ _ROUTEACTION_CLUSTERNOTFOUNDRESPONSECODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9474,
-  serialized_end=9543,
+  serialized_start=9627,
+  serialized_end=9696,
 )
 _sym_db.RegisterEnumDescriptor(_ROUTEACTION_CLUSTERNOTFOUNDRESPONSECODE)
 
@@ -115,8 +115,8 @@ _RETRYPOLICY_RESETHEADERFORMAT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=11526,
-  serialized_end=11578,
+  serialized_start=11679,
+  serialized_end=11731,
 )
 _sym_db.RegisterEnumDescriptor(_RETRYPOLICY_RESETHEADERFORMAT)
 
@@ -155,8 +155,8 @@ _REDIRECTACTION_REDIRECTRESPONSECODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=12253,
-  serialized_end=12372,
+  serialized_start=12406,
+  serialized_end=12525,
 )
 _sym_db.RegisterEnumDescriptor(_REDIRECTACTION_REDIRECTRESPONSECODE)
 
@@ -180,8 +180,8 @@ _RATELIMIT_ACTION_METADATA_SOURCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=15351,
-  serialized_end=15389,
+  serialized_start=15577,
+  serialized_end=15615,
 )
 _sym_db.RegisterEnumDescriptor(_RATELIMIT_ACTION_METADATA_SOURCE)
 
@@ -497,63 +497,70 @@ _ROUTE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='metadata', full_name='envoy.config.route.v4alpha.Route.metadata', index=6,
+      name='non_forwarding_action', full_name='envoy.config.route.v4alpha.Route.non_forwarding_action', index=6,
+      number=18, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='metadata', full_name='envoy.config.route.v4alpha.Route.metadata', index=7,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='decorator', full_name='envoy.config.route.v4alpha.Route.decorator', index=7,
+      name='decorator', full_name='envoy.config.route.v4alpha.Route.decorator', index=8,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='typed_per_filter_config', full_name='envoy.config.route.v4alpha.Route.typed_per_filter_config', index=8,
+      name='typed_per_filter_config', full_name='envoy.config.route.v4alpha.Route.typed_per_filter_config', index=9,
       number=13, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='request_headers_to_add', full_name='envoy.config.route.v4alpha.Route.request_headers_to_add', index=9,
+      name='request_headers_to_add', full_name='envoy.config.route.v4alpha.Route.request_headers_to_add', index=10,
       number=9, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\006\222\001\003\020\350\007', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='request_headers_to_remove', full_name='envoy.config.route.v4alpha.Route.request_headers_to_remove', index=10,
+      name='request_headers_to_remove', full_name='envoy.config.route.v4alpha.Route.request_headers_to_remove', index=11,
       number=12, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\017\222\001\014\"\nr\010\020\001\300\001\001\310\001\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='response_headers_to_add', full_name='envoy.config.route.v4alpha.Route.response_headers_to_add', index=11,
+      name='response_headers_to_add', full_name='envoy.config.route.v4alpha.Route.response_headers_to_add', index=12,
       number=10, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\006\222\001\003\020\350\007', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='response_headers_to_remove', full_name='envoy.config.route.v4alpha.Route.response_headers_to_remove', index=12,
+      name='response_headers_to_remove', full_name='envoy.config.route.v4alpha.Route.response_headers_to_remove', index=13,
       number=11, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\017\222\001\014\"\nr\010\020\001\300\001\001\310\001\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tracing', full_name='envoy.config.route.v4alpha.Route.tracing', index=13,
+      name='tracing', full_name='envoy.config.route.v4alpha.Route.tracing', index=14,
       number=15, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='per_request_buffer_limit_bytes', full_name='envoy.config.route.v4alpha.Route.per_request_buffer_limit_bytes', index=14,
+      name='per_request_buffer_limit_bytes', full_name='envoy.config.route.v4alpha.Route.per_request_buffer_limit_bytes', index=15,
       number=16, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -577,7 +584,7 @@ _ROUTE = _descriptor.Descriptor(
     fields=[], serialized_options=b'\370B\001'),
   ],
   serialized_start=2049,
-  serialized_end=3187,
+  serialized_end=3269,
 )
 
 
@@ -683,6 +690,13 @@ _WEIGHTEDCLUSTER_CLUSTERWEIGHT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='host_rewrite_literal', full_name='envoy.config.route.v4alpha.WeightedCluster.ClusterWeight.host_rewrite_literal', index=8,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\010r\006\300\001\002\310\001\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -694,9 +708,14 @@ _WEIGHTEDCLUSTER_CLUSTERWEIGHT = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='host_rewrite_specifier', full_name='envoy.config.route.v4alpha.WeightedCluster.ClusterWeight.host_rewrite_specifier',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=3386,
-  serialized_end=4109,
+  serialized_start=3468,
+  serialized_end=4262,
 )
 
 _WEIGHTEDCLUSTER = _descriptor.Descriptor(
@@ -740,8 +759,8 @@ _WEIGHTEDCLUSTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3190,
-  serialized_end=4155,
+  serialized_start=3272,
+  serialized_end=4308,
 )
 
 
@@ -765,8 +784,8 @@ _ROUTEMATCH_GRPCROUTEMATCHOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4790,
-  serialized_end=4876,
+  serialized_start=4943,
+  serialized_end=5029,
 )
 
 _ROUTEMATCH_TLSCONTEXTMATCHOPTIONS = _descriptor.Descriptor(
@@ -803,8 +822,8 @@ _ROUTEMATCH_TLSCONTEXTMATCHOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4879,
-  serialized_end=5061,
+  serialized_start=5032,
+  serialized_end=5214,
 )
 
 _ROUTEMATCH_CONNECTMATCHER = _descriptor.Descriptor(
@@ -827,8 +846,8 @@ _ROUTEMATCH_CONNECTMATCHER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5063,
-  serialized_end=5135,
+  serialized_start=5216,
+  serialized_end=5288,
 )
 
 _ROUTEMATCH = _descriptor.Descriptor(
@@ -926,8 +945,8 @@ _ROUTEMATCH = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=4158,
-  serialized_end=5218,
+  serialized_start=4311,
+  serialized_end=5371,
 )
 
 
@@ -1012,8 +1031,8 @@ _CORSPOLICY = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=5221,
-  serialized_end=5732,
+  serialized_start=5374,
+  serialized_end=5885,
 )
 
 
@@ -1058,8 +1077,8 @@ _ROUTEACTION_REQUESTMIRRORPOLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7305,
-  serialized_end=7563,
+  serialized_start=7458,
+  serialized_end=7716,
 )
 
 _ROUTEACTION_HASHPOLICY_HEADER = _descriptor.Descriptor(
@@ -1096,8 +1115,8 @@ _ROUTEACTION_HASHPOLICY_HEADER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8041,
-  serialized_end=8221,
+  serialized_start=8194,
+  serialized_end=8374,
 )
 
 _ROUTEACTION_HASHPOLICY_COOKIE = _descriptor.Descriptor(
@@ -1141,8 +1160,8 @@ _ROUTEACTION_HASHPOLICY_COOKIE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8224,
-  serialized_end=8369,
+  serialized_start=8377,
+  serialized_end=8522,
 )
 
 _ROUTEACTION_HASHPOLICY_CONNECTIONPROPERTIES = _descriptor.Descriptor(
@@ -1172,8 +1191,8 @@ _ROUTEACTION_HASHPOLICY_CONNECTIONPROPERTIES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8371,
-  serialized_end=8486,
+  serialized_start=8524,
+  serialized_end=8639,
 )
 
 _ROUTEACTION_HASHPOLICY_QUERYPARAMETER = _descriptor.Descriptor(
@@ -1203,8 +1222,8 @@ _ROUTEACTION_HASHPOLICY_QUERYPARAMETER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8488,
-  serialized_end=8595,
+  serialized_start=8641,
+  serialized_end=8748,
 )
 
 _ROUTEACTION_HASHPOLICY_FILTERSTATE = _descriptor.Descriptor(
@@ -1234,8 +1253,8 @@ _ROUTEACTION_HASHPOLICY_FILTERSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8597,
-  serialized_end=8697,
+  serialized_start=8750,
+  serialized_end=8850,
 )
 
 _ROUTEACTION_HASHPOLICY = _descriptor.Descriptor(
@@ -1305,8 +1324,8 @@ _ROUTEACTION_HASHPOLICY = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=7566,
-  serialized_end=8775,
+  serialized_start=7719,
+  serialized_end=8928,
 )
 
 _ROUTEACTION_UPGRADECONFIG_CONNECTCONFIG = _descriptor.Descriptor(
@@ -1343,8 +1362,8 @@ _ROUTEACTION_UPGRADECONFIG_CONNECTCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8971,
-  serialized_end=9155,
+  serialized_start=9124,
+  serialized_end=9308,
 )
 
 _ROUTEACTION_UPGRADECONFIG = _descriptor.Descriptor(
@@ -1388,8 +1407,8 @@ _ROUTEACTION_UPGRADECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8778,
-  serialized_end=9211,
+  serialized_start=8931,
+  serialized_end=9364,
 )
 
 _ROUTEACTION_MAXSTREAMDURATION = _descriptor.Descriptor(
@@ -1433,8 +1452,8 @@ _ROUTEACTION_MAXSTREAMDURATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9214,
-  serialized_end=9472,
+  serialized_start=9367,
+  serialized_end=9625,
 )
 
 _ROUTEACTION = _descriptor.Descriptor(
@@ -1636,8 +1655,8 @@ _ROUTEACTION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=5735,
-  serialized_end=9845,
+  serialized_start=5888,
+  serialized_end=9998,
 )
 
 
@@ -1680,8 +1699,8 @@ _RETRYPOLICY_RETRYPRIORITY = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=10557,
-  serialized_end=10726,
+  serialized_start=10710,
+  serialized_end=10879,
 )
 
 _RETRYPOLICY_RETRYHOSTPREDICATE = _descriptor.Descriptor(
@@ -1723,8 +1742,8 @@ _RETRYPOLICY_RETRYHOSTPREDICATE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=10729,
-  serialized_end=10908,
+  serialized_start=10882,
+  serialized_end=11061,
 )
 
 _RETRYPOLICY_RETRYBACKOFF = _descriptor.Descriptor(
@@ -1761,8 +1780,8 @@ _RETRYPOLICY_RETRYBACKOFF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10911,
-  serialized_end=11101,
+  serialized_start=11064,
+  serialized_end=11254,
 )
 
 _RETRYPOLICY_RESETHEADER = _descriptor.Descriptor(
@@ -1799,8 +1818,8 @@ _RETRYPOLICY_RESETHEADER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11104,
-  serialized_end=11285,
+  serialized_start=11257,
+  serialized_end=11438,
 )
 
 _RETRYPOLICY_RATELIMITEDRETRYBACKOFF = _descriptor.Descriptor(
@@ -1837,8 +1856,8 @@ _RETRYPOLICY_RATELIMITEDRETRYBACKOFF = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11288,
-  serialized_end=11524,
+  serialized_start=11441,
+  serialized_end=11677,
 )
 
 _RETRYPOLICY = _descriptor.Descriptor(
@@ -1939,8 +1958,8 @@ _RETRYPOLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9848,
-  serialized_end=11620,
+  serialized_start=10001,
+  serialized_end=11773,
 )
 
 
@@ -1985,8 +2004,8 @@ _HEDGEPOLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11623,
-  serialized_end=11846,
+  serialized_start=11776,
+  serialized_end=11999,
 )
 
 
@@ -2084,8 +2103,8 @@ _REDIRECTACTION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=11849,
-  serialized_end=12471,
+  serialized_start=12002,
+  serialized_end=12624,
 )
 
 
@@ -2123,8 +2142,33 @@ _DIRECTRESPONSEACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12474,
-  serialized_end=12628,
+  serialized_start=12627,
+  serialized_end=12781,
+)
+
+
+_NONFORWARDINGACTION = _descriptor.Descriptor(
+  name='NonForwardingAction',
+  full_name='envoy.config.route.v4alpha.NonForwardingAction',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\232\305\210\036+\n)envoy.config.route.v3.NonForwardingAction',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=12783,
+  serialized_end=12854,
 )
 
 
@@ -2162,8 +2206,8 @@ _DECORATOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12630,
-  serialized_end=12756,
+  serialized_start=12856,
+  serialized_end=12982,
 )
 
 
@@ -2215,8 +2259,8 @@ _TRACING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12759,
-  serialized_end=13039,
+  serialized_start=12985,
+  serialized_end=13265,
 )
 
 
@@ -2254,8 +2298,8 @@ _VIRTUALCLUSTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13042,
-  serialized_end=13215,
+  serialized_start=13268,
+  serialized_end=13441,
 )
 
 
@@ -2279,8 +2323,8 @@ _RATELIMIT_ACTION_SOURCECLUSTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14127,
-  serialized_end=14203,
+  serialized_start=14353,
+  serialized_end=14429,
 )
 
 _RATELIMIT_ACTION_DESTINATIONCLUSTER = _descriptor.Descriptor(
@@ -2303,8 +2347,8 @@ _RATELIMIT_ACTION_DESTINATIONCLUSTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14205,
-  serialized_end=14291,
+  serialized_start=14431,
+  serialized_end=14517,
 )
 
 _RATELIMIT_ACTION_REQUESTHEADERS = _descriptor.Descriptor(
@@ -2348,8 +2392,8 @@ _RATELIMIT_ACTION_REQUESTHEADERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14294,
-  serialized_end=14465,
+  serialized_start=14520,
+  serialized_end=14691,
 )
 
 _RATELIMIT_ACTION_REMOTEADDRESS = _descriptor.Descriptor(
@@ -2372,8 +2416,8 @@ _RATELIMIT_ACTION_REMOTEADDRESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14467,
-  serialized_end=14543,
+  serialized_start=14693,
+  serialized_end=14769,
 )
 
 _RATELIMIT_ACTION_GENERICKEY = _descriptor.Descriptor(
@@ -2410,8 +2454,8 @@ _RATELIMIT_ACTION_GENERICKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14546,
-  serialized_end=14675,
+  serialized_start=14772,
+  serialized_end=14901,
 )
 
 _RATELIMIT_ACTION_HEADERVALUEMATCH = _descriptor.Descriptor(
@@ -2455,8 +2499,8 @@ _RATELIMIT_ACTION_HEADERVALUEMATCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14678,
-  serialized_end=14915,
+  serialized_start=14904,
+  serialized_end=15141,
 )
 
 _RATELIMIT_ACTION_DYNAMICMETADATA = _descriptor.Descriptor(
@@ -2500,8 +2544,8 @@ _RATELIMIT_ACTION_DYNAMICMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14918,
-  serialized_end=15123,
+  serialized_start=15144,
+  serialized_end=15349,
 )
 
 _RATELIMIT_ACTION_METADATA = _descriptor.Descriptor(
@@ -2553,8 +2597,8 @@ _RATELIMIT_ACTION_METADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15126,
-  serialized_end=15445,
+  serialized_start=15352,
+  serialized_end=15671,
 )
 
 _RATELIMIT_ACTION = _descriptor.Descriptor(
@@ -2638,8 +2682,8 @@ _RATELIMIT_ACTION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=13443,
-  serialized_end=15541,
+  serialized_start=13669,
+  serialized_end=15767,
 )
 
 _RATELIMIT_OVERRIDE_DYNAMICMETADATA = _descriptor.Descriptor(
@@ -2669,8 +2713,8 @@ _RATELIMIT_OVERRIDE_DYNAMICMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15649,
-  serialized_end=15800,
+  serialized_start=15875,
+  serialized_end=16026,
 )
 
 _RATELIMIT_OVERRIDE = _descriptor.Descriptor(
@@ -2705,8 +2749,8 @@ _RATELIMIT_OVERRIDE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=15544,
-  serialized_end=15876,
+  serialized_start=15770,
+  serialized_end=16102,
 )
 
 _RATELIMIT = _descriptor.Descriptor(
@@ -2757,8 +2801,8 @@ _RATELIMIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13218,
-  serialized_end=15916,
+  serialized_start=13444,
+  serialized_end=16142,
 )
 
 
@@ -2850,8 +2894,8 @@ _HEADERMATCHER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=15919,
-  serialized_end=16355,
+  serialized_start=16145,
+  serialized_end=16581,
 )
 
 
@@ -2901,8 +2945,8 @@ _QUERYPARAMETERMATCHER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=16358,
-  serialized_end=16622,
+  serialized_start=16584,
+  serialized_end=16848,
 )
 
 
@@ -2954,8 +2998,8 @@ _INTERNALREDIRECTPOLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=16625,
-  serialized_end=16913,
+  serialized_start=16851,
+  serialized_end=17139,
 )
 
 
@@ -2993,8 +3037,8 @@ _FILTERCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=16915,
-  serialized_end=17031,
+  serialized_start=17141,
+  serialized_end=17257,
 )
 
 _VIRTUALHOST_TYPEDPERFILTERCONFIGENTRY.fields_by_name['value'].message_type = google_dot_protobuf_dot_any__pb2._ANY
@@ -3020,6 +3064,7 @@ _ROUTE.fields_by_name['route'].message_type = _ROUTEACTION
 _ROUTE.fields_by_name['redirect'].message_type = _REDIRECTACTION
 _ROUTE.fields_by_name['direct_response'].message_type = _DIRECTRESPONSEACTION
 _ROUTE.fields_by_name['filter_action'].message_type = _FILTERACTION
+_ROUTE.fields_by_name['non_forwarding_action'].message_type = _NONFORWARDINGACTION
 _ROUTE.fields_by_name['metadata'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2._METADATA
 _ROUTE.fields_by_name['decorator'].message_type = _DECORATOR
 _ROUTE.fields_by_name['typed_per_filter_config'].message_type = _ROUTE_TYPEDPERFILTERCONFIGENTRY
@@ -3039,6 +3084,9 @@ _ROUTE.fields_by_name['direct_response'].containing_oneof = _ROUTE.oneofs_by_nam
 _ROUTE.oneofs_by_name['action'].fields.append(
   _ROUTE.fields_by_name['filter_action'])
 _ROUTE.fields_by_name['filter_action'].containing_oneof = _ROUTE.oneofs_by_name['action']
+_ROUTE.oneofs_by_name['action'].fields.append(
+  _ROUTE.fields_by_name['non_forwarding_action'])
+_ROUTE.fields_by_name['non_forwarding_action'].containing_oneof = _ROUTE.oneofs_by_name['action']
 _WEIGHTEDCLUSTER_CLUSTERWEIGHT_TYPEDPERFILTERCONFIGENTRY.fields_by_name['value'].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _WEIGHTEDCLUSTER_CLUSTERWEIGHT_TYPEDPERFILTERCONFIGENTRY.containing_type = _WEIGHTEDCLUSTER_CLUSTERWEIGHT
 _WEIGHTEDCLUSTER_CLUSTERWEIGHT.fields_by_name['weight'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
@@ -3047,6 +3095,9 @@ _WEIGHTEDCLUSTER_CLUSTERWEIGHT.fields_by_name['request_headers_to_add'].message_
 _WEIGHTEDCLUSTER_CLUSTERWEIGHT.fields_by_name['response_headers_to_add'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2._HEADERVALUEOPTION
 _WEIGHTEDCLUSTER_CLUSTERWEIGHT.fields_by_name['typed_per_filter_config'].message_type = _WEIGHTEDCLUSTER_CLUSTERWEIGHT_TYPEDPERFILTERCONFIGENTRY
 _WEIGHTEDCLUSTER_CLUSTERWEIGHT.containing_type = _WEIGHTEDCLUSTER
+_WEIGHTEDCLUSTER_CLUSTERWEIGHT.oneofs_by_name['host_rewrite_specifier'].fields.append(
+  _WEIGHTEDCLUSTER_CLUSTERWEIGHT.fields_by_name['host_rewrite_literal'])
+_WEIGHTEDCLUSTER_CLUSTERWEIGHT.fields_by_name['host_rewrite_literal'].containing_oneof = _WEIGHTEDCLUSTER_CLUSTERWEIGHT.oneofs_by_name['host_rewrite_specifier']
 _WEIGHTEDCLUSTER.fields_by_name['clusters'].message_type = _WEIGHTEDCLUSTER_CLUSTERWEIGHT
 _WEIGHTEDCLUSTER.fields_by_name['total_weight'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _ROUTEMATCH_GRPCROUTEMATCHOPTIONS.containing_type = _ROUTEMATCH
@@ -3317,6 +3368,7 @@ DESCRIPTOR.message_types_by_name['RetryPolicy'] = _RETRYPOLICY
 DESCRIPTOR.message_types_by_name['HedgePolicy'] = _HEDGEPOLICY
 DESCRIPTOR.message_types_by_name['RedirectAction'] = _REDIRECTACTION
 DESCRIPTOR.message_types_by_name['DirectResponseAction'] = _DIRECTRESPONSEACTION
+DESCRIPTOR.message_types_by_name['NonForwardingAction'] = _NONFORWARDINGACTION
 DESCRIPTOR.message_types_by_name['Decorator'] = _DECORATOR
 DESCRIPTOR.message_types_by_name['Tracing'] = _TRACING
 DESCRIPTOR.message_types_by_name['VirtualCluster'] = _VIRTUALCLUSTER
@@ -3580,6 +3632,13 @@ DirectResponseAction = _reflection.GeneratedProtocolMessageType('DirectResponseA
   })
 _sym_db.RegisterMessage(DirectResponseAction)
 
+NonForwardingAction = _reflection.GeneratedProtocolMessageType('NonForwardingAction', (_message.Message,), {
+  'DESCRIPTOR' : _NONFORWARDINGACTION,
+  '__module__' : 'envoy.config.route.v4alpha.route_components_pb2'
+  # @@protoc_insertion_point(class_scope:envoy.config.route.v4alpha.NonForwardingAction)
+  })
+_sym_db.RegisterMessage(NonForwardingAction)
+
 Decorator = _reflection.GeneratedProtocolMessageType('Decorator', (_message.Message,), {
   'DESCRIPTOR' : _DECORATOR,
   '__module__' : 'envoy.config.route.v4alpha.route_components_pb2'
@@ -3750,6 +3809,7 @@ _WEIGHTEDCLUSTER_CLUSTERWEIGHT.fields_by_name['request_headers_to_add']._options
 _WEIGHTEDCLUSTER_CLUSTERWEIGHT.fields_by_name['request_headers_to_remove']._options = None
 _WEIGHTEDCLUSTER_CLUSTERWEIGHT.fields_by_name['response_headers_to_add']._options = None
 _WEIGHTEDCLUSTER_CLUSTERWEIGHT.fields_by_name['response_headers_to_remove']._options = None
+_WEIGHTEDCLUSTER_CLUSTERWEIGHT.fields_by_name['host_rewrite_literal']._options = None
 _WEIGHTEDCLUSTER_CLUSTERWEIGHT._options = None
 _WEIGHTEDCLUSTER.fields_by_name['clusters']._options = None
 _WEIGHTEDCLUSTER.fields_by_name['total_weight']._options = None
@@ -3810,6 +3870,7 @@ _REDIRECTACTION.fields_by_name['response_code']._options = None
 _REDIRECTACTION._options = None
 _DIRECTRESPONSEACTION.fields_by_name['status']._options = None
 _DIRECTRESPONSEACTION._options = None
+_NONFORWARDINGACTION._options = None
 _DECORATOR.fields_by_name['operation']._options = None
 _DECORATOR._options = None
 _TRACING._options = None

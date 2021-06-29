@@ -19,9 +19,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1/pipeline_state.proto',
   package='google.cloud.aiplatform.v1',
   syntax='proto3',
-  serialized_options=b'\n\036com.google.cloud.aiplatform.v1B\022PipelineStateProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform',
+  serialized_options=b'\n\036com.google.cloud.aiplatform.v1B\022PipelineStateProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\252\002\032Google.Cloud.AIPlatform.V1\312\002\032Google\\Cloud\\AIPlatform\\V1\352\002\035Google::Cloud::AIPlatform::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n/google/cloud/aiplatform/v1/pipeline_state.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1cgoogle/api/annotations.proto*\x93\x02\n\rPipelineState\x12\x1e\n\x1aPIPELINE_STATE_UNSPECIFIED\x10\x00\x12\x19\n\x15PIPELINE_STATE_QUEUED\x10\x01\x12\x1a\n\x16PIPELINE_STATE_PENDING\x10\x02\x12\x1a\n\x16PIPELINE_STATE_RUNNING\x10\x03\x12\x1c\n\x18PIPELINE_STATE_SUCCEEDED\x10\x04\x12\x19\n\x15PIPELINE_STATE_FAILED\x10\x05\x12\x1d\n\x19PIPELINE_STATE_CANCELLING\x10\x06\x12\x1c\n\x18PIPELINE_STATE_CANCELLED\x10\x07\x12\x19\n\x15PIPELINE_STATE_PAUSED\x10\x08\x42|\n\x1e\x63om.google.cloud.aiplatform.v1B\x12PipelineStateProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatformb\x06proto3'
+  serialized_pb=b'\n/google/cloud/aiplatform/v1/pipeline_state.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1cgoogle/api/annotations.proto*\x93\x02\n\rPipelineState\x12\x1e\n\x1aPIPELINE_STATE_UNSPECIFIED\x10\x00\x12\x19\n\x15PIPELINE_STATE_QUEUED\x10\x01\x12\x1a\n\x16PIPELINE_STATE_PENDING\x10\x02\x12\x1a\n\x16PIPELINE_STATE_RUNNING\x10\x03\x12\x1c\n\x18PIPELINE_STATE_SUCCEEDED\x10\x04\x12\x19\n\x15PIPELINE_STATE_FAILED\x10\x05\x12\x1d\n\x19PIPELINE_STATE_CANCELLING\x10\x06\x12\x1c\n\x18PIPELINE_STATE_CANCELLED\x10\x07\x12\x19\n\x15PIPELINE_STATE_PAUSED\x10\x08\x42\xd6\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x12PipelineStateProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 

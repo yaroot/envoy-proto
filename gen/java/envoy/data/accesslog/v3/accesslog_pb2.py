@@ -28,7 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n%io.envoyproxy.envoy.data.accesslog.v3B\016AccesslogProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'envoy/data/accesslog/v3/accesslog.proto\x12\x17\x65nvoy.data.accesslog.v3\x1a\"envoy/config/core/v3/address.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xd8\x01\n\x11TCPAccessLogEntry\x12\x43\n\x11\x63ommon_properties\x18\x01 \x01(\x0b\x32(.envoy.data.accesslog.v3.AccessLogCommon\x12L\n\x15\x63onnection_properties\x18\x02 \x01(\x0b\x32-.envoy.data.accesslog.v3.ConnectionProperties:0\x9a\xc5\x88\x1e+\n)envoy.data.accesslog.v2.TCPAccessLogEntry\"\xba\x03\n\x12HTTPAccessLogEntry\x12\x43\n\x11\x63ommon_properties\x18\x01 \x01(\x0b\x32(.envoy.data.accesslog.v3.AccessLogCommon\x12Q\n\x10protocol_version\x18\x02 \x01(\x0e\x32\x37.envoy.data.accesslog.v3.HTTPAccessLogEntry.HTTPVersion\x12?\n\x07request\x18\x03 \x01(\x0b\x32..envoy.data.accesslog.v3.HTTPRequestProperties\x12\x41\n\x08response\x18\x04 \x01(\x0b\x32/.envoy.data.accesslog.v3.HTTPResponseProperties\"U\n\x0bHTTPVersion\x12\x18\n\x14PROTOCOL_UNSPECIFIED\x10\x00\x12\n\n\x06HTTP10\x10\x01\x12\n\n\x06HTTP11\x10\x02\x12\t\n\x05HTTP2\x10\x03\x12\t\n\x05HTTP3\x10\x04:1\x9a\xc5\x88\x1e,\n*envoy.data.accesslog.v2.HTTPAccessLogEntry\"w\n\x14\x43onnectionProperties\x12\x16\n\x0ereceived_bytes\x18\x01 \x01(\x04\x12\x12\n\nsent_bytes\x18\x02 \x01(\x04:3\x9a\xc5\x88\x1e.\n,envoy.data.accesslog.v2.ConnectionProperties\"\xf2\n\n\x0f\x41\x63\x63\x65ssLogCommon\x12,\n\x0bsample_rate\x18\x01 \x01(\x01\x42\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\xf0?!\x00\x00\x00\x00\x00\x00\x00\x00\x12@\n\x19\x64ownstream_remote_address\x18\x02 \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12?\n\x18\x64ownstream_local_address\x18\x03 \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12>\n\x0etls_properties\x18\x04 \x01(\x0b\x32&.envoy.data.accesslog.v3.TLSProperties\x12.\n\nstart_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x37\n\x14time_to_last_rx_byte\x18\x06 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x41\n\x1etime_to_first_upstream_tx_byte\x18\x07 \x01(\x0b\x32\x19.google.protobuf.Duration\x12@\n\x1dtime_to_last_upstream_tx_byte\x18\x08 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x41\n\x1etime_to_first_upstream_rx_byte\x18\t \x01(\x0b\x32\x19.google.protobuf.Duration\x12@\n\x1dtime_to_last_upstream_rx_byte\x18\n \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x43\n time_to_first_downstream_tx_byte\x18\x0b \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x42\n\x1ftime_to_last_downstream_tx_byte\x18\x0c \x01(\x0b\x32\x19.google.protobuf.Duration\x12>\n\x17upstream_remote_address\x18\r \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12=\n\x16upstream_local_address\x18\x0e \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12\x18\n\x10upstream_cluster\x18\x0f \x01(\t\x12>\n\x0eresponse_flags\x18\x10 \x01(\x0b\x32&.envoy.data.accesslog.v3.ResponseFlags\x12\x30\n\x08metadata\x18\x11 \x01(\x0b\x32\x1e.envoy.config.core.v3.Metadata\x12)\n!upstream_transport_failure_reason\x18\x12 \x01(\t\x12\x12\n\nroute_name\x18\x13 \x01(\t\x12G\n downstream_direct_remote_address\x18\x14 \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12^\n\x14\x66ilter_state_objects\x18\x15 \x03(\x0b\x32@.envoy.data.accesslog.v3.AccessLogCommon.FilterStateObjectsEntry\x1aO\n\x17\x46ilterStateObjectsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01:.\x9a\xc5\x88\x1e)\n\'envoy.data.accesslog.v2.AccessLogCommon\"\xde\x08\n\rResponseFlags\x12 \n\x18\x66\x61iled_local_healthcheck\x18\x01 \x01(\x08\x12\x1b\n\x13no_healthy_upstream\x18\x02 \x01(\x08\x12 \n\x18upstream_request_timeout\x18\x03 \x01(\x08\x12\x13\n\x0blocal_reset\x18\x04 \x01(\x08\x12\x1d\n\x15upstream_remote_reset\x18\x05 \x01(\x08\x12#\n\x1bupstream_connection_failure\x18\x06 \x01(\x08\x12\'\n\x1fupstream_connection_termination\x18\x07 \x01(\x08\x12\x19\n\x11upstream_overflow\x18\x08 \x01(\x08\x12\x16\n\x0eno_route_found\x18\t \x01(\x08\x12\x16\n\x0e\x64\x65lay_injected\x18\n \x01(\x08\x12\x16\n\x0e\x66\x61ult_injected\x18\x0b \x01(\x08\x12\x14\n\x0crate_limited\x18\x0c \x01(\x08\x12Q\n\x14unauthorized_details\x18\r \x01(\x0b\x32\x33.envoy.data.accesslog.v3.ResponseFlags.Unauthorized\x12 \n\x18rate_limit_service_error\x18\x0e \x01(\x08\x12)\n!downstream_connection_termination\x18\x0f \x01(\x08\x12%\n\x1dupstream_retry_limit_exceeded\x18\x10 \x01(\x08\x12\x1b\n\x13stream_idle_timeout\x18\x11 \x01(\x08\x12%\n\x1dinvalid_envoy_request_headers\x18\x12 \x01(\x08\x12!\n\x19\x64ownstream_protocol_error\x18\x13 \x01(\x08\x12,\n$upstream_max_stream_duration_reached\x18\x14 \x01(\x08\x12\"\n\x1aresponse_from_cache_filter\x18\x15 \x01(\x08\x12\x1e\n\x16no_filter_config_found\x18\x16 \x01(\x08\x12\x18\n\x10\x64uration_timeout\x18\x17 \x01(\x08\x12\x1f\n\x17upstream_protocol_error\x18\x18 \x01(\x08\x12\x18\n\x10no_cluster_found\x18\x19 \x01(\x08\x1a\xcd\x01\n\x0cUnauthorized\x12J\n\x06reason\x18\x01 \x01(\x0e\x32:.envoy.data.accesslog.v3.ResponseFlags.Unauthorized.Reason\"6\n\x06Reason\x12\x16\n\x12REASON_UNSPECIFIED\x10\x00\x12\x14\n\x10\x45XTERNAL_SERVICE\x10\x01:9\x9a\xc5\x88\x1e\x34\n2envoy.data.accesslog.v2.ResponseFlags.Unauthorized:,\x9a\xc5\x88\x1e\'\n%envoy.data.accesslog.v2.ResponseFlags\"\xf0\x06\n\rTLSProperties\x12\x46\n\x0btls_version\x18\x01 \x01(\x0e\x32\x31.envoy.data.accesslog.v3.TLSProperties.TLSVersion\x12\x36\n\x10tls_cipher_suite\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x18\n\x10tls_sni_hostname\x18\x03 \x01(\t\x12\x62\n\x1clocal_certificate_properties\x18\x04 \x01(\x0b\x32<.envoy.data.accesslog.v3.TLSProperties.CertificateProperties\x12\x61\n\x1bpeer_certificate_properties\x18\x05 \x01(\x0b\x32<.envoy.data.accesslog.v3.TLSProperties.CertificateProperties\x12\x16\n\x0etls_session_id\x18\x06 \x01(\t\x1a\xde\x02\n\x15\x43\x65rtificateProperties\x12\x65\n\x10subject_alt_name\x18\x01 \x03(\x0b\x32K.envoy.data.accesslog.v3.TLSProperties.CertificateProperties.SubjectAltName\x12\x0f\n\x07subject\x18\x02 \x01(\t\x1a\x88\x01\n\x0eSubjectAltName\x12\r\n\x03uri\x18\x01 \x01(\tH\x00\x12\r\n\x03\x64ns\x18\x02 \x01(\tH\x00:Q\x9a\xc5\x88\x1eL\nJenvoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltNameB\x05\n\x03san:B\x9a\xc5\x88\x1e=\n;envoy.data.accesslog.v2.TLSProperties.CertificateProperties\"W\n\nTLSVersion\x12\x17\n\x13VERSION_UNSPECIFIED\x10\x00\x12\t\n\x05TLSv1\x10\x01\x12\x0b\n\x07TLSv1_1\x10\x02\x12\x0b\n\x07TLSv1_2\x10\x03\x12\x0b\n\x07TLSv1_3\x10\x04:,\x9a\xc5\x88\x1e\'\n%envoy.data.accesslog.v2.TLSProperties\"\xa7\x04\n\x15HTTPRequestProperties\x12\x45\n\x0erequest_method\x18\x01 \x01(\x0e\x32#.envoy.config.core.v3.RequestMethodB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x0e\n\x06scheme\x18\x02 \x01(\t\x12\x11\n\tauthority\x18\x03 \x01(\t\x12*\n\x04port\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x0c\n\x04path\x18\x05 \x01(\t\x12\x12\n\nuser_agent\x18\x06 \x01(\t\x12\x0f\n\x07referer\x18\x07 \x01(\t\x12\x15\n\rforwarded_for\x18\x08 \x01(\t\x12\x12\n\nrequest_id\x18\t \x01(\t\x12\x15\n\roriginal_path\x18\n \x01(\t\x12\x1d\n\x15request_headers_bytes\x18\x0b \x01(\x04\x12\x1a\n\x12request_body_bytes\x18\x0c \x01(\x04\x12[\n\x0frequest_headers\x18\r \x03(\x0b\x32\x42.envoy.data.accesslog.v3.HTTPRequestProperties.RequestHeadersEntry\x1a\x35\n\x13RequestHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:4\x9a\xc5\x88\x1e/\n-envoy.data.accesslog.v2.HTTPRequestProperties\"\x93\x04\n\x16HTTPResponseProperties\x12\x33\n\rresponse_code\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x1e\n\x16response_headers_bytes\x18\x02 \x01(\x04\x12\x1b\n\x13response_body_bytes\x18\x03 \x01(\x04\x12^\n\x10response_headers\x18\x04 \x03(\x0b\x32\x44.envoy.data.accesslog.v3.HTTPResponseProperties.ResponseHeadersEntry\x12`\n\x11response_trailers\x18\x05 \x03(\x0b\x32\x45.envoy.data.accesslog.v3.HTTPResponseProperties.ResponseTrailersEntry\x12\x1d\n\x15response_code_details\x18\x06 \x01(\t\x1a\x36\n\x14ResponseHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x37\n\x15ResponseTrailersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:5\x9a\xc5\x88\x1e\x30\n.envoy.data.accesslog.v2.HTTPResponsePropertiesBA\n%io.envoyproxy.envoy.data.accesslog.v3B\x0e\x41\x63\x63\x65sslogProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n\'envoy/data/accesslog/v3/accesslog.proto\x12\x17\x65nvoy.data.accesslog.v3\x1a\"envoy/config/core/v3/address.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xd8\x01\n\x11TCPAccessLogEntry\x12\x43\n\x11\x63ommon_properties\x18\x01 \x01(\x0b\x32(.envoy.data.accesslog.v3.AccessLogCommon\x12L\n\x15\x63onnection_properties\x18\x02 \x01(\x0b\x32-.envoy.data.accesslog.v3.ConnectionProperties:0\x9a\xc5\x88\x1e+\n)envoy.data.accesslog.v2.TCPAccessLogEntry\"\xba\x03\n\x12HTTPAccessLogEntry\x12\x43\n\x11\x63ommon_properties\x18\x01 \x01(\x0b\x32(.envoy.data.accesslog.v3.AccessLogCommon\x12Q\n\x10protocol_version\x18\x02 \x01(\x0e\x32\x37.envoy.data.accesslog.v3.HTTPAccessLogEntry.HTTPVersion\x12?\n\x07request\x18\x03 \x01(\x0b\x32..envoy.data.accesslog.v3.HTTPRequestProperties\x12\x41\n\x08response\x18\x04 \x01(\x0b\x32/.envoy.data.accesslog.v3.HTTPResponseProperties\"U\n\x0bHTTPVersion\x12\x18\n\x14PROTOCOL_UNSPECIFIED\x10\x00\x12\n\n\x06HTTP10\x10\x01\x12\n\n\x06HTTP11\x10\x02\x12\t\n\x05HTTP2\x10\x03\x12\t\n\x05HTTP3\x10\x04:1\x9a\xc5\x88\x1e,\n*envoy.data.accesslog.v2.HTTPAccessLogEntry\"w\n\x14\x43onnectionProperties\x12\x16\n\x0ereceived_bytes\x18\x01 \x01(\x04\x12\x12\n\nsent_bytes\x18\x02 \x01(\x04:3\x9a\xc5\x88\x1e.\n,envoy.data.accesslog.v2.ConnectionProperties\"\xf2\n\n\x0f\x41\x63\x63\x65ssLogCommon\x12,\n\x0bsample_rate\x18\x01 \x01(\x01\x42\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\xf0?!\x00\x00\x00\x00\x00\x00\x00\x00\x12@\n\x19\x64ownstream_remote_address\x18\x02 \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12?\n\x18\x64ownstream_local_address\x18\x03 \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12>\n\x0etls_properties\x18\x04 \x01(\x0b\x32&.envoy.data.accesslog.v3.TLSProperties\x12.\n\nstart_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x37\n\x14time_to_last_rx_byte\x18\x06 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x41\n\x1etime_to_first_upstream_tx_byte\x18\x07 \x01(\x0b\x32\x19.google.protobuf.Duration\x12@\n\x1dtime_to_last_upstream_tx_byte\x18\x08 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x41\n\x1etime_to_first_upstream_rx_byte\x18\t \x01(\x0b\x32\x19.google.protobuf.Duration\x12@\n\x1dtime_to_last_upstream_rx_byte\x18\n \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x43\n time_to_first_downstream_tx_byte\x18\x0b \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x42\n\x1ftime_to_last_downstream_tx_byte\x18\x0c \x01(\x0b\x32\x19.google.protobuf.Duration\x12>\n\x17upstream_remote_address\x18\r \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12=\n\x16upstream_local_address\x18\x0e \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12\x18\n\x10upstream_cluster\x18\x0f \x01(\t\x12>\n\x0eresponse_flags\x18\x10 \x01(\x0b\x32&.envoy.data.accesslog.v3.ResponseFlags\x12\x30\n\x08metadata\x18\x11 \x01(\x0b\x32\x1e.envoy.config.core.v3.Metadata\x12)\n!upstream_transport_failure_reason\x18\x12 \x01(\t\x12\x12\n\nroute_name\x18\x13 \x01(\t\x12G\n downstream_direct_remote_address\x18\x14 \x01(\x0b\x32\x1d.envoy.config.core.v3.Address\x12^\n\x14\x66ilter_state_objects\x18\x15 \x03(\x0b\x32@.envoy.data.accesslog.v3.AccessLogCommon.FilterStateObjectsEntry\x1aO\n\x17\x46ilterStateObjectsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01:.\x9a\xc5\x88\x1e)\n\'envoy.data.accesslog.v2.AccessLogCommon\"\xf8\x08\n\rResponseFlags\x12 \n\x18\x66\x61iled_local_healthcheck\x18\x01 \x01(\x08\x12\x1b\n\x13no_healthy_upstream\x18\x02 \x01(\x08\x12 \n\x18upstream_request_timeout\x18\x03 \x01(\x08\x12\x13\n\x0blocal_reset\x18\x04 \x01(\x08\x12\x1d\n\x15upstream_remote_reset\x18\x05 \x01(\x08\x12#\n\x1bupstream_connection_failure\x18\x06 \x01(\x08\x12\'\n\x1fupstream_connection_termination\x18\x07 \x01(\x08\x12\x19\n\x11upstream_overflow\x18\x08 \x01(\x08\x12\x16\n\x0eno_route_found\x18\t \x01(\x08\x12\x16\n\x0e\x64\x65lay_injected\x18\n \x01(\x08\x12\x16\n\x0e\x66\x61ult_injected\x18\x0b \x01(\x08\x12\x14\n\x0crate_limited\x18\x0c \x01(\x08\x12Q\n\x14unauthorized_details\x18\r \x01(\x0b\x32\x33.envoy.data.accesslog.v3.ResponseFlags.Unauthorized\x12 \n\x18rate_limit_service_error\x18\x0e \x01(\x08\x12)\n!downstream_connection_termination\x18\x0f \x01(\x08\x12%\n\x1dupstream_retry_limit_exceeded\x18\x10 \x01(\x08\x12\x1b\n\x13stream_idle_timeout\x18\x11 \x01(\x08\x12%\n\x1dinvalid_envoy_request_headers\x18\x12 \x01(\x08\x12!\n\x19\x64ownstream_protocol_error\x18\x13 \x01(\x08\x12,\n$upstream_max_stream_duration_reached\x18\x14 \x01(\x08\x12\"\n\x1aresponse_from_cache_filter\x18\x15 \x01(\x08\x12\x1e\n\x16no_filter_config_found\x18\x16 \x01(\x08\x12\x18\n\x10\x64uration_timeout\x18\x17 \x01(\x08\x12\x1f\n\x17upstream_protocol_error\x18\x18 \x01(\x08\x12\x18\n\x10no_cluster_found\x18\x19 \x01(\x08\x12\x18\n\x10overload_manager\x18\x1a \x01(\x08\x1a\xcd\x01\n\x0cUnauthorized\x12J\n\x06reason\x18\x01 \x01(\x0e\x32:.envoy.data.accesslog.v3.ResponseFlags.Unauthorized.Reason\"6\n\x06Reason\x12\x16\n\x12REASON_UNSPECIFIED\x10\x00\x12\x14\n\x10\x45XTERNAL_SERVICE\x10\x01:9\x9a\xc5\x88\x1e\x34\n2envoy.data.accesslog.v2.ResponseFlags.Unauthorized:,\x9a\xc5\x88\x1e\'\n%envoy.data.accesslog.v2.ResponseFlags\"\xf0\x06\n\rTLSProperties\x12\x46\n\x0btls_version\x18\x01 \x01(\x0e\x32\x31.envoy.data.accesslog.v3.TLSProperties.TLSVersion\x12\x36\n\x10tls_cipher_suite\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x18\n\x10tls_sni_hostname\x18\x03 \x01(\t\x12\x62\n\x1clocal_certificate_properties\x18\x04 \x01(\x0b\x32<.envoy.data.accesslog.v3.TLSProperties.CertificateProperties\x12\x61\n\x1bpeer_certificate_properties\x18\x05 \x01(\x0b\x32<.envoy.data.accesslog.v3.TLSProperties.CertificateProperties\x12\x16\n\x0etls_session_id\x18\x06 \x01(\t\x1a\xde\x02\n\x15\x43\x65rtificateProperties\x12\x65\n\x10subject_alt_name\x18\x01 \x03(\x0b\x32K.envoy.data.accesslog.v3.TLSProperties.CertificateProperties.SubjectAltName\x12\x0f\n\x07subject\x18\x02 \x01(\t\x1a\x88\x01\n\x0eSubjectAltName\x12\r\n\x03uri\x18\x01 \x01(\tH\x00\x12\r\n\x03\x64ns\x18\x02 \x01(\tH\x00:Q\x9a\xc5\x88\x1eL\nJenvoy.data.accesslog.v2.TLSProperties.CertificateProperties.SubjectAltNameB\x05\n\x03san:B\x9a\xc5\x88\x1e=\n;envoy.data.accesslog.v2.TLSProperties.CertificateProperties\"W\n\nTLSVersion\x12\x17\n\x13VERSION_UNSPECIFIED\x10\x00\x12\t\n\x05TLSv1\x10\x01\x12\x0b\n\x07TLSv1_1\x10\x02\x12\x0b\n\x07TLSv1_2\x10\x03\x12\x0b\n\x07TLSv1_3\x10\x04:,\x9a\xc5\x88\x1e\'\n%envoy.data.accesslog.v2.TLSProperties\"\xa7\x04\n\x15HTTPRequestProperties\x12\x45\n\x0erequest_method\x18\x01 \x01(\x0e\x32#.envoy.config.core.v3.RequestMethodB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x0e\n\x06scheme\x18\x02 \x01(\t\x12\x11\n\tauthority\x18\x03 \x01(\t\x12*\n\x04port\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x0c\n\x04path\x18\x05 \x01(\t\x12\x12\n\nuser_agent\x18\x06 \x01(\t\x12\x0f\n\x07referer\x18\x07 \x01(\t\x12\x15\n\rforwarded_for\x18\x08 \x01(\t\x12\x12\n\nrequest_id\x18\t \x01(\t\x12\x15\n\roriginal_path\x18\n \x01(\t\x12\x1d\n\x15request_headers_bytes\x18\x0b \x01(\x04\x12\x1a\n\x12request_body_bytes\x18\x0c \x01(\x04\x12[\n\x0frequest_headers\x18\r \x03(\x0b\x32\x42.envoy.data.accesslog.v3.HTTPRequestProperties.RequestHeadersEntry\x1a\x35\n\x13RequestHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:4\x9a\xc5\x88\x1e/\n-envoy.data.accesslog.v2.HTTPRequestProperties\"\x93\x04\n\x16HTTPResponseProperties\x12\x33\n\rresponse_code\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x1e\n\x16response_headers_bytes\x18\x02 \x01(\x04\x12\x1b\n\x13response_body_bytes\x18\x03 \x01(\x04\x12^\n\x10response_headers\x18\x04 \x03(\x0b\x32\x44.envoy.data.accesslog.v3.HTTPResponseProperties.ResponseHeadersEntry\x12`\n\x11response_trailers\x18\x05 \x03(\x0b\x32\x45.envoy.data.accesslog.v3.HTTPResponseProperties.ResponseTrailersEntry\x12\x1d\n\x15response_code_details\x18\x06 \x01(\t\x1a\x36\n\x14ResponseHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x37\n\x15ResponseTrailersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:5\x9a\xc5\x88\x1e\x30\n.envoy.data.accesslog.v2.HTTPResponsePropertiesBA\n%io.envoyproxy.envoy.data.accesslog.v3B\x0e\x41\x63\x63\x65sslogProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -94,8 +94,8 @@ _RESPONSEFLAGS_UNAUTHORIZED_REASON = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3494,
-  serialized_end=3548,
+  serialized_start=3520,
+  serialized_end=3574,
 )
 _sym_db.RegisterEnumDescriptor(_RESPONSEFLAGS_UNAUTHORIZED_REASON)
 
@@ -134,8 +134,8 @@ _TLSPROPERTIES_TLSVERSION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4403,
-  serialized_end=4490,
+  serialized_start=4429,
+  serialized_end=4516,
 )
 _sym_db.RegisterEnumDescriptor(_TLSPROPERTIES_TLSVERSION)
 
@@ -510,8 +510,8 @@ _RESPONSEFLAGS_UNAUTHORIZED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3402,
-  serialized_end=3607,
+  serialized_start=3428,
+  serialized_end=3633,
 )
 
 _RESPONSEFLAGS = _descriptor.Descriptor(
@@ -697,6 +697,13 @@ _RESPONSEFLAGS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='overload_manager', full_name='envoy.data.accesslog.v3.ResponseFlags.overload_manager', index=25,
+      number=26, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -710,7 +717,7 @@ _RESPONSEFLAGS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=2535,
-  serialized_end=3653,
+  serialized_end=3679,
 )
 
 
@@ -753,8 +760,8 @@ _TLSPROPERTIES_CERTIFICATEPROPERTIES_SUBJECTALTNAME = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4197,
-  serialized_end=4333,
+  serialized_start=4223,
+  serialized_end=4359,
 )
 
 _TLSPROPERTIES_CERTIFICATEPROPERTIES = _descriptor.Descriptor(
@@ -791,8 +798,8 @@ _TLSPROPERTIES_CERTIFICATEPROPERTIES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4051,
-  serialized_end=4401,
+  serialized_start=4077,
+  serialized_end=4427,
 )
 
 _TLSPROPERTIES = _descriptor.Descriptor(
@@ -858,8 +865,8 @@ _TLSPROPERTIES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3656,
-  serialized_end=4536,
+  serialized_start=3682,
+  serialized_end=4562,
 )
 
 
@@ -897,8 +904,8 @@ _HTTPREQUESTPROPERTIES_REQUESTHEADERSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4983,
-  serialized_end=5036,
+  serialized_start=5009,
+  serialized_end=5062,
 )
 
 _HTTPREQUESTPROPERTIES = _descriptor.Descriptor(
@@ -1012,8 +1019,8 @@ _HTTPREQUESTPROPERTIES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4539,
-  serialized_end=5090,
+  serialized_start=4565,
+  serialized_end=5116,
 )
 
 
@@ -1051,8 +1058,8 @@ _HTTPRESPONSEPROPERTIES_RESPONSEHEADERSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5458,
-  serialized_end=5512,
+  serialized_start=5484,
+  serialized_end=5538,
 )
 
 _HTTPRESPONSEPROPERTIES_RESPONSETRAILERSENTRY = _descriptor.Descriptor(
@@ -1089,8 +1096,8 @@ _HTTPRESPONSEPROPERTIES_RESPONSETRAILERSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5514,
-  serialized_end=5569,
+  serialized_start=5540,
+  serialized_end=5595,
 )
 
 _HTTPRESPONSEPROPERTIES = _descriptor.Descriptor(
@@ -1155,8 +1162,8 @@ _HTTPRESPONSEPROPERTIES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5093,
-  serialized_end=5624,
+  serialized_start=5119,
+  serialized_end=5650,
 )
 
 _TCPACCESSLOGENTRY.fields_by_name['common_properties'].message_type = _ACCESSLOGCOMMON

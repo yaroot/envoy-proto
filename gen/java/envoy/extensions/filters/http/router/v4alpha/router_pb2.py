@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n:io.envoyproxy.envoy.extensions.filters.http.router.v4alphaB\013RouterProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n9envoy/extensions/filters/http/router/v4alpha/router.proto\x12,envoy.extensions.filters.http.router.v4alpha\x1a.envoy/config/accesslog/v4alpha/accesslog.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xc8\x03\n\x06Router\x12\x31\n\rdynamic_stats\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x18\n\x10start_child_span\x18\x02 \x01(\x08\x12?\n\x0cupstream_log\x18\x03 \x03(\x0b\x32).envoy.config.accesslog.v4alpha.AccessLog\x12\x1e\n\x16suppress_envoy_headers\x18\x04 \x01(\x08\x12\xb3\x01\n\x14strict_check_headers\x18\x05 \x03(\tB\x94\x01\xfa\x42\x90\x01\x92\x01\x8c\x01\"\x89\x01r\x86\x01R\x1ex-envoy-upstream-rq-timeout-msR&x-envoy-upstream-rq-per-try-timeout-msR\x13x-envoy-max-retriesR\x15x-envoy-retry-grpc-onR\x10x-envoy-retry-on\x12#\n\x1brespect_expected_rq_timeout\x18\x06 \x01(\x08:5\x9a\xc5\x88\x1e\x30\n.envoy.extensions.filters.http.router.v3.RouterBS\n:io.envoyproxy.envoy.extensions.filters.http.router.v4alphaB\x0bRouterProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n9envoy/extensions/filters/http/router/v4alpha/router.proto\x12,envoy.extensions.filters.http.router.v4alpha\x1a.envoy/config/accesslog/v4alpha/accesslog.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xfa\x03\n\x06Router\x12\x31\n\rdynamic_stats\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x18\n\x10start_child_span\x18\x02 \x01(\x08\x12?\n\x0cupstream_log\x18\x03 \x03(\x0b\x32).envoy.config.accesslog.v4alpha.AccessLog\x12\x1e\n\x16suppress_envoy_headers\x18\x04 \x01(\x08\x12\xb3\x01\n\x14strict_check_headers\x18\x05 \x03(\tB\x94\x01\xfa\x42\x90\x01\x92\x01\x8c\x01\"\x89\x01r\x86\x01R\x1ex-envoy-upstream-rq-timeout-msR&x-envoy-upstream-rq-per-try-timeout-msR\x13x-envoy-max-retriesR\x15x-envoy-retry-grpc-onR\x10x-envoy-retry-on\x12#\n\x1brespect_expected_rq_timeout\x18\x06 \x01(\x08\x12\x30\n(suppress_grpc_request_failure_code_stats\x18\x07 \x01(\x08:5\x9a\xc5\x88\x1e\x30\n.envoy.extensions.filters.http.router.v3.RouterBS\n:io.envoyproxy.envoy.extensions.filters.http.router.v4alphaB\x0bRouterProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_accesslog_dot_v4alpha_dot_accesslog__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -81,6 +81,13 @@ _ROUTER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='suppress_grpc_request_failure_code_stats', full_name='envoy.extensions.filters.http.router.v4alpha.Router.suppress_grpc_request_failure_code_stats', index=6,
+      number=7, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -94,7 +101,7 @@ _ROUTER = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=279,
-  serialized_end=735,
+  serialized_end=785,
 )
 
 _ROUTER.fields_by_name['dynamic_stats'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE

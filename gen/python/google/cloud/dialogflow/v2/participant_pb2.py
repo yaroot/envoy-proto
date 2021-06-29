@@ -17,6 +17,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.dialogflow.v2 import audio_config_pb2 as google_dot_cloud_dot_dialogflow_dot_v2_dot_audio__config__pb2
 from google.cloud.dialogflow.v2 import session_pb2 as google_dot_cloud_dot_dialogflow_dot_v2_dot_session__pb2
+from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
@@ -30,9 +31,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\036com.google.cloud.dialogflow.v2B\020ParticipantProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2;dialogflow\370\001\001\242\002\002DF\252\002\032Google.Cloud.Dialogflow.V2',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,google/cloud/dialogflow/v2/participant.proto\x12\x1agoogle.cloud.dialogflow.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/dialogflow/v2/audio_config.proto\x1a(google/cloud/dialogflow/v2/session.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xb6\x03\n\x0bParticipant\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12?\n\x04role\x18\x02 \x01(\x0e\x32,.google.cloud.dialogflow.v2.Participant.RoleB\x03\xe0\x41\x05\x12&\n\x19sip_recording_media_label\x18\x06 \x01(\tB\x03\xe0\x41\x01\"P\n\x04Role\x12\x14\n\x10ROLE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bHUMAN_AGENT\x10\x01\x12\x13\n\x0f\x41UTOMATED_AGENT\x10\x02\x12\x0c\n\x08\x45ND_USER\x10\x03:\xd8\x01\xea\x41\xd4\x01\n%dialogflow.googleapis.com/Participant\x12Jprojects/{project}/conversations/{conversation}/participants/{participant}\x12_projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant}\"\xfd\x03\n\x07Message\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x07\x63ontent\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x18\n\x0bparticipant\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12K\n\x10participant_role\x18\x05 \x01(\x0e\x32,.google.cloud.dialogflow.v2.Participant.RoleB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12N\n\x12message_annotation\x18\x07 \x01(\x0b\x32-.google.cloud.dialogflow.v2.MessageAnnotationB\x03\xe0\x41\x03:\xc4\x01\xea\x41\xc0\x01\n!dialogflow.googleapis.com/Message\x12\x42projects/{project}/conversations/{conversation}/messages/{message}\x12Wprojects/{project}/locations/{location}/conversations/{conversation}/messages/{message}\"\x9c\x01\n\x18\x43reateParticipantRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Participant\x12\x41\n\x0bparticipant\x18\x02 \x01(\x0b\x32\'.google.cloud.dialogflow.v2.ParticipantB\x03\xe0\x41\x02\"T\n\x15GetParticipantRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Participant\"\x89\x01\n\x17ListParticipantsRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Participant\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"r\n\x18ListParticipantsResponse\x12=\n\x0cparticipants\x18\x01 \x03(\x0b\x32\'.google.cloud.dialogflow.v2.Participant\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x93\x01\n\x18UpdateParticipantRequest\x12\x41\n\x0bparticipant\x18\x01 \x01(\x0b\x32\'.google.cloud.dialogflow.v2.ParticipantB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\x82\x03\n\x15\x41nalyzeContentRequest\x12\x42\n\x0bparticipant\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Participant\x12;\n\ntext_input\x18\x06 \x01(\x0b\x32%.google.cloud.dialogflow.v2.TextInputH\x00\x12=\n\x0b\x65vent_input\x18\x08 \x01(\x0b\x32&.google.cloud.dialogflow.v2.EventInputH\x00\x12I\n\x12reply_audio_config\x18\x05 \x01(\x0b\x32-.google.cloud.dialogflow.v2.OutputAudioConfig\x12\x41\n\x0cquery_params\x18\t \x01(\x0b\x32+.google.cloud.dialogflow.v2.QueryParameters\x12\x12\n\nrequest_id\x18\x0b \x01(\tB\x07\n\x05input\",\n\x0e\x44tmfParameters\x12\x1a\n\x12\x61\x63\x63\x65pts_dtmf_input\x18\x01 \x01(\x08\"\xde\x03\n\x16\x41nalyzeContentResponse\x12\x12\n\nreply_text\x18\x01 \x01(\t\x12<\n\x0breply_audio\x18\x02 \x01(\x0b\x32\'.google.cloud.dialogflow.v2.OutputAudio\x12N\n\x15\x61utomated_agent_reply\x18\x03 \x01(\x0b\x32/.google.cloud.dialogflow.v2.AutomatedAgentReply\x12\x34\n\x07message\x18\x05 \x01(\x0b\x32#.google.cloud.dialogflow.v2.Message\x12T\n\x1ehuman_agent_suggestion_results\x18\x06 \x03(\x0b\x32,.google.cloud.dialogflow.v2.SuggestionResult\x12Q\n\x1b\x65nd_user_suggestion_results\x18\x07 \x03(\x0b\x32,.google.cloud.dialogflow.v2.SuggestionResult\x12\x43\n\x0f\x64tmf_parameters\x18\t \x01(\x0b\x32*.google.cloud.dialogflow.v2.DtmfParameters\"\xad\x01\n\x16SuggestArticlesRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Participant\x12>\n\x0elatest_message\x18\x02 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Message\x12\x14\n\x0c\x63ontext_size\x18\x03 \x01(\x05\"\x8b\x01\n\x17SuggestArticlesResponse\x12\x42\n\x0f\x61rticle_answers\x18\x01 \x03(\x0b\x32).google.cloud.dialogflow.v2.ArticleAnswer\x12\x16\n\x0elatest_message\x18\x02 \x01(\t\x12\x14\n\x0c\x63ontext_size\x18\x03 \x01(\x05\"\xaf\x01\n\x18SuggestFaqAnswersRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Participant\x12>\n\x0elatest_message\x18\x02 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Message\x12\x14\n\x0c\x63ontext_size\x18\x03 \x01(\x05\"\x85\x01\n\x19SuggestFaqAnswersResponse\x12:\n\x0b\x66\x61q_answers\x18\x01 \x03(\x0b\x32%.google.cloud.dialogflow.v2.FaqAnswer\x12\x16\n\x0elatest_message\x18\x02 \x01(\t\x12\x14\n\x0c\x63ontext_size\x18\x03 \x01(\x05\"[\n\x0bOutputAudio\x12=\n\x06\x63onfig\x18\x01 \x01(\x0b\x32-.google.cloud.dialogflow.v2.OutputAudioConfig\x12\r\n\x05\x61udio\x18\x02 \x01(\x0c\"g\n\x13\x41utomatedAgentReply\x12P\n\x16\x64\x65tect_intent_response\x18\x01 \x01(\x0b\x32\x30.google.cloud.dialogflow.v2.DetectIntentResponse\"\xe4\x01\n\rArticleAnswer\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0b\n\x03uri\x18\x02 \x01(\t\x12\x10\n\x08snippets\x18\x03 \x03(\t\x12\x12\n\nconfidence\x18\x04 \x01(\x02\x12I\n\x08metadata\x18\x05 \x03(\x0b\x32\x37.google.cloud.dialogflow.v2.ArticleAnswer.MetadataEntry\x12\x15\n\ranswer_record\x18\x06 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xe0\x01\n\tFaqAnswer\x12\x0e\n\x06\x61nswer\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\x10\n\x08question\x18\x03 \x01(\t\x12\x0e\n\x06source\x18\x04 \x01(\t\x12\x45\n\x08metadata\x18\x05 \x03(\x0b\x32\x33.google.cloud.dialogflow.v2.FaqAnswer.MetadataEntry\x12\x15\n\ranswer_record\x18\x06 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x87\x02\n\x10SuggestionResult\x12#\n\x05\x65rror\x18\x01 \x01(\x0b\x32\x12.google.rpc.StatusH\x00\x12X\n\x19suggest_articles_response\x18\x02 \x01(\x0b\x32\x33.google.cloud.dialogflow.v2.SuggestArticlesResponseH\x00\x12]\n\x1csuggest_faq_answers_response\x18\x03 \x01(\x0b\x32\x35.google.cloud.dialogflow.v2.SuggestFaqAnswersResponseH\x00\x42\x15\n\x13suggestion_response\"j\n\x14\x41nnotatedMessagePart\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x13\n\x0b\x65ntity_type\x18\x02 \x01(\t\x12/\n\x0f\x66ormatted_value\x18\x03 \x01(\x0b\x32\x16.google.protobuf.Value\"n\n\x11MessageAnnotation\x12?\n\x05parts\x18\x01 \x03(\x0b\x32\x30.google.cloud.dialogflow.v2.AnnotatedMessagePart\x12\x18\n\x10\x63ontain_entities\x18\x02 \x01(\x08\x32\xff\x11\n\x0cParticipants\x12\xa5\x02\n\x11\x43reateParticipant\x12\x34.google.cloud.dialogflow.v2.CreateParticipantRequest\x1a\'.google.cloud.dialogflow.v2.Participant\"\xb0\x01\x82\xd3\xe4\x93\x02\x94\x01\"4/v2/{parent=projects/*/conversations/*}/participants:\x0bparticipantZO\"@/v2/{parent=projects/*/locations/*/conversations/*}/participants:\x0bparticipant\xda\x41\x12parent,participant\x12\xf6\x01\n\x0eGetParticipant\x12\x31.google.cloud.dialogflow.v2.GetParticipantRequest\x1a\'.google.cloud.dialogflow.v2.Participant\"\x87\x01\x82\xd3\xe4\x93\x02z\x12\x34/v2/{name=projects/*/conversations/*/participants/*}ZB\x12@/v2/{name=projects/*/locations/*/conversations/*/participants/*}\xda\x41\x04name\x12\x89\x02\n\x10ListParticipants\x12\x33.google.cloud.dialogflow.v2.ListParticipantsRequest\x1a\x34.google.cloud.dialogflow.v2.ListParticipantsResponse\"\x89\x01\x82\xd3\xe4\x93\x02z\x12\x34/v2/{parent=projects/*/conversations/*}/participantsZB\x12@/v2/{parent=projects/*/locations/*/conversations/*}/participants\xda\x41\x06parent\x12\xc2\x02\n\x11UpdateParticipant\x12\x34.google.cloud.dialogflow.v2.UpdateParticipantRequest\x1a\'.google.cloud.dialogflow.v2.Participant\"\xcd\x01\x82\xd3\xe4\x93\x02\xac\x01\x32@/v2/{participant.name=projects/*/conversations/*/participants/*}:\x0bparticipantZ[2L/v2/{participant.name=projects/*/locations/*/conversations/*/participants/*}:\x0bparticipant\xda\x41\x17participant,update_mask\x12\xe0\x02\n\x0e\x41nalyzeContent\x12\x31.google.cloud.dialogflow.v2.AnalyzeContentRequest\x1a\x32.google.cloud.dialogflow.v2.AnalyzeContentResponse\"\xe6\x01\x82\xd3\xe4\x93\x02\xac\x01\"J/v2/{participant=projects/*/conversations/*/participants/*}:analyzeContent:\x01*Z[\"V/v2/{participant=projects/*/locations/*/conversations/*/participants/*}:analyzeContent:\x01*\xda\x41\x16participant,text_input\xda\x41\x17participant,event_input\x12\xc9\x02\n\x0fSuggestArticles\x12\x32.google.cloud.dialogflow.v2.SuggestArticlesRequest\x1a\x33.google.cloud.dialogflow.v2.SuggestArticlesResponse\"\xcc\x01\x82\xd3\xe4\x93\x02\xbc\x01\"R/v2/{parent=projects/*/conversations/*/participants/*}/suggestions:suggestArticles:\x01*Zc\"^/v2/{parent=projects/*/locations/*/conversations/*/participants/*}/suggestions:suggestArticles:\x01*\xda\x41\x06parent\x12\xd3\x02\n\x11SuggestFaqAnswers\x12\x34.google.cloud.dialogflow.v2.SuggestFaqAnswersRequest\x1a\x35.google.cloud.dialogflow.v2.SuggestFaqAnswersResponse\"\xd0\x01\x82\xd3\xe4\x93\x02\xc0\x01\"T/v2/{parent=projects/*/conversations/*/participants/*}/suggestions:suggestFaqAnswers:\x01*Ze\"`/v2/{parent=projects/*/locations/*/conversations/*/participants/*}/suggestions:suggestFaqAnswers:\x01*\xda\x41\x06parent\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\x9f\x01\n\x1e\x63om.google.cloud.dialogflow.v2B\x10ParticipantProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2;dialogflow\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1aGoogle.Cloud.Dialogflow.V2b\x06proto3'
+  serialized_pb=b'\n,google/cloud/dialogflow/v2/participant.proto\x12\x1agoogle.cloud.dialogflow.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/dialogflow/v2/audio_config.proto\x1a(google/cloud/dialogflow/v2/session.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xb6\x03\n\x0bParticipant\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12?\n\x04role\x18\x02 \x01(\x0e\x32,.google.cloud.dialogflow.v2.Participant.RoleB\x03\xe0\x41\x05\x12&\n\x19sip_recording_media_label\x18\x06 \x01(\tB\x03\xe0\x41\x01\"P\n\x04Role\x12\x14\n\x10ROLE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bHUMAN_AGENT\x10\x01\x12\x13\n\x0f\x41UTOMATED_AGENT\x10\x02\x12\x0c\n\x08\x45ND_USER\x10\x03:\xd8\x01\xea\x41\xd4\x01\n%dialogflow.googleapis.com/Participant\x12Jprojects/{project}/conversations/{conversation}/participants/{participant}\x12_projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant}\"\xfd\x03\n\x07Message\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x07\x63ontent\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x18\n\x0bparticipant\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12K\n\x10participant_role\x18\x05 \x01(\x0e\x32,.google.cloud.dialogflow.v2.Participant.RoleB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12N\n\x12message_annotation\x18\x07 \x01(\x0b\x32-.google.cloud.dialogflow.v2.MessageAnnotationB\x03\xe0\x41\x03:\xc4\x01\xea\x41\xc0\x01\n!dialogflow.googleapis.com/Message\x12\x42projects/{project}/conversations/{conversation}/messages/{message}\x12Wprojects/{project}/locations/{location}/conversations/{conversation}/messages/{message}\"\x9c\x01\n\x18\x43reateParticipantRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Participant\x12\x41\n\x0bparticipant\x18\x02 \x01(\x0b\x32\'.google.cloud.dialogflow.v2.ParticipantB\x03\xe0\x41\x02\"T\n\x15GetParticipantRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Participant\"\x89\x01\n\x17ListParticipantsRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Participant\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"r\n\x18ListParticipantsResponse\x12=\n\x0cparticipants\x18\x01 \x03(\x0b\x32\'.google.cloud.dialogflow.v2.Participant\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x93\x01\n\x18UpdateParticipantRequest\x12\x41\n\x0bparticipant\x18\x01 \x01(\x0b\x32\'.google.cloud.dialogflow.v2.ParticipantB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\x82\x03\n\x15\x41nalyzeContentRequest\x12\x42\n\x0bparticipant\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Participant\x12;\n\ntext_input\x18\x06 \x01(\x0b\x32%.google.cloud.dialogflow.v2.TextInputH\x00\x12=\n\x0b\x65vent_input\x18\x08 \x01(\x0b\x32&.google.cloud.dialogflow.v2.EventInputH\x00\x12I\n\x12reply_audio_config\x18\x05 \x01(\x0b\x32-.google.cloud.dialogflow.v2.OutputAudioConfig\x12\x41\n\x0cquery_params\x18\t \x01(\x0b\x32+.google.cloud.dialogflow.v2.QueryParameters\x12\x12\n\nrequest_id\x18\x0b \x01(\tB\x07\n\x05input\",\n\x0e\x44tmfParameters\x12\x1a\n\x12\x61\x63\x63\x65pts_dtmf_input\x18\x01 \x01(\x08\"\xde\x03\n\x16\x41nalyzeContentResponse\x12\x12\n\nreply_text\x18\x01 \x01(\t\x12<\n\x0breply_audio\x18\x02 \x01(\x0b\x32\'.google.cloud.dialogflow.v2.OutputAudio\x12N\n\x15\x61utomated_agent_reply\x18\x03 \x01(\x0b\x32/.google.cloud.dialogflow.v2.AutomatedAgentReply\x12\x34\n\x07message\x18\x05 \x01(\x0b\x32#.google.cloud.dialogflow.v2.Message\x12T\n\x1ehuman_agent_suggestion_results\x18\x06 \x03(\x0b\x32,.google.cloud.dialogflow.v2.SuggestionResult\x12Q\n\x1b\x65nd_user_suggestion_results\x18\x07 \x03(\x0b\x32,.google.cloud.dialogflow.v2.SuggestionResult\x12\x43\n\x0f\x64tmf_parameters\x18\t \x01(\x0b\x32*.google.cloud.dialogflow.v2.DtmfParameters\"\xad\x01\n\x16SuggestArticlesRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Participant\x12>\n\x0elatest_message\x18\x02 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Message\x12\x14\n\x0c\x63ontext_size\x18\x03 \x01(\x05\"\x8b\x01\n\x17SuggestArticlesResponse\x12\x42\n\x0f\x61rticle_answers\x18\x01 \x03(\x0b\x32).google.cloud.dialogflow.v2.ArticleAnswer\x12\x16\n\x0elatest_message\x18\x02 \x01(\t\x12\x14\n\x0c\x63ontext_size\x18\x03 \x01(\x05\"\xaf\x01\n\x18SuggestFaqAnswersRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Participant\x12>\n\x0elatest_message\x18\x02 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Message\x12\x14\n\x0c\x63ontext_size\x18\x03 \x01(\x05\"\x85\x01\n\x19SuggestFaqAnswersResponse\x12:\n\x0b\x66\x61q_answers\x18\x01 \x03(\x0b\x32%.google.cloud.dialogflow.v2.FaqAnswer\x12\x16\n\x0elatest_message\x18\x02 \x01(\t\x12\x14\n\x0c\x63ontext_size\x18\x03 \x01(\x05\"[\n\x0bOutputAudio\x12=\n\x06\x63onfig\x18\x01 \x01(\x0b\x32-.google.cloud.dialogflow.v2.OutputAudioConfig\x12\r\n\x05\x61udio\x18\x02 \x01(\x0c\"\xcf\x02\n\x13\x41utomatedAgentReply\x12P\n\x16\x64\x65tect_intent_response\x18\x01 \x01(\x0b\x32\x30.google.cloud.dialogflow.v2.DetectIntentResponse\x12k\n\x1a\x61utomated_agent_reply_type\x18\x07 \x01(\x0e\x32G.google.cloud.dialogflow.v2.AutomatedAgentReply.AutomatedAgentReplyType\x12\x1a\n\x12\x61llow_cancellation\x18\x08 \x01(\x08\"]\n\x17\x41utomatedAgentReplyType\x12*\n&AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PARTIAL\x10\x01\x12\t\n\x05\x46INAL\x10\x02\"\xe4\x01\n\rArticleAnswer\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0b\n\x03uri\x18\x02 \x01(\t\x12\x10\n\x08snippets\x18\x03 \x03(\t\x12\x12\n\nconfidence\x18\x04 \x01(\x02\x12I\n\x08metadata\x18\x05 \x03(\x0b\x32\x37.google.cloud.dialogflow.v2.ArticleAnswer.MetadataEntry\x12\x15\n\ranswer_record\x18\x06 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xe0\x01\n\tFaqAnswer\x12\x0e\n\x06\x61nswer\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12\x10\n\x08question\x18\x03 \x01(\t\x12\x0e\n\x06source\x18\x04 \x01(\t\x12\x45\n\x08metadata\x18\x05 \x03(\x0b\x32\x33.google.cloud.dialogflow.v2.FaqAnswer.MetadataEntry\x12\x15\n\ranswer_record\x18\x06 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x87\x02\n\x10SuggestionResult\x12#\n\x05\x65rror\x18\x01 \x01(\x0b\x32\x12.google.rpc.StatusH\x00\x12X\n\x19suggest_articles_response\x18\x02 \x01(\x0b\x32\x33.google.cloud.dialogflow.v2.SuggestArticlesResponseH\x00\x12]\n\x1csuggest_faq_answers_response\x18\x03 \x01(\x0b\x32\x35.google.cloud.dialogflow.v2.SuggestFaqAnswersResponseH\x00\x42\x15\n\x13suggestion_response\"j\n\x14\x41nnotatedMessagePart\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x13\n\x0b\x65ntity_type\x18\x02 \x01(\t\x12/\n\x0f\x66ormatted_value\x18\x03 \x01(\x0b\x32\x16.google.protobuf.Value\"n\n\x11MessageAnnotation\x12?\n\x05parts\x18\x01 \x03(\x0b\x32\x30.google.cloud.dialogflow.v2.AnnotatedMessagePart\x12\x18\n\x10\x63ontain_entities\x18\x02 \x01(\x08\x32\xff\x11\n\x0cParticipants\x12\xa5\x02\n\x11\x43reateParticipant\x12\x34.google.cloud.dialogflow.v2.CreateParticipantRequest\x1a\'.google.cloud.dialogflow.v2.Participant\"\xb0\x01\x82\xd3\xe4\x93\x02\x94\x01\"4/v2/{parent=projects/*/conversations/*}/participants:\x0bparticipantZO\"@/v2/{parent=projects/*/locations/*/conversations/*}/participants:\x0bparticipant\xda\x41\x12parent,participant\x12\xf6\x01\n\x0eGetParticipant\x12\x31.google.cloud.dialogflow.v2.GetParticipantRequest\x1a\'.google.cloud.dialogflow.v2.Participant\"\x87\x01\x82\xd3\xe4\x93\x02z\x12\x34/v2/{name=projects/*/conversations/*/participants/*}ZB\x12@/v2/{name=projects/*/locations/*/conversations/*/participants/*}\xda\x41\x04name\x12\x89\x02\n\x10ListParticipants\x12\x33.google.cloud.dialogflow.v2.ListParticipantsRequest\x1a\x34.google.cloud.dialogflow.v2.ListParticipantsResponse\"\x89\x01\x82\xd3\xe4\x93\x02z\x12\x34/v2/{parent=projects/*/conversations/*}/participantsZB\x12@/v2/{parent=projects/*/locations/*/conversations/*}/participants\xda\x41\x06parent\x12\xc2\x02\n\x11UpdateParticipant\x12\x34.google.cloud.dialogflow.v2.UpdateParticipantRequest\x1a\'.google.cloud.dialogflow.v2.Participant\"\xcd\x01\x82\xd3\xe4\x93\x02\xac\x01\x32@/v2/{participant.name=projects/*/conversations/*/participants/*}:\x0bparticipantZ[2L/v2/{participant.name=projects/*/locations/*/conversations/*/participants/*}:\x0bparticipant\xda\x41\x17participant,update_mask\x12\xe0\x02\n\x0e\x41nalyzeContent\x12\x31.google.cloud.dialogflow.v2.AnalyzeContentRequest\x1a\x32.google.cloud.dialogflow.v2.AnalyzeContentResponse\"\xe6\x01\x82\xd3\xe4\x93\x02\xac\x01\"J/v2/{participant=projects/*/conversations/*/participants/*}:analyzeContent:\x01*Z[\"V/v2/{participant=projects/*/locations/*/conversations/*/participants/*}:analyzeContent:\x01*\xda\x41\x16participant,text_input\xda\x41\x17participant,event_input\x12\xc9\x02\n\x0fSuggestArticles\x12\x32.google.cloud.dialogflow.v2.SuggestArticlesRequest\x1a\x33.google.cloud.dialogflow.v2.SuggestArticlesResponse\"\xcc\x01\x82\xd3\xe4\x93\x02\xbc\x01\"R/v2/{parent=projects/*/conversations/*/participants/*}/suggestions:suggestArticles:\x01*Zc\"^/v2/{parent=projects/*/locations/*/conversations/*/participants/*}/suggestions:suggestArticles:\x01*\xda\x41\x06parent\x12\xd3\x02\n\x11SuggestFaqAnswers\x12\x34.google.cloud.dialogflow.v2.SuggestFaqAnswersRequest\x1a\x35.google.cloud.dialogflow.v2.SuggestFaqAnswersResponse\"\xd0\x01\x82\xd3\xe4\x93\x02\xc0\x01\"T/v2/{parent=projects/*/conversations/*/participants/*}/suggestions:suggestFaqAnswers:\x01*Ze\"`/v2/{parent=projects/*/locations/*/conversations/*/participants/*}/suggestions:suggestFaqAnswers:\x01*\xda\x41\x06parent\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\x9f\x01\n\x1e\x63om.google.cloud.dialogflow.v2B\x10ParticipantProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2;dialogflow\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1aGoogle.Cloud.Dialogflow.V2b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_v2_dot_audio__config__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_v2_dot_session__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_v2_dot_audio__config__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_v2_dot_session__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
 
 
@@ -66,10 +67,40 @@ _PARTICIPANT_ROLE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=574,
-  serialized_end=654,
+  serialized_start=601,
+  serialized_end=681,
 )
 _sym_db.RegisterEnumDescriptor(_PARTICIPANT_ROLE)
+
+_AUTOMATEDAGENTREPLY_AUTOMATEDAGENTREPLYTYPE = _descriptor.EnumDescriptor(
+  name='AutomatedAgentReplyType',
+  full_name='google.cloud.dialogflow.v2.AutomatedAgentReply.AutomatedAgentReplyType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PARTIAL', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FINAL', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3949,
+  serialized_end=4042,
+)
+_sym_db.RegisterEnumDescriptor(_AUTOMATEDAGENTREPLY_AUTOMATEDAGENTREPLYTYPE)
 
 
 _PARTICIPANT = _descriptor.Descriptor(
@@ -114,8 +145,8 @@ _PARTICIPANT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=435,
-  serialized_end=873,
+  serialized_start=462,
+  serialized_end=900,
 )
 
 
@@ -188,8 +219,8 @@ _MESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=876,
-  serialized_end=1385,
+  serialized_start=903,
+  serialized_end=1412,
 )
 
 
@@ -227,8 +258,8 @@ _CREATEPARTICIPANTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1388,
-  serialized_end=1544,
+  serialized_start=1415,
+  serialized_end=1571,
 )
 
 
@@ -259,8 +290,8 @@ _GETPARTICIPANTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1546,
-  serialized_end=1630,
+  serialized_start=1573,
+  serialized_end=1657,
 )
 
 
@@ -305,8 +336,8 @@ _LISTPARTICIPANTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1633,
-  serialized_end=1770,
+  serialized_start=1660,
+  serialized_end=1797,
 )
 
 
@@ -344,8 +375,8 @@ _LISTPARTICIPANTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1772,
-  serialized_end=1886,
+  serialized_start=1799,
+  serialized_end=1913,
 )
 
 
@@ -383,8 +414,8 @@ _UPDATEPARTICIPANTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1889,
-  serialized_end=2036,
+  serialized_start=1916,
+  serialized_end=2063,
 )
 
 
@@ -455,8 +486,8 @@ _ANALYZECONTENTREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2039,
-  serialized_end=2425,
+  serialized_start=2066,
+  serialized_end=2452,
 )
 
 
@@ -487,8 +518,8 @@ _DTMFPARAMETERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2427,
-  serialized_end=2471,
+  serialized_start=2454,
+  serialized_end=2498,
 )
 
 
@@ -561,8 +592,8 @@ _ANALYZECONTENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2474,
-  serialized_end=2952,
+  serialized_start=2501,
+  serialized_end=2979,
 )
 
 
@@ -607,8 +638,8 @@ _SUGGESTARTICLESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2955,
-  serialized_end=3128,
+  serialized_start=2982,
+  serialized_end=3155,
 )
 
 
@@ -653,8 +684,8 @@ _SUGGESTARTICLESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3131,
-  serialized_end=3270,
+  serialized_start=3158,
+  serialized_end=3297,
 )
 
 
@@ -699,8 +730,8 @@ _SUGGESTFAQANSWERSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3273,
-  serialized_end=3448,
+  serialized_start=3300,
+  serialized_end=3475,
 )
 
 
@@ -745,8 +776,8 @@ _SUGGESTFAQANSWERSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3451,
-  serialized_end=3584,
+  serialized_start=3478,
+  serialized_end=3611,
 )
 
 
@@ -784,8 +815,8 @@ _OUTPUTAUDIO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3586,
-  serialized_end=3677,
+  serialized_start=3613,
+  serialized_end=3704,
 )
 
 
@@ -804,11 +835,26 @@ _AUTOMATEDAGENTREPLY = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='automated_agent_reply_type', full_name='google.cloud.dialogflow.v2.AutomatedAgentReply.automated_agent_reply_type', index=1,
+      number=7, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allow_cancellation', full_name='google.cloud.dialogflow.v2.AutomatedAgentReply.allow_cancellation', index=2,
+      number=8, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
+    _AUTOMATEDAGENTREPLY_AUTOMATEDAGENTREPLYTYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -816,8 +862,8 @@ _AUTOMATEDAGENTREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3679,
-  serialized_end=3782,
+  serialized_start=3707,
+  serialized_end=4042,
 )
 
 
@@ -855,8 +901,8 @@ _ARTICLEANSWER_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3966,
-  serialized_end=4013,
+  serialized_start=4226,
+  serialized_end=4273,
 )
 
 _ARTICLEANSWER = _descriptor.Descriptor(
@@ -921,8 +967,8 @@ _ARTICLEANSWER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3785,
-  serialized_end=4013,
+  serialized_start=4045,
+  serialized_end=4273,
 )
 
 
@@ -960,8 +1006,8 @@ _FAQANSWER_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3966,
-  serialized_end=4013,
+  serialized_start=4226,
+  serialized_end=4273,
 )
 
 _FAQANSWER = _descriptor.Descriptor(
@@ -1026,8 +1072,8 @@ _FAQANSWER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4016,
-  serialized_end=4240,
+  serialized_start=4276,
+  serialized_end=4500,
 )
 
 
@@ -1077,8 +1123,8 @@ _SUGGESTIONRESULT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4243,
-  serialized_end=4506,
+  serialized_start=4503,
+  serialized_end=4766,
 )
 
 
@@ -1123,8 +1169,8 @@ _ANNOTATEDMESSAGEPART = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4508,
-  serialized_end=4614,
+  serialized_start=4768,
+  serialized_end=4874,
 )
 
 
@@ -1162,8 +1208,8 @@ _MESSAGEANNOTATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4616,
-  serialized_end=4726,
+  serialized_start=4876,
+  serialized_end=4986,
 )
 
 _PARTICIPANT.fields_by_name['role'].enum_type = _PARTICIPANT_ROLE
@@ -1195,6 +1241,8 @@ _SUGGESTARTICLESRESPONSE.fields_by_name['article_answers'].message_type = _ARTIC
 _SUGGESTFAQANSWERSRESPONSE.fields_by_name['faq_answers'].message_type = _FAQANSWER
 _OUTPUTAUDIO.fields_by_name['config'].message_type = google_dot_cloud_dot_dialogflow_dot_v2_dot_audio__config__pb2._OUTPUTAUDIOCONFIG
 _AUTOMATEDAGENTREPLY.fields_by_name['detect_intent_response'].message_type = google_dot_cloud_dot_dialogflow_dot_v2_dot_session__pb2._DETECTINTENTRESPONSE
+_AUTOMATEDAGENTREPLY.fields_by_name['automated_agent_reply_type'].enum_type = _AUTOMATEDAGENTREPLY_AUTOMATEDAGENTREPLYTYPE
+_AUTOMATEDAGENTREPLY_AUTOMATEDAGENTREPLYTYPE.containing_type = _AUTOMATEDAGENTREPLY
 _ARTICLEANSWER_METADATAENTRY.containing_type = _ARTICLEANSWER
 _ARTICLEANSWER.fields_by_name['metadata'].message_type = _ARTICLEANSWER_METADATAENTRY
 _FAQANSWER_METADATAENTRY.containing_type = _FAQANSWER
@@ -1435,8 +1483,8 @@ _PARTICIPANTS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=4729,
-  serialized_end=7032,
+  serialized_start=4989,
+  serialized_end=7292,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateParticipant',

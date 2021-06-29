@@ -36,7 +36,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n&com.google.cloud.dialogflow.cx.v3beta1B\rTestCaseProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\370\001\001\242\002\002DF\252\002\"Google.Cloud.Dialogflow.Cx.V3Beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n2google/cloud/dialogflow/cx/v3beta1/test_case.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/dialogflow/cx/v3beta1/flow.proto\x1a/google/cloud/dialogflow/cx/v3beta1/intent.proto\x1a-google/cloud/dialogflow/cx/v3beta1/page.proto\x1a\x39google/cloud/dialogflow/cx/v3beta1/response_message.proto\x1a\x30google/cloud/dialogflow/cx/v3beta1/session.proto\x1a?google/cloud/dialogflow/cx/v3beta1/transition_route_group.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xee\x03\n\x08TestCase\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04tags\x18\x02 \x03(\t\x12\x19\n\x0c\x64isplay_name\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\r\n\x05notes\x18\x04 \x01(\t\x12\x43\n\x0btest_config\x18\r \x01(\x0b\x32..google.cloud.dialogflow.cx.v3beta1.TestConfig\x12Z\n\x1ctest_case_conversation_turns\x18\x05 \x03(\x0b\x32\x34.google.cloud.dialogflow.cx.v3beta1.ConversationTurn\x12\x36\n\rcreation_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12L\n\x10last_test_result\x18\x0c \x01(\x0b\x32\x32.google.cloud.dialogflow.cx.v3beta1.TestCaseResult:u\xea\x41r\n\"dialogflow.googleapis.com/TestCase\x12Lprojects/{project}/locations/{location}/agents/{agent}/testCases/{test_case}\"\xb5\x03\n\x0eTestCaseResult\x12\x0c\n\x04name\x18\x01 \x01(\t\x12?\n\x0b\x65nvironment\x18\x02 \x01(\tB*\xfa\x41\'\n%dialogflow.googleapis.com/Environment\x12P\n\x12\x63onversation_turns\x18\x03 \x03(\x0b\x32\x34.google.cloud.dialogflow.cx.v3beta1.ConversationTurn\x12\x43\n\x0btest_result\x18\x04 \x01(\x0e\x32..google.cloud.dialogflow.cx.v3beta1.TestResult\x12-\n\ttest_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x8d\x01\xea\x41\x89\x01\n(dialogflow.googleapis.com/TestCaseResult\x12]projects/{project}/locations/{location}/agents/{agent}/testCases/{test_case}/results/{result}\"\\\n\nTestConfig\x12\x1b\n\x13tracking_parameters\x18\x01 \x03(\t\x12\x31\n\x04\x66low\x18\x02 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/Flow\"\xbf\x06\n\x10\x43onversationTurn\x12R\n\nuser_input\x18\x01 \x01(\x0b\x32>.google.cloud.dialogflow.cx.v3beta1.ConversationTurn.UserInput\x12\x65\n\x14virtual_agent_output\x18\x02 \x01(\x0b\x32G.google.cloud.dialogflow.cx.v3beta1.ConversationTurn.VirtualAgentOutput\x1a\x9c\x01\n\tUserInput\x12=\n\x05input\x18\x05 \x01(\x0b\x32..google.cloud.dialogflow.cx.v3beta1.QueryInput\x12\x34\n\x13injected_parameters\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x1a\n\x12is_webhook_enabled\x18\x03 \x01(\x08\x1a\xd0\x03\n\x12VirtualAgentOutput\x12\x33\n\x12session_parameters\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x12O\n\x0b\x64ifferences\x18\x05 \x03(\x0b\x32\x35.google.cloud.dialogflow.cx.v3beta1.TestRunDifferenceB\x03\xe0\x41\x03\x12\x38\n\x0f\x64iagnostic_info\x18\x06 \x01(\x0b\x32\x17.google.protobuf.StructB\x06\xe0\x41\x02\xe0\x41\x04\x12\x44\n\x10triggered_intent\x18\x07 \x01(\x0b\x32*.google.cloud.dialogflow.cx.v3beta1.Intent\x12>\n\x0c\x63urrent_page\x18\x08 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.Page\x12P\n\x0etext_responses\x18\t \x03(\x0b\x32\x38.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text\x12\"\n\x06status\x18\n \x01(\x0b\x32\x12.google.rpc.Status\"\xd2\x01\n\x11TestRunDifference\x12L\n\x04type\x18\x01 \x01(\x0e\x32>.google.cloud.dialogflow.cx.v3beta1.TestRunDifference.DiffType\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\"Z\n\x08\x44iffType\x12\x19\n\x15\x44IFF_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06INTENT\x10\x01\x12\x08\n\x04PAGE\x10\x02\x12\x0e\n\nPARAMETERS\x10\x03\x12\r\n\tUTTERANCE\x10\x04\"\x96\x05\n\x12TransitionCoverage\x12V\n\x0btransitions\x18\x01 \x03(\x0b\x32\x41.google.cloud.dialogflow.cx.v3beta1.TransitionCoverage.Transition\x12\x16\n\x0e\x63overage_score\x18\x02 \x01(\x02\x1a\x8c\x01\n\x0eTransitionNode\x12\x38\n\x04page\x18\x01 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.PageH\x00\x12\x38\n\x04\x66low\x18\x02 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.FlowH\x00\x42\x06\n\x04kind\x1a\x80\x03\n\nTransition\x12U\n\x06source\x18\x01 \x01(\x0b\x32\x45.google.cloud.dialogflow.cx.v3beta1.TransitionCoverage.TransitionNode\x12\r\n\x05index\x18\x04 \x01(\x05\x12U\n\x06target\x18\x02 \x01(\x0b\x32\x45.google.cloud.dialogflow.cx.v3beta1.TransitionCoverage.TransitionNode\x12\x0f\n\x07\x63overed\x18\x03 \x01(\x08\x12O\n\x10transition_route\x18\x05 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.TransitionRouteH\x00\x12I\n\revent_handler\x18\x06 \x01(\x0b\x32\x30.google.cloud.dialogflow.cx.v3beta1.EventHandlerH\x00\x42\x08\n\x06\x64\x65tail\"\xe1\x03\n\x1cTransitionRouteGroupCoverage\x12\\\n\tcoverages\x18\x01 \x03(\x0b\x32I.google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroupCoverage.Coverage\x12\x16\n\x0e\x63overage_score\x18\x02 \x01(\x02\x1a\xca\x02\n\x08\x43overage\x12M\n\x0broute_group\x18\x01 \x01(\x0b\x32\x38.google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroup\x12i\n\x0btransitions\x18\x02 \x03(\x0b\x32T.google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroupCoverage.Coverage.Transition\x12\x16\n\x0e\x63overage_score\x18\x03 \x01(\x02\x1al\n\nTransition\x12M\n\x10transition_route\x18\x01 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.TransitionRoute\x12\x0f\n\x07\x63overed\x18\x02 \x01(\x08\"\xc6\x01\n\x0eIntentCoverage\x12J\n\x07intents\x18\x01 \x03(\x0b\x32\x39.google.cloud.dialogflow.cx.v3beta1.IntentCoverage.Intent\x12\x16\n\x0e\x63overage_score\x18\x02 \x01(\x02\x1aP\n\x06Intent\x12\x35\n\x06intent\x18\x01 \x01(\tB%\xfa\x41\"\n dialogflow.googleapis.com/Intent\x12\x0f\n\x07\x63overed\x18\x02 \x01(\x08\"\x9c\x02\n\x18\x43\x61lculateCoverageRequest\x12\x36\n\x05\x61gent\x18\x03 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x64ialogflow.googleapis.com/Agent\x12\\\n\x04type\x18\x02 \x01(\x0e\x32I.google.cloud.dialogflow.cx.v3beta1.CalculateCoverageRequest.CoverageTypeB\x03\xe0\x41\x02\"j\n\x0c\x43overageType\x12\x1d\n\x19\x43OVERAGE_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06INTENT\x10\x01\x12\x13\n\x0fPAGE_TRANSITION\x10\x02\x12\x1a\n\x16TRANSITION_ROUTE_GROUP\x10\x03\"\xe9\x02\n\x19\x43\x61lculateCoverageResponse\x12\x33\n\x05\x61gent\x18\x05 \x01(\tB$\xfa\x41!\n\x1f\x64ialogflow.googleapis.com/Agent\x12M\n\x0fintent_coverage\x18\x02 \x01(\x0b\x32\x32.google.cloud.dialogflow.cx.v3beta1.IntentCoverageH\x00\x12U\n\x13transition_coverage\x18\x04 \x01(\x0b\x32\x36.google.cloud.dialogflow.cx.v3beta1.TransitionCoverageH\x00\x12`\n\x14route_group_coverage\x18\x06 \x01(\x0b\x32@.google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroupCoverageH\x00\x42\x0f\n\rcoverage_type\"\x93\x02\n\x14ListTestCasesRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/TestCase\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12S\n\x04view\x18\x04 \x01(\x0e\x32\x45.google.cloud.dialogflow.cx.v3beta1.ListTestCasesRequest.TestCaseView\"C\n\x0cTestCaseView\x12\x1e\n\x1aTEST_CASE_VIEW_UNSPECIFIED\x10\x00\x12\t\n\x05\x42\x41SIC\x10\x01\x12\x08\n\x04\x46ULL\x10\x02\"r\n\x15ListTestCasesResponse\x12@\n\ntest_cases\x18\x01 \x03(\x0b\x32,.google.cloud.dialogflow.cx.v3beta1.TestCase\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x94\x01\n\x1b\x42\x61tchDeleteTestCasesRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/TestCase\x12\x39\n\x05names\x18\x03 \x03(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/TestCase\"\x99\x01\n\x15\x43reateTestCaseRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/TestCase\x12\x44\n\ttest_case\x18\x02 \x01(\x0b\x32,.google.cloud.dialogflow.cx.v3beta1.TestCaseB\x03\xe0\x41\x02\"\x93\x01\n\x15UpdateTestCaseRequest\x12\x44\n\ttest_case\x18\x01 \x01(\x0b\x32,.google.cloud.dialogflow.cx.v3beta1.TestCaseB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"N\n\x12GetTestCaseRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/TestCase\"\x92\x01\n\x12RunTestCaseRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/TestCase\x12\x42\n\x0b\x65nvironment\x18\x02 \x01(\tB-\xe0\x41\x01\xfa\x41\'\n%dialogflow.googleapis.com/Environment\"Y\n\x13RunTestCaseResponse\x12\x42\n\x06result\x18\x02 \x01(\x0b\x32\x32.google.cloud.dialogflow.cx.v3beta1.TestCaseResult\"\x15\n\x13RunTestCaseMetadata\"\xda\x01\n\x18\x42\x61tchRunTestCasesRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/TestCase\x12\x42\n\x0b\x65nvironment\x18\x02 \x01(\tB-\xe0\x41\x01\xfa\x41\'\n%dialogflow.googleapis.com/Environment\x12>\n\ntest_cases\x18\x03 \x03(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/TestCase\"`\n\x19\x42\x61tchRunTestCasesResponse\x12\x43\n\x07results\x18\x01 \x03(\x0b\x32\x32.google.cloud.dialogflow.cx.v3beta1.TestCaseResult\"Z\n\x19\x42\x61tchRunTestCasesMetadata\x12=\n\x06\x65rrors\x18\x01 \x03(\x0b\x32-.google.cloud.dialogflow.cx.v3beta1.TestError\"\x9a\x01\n\tTestError\x12:\n\ttest_case\x18\x01 \x01(\tB\'\xfa\x41$\n\"dialogflow.googleapis.com/TestCase\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\x12-\n\ttest_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x84\x01\n\x16ImportTestCasesRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/TestCase\x12\x11\n\x07gcs_uri\x18\x02 \x01(\tH\x00\x12\x11\n\x07\x63ontent\x18\x03 \x01(\x0cH\x00\x42\x08\n\x06source\"Q\n\x17ImportTestCasesResponse\x12\x36\n\x05names\x18\x01 \x03(\tB\'\xfa\x41$\n\"dialogflow.googleapis.com/TestCase\"\\\n\x17ImportTestCasesMetadata\x12\x41\n\x06\x65rrors\x18\x01 \x03(\x0b\x32\x31.google.cloud.dialogflow.cx.v3beta1.TestCaseError\"t\n\rTestCaseError\x12?\n\ttest_case\x18\x01 \x01(\x0b\x32,.google.cloud.dialogflow.cx.v3beta1.TestCase\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\"\xa1\x02\n\x16\x45xportTestCasesRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/TestCase\x12\x11\n\x07gcs_uri\x18\x02 \x01(\tH\x00\x12Z\n\x0b\x64\x61ta_format\x18\x03 \x01(\x0e\x32\x45.google.cloud.dialogflow.cx.v3beta1.ExportTestCasesRequest.DataFormat\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"=\n\nDataFormat\x12\x1b\n\x17\x44\x41TA_FORMAT_UNSPECIFIED\x10\x00\x12\x08\n\x04\x42LOB\x10\x01\x12\x08\n\x04JSON\x10\x02\x42\r\n\x0b\x64\x65stination\"N\n\x17\x45xportTestCasesResponse\x12\x11\n\x07gcs_uri\x18\x01 \x01(\tH\x00\x12\x11\n\x07\x63ontent\x18\x02 \x01(\x0cH\x00\x42\r\n\x0b\x64\x65stination\"\x19\n\x17\x45xportTestCasesMetadata\"\x95\x01\n\x1aListTestCaseResultsRequest\x12@\n\x06parent\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\x12(dialogflow.googleapis.com/TestCaseResult\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"\x85\x01\n\x1bListTestCaseResultsResponse\x12M\n\x11test_case_results\x18\x01 \x03(\x0b\x32\x32.google.cloud.dialogflow.cx.v3beta1.TestCaseResult\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"Z\n\x18GetTestCaseResultRequest\x12>\n\x04name\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\n(dialogflow.googleapis.com/TestCaseResult*A\n\nTestResult\x12\x1b\n\x17TEST_RESULT_UNSPECIFIED\x10\x00\x12\n\n\x06PASSED\x10\x01\x12\n\n\x06\x46\x41ILED\x10\x02\x32\xb6\x16\n\tTestCases\x12\xd2\x01\n\rListTestCases\x12\x38.google.cloud.dialogflow.cx.v3beta1.ListTestCasesRequest\x1a\x39.google.cloud.dialogflow.cx.v3beta1.ListTestCasesResponse\"L\x82\xd3\xe4\x93\x02=\x12;/v3beta1/{parent=projects/*/locations/*/agents/*}/testCases\xda\x41\x06parent\x12\xcc\x01\n\x14\x42\x61tchDeleteTestCases\x12?.google.cloud.dialogflow.cx.v3beta1.BatchDeleteTestCasesRequest\x1a\x16.google.protobuf.Empty\"[\x82\xd3\xe4\x93\x02L\"G/v3beta1/{parent=projects/*/locations/*/agents/*}/testCases:batchDelete:\x01*\xda\x41\x06parent\x12\xbf\x01\n\x0bGetTestCase\x12\x36.google.cloud.dialogflow.cx.v3beta1.GetTestCaseRequest\x1a,.google.cloud.dialogflow.cx.v3beta1.TestCase\"J\x82\xd3\xe4\x93\x02=\x12;/v3beta1/{name=projects/*/locations/*/agents/*/testCases/*}\xda\x41\x04name\x12\xdc\x01\n\x0e\x43reateTestCase\x12\x39.google.cloud.dialogflow.cx.v3beta1.CreateTestCaseRequest\x1a,.google.cloud.dialogflow.cx.v3beta1.TestCase\"a\x82\xd3\xe4\x93\x02H\";/v3beta1/{parent=projects/*/locations/*/agents/*}/testCases:\ttest_case\xda\x41\x10parent,test_case\x12\xeb\x01\n\x0eUpdateTestCase\x12\x39.google.cloud.dialogflow.cx.v3beta1.UpdateTestCaseRequest\x1a,.google.cloud.dialogflow.cx.v3beta1.TestCase\"p\x82\xd3\xe4\x93\x02R2E/v3beta1/{test_case.name=projects/*/locations/*/agents/*/testCases/*}:\ttest_case\xda\x41\x15test_case,update_mask\x12\xdd\x01\n\x0bRunTestCase\x12\x36.google.cloud.dialogflow.cx.v3beta1.RunTestCaseRequest\x1a\x1d.google.longrunning.Operation\"w\x82\xd3\xe4\x93\x02\x44\"?/v3beta1/{name=projects/*/locations/*/agents/*/testCases/*}:run:\x01*\xca\x41*\n\x13RunTestCaseResponse\x12\x13RunTestCaseMetadata\x12\xfb\x01\n\x11\x42\x61tchRunTestCases\x12<.google.cloud.dialogflow.cx.v3beta1.BatchRunTestCasesRequest\x1a\x1d.google.longrunning.Operation\"\x88\x01\x82\xd3\xe4\x93\x02I\"D/v3beta1/{parent=projects/*/locations/*/agents/*}/testCases:batchRun:\x01*\xca\x41\x36\n\x19\x42\x61tchRunTestCasesResponse\x12\x19\x42\x61tchRunTestCasesMetadata\x12\xe6\x01\n\x11\x43\x61lculateCoverage\x12<.google.cloud.dialogflow.cx.v3beta1.CalculateCoverageRequest\x1a=.google.cloud.dialogflow.cx.v3beta1.CalculateCoverageResponse\"T\x82\xd3\xe4\x93\x02N\x12L/v3beta1/{agent=projects/*/locations/*/agents/*}/testCases:calculateCoverage\x12\xf1\x01\n\x0fImportTestCases\x12:.google.cloud.dialogflow.cx.v3beta1.ImportTestCasesRequest\x1a\x1d.google.longrunning.Operation\"\x82\x01\x82\xd3\xe4\x93\x02G\"B/v3beta1/{parent=projects/*/locations/*/agents/*}/testCases:import:\x01*\xca\x41\x32\n\x17ImportTestCasesResponse\x12\x17ImportTestCasesMetadata\x12\xf1\x01\n\x0f\x45xportTestCases\x12:.google.cloud.dialogflow.cx.v3beta1.ExportTestCasesRequest\x1a\x1d.google.longrunning.Operation\"\x82\x01\x82\xd3\xe4\x93\x02G\"B/v3beta1/{parent=projects/*/locations/*/agents/*}/testCases:export:\x01*\xca\x41\x32\n\x17\x45xportTestCasesResponse\x12\x17\x45xportTestCasesMetadata\x12\xee\x01\n\x13ListTestCaseResults\x12>.google.cloud.dialogflow.cx.v3beta1.ListTestCaseResultsRequest\x1a?.google.cloud.dialogflow.cx.v3beta1.ListTestCaseResultsResponse\"V\x82\xd3\xe4\x93\x02G\x12\x45/v3beta1/{parent=projects/*/locations/*/agents/*/testCases/*}/results\xda\x41\x06parent\x12\xdb\x01\n\x11GetTestCaseResult\x12<.google.cloud.dialogflow.cx.v3beta1.GetTestCaseResultRequest\x1a\x32.google.cloud.dialogflow.cx.v3beta1.TestCaseResult\"T\x82\xd3\xe4\x93\x02G\x12\x45/v3beta1/{name=projects/*/locations/*/agents/*/testCases/*/results/*}\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xac\x01\n&com.google.cloud.dialogflow.cx.v3beta1B\rTestCaseProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1b\x06proto3'
+  serialized_pb=b'\n2google/cloud/dialogflow/cx/v3beta1/test_case.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/dialogflow/cx/v3beta1/flow.proto\x1a/google/cloud/dialogflow/cx/v3beta1/intent.proto\x1a-google/cloud/dialogflow/cx/v3beta1/page.proto\x1a\x39google/cloud/dialogflow/cx/v3beta1/response_message.proto\x1a\x30google/cloud/dialogflow/cx/v3beta1/session.proto\x1a?google/cloud/dialogflow/cx/v3beta1/transition_route_group.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xee\x03\n\x08TestCase\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04tags\x18\x02 \x03(\t\x12\x19\n\x0c\x64isplay_name\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\r\n\x05notes\x18\x04 \x01(\t\x12\x43\n\x0btest_config\x18\r \x01(\x0b\x32..google.cloud.dialogflow.cx.v3beta1.TestConfig\x12Z\n\x1ctest_case_conversation_turns\x18\x05 \x03(\x0b\x32\x34.google.cloud.dialogflow.cx.v3beta1.ConversationTurn\x12\x36\n\rcreation_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12L\n\x10last_test_result\x18\x0c \x01(\x0b\x32\x32.google.cloud.dialogflow.cx.v3beta1.TestCaseResult:u\xea\x41r\n\"dialogflow.googleapis.com/TestCase\x12Lprojects/{project}/locations/{location}/agents/{agent}/testCases/{test_case}\"\xb5\x03\n\x0eTestCaseResult\x12\x0c\n\x04name\x18\x01 \x01(\t\x12?\n\x0b\x65nvironment\x18\x02 \x01(\tB*\xfa\x41\'\n%dialogflow.googleapis.com/Environment\x12P\n\x12\x63onversation_turns\x18\x03 \x03(\x0b\x32\x34.google.cloud.dialogflow.cx.v3beta1.ConversationTurn\x12\x43\n\x0btest_result\x18\x04 \x01(\x0e\x32..google.cloud.dialogflow.cx.v3beta1.TestResult\x12-\n\ttest_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp:\x8d\x01\xea\x41\x89\x01\n(dialogflow.googleapis.com/TestCaseResult\x12]projects/{project}/locations/{location}/agents/{agent}/testCases/{test_case}/results/{result}\"\\\n\nTestConfig\x12\x1b\n\x13tracking_parameters\x18\x01 \x03(\t\x12\x31\n\x04\x66low\x18\x02 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/Flow\"\xe2\x06\n\x10\x43onversationTurn\x12R\n\nuser_input\x18\x01 \x01(\x0b\x32>.google.cloud.dialogflow.cx.v3beta1.ConversationTurn.UserInput\x12\x65\n\x14virtual_agent_output\x18\x02 \x01(\x0b\x32G.google.cloud.dialogflow.cx.v3beta1.ConversationTurn.VirtualAgentOutput\x1a\xbf\x01\n\tUserInput\x12=\n\x05input\x18\x05 \x01(\x0b\x32..google.cloud.dialogflow.cx.v3beta1.QueryInput\x12\x34\n\x13injected_parameters\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x1a\n\x12is_webhook_enabled\x18\x03 \x01(\x08\x12!\n\x19\x65nable_sentiment_analysis\x18\x07 \x01(\x08\x1a\xd0\x03\n\x12VirtualAgentOutput\x12\x33\n\x12session_parameters\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x12O\n\x0b\x64ifferences\x18\x05 \x03(\x0b\x32\x35.google.cloud.dialogflow.cx.v3beta1.TestRunDifferenceB\x03\xe0\x41\x03\x12\x38\n\x0f\x64iagnostic_info\x18\x06 \x01(\x0b\x32\x17.google.protobuf.StructB\x06\xe0\x41\x02\xe0\x41\x04\x12\x44\n\x10triggered_intent\x18\x07 \x01(\x0b\x32*.google.cloud.dialogflow.cx.v3beta1.Intent\x12>\n\x0c\x63urrent_page\x18\x08 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.Page\x12P\n\x0etext_responses\x18\t \x03(\x0b\x32\x38.google.cloud.dialogflow.cx.v3beta1.ResponseMessage.Text\x12\"\n\x06status\x18\n \x01(\x0b\x32\x12.google.rpc.Status\"\xd2\x01\n\x11TestRunDifference\x12L\n\x04type\x18\x01 \x01(\x0e\x32>.google.cloud.dialogflow.cx.v3beta1.TestRunDifference.DiffType\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\"Z\n\x08\x44iffType\x12\x19\n\x15\x44IFF_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06INTENT\x10\x01\x12\x08\n\x04PAGE\x10\x02\x12\x0e\n\nPARAMETERS\x10\x03\x12\r\n\tUTTERANCE\x10\x04\"\x96\x05\n\x12TransitionCoverage\x12V\n\x0btransitions\x18\x01 \x03(\x0b\x32\x41.google.cloud.dialogflow.cx.v3beta1.TransitionCoverage.Transition\x12\x16\n\x0e\x63overage_score\x18\x02 \x01(\x02\x1a\x8c\x01\n\x0eTransitionNode\x12\x38\n\x04page\x18\x01 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.PageH\x00\x12\x38\n\x04\x66low\x18\x02 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.FlowH\x00\x42\x06\n\x04kind\x1a\x80\x03\n\nTransition\x12U\n\x06source\x18\x01 \x01(\x0b\x32\x45.google.cloud.dialogflow.cx.v3beta1.TransitionCoverage.TransitionNode\x12\r\n\x05index\x18\x04 \x01(\x05\x12U\n\x06target\x18\x02 \x01(\x0b\x32\x45.google.cloud.dialogflow.cx.v3beta1.TransitionCoverage.TransitionNode\x12\x0f\n\x07\x63overed\x18\x03 \x01(\x08\x12O\n\x10transition_route\x18\x05 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.TransitionRouteH\x00\x12I\n\revent_handler\x18\x06 \x01(\x0b\x32\x30.google.cloud.dialogflow.cx.v3beta1.EventHandlerH\x00\x42\x08\n\x06\x64\x65tail\"\xe1\x03\n\x1cTransitionRouteGroupCoverage\x12\\\n\tcoverages\x18\x01 \x03(\x0b\x32I.google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroupCoverage.Coverage\x12\x16\n\x0e\x63overage_score\x18\x02 \x01(\x02\x1a\xca\x02\n\x08\x43overage\x12M\n\x0broute_group\x18\x01 \x01(\x0b\x32\x38.google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroup\x12i\n\x0btransitions\x18\x02 \x03(\x0b\x32T.google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroupCoverage.Coverage.Transition\x12\x16\n\x0e\x63overage_score\x18\x03 \x01(\x02\x1al\n\nTransition\x12M\n\x10transition_route\x18\x01 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.TransitionRoute\x12\x0f\n\x07\x63overed\x18\x02 \x01(\x08\"\xc6\x01\n\x0eIntentCoverage\x12J\n\x07intents\x18\x01 \x03(\x0b\x32\x39.google.cloud.dialogflow.cx.v3beta1.IntentCoverage.Intent\x12\x16\n\x0e\x63overage_score\x18\x02 \x01(\x02\x1aP\n\x06Intent\x12\x35\n\x06intent\x18\x01 \x01(\tB%\xfa\x41\"\n dialogflow.googleapis.com/Intent\x12\x0f\n\x07\x63overed\x18\x02 \x01(\x08\"\x9c\x02\n\x18\x43\x61lculateCoverageRequest\x12\x36\n\x05\x61gent\x18\x03 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x64ialogflow.googleapis.com/Agent\x12\\\n\x04type\x18\x02 \x01(\x0e\x32I.google.cloud.dialogflow.cx.v3beta1.CalculateCoverageRequest.CoverageTypeB\x03\xe0\x41\x02\"j\n\x0c\x43overageType\x12\x1d\n\x19\x43OVERAGE_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06INTENT\x10\x01\x12\x13\n\x0fPAGE_TRANSITION\x10\x02\x12\x1a\n\x16TRANSITION_ROUTE_GROUP\x10\x03\"\xe9\x02\n\x19\x43\x61lculateCoverageResponse\x12\x33\n\x05\x61gent\x18\x05 \x01(\tB$\xfa\x41!\n\x1f\x64ialogflow.googleapis.com/Agent\x12M\n\x0fintent_coverage\x18\x02 \x01(\x0b\x32\x32.google.cloud.dialogflow.cx.v3beta1.IntentCoverageH\x00\x12U\n\x13transition_coverage\x18\x04 \x01(\x0b\x32\x36.google.cloud.dialogflow.cx.v3beta1.TransitionCoverageH\x00\x12`\n\x14route_group_coverage\x18\x06 \x01(\x0b\x32@.google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroupCoverageH\x00\x42\x0f\n\rcoverage_type\"\x93\x02\n\x14ListTestCasesRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/TestCase\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12S\n\x04view\x18\x04 \x01(\x0e\x32\x45.google.cloud.dialogflow.cx.v3beta1.ListTestCasesRequest.TestCaseView\"C\n\x0cTestCaseView\x12\x1e\n\x1aTEST_CASE_VIEW_UNSPECIFIED\x10\x00\x12\t\n\x05\x42\x41SIC\x10\x01\x12\x08\n\x04\x46ULL\x10\x02\"r\n\x15ListTestCasesResponse\x12@\n\ntest_cases\x18\x01 \x03(\x0b\x32,.google.cloud.dialogflow.cx.v3beta1.TestCase\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x94\x01\n\x1b\x42\x61tchDeleteTestCasesRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/TestCase\x12\x39\n\x05names\x18\x03 \x03(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/TestCase\"\x99\x01\n\x15\x43reateTestCaseRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/TestCase\x12\x44\n\ttest_case\x18\x02 \x01(\x0b\x32,.google.cloud.dialogflow.cx.v3beta1.TestCaseB\x03\xe0\x41\x02\"\x93\x01\n\x15UpdateTestCaseRequest\x12\x44\n\ttest_case\x18\x01 \x01(\x0b\x32,.google.cloud.dialogflow.cx.v3beta1.TestCaseB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"N\n\x12GetTestCaseRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/TestCase\"\x92\x01\n\x12RunTestCaseRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/TestCase\x12\x42\n\x0b\x65nvironment\x18\x02 \x01(\tB-\xe0\x41\x01\xfa\x41\'\n%dialogflow.googleapis.com/Environment\"Y\n\x13RunTestCaseResponse\x12\x42\n\x06result\x18\x02 \x01(\x0b\x32\x32.google.cloud.dialogflow.cx.v3beta1.TestCaseResult\"\x15\n\x13RunTestCaseMetadata\"\xda\x01\n\x18\x42\x61tchRunTestCasesRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/TestCase\x12\x42\n\x0b\x65nvironment\x18\x02 \x01(\tB-\xe0\x41\x01\xfa\x41\'\n%dialogflow.googleapis.com/Environment\x12>\n\ntest_cases\x18\x03 \x03(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/TestCase\"`\n\x19\x42\x61tchRunTestCasesResponse\x12\x43\n\x07results\x18\x01 \x03(\x0b\x32\x32.google.cloud.dialogflow.cx.v3beta1.TestCaseResult\"Z\n\x19\x42\x61tchRunTestCasesMetadata\x12=\n\x06\x65rrors\x18\x01 \x03(\x0b\x32-.google.cloud.dialogflow.cx.v3beta1.TestError\"\x9a\x01\n\tTestError\x12:\n\ttest_case\x18\x01 \x01(\tB\'\xfa\x41$\n\"dialogflow.googleapis.com/TestCase\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\x12-\n\ttest_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x84\x01\n\x16ImportTestCasesRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/TestCase\x12\x11\n\x07gcs_uri\x18\x02 \x01(\tH\x00\x12\x11\n\x07\x63ontent\x18\x03 \x01(\x0cH\x00\x42\x08\n\x06source\"Q\n\x17ImportTestCasesResponse\x12\x36\n\x05names\x18\x01 \x03(\tB\'\xfa\x41$\n\"dialogflow.googleapis.com/TestCase\"\\\n\x17ImportTestCasesMetadata\x12\x41\n\x06\x65rrors\x18\x01 \x03(\x0b\x32\x31.google.cloud.dialogflow.cx.v3beta1.TestCaseError\"t\n\rTestCaseError\x12?\n\ttest_case\x18\x01 \x01(\x0b\x32,.google.cloud.dialogflow.cx.v3beta1.TestCase\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\"\xa1\x02\n\x16\x45xportTestCasesRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"dialogflow.googleapis.com/TestCase\x12\x11\n\x07gcs_uri\x18\x02 \x01(\tH\x00\x12Z\n\x0b\x64\x61ta_format\x18\x03 \x01(\x0e\x32\x45.google.cloud.dialogflow.cx.v3beta1.ExportTestCasesRequest.DataFormat\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"=\n\nDataFormat\x12\x1b\n\x17\x44\x41TA_FORMAT_UNSPECIFIED\x10\x00\x12\x08\n\x04\x42LOB\x10\x01\x12\x08\n\x04JSON\x10\x02\x42\r\n\x0b\x64\x65stination\"N\n\x17\x45xportTestCasesResponse\x12\x11\n\x07gcs_uri\x18\x01 \x01(\tH\x00\x12\x11\n\x07\x63ontent\x18\x02 \x01(\x0cH\x00\x42\r\n\x0b\x64\x65stination\"\x19\n\x17\x45xportTestCasesMetadata\"\x95\x01\n\x1aListTestCaseResultsRequest\x12@\n\x06parent\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\x12(dialogflow.googleapis.com/TestCaseResult\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"\x85\x01\n\x1bListTestCaseResultsResponse\x12M\n\x11test_case_results\x18\x01 \x03(\x0b\x32\x32.google.cloud.dialogflow.cx.v3beta1.TestCaseResult\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"Z\n\x18GetTestCaseResultRequest\x12>\n\x04name\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\n(dialogflow.googleapis.com/TestCaseResult*A\n\nTestResult\x12\x1b\n\x17TEST_RESULT_UNSPECIFIED\x10\x00\x12\n\n\x06PASSED\x10\x01\x12\n\n\x06\x46\x41ILED\x10\x02\x32\xb6\x16\n\tTestCases\x12\xd2\x01\n\rListTestCases\x12\x38.google.cloud.dialogflow.cx.v3beta1.ListTestCasesRequest\x1a\x39.google.cloud.dialogflow.cx.v3beta1.ListTestCasesResponse\"L\x82\xd3\xe4\x93\x02=\x12;/v3beta1/{parent=projects/*/locations/*/agents/*}/testCases\xda\x41\x06parent\x12\xcc\x01\n\x14\x42\x61tchDeleteTestCases\x12?.google.cloud.dialogflow.cx.v3beta1.BatchDeleteTestCasesRequest\x1a\x16.google.protobuf.Empty\"[\x82\xd3\xe4\x93\x02L\"G/v3beta1/{parent=projects/*/locations/*/agents/*}/testCases:batchDelete:\x01*\xda\x41\x06parent\x12\xbf\x01\n\x0bGetTestCase\x12\x36.google.cloud.dialogflow.cx.v3beta1.GetTestCaseRequest\x1a,.google.cloud.dialogflow.cx.v3beta1.TestCase\"J\x82\xd3\xe4\x93\x02=\x12;/v3beta1/{name=projects/*/locations/*/agents/*/testCases/*}\xda\x41\x04name\x12\xdc\x01\n\x0e\x43reateTestCase\x12\x39.google.cloud.dialogflow.cx.v3beta1.CreateTestCaseRequest\x1a,.google.cloud.dialogflow.cx.v3beta1.TestCase\"a\x82\xd3\xe4\x93\x02H\";/v3beta1/{parent=projects/*/locations/*/agents/*}/testCases:\ttest_case\xda\x41\x10parent,test_case\x12\xeb\x01\n\x0eUpdateTestCase\x12\x39.google.cloud.dialogflow.cx.v3beta1.UpdateTestCaseRequest\x1a,.google.cloud.dialogflow.cx.v3beta1.TestCase\"p\x82\xd3\xe4\x93\x02R2E/v3beta1/{test_case.name=projects/*/locations/*/agents/*/testCases/*}:\ttest_case\xda\x41\x15test_case,update_mask\x12\xdd\x01\n\x0bRunTestCase\x12\x36.google.cloud.dialogflow.cx.v3beta1.RunTestCaseRequest\x1a\x1d.google.longrunning.Operation\"w\x82\xd3\xe4\x93\x02\x44\"?/v3beta1/{name=projects/*/locations/*/agents/*/testCases/*}:run:\x01*\xca\x41*\n\x13RunTestCaseResponse\x12\x13RunTestCaseMetadata\x12\xfb\x01\n\x11\x42\x61tchRunTestCases\x12<.google.cloud.dialogflow.cx.v3beta1.BatchRunTestCasesRequest\x1a\x1d.google.longrunning.Operation\"\x88\x01\x82\xd3\xe4\x93\x02I\"D/v3beta1/{parent=projects/*/locations/*/agents/*}/testCases:batchRun:\x01*\xca\x41\x36\n\x19\x42\x61tchRunTestCasesResponse\x12\x19\x42\x61tchRunTestCasesMetadata\x12\xe6\x01\n\x11\x43\x61lculateCoverage\x12<.google.cloud.dialogflow.cx.v3beta1.CalculateCoverageRequest\x1a=.google.cloud.dialogflow.cx.v3beta1.CalculateCoverageResponse\"T\x82\xd3\xe4\x93\x02N\x12L/v3beta1/{agent=projects/*/locations/*/agents/*}/testCases:calculateCoverage\x12\xf1\x01\n\x0fImportTestCases\x12:.google.cloud.dialogflow.cx.v3beta1.ImportTestCasesRequest\x1a\x1d.google.longrunning.Operation\"\x82\x01\x82\xd3\xe4\x93\x02G\"B/v3beta1/{parent=projects/*/locations/*/agents/*}/testCases:import:\x01*\xca\x41\x32\n\x17ImportTestCasesResponse\x12\x17ImportTestCasesMetadata\x12\xf1\x01\n\x0f\x45xportTestCases\x12:.google.cloud.dialogflow.cx.v3beta1.ExportTestCasesRequest\x1a\x1d.google.longrunning.Operation\"\x82\x01\x82\xd3\xe4\x93\x02G\"B/v3beta1/{parent=projects/*/locations/*/agents/*}/testCases:export:\x01*\xca\x41\x32\n\x17\x45xportTestCasesResponse\x12\x17\x45xportTestCasesMetadata\x12\xee\x01\n\x13ListTestCaseResults\x12>.google.cloud.dialogflow.cx.v3beta1.ListTestCaseResultsRequest\x1a?.google.cloud.dialogflow.cx.v3beta1.ListTestCaseResultsResponse\"V\x82\xd3\xe4\x93\x02G\x12\x45/v3beta1/{parent=projects/*/locations/*/agents/*/testCases/*}/results\xda\x41\x06parent\x12\xdb\x01\n\x11GetTestCaseResult\x12<.google.cloud.dialogflow.cx.v3beta1.GetTestCaseResultRequest\x1a\x32.google.cloud.dialogflow.cx.v3beta1.TestCaseResult\"T\x82\xd3\xe4\x93\x02G\x12\x45/v3beta1/{name=projects/*/locations/*/agents/*/testCases/*/results/*}\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xac\x01\n&com.google.cloud.dialogflow.cx.v3beta1B\rTestCaseProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_flow__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_intent__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_page__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_response__message__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_session__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_transition__route__group__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
@@ -65,8 +65,8 @@ _TESTRESULT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7760,
-  serialized_end=7825,
+  serialized_start=7795,
+  serialized_end=7860,
 )
 _sym_db.RegisterEnumDescriptor(_TESTRESULT)
 
@@ -111,8 +111,8 @@ _TESTRUNDIFFERENCE_DIFFTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2696,
-  serialized_end=2786,
+  serialized_start=2731,
+  serialized_end=2821,
 )
 _sym_db.RegisterEnumDescriptor(_TESTRUNDIFFERENCE_DIFFTYPE)
 
@@ -146,8 +146,8 @@ _CALCULATECOVERAGEREQUEST_COVERAGETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4317,
-  serialized_end=4423,
+  serialized_start=4352,
+  serialized_end=4458,
 )
 _sym_db.RegisterEnumDescriptor(_CALCULATECOVERAGEREQUEST_COVERAGETYPE)
 
@@ -176,8 +176,8 @@ _LISTTESTCASESREQUEST_TESTCASEVIEW = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4998,
-  serialized_end=5065,
+  serialized_start=5033,
+  serialized_end=5100,
 )
 _sym_db.RegisterEnumDescriptor(_LISTTESTCASESREQUEST_TESTCASEVIEW)
 
@@ -206,8 +206,8 @@ _EXPORTTESTCASESREQUEST_DATAFORMAT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7195,
-  serialized_end=7256,
+  serialized_start=7230,
+  serialized_end=7291,
 )
 _sym_db.RegisterEnumDescriptor(_EXPORTTESTCASESREQUEST_DATAFORMAT)
 
@@ -421,6 +421,13 @@ _CONVERSATIONTURN_USERINPUT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='enable_sentiment_analysis', full_name='google.cloud.dialogflow.cx.v3beta1.ConversationTurn.UserInput.enable_sentiment_analysis', index=3,
+      number=7, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -434,7 +441,7 @@ _CONVERSATIONTURN_USERINPUT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1950,
-  serialized_end=2106,
+  serialized_end=2141,
 )
 
 _CONVERSATIONTURN_VIRTUALAGENTOUTPUT = _descriptor.Descriptor(
@@ -506,8 +513,8 @@ _CONVERSATIONTURN_VIRTUALAGENTOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2109,
-  serialized_end=2573,
+  serialized_start=2144,
+  serialized_end=2608,
 )
 
 _CONVERSATIONTURN = _descriptor.Descriptor(
@@ -545,7 +552,7 @@ _CONVERSATIONTURN = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1742,
-  serialized_end=2573,
+  serialized_end=2608,
 )
 
 
@@ -584,8 +591,8 @@ _TESTRUNDIFFERENCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2576,
-  serialized_end=2786,
+  serialized_start=2611,
+  serialized_end=2821,
 )
 
 
@@ -628,8 +635,8 @@ _TRANSITIONCOVERAGE_TRANSITIONNODE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2924,
-  serialized_end=3064,
+  serialized_start=2959,
+  serialized_end=3099,
 )
 
 _TRANSITIONCOVERAGE_TRANSITION = _descriptor.Descriptor(
@@ -699,8 +706,8 @@ _TRANSITIONCOVERAGE_TRANSITION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3067,
-  serialized_end=3451,
+  serialized_start=3102,
+  serialized_end=3486,
 )
 
 _TRANSITIONCOVERAGE = _descriptor.Descriptor(
@@ -737,8 +744,8 @@ _TRANSITIONCOVERAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2789,
-  serialized_end=3451,
+  serialized_start=2824,
+  serialized_end=3486,
 )
 
 
@@ -776,8 +783,8 @@ _TRANSITIONROUTEGROUPCOVERAGE_COVERAGE_TRANSITION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3827,
-  serialized_end=3935,
+  serialized_start=3862,
+  serialized_end=3970,
 )
 
 _TRANSITIONROUTEGROUPCOVERAGE_COVERAGE = _descriptor.Descriptor(
@@ -821,8 +828,8 @@ _TRANSITIONROUTEGROUPCOVERAGE_COVERAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3605,
-  serialized_end=3935,
+  serialized_start=3640,
+  serialized_end=3970,
 )
 
 _TRANSITIONROUTEGROUPCOVERAGE = _descriptor.Descriptor(
@@ -859,8 +866,8 @@ _TRANSITIONROUTEGROUPCOVERAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3454,
-  serialized_end=3935,
+  serialized_start=3489,
+  serialized_end=3970,
 )
 
 
@@ -898,8 +905,8 @@ _INTENTCOVERAGE_INTENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4056,
-  serialized_end=4136,
+  serialized_start=4091,
+  serialized_end=4171,
 )
 
 _INTENTCOVERAGE = _descriptor.Descriptor(
@@ -936,8 +943,8 @@ _INTENTCOVERAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3938,
-  serialized_end=4136,
+  serialized_start=3973,
+  serialized_end=4171,
 )
 
 
@@ -976,8 +983,8 @@ _CALCULATECOVERAGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4139,
-  serialized_end=4423,
+  serialized_start=4174,
+  serialized_end=4458,
 )
 
 
@@ -1034,8 +1041,8 @@ _CALCULATECOVERAGERESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4426,
-  serialized_end=4787,
+  serialized_start=4461,
+  serialized_end=4822,
 )
 
 
@@ -1088,8 +1095,8 @@ _LISTTESTCASESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4790,
-  serialized_end=5065,
+  serialized_start=4825,
+  serialized_end=5100,
 )
 
 
@@ -1127,8 +1134,8 @@ _LISTTESTCASESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5067,
-  serialized_end=5181,
+  serialized_start=5102,
+  serialized_end=5216,
 )
 
 
@@ -1166,8 +1173,8 @@ _BATCHDELETETESTCASESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5184,
-  serialized_end=5332,
+  serialized_start=5219,
+  serialized_end=5367,
 )
 
 
@@ -1205,8 +1212,8 @@ _CREATETESTCASEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5335,
-  serialized_end=5488,
+  serialized_start=5370,
+  serialized_end=5523,
 )
 
 
@@ -1244,8 +1251,8 @@ _UPDATETESTCASEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5491,
-  serialized_end=5638,
+  serialized_start=5526,
+  serialized_end=5673,
 )
 
 
@@ -1276,8 +1283,8 @@ _GETTESTCASEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5640,
-  serialized_end=5718,
+  serialized_start=5675,
+  serialized_end=5753,
 )
 
 
@@ -1315,8 +1322,8 @@ _RUNTESTCASEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5721,
-  serialized_end=5867,
+  serialized_start=5756,
+  serialized_end=5902,
 )
 
 
@@ -1347,8 +1354,8 @@ _RUNTESTCASERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5869,
-  serialized_end=5958,
+  serialized_start=5904,
+  serialized_end=5993,
 )
 
 
@@ -1372,8 +1379,8 @@ _RUNTESTCASEMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5960,
-  serialized_end=5981,
+  serialized_start=5995,
+  serialized_end=6016,
 )
 
 
@@ -1418,8 +1425,8 @@ _BATCHRUNTESTCASESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5984,
-  serialized_end=6202,
+  serialized_start=6019,
+  serialized_end=6237,
 )
 
 
@@ -1450,8 +1457,8 @@ _BATCHRUNTESTCASESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6204,
-  serialized_end=6300,
+  serialized_start=6239,
+  serialized_end=6335,
 )
 
 
@@ -1482,8 +1489,8 @@ _BATCHRUNTESTCASESMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6302,
-  serialized_end=6392,
+  serialized_start=6337,
+  serialized_end=6427,
 )
 
 
@@ -1528,8 +1535,8 @@ _TESTERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6395,
-  serialized_end=6549,
+  serialized_start=6430,
+  serialized_end=6584,
 )
 
 
@@ -1579,8 +1586,8 @@ _IMPORTTESTCASESREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=6552,
-  serialized_end=6684,
+  serialized_start=6587,
+  serialized_end=6719,
 )
 
 
@@ -1611,8 +1618,8 @@ _IMPORTTESTCASESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6686,
-  serialized_end=6767,
+  serialized_start=6721,
+  serialized_end=6802,
 )
 
 
@@ -1643,8 +1650,8 @@ _IMPORTTESTCASESMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6769,
-  serialized_end=6861,
+  serialized_start=6804,
+  serialized_end=6896,
 )
 
 
@@ -1682,8 +1689,8 @@ _TESTCASEERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6863,
-  serialized_end=6979,
+  serialized_start=6898,
+  serialized_end=7014,
 )
 
 
@@ -1741,8 +1748,8 @@ _EXPORTTESTCASESREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=6982,
-  serialized_end=7271,
+  serialized_start=7017,
+  serialized_end=7306,
 )
 
 
@@ -1785,8 +1792,8 @@ _EXPORTTESTCASESRESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=7273,
-  serialized_end=7351,
+  serialized_start=7308,
+  serialized_end=7386,
 )
 
 
@@ -1810,8 +1817,8 @@ _EXPORTTESTCASESMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7353,
-  serialized_end=7378,
+  serialized_start=7388,
+  serialized_end=7413,
 )
 
 
@@ -1863,8 +1870,8 @@ _LISTTESTCASERESULTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7381,
-  serialized_end=7530,
+  serialized_start=7416,
+  serialized_end=7565,
 )
 
 
@@ -1902,8 +1909,8 @@ _LISTTESTCASERESULTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7533,
-  serialized_end=7666,
+  serialized_start=7568,
+  serialized_end=7701,
 )
 
 
@@ -1934,8 +1941,8 @@ _GETTESTCASERESULTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7668,
-  serialized_end=7758,
+  serialized_start=7703,
+  serialized_end=7793,
 )
 
 _TESTCASE.fields_by_name['test_config'].message_type = _TESTCONFIG
@@ -2399,8 +2406,8 @@ _TESTCASES = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=7828,
-  serialized_end=10698,
+  serialized_start=7863,
+  serialized_end=10733,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListTestCases',

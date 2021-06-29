@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\024AcceleratorTypeProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n6google/cloud/aiplatform/v1beta1/accelerator_type.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1cgoogle/api/annotations.proto*\xa1\x01\n\x0f\x41\x63\x63\x65leratorType\x12 \n\x1c\x41\x43\x43\x45LERATOR_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10NVIDIA_TESLA_K80\x10\x01\x12\x15\n\x11NVIDIA_TESLA_P100\x10\x02\x12\x15\n\x11NVIDIA_TESLA_V100\x10\x03\x12\x13\n\x0fNVIDIA_TESLA_P4\x10\x04\x12\x13\n\x0fNVIDIA_TESLA_T4\x10\x05\x42\x88\x01\n#com.google.cloud.aiplatform.v1beta1B\x14\x41\x63\x63\x65leratorTypeProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n6google/cloud/aiplatform/v1beta1/accelerator_type.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1cgoogle/api/annotations.proto*\xb8\x01\n\x0f\x41\x63\x63\x65leratorType\x12 \n\x1c\x41\x43\x43\x45LERATOR_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10NVIDIA_TESLA_K80\x10\x01\x12\x15\n\x11NVIDIA_TESLA_P100\x10\x02\x12\x15\n\x11NVIDIA_TESLA_V100\x10\x03\x12\x13\n\x0fNVIDIA_TESLA_P4\x10\x04\x12\x13\n\x0fNVIDIA_TESLA_T4\x10\x05\x12\x15\n\x11NVIDIA_TESLA_A100\x10\x08\x42\x88\x01\n#com.google.cloud.aiplatform.v1beta1B\x14\x41\x63\x63\x65leratorTypeProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -62,11 +62,16 @@ _ACCELERATORTYPE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='NVIDIA_TESLA_A100', index=6, number=8,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=122,
-  serialized_end=283,
+  serialized_end=306,
 )
 _sym_db.RegisterEnumDescriptor(_ACCELERATORTYPE)
 
@@ -77,6 +82,7 @@ NVIDIA_TESLA_P100 = 2
 NVIDIA_TESLA_V100 = 3
 NVIDIA_TESLA_P4 = 4
 NVIDIA_TESLA_T4 = 5
+NVIDIA_TESLA_A100 = 8
 
 
 DESCRIPTOR.enum_types_by_name['AcceleratorType'] = _ACCELERATORTYPE

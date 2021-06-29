@@ -31,7 +31,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\'io.envoyproxy.envoy.config.core.v4alphaB\tBaseProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n$envoy/config/core/v4alpha/base.proto\x12\x19\x65nvoy.config.core.v4alpha\x1a\'envoy/config/core/v4alpha/backoff.proto\x1a(envoy/config/core/v4alpha/http_uri.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a$envoy/type/v3/semantic_version.proto\x1a\x19google/protobuf/any.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a xds/core/v3/context_params.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"`\n\x08Locality\x12\x0e\n\x06region\x18\x01 \x01(\t\x12\x0c\n\x04zone\x18\x02 \x01(\t\x12\x10\n\x08sub_zone\x18\x03 \x01(\t:$\x9a\xc5\x88\x1e\x1f\n\x1d\x65nvoy.config.core.v3.Locality\"\x94\x01\n\x0c\x42uildVersion\x12/\n\x07version\x18\x01 \x01(\x0b\x32\x1e.envoy.type.v3.SemanticVersion\x12)\n\x08metadata\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct:(\x9a\xc5\x88\x1e#\n!envoy.config.core.v3.BuildVersion\"\xb7\x01\n\tExtension\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\t\x12\x17\n\x0ftype_descriptor\x18\x03 \x01(\t\x12\x38\n\x07version\x18\x04 \x01(\x0b\x32\'.envoy.config.core.v4alpha.BuildVersion\x12\x10\n\x08\x64isabled\x18\x05 \x01(\x08:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.config.core.v3.Extension\"\xf3\x04\n\x04Node\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x63luster\x18\x02 \x01(\t\x12)\n\x08metadata\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\x12R\n\x12\x64ynamic_parameters\x18\x0c \x03(\x0b\x32\x36.envoy.config.core.v4alpha.Node.DynamicParametersEntry\x12\x35\n\x08locality\x18\x04 \x01(\x0b\x32#.envoy.config.core.v4alpha.Locality\x12\x17\n\x0fuser_agent_name\x18\x06 \x01(\t\x12\x1c\n\x12user_agent_version\x18\x07 \x01(\tH\x00\x12K\n\x18user_agent_build_version\x18\x08 \x01(\x0b\x32\'.envoy.config.core.v4alpha.BuildVersionH\x00\x12\x38\n\nextensions\x18\t \x03(\x0b\x32$.envoy.config.core.v4alpha.Extension\x12\x17\n\x0f\x63lient_features\x18\n \x03(\t\x1aT\n\x16\x44ynamicParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12)\n\x05value\x18\x02 \x01(\x0b\x32\x1a.xds.core.v3.ContextParams:\x02\x38\x01: \x9a\xc5\x88\x1e\x1b\n\x19\x65nvoy.config.core.v3.NodeB\x19\n\x17user_agent_version_typeJ\x04\x08\x05\x10\x06J\x04\x08\x0b\x10\x0cR\rbuild_versionR\x13listening_addresses\"\xd2\x01\n\x08Metadata\x12P\n\x0f\x66ilter_metadata\x18\x01 \x03(\x0b\x32\x37.envoy.config.core.v4alpha.Metadata.FilterMetadataEntry\x1aN\n\x13\x46ilterMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12&\n\x05value\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct:\x02\x38\x01:$\x9a\xc5\x88\x1e\x1f\n\x1d\x65nvoy.config.core.v3.Metadata\"o\n\rRuntimeUInt32\x12\x15\n\rdefault_value\x18\x02 \x01(\r\x12\x1c\n\x0bruntime_key\x18\x03 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:)\x9a\xc5\x88\x1e$\n\"envoy.config.core.v3.RuntimeUInt32\"\x89\x01\n\x0eRuntimePercent\x12-\n\rdefault_value\x18\x01 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x1c\n\x0bruntime_key\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:*\x9a\xc5\x88\x1e%\n#envoy.config.core.v3.RuntimePercent\"o\n\rRuntimeDouble\x12\x15\n\rdefault_value\x18\x01 \x01(\x01\x12\x1c\n\x0bruntime_key\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:)\x9a\xc5\x88\x1e$\n\"envoy.config.core.v3.RuntimeDouble\"\x9f\x01\n\x12RuntimeFeatureFlag\x12;\n\rdefault_value\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x1c\n\x0bruntime_key\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:.\x9a\xc5\x88\x1e)\n\'envoy.config.core.v3.RuntimeFeatureFlag\"v\n\x0bHeaderValue\x12\x1e\n\x03key\x18\x01 \x01(\tB\x11\xfa\x42\x0er\x0c\x10\x01(\x80\x80\x01\xc0\x01\x01\xc8\x01\x00\x12\x1e\n\x05value\x18\x02 \x01(\tB\x0f\xfa\x42\x0cr\n(\x80\x80\x01\xc0\x01\x02\xc8\x01\x00:\'\x9a\xc5\x88\x1e\"\n envoy.config.core.v3.HeaderValue\"\xb0\x01\n\x11HeaderValueOption\x12@\n\x06header\x18\x01 \x01(\x0b\x32&.envoy.config.core.v4alpha.HeaderValueB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12*\n\x06\x61ppend\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:-\x9a\xc5\x88\x1e(\n&envoy.config.core.v3.HeaderValueOption\"k\n\tHeaderMap\x12\x37\n\x07headers\x18\x01 \x03(\x0b\x32&.envoy.config.core.v4alpha.HeaderValue:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.config.core.v3.HeaderMap\"W\n\x10WatchedDirectory\x12\x15\n\x04path\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:,\x9a\xc5\x88\x1e\'\n%envoy.config.core.v3.WatchedDirectory\"\x94\x01\n\nDataSource\x12\x1b\n\x08\x66ilename\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\x16\n\x0cinline_bytes\x18\x02 \x01(\x0cH\x00\x12\x17\n\rinline_string\x18\x03 \x01(\tH\x00:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.core.v3.DataSourceB\x10\n\tspecifier\x12\x03\xf8\x42\x01\"\xad\x01\n\x0bRetryPolicy\x12\x42\n\x0eretry_back_off\x18\x01 \x01(\x0b\x32*.envoy.config.core.v4alpha.BackoffStrategy\x12\x31\n\x0bmax_retries\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value:\'\x9a\xc5\x88\x1e\"\n envoy.config.core.v3.RetryPolicy\"\xd7\x01\n\x10RemoteDataSource\x12>\n\x08http_uri\x18\x01 \x01(\x0b\x32\".envoy.config.core.v4alpha.HttpUriB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x17\n\x06sha256\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12<\n\x0cretry_policy\x18\x03 \x01(\x0b\x32&.envoy.config.core.v4alpha.RetryPolicy:,\x9a\xc5\x88\x1e\'\n%envoy.config.core.v3.RemoteDataSource\"\xc7\x01\n\x0f\x41syncDataSource\x12\x36\n\x05local\x18\x01 \x01(\x0b\x32%.envoy.config.core.v4alpha.DataSourceH\x00\x12=\n\x06remote\x18\x02 \x01(\x0b\x32+.envoy.config.core.v4alpha.RemoteDataSourceH\x00:+\x9a\xc5\x88\x1e&\n$envoy.config.core.v3.AsyncDataSourceB\x10\n\tspecifier\x12\x03\xf8\x42\x01\"\xa0\x01\n\x0fTransportSocket\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:+\x9a\xc5\x88\x1e&\n$envoy.config.core.v3.TransportSocketB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\"\xa8\x01\n\x18RuntimeFractionalPercent\x12\x41\n\rdefault_value\x18\x01 \x01(\x0b\x32 .envoy.type.v3.FractionalPercentB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x13\n\x0bruntime_key\x18\x02 \x01(\t:4\x9a\xc5\x88\x1e/\n-envoy.config.core.v3.RuntimeFractionalPercent\"L\n\x0c\x43ontrolPlane\x12\x12\n\nidentifier\x18\x01 \x01(\t:(\x9a\xc5\x88\x1e#\n!envoy.config.core.v3.ControlPlane*(\n\x0fRoutingPriority\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x00\x12\x08\n\x04HIGH\x10\x01*\x89\x01\n\rRequestMethod\x12\x16\n\x12METHOD_UNSPECIFIED\x10\x00\x12\x07\n\x03GET\x10\x01\x12\x08\n\x04HEAD\x10\x02\x12\x08\n\x04POST\x10\x03\x12\x07\n\x03PUT\x10\x04\x12\n\n\x06\x44\x45LETE\x10\x05\x12\x0b\n\x07\x43ONNECT\x10\x06\x12\x0b\n\x07OPTIONS\x10\x07\x12\t\n\x05TRACE\x10\x08\x12\t\n\x05PATCH\x10\t*>\n\x10TrafficDirection\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07INBOUND\x10\x01\x12\x0c\n\x08OUTBOUND\x10\x02\x42>\n\'io.envoyproxy.envoy.config.core.v4alphaB\tBaseProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n$envoy/config/core/v4alpha/base.proto\x12\x19\x65nvoy.config.core.v4alpha\x1a\'envoy/config/core/v4alpha/backoff.proto\x1a(envoy/config/core/v4alpha/http_uri.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a$envoy/type/v3/semantic_version.proto\x1a\x19google/protobuf/any.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a xds/core/v3/context_params.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"`\n\x08Locality\x12\x0e\n\x06region\x18\x01 \x01(\t\x12\x0c\n\x04zone\x18\x02 \x01(\t\x12\x10\n\x08sub_zone\x18\x03 \x01(\t:$\x9a\xc5\x88\x1e\x1f\n\x1d\x65nvoy.config.core.v3.Locality\"\x94\x01\n\x0c\x42uildVersion\x12/\n\x07version\x18\x01 \x01(\x0b\x32\x1e.envoy.type.v3.SemanticVersion\x12)\n\x08metadata\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct:(\x9a\xc5\x88\x1e#\n!envoy.config.core.v3.BuildVersion\"\xb7\x01\n\tExtension\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\t\x12\x17\n\x0ftype_descriptor\x18\x03 \x01(\t\x12\x38\n\x07version\x18\x04 \x01(\x0b\x32\'.envoy.config.core.v4alpha.BuildVersion\x12\x10\n\x08\x64isabled\x18\x05 \x01(\x08:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.config.core.v3.Extension\"\xf3\x04\n\x04Node\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07\x63luster\x18\x02 \x01(\t\x12)\n\x08metadata\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\x12R\n\x12\x64ynamic_parameters\x18\x0c \x03(\x0b\x32\x36.envoy.config.core.v4alpha.Node.DynamicParametersEntry\x12\x35\n\x08locality\x18\x04 \x01(\x0b\x32#.envoy.config.core.v4alpha.Locality\x12\x17\n\x0fuser_agent_name\x18\x06 \x01(\t\x12\x1c\n\x12user_agent_version\x18\x07 \x01(\tH\x00\x12K\n\x18user_agent_build_version\x18\x08 \x01(\x0b\x32\'.envoy.config.core.v4alpha.BuildVersionH\x00\x12\x38\n\nextensions\x18\t \x03(\x0b\x32$.envoy.config.core.v4alpha.Extension\x12\x17\n\x0f\x63lient_features\x18\n \x03(\t\x1aT\n\x16\x44ynamicParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12)\n\x05value\x18\x02 \x01(\x0b\x32\x1a.xds.core.v3.ContextParams:\x02\x38\x01: \x9a\xc5\x88\x1e\x1b\n\x19\x65nvoy.config.core.v3.NodeB\x19\n\x17user_agent_version_typeJ\x04\x08\x05\x10\x06J\x04\x08\x0b\x10\x0cR\rbuild_versionR\x13listening_addresses\"\x81\x03\n\x08Metadata\x12P\n\x0f\x66ilter_metadata\x18\x01 \x03(\x0b\x32\x37.envoy.config.core.v4alpha.Metadata.FilterMetadataEntry\x12[\n\x15typed_filter_metadata\x18\x02 \x03(\x0b\x32<.envoy.config.core.v4alpha.Metadata.TypedFilterMetadataEntry\x1aN\n\x13\x46ilterMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12&\n\x05value\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct:\x02\x38\x01\x1aP\n\x18TypedFilterMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01:$\x9a\xc5\x88\x1e\x1f\n\x1d\x65nvoy.config.core.v3.Metadata\"o\n\rRuntimeUInt32\x12\x15\n\rdefault_value\x18\x02 \x01(\r\x12\x1c\n\x0bruntime_key\x18\x03 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:)\x9a\xc5\x88\x1e$\n\"envoy.config.core.v3.RuntimeUInt32\"\x89\x01\n\x0eRuntimePercent\x12-\n\rdefault_value\x18\x01 \x01(\x0b\x32\x16.envoy.type.v3.Percent\x12\x1c\n\x0bruntime_key\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:*\x9a\xc5\x88\x1e%\n#envoy.config.core.v3.RuntimePercent\"o\n\rRuntimeDouble\x12\x15\n\rdefault_value\x18\x01 \x01(\x01\x12\x1c\n\x0bruntime_key\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:)\x9a\xc5\x88\x1e$\n\"envoy.config.core.v3.RuntimeDouble\"\x9f\x01\n\x12RuntimeFeatureFlag\x12;\n\rdefault_value\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x1c\n\x0bruntime_key\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:.\x9a\xc5\x88\x1e)\n\'envoy.config.core.v3.RuntimeFeatureFlag\"v\n\x0bHeaderValue\x12\x1e\n\x03key\x18\x01 \x01(\tB\x11\xfa\x42\x0er\x0c\x10\x01(\x80\x80\x01\xc0\x01\x01\xc8\x01\x00\x12\x1e\n\x05value\x18\x02 \x01(\tB\x0f\xfa\x42\x0cr\n(\x80\x80\x01\xc0\x01\x02\xc8\x01\x00:\'\x9a\xc5\x88\x1e\"\n envoy.config.core.v3.HeaderValue\"\xb0\x01\n\x11HeaderValueOption\x12@\n\x06header\x18\x01 \x01(\x0b\x32&.envoy.config.core.v4alpha.HeaderValueB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12*\n\x06\x61ppend\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:-\x9a\xc5\x88\x1e(\n&envoy.config.core.v3.HeaderValueOption\"k\n\tHeaderMap\x12\x37\n\x07headers\x18\x01 \x03(\x0b\x32&.envoy.config.core.v4alpha.HeaderValue:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.config.core.v3.HeaderMap\"W\n\x10WatchedDirectory\x12\x15\n\x04path\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:,\x9a\xc5\x88\x1e\'\n%envoy.config.core.v3.WatchedDirectory\"\x94\x01\n\nDataSource\x12\x1b\n\x08\x66ilename\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12\x16\n\x0cinline_bytes\x18\x02 \x01(\x0cH\x00\x12\x17\n\rinline_string\x18\x03 \x01(\tH\x00:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.core.v3.DataSourceB\x10\n\tspecifier\x12\x03\xf8\x42\x01\"\xad\x01\n\x0bRetryPolicy\x12\x42\n\x0eretry_back_off\x18\x01 \x01(\x0b\x32*.envoy.config.core.v4alpha.BackoffStrategy\x12\x31\n\x0bmax_retries\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value:\'\x9a\xc5\x88\x1e\"\n envoy.config.core.v3.RetryPolicy\"\xd7\x01\n\x10RemoteDataSource\x12>\n\x08http_uri\x18\x01 \x01(\x0b\x32\".envoy.config.core.v4alpha.HttpUriB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x17\n\x06sha256\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12<\n\x0cretry_policy\x18\x03 \x01(\x0b\x32&.envoy.config.core.v4alpha.RetryPolicy:,\x9a\xc5\x88\x1e\'\n%envoy.config.core.v3.RemoteDataSource\"\xc7\x01\n\x0f\x41syncDataSource\x12\x36\n\x05local\x18\x01 \x01(\x0b\x32%.envoy.config.core.v4alpha.DataSourceH\x00\x12=\n\x06remote\x18\x02 \x01(\x0b\x32+.envoy.config.core.v4alpha.RemoteDataSourceH\x00:+\x9a\xc5\x88\x1e&\n$envoy.config.core.v3.AsyncDataSourceB\x10\n\tspecifier\x12\x03\xf8\x42\x01\"\xa0\x01\n\x0fTransportSocket\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:+\x9a\xc5\x88\x1e&\n$envoy.config.core.v3.TransportSocketB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\"\xa8\x01\n\x18RuntimeFractionalPercent\x12\x41\n\rdefault_value\x18\x01 \x01(\x0b\x32 .envoy.type.v3.FractionalPercentB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x13\n\x0bruntime_key\x18\x02 \x01(\t:4\x9a\xc5\x88\x1e/\n-envoy.config.core.v3.RuntimeFractionalPercent\"L\n\x0c\x43ontrolPlane\x12\x12\n\nidentifier\x18\x01 \x01(\t:(\x9a\xc5\x88\x1e#\n!envoy.config.core.v3.ControlPlane*(\n\x0fRoutingPriority\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x00\x12\x08\n\x04HIGH\x10\x01*\x89\x01\n\rRequestMethod\x12\x16\n\x12METHOD_UNSPECIFIED\x10\x00\x12\x07\n\x03GET\x10\x01\x12\x08\n\x04HEAD\x10\x02\x12\x08\n\x04POST\x10\x03\x12\x07\n\x03PUT\x10\x04\x12\n\n\x06\x44\x45LETE\x10\x05\x12\x0b\n\x07\x43ONNECT\x10\x06\x12\x0b\n\x07OPTIONS\x10\x07\x12\t\n\x05TRACE\x10\x08\x12\t\n\x05PATCH\x10\t*>\n\x10TrafficDirection\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07INBOUND\x10\x01\x12\x0c\n\x08OUTBOUND\x10\x02\x42>\n\'io.envoyproxy.envoy.config.core.v4alphaB\tBaseProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v4alpha_dot_backoff__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_http__uri__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_semantic__version__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,xds_dot_core_dot_v3_dot_context__params__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -55,8 +55,8 @@ _ROUTINGPRIORITY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3893,
-  serialized_end=3933,
+  serialized_start=4068,
+  serialized_end=4108,
 )
 _sym_db.RegisterEnumDescriptor(_ROUTINGPRIORITY)
 
@@ -121,8 +121,8 @@ _REQUESTMETHOD = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3936,
-  serialized_end=4073,
+  serialized_start=4111,
+  serialized_end=4248,
 )
 _sym_db.RegisterEnumDescriptor(_REQUESTMETHOD)
 
@@ -152,8 +152,8 @@ _TRAFFICDIRECTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4075,
-  serialized_end=4137,
+  serialized_start=4250,
+  serialized_end=4312,
 )
 _sym_db.RegisterEnumDescriptor(_TRAFFICDIRECTION)
 
@@ -493,8 +493,46 @@ _METADATA_FILTERMETADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1591,
-  serialized_end=1669,
+  serialized_start=1684,
+  serialized_end=1762,
+)
+
+_METADATA_TYPEDFILTERMETADATAENTRY = _descriptor.Descriptor(
+  name='TypedFilterMetadataEntry',
+  full_name='envoy.config.core.v4alpha.Metadata.TypedFilterMetadataEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='envoy.config.core.v4alpha.Metadata.TypedFilterMetadataEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='envoy.config.core.v4alpha.Metadata.TypedFilterMetadataEntry.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1764,
+  serialized_end=1844,
 )
 
 _METADATA = _descriptor.Descriptor(
@@ -512,10 +550,17 @@ _METADATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='typed_filter_metadata', full_name='envoy.config.core.v4alpha.Metadata.typed_filter_metadata', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_METADATA_FILTERMETADATAENTRY, ],
+  nested_types=[_METADATA_FILTERMETADATAENTRY, _METADATA_TYPEDFILTERMETADATAENTRY, ],
   enum_types=[
   ],
   serialized_options=b'\232\305\210\036\037\n\035envoy.config.core.v3.Metadata',
@@ -525,7 +570,7 @@ _METADATA = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1497,
-  serialized_end=1707,
+  serialized_end=1882,
 )
 
 
@@ -563,8 +608,8 @@ _RUNTIMEUINT32 = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1709,
-  serialized_end=1820,
+  serialized_start=1884,
+  serialized_end=1995,
 )
 
 
@@ -602,8 +647,8 @@ _RUNTIMEPERCENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1823,
-  serialized_end=1960,
+  serialized_start=1998,
+  serialized_end=2135,
 )
 
 
@@ -641,8 +686,8 @@ _RUNTIMEDOUBLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1962,
-  serialized_end=2073,
+  serialized_start=2137,
+  serialized_end=2248,
 )
 
 
@@ -680,8 +725,8 @@ _RUNTIMEFEATUREFLAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2076,
-  serialized_end=2235,
+  serialized_start=2251,
+  serialized_end=2410,
 )
 
 
@@ -719,8 +764,8 @@ _HEADERVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2237,
-  serialized_end=2355,
+  serialized_start=2412,
+  serialized_end=2530,
 )
 
 
@@ -758,8 +803,8 @@ _HEADERVALUEOPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2358,
-  serialized_end=2534,
+  serialized_start=2533,
+  serialized_end=2709,
 )
 
 
@@ -790,8 +835,8 @@ _HEADERMAP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2536,
-  serialized_end=2643,
+  serialized_start=2711,
+  serialized_end=2818,
 )
 
 
@@ -822,8 +867,8 @@ _WATCHEDDIRECTORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2645,
-  serialized_end=2732,
+  serialized_start=2820,
+  serialized_end=2907,
 )
 
 
@@ -873,8 +918,8 @@ _DATASOURCE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=2735,
-  serialized_end=2883,
+  serialized_start=2910,
+  serialized_end=3058,
 )
 
 
@@ -912,8 +957,8 @@ _RETRYPOLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2886,
-  serialized_end=3059,
+  serialized_start=3061,
+  serialized_end=3234,
 )
 
 
@@ -958,8 +1003,8 @@ _REMOTEDATASOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3062,
-  serialized_end=3277,
+  serialized_start=3237,
+  serialized_end=3452,
 )
 
 
@@ -1002,8 +1047,8 @@ _ASYNCDATASOURCE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=3280,
-  serialized_end=3479,
+  serialized_start=3455,
+  serialized_end=3654,
 )
 
 
@@ -1046,8 +1091,8 @@ _TRANSPORTSOCKET = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3482,
-  serialized_end=3642,
+  serialized_start=3657,
+  serialized_end=3817,
 )
 
 
@@ -1085,8 +1130,8 @@ _RUNTIMEFRACTIONALPERCENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3645,
-  serialized_end=3813,
+  serialized_start=3820,
+  serialized_end=3988,
 )
 
 
@@ -1117,8 +1162,8 @@ _CONTROLPLANE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3815,
-  serialized_end=3891,
+  serialized_start=3990,
+  serialized_end=4066,
 )
 
 _BUILDVERSION.fields_by_name['version'].message_type = envoy_dot_type_dot_v3_dot_semantic__version__pb2._SEMANTICVERSION
@@ -1139,7 +1184,10 @@ _NODE.oneofs_by_name['user_agent_version_type'].fields.append(
 _NODE.fields_by_name['user_agent_build_version'].containing_oneof = _NODE.oneofs_by_name['user_agent_version_type']
 _METADATA_FILTERMETADATAENTRY.fields_by_name['value'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
 _METADATA_FILTERMETADATAENTRY.containing_type = _METADATA
+_METADATA_TYPEDFILTERMETADATAENTRY.fields_by_name['value'].message_type = google_dot_protobuf_dot_any__pb2._ANY
+_METADATA_TYPEDFILTERMETADATAENTRY.containing_type = _METADATA
 _METADATA.fields_by_name['filter_metadata'].message_type = _METADATA_FILTERMETADATAENTRY
+_METADATA.fields_by_name['typed_filter_metadata'].message_type = _METADATA_TYPEDFILTERMETADATAENTRY
 _RUNTIMEPERCENT.fields_by_name['default_value'].message_type = envoy_dot_type_dot_v3_dot_percent__pb2._PERCENT
 _RUNTIMEFEATUREFLAG.fields_by_name['default_value'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _HEADERVALUEOPTION.fields_by_name['header'].message_type = _HEADERVALUE
@@ -1240,12 +1288,20 @@ Metadata = _reflection.GeneratedProtocolMessageType('Metadata', (_message.Messag
     # @@protoc_insertion_point(class_scope:envoy.config.core.v4alpha.Metadata.FilterMetadataEntry)
     })
   ,
+
+  'TypedFilterMetadataEntry' : _reflection.GeneratedProtocolMessageType('TypedFilterMetadataEntry', (_message.Message,), {
+    'DESCRIPTOR' : _METADATA_TYPEDFILTERMETADATAENTRY,
+    '__module__' : 'envoy.config.core.v4alpha.base_pb2'
+    # @@protoc_insertion_point(class_scope:envoy.config.core.v4alpha.Metadata.TypedFilterMetadataEntry)
+    })
+  ,
   'DESCRIPTOR' : _METADATA,
   '__module__' : 'envoy.config.core.v4alpha.base_pb2'
   # @@protoc_insertion_point(class_scope:envoy.config.core.v4alpha.Metadata)
   })
 _sym_db.RegisterMessage(Metadata)
 _sym_db.RegisterMessage(Metadata.FilterMetadataEntry)
+_sym_db.RegisterMessage(Metadata.TypedFilterMetadataEntry)
 
 RuntimeUInt32 = _reflection.GeneratedProtocolMessageType('RuntimeUInt32', (_message.Message,), {
   'DESCRIPTOR' : _RUNTIMEUINT32,
@@ -1360,6 +1416,7 @@ _EXTENSION._options = None
 _NODE_DYNAMICPARAMETERSENTRY._options = None
 _NODE._options = None
 _METADATA_FILTERMETADATAENTRY._options = None
+_METADATA_TYPEDFILTERMETADATAENTRY._options = None
 _METADATA._options = None
 _RUNTIMEUINT32.fields_by_name['runtime_key']._options = None
 _RUNTIMEUINT32._options = None

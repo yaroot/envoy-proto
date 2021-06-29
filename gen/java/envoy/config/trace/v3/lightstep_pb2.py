@@ -11,6 +11,8 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from envoy.config.core.v3 import base_pb2 as envoy_dot_config_dot_core_dot_v3_dot_base__pb2
+from envoy.annotations import deprecation_pb2 as envoy_dot_annotations_dot_deprecation__pb2
 from udpa.annotations import migrate_pb2 as udpa_dot_annotations_dot_migrate__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from udpa.annotations import versioning_pb2 as udpa_dot_annotations_dot_versioning__pb2
@@ -23,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n#io.envoyproxy.envoy.config.trace.v3B\016LightstepProtoP\001\362\230\376\217\005,\022*envoy.extensions.tracers.lightstep.v4alpha\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n%envoy/config/trace/v3/lightstep.proto\x12\x15\x65nvoy.config.trace.v3\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xb1\x02\n\x0fLightstepConfig\x12\"\n\x11\x63ollector_cluster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\"\n\x11\x61\x63\x63\x65ss_token_file\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12`\n\x11propagation_modes\x18\x03 \x03(\x0e\x32\x36.envoy.config.trace.v3.LightstepConfig.PropagationModeB\r\xfa\x42\n\x92\x01\x07\"\x05\x82\x01\x02\x10\x01\"F\n\x0fPropagationMode\x12\t\n\x05\x45NVOY\x10\x00\x12\r\n\tLIGHTSTEP\x10\x01\x12\x06\n\x02\x42\x33\x10\x02\x12\x11\n\rTRACE_CONTEXT\x10\x03:,\x9a\xc5\x88\x1e\'\n%envoy.config.trace.v2.LightstepConfigBq\n#io.envoyproxy.envoy.config.trace.v3B\x0eLightstepProtoP\x01\xf2\x98\xfe\x8f\x05,\x12*envoy.extensions.tracers.lightstep.v4alpha\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n%envoy/config/trace/v3/lightstep.proto\x12\x15\x65nvoy.config.trace.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xed\x02\n\x0fLightstepConfig\x12\"\n\x11\x63ollector_cluster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12&\n\x11\x61\x63\x63\x65ss_token_file\x18\x02 \x01(\tB\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12\x36\n\x0c\x61\x63\x63\x65ss_token\x18\x04 \x01(\x0b\x32 .envoy.config.core.v3.DataSource\x12`\n\x11propagation_modes\x18\x03 \x03(\x0e\x32\x36.envoy.config.trace.v3.LightstepConfig.PropagationModeB\r\xfa\x42\n\x92\x01\x07\"\x05\x82\x01\x02\x10\x01\"F\n\x0fPropagationMode\x12\t\n\x05\x45NVOY\x10\x00\x12\r\n\tLIGHTSTEP\x10\x01\x12\x06\n\x02\x42\x33\x10\x02\x12\x11\n\rTRACE_CONTEXT\x10\x03:,\x9a\xc5\x88\x1e\'\n%envoy.config.trace.v2.LightstepConfigBq\n#io.envoyproxy.envoy.config.trace.v3B\x0eLightstepProtoP\x01\xf2\x98\xfe\x8f\x05,\x12*envoy.extensions.tracers.lightstep.v4alpha\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[udpa_dot_annotations_dot_migrate__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_migrate__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -59,8 +61,8 @@ _LIGHTSTEPCONFIG_PROPAGATIONMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=377,
-  serialized_end=447,
+  serialized_start=507,
+  serialized_end=577,
 )
 _sym_db.RegisterEnumDescriptor(_LIGHTSTEPCONFIG_PROPAGATIONMODE)
 
@@ -86,9 +88,16 @@ _LIGHTSTEPCONFIG = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001\222\307\206\330\004\0033.0', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='propagation_modes', full_name='envoy.config.trace.v3.LightstepConfig.propagation_modes', index=2,
+      name='access_token', full_name='envoy.config.trace.v3.LightstepConfig.access_token', index=2,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='propagation_modes', full_name='envoy.config.trace.v3.LightstepConfig.propagation_modes', index=3,
       number=3, type=14, cpp_type=8, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -107,10 +116,11 @@ _LIGHTSTEPCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=188,
-  serialized_end=493,
+  serialized_start=258,
+  serialized_end=623,
 )
 
+_LIGHTSTEPCONFIG.fields_by_name['access_token'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._DATASOURCE
 _LIGHTSTEPCONFIG.fields_by_name['propagation_modes'].enum_type = _LIGHTSTEPCONFIG_PROPAGATIONMODE
 _LIGHTSTEPCONFIG_PROPAGATIONMODE.containing_type = _LIGHTSTEPCONFIG
 DESCRIPTOR.message_types_by_name['LightstepConfig'] = _LIGHTSTEPCONFIG

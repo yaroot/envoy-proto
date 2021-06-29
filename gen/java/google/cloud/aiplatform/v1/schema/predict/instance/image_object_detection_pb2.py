@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1/schema/predict/instance/image_object_detection.proto',
   package='google.cloud.aiplatform.v1.schema.predict.instance',
   syntax='proto3',
-  serialized_options=b'\n6com.google.cloud.aiplatform.v1.schema.predict.instanceB+ImageObjectDetectionPredictionInstanceProtoP\001ZZgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/instance;instance',
+  serialized_options=b'\n6com.google.cloud.aiplatform.v1.schema.predict.instanceB+ImageObjectDetectionPredictionInstanceProtoP\001ZZgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/instance;instance\252\0022Google.Cloud.AIPlatform.V1.Schema.Predict.Instance\312\0022Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Instance\352\0028Google::Cloud::AIPlatform::V1::Schema::Predict::Instance',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nOgoogle/cloud/aiplatform/v1/schema/predict/instance/image_object_detection.proto\x12\x32google.cloud.aiplatform.v1.schema.predict.instance\x1a\x1cgoogle/api/annotations.proto\"L\n&ImageObjectDetectionPredictionInstance\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\x12\x11\n\tmime_type\x18\x02 \x01(\tB\xc3\x01\n6com.google.cloud.aiplatform.v1.schema.predict.instanceB+ImageObjectDetectionPredictionInstanceProtoP\x01ZZgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/instance;instanceb\x06proto3'
+  serialized_pb=b'\nOgoogle/cloud/aiplatform/v1/schema/predict/instance/image_object_detection.proto\x12\x32google.cloud.aiplatform.v1.schema.predict.instance\x1a\x1cgoogle/api/annotations.proto\"L\n&ImageObjectDetectionPredictionInstance\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\t\x12\x11\n\tmime_type\x18\x02 \x01(\tB\xe8\x02\n6com.google.cloud.aiplatform.v1.schema.predict.instanceB+ImageObjectDetectionPredictionInstanceProtoP\x01ZZgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/instance;instance\xaa\x02\x32Google.Cloud.AIPlatform.V1.Schema.Predict.Instance\xca\x02\x32Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Instance\xea\x02\x38Google::Cloud::AIPlatform::V1::Schema::Predict::Instanceb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 

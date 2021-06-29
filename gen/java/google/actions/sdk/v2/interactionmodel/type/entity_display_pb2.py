@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/actions/sdk/v2/interactionmodel/type/entity_display.proto',
   package='google.actions.sdk.v2.interactionmodel.type',
   syntax='proto3',
-  serialized_options=b'\n/com.google.actions.sdk.v2.interactionmodel.typeB\022EntityDisplayProtoP\001ZOgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/type;type',
+  serialized_options=b'\n/com.google.actions.sdk.v2.interactionmodel.typeB\022EntityDisplayProtoP\001ZJgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/type',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n@google/actions/sdk/v2/interactionmodel/type/entity_display.proto\x12+google.actions.sdk.v2.interactionmodel.type\x1a\x1fgoogle/api/field_behavior.proto\"?\n\rEntityDisplay\x12\x17\n\nicon_title\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08icon_url\x18\x02 \x01(\tB\x03\xe0\x41\x02\x42\x98\x01\n/com.google.actions.sdk.v2.interactionmodel.typeB\x12\x45ntityDisplayProtoP\x01ZOgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/type;typeb\x06proto3'
+  serialized_pb=b'\n@google/actions/sdk/v2/interactionmodel/type/entity_display.proto\x12+google.actions.sdk.v2.interactionmodel.type\x1a\x1fgoogle/api/field_behavior.proto\"?\n\rEntityDisplay\x12\x17\n\nicon_title\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08icon_url\x18\x02 \x01(\tB\x03\xe0\x41\x02\x42\x93\x01\n/com.google.actions.sdk.v2.interactionmodel.typeB\x12\x45ntityDisplayProtoP\x01ZJgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/typeb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,])
 

@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!io.opentelemetry.proto.metrics.v1B\014MetricsProtoP\001Z?github.com/open-telemetry/opentelemetry-proto/gen/go/metrics/v1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,opentelemetry/proto/metrics/v1/metrics.proto\x12\x1eopentelemetry.proto.metrics.v1\x1a*opentelemetry/proto/common/v1/common.proto\x1a.opentelemetry/proto/resource/v1/resource.proto\"\xb6\x01\n\x0fResourceMetrics\x12;\n\x08resource\x18\x01 \x01(\x0b\x32).opentelemetry.proto.resource.v1.Resource\x12\x66\n\x1finstrumentation_library_metrics\x18\x02 \x03(\x0b\x32=.opentelemetry.proto.metrics.v1.InstrumentationLibraryMetrics\"\xb0\x01\n\x1dInstrumentationLibraryMetrics\x12V\n\x17instrumentation_library\x18\x01 \x01(\x0b\x32\x35.opentelemetry.proto.common.v1.InstrumentationLibrary\x12\x37\n\x07metrics\x18\x02 \x03(\x0b\x32&.opentelemetry.proto.metrics.v1.Metric\"\xf6\x03\n\x06Metric\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x03 \x01(\t\x12\x41\n\tint_gauge\x18\x04 \x01(\x0b\x32(.opentelemetry.proto.metrics.v1.IntGaugeB\x02\x18\x01H\x00\x12\x36\n\x05gauge\x18\x05 \x01(\x0b\x32%.opentelemetry.proto.metrics.v1.GaugeH\x00\x12=\n\x07int_sum\x18\x06 \x01(\x0b\x32&.opentelemetry.proto.metrics.v1.IntSumB\x02\x18\x01H\x00\x12\x32\n\x03sum\x18\x07 \x01(\x0b\x32#.opentelemetry.proto.metrics.v1.SumH\x00\x12I\n\rint_histogram\x18\x08 \x01(\x0b\x32,.opentelemetry.proto.metrics.v1.IntHistogramB\x02\x18\x01H\x00\x12>\n\thistogram\x18\t \x01(\x0b\x32).opentelemetry.proto.metrics.v1.HistogramH\x00\x12:\n\x07summary\x18\x0b \x01(\x0b\x32\'.opentelemetry.proto.metrics.v1.SummaryH\x00\x42\x06\n\x04\x64\x61ta\"Q\n\x08IntGauge\x12\x41\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32,.opentelemetry.proto.metrics.v1.IntDataPoint:\x02\x18\x01\"M\n\x05Gauge\x12\x44\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32/.opentelemetry.proto.metrics.v1.NumberDataPoint\"\xbe\x01\n\x06IntSum\x12\x41\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32,.opentelemetry.proto.metrics.v1.IntDataPoint\x12W\n\x17\x61ggregation_temporality\x18\x02 \x01(\x0e\x32\x36.opentelemetry.proto.metrics.v1.AggregationTemporality\x12\x14\n\x0cis_monotonic\x18\x03 \x01(\x08:\x02\x18\x01\"\xba\x01\n\x03Sum\x12\x44\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32/.opentelemetry.proto.metrics.v1.NumberDataPoint\x12W\n\x17\x61ggregation_temporality\x18\x02 \x01(\x0e\x32\x36.opentelemetry.proto.metrics.v1.AggregationTemporality\x12\x14\n\x0cis_monotonic\x18\x03 \x01(\x08\"\xb7\x01\n\x0cIntHistogram\x12J\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32\x35.opentelemetry.proto.metrics.v1.IntHistogramDataPoint\x12W\n\x17\x61ggregation_temporality\x18\x02 \x01(\x0e\x32\x36.opentelemetry.proto.metrics.v1.AggregationTemporality:\x02\x18\x01\"\xad\x01\n\tHistogram\x12G\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32\x32.opentelemetry.proto.metrics.v1.HistogramDataPoint\x12W\n\x17\x61ggregation_temporality\x18\x02 \x01(\x0e\x32\x36.opentelemetry.proto.metrics.v1.AggregationTemporality\"P\n\x07Summary\x12\x45\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32\x30.opentelemetry.proto.metrics.v1.SummaryDataPoint\"\xd6\x01\n\x0cIntDataPoint\x12=\n\x06labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValue\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\r\n\x05value\x18\x04 \x01(\x10\x12>\n\texemplars\x18\x05 \x03(\x0b\x32+.opentelemetry.proto.metrics.v1.IntExemplar:\x02\x18\x01\"\xf3\x01\n\x0fNumberDataPoint\x12=\n\x06labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValue\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\x13\n\tas_double\x18\x04 \x01(\x01H\x00\x12\x10\n\x06\x61s_int\x18\x06 \x01(\x10H\x00\x12;\n\texemplars\x18\x05 \x03(\x0b\x32(.opentelemetry.proto.metrics.v1.ExemplarB\x07\n\x05value\"\x9c\x02\n\x15IntHistogramDataPoint\x12=\n\x06labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValue\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\r\n\x05\x63ount\x18\x04 \x01(\x06\x12\x0b\n\x03sum\x18\x05 \x01(\x10\x12\x15\n\rbucket_counts\x18\x06 \x03(\x06\x12\x17\n\x0f\x65xplicit_bounds\x18\x07 \x03(\x01\x12>\n\texemplars\x18\x08 \x03(\x0b\x32+.opentelemetry.proto.metrics.v1.IntExemplar:\x02\x18\x01\"\x92\x02\n\x12HistogramDataPoint\x12=\n\x06labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValue\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\r\n\x05\x63ount\x18\x04 \x01(\x06\x12\x0b\n\x03sum\x18\x05 \x01(\x01\x12\x15\n\rbucket_counts\x18\x06 \x03(\x06\x12\x17\n\x0f\x65xplicit_bounds\x18\x07 \x03(\x01\x12;\n\texemplars\x18\x08 \x03(\x0b\x32(.opentelemetry.proto.metrics.v1.Exemplar\"\xb2\x02\n\x10SummaryDataPoint\x12=\n\x06labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValue\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\r\n\x05\x63ount\x18\x04 \x01(\x06\x12\x0b\n\x03sum\x18\x05 \x01(\x01\x12Y\n\x0fquantile_values\x18\x06 \x03(\x0b\x32@.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile\x1a\x32\n\x0fValueAtQuantile\x12\x10\n\x08quantile\x18\x01 \x01(\x01\x12\r\n\x05value\x18\x02 \x01(\x01\"\xa3\x01\n\x0bIntExemplar\x12\x46\n\x0f\x66iltered_labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValue\x12\x16\n\x0etime_unix_nano\x18\x02 \x01(\x06\x12\r\n\x05value\x18\x03 \x01(\x10\x12\x0f\n\x07span_id\x18\x04 \x01(\x0c\x12\x10\n\x08trace_id\x18\x05 \x01(\x0c:\x02\x18\x01\"\xbd\x01\n\x08\x45xemplar\x12\x46\n\x0f\x66iltered_labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValue\x12\x16\n\x0etime_unix_nano\x18\x02 \x01(\x06\x12\x13\n\tas_double\x18\x03 \x01(\x01H\x00\x12\x10\n\x06\x61s_int\x18\x06 \x01(\x10H\x00\x12\x0f\n\x07span_id\x18\x04 \x01(\x0c\x12\x10\n\x08trace_id\x18\x05 \x01(\x0c\x42\x07\n\x05value*\x8c\x01\n\x16\x41ggregationTemporality\x12\'\n#AGGREGATION_TEMPORALITY_UNSPECIFIED\x10\x00\x12!\n\x1d\x41GGREGATION_TEMPORALITY_DELTA\x10\x01\x12&\n\"AGGREGATION_TEMPORALITY_CUMULATIVE\x10\x02\x42t\n!io.opentelemetry.proto.metrics.v1B\x0cMetricsProtoP\x01Z?github.com/open-telemetry/opentelemetry-proto/gen/go/metrics/v1b\x06proto3'
+  serialized_pb=b'\n,opentelemetry/proto/metrics/v1/metrics.proto\x12\x1eopentelemetry.proto.metrics.v1\x1a*opentelemetry/proto/common/v1/common.proto\x1a.opentelemetry/proto/resource/v1/resource.proto\"\xca\x01\n\x0fResourceMetrics\x12;\n\x08resource\x18\x01 \x01(\x0b\x32).opentelemetry.proto.resource.v1.Resource\x12\x66\n\x1finstrumentation_library_metrics\x18\x02 \x03(\x0b\x32=.opentelemetry.proto.metrics.v1.InstrumentationLibraryMetrics\x12\x12\n\nschema_url\x18\x03 \x01(\t\"\xc4\x01\n\x1dInstrumentationLibraryMetrics\x12V\n\x17instrumentation_library\x18\x01 \x01(\x0b\x32\x35.opentelemetry.proto.common.v1.InstrumentationLibrary\x12\x37\n\x07metrics\x18\x02 \x03(\x0b\x32&.opentelemetry.proto.metrics.v1.Metric\x12\x12\n\nschema_url\x18\x03 \x01(\t\"\xf6\x03\n\x06Metric\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0c\n\x04unit\x18\x03 \x01(\t\x12\x41\n\tint_gauge\x18\x04 \x01(\x0b\x32(.opentelemetry.proto.metrics.v1.IntGaugeB\x02\x18\x01H\x00\x12\x36\n\x05gauge\x18\x05 \x01(\x0b\x32%.opentelemetry.proto.metrics.v1.GaugeH\x00\x12=\n\x07int_sum\x18\x06 \x01(\x0b\x32&.opentelemetry.proto.metrics.v1.IntSumB\x02\x18\x01H\x00\x12\x32\n\x03sum\x18\x07 \x01(\x0b\x32#.opentelemetry.proto.metrics.v1.SumH\x00\x12I\n\rint_histogram\x18\x08 \x01(\x0b\x32,.opentelemetry.proto.metrics.v1.IntHistogramB\x02\x18\x01H\x00\x12>\n\thistogram\x18\t \x01(\x0b\x32).opentelemetry.proto.metrics.v1.HistogramH\x00\x12:\n\x07summary\x18\x0b \x01(\x0b\x32\'.opentelemetry.proto.metrics.v1.SummaryH\x00\x42\x06\n\x04\x64\x61ta\"M\n\x05Gauge\x12\x44\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32/.opentelemetry.proto.metrics.v1.NumberDataPoint\"\xba\x01\n\x03Sum\x12\x44\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32/.opentelemetry.proto.metrics.v1.NumberDataPoint\x12W\n\x17\x61ggregation_temporality\x18\x02 \x01(\x0e\x32\x36.opentelemetry.proto.metrics.v1.AggregationTemporality\x12\x14\n\x0cis_monotonic\x18\x03 \x01(\x08\"\xad\x01\n\tHistogram\x12G\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32\x32.opentelemetry.proto.metrics.v1.HistogramDataPoint\x12W\n\x17\x61ggregation_temporality\x18\x02 \x01(\x0e\x32\x36.opentelemetry.proto.metrics.v1.AggregationTemporality\"P\n\x07Summary\x12\x45\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32\x30.opentelemetry.proto.metrics.v1.SummaryDataPoint\"\xb4\x02\n\x0fNumberDataPoint\x12;\n\nattributes\x18\x07 \x03(\x0b\x32\'.opentelemetry.proto.common.v1.KeyValue\x12\x41\n\x06labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValueB\x02\x18\x01\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\x13\n\tas_double\x18\x04 \x01(\x01H\x00\x12\x10\n\x06\x61s_int\x18\x06 \x01(\x10H\x00\x12;\n\texemplars\x18\x05 \x03(\x0b\x32(.opentelemetry.proto.metrics.v1.ExemplarB\x07\n\x05value\"\xd3\x02\n\x12HistogramDataPoint\x12;\n\nattributes\x18\t \x03(\x0b\x32\'.opentelemetry.proto.common.v1.KeyValue\x12\x41\n\x06labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValueB\x02\x18\x01\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\r\n\x05\x63ount\x18\x04 \x01(\x06\x12\x0b\n\x03sum\x18\x05 \x01(\x01\x12\x15\n\rbucket_counts\x18\x06 \x03(\x06\x12\x17\n\x0f\x65xplicit_bounds\x18\x07 \x03(\x01\x12;\n\texemplars\x18\x08 \x03(\x0b\x32(.opentelemetry.proto.metrics.v1.Exemplar\"\xf3\x02\n\x10SummaryDataPoint\x12;\n\nattributes\x18\x07 \x03(\x0b\x32\'.opentelemetry.proto.common.v1.KeyValue\x12\x41\n\x06labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValueB\x02\x18\x01\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\r\n\x05\x63ount\x18\x04 \x01(\x06\x12\x0b\n\x03sum\x18\x05 \x01(\x01\x12Y\n\x0fquantile_values\x18\x06 \x03(\x0b\x32@.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile\x1a\x32\n\x0fValueAtQuantile\x12\x10\n\x08quantile\x18\x01 \x01(\x01\x12\r\n\x05value\x18\x02 \x01(\x01\"\x87\x02\n\x08\x45xemplar\x12\x44\n\x13\x66iltered_attributes\x18\x07 \x03(\x0b\x32\'.opentelemetry.proto.common.v1.KeyValue\x12J\n\x0f\x66iltered_labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValueB\x02\x18\x01\x12\x16\n\x0etime_unix_nano\x18\x02 \x01(\x06\x12\x13\n\tas_double\x18\x03 \x01(\x01H\x00\x12\x10\n\x06\x61s_int\x18\x06 \x01(\x10H\x00\x12\x0f\n\x07span_id\x18\x04 \x01(\x0c\x12\x10\n\x08trace_id\x18\x05 \x01(\x0c\x42\x07\n\x05value\"\xd6\x01\n\x0cIntDataPoint\x12=\n\x06labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValue\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\r\n\x05value\x18\x04 \x01(\x10\x12>\n\texemplars\x18\x05 \x03(\x0b\x32+.opentelemetry.proto.metrics.v1.IntExemplar:\x02\x18\x01\"Q\n\x08IntGauge\x12\x41\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32,.opentelemetry.proto.metrics.v1.IntDataPoint:\x02\x18\x01\"\xbe\x01\n\x06IntSum\x12\x41\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32,.opentelemetry.proto.metrics.v1.IntDataPoint\x12W\n\x17\x61ggregation_temporality\x18\x02 \x01(\x0e\x32\x36.opentelemetry.proto.metrics.v1.AggregationTemporality\x12\x14\n\x0cis_monotonic\x18\x03 \x01(\x08:\x02\x18\x01\"\x9c\x02\n\x15IntHistogramDataPoint\x12=\n\x06labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValue\x12\x1c\n\x14start_time_unix_nano\x18\x02 \x01(\x06\x12\x16\n\x0etime_unix_nano\x18\x03 \x01(\x06\x12\r\n\x05\x63ount\x18\x04 \x01(\x06\x12\x0b\n\x03sum\x18\x05 \x01(\x10\x12\x15\n\rbucket_counts\x18\x06 \x03(\x06\x12\x17\n\x0f\x65xplicit_bounds\x18\x07 \x03(\x01\x12>\n\texemplars\x18\x08 \x03(\x0b\x32+.opentelemetry.proto.metrics.v1.IntExemplar:\x02\x18\x01\"\xb7\x01\n\x0cIntHistogram\x12J\n\x0b\x64\x61ta_points\x18\x01 \x03(\x0b\x32\x35.opentelemetry.proto.metrics.v1.IntHistogramDataPoint\x12W\n\x17\x61ggregation_temporality\x18\x02 \x01(\x0e\x32\x36.opentelemetry.proto.metrics.v1.AggregationTemporality:\x02\x18\x01\"\xa3\x01\n\x0bIntExemplar\x12\x46\n\x0f\x66iltered_labels\x18\x01 \x03(\x0b\x32-.opentelemetry.proto.common.v1.StringKeyValue\x12\x16\n\x0etime_unix_nano\x18\x02 \x01(\x06\x12\r\n\x05value\x18\x03 \x01(\x10\x12\x0f\n\x07span_id\x18\x04 \x01(\x0c\x12\x10\n\x08trace_id\x18\x05 \x01(\x0c:\x02\x18\x01*\x8c\x01\n\x16\x41ggregationTemporality\x12\'\n#AGGREGATION_TEMPORALITY_UNSPECIFIED\x10\x00\x12!\n\x1d\x41GGREGATION_TEMPORALITY_DELTA\x10\x01\x12&\n\"AGGREGATION_TEMPORALITY_CUMULATIVE\x10\x02\x42t\n!io.opentelemetry.proto.metrics.v1B\x0cMetricsProtoP\x01Z?github.com/open-telemetry/opentelemetry-proto/gen/go/metrics/v1b\x06proto3'
   ,
   dependencies=[opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2.DESCRIPTOR,opentelemetry_dot_proto_dot_resource_dot_v1_dot_resource__pb2.DESCRIPTOR,])
 
@@ -51,8 +51,8 @@ _AGGREGATIONTEMPORALITY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3724,
-  serialized_end=3864,
+  serialized_start=4033,
+  serialized_end=4173,
 )
 _sym_db.RegisterEnumDescriptor(_AGGREGATIONTEMPORALITY)
 
@@ -85,6 +85,13 @@ _RESOURCEMETRICS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='schema_url', full_name='opentelemetry.proto.metrics.v1.ResourceMetrics.schema_url', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -98,7 +105,7 @@ _RESOURCEMETRICS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=173,
-  serialized_end=355,
+  serialized_end=375,
 )
 
 
@@ -124,6 +131,13 @@ _INSTRUMENTATIONLIBRARYMETRICS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='schema_url', full_name='opentelemetry.proto.metrics.v1.InstrumentationLibraryMetrics.schema_url', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -136,8 +150,8 @@ _INSTRUMENTATIONLIBRARYMETRICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=358,
-  serialized_end=534,
+  serialized_start=378,
+  serialized_end=574,
 )
 
 
@@ -236,40 +250,8 @@ _METRIC = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=537,
-  serialized_end=1039,
-)
-
-
-_INTGAUGE = _descriptor.Descriptor(
-  name='IntGauge',
-  full_name='opentelemetry.proto.metrics.v1.IntGauge',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='data_points', full_name='opentelemetry.proto.metrics.v1.IntGauge.data_points', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'\030\001',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1041,
-  serialized_end=1122,
+  serialized_start=577,
+  serialized_end=1079,
 )
 
 
@@ -300,54 +282,8 @@ _GAUGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1124,
-  serialized_end=1201,
-)
-
-
-_INTSUM = _descriptor.Descriptor(
-  name='IntSum',
-  full_name='opentelemetry.proto.metrics.v1.IntSum',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='data_points', full_name='opentelemetry.proto.metrics.v1.IntSum.data_points', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='aggregation_temporality', full_name='opentelemetry.proto.metrics.v1.IntSum.aggregation_temporality', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='is_monotonic', full_name='opentelemetry.proto.metrics.v1.IntSum.is_monotonic', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'\030\001',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1204,
-  serialized_end=1394,
+  serialized_start=1081,
+  serialized_end=1158,
 )
 
 
@@ -392,47 +328,8 @@ _SUM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1397,
-  serialized_end=1583,
-)
-
-
-_INTHISTOGRAM = _descriptor.Descriptor(
-  name='IntHistogram',
-  full_name='opentelemetry.proto.metrics.v1.IntHistogram',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='data_points', full_name='opentelemetry.proto.metrics.v1.IntHistogram.data_points', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='aggregation_temporality', full_name='opentelemetry.proto.metrics.v1.IntHistogram.aggregation_temporality', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=b'\030\001',
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1586,
-  serialized_end=1769,
+  serialized_start=1161,
+  serialized_end=1347,
 )
 
 
@@ -470,8 +367,8 @@ _HISTOGRAM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1772,
-  serialized_end=1945,
+  serialized_start=1350,
+  serialized_end=1523,
 )
 
 
@@ -502,8 +399,366 @@ _SUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1947,
-  serialized_end=2027,
+  serialized_start=1525,
+  serialized_end=1605,
+)
+
+
+_NUMBERDATAPOINT = _descriptor.Descriptor(
+  name='NumberDataPoint',
+  full_name='opentelemetry.proto.metrics.v1.NumberDataPoint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='attributes', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.attributes', index=0,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='labels', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.labels', index=1,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time_unix_nano', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.start_time_unix_nano', index=2,
+      number=2, type=6, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time_unix_nano', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.time_unix_nano', index=3,
+      number=3, type=6, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='as_double', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.as_double', index=4,
+      number=4, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='as_int', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.as_int', index=5,
+      number=6, type=16, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='exemplars', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.exemplars', index=6,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='value', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.value',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=1608,
+  serialized_end=1916,
+)
+
+
+_HISTOGRAMDATAPOINT = _descriptor.Descriptor(
+  name='HistogramDataPoint',
+  full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='attributes', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.attributes', index=0,
+      number=9, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='labels', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.labels', index=1,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time_unix_nano', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.start_time_unix_nano', index=2,
+      number=2, type=6, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time_unix_nano', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.time_unix_nano', index=3,
+      number=3, type=6, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='count', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.count', index=4,
+      number=4, type=6, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sum', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.sum', index=5,
+      number=5, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='bucket_counts', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.bucket_counts', index=6,
+      number=6, type=6, cpp_type=4, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='explicit_bounds', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.explicit_bounds', index=7,
+      number=7, type=1, cpp_type=5, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='exemplars', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.exemplars', index=8,
+      number=8, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1919,
+  serialized_end=2258,
+)
+
+
+_SUMMARYDATAPOINT_VALUEATQUANTILE = _descriptor.Descriptor(
+  name='ValueAtQuantile',
+  full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='quantile', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile.quantile', index=0,
+      number=1, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile.value', index=1,
+      number=2, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2582,
+  serialized_end=2632,
+)
+
+_SUMMARYDATAPOINT = _descriptor.Descriptor(
+  name='SummaryDataPoint',
+  full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='attributes', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.attributes', index=0,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='labels', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.labels', index=1,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time_unix_nano', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.start_time_unix_nano', index=2,
+      number=2, type=6, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time_unix_nano', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.time_unix_nano', index=3,
+      number=3, type=6, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='count', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.count', index=4,
+      number=4, type=6, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='sum', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.sum', index=5,
+      number=5, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='quantile_values', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.quantile_values', index=6,
+      number=6, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_SUMMARYDATAPOINT_VALUEATQUANTILE, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2261,
+  serialized_end=2632,
+)
+
+
+_EXEMPLAR = _descriptor.Descriptor(
+  name='Exemplar',
+  full_name='opentelemetry.proto.metrics.v1.Exemplar',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='filtered_attributes', full_name='opentelemetry.proto.metrics.v1.Exemplar.filtered_attributes', index=0,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filtered_labels', full_name='opentelemetry.proto.metrics.v1.Exemplar.filtered_labels', index=1,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time_unix_nano', full_name='opentelemetry.proto.metrics.v1.Exemplar.time_unix_nano', index=2,
+      number=2, type=6, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='as_double', full_name='opentelemetry.proto.metrics.v1.Exemplar.as_double', index=3,
+      number=3, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='as_int', full_name='opentelemetry.proto.metrics.v1.Exemplar.as_int', index=4,
+      number=6, type=16, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='span_id', full_name='opentelemetry.proto.metrics.v1.Exemplar.span_id', index=5,
+      number=4, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='trace_id', full_name='opentelemetry.proto.metrics.v1.Exemplar.trace_id', index=6,
+      number=5, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='value', full_name='opentelemetry.proto.metrics.v1.Exemplar.value',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2635,
+  serialized_end=2898,
 )
 
 
@@ -562,57 +817,22 @@ _INTDATAPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2030,
-  serialized_end=2244,
+  serialized_start=2901,
+  serialized_end=3115,
 )
 
 
-_NUMBERDATAPOINT = _descriptor.Descriptor(
-  name='NumberDataPoint',
-  full_name='opentelemetry.proto.metrics.v1.NumberDataPoint',
+_INTGAUGE = _descriptor.Descriptor(
+  name='IntGauge',
+  full_name='opentelemetry.proto.metrics.v1.IntGauge',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='labels', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.labels', index=0,
+      name='data_points', full_name='opentelemetry.proto.metrics.v1.IntGauge.data_points', index=0,
       number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='start_time_unix_nano', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.start_time_unix_nano', index=1,
-      number=2, type=6, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='time_unix_nano', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.time_unix_nano', index=2,
-      number=3, type=6, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='as_double', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.as_double', index=3,
-      number=4, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='as_int', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.as_int', index=4,
-      number=6, type=16, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='exemplars', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.exemplars', index=5,
-      number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -623,19 +843,60 @@ _NUMBERDATAPOINT = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  serialized_options=b'\030\001',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
-    _descriptor.OneofDescriptor(
-      name='value', full_name='opentelemetry.proto.metrics.v1.NumberDataPoint.value',
-      index=0, containing_type=None,
-      create_key=_descriptor._internal_create_key,
-    fields=[]),
   ],
-  serialized_start=2247,
-  serialized_end=2490,
+  serialized_start=3117,
+  serialized_end=3198,
+)
+
+
+_INTSUM = _descriptor.Descriptor(
+  name='IntSum',
+  full_name='opentelemetry.proto.metrics.v1.IntSum',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='data_points', full_name='opentelemetry.proto.metrics.v1.IntSum.data_points', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='aggregation_temporality', full_name='opentelemetry.proto.metrics.v1.IntSum.aggregation_temporality', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='is_monotonic', full_name='opentelemetry.proto.metrics.v1.IntSum.is_monotonic', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\030\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3201,
+  serialized_end=3391,
 )
 
 
@@ -715,72 +976,30 @@ _INTHISTOGRAMDATAPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2493,
-  serialized_end=2777,
+  serialized_start=3394,
+  serialized_end=3678,
 )
 
 
-_HISTOGRAMDATAPOINT = _descriptor.Descriptor(
-  name='HistogramDataPoint',
-  full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint',
+_INTHISTOGRAM = _descriptor.Descriptor(
+  name='IntHistogram',
+  full_name='opentelemetry.proto.metrics.v1.IntHistogram',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='labels', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.labels', index=0,
+      name='data_points', full_name='opentelemetry.proto.metrics.v1.IntHistogram.data_points', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='start_time_unix_nano', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.start_time_unix_nano', index=1,
-      number=2, type=6, cpp_type=4, label=1,
+      name='aggregation_temporality', full_name='opentelemetry.proto.metrics.v1.IntHistogram.aggregation_temporality', index=1,
+      number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='time_unix_nano', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.time_unix_nano', index=2,
-      number=3, type=6, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='count', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.count', index=3,
-      number=4, type=6, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='sum', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.sum', index=4,
-      number=5, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='bucket_counts', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.bucket_counts', index=5,
-      number=6, type=6, cpp_type=4, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='explicit_bounds', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.explicit_bounds', index=6,
-      number=7, type=1, cpp_type=5, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='exemplars', full_name='opentelemetry.proto.metrics.v1.HistogramDataPoint.exemplars', index=7,
-      number=8, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -790,119 +1009,14 @@ _HISTOGRAMDATAPOINT = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=None,
+  serialized_options=b'\030\001',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2780,
-  serialized_end=3054,
-)
-
-
-_SUMMARYDATAPOINT_VALUEATQUANTILE = _descriptor.Descriptor(
-  name='ValueAtQuantile',
-  full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='quantile', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile.quantile', index=0,
-      number=1, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile.value', index=1,
-      number=2, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3313,
-  serialized_end=3363,
-)
-
-_SUMMARYDATAPOINT = _descriptor.Descriptor(
-  name='SummaryDataPoint',
-  full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='labels', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.labels', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='start_time_unix_nano', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.start_time_unix_nano', index=1,
-      number=2, type=6, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='time_unix_nano', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.time_unix_nano', index=2,
-      number=3, type=6, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='count', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.count', index=3,
-      number=4, type=6, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='sum', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.sum', index=4,
-      number=5, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='quantile_values', full_name='opentelemetry.proto.metrics.v1.SummaryDataPoint.quantile_values', index=5,
-      number=6, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[_SUMMARYDATAPOINT_VALUEATQUANTILE, ],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3057,
-  serialized_end=3363,
+  serialized_start=3681,
+  serialized_end=3864,
 )
 
 
@@ -961,80 +1075,8 @@ _INTEXEMPLAR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3366,
-  serialized_end=3529,
-)
-
-
-_EXEMPLAR = _descriptor.Descriptor(
-  name='Exemplar',
-  full_name='opentelemetry.proto.metrics.v1.Exemplar',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='filtered_labels', full_name='opentelemetry.proto.metrics.v1.Exemplar.filtered_labels', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='time_unix_nano', full_name='opentelemetry.proto.metrics.v1.Exemplar.time_unix_nano', index=1,
-      number=2, type=6, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='as_double', full_name='opentelemetry.proto.metrics.v1.Exemplar.as_double', index=2,
-      number=3, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='as_int', full_name='opentelemetry.proto.metrics.v1.Exemplar.as_int', index=3,
-      number=6, type=16, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='span_id', full_name='opentelemetry.proto.metrics.v1.Exemplar.span_id', index=4,
-      number=4, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='trace_id', full_name='opentelemetry.proto.metrics.v1.Exemplar.trace_id', index=5,
-      number=5, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"",
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-    _descriptor.OneofDescriptor(
-      name='value', full_name='opentelemetry.proto.metrics.v1.Exemplar.value',
-      index=0, containing_type=None,
-      create_key=_descriptor._internal_create_key,
-    fields=[]),
-  ],
-  serialized_start=3532,
-  serialized_end=3721,
+  serialized_start=3867,
+  serialized_end=4030,
 )
 
 _RESOURCEMETRICS.fields_by_name['resource'].message_type = opentelemetry_dot_proto_dot_resource_dot_v1_dot_resource__pb2._RESOURCE
@@ -1069,19 +1111,13 @@ _METRIC.fields_by_name['histogram'].containing_oneof = _METRIC.oneofs_by_name['d
 _METRIC.oneofs_by_name['data'].fields.append(
   _METRIC.fields_by_name['summary'])
 _METRIC.fields_by_name['summary'].containing_oneof = _METRIC.oneofs_by_name['data']
-_INTGAUGE.fields_by_name['data_points'].message_type = _INTDATAPOINT
 _GAUGE.fields_by_name['data_points'].message_type = _NUMBERDATAPOINT
-_INTSUM.fields_by_name['data_points'].message_type = _INTDATAPOINT
-_INTSUM.fields_by_name['aggregation_temporality'].enum_type = _AGGREGATIONTEMPORALITY
 _SUM.fields_by_name['data_points'].message_type = _NUMBERDATAPOINT
 _SUM.fields_by_name['aggregation_temporality'].enum_type = _AGGREGATIONTEMPORALITY
-_INTHISTOGRAM.fields_by_name['data_points'].message_type = _INTHISTOGRAMDATAPOINT
-_INTHISTOGRAM.fields_by_name['aggregation_temporality'].enum_type = _AGGREGATIONTEMPORALITY
 _HISTOGRAM.fields_by_name['data_points'].message_type = _HISTOGRAMDATAPOINT
 _HISTOGRAM.fields_by_name['aggregation_temporality'].enum_type = _AGGREGATIONTEMPORALITY
 _SUMMARY.fields_by_name['data_points'].message_type = _SUMMARYDATAPOINT
-_INTDATAPOINT.fields_by_name['labels'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._STRINGKEYVALUE
-_INTDATAPOINT.fields_by_name['exemplars'].message_type = _INTEXEMPLAR
+_NUMBERDATAPOINT.fields_by_name['attributes'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._KEYVALUE
 _NUMBERDATAPOINT.fields_by_name['labels'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._STRINGKEYVALUE
 _NUMBERDATAPOINT.fields_by_name['exemplars'].message_type = _EXEMPLAR
 _NUMBERDATAPOINT.oneofs_by_name['value'].fields.append(
@@ -1090,14 +1126,14 @@ _NUMBERDATAPOINT.fields_by_name['as_double'].containing_oneof = _NUMBERDATAPOINT
 _NUMBERDATAPOINT.oneofs_by_name['value'].fields.append(
   _NUMBERDATAPOINT.fields_by_name['as_int'])
 _NUMBERDATAPOINT.fields_by_name['as_int'].containing_oneof = _NUMBERDATAPOINT.oneofs_by_name['value']
-_INTHISTOGRAMDATAPOINT.fields_by_name['labels'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._STRINGKEYVALUE
-_INTHISTOGRAMDATAPOINT.fields_by_name['exemplars'].message_type = _INTEXEMPLAR
+_HISTOGRAMDATAPOINT.fields_by_name['attributes'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._KEYVALUE
 _HISTOGRAMDATAPOINT.fields_by_name['labels'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._STRINGKEYVALUE
 _HISTOGRAMDATAPOINT.fields_by_name['exemplars'].message_type = _EXEMPLAR
 _SUMMARYDATAPOINT_VALUEATQUANTILE.containing_type = _SUMMARYDATAPOINT
+_SUMMARYDATAPOINT.fields_by_name['attributes'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._KEYVALUE
 _SUMMARYDATAPOINT.fields_by_name['labels'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._STRINGKEYVALUE
 _SUMMARYDATAPOINT.fields_by_name['quantile_values'].message_type = _SUMMARYDATAPOINT_VALUEATQUANTILE
-_INTEXEMPLAR.fields_by_name['filtered_labels'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._STRINGKEYVALUE
+_EXEMPLAR.fields_by_name['filtered_attributes'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._KEYVALUE
 _EXEMPLAR.fields_by_name['filtered_labels'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._STRINGKEYVALUE
 _EXEMPLAR.oneofs_by_name['value'].fields.append(
   _EXEMPLAR.fields_by_name['as_double'])
@@ -1105,23 +1141,33 @@ _EXEMPLAR.fields_by_name['as_double'].containing_oneof = _EXEMPLAR.oneofs_by_nam
 _EXEMPLAR.oneofs_by_name['value'].fields.append(
   _EXEMPLAR.fields_by_name['as_int'])
 _EXEMPLAR.fields_by_name['as_int'].containing_oneof = _EXEMPLAR.oneofs_by_name['value']
+_INTDATAPOINT.fields_by_name['labels'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._STRINGKEYVALUE
+_INTDATAPOINT.fields_by_name['exemplars'].message_type = _INTEXEMPLAR
+_INTGAUGE.fields_by_name['data_points'].message_type = _INTDATAPOINT
+_INTSUM.fields_by_name['data_points'].message_type = _INTDATAPOINT
+_INTSUM.fields_by_name['aggregation_temporality'].enum_type = _AGGREGATIONTEMPORALITY
+_INTHISTOGRAMDATAPOINT.fields_by_name['labels'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._STRINGKEYVALUE
+_INTHISTOGRAMDATAPOINT.fields_by_name['exemplars'].message_type = _INTEXEMPLAR
+_INTHISTOGRAM.fields_by_name['data_points'].message_type = _INTHISTOGRAMDATAPOINT
+_INTHISTOGRAM.fields_by_name['aggregation_temporality'].enum_type = _AGGREGATIONTEMPORALITY
+_INTEXEMPLAR.fields_by_name['filtered_labels'].message_type = opentelemetry_dot_proto_dot_common_dot_v1_dot_common__pb2._STRINGKEYVALUE
 DESCRIPTOR.message_types_by_name['ResourceMetrics'] = _RESOURCEMETRICS
 DESCRIPTOR.message_types_by_name['InstrumentationLibraryMetrics'] = _INSTRUMENTATIONLIBRARYMETRICS
 DESCRIPTOR.message_types_by_name['Metric'] = _METRIC
-DESCRIPTOR.message_types_by_name['IntGauge'] = _INTGAUGE
 DESCRIPTOR.message_types_by_name['Gauge'] = _GAUGE
-DESCRIPTOR.message_types_by_name['IntSum'] = _INTSUM
 DESCRIPTOR.message_types_by_name['Sum'] = _SUM
-DESCRIPTOR.message_types_by_name['IntHistogram'] = _INTHISTOGRAM
 DESCRIPTOR.message_types_by_name['Histogram'] = _HISTOGRAM
 DESCRIPTOR.message_types_by_name['Summary'] = _SUMMARY
-DESCRIPTOR.message_types_by_name['IntDataPoint'] = _INTDATAPOINT
 DESCRIPTOR.message_types_by_name['NumberDataPoint'] = _NUMBERDATAPOINT
-DESCRIPTOR.message_types_by_name['IntHistogramDataPoint'] = _INTHISTOGRAMDATAPOINT
 DESCRIPTOR.message_types_by_name['HistogramDataPoint'] = _HISTOGRAMDATAPOINT
 DESCRIPTOR.message_types_by_name['SummaryDataPoint'] = _SUMMARYDATAPOINT
-DESCRIPTOR.message_types_by_name['IntExemplar'] = _INTEXEMPLAR
 DESCRIPTOR.message_types_by_name['Exemplar'] = _EXEMPLAR
+DESCRIPTOR.message_types_by_name['IntDataPoint'] = _INTDATAPOINT
+DESCRIPTOR.message_types_by_name['IntGauge'] = _INTGAUGE
+DESCRIPTOR.message_types_by_name['IntSum'] = _INTSUM
+DESCRIPTOR.message_types_by_name['IntHistogramDataPoint'] = _INTHISTOGRAMDATAPOINT
+DESCRIPTOR.message_types_by_name['IntHistogram'] = _INTHISTOGRAM
+DESCRIPTOR.message_types_by_name['IntExemplar'] = _INTEXEMPLAR
 DESCRIPTOR.enum_types_by_name['AggregationTemporality'] = _AGGREGATIONTEMPORALITY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -1146,13 +1192,6 @@ Metric = _reflection.GeneratedProtocolMessageType('Metric', (_message.Message,),
   })
 _sym_db.RegisterMessage(Metric)
 
-IntGauge = _reflection.GeneratedProtocolMessageType('IntGauge', (_message.Message,), {
-  'DESCRIPTOR' : _INTGAUGE,
-  '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
-  # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.IntGauge)
-  })
-_sym_db.RegisterMessage(IntGauge)
-
 Gauge = _reflection.GeneratedProtocolMessageType('Gauge', (_message.Message,), {
   'DESCRIPTOR' : _GAUGE,
   '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
@@ -1160,26 +1199,12 @@ Gauge = _reflection.GeneratedProtocolMessageType('Gauge', (_message.Message,), {
   })
 _sym_db.RegisterMessage(Gauge)
 
-IntSum = _reflection.GeneratedProtocolMessageType('IntSum', (_message.Message,), {
-  'DESCRIPTOR' : _INTSUM,
-  '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
-  # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.IntSum)
-  })
-_sym_db.RegisterMessage(IntSum)
-
 Sum = _reflection.GeneratedProtocolMessageType('Sum', (_message.Message,), {
   'DESCRIPTOR' : _SUM,
   '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
   # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.Sum)
   })
 _sym_db.RegisterMessage(Sum)
-
-IntHistogram = _reflection.GeneratedProtocolMessageType('IntHistogram', (_message.Message,), {
-  'DESCRIPTOR' : _INTHISTOGRAM,
-  '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
-  # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.IntHistogram)
-  })
-_sym_db.RegisterMessage(IntHistogram)
 
 Histogram = _reflection.GeneratedProtocolMessageType('Histogram', (_message.Message,), {
   'DESCRIPTOR' : _HISTOGRAM,
@@ -1195,26 +1220,12 @@ Summary = _reflection.GeneratedProtocolMessageType('Summary', (_message.Message,
   })
 _sym_db.RegisterMessage(Summary)
 
-IntDataPoint = _reflection.GeneratedProtocolMessageType('IntDataPoint', (_message.Message,), {
-  'DESCRIPTOR' : _INTDATAPOINT,
-  '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
-  # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.IntDataPoint)
-  })
-_sym_db.RegisterMessage(IntDataPoint)
-
 NumberDataPoint = _reflection.GeneratedProtocolMessageType('NumberDataPoint', (_message.Message,), {
   'DESCRIPTOR' : _NUMBERDATAPOINT,
   '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
   # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.NumberDataPoint)
   })
 _sym_db.RegisterMessage(NumberDataPoint)
-
-IntHistogramDataPoint = _reflection.GeneratedProtocolMessageType('IntHistogramDataPoint', (_message.Message,), {
-  'DESCRIPTOR' : _INTHISTOGRAMDATAPOINT,
-  '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
-  # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.IntHistogramDataPoint)
-  })
-_sym_db.RegisterMessage(IntHistogramDataPoint)
 
 HistogramDataPoint = _reflection.GeneratedProtocolMessageType('HistogramDataPoint', (_message.Message,), {
   'DESCRIPTOR' : _HISTOGRAMDATAPOINT,
@@ -1238,13 +1249,6 @@ SummaryDataPoint = _reflection.GeneratedProtocolMessageType('SummaryDataPoint', 
 _sym_db.RegisterMessage(SummaryDataPoint)
 _sym_db.RegisterMessage(SummaryDataPoint.ValueAtQuantile)
 
-IntExemplar = _reflection.GeneratedProtocolMessageType('IntExemplar', (_message.Message,), {
-  'DESCRIPTOR' : _INTEXEMPLAR,
-  '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
-  # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.IntExemplar)
-  })
-_sym_db.RegisterMessage(IntExemplar)
-
 Exemplar = _reflection.GeneratedProtocolMessageType('Exemplar', (_message.Message,), {
   'DESCRIPTOR' : _EXEMPLAR,
   '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
@@ -1252,15 +1256,61 @@ Exemplar = _reflection.GeneratedProtocolMessageType('Exemplar', (_message.Messag
   })
 _sym_db.RegisterMessage(Exemplar)
 
+IntDataPoint = _reflection.GeneratedProtocolMessageType('IntDataPoint', (_message.Message,), {
+  'DESCRIPTOR' : _INTDATAPOINT,
+  '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
+  # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.IntDataPoint)
+  })
+_sym_db.RegisterMessage(IntDataPoint)
+
+IntGauge = _reflection.GeneratedProtocolMessageType('IntGauge', (_message.Message,), {
+  'DESCRIPTOR' : _INTGAUGE,
+  '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
+  # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.IntGauge)
+  })
+_sym_db.RegisterMessage(IntGauge)
+
+IntSum = _reflection.GeneratedProtocolMessageType('IntSum', (_message.Message,), {
+  'DESCRIPTOR' : _INTSUM,
+  '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
+  # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.IntSum)
+  })
+_sym_db.RegisterMessage(IntSum)
+
+IntHistogramDataPoint = _reflection.GeneratedProtocolMessageType('IntHistogramDataPoint', (_message.Message,), {
+  'DESCRIPTOR' : _INTHISTOGRAMDATAPOINT,
+  '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
+  # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.IntHistogramDataPoint)
+  })
+_sym_db.RegisterMessage(IntHistogramDataPoint)
+
+IntHistogram = _reflection.GeneratedProtocolMessageType('IntHistogram', (_message.Message,), {
+  'DESCRIPTOR' : _INTHISTOGRAM,
+  '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
+  # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.IntHistogram)
+  })
+_sym_db.RegisterMessage(IntHistogram)
+
+IntExemplar = _reflection.GeneratedProtocolMessageType('IntExemplar', (_message.Message,), {
+  'DESCRIPTOR' : _INTEXEMPLAR,
+  '__module__' : 'opentelemetry.proto.metrics.v1.metrics_pb2'
+  # @@protoc_insertion_point(class_scope:opentelemetry.proto.metrics.v1.IntExemplar)
+  })
+_sym_db.RegisterMessage(IntExemplar)
+
 
 DESCRIPTOR._options = None
 _METRIC.fields_by_name['int_gauge']._options = None
 _METRIC.fields_by_name['int_sum']._options = None
 _METRIC.fields_by_name['int_histogram']._options = None
+_NUMBERDATAPOINT.fields_by_name['labels']._options = None
+_HISTOGRAMDATAPOINT.fields_by_name['labels']._options = None
+_SUMMARYDATAPOINT.fields_by_name['labels']._options = None
+_EXEMPLAR.fields_by_name['filtered_labels']._options = None
+_INTDATAPOINT._options = None
 _INTGAUGE._options = None
 _INTSUM._options = None
-_INTHISTOGRAM._options = None
-_INTDATAPOINT._options = None
 _INTHISTOGRAMDATAPOINT._options = None
+_INTHISTOGRAM._options = None
 _INTEXEMPLAR._options = None
 # @@protoc_insertion_point(module_scope)

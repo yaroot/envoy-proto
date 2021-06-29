@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/iam/admin/v1/audit_data.proto',
   package='google.iam.admin.v1',
   syntax='proto3',
-  serialized_options=b'\n\027com.google.iam.admin.v1B\016AuditDataProtoP\001Z8google.golang.org/genproto/googleapis/iam/admin/v1;admin',
+  serialized_options=b'\n\027com.google.iam.admin.v1B\016AuditDataProtoP\001Z8google.golang.org/genproto/googleapis/iam/admin/v1;admin\252\002\031Google.Cloud.Iam.Admin.V1\312\002\031Google\\Cloud\\Iam\\Admin\\V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n$google/iam/admin/v1/audit_data.proto\x12\x13google.iam.admin.v1\x1a\x1cgoogle/api/annotations.proto\"\xa0\x01\n\tAuditData\x12H\n\x10permission_delta\x18\x01 \x01(\x0b\x32..google.iam.admin.v1.AuditData.PermissionDelta\x1aI\n\x0fPermissionDelta\x12\x19\n\x11\x61\x64\x64\x65\x64_permissions\x18\x01 \x03(\t\x12\x1b\n\x13removed_permissions\x18\x02 \x03(\tBe\n\x17\x63om.google.iam.admin.v1B\x0e\x41uditDataProtoP\x01Z8google.golang.org/genproto/googleapis/iam/admin/v1;adminb\x06proto3'
+  serialized_pb=b'\n$google/iam/admin/v1/audit_data.proto\x12\x13google.iam.admin.v1\x1a\x1cgoogle/api/annotations.proto\"\xa0\x01\n\tAuditData\x12H\n\x10permission_delta\x18\x01 \x01(\x0b\x32..google.iam.admin.v1.AuditData.PermissionDelta\x1aI\n\x0fPermissionDelta\x12\x19\n\x11\x61\x64\x64\x65\x64_permissions\x18\x01 \x03(\t\x12\x1b\n\x13removed_permissions\x18\x02 \x03(\tB\x9d\x01\n\x17\x63om.google.iam.admin.v1B\x0e\x41uditDataProtoP\x01Z8google.golang.org/genproto/googleapis/iam/admin/v1;admin\xaa\x02\x19Google.Cloud.Iam.Admin.V1\xca\x02\x19Google\\Cloud\\Iam\\Admin\\V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 

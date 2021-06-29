@@ -27,7 +27,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"com.google.analytics.admin.v1alphaB\023AnalyticsAdminProtoP\001ZCgoogle.golang.org/genproto/googleapis/analytics/admin/v1alpha;admin',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n4google/analytics/admin/v1alpha/analytics_admin.proto\x12\x1egoogle.analytics.admin.v1alpha\x1a.google/analytics/admin/v1alpha/resources.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"P\n\x11GetAccountRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%analyticsadmin.googleapis.com/Account\"R\n\x13ListAccountsRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x14\n\x0cshow_deleted\x18\x03 \x01(\x08\"j\n\x14ListAccountsResponse\x12\x39\n\x08\x61\x63\x63ounts\x18\x01 \x03(\x0b\x32\'.google.analytics.admin.v1alpha.Account\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"S\n\x14\x44\x65leteAccountRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%analyticsadmin.googleapis.com/Account\"\x8b\x01\n\x14UpdateAccountRequest\x12=\n\x07\x61\x63\x63ount\x18\x01 \x01(\x0b\x32\'.google.analytics.admin.v1alpha.AccountB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"o\n\x1dProvisionAccountTicketRequest\x12\x38\n\x07\x61\x63\x63ount\x18\x01 \x01(\x0b\x32\'.google.analytics.admin.v1alpha.Account\x12\x14\n\x0credirect_uri\x18\x02 \x01(\t\";\n\x1eProvisionAccountTicketResponse\x12\x19\n\x11\x61\x63\x63ount_ticket_id\x18\x01 \x01(\t\"R\n\x12GetPropertyRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/Property\"i\n\x15ListPropertiesRequest\x12\x13\n\x06\x66ilter\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x14\n\x0cshow_deleted\x18\x04 \x01(\x08\"o\n\x16ListPropertiesResponse\x12<\n\nproperties\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.Property\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x8e\x01\n\x15UpdatePropertyRequest\x12?\n\x08property\x18\x01 \x01(\x0b\x32(.google.analytics.admin.v1alpha.PropertyB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"X\n\x15\x43reatePropertyRequest\x12?\n\x08property\x18\x01 \x01(\x0b\x32(.google.analytics.admin.v1alpha.PropertyB\x03\xe0\x41\x02\"U\n\x15\x44\x65letePropertyRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/Property\"R\n\x12GetUserLinkRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/UserLink\"\x99\x01\n\x18\x42\x61tchGetUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12=\n\x05names\x18\x02 \x03(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/UserLink\"Y\n\x19\x42\x61tchGetUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\"}\n\x14ListUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"n\n\x15ListUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"~\n\x15\x41uditUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"t\n\x16\x41uditUserLinksResponse\x12\x41\n\nuser_links\x18\x01 \x03(\x0b\x32-.google.analytics.admin.v1alpha.AuditUserLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb7\x01\n\x15\x43reateUserLinkRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x1c\n\x0fnotify_new_user\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\x12@\n\tuser_link\x18\x03 \x01(\x0b\x32(.google.analytics.admin.v1alpha.UserLinkB\x03\xe0\x41\x02\"\xca\x01\n\x1b\x42\x61tchCreateUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x1d\n\x10notify_new_users\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\x12L\n\x08requests\x18\x03 \x03(\x0b\x32\x35.google.analytics.admin.v1alpha.CreateUserLinkRequestB\x03\xe0\x41\x02\"\\\n\x1c\x42\x61tchCreateUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\"Y\n\x15UpdateUserLinkRequest\x12@\n\tuser_link\x18\x01 \x01(\x0b\x32(.google.analytics.admin.v1alpha.UserLinkB\x03\xe0\x41\x02\"\xab\x01\n\x1b\x42\x61tchUpdateUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12L\n\x08requests\x18\x02 \x03(\x0b\x32\x35.google.analytics.admin.v1alpha.UpdateUserLinkRequestB\x03\xe0\x41\x02\"\\\n\x1c\x42\x61tchUpdateUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\"U\n\x15\x44\x65leteUserLinkRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/UserLink\"\xab\x01\n\x1b\x42\x61tchDeleteUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12L\n\x08requests\x18\x02 \x03(\x0b\x32\x35.google.analytics.admin.v1alpha.DeleteUserLinkRequestB\x03\xe0\x41\x02\"\\\n\x17GetWebDataStreamRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/WebDataStream\"_\n\x1a\x44\x65leteWebDataStreamRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/WebDataStream\"\x9f\x01\n\x1aUpdateWebDataStreamRequest\x12K\n\x0fweb_data_stream\x18\x01 \x01(\x0b\x32-.google.analytics.admin.v1alpha.WebDataStreamB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\xae\x01\n\x1a\x43reateWebDataStreamRequest\x12K\n\x0fweb_data_stream\x18\x01 \x01(\x0b\x32-.google.analytics.admin.v1alpha.WebDataStreamB\x03\xe0\x41\x02\x12\x43\n\x06parent\x18\x02 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/WebDataStream\"\x87\x01\n\x19ListWebDataStreamsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/WebDataStream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"~\n\x1aListWebDataStreamsResponse\x12G\n\x10web_data_streams\x18\x01 \x03(\x0b\x32-.google.analytics.admin.v1alpha.WebDataStream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"b\n\x1aGetIosAppDataStreamRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.analyticsadmin.googleapis.com/IosAppDataStream\"e\n\x1d\x44\x65leteIosAppDataStreamRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.analyticsadmin.googleapis.com/IosAppDataStream\"\xa9\x01\n\x1dUpdateIosAppDataStreamRequest\x12R\n\x13ios_app_data_stream\x18\x01 \x01(\x0b\x32\x30.google.analytics.admin.v1alpha.IosAppDataStreamB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\xbb\x01\n\x1d\x43reateIosAppDataStreamRequest\x12R\n\x13ios_app_data_stream\x18\x01 \x01(\x0b\x32\x30.google.analytics.admin.v1alpha.IosAppDataStreamB\x03\xe0\x41\x02\x12\x46\n\x06parent\x18\x02 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\x12.analyticsadmin.googleapis.com/IosAppDataStream\"\x8d\x01\n\x1cListIosAppDataStreamsRequest\x12\x46\n\x06parent\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\x12.analyticsadmin.googleapis.com/IosAppDataStream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x88\x01\n\x1dListIosAppDataStreamsResponse\x12N\n\x14ios_app_data_streams\x18\x01 \x03(\x0b\x32\x30.google.analytics.admin.v1alpha.IosAppDataStream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"j\n\x1eGetAndroidAppDataStreamRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2analyticsadmin.googleapis.com/AndroidAppDataStream\"m\n!DeleteAndroidAppDataStreamRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2analyticsadmin.googleapis.com/AndroidAppDataStream\"\xb5\x01\n!UpdateAndroidAppDataStreamRequest\x12Z\n\x17\x61ndroid_app_data_stream\x18\x01 \x01(\x0b\x32\x34.google.analytics.admin.v1alpha.AndroidAppDataStreamB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\xcb\x01\n!CreateAndroidAppDataStreamRequest\x12Z\n\x17\x61ndroid_app_data_stream\x18\x01 \x01(\x0b\x32\x34.google.analytics.admin.v1alpha.AndroidAppDataStreamB\x03\xe0\x41\x02\x12J\n\x06parent\x18\x02 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\x12\x32\x61nalyticsadmin.googleapis.com/AndroidAppDataStream\"\x95\x01\n ListAndroidAppDataStreamsRequest\x12J\n\x06parent\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\x12\x32\x61nalyticsadmin.googleapis.com/AndroidAppDataStream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x94\x01\n!ListAndroidAppDataStreamsResponse\x12V\n\x18\x61ndroid_app_data_streams\x18\x01 \x03(\x0b\x32\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"x\n%GetEnhancedMeasurementSettingsRequest\x12O\n\x04name\x18\x01 \x01(\tBA\xe0\x41\x02\xfa\x41;\n9analyticsadmin.googleapis.com/EnhancedMeasurementSettings\"\xc9\x01\n(UpdateEnhancedMeasurementSettingsRequest\x12g\n\x1d\x65nhanced_measurement_settings\x18\x01 \x01(\x0b\x32;.google.analytics.admin.v1alpha.EnhancedMeasurementSettingsB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\xa9\x01\n\x19\x43reateFirebaseLinkRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*analyticsadmin.googleapis.com/FirebaseLink\x12H\n\rfirebase_link\x18\x02 \x01(\x0b\x32,.google.analytics.admin.v1alpha.FirebaseLinkB\x03\xe0\x41\x02\"\x9b\x01\n\x19UpdateFirebaseLinkRequest\x12H\n\rfirebase_link\x18\x01 \x01(\x0b\x32,.google.analytics.admin.v1alpha.FirebaseLinkB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"]\n\x19\x44\x65leteFirebaseLinkRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*analyticsadmin.googleapis.com/FirebaseLink\"\x85\x01\n\x18ListFirebaseLinksRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*analyticsadmin.googleapis.com/FirebaseLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"z\n\x19ListFirebaseLinksResponse\x12\x44\n\x0e\x66irebase_links\x18\x01 \x03(\x0b\x32,.google.analytics.admin.v1alpha.FirebaseLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\\\n\x17GetGlobalSiteTagRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/GlobalSiteTag\"\xae\x01\n\x1a\x43reateGoogleAdsLinkRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/GoogleAdsLink\x12K\n\x0fgoogle_ads_link\x18\x02 \x01(\x0b\x32-.google.analytics.admin.v1alpha.GoogleAdsLinkB\x03\xe0\x41\x02\"\x9a\x01\n\x1aUpdateGoogleAdsLinkRequest\x12\x46\n\x0fgoogle_ads_link\x18\x01 \x01(\x0b\x32-.google.analytics.admin.v1alpha.GoogleAdsLink\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"_\n\x1a\x44\x65leteGoogleAdsLinkRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/GoogleAdsLink\"\x87\x01\n\x19ListGoogleAdsLinksRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/GoogleAdsLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"~\n\x1aListGoogleAdsLinksResponse\x12G\n\x10google_ads_links\x18\x01 \x03(\x0b\x32-.google.analytics.admin.v1alpha.GoogleAdsLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"h\n\x1dGetDataSharingSettingsRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1analyticsadmin.googleapis.com/DataSharingSettings\"D\n\x1bListAccountSummariesRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\"\x82\x01\n\x1cListAccountSummariesResponse\x12I\n\x11\x61\x63\x63ount_summaries\x18\x01 \x03(\x0b\x32..google.analytics.admin.v1alpha.AccountSummary\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xebR\n\x15\x41nalyticsAdminService\x12\x93\x01\n\nGetAccount\x12\x31.google.analytics.admin.v1alpha.GetAccountRequest\x1a\'.google.analytics.admin.v1alpha.Account\")\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1alpha/{name=accounts/*}\xda\x41\x04name\x12\x94\x01\n\x0cListAccounts\x12\x33.google.analytics.admin.v1alpha.ListAccountsRequest\x1a\x34.google.analytics.admin.v1alpha.ListAccountsResponse\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/v1alpha/accounts\x12\x88\x01\n\rDeleteAccount\x12\x34.google.analytics.admin.v1alpha.DeleteAccountRequest\x1a\x16.google.protobuf.Empty\")\x82\xd3\xe4\x93\x02\x1c*\x1a/v1alpha/{name=accounts/*}\xda\x41\x04name\x12\xb9\x01\n\rUpdateAccount\x12\x34.google.analytics.admin.v1alpha.UpdateAccountRequest\x1a\'.google.analytics.admin.v1alpha.Account\"I\x82\xd3\xe4\x93\x02-2\"/v1alpha/{account.name=accounts/*}:\x07\x61\x63\x63ount\xda\x41\x13\x61\x63\x63ount,update_mask\x12\xcc\x01\n\x16ProvisionAccountTicket\x12=.google.analytics.admin.v1alpha.ProvisionAccountTicketRequest\x1a>.google.analytics.admin.v1alpha.ProvisionAccountTicketResponse\"3\x82\xd3\xe4\x93\x02-\"(/v1alpha/accounts:provisionAccountTicket:\x01*\x12\xb4\x01\n\x14ListAccountSummaries\x12;.google.analytics.admin.v1alpha.ListAccountSummariesRequest\x1a<.google.analytics.admin.v1alpha.ListAccountSummariesResponse\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/v1alpha/accountSummaries\x12\x98\x01\n\x0bGetProperty\x12\x32.google.analytics.admin.v1alpha.GetPropertyRequest\x1a(.google.analytics.admin.v1alpha.Property\"+\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1alpha/{name=properties/*}\xda\x41\x04name\x12\x9c\x01\n\x0eListProperties\x12\x35.google.analytics.admin.v1alpha.ListPropertiesRequest\x1a\x36.google.analytics.admin.v1alpha.ListPropertiesResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1alpha/properties\x12\xa3\x01\n\x0e\x43reateProperty\x12\x35.google.analytics.admin.v1alpha.CreatePropertyRequest\x1a(.google.analytics.admin.v1alpha.Property\"0\x82\xd3\xe4\x93\x02\x1f\"\x13/v1alpha/properties:\x08property\xda\x41\x08property\x12\x8c\x01\n\x0e\x44\x65leteProperty\x12\x35.google.analytics.admin.v1alpha.DeletePropertyRequest\x1a\x16.google.protobuf.Empty\"+\x82\xd3\xe4\x93\x02\x1e*\x1c/v1alpha/{name=properties/*}\xda\x41\x04name\x12\xc1\x01\n\x0eUpdateProperty\x12\x35.google.analytics.admin.v1alpha.UpdatePropertyRequest\x1a(.google.analytics.admin.v1alpha.Property\"N\x82\xd3\xe4\x93\x02\x31\x32%/v1alpha/{property.name=properties/*}:\x08property\xda\x41\x14property,update_mask\x12\xce\x01\n\x0bGetUserLink\x12\x32.google.analytics.admin.v1alpha.GetUserLinkRequest\x1a(.google.analytics.admin.v1alpha.UserLink\"a\x82\xd3\xe4\x93\x02T\x12&/v1alpha/{name=accounts/*/userLinks/*}Z*\x12(/v1alpha/{name=properties/*/userLinks/*}\xda\x41\x04name\x12\xf6\x01\n\x11\x42\x61tchGetUserLinks\x12\x38.google.analytics.admin.v1alpha.BatchGetUserLinksRequest\x1a\x39.google.analytics.admin.v1alpha.BatchGetUserLinksResponse\"l\x82\xd3\xe4\x93\x02\x66\x12//v1alpha/{parent=accounts/*}/userLinks:batchGetZ3\x12\x31/v1alpha/{parent=properties/*}/userLinks:batchGet\x12\xe1\x01\n\rListUserLinks\x12\x34.google.analytics.admin.v1alpha.ListUserLinksRequest\x1a\x35.google.analytics.admin.v1alpha.ListUserLinksResponse\"c\x82\xd3\xe4\x93\x02T\x12&/v1alpha/{parent=accounts/*}/userLinksZ*\x12(/v1alpha/{parent=properties/*}/userLinks\xda\x41\x06parent\x12\xed\x01\n\x0e\x41uditUserLinks\x12\x35.google.analytics.admin.v1alpha.AuditUserLinksRequest\x1a\x36.google.analytics.admin.v1alpha.AuditUserLinksResponse\"l\x82\xd3\xe4\x93\x02\x66\",/v1alpha/{parent=accounts/*}/userLinks:audit:\x01*Z3\"./v1alpha/{parent=properties/*}/userLinks:audit:\x01*\x12\xf7\x01\n\x0e\x43reateUserLink\x12\x35.google.analytics.admin.v1alpha.CreateUserLinkRequest\x1a(.google.analytics.admin.v1alpha.UserLink\"\x83\x01\x82\xd3\xe4\x93\x02j\"&/v1alpha/{parent=accounts/*}/userLinks:\tuser_linkZ5\"(/v1alpha/{parent=properties/*}/userLinks:\tuser_link\xda\x41\x10parent,user_link\x12\x8b\x02\n\x14\x42\x61tchCreateUserLinks\x12;.google.analytics.admin.v1alpha.BatchCreateUserLinksRequest\x1a<.google.analytics.admin.v1alpha.BatchCreateUserLinksResponse\"x\x82\xd3\xe4\x93\x02r\"2/v1alpha/{parent=accounts/*}/userLinks:batchCreate:\x01*Z9\"4/v1alpha/{parent=properties/*}/userLinks:batchCreate:\x01*\x12\x84\x02\n\x0eUpdateUserLink\x12\x35.google.analytics.admin.v1alpha.UpdateUserLinkRequest\x1a(.google.analytics.admin.v1alpha.UserLink\"\x90\x01\x82\xd3\xe4\x93\x02~20/v1alpha/{user_link.name=accounts/*/userLinks/*}:\tuser_linkZ?22/v1alpha/{user_link.name=properties/*/userLinks/*}:\tuser_link\xda\x41\tuser_link\x12\x8b\x02\n\x14\x42\x61tchUpdateUserLinks\x12;.google.analytics.admin.v1alpha.BatchUpdateUserLinksRequest\x1a<.google.analytics.admin.v1alpha.BatchUpdateUserLinksResponse\"x\x82\xd3\xe4\x93\x02r\"2/v1alpha/{parent=accounts/*}/userLinks:batchUpdate:\x01*Z9\"4/v1alpha/{parent=properties/*}/userLinks:batchUpdate:\x01*\x12\xc2\x01\n\x0e\x44\x65leteUserLink\x12\x35.google.analytics.admin.v1alpha.DeleteUserLinkRequest\x1a\x16.google.protobuf.Empty\"a\x82\xd3\xe4\x93\x02T*&/v1alpha/{name=accounts/*/userLinks/*}Z**(/v1alpha/{name=properties/*/userLinks/*}\xda\x41\x04name\x12\xe5\x01\n\x14\x42\x61tchDeleteUserLinks\x12;.google.analytics.admin.v1alpha.BatchDeleteUserLinksRequest\x1a\x16.google.protobuf.Empty\"x\x82\xd3\xe4\x93\x02r\"2/v1alpha/{parent=accounts/*}/userLinks:batchDelete:\x01*Z9\"4/v1alpha/{parent=properties/*}/userLinks:batchDelete:\x01*\x12\xb8\x01\n\x10GetWebDataStream\x12\x37.google.analytics.admin.v1alpha.GetWebDataStreamRequest\x1a-.google.analytics.admin.v1alpha.WebDataStream\"<\x82\xd3\xe4\x93\x02/\x12-/v1alpha/{name=properties/*/webDataStreams/*}\xda\x41\x04name\x12\xa7\x01\n\x13\x44\x65leteWebDataStream\x12:.google.analytics.admin.v1alpha.DeleteWebDataStreamRequest\x1a\x16.google.protobuf.Empty\"<\x82\xd3\xe4\x93\x02/*-/v1alpha/{name=properties/*/webDataStreams/*}\xda\x41\x04name\x12\xf6\x01\n\x13UpdateWebDataStream\x12:.google.analytics.admin.v1alpha.UpdateWebDataStreamRequest\x1a-.google.analytics.admin.v1alpha.WebDataStream\"t\x82\xd3\xe4\x93\x02P2=/v1alpha/{web_data_stream.name=properties/*/webDataStreams/*}:\x0fweb_data_stream\xda\x41\x1bweb_data_stream,update_mask\x12\xe1\x01\n\x13\x43reateWebDataStream\x12:.google.analytics.admin.v1alpha.CreateWebDataStreamRequest\x1a-.google.analytics.admin.v1alpha.WebDataStream\"_\x82\xd3\xe4\x93\x02@\"-/v1alpha/{parent=properties/*}/webDataStreams:\x0fweb_data_stream\xda\x41\x16parent,web_data_stream\x12\xcb\x01\n\x12ListWebDataStreams\x12\x39.google.analytics.admin.v1alpha.ListWebDataStreamsRequest\x1a:.google.analytics.admin.v1alpha.ListWebDataStreamsResponse\">\x82\xd3\xe4\x93\x02/\x12-/v1alpha/{parent=properties/*}/webDataStreams\xda\x41\x06parent\x12\xc4\x01\n\x13GetIosAppDataStream\x12:.google.analytics.admin.v1alpha.GetIosAppDataStreamRequest\x1a\x30.google.analytics.admin.v1alpha.IosAppDataStream\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1alpha/{name=properties/*/iosAppDataStreams/*}\xda\x41\x04name\x12\xb0\x01\n\x16\x44\x65leteIosAppDataStream\x12=.google.analytics.admin.v1alpha.DeleteIosAppDataStreamRequest\x1a\x16.google.protobuf.Empty\"?\x82\xd3\xe4\x93\x02\x32*0/v1alpha/{name=properties/*/iosAppDataStreams/*}\xda\x41\x04name\x12\x8f\x02\n\x16UpdateIosAppDataStream\x12=.google.analytics.admin.v1alpha.UpdateIosAppDataStreamRequest\x1a\x30.google.analytics.admin.v1alpha.IosAppDataStream\"\x83\x01\x82\xd3\xe4\x93\x02[2D/v1alpha/{ios_app_data_stream.name=properties/*/iosAppDataStreams/*}:\x13ios_app_data_stream\xda\x41\x1fios_app_data_stream,update_mask\x12\xf5\x01\n\x16\x43reateIosAppDataStream\x12=.google.analytics.admin.v1alpha.CreateIosAppDataStreamRequest\x1a\x30.google.analytics.admin.v1alpha.IosAppDataStream\"j\x82\xd3\xe4\x93\x02G\"0/v1alpha/{parent=properties/*}/iosAppDataStreams:\x13ios_app_data_stream\xda\x41\x1aparent,ios_app_data_stream\x12\xd7\x01\n\x15ListIosAppDataStreams\x12<.google.analytics.admin.v1alpha.ListIosAppDataStreamsRequest\x1a=.google.analytics.admin.v1alpha.ListIosAppDataStreamsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1alpha/{parent=properties/*}/iosAppDataStreams\xda\x41\x06parent\x12\xd4\x01\n\x17GetAndroidAppDataStream\x12>.google.analytics.admin.v1alpha.GetAndroidAppDataStreamRequest\x1a\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\"C\x82\xd3\xe4\x93\x02\x36\x12\x34/v1alpha/{name=properties/*/androidAppDataStreams/*}\xda\x41\x04name\x12\xbc\x01\n\x1a\x44\x65leteAndroidAppDataStream\x12\x41.google.analytics.admin.v1alpha.DeleteAndroidAppDataStreamRequest\x1a\x16.google.protobuf.Empty\"C\x82\xd3\xe4\x93\x02\x36*4/v1alpha/{name=properties/*/androidAppDataStreams/*}\xda\x41\x04name\x12\xab\x02\n\x1aUpdateAndroidAppDataStream\x12\x41.google.analytics.admin.v1alpha.UpdateAndroidAppDataStreamRequest\x1a\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\"\x93\x01\x82\xd3\xe4\x93\x02g2L/v1alpha/{android_app_data_stream.name=properties/*/androidAppDataStreams/*}:\x17\x61ndroid_app_data_stream\xda\x41#android_app_data_stream,update_mask\x12\x8d\x02\n\x1a\x43reateAndroidAppDataStream\x12\x41.google.analytics.admin.v1alpha.CreateAndroidAppDataStreamRequest\x1a\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\"v\x82\xd3\xe4\x93\x02O\"4/v1alpha/{parent=properties/*}/androidAppDataStreams:\x17\x61ndroid_app_data_stream\xda\x41\x1eparent,android_app_data_stream\x12\xe7\x01\n\x19ListAndroidAppDataStreams\x12@.google.analytics.admin.v1alpha.ListAndroidAppDataStreamsRequest\x1a\x41.google.analytics.admin.v1alpha.ListAndroidAppDataStreamsResponse\"E\x82\xd3\xe4\x93\x02\x36\x12\x34/v1alpha/{parent=properties/*}/androidAppDataStreams\xda\x41\x06parent\x12\xfe\x01\n\x1eGetEnhancedMeasurementSettings\x12\x45.google.analytics.admin.v1alpha.GetEnhancedMeasurementSettingsRequest\x1a;.google.analytics.admin.v1alpha.EnhancedMeasurementSettings\"X\x82\xd3\xe4\x93\x02K\x12I/v1alpha/{name=properties/*/webDataStreams/*/enhancedMeasurementSettings}\xda\x41\x04name\x12\xe8\x02\n!UpdateEnhancedMeasurementSettings\x12H.google.analytics.admin.v1alpha.UpdateEnhancedMeasurementSettingsRequest\x1a;.google.analytics.admin.v1alpha.EnhancedMeasurementSettings\"\xbb\x01\x82\xd3\xe4\x93\x02\x88\x01\x32g/v1alpha/{enhanced_measurement_settings.name=properties/*/webDataStreams/*/enhancedMeasurementSettings}:\x1d\x65nhanced_measurement_settings\xda\x41)enhanced_measurement_settings,update_mask\x12\xd9\x01\n\x12\x43reateFirebaseLink\x12\x39.google.analytics.admin.v1alpha.CreateFirebaseLinkRequest\x1a,.google.analytics.admin.v1alpha.FirebaseLink\"Z\x82\xd3\xe4\x93\x02=\",/v1alpha/{parent=properties/*}/firebaseLinks:\rfirebase_link\xda\x41\x14parent,firebase_link\x12\xec\x01\n\x12UpdateFirebaseLink\x12\x39.google.analytics.admin.v1alpha.UpdateFirebaseLinkRequest\x1a,.google.analytics.admin.v1alpha.FirebaseLink\"m\x82\xd3\xe4\x93\x02K2:/v1alpha/{firebase_link.name=properties/*/firebaseLinks/*}:\rfirebase_link\xda\x41\x19\x66irebase_link,update_mask\x12\xa4\x01\n\x12\x44\x65leteFirebaseLink\x12\x39.google.analytics.admin.v1alpha.DeleteFirebaseLinkRequest\x1a\x16.google.protobuf.Empty\";\x82\xd3\xe4\x93\x02.*,/v1alpha/{name=properties/*/firebaseLinks/*}\xda\x41\x04name\x12\xc7\x01\n\x11ListFirebaseLinks\x12\x38.google.analytics.admin.v1alpha.ListFirebaseLinksRequest\x1a\x39.google.analytics.admin.v1alpha.ListFirebaseLinksResponse\"=\x82\xd3\xe4\x93\x02.\x12,/v1alpha/{parent=properties/*}/firebaseLinks\xda\x41\x06parent\x12\xc6\x01\n\x10GetGlobalSiteTag\x12\x37.google.analytics.admin.v1alpha.GetGlobalSiteTagRequest\x1a-.google.analytics.admin.v1alpha.GlobalSiteTag\"J\x82\xd3\xe4\x93\x02=\x12;/v1alpha/{name=properties/*/webDataStreams/*/globalSiteTag}\xda\x41\x04name\x12\xe1\x01\n\x13\x43reateGoogleAdsLink\x12:.google.analytics.admin.v1alpha.CreateGoogleAdsLinkRequest\x1a-.google.analytics.admin.v1alpha.GoogleAdsLink\"_\x82\xd3\xe4\x93\x02@\"-/v1alpha/{parent=properties/*}/googleAdsLinks:\x0fgoogle_ads_link\xda\x41\x16parent,google_ads_link\x12\xf6\x01\n\x13UpdateGoogleAdsLink\x12:.google.analytics.admin.v1alpha.UpdateGoogleAdsLinkRequest\x1a-.google.analytics.admin.v1alpha.GoogleAdsLink\"t\x82\xd3\xe4\x93\x02P2=/v1alpha/{google_ads_link.name=properties/*/googleAdsLinks/*}:\x0fgoogle_ads_link\xda\x41\x1bgoogle_ads_link,update_mask\x12\xa7\x01\n\x13\x44\x65leteGoogleAdsLink\x12:.google.analytics.admin.v1alpha.DeleteGoogleAdsLinkRequest\x1a\x16.google.protobuf.Empty\"<\x82\xd3\xe4\x93\x02/*-/v1alpha/{name=properties/*/googleAdsLinks/*}\xda\x41\x04name\x12\xcb\x01\n\x12ListGoogleAdsLinks\x12\x39.google.analytics.admin.v1alpha.ListGoogleAdsLinksRequest\x1a:.google.analytics.admin.v1alpha.ListGoogleAdsLinksResponse\">\x82\xd3\xe4\x93\x02/\x12-/v1alpha/{parent=properties/*}/googleAdsLinks\xda\x41\x06parent\x12\xcb\x01\n\x16GetDataSharingSettings\x12=.google.analytics.admin.v1alpha.GetDataSharingSettingsRequest\x1a\x33.google.analytics.admin.v1alpha.DataSharingSettings\"=\x82\xd3\xe4\x93\x02\x30\x12./v1alpha/{name=accounts/*/dataSharingSettings}\xda\x41\x04name\x1a\xfc\x01\xca\x41\x1d\x61nalyticsadmin.googleapis.com\xd2\x41\xd8\x01https://www.googleapis.com/auth/analytics.edit,https://www.googleapis.com/auth/analytics.manage.users,https://www.googleapis.com/auth/analytics.manage.users.readonly,https://www.googleapis.com/auth/analytics.readonlyB\x80\x01\n\"com.google.analytics.admin.v1alphaB\x13\x41nalyticsAdminProtoP\x01ZCgoogle.golang.org/genproto/googleapis/analytics/admin/v1alpha;adminb\x06proto3'
+  serialized_pb=b'\n4google/analytics/admin/v1alpha/analytics_admin.proto\x12\x1egoogle.analytics.admin.v1alpha\x1a.google/analytics/admin/v1alpha/resources.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"P\n\x11GetAccountRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%analyticsadmin.googleapis.com/Account\"R\n\x13ListAccountsRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x14\n\x0cshow_deleted\x18\x03 \x01(\x08\"j\n\x14ListAccountsResponse\x12\x39\n\x08\x61\x63\x63ounts\x18\x01 \x03(\x0b\x32\'.google.analytics.admin.v1alpha.Account\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"S\n\x14\x44\x65leteAccountRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%analyticsadmin.googleapis.com/Account\"\x8b\x01\n\x14UpdateAccountRequest\x12=\n\x07\x61\x63\x63ount\x18\x01 \x01(\x0b\x32\'.google.analytics.admin.v1alpha.AccountB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"o\n\x1dProvisionAccountTicketRequest\x12\x38\n\x07\x61\x63\x63ount\x18\x01 \x01(\x0b\x32\'.google.analytics.admin.v1alpha.Account\x12\x14\n\x0credirect_uri\x18\x02 \x01(\t\";\n\x1eProvisionAccountTicketResponse\x12\x19\n\x11\x61\x63\x63ount_ticket_id\x18\x01 \x01(\t\"R\n\x12GetPropertyRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/Property\"i\n\x15ListPropertiesRequest\x12\x13\n\x06\x66ilter\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x14\n\x0cshow_deleted\x18\x04 \x01(\x08\"o\n\x16ListPropertiesResponse\x12<\n\nproperties\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.Property\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x8e\x01\n\x15UpdatePropertyRequest\x12?\n\x08property\x18\x01 \x01(\x0b\x32(.google.analytics.admin.v1alpha.PropertyB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"X\n\x15\x43reatePropertyRequest\x12?\n\x08property\x18\x01 \x01(\x0b\x32(.google.analytics.admin.v1alpha.PropertyB\x03\xe0\x41\x02\"U\n\x15\x44\x65letePropertyRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/Property\"R\n\x12GetUserLinkRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/UserLink\"\x99\x01\n\x18\x42\x61tchGetUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12=\n\x05names\x18\x02 \x03(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/UserLink\"Y\n\x19\x42\x61tchGetUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\"}\n\x14ListUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"n\n\x15ListUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"~\n\x15\x41uditUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"t\n\x16\x41uditUserLinksResponse\x12\x41\n\nuser_links\x18\x01 \x03(\x0b\x32-.google.analytics.admin.v1alpha.AuditUserLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb7\x01\n\x15\x43reateUserLinkRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x1c\n\x0fnotify_new_user\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\x12@\n\tuser_link\x18\x03 \x01(\x0b\x32(.google.analytics.admin.v1alpha.UserLinkB\x03\xe0\x41\x02\"\xca\x01\n\x1b\x42\x61tchCreateUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12\x1d\n\x10notify_new_users\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\x12L\n\x08requests\x18\x03 \x03(\x0b\x32\x35.google.analytics.admin.v1alpha.CreateUserLinkRequestB\x03\xe0\x41\x02\"\\\n\x1c\x42\x61tchCreateUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\"Y\n\x15UpdateUserLinkRequest\x12@\n\tuser_link\x18\x01 \x01(\x0b\x32(.google.analytics.admin.v1alpha.UserLinkB\x03\xe0\x41\x02\"\xab\x01\n\x1b\x42\x61tchUpdateUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12L\n\x08requests\x18\x02 \x03(\x0b\x32\x35.google.analytics.admin.v1alpha.UpdateUserLinkRequestB\x03\xe0\x41\x02\"\\\n\x1c\x42\x61tchUpdateUserLinksResponse\x12<\n\nuser_links\x18\x01 \x03(\x0b\x32(.google.analytics.admin.v1alpha.UserLink\"U\n\x15\x44\x65leteUserLinkRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&analyticsadmin.googleapis.com/UserLink\"\xab\x01\n\x1b\x42\x61tchDeleteUserLinksRequest\x12>\n\x06parent\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\x12&analyticsadmin.googleapis.com/UserLink\x12L\n\x08requests\x18\x02 \x03(\x0b\x32\x35.google.analytics.admin.v1alpha.DeleteUserLinkRequestB\x03\xe0\x41\x02\"\\\n\x17GetWebDataStreamRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/WebDataStream\"_\n\x1a\x44\x65leteWebDataStreamRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/WebDataStream\"\x9f\x01\n\x1aUpdateWebDataStreamRequest\x12K\n\x0fweb_data_stream\x18\x01 \x01(\x0b\x32-.google.analytics.admin.v1alpha.WebDataStreamB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\xae\x01\n\x1a\x43reateWebDataStreamRequest\x12K\n\x0fweb_data_stream\x18\x01 \x01(\x0b\x32-.google.analytics.admin.v1alpha.WebDataStreamB\x03\xe0\x41\x02\x12\x43\n\x06parent\x18\x02 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/WebDataStream\"\x87\x01\n\x19ListWebDataStreamsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/WebDataStream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"~\n\x1aListWebDataStreamsResponse\x12G\n\x10web_data_streams\x18\x01 \x03(\x0b\x32-.google.analytics.admin.v1alpha.WebDataStream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"b\n\x1aGetIosAppDataStreamRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.analyticsadmin.googleapis.com/IosAppDataStream\"e\n\x1d\x44\x65leteIosAppDataStreamRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.analyticsadmin.googleapis.com/IosAppDataStream\"\xa9\x01\n\x1dUpdateIosAppDataStreamRequest\x12R\n\x13ios_app_data_stream\x18\x01 \x01(\x0b\x32\x30.google.analytics.admin.v1alpha.IosAppDataStreamB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\x8d\x01\n\x1cListIosAppDataStreamsRequest\x12\x46\n\x06parent\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\x12.analyticsadmin.googleapis.com/IosAppDataStream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x88\x01\n\x1dListIosAppDataStreamsResponse\x12N\n\x14ios_app_data_streams\x18\x01 \x03(\x0b\x32\x30.google.analytics.admin.v1alpha.IosAppDataStream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"j\n\x1eGetAndroidAppDataStreamRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2analyticsadmin.googleapis.com/AndroidAppDataStream\"m\n!DeleteAndroidAppDataStreamRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2analyticsadmin.googleapis.com/AndroidAppDataStream\"\xb5\x01\n!UpdateAndroidAppDataStreamRequest\x12Z\n\x17\x61ndroid_app_data_stream\x18\x01 \x01(\x0b\x32\x34.google.analytics.admin.v1alpha.AndroidAppDataStreamB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\x95\x01\n ListAndroidAppDataStreamsRequest\x12J\n\x06parent\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\x12\x32\x61nalyticsadmin.googleapis.com/AndroidAppDataStream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x94\x01\n!ListAndroidAppDataStreamsResponse\x12V\n\x18\x61ndroid_app_data_streams\x18\x01 \x03(\x0b\x32\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"x\n%GetEnhancedMeasurementSettingsRequest\x12O\n\x04name\x18\x01 \x01(\tBA\xe0\x41\x02\xfa\x41;\n9analyticsadmin.googleapis.com/EnhancedMeasurementSettings\"\xc9\x01\n(UpdateEnhancedMeasurementSettingsRequest\x12g\n\x1d\x65nhanced_measurement_settings\x18\x01 \x01(\x0b\x32;.google.analytics.admin.v1alpha.EnhancedMeasurementSettingsB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\xa9\x01\n\x19\x43reateFirebaseLinkRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*analyticsadmin.googleapis.com/FirebaseLink\x12H\n\rfirebase_link\x18\x02 \x01(\x0b\x32,.google.analytics.admin.v1alpha.FirebaseLinkB\x03\xe0\x41\x02\"\x9b\x01\n\x19UpdateFirebaseLinkRequest\x12H\n\rfirebase_link\x18\x01 \x01(\x0b\x32,.google.analytics.admin.v1alpha.FirebaseLinkB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"]\n\x19\x44\x65leteFirebaseLinkRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*analyticsadmin.googleapis.com/FirebaseLink\"\x85\x01\n\x18ListFirebaseLinksRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*analyticsadmin.googleapis.com/FirebaseLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"z\n\x19ListFirebaseLinksResponse\x12\x44\n\x0e\x66irebase_links\x18\x01 \x03(\x0b\x32,.google.analytics.admin.v1alpha.FirebaseLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\\\n\x17GetGlobalSiteTagRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/GlobalSiteTag\"\xae\x01\n\x1a\x43reateGoogleAdsLinkRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/GoogleAdsLink\x12K\n\x0fgoogle_ads_link\x18\x02 \x01(\x0b\x32-.google.analytics.admin.v1alpha.GoogleAdsLinkB\x03\xe0\x41\x02\"\x9a\x01\n\x1aUpdateGoogleAdsLinkRequest\x12\x46\n\x0fgoogle_ads_link\x18\x01 \x01(\x0b\x32-.google.analytics.admin.v1alpha.GoogleAdsLink\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"_\n\x1a\x44\x65leteGoogleAdsLinkRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+analyticsadmin.googleapis.com/GoogleAdsLink\"\x87\x01\n\x19ListGoogleAdsLinksRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+analyticsadmin.googleapis.com/GoogleAdsLink\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"~\n\x1aListGoogleAdsLinksResponse\x12G\n\x10google_ads_links\x18\x01 \x03(\x0b\x32-.google.analytics.admin.v1alpha.GoogleAdsLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"h\n\x1dGetDataSharingSettingsRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1analyticsadmin.googleapis.com/DataSharingSettings\"D\n\x1bListAccountSummariesRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\"\x82\x01\n\x1cListAccountSummariesResponse\x12I\n\x11\x61\x63\x63ount_summaries\x18\x01 \x03(\x0b\x32..google.analytics.admin.v1alpha.AccountSummary\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x83\x04\n SearchChangeHistoryEventsRequest\x12>\n\x07\x61\x63\x63ount\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%analyticsadmin.googleapis.com/Account\x12@\n\x08property\x18\x02 \x01(\tB.\xe0\x41\x01\xfa\x41(\n&analyticsadmin.googleapis.com/Property\x12U\n\rresource_type\x18\x03 \x03(\x0e\x32\x39.google.analytics.admin.v1alpha.ChangeHistoryResourceTypeB\x03\xe0\x41\x01\x12?\n\x06\x61\x63tion\x18\x04 \x03(\x0e\x32*.google.analytics.admin.v1alpha.ActionTypeB\x03\xe0\x41\x01\x12\x18\n\x0b\x61\x63tor_email\x18\x05 \x03(\tB\x03\xe0\x41\x01\x12=\n\x14\x65\x61rliest_change_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\x12;\n\x12latest_change_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\x12\x16\n\tpage_size\x18\x08 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\t \x01(\tB\x03\xe0\x41\x01\"\x8f\x01\n!SearchChangeHistoryEventsResponse\x12Q\n\x15\x63hange_history_events\x18\x01 \x03(\x0b\x32\x32.google.analytics.admin.v1alpha.ChangeHistoryEvent\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"t\n#GetMeasurementProtocolSecretRequest\x12M\n\x04name\x18\x01 \x01(\tB?\xe0\x41\x02\xfa\x41\x39\n7analyticsadmin.googleapis.com/MeasurementProtocolSecret\"\xde\x01\n&CreateMeasurementProtocolSecretRequest\x12O\n\x06parent\x18\x01 \x01(\tB?\xe0\x41\x02\xfa\x41\x39\x12\x37\x61nalyticsadmin.googleapis.com/MeasurementProtocolSecret\x12\x63\n\x1bmeasurement_protocol_secret\x18\x02 \x01(\x0b\x32\x39.google.analytics.admin.v1alpha.MeasurementProtocolSecretB\x03\xe0\x41\x02\"w\n&DeleteMeasurementProtocolSecretRequest\x12M\n\x04name\x18\x01 \x01(\tB?\xe0\x41\x02\xfa\x41\x39\n7analyticsadmin.googleapis.com/MeasurementProtocolSecret\"\xbe\x01\n&UpdateMeasurementProtocolSecretRequest\x12\x63\n\x1bmeasurement_protocol_secret\x18\x01 \x01(\x0b\x32\x39.google.analytics.admin.v1alpha.MeasurementProtocolSecretB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\x9f\x01\n%ListMeasurementProtocolSecretsRequest\x12O\n\x06parent\x18\x01 \x01(\tB?\xe0\x41\x02\xfa\x41\x39\x12\x37\x61nalyticsadmin.googleapis.com/MeasurementProtocolSecret\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\xa2\x01\n&ListMeasurementProtocolSecretsResponse\x12_\n\x1cmeasurement_protocol_secrets\x18\x01 \x03(\x0b\x32\x39.google.analytics.admin.v1alpha.MeasurementProtocolSecret\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"l\n\x1fGetGoogleSignalsSettingsRequest\x12I\n\x04name\x18\x01 \x01(\tB;\xe0\x41\x02\xfa\x41\x35\n3analyticsadmin.googleapis.com/GoogleSignalsSettings\"\xb7\x01\n\"UpdateGoogleSignalsSettingsRequest\x12[\n\x17google_signals_settings\x18\x01 \x01(\x0b\x32\x35.google.analytics.admin.v1alpha.GoogleSignalsSettingsB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\xb5\x01\n\x1c\x43reateConversionEventRequest\x12N\n\x10\x63onversion_event\x18\x01 \x01(\x0b\x32/.google.analytics.admin.v1alpha.ConversionEventB\x03\xe0\x41\x02\x12\x45\n\x06parent\x18\x02 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-analyticsadmin.googleapis.com/ConversionEvent\"`\n\x19GetConversionEventRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-analyticsadmin.googleapis.com/ConversionEvent\"c\n\x1c\x44\x65leteConversionEventRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-analyticsadmin.googleapis.com/ConversionEvent\"\x8b\x01\n\x1bListConversionEventsRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-analyticsadmin.googleapis.com/ConversionEvent\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x83\x01\n\x1cListConversionEventsResponse\x12J\n\x11\x63onversion_events\x18\x01 \x03(\x0b\x32/.google.analytics.admin.v1alpha.ConversionEvent\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb5\x01\n\x1c\x43reateCustomDimensionRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-analyticsadmin.googleapis.com/CustomDimension\x12N\n\x10\x63ustom_dimension\x18\x02 \x01(\x0b\x32/.google.analytics.admin.v1alpha.CustomDimensionB\x03\xe0\x41\x02\"\x9f\x01\n\x1cUpdateCustomDimensionRequest\x12I\n\x10\x63ustom_dimension\x18\x01 \x01(\x0b\x32/.google.analytics.admin.v1alpha.CustomDimension\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\x8b\x01\n\x1bListCustomDimensionsRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-analyticsadmin.googleapis.com/CustomDimension\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x83\x01\n\x1cListCustomDimensionsResponse\x12J\n\x11\x63ustom_dimensions\x18\x01 \x03(\x0b\x32/.google.analytics.admin.v1alpha.CustomDimension\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"d\n\x1d\x41rchiveCustomDimensionRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-analyticsadmin.googleapis.com/CustomDimension\"`\n\x19GetCustomDimensionRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-analyticsadmin.googleapis.com/CustomDimension\"\xa9\x01\n\x19\x43reateCustomMetricRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*analyticsadmin.googleapis.com/CustomMetric\x12H\n\rcustom_metric\x18\x02 \x01(\x0b\x32,.google.analytics.admin.v1alpha.CustomMetricB\x03\xe0\x41\x02\"\x96\x01\n\x19UpdateCustomMetricRequest\x12\x43\n\rcustom_metric\x18\x01 \x01(\x0b\x32,.google.analytics.admin.v1alpha.CustomMetric\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\x85\x01\n\x18ListCustomMetricsRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*analyticsadmin.googleapis.com/CustomMetric\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"z\n\x19ListCustomMetricsResponse\x12\x44\n\x0e\x63ustom_metrics\x18\x01 \x03(\x0b\x32,.google.analytics.admin.v1alpha.CustomMetric\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"^\n\x1a\x41rchiveCustomMetricRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*analyticsadmin.googleapis.com/CustomMetric\"Z\n\x16GetCustomMetricRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*analyticsadmin.googleapis.com/CustomMetric2\xdd~\n\x15\x41nalyticsAdminService\x12\x93\x01\n\nGetAccount\x12\x31.google.analytics.admin.v1alpha.GetAccountRequest\x1a\'.google.analytics.admin.v1alpha.Account\")\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1alpha/{name=accounts/*}\xda\x41\x04name\x12\x94\x01\n\x0cListAccounts\x12\x33.google.analytics.admin.v1alpha.ListAccountsRequest\x1a\x34.google.analytics.admin.v1alpha.ListAccountsResponse\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/v1alpha/accounts\x12\x88\x01\n\rDeleteAccount\x12\x34.google.analytics.admin.v1alpha.DeleteAccountRequest\x1a\x16.google.protobuf.Empty\")\x82\xd3\xe4\x93\x02\x1c*\x1a/v1alpha/{name=accounts/*}\xda\x41\x04name\x12\xb9\x01\n\rUpdateAccount\x12\x34.google.analytics.admin.v1alpha.UpdateAccountRequest\x1a\'.google.analytics.admin.v1alpha.Account\"I\x82\xd3\xe4\x93\x02-2\"/v1alpha/{account.name=accounts/*}:\x07\x61\x63\x63ount\xda\x41\x13\x61\x63\x63ount,update_mask\x12\xcc\x01\n\x16ProvisionAccountTicket\x12=.google.analytics.admin.v1alpha.ProvisionAccountTicketRequest\x1a>.google.analytics.admin.v1alpha.ProvisionAccountTicketResponse\"3\x82\xd3\xe4\x93\x02-\"(/v1alpha/accounts:provisionAccountTicket:\x01*\x12\xb4\x01\n\x14ListAccountSummaries\x12;.google.analytics.admin.v1alpha.ListAccountSummariesRequest\x1a<.google.analytics.admin.v1alpha.ListAccountSummariesResponse\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/v1alpha/accountSummaries\x12\x98\x01\n\x0bGetProperty\x12\x32.google.analytics.admin.v1alpha.GetPropertyRequest\x1a(.google.analytics.admin.v1alpha.Property\"+\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1alpha/{name=properties/*}\xda\x41\x04name\x12\x9c\x01\n\x0eListProperties\x12\x35.google.analytics.admin.v1alpha.ListPropertiesRequest\x1a\x36.google.analytics.admin.v1alpha.ListPropertiesResponse\"\x1b\x82\xd3\xe4\x93\x02\x15\x12\x13/v1alpha/properties\x12\xa3\x01\n\x0e\x43reateProperty\x12\x35.google.analytics.admin.v1alpha.CreatePropertyRequest\x1a(.google.analytics.admin.v1alpha.Property\"0\x82\xd3\xe4\x93\x02\x1f\"\x13/v1alpha/properties:\x08property\xda\x41\x08property\x12\x9e\x01\n\x0e\x44\x65leteProperty\x12\x35.google.analytics.admin.v1alpha.DeletePropertyRequest\x1a(.google.analytics.admin.v1alpha.Property\"+\x82\xd3\xe4\x93\x02\x1e*\x1c/v1alpha/{name=properties/*}\xda\x41\x04name\x12\xc1\x01\n\x0eUpdateProperty\x12\x35.google.analytics.admin.v1alpha.UpdatePropertyRequest\x1a(.google.analytics.admin.v1alpha.Property\"N\x82\xd3\xe4\x93\x02\x31\x32%/v1alpha/{property.name=properties/*}:\x08property\xda\x41\x14property,update_mask\x12\xce\x01\n\x0bGetUserLink\x12\x32.google.analytics.admin.v1alpha.GetUserLinkRequest\x1a(.google.analytics.admin.v1alpha.UserLink\"a\x82\xd3\xe4\x93\x02T\x12&/v1alpha/{name=accounts/*/userLinks/*}Z*\x12(/v1alpha/{name=properties/*/userLinks/*}\xda\x41\x04name\x12\xf6\x01\n\x11\x42\x61tchGetUserLinks\x12\x38.google.analytics.admin.v1alpha.BatchGetUserLinksRequest\x1a\x39.google.analytics.admin.v1alpha.BatchGetUserLinksResponse\"l\x82\xd3\xe4\x93\x02\x66\x12//v1alpha/{parent=accounts/*}/userLinks:batchGetZ3\x12\x31/v1alpha/{parent=properties/*}/userLinks:batchGet\x12\xe1\x01\n\rListUserLinks\x12\x34.google.analytics.admin.v1alpha.ListUserLinksRequest\x1a\x35.google.analytics.admin.v1alpha.ListUserLinksResponse\"c\x82\xd3\xe4\x93\x02T\x12&/v1alpha/{parent=accounts/*}/userLinksZ*\x12(/v1alpha/{parent=properties/*}/userLinks\xda\x41\x06parent\x12\xed\x01\n\x0e\x41uditUserLinks\x12\x35.google.analytics.admin.v1alpha.AuditUserLinksRequest\x1a\x36.google.analytics.admin.v1alpha.AuditUserLinksResponse\"l\x82\xd3\xe4\x93\x02\x66\",/v1alpha/{parent=accounts/*}/userLinks:audit:\x01*Z3\"./v1alpha/{parent=properties/*}/userLinks:audit:\x01*\x12\xf7\x01\n\x0e\x43reateUserLink\x12\x35.google.analytics.admin.v1alpha.CreateUserLinkRequest\x1a(.google.analytics.admin.v1alpha.UserLink\"\x83\x01\x82\xd3\xe4\x93\x02j\"&/v1alpha/{parent=accounts/*}/userLinks:\tuser_linkZ5\"(/v1alpha/{parent=properties/*}/userLinks:\tuser_link\xda\x41\x10parent,user_link\x12\x8b\x02\n\x14\x42\x61tchCreateUserLinks\x12;.google.analytics.admin.v1alpha.BatchCreateUserLinksRequest\x1a<.google.analytics.admin.v1alpha.BatchCreateUserLinksResponse\"x\x82\xd3\xe4\x93\x02r\"2/v1alpha/{parent=accounts/*}/userLinks:batchCreate:\x01*Z9\"4/v1alpha/{parent=properties/*}/userLinks:batchCreate:\x01*\x12\x84\x02\n\x0eUpdateUserLink\x12\x35.google.analytics.admin.v1alpha.UpdateUserLinkRequest\x1a(.google.analytics.admin.v1alpha.UserLink\"\x90\x01\x82\xd3\xe4\x93\x02~20/v1alpha/{user_link.name=accounts/*/userLinks/*}:\tuser_linkZ?22/v1alpha/{user_link.name=properties/*/userLinks/*}:\tuser_link\xda\x41\tuser_link\x12\x8b\x02\n\x14\x42\x61tchUpdateUserLinks\x12;.google.analytics.admin.v1alpha.BatchUpdateUserLinksRequest\x1a<.google.analytics.admin.v1alpha.BatchUpdateUserLinksResponse\"x\x82\xd3\xe4\x93\x02r\"2/v1alpha/{parent=accounts/*}/userLinks:batchUpdate:\x01*Z9\"4/v1alpha/{parent=properties/*}/userLinks:batchUpdate:\x01*\x12\xc2\x01\n\x0e\x44\x65leteUserLink\x12\x35.google.analytics.admin.v1alpha.DeleteUserLinkRequest\x1a\x16.google.protobuf.Empty\"a\x82\xd3\xe4\x93\x02T*&/v1alpha/{name=accounts/*/userLinks/*}Z**(/v1alpha/{name=properties/*/userLinks/*}\xda\x41\x04name\x12\xe5\x01\n\x14\x42\x61tchDeleteUserLinks\x12;.google.analytics.admin.v1alpha.BatchDeleteUserLinksRequest\x1a\x16.google.protobuf.Empty\"x\x82\xd3\xe4\x93\x02r\"2/v1alpha/{parent=accounts/*}/userLinks:batchDelete:\x01*Z9\"4/v1alpha/{parent=properties/*}/userLinks:batchDelete:\x01*\x12\xb8\x01\n\x10GetWebDataStream\x12\x37.google.analytics.admin.v1alpha.GetWebDataStreamRequest\x1a-.google.analytics.admin.v1alpha.WebDataStream\"<\x82\xd3\xe4\x93\x02/\x12-/v1alpha/{name=properties/*/webDataStreams/*}\xda\x41\x04name\x12\xa7\x01\n\x13\x44\x65leteWebDataStream\x12:.google.analytics.admin.v1alpha.DeleteWebDataStreamRequest\x1a\x16.google.protobuf.Empty\"<\x82\xd3\xe4\x93\x02/*-/v1alpha/{name=properties/*/webDataStreams/*}\xda\x41\x04name\x12\xf6\x01\n\x13UpdateWebDataStream\x12:.google.analytics.admin.v1alpha.UpdateWebDataStreamRequest\x1a-.google.analytics.admin.v1alpha.WebDataStream\"t\x82\xd3\xe4\x93\x02P2=/v1alpha/{web_data_stream.name=properties/*/webDataStreams/*}:\x0fweb_data_stream\xda\x41\x1bweb_data_stream,update_mask\x12\xe1\x01\n\x13\x43reateWebDataStream\x12:.google.analytics.admin.v1alpha.CreateWebDataStreamRequest\x1a-.google.analytics.admin.v1alpha.WebDataStream\"_\x82\xd3\xe4\x93\x02@\"-/v1alpha/{parent=properties/*}/webDataStreams:\x0fweb_data_stream\xda\x41\x16parent,web_data_stream\x12\xcb\x01\n\x12ListWebDataStreams\x12\x39.google.analytics.admin.v1alpha.ListWebDataStreamsRequest\x1a:.google.analytics.admin.v1alpha.ListWebDataStreamsResponse\">\x82\xd3\xe4\x93\x02/\x12-/v1alpha/{parent=properties/*}/webDataStreams\xda\x41\x06parent\x12\xc4\x01\n\x13GetIosAppDataStream\x12:.google.analytics.admin.v1alpha.GetIosAppDataStreamRequest\x1a\x30.google.analytics.admin.v1alpha.IosAppDataStream\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1alpha/{name=properties/*/iosAppDataStreams/*}\xda\x41\x04name\x12\xb0\x01\n\x16\x44\x65leteIosAppDataStream\x12=.google.analytics.admin.v1alpha.DeleteIosAppDataStreamRequest\x1a\x16.google.protobuf.Empty\"?\x82\xd3\xe4\x93\x02\x32*0/v1alpha/{name=properties/*/iosAppDataStreams/*}\xda\x41\x04name\x12\x8f\x02\n\x16UpdateIosAppDataStream\x12=.google.analytics.admin.v1alpha.UpdateIosAppDataStreamRequest\x1a\x30.google.analytics.admin.v1alpha.IosAppDataStream\"\x83\x01\x82\xd3\xe4\x93\x02[2D/v1alpha/{ios_app_data_stream.name=properties/*/iosAppDataStreams/*}:\x13ios_app_data_stream\xda\x41\x1fios_app_data_stream,update_mask\x12\xd7\x01\n\x15ListIosAppDataStreams\x12<.google.analytics.admin.v1alpha.ListIosAppDataStreamsRequest\x1a=.google.analytics.admin.v1alpha.ListIosAppDataStreamsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1alpha/{parent=properties/*}/iosAppDataStreams\xda\x41\x06parent\x12\xd4\x01\n\x17GetAndroidAppDataStream\x12>.google.analytics.admin.v1alpha.GetAndroidAppDataStreamRequest\x1a\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\"C\x82\xd3\xe4\x93\x02\x36\x12\x34/v1alpha/{name=properties/*/androidAppDataStreams/*}\xda\x41\x04name\x12\xbc\x01\n\x1a\x44\x65leteAndroidAppDataStream\x12\x41.google.analytics.admin.v1alpha.DeleteAndroidAppDataStreamRequest\x1a\x16.google.protobuf.Empty\"C\x82\xd3\xe4\x93\x02\x36*4/v1alpha/{name=properties/*/androidAppDataStreams/*}\xda\x41\x04name\x12\xab\x02\n\x1aUpdateAndroidAppDataStream\x12\x41.google.analytics.admin.v1alpha.UpdateAndroidAppDataStreamRequest\x1a\x34.google.analytics.admin.v1alpha.AndroidAppDataStream\"\x93\x01\x82\xd3\xe4\x93\x02g2L/v1alpha/{android_app_data_stream.name=properties/*/androidAppDataStreams/*}:\x17\x61ndroid_app_data_stream\xda\x41#android_app_data_stream,update_mask\x12\xe7\x01\n\x19ListAndroidAppDataStreams\x12@.google.analytics.admin.v1alpha.ListAndroidAppDataStreamsRequest\x1a\x41.google.analytics.admin.v1alpha.ListAndroidAppDataStreamsResponse\"E\x82\xd3\xe4\x93\x02\x36\x12\x34/v1alpha/{parent=properties/*}/androidAppDataStreams\xda\x41\x06parent\x12\xfe\x01\n\x1eGetEnhancedMeasurementSettings\x12\x45.google.analytics.admin.v1alpha.GetEnhancedMeasurementSettingsRequest\x1a;.google.analytics.admin.v1alpha.EnhancedMeasurementSettings\"X\x82\xd3\xe4\x93\x02K\x12I/v1alpha/{name=properties/*/webDataStreams/*/enhancedMeasurementSettings}\xda\x41\x04name\x12\xe8\x02\n!UpdateEnhancedMeasurementSettings\x12H.google.analytics.admin.v1alpha.UpdateEnhancedMeasurementSettingsRequest\x1a;.google.analytics.admin.v1alpha.EnhancedMeasurementSettings\"\xbb\x01\x82\xd3\xe4\x93\x02\x88\x01\x32g/v1alpha/{enhanced_measurement_settings.name=properties/*/webDataStreams/*/enhancedMeasurementSettings}:\x1d\x65nhanced_measurement_settings\xda\x41)enhanced_measurement_settings,update_mask\x12\xd9\x01\n\x12\x43reateFirebaseLink\x12\x39.google.analytics.admin.v1alpha.CreateFirebaseLinkRequest\x1a,.google.analytics.admin.v1alpha.FirebaseLink\"Z\x82\xd3\xe4\x93\x02=\",/v1alpha/{parent=properties/*}/firebaseLinks:\rfirebase_link\xda\x41\x14parent,firebase_link\x12\xec\x01\n\x12UpdateFirebaseLink\x12\x39.google.analytics.admin.v1alpha.UpdateFirebaseLinkRequest\x1a,.google.analytics.admin.v1alpha.FirebaseLink\"m\x82\xd3\xe4\x93\x02K2:/v1alpha/{firebase_link.name=properties/*/firebaseLinks/*}:\rfirebase_link\xda\x41\x19\x66irebase_link,update_mask\x12\xa4\x01\n\x12\x44\x65leteFirebaseLink\x12\x39.google.analytics.admin.v1alpha.DeleteFirebaseLinkRequest\x1a\x16.google.protobuf.Empty\";\x82\xd3\xe4\x93\x02.*,/v1alpha/{name=properties/*/firebaseLinks/*}\xda\x41\x04name\x12\xc7\x01\n\x11ListFirebaseLinks\x12\x38.google.analytics.admin.v1alpha.ListFirebaseLinksRequest\x1a\x39.google.analytics.admin.v1alpha.ListFirebaseLinksResponse\"=\x82\xd3\xe4\x93\x02.\x12,/v1alpha/{parent=properties/*}/firebaseLinks\xda\x41\x06parent\x12\xc6\x01\n\x10GetGlobalSiteTag\x12\x37.google.analytics.admin.v1alpha.GetGlobalSiteTagRequest\x1a-.google.analytics.admin.v1alpha.GlobalSiteTag\"J\x82\xd3\xe4\x93\x02=\x12;/v1alpha/{name=properties/*/webDataStreams/*/globalSiteTag}\xda\x41\x04name\x12\xe1\x01\n\x13\x43reateGoogleAdsLink\x12:.google.analytics.admin.v1alpha.CreateGoogleAdsLinkRequest\x1a-.google.analytics.admin.v1alpha.GoogleAdsLink\"_\x82\xd3\xe4\x93\x02@\"-/v1alpha/{parent=properties/*}/googleAdsLinks:\x0fgoogle_ads_link\xda\x41\x16parent,google_ads_link\x12\xf6\x01\n\x13UpdateGoogleAdsLink\x12:.google.analytics.admin.v1alpha.UpdateGoogleAdsLinkRequest\x1a-.google.analytics.admin.v1alpha.GoogleAdsLink\"t\x82\xd3\xe4\x93\x02P2=/v1alpha/{google_ads_link.name=properties/*/googleAdsLinks/*}:\x0fgoogle_ads_link\xda\x41\x1bgoogle_ads_link,update_mask\x12\xa7\x01\n\x13\x44\x65leteGoogleAdsLink\x12:.google.analytics.admin.v1alpha.DeleteGoogleAdsLinkRequest\x1a\x16.google.protobuf.Empty\"<\x82\xd3\xe4\x93\x02/*-/v1alpha/{name=properties/*/googleAdsLinks/*}\xda\x41\x04name\x12\xcb\x01\n\x12ListGoogleAdsLinks\x12\x39.google.analytics.admin.v1alpha.ListGoogleAdsLinksRequest\x1a:.google.analytics.admin.v1alpha.ListGoogleAdsLinksResponse\">\x82\xd3\xe4\x93\x02/\x12-/v1alpha/{parent=properties/*}/googleAdsLinks\xda\x41\x06parent\x12\xcb\x01\n\x16GetDataSharingSettings\x12=.google.analytics.admin.v1alpha.GetDataSharingSettingsRequest\x1a\x33.google.analytics.admin.v1alpha.DataSharingSettings\"=\x82\xd3\xe4\x93\x02\x30\x12./v1alpha/{name=accounts/*/dataSharingSettings}\xda\x41\x04name\x12\xa1\x03\n\x1cGetMeasurementProtocolSecret\x12\x43.google.analytics.admin.v1alpha.GetMeasurementProtocolSecretRequest\x1a\x39.google.analytics.admin.v1alpha.MeasurementProtocolSecret\"\x80\x02\x82\xd3\xe4\x93\x02\xf2\x01\x12J/v1alpha/{name=properties/*/webDataStreams/*/measurementProtocolSecrets/*}ZO\x12M/v1alpha/{name=properties/*/iosAppDataStreams/*/measurementProtocolSecrets/*}ZS\x12Q/v1alpha/{name=properties/*/androidAppDataStreams/*/measurementProtocolSecrets/*}\xda\x41\x04name\x12\xb4\x03\n\x1eListMeasurementProtocolSecrets\x12\x45.google.analytics.admin.v1alpha.ListMeasurementProtocolSecretsRequest\x1a\x46.google.analytics.admin.v1alpha.ListMeasurementProtocolSecretsResponse\"\x82\x02\x82\xd3\xe4\x93\x02\xf2\x01\x12J/v1alpha/{parent=properties/*/webDataStreams/*}/measurementProtocolSecretsZO\x12M/v1alpha/{parent=properties/*/iosAppDataStreams/*}/measurementProtocolSecretsZS\x12Q/v1alpha/{parent=properties/*/androidAppDataStreams/*}/measurementProtocolSecrets\xda\x41\x06parent\x12\x9c\x04\n\x1f\x43reateMeasurementProtocolSecret\x12\x46.google.analytics.admin.v1alpha.CreateMeasurementProtocolSecretRequest\x1a\x39.google.analytics.admin.v1alpha.MeasurementProtocolSecret\"\xf5\x02\x82\xd3\xe4\x93\x02\xc9\x02\"J/v1alpha/{parent=properties/*/webDataStreams/*}/measurementProtocolSecrets:\x1bmeasurement_protocol_secretZl\"M/v1alpha/{parent=properties/*/iosAppDataStreams/*}/measurementProtocolSecrets:\x1bmeasurement_protocol_secretZp\"Q/v1alpha/{parent=properties/*/androidAppDataStreams/*}/measurementProtocolSecrets:\x1bmeasurement_protocol_secret\xda\x41\"parent,measurement_protocol_secret\x12\x84\x03\n\x1f\x44\x65leteMeasurementProtocolSecret\x12\x46.google.analytics.admin.v1alpha.DeleteMeasurementProtocolSecretRequest\x1a\x16.google.protobuf.Empty\"\x80\x02\x82\xd3\xe4\x93\x02\xf2\x01*J/v1alpha/{name=properties/*/webDataStreams/*/measurementProtocolSecrets/*}ZO*M/v1alpha/{name=properties/*/iosAppDataStreams/*/measurementProtocolSecrets/*}ZS*Q/v1alpha/{name=properties/*/androidAppDataStreams/*/measurementProtocolSecrets/*}\xda\x41\x04name\x12\xf7\x04\n\x1fUpdateMeasurementProtocolSecret\x12\x46.google.analytics.admin.v1alpha.UpdateMeasurementProtocolSecretRequest\x1a\x39.google.analytics.admin.v1alpha.MeasurementProtocolSecret\"\xd0\x03\x82\xd3\xe4\x93\x02\x9f\x03\x32\x66/v1alpha/{measurement_protocol_secret.name=properties/*/webDataStreams/*/measurementProtocolSecrets/*}:\x1bmeasurement_protocol_secretZ\x88\x01\x32i/v1alpha/{measurement_protocol_secret.name=properties/*/iosAppDataStreams/*/measurementProtocolSecrets/*}:\x1bmeasurement_protocol_secretZ\x8c\x01\x32m/v1alpha/{measurement_protocol_secret.name=properties/*/androidAppDataStreams/*/measurementProtocolSecrets/*}:\x1bmeasurement_protocol_secret\xda\x41\'measurement_protocol_secret,update_mask\x12\xe4\x01\n\x19SearchChangeHistoryEvents\x12@.google.analytics.admin.v1alpha.SearchChangeHistoryEventsRequest\x1a\x41.google.analytics.admin.v1alpha.SearchChangeHistoryEventsResponse\"B\x82\xd3\xe4\x93\x02<\"7/v1alpha/{account=accounts/*}:searchChangeHistoryEvents:\x01*\x12\xd5\x01\n\x18GetGoogleSignalsSettings\x12?.google.analytics.admin.v1alpha.GetGoogleSignalsSettingsRequest\x1a\x35.google.analytics.admin.v1alpha.GoogleSignalsSettings\"A\x82\xd3\xe4\x93\x02\x34\x12\x32/v1alpha/{name=properties/*/googleSignalsSettings}\xda\x41\x04name\x12\xac\x02\n\x1bUpdateGoogleSignalsSettings\x12\x42.google.analytics.admin.v1alpha.UpdateGoogleSignalsSettingsRequest\x1a\x35.google.analytics.admin.v1alpha.GoogleSignalsSettings\"\x91\x01\x82\xd3\xe4\x93\x02\x65\x32J/v1alpha/{google_signals_settings.name=properties/*/googleSignalsSettings}:\x17google_signals_settings\xda\x41#google_signals_settings,update_mask\x12\xeb\x01\n\x15\x43reateConversionEvent\x12<.google.analytics.admin.v1alpha.CreateConversionEventRequest\x1a/.google.analytics.admin.v1alpha.ConversionEvent\"c\x82\xd3\xe4\x93\x02\x43\"//v1alpha/{parent=properties/*}/conversionEvents:\x10\x63onversion_event\xda\x41\x17parent,conversion_event\x12\xc0\x01\n\x12GetConversionEvent\x12\x39.google.analytics.admin.v1alpha.GetConversionEventRequest\x1a/.google.analytics.admin.v1alpha.ConversionEvent\">\x82\xd3\xe4\x93\x02\x31\x12//v1alpha/{name=properties/*/conversionEvents/*}\xda\x41\x04name\x12\xad\x01\n\x15\x44\x65leteConversionEvent\x12<.google.analytics.admin.v1alpha.DeleteConversionEventRequest\x1a\x16.google.protobuf.Empty\">\x82\xd3\xe4\x93\x02\x31*//v1alpha/{name=properties/*/conversionEvents/*}\xda\x41\x04name\x12\xd3\x01\n\x14ListConversionEvents\x12;.google.analytics.admin.v1alpha.ListConversionEventsRequest\x1a<.google.analytics.admin.v1alpha.ListConversionEventsResponse\"@\x82\xd3\xe4\x93\x02\x31\x12//v1alpha/{parent=properties/*}/conversionEvents\xda\x41\x06parent\x12\xeb\x01\n\x15\x43reateCustomDimension\x12<.google.analytics.admin.v1alpha.CreateCustomDimensionRequest\x1a/.google.analytics.admin.v1alpha.CustomDimension\"c\x82\xd3\xe4\x93\x02\x43\"//v1alpha/{parent=properties/*}/customDimensions:\x10\x63ustom_dimension\xda\x41\x17parent,custom_dimension\x12\x81\x02\n\x15UpdateCustomDimension\x12<.google.analytics.admin.v1alpha.UpdateCustomDimensionRequest\x1a/.google.analytics.admin.v1alpha.CustomDimension\"y\x82\xd3\xe4\x93\x02T2@/v1alpha/{custom_dimension.name=properties/*/customDimensions/*}:\x10\x63ustom_dimension\xda\x41\x1c\x63ustom_dimension,update_mask\x12\xd3\x01\n\x14ListCustomDimensions\x12;.google.analytics.admin.v1alpha.ListCustomDimensionsRequest\x1a<.google.analytics.admin.v1alpha.ListCustomDimensionsResponse\"@\x82\xd3\xe4\x93\x02\x31\x12//v1alpha/{parent=properties/*}/customDimensions\xda\x41\x06parent\x12\xba\x01\n\x16\x41rchiveCustomDimension\x12=.google.analytics.admin.v1alpha.ArchiveCustomDimensionRequest\x1a\x16.google.protobuf.Empty\"I\x82\xd3\xe4\x93\x02<\"7/v1alpha/{name=properties/*/customDimensions/*}:archive:\x01*\xda\x41\x04name\x12\xc0\x01\n\x12GetCustomDimension\x12\x39.google.analytics.admin.v1alpha.GetCustomDimensionRequest\x1a/.google.analytics.admin.v1alpha.CustomDimension\">\x82\xd3\xe4\x93\x02\x31\x12//v1alpha/{name=properties/*/customDimensions/*}\xda\x41\x04name\x12\xd9\x01\n\x12\x43reateCustomMetric\x12\x39.google.analytics.admin.v1alpha.CreateCustomMetricRequest\x1a,.google.analytics.admin.v1alpha.CustomMetric\"Z\x82\xd3\xe4\x93\x02=\",/v1alpha/{parent=properties/*}/customMetrics:\rcustom_metric\xda\x41\x14parent,custom_metric\x12\xec\x01\n\x12UpdateCustomMetric\x12\x39.google.analytics.admin.v1alpha.UpdateCustomMetricRequest\x1a,.google.analytics.admin.v1alpha.CustomMetric\"m\x82\xd3\xe4\x93\x02K2:/v1alpha/{custom_metric.name=properties/*/customMetrics/*}:\rcustom_metric\xda\x41\x19\x63ustom_metric,update_mask\x12\xc7\x01\n\x11ListCustomMetrics\x12\x38.google.analytics.admin.v1alpha.ListCustomMetricsRequest\x1a\x39.google.analytics.admin.v1alpha.ListCustomMetricsResponse\"=\x82\xd3\xe4\x93\x02.\x12,/v1alpha/{parent=properties/*}/customMetrics\xda\x41\x06parent\x12\xb1\x01\n\x13\x41rchiveCustomMetric\x12:.google.analytics.admin.v1alpha.ArchiveCustomMetricRequest\x1a\x16.google.protobuf.Empty\"F\x82\xd3\xe4\x93\x02\x39\"4/v1alpha/{name=properties/*/customMetrics/*}:archive:\x01*\xda\x41\x04name\x12\xb4\x01\n\x0fGetCustomMetric\x12\x36.google.analytics.admin.v1alpha.GetCustomMetricRequest\x1a,.google.analytics.admin.v1alpha.CustomMetric\";\x82\xd3\xe4\x93\x02.\x12,/v1alpha/{name=properties/*/customMetrics/*}\xda\x41\x04name\x1a\xfc\x01\xca\x41\x1d\x61nalyticsadmin.googleapis.com\xd2\x41\xd8\x01https://www.googleapis.com/auth/analytics.edit,https://www.googleapis.com/auth/analytics.manage.users,https://www.googleapis.com/auth/analytics.manage.users.readonly,https://www.googleapis.com/auth/analytics.readonlyB\x80\x01\n\"com.google.analytics.admin.v1alphaB\x13\x41nalyticsAdminProtoP\x01ZCgoogle.golang.org/genproto/googleapis/analytics/admin/v1alpha;adminb\x06proto3'
   ,
   dependencies=[google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -1421,45 +1421,6 @@ _UPDATEIOSAPPDATASTREAMREQUEST = _descriptor.Descriptor(
 )
 
 
-_CREATEIOSAPPDATASTREAMREQUEST = _descriptor.Descriptor(
-  name='CreateIosAppDataStreamRequest',
-  full_name='google.analytics.admin.v1alpha.CreateIosAppDataStreamRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='ios_app_data_stream', full_name='google.analytics.admin.v1alpha.CreateIosAppDataStreamRequest.ios_app_data_stream', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='google.analytics.admin.v1alpha.CreateIosAppDataStreamRequest.parent', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A0\022.analyticsadmin.googleapis.com/IosAppDataStream', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=4741,
-  serialized_end=4928,
-)
-
-
 _LISTIOSAPPDATASTREAMSREQUEST = _descriptor.Descriptor(
   name='ListIosAppDataStreamsRequest',
   full_name='google.analytics.admin.v1alpha.ListIosAppDataStreamsRequest',
@@ -1501,8 +1462,8 @@ _LISTIOSAPPDATASTREAMSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4931,
-  serialized_end=5072,
+  serialized_start=4741,
+  serialized_end=4882,
 )
 
 
@@ -1540,8 +1501,8 @@ _LISTIOSAPPDATASTREAMSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5075,
-  serialized_end=5211,
+  serialized_start=4885,
+  serialized_end=5021,
 )
 
 
@@ -1572,8 +1533,8 @@ _GETANDROIDAPPDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5213,
-  serialized_end=5319,
+  serialized_start=5023,
+  serialized_end=5129,
 )
 
 
@@ -1604,8 +1565,8 @@ _DELETEANDROIDAPPDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5321,
-  serialized_end=5430,
+  serialized_start=5131,
+  serialized_end=5240,
 )
 
 
@@ -1643,47 +1604,8 @@ _UPDATEANDROIDAPPDATASTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5433,
-  serialized_end=5614,
-)
-
-
-_CREATEANDROIDAPPDATASTREAMREQUEST = _descriptor.Descriptor(
-  name='CreateAndroidAppDataStreamRequest',
-  full_name='google.analytics.admin.v1alpha.CreateAndroidAppDataStreamRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='android_app_data_stream', full_name='google.analytics.admin.v1alpha.CreateAndroidAppDataStreamRequest.android_app_data_stream', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='parent', full_name='google.analytics.admin.v1alpha.CreateAndroidAppDataStreamRequest.parent', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A4\0222analyticsadmin.googleapis.com/AndroidAppDataStream', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=5617,
-  serialized_end=5820,
+  serialized_start=5243,
+  serialized_end=5424,
 )
 
 
@@ -1728,8 +1650,8 @@ _LISTANDROIDAPPDATASTREAMSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5823,
-  serialized_end=5972,
+  serialized_start=5427,
+  serialized_end=5576,
 )
 
 
@@ -1767,8 +1689,8 @@ _LISTANDROIDAPPDATASTREAMSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5975,
-  serialized_end=6123,
+  serialized_start=5579,
+  serialized_end=5727,
 )
 
 
@@ -1799,8 +1721,8 @@ _GETENHANCEDMEASUREMENTSETTINGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6125,
-  serialized_end=6245,
+  serialized_start=5729,
+  serialized_end=5849,
 )
 
 
@@ -1838,8 +1760,8 @@ _UPDATEENHANCEDMEASUREMENTSETTINGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6248,
-  serialized_end=6449,
+  serialized_start=5852,
+  serialized_end=6053,
 )
 
 
@@ -1877,8 +1799,8 @@ _CREATEFIREBASELINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6452,
-  serialized_end=6621,
+  serialized_start=6056,
+  serialized_end=6225,
 )
 
 
@@ -1916,8 +1838,8 @@ _UPDATEFIREBASELINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6624,
-  serialized_end=6779,
+  serialized_start=6228,
+  serialized_end=6383,
 )
 
 
@@ -1948,8 +1870,8 @@ _DELETEFIREBASELINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6781,
-  serialized_end=6874,
+  serialized_start=6385,
+  serialized_end=6478,
 )
 
 
@@ -1994,8 +1916,8 @@ _LISTFIREBASELINKSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6877,
-  serialized_end=7010,
+  serialized_start=6481,
+  serialized_end=6614,
 )
 
 
@@ -2033,8 +1955,8 @@ _LISTFIREBASELINKSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7012,
-  serialized_end=7134,
+  serialized_start=6616,
+  serialized_end=6738,
 )
 
 
@@ -2065,8 +1987,8 @@ _GETGLOBALSITETAGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7136,
-  serialized_end=7228,
+  serialized_start=6740,
+  serialized_end=6832,
 )
 
 
@@ -2104,8 +2026,8 @@ _CREATEGOOGLEADSLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7231,
-  serialized_end=7405,
+  serialized_start=6835,
+  serialized_end=7009,
 )
 
 
@@ -2143,8 +2065,8 @@ _UPDATEGOOGLEADSLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7408,
-  serialized_end=7562,
+  serialized_start=7012,
+  serialized_end=7166,
 )
 
 
@@ -2175,8 +2097,8 @@ _DELETEGOOGLEADSLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7564,
-  serialized_end=7659,
+  serialized_start=7168,
+  serialized_end=7263,
 )
 
 
@@ -2221,8 +2143,8 @@ _LISTGOOGLEADSLINKSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7662,
-  serialized_end=7797,
+  serialized_start=7266,
+  serialized_end=7401,
 )
 
 
@@ -2260,8 +2182,8 @@ _LISTGOOGLEADSLINKSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7799,
-  serialized_end=7925,
+  serialized_start=7403,
+  serialized_end=7529,
 )
 
 
@@ -2292,8 +2214,8 @@ _GETDATASHARINGSETTINGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7927,
-  serialized_end=8031,
+  serialized_start=7531,
+  serialized_end=7635,
 )
 
 
@@ -2331,8 +2253,8 @@ _LISTACCOUNTSUMMARIESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8033,
-  serialized_end=8101,
+  serialized_start=7637,
+  serialized_end=7705,
 )
 
 
@@ -2370,8 +2292,1075 @@ _LISTACCOUNTSUMMARIESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8104,
-  serialized_end=8234,
+  serialized_start=7708,
+  serialized_end=7838,
+)
+
+
+_SEARCHCHANGEHISTORYEVENTSREQUEST = _descriptor.Descriptor(
+  name='SearchChangeHistoryEventsRequest',
+  full_name='google.analytics.admin.v1alpha.SearchChangeHistoryEventsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='account', full_name='google.analytics.admin.v1alpha.SearchChangeHistoryEventsRequest.account', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\'\n%analyticsadmin.googleapis.com/Account', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='property', full_name='google.analytics.admin.v1alpha.SearchChangeHistoryEventsRequest.property', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001\372A(\n&analyticsadmin.googleapis.com/Property', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='resource_type', full_name='google.analytics.admin.v1alpha.SearchChangeHistoryEventsRequest.resource_type', index=2,
+      number=3, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='action', full_name='google.analytics.admin.v1alpha.SearchChangeHistoryEventsRequest.action', index=3,
+      number=4, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='actor_email', full_name='google.analytics.admin.v1alpha.SearchChangeHistoryEventsRequest.actor_email', index=4,
+      number=5, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='earliest_change_time', full_name='google.analytics.admin.v1alpha.SearchChangeHistoryEventsRequest.earliest_change_time', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='latest_change_time', full_name='google.analytics.admin.v1alpha.SearchChangeHistoryEventsRequest.latest_change_time', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.analytics.admin.v1alpha.SearchChangeHistoryEventsRequest.page_size', index=7,
+      number=8, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.analytics.admin.v1alpha.SearchChangeHistoryEventsRequest.page_token', index=8,
+      number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7841,
+  serialized_end=8356,
+)
+
+
+_SEARCHCHANGEHISTORYEVENTSRESPONSE = _descriptor.Descriptor(
+  name='SearchChangeHistoryEventsResponse',
+  full_name='google.analytics.admin.v1alpha.SearchChangeHistoryEventsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='change_history_events', full_name='google.analytics.admin.v1alpha.SearchChangeHistoryEventsResponse.change_history_events', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.analytics.admin.v1alpha.SearchChangeHistoryEventsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8359,
+  serialized_end=8502,
+)
+
+
+_GETMEASUREMENTPROTOCOLSECRETREQUEST = _descriptor.Descriptor(
+  name='GetMeasurementProtocolSecretRequest',
+  full_name='google.analytics.admin.v1alpha.GetMeasurementProtocolSecretRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.analytics.admin.v1alpha.GetMeasurementProtocolSecretRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A9\n7analyticsadmin.googleapis.com/MeasurementProtocolSecret', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8504,
+  serialized_end=8620,
+)
+
+
+_CREATEMEASUREMENTPROTOCOLSECRETREQUEST = _descriptor.Descriptor(
+  name='CreateMeasurementProtocolSecretRequest',
+  full_name='google.analytics.admin.v1alpha.CreateMeasurementProtocolSecretRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.analytics.admin.v1alpha.CreateMeasurementProtocolSecretRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A9\0227analyticsadmin.googleapis.com/MeasurementProtocolSecret', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='measurement_protocol_secret', full_name='google.analytics.admin.v1alpha.CreateMeasurementProtocolSecretRequest.measurement_protocol_secret', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8623,
+  serialized_end=8845,
+)
+
+
+_DELETEMEASUREMENTPROTOCOLSECRETREQUEST = _descriptor.Descriptor(
+  name='DeleteMeasurementProtocolSecretRequest',
+  full_name='google.analytics.admin.v1alpha.DeleteMeasurementProtocolSecretRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.analytics.admin.v1alpha.DeleteMeasurementProtocolSecretRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A9\n7analyticsadmin.googleapis.com/MeasurementProtocolSecret', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8847,
+  serialized_end=8966,
+)
+
+
+_UPDATEMEASUREMENTPROTOCOLSECRETREQUEST = _descriptor.Descriptor(
+  name='UpdateMeasurementProtocolSecretRequest',
+  full_name='google.analytics.admin.v1alpha.UpdateMeasurementProtocolSecretRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='measurement_protocol_secret', full_name='google.analytics.admin.v1alpha.UpdateMeasurementProtocolSecretRequest.measurement_protocol_secret', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_mask', full_name='google.analytics.admin.v1alpha.UpdateMeasurementProtocolSecretRequest.update_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8969,
+  serialized_end=9159,
+)
+
+
+_LISTMEASUREMENTPROTOCOLSECRETSREQUEST = _descriptor.Descriptor(
+  name='ListMeasurementProtocolSecretsRequest',
+  full_name='google.analytics.admin.v1alpha.ListMeasurementProtocolSecretsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.analytics.admin.v1alpha.ListMeasurementProtocolSecretsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A9\0227analyticsadmin.googleapis.com/MeasurementProtocolSecret', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.analytics.admin.v1alpha.ListMeasurementProtocolSecretsRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.analytics.admin.v1alpha.ListMeasurementProtocolSecretsRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9162,
+  serialized_end=9321,
+)
+
+
+_LISTMEASUREMENTPROTOCOLSECRETSRESPONSE = _descriptor.Descriptor(
+  name='ListMeasurementProtocolSecretsResponse',
+  full_name='google.analytics.admin.v1alpha.ListMeasurementProtocolSecretsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='measurement_protocol_secrets', full_name='google.analytics.admin.v1alpha.ListMeasurementProtocolSecretsResponse.measurement_protocol_secrets', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.analytics.admin.v1alpha.ListMeasurementProtocolSecretsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9324,
+  serialized_end=9486,
+)
+
+
+_GETGOOGLESIGNALSSETTINGSREQUEST = _descriptor.Descriptor(
+  name='GetGoogleSignalsSettingsRequest',
+  full_name='google.analytics.admin.v1alpha.GetGoogleSignalsSettingsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.analytics.admin.v1alpha.GetGoogleSignalsSettingsRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A5\n3analyticsadmin.googleapis.com/GoogleSignalsSettings', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9488,
+  serialized_end=9596,
+)
+
+
+_UPDATEGOOGLESIGNALSSETTINGSREQUEST = _descriptor.Descriptor(
+  name='UpdateGoogleSignalsSettingsRequest',
+  full_name='google.analytics.admin.v1alpha.UpdateGoogleSignalsSettingsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='google_signals_settings', full_name='google.analytics.admin.v1alpha.UpdateGoogleSignalsSettingsRequest.google_signals_settings', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_mask', full_name='google.analytics.admin.v1alpha.UpdateGoogleSignalsSettingsRequest.update_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9599,
+  serialized_end=9782,
+)
+
+
+_CREATECONVERSIONEVENTREQUEST = _descriptor.Descriptor(
+  name='CreateConversionEventRequest',
+  full_name='google.analytics.admin.v1alpha.CreateConversionEventRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='conversion_event', full_name='google.analytics.admin.v1alpha.CreateConversionEventRequest.conversion_event', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.analytics.admin.v1alpha.CreateConversionEventRequest.parent', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\022-analyticsadmin.googleapis.com/ConversionEvent', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9785,
+  serialized_end=9966,
+)
+
+
+_GETCONVERSIONEVENTREQUEST = _descriptor.Descriptor(
+  name='GetConversionEventRequest',
+  full_name='google.analytics.admin.v1alpha.GetConversionEventRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.analytics.admin.v1alpha.GetConversionEventRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\n-analyticsadmin.googleapis.com/ConversionEvent', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9968,
+  serialized_end=10064,
+)
+
+
+_DELETECONVERSIONEVENTREQUEST = _descriptor.Descriptor(
+  name='DeleteConversionEventRequest',
+  full_name='google.analytics.admin.v1alpha.DeleteConversionEventRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.analytics.admin.v1alpha.DeleteConversionEventRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\n-analyticsadmin.googleapis.com/ConversionEvent', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10066,
+  serialized_end=10165,
+)
+
+
+_LISTCONVERSIONEVENTSREQUEST = _descriptor.Descriptor(
+  name='ListConversionEventsRequest',
+  full_name='google.analytics.admin.v1alpha.ListConversionEventsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.analytics.admin.v1alpha.ListConversionEventsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\022-analyticsadmin.googleapis.com/ConversionEvent', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.analytics.admin.v1alpha.ListConversionEventsRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.analytics.admin.v1alpha.ListConversionEventsRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10168,
+  serialized_end=10307,
+)
+
+
+_LISTCONVERSIONEVENTSRESPONSE = _descriptor.Descriptor(
+  name='ListConversionEventsResponse',
+  full_name='google.analytics.admin.v1alpha.ListConversionEventsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='conversion_events', full_name='google.analytics.admin.v1alpha.ListConversionEventsResponse.conversion_events', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.analytics.admin.v1alpha.ListConversionEventsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10310,
+  serialized_end=10441,
+)
+
+
+_CREATECUSTOMDIMENSIONREQUEST = _descriptor.Descriptor(
+  name='CreateCustomDimensionRequest',
+  full_name='google.analytics.admin.v1alpha.CreateCustomDimensionRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.analytics.admin.v1alpha.CreateCustomDimensionRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\022-analyticsadmin.googleapis.com/CustomDimension', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='custom_dimension', full_name='google.analytics.admin.v1alpha.CreateCustomDimensionRequest.custom_dimension', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10444,
+  serialized_end=10625,
+)
+
+
+_UPDATECUSTOMDIMENSIONREQUEST = _descriptor.Descriptor(
+  name='UpdateCustomDimensionRequest',
+  full_name='google.analytics.admin.v1alpha.UpdateCustomDimensionRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='custom_dimension', full_name='google.analytics.admin.v1alpha.UpdateCustomDimensionRequest.custom_dimension', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_mask', full_name='google.analytics.admin.v1alpha.UpdateCustomDimensionRequest.update_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10628,
+  serialized_end=10787,
+)
+
+
+_LISTCUSTOMDIMENSIONSREQUEST = _descriptor.Descriptor(
+  name='ListCustomDimensionsRequest',
+  full_name='google.analytics.admin.v1alpha.ListCustomDimensionsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.analytics.admin.v1alpha.ListCustomDimensionsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\022-analyticsadmin.googleapis.com/CustomDimension', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.analytics.admin.v1alpha.ListCustomDimensionsRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.analytics.admin.v1alpha.ListCustomDimensionsRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10790,
+  serialized_end=10929,
+)
+
+
+_LISTCUSTOMDIMENSIONSRESPONSE = _descriptor.Descriptor(
+  name='ListCustomDimensionsResponse',
+  full_name='google.analytics.admin.v1alpha.ListCustomDimensionsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='custom_dimensions', full_name='google.analytics.admin.v1alpha.ListCustomDimensionsResponse.custom_dimensions', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.analytics.admin.v1alpha.ListCustomDimensionsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=10932,
+  serialized_end=11063,
+)
+
+
+_ARCHIVECUSTOMDIMENSIONREQUEST = _descriptor.Descriptor(
+  name='ArchiveCustomDimensionRequest',
+  full_name='google.analytics.admin.v1alpha.ArchiveCustomDimensionRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.analytics.admin.v1alpha.ArchiveCustomDimensionRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\n-analyticsadmin.googleapis.com/CustomDimension', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11065,
+  serialized_end=11165,
+)
+
+
+_GETCUSTOMDIMENSIONREQUEST = _descriptor.Descriptor(
+  name='GetCustomDimensionRequest',
+  full_name='google.analytics.admin.v1alpha.GetCustomDimensionRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.analytics.admin.v1alpha.GetCustomDimensionRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A/\n-analyticsadmin.googleapis.com/CustomDimension', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11167,
+  serialized_end=11263,
+)
+
+
+_CREATECUSTOMMETRICREQUEST = _descriptor.Descriptor(
+  name='CreateCustomMetricRequest',
+  full_name='google.analytics.admin.v1alpha.CreateCustomMetricRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.analytics.admin.v1alpha.CreateCustomMetricRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A,\022*analyticsadmin.googleapis.com/CustomMetric', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='custom_metric', full_name='google.analytics.admin.v1alpha.CreateCustomMetricRequest.custom_metric', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11266,
+  serialized_end=11435,
+)
+
+
+_UPDATECUSTOMMETRICREQUEST = _descriptor.Descriptor(
+  name='UpdateCustomMetricRequest',
+  full_name='google.analytics.admin.v1alpha.UpdateCustomMetricRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='custom_metric', full_name='google.analytics.admin.v1alpha.UpdateCustomMetricRequest.custom_metric', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_mask', full_name='google.analytics.admin.v1alpha.UpdateCustomMetricRequest.update_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11438,
+  serialized_end=11588,
+)
+
+
+_LISTCUSTOMMETRICSREQUEST = _descriptor.Descriptor(
+  name='ListCustomMetricsRequest',
+  full_name='google.analytics.admin.v1alpha.ListCustomMetricsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.analytics.admin.v1alpha.ListCustomMetricsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A,\022*analyticsadmin.googleapis.com/CustomMetric', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.analytics.admin.v1alpha.ListCustomMetricsRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.analytics.admin.v1alpha.ListCustomMetricsRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11591,
+  serialized_end=11724,
+)
+
+
+_LISTCUSTOMMETRICSRESPONSE = _descriptor.Descriptor(
+  name='ListCustomMetricsResponse',
+  full_name='google.analytics.admin.v1alpha.ListCustomMetricsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='custom_metrics', full_name='google.analytics.admin.v1alpha.ListCustomMetricsResponse.custom_metrics', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.analytics.admin.v1alpha.ListCustomMetricsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11726,
+  serialized_end=11848,
+)
+
+
+_ARCHIVECUSTOMMETRICREQUEST = _descriptor.Descriptor(
+  name='ArchiveCustomMetricRequest',
+  full_name='google.analytics.admin.v1alpha.ArchiveCustomMetricRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.analytics.admin.v1alpha.ArchiveCustomMetricRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A,\n*analyticsadmin.googleapis.com/CustomMetric', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11850,
+  serialized_end=11944,
+)
+
+
+_GETCUSTOMMETRICREQUEST = _descriptor.Descriptor(
+  name='GetCustomMetricRequest',
+  full_name='google.analytics.admin.v1alpha.GetCustomMetricRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.analytics.admin.v1alpha.GetCustomMetricRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A,\n*analyticsadmin.googleapis.com/CustomMetric', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=11946,
+  serialized_end=12036,
 )
 
 _LISTACCOUNTSRESPONSE.fields_by_name['accounts'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ACCOUNT
@@ -2398,11 +3387,9 @@ _CREATEWEBDATASTREAMREQUEST.fields_by_name['web_data_stream'].message_type = goo
 _LISTWEBDATASTREAMSRESPONSE.fields_by_name['web_data_streams'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._WEBDATASTREAM
 _UPDATEIOSAPPDATASTREAMREQUEST.fields_by_name['ios_app_data_stream'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._IOSAPPDATASTREAM
 _UPDATEIOSAPPDATASTREAMREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
-_CREATEIOSAPPDATASTREAMREQUEST.fields_by_name['ios_app_data_stream'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._IOSAPPDATASTREAM
 _LISTIOSAPPDATASTREAMSRESPONSE.fields_by_name['ios_app_data_streams'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._IOSAPPDATASTREAM
 _UPDATEANDROIDAPPDATASTREAMREQUEST.fields_by_name['android_app_data_stream'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ANDROIDAPPDATASTREAM
 _UPDATEANDROIDAPPDATASTREAMREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
-_CREATEANDROIDAPPDATASTREAMREQUEST.fields_by_name['android_app_data_stream'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ANDROIDAPPDATASTREAM
 _LISTANDROIDAPPDATASTREAMSRESPONSE.fields_by_name['android_app_data_streams'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ANDROIDAPPDATASTREAM
 _UPDATEENHANCEDMEASUREMENTSETTINGSREQUEST.fields_by_name['enhanced_measurement_settings'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ENHANCEDMEASUREMENTSETTINGS
 _UPDATEENHANCEDMEASUREMENTSETTINGSREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
@@ -2415,6 +3402,27 @@ _UPDATEGOOGLEADSLINKREQUEST.fields_by_name['google_ads_link'].message_type = goo
 _UPDATEGOOGLEADSLINKREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 _LISTGOOGLEADSLINKSRESPONSE.fields_by_name['google_ads_links'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._GOOGLEADSLINK
 _LISTACCOUNTSUMMARIESRESPONSE.fields_by_name['account_summaries'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ACCOUNTSUMMARY
+_SEARCHCHANGEHISTORYEVENTSREQUEST.fields_by_name['resource_type'].enum_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CHANGEHISTORYRESOURCETYPE
+_SEARCHCHANGEHISTORYEVENTSREQUEST.fields_by_name['action'].enum_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ACTIONTYPE
+_SEARCHCHANGEHISTORYEVENTSREQUEST.fields_by_name['earliest_change_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SEARCHCHANGEHISTORYEVENTSREQUEST.fields_by_name['latest_change_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SEARCHCHANGEHISTORYEVENTSRESPONSE.fields_by_name['change_history_events'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CHANGEHISTORYEVENT
+_CREATEMEASUREMENTPROTOCOLSECRETREQUEST.fields_by_name['measurement_protocol_secret'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._MEASUREMENTPROTOCOLSECRET
+_UPDATEMEASUREMENTPROTOCOLSECRETREQUEST.fields_by_name['measurement_protocol_secret'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._MEASUREMENTPROTOCOLSECRET
+_UPDATEMEASUREMENTPROTOCOLSECRETREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_LISTMEASUREMENTPROTOCOLSECRETSRESPONSE.fields_by_name['measurement_protocol_secrets'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._MEASUREMENTPROTOCOLSECRET
+_UPDATEGOOGLESIGNALSSETTINGSREQUEST.fields_by_name['google_signals_settings'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._GOOGLESIGNALSSETTINGS
+_UPDATEGOOGLESIGNALSSETTINGSREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_CREATECONVERSIONEVENTREQUEST.fields_by_name['conversion_event'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CONVERSIONEVENT
+_LISTCONVERSIONEVENTSRESPONSE.fields_by_name['conversion_events'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CONVERSIONEVENT
+_CREATECUSTOMDIMENSIONREQUEST.fields_by_name['custom_dimension'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CUSTOMDIMENSION
+_UPDATECUSTOMDIMENSIONREQUEST.fields_by_name['custom_dimension'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CUSTOMDIMENSION
+_UPDATECUSTOMDIMENSIONREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_LISTCUSTOMDIMENSIONSRESPONSE.fields_by_name['custom_dimensions'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CUSTOMDIMENSION
+_CREATECUSTOMMETRICREQUEST.fields_by_name['custom_metric'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CUSTOMMETRIC
+_UPDATECUSTOMMETRICREQUEST.fields_by_name['custom_metric'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CUSTOMMETRIC
+_UPDATECUSTOMMETRICREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_LISTCUSTOMMETRICSRESPONSE.fields_by_name['custom_metrics'].message_type = google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CUSTOMMETRIC
 DESCRIPTOR.message_types_by_name['GetAccountRequest'] = _GETACCOUNTREQUEST
 DESCRIPTOR.message_types_by_name['ListAccountsRequest'] = _LISTACCOUNTSREQUEST
 DESCRIPTOR.message_types_by_name['ListAccountsResponse'] = _LISTACCOUNTSRESPONSE
@@ -2452,13 +3460,11 @@ DESCRIPTOR.message_types_by_name['ListWebDataStreamsResponse'] = _LISTWEBDATASTR
 DESCRIPTOR.message_types_by_name['GetIosAppDataStreamRequest'] = _GETIOSAPPDATASTREAMREQUEST
 DESCRIPTOR.message_types_by_name['DeleteIosAppDataStreamRequest'] = _DELETEIOSAPPDATASTREAMREQUEST
 DESCRIPTOR.message_types_by_name['UpdateIosAppDataStreamRequest'] = _UPDATEIOSAPPDATASTREAMREQUEST
-DESCRIPTOR.message_types_by_name['CreateIosAppDataStreamRequest'] = _CREATEIOSAPPDATASTREAMREQUEST
 DESCRIPTOR.message_types_by_name['ListIosAppDataStreamsRequest'] = _LISTIOSAPPDATASTREAMSREQUEST
 DESCRIPTOR.message_types_by_name['ListIosAppDataStreamsResponse'] = _LISTIOSAPPDATASTREAMSRESPONSE
 DESCRIPTOR.message_types_by_name['GetAndroidAppDataStreamRequest'] = _GETANDROIDAPPDATASTREAMREQUEST
 DESCRIPTOR.message_types_by_name['DeleteAndroidAppDataStreamRequest'] = _DELETEANDROIDAPPDATASTREAMREQUEST
 DESCRIPTOR.message_types_by_name['UpdateAndroidAppDataStreamRequest'] = _UPDATEANDROIDAPPDATASTREAMREQUEST
-DESCRIPTOR.message_types_by_name['CreateAndroidAppDataStreamRequest'] = _CREATEANDROIDAPPDATASTREAMREQUEST
 DESCRIPTOR.message_types_by_name['ListAndroidAppDataStreamsRequest'] = _LISTANDROIDAPPDATASTREAMSREQUEST
 DESCRIPTOR.message_types_by_name['ListAndroidAppDataStreamsResponse'] = _LISTANDROIDAPPDATASTREAMSRESPONSE
 DESCRIPTOR.message_types_by_name['GetEnhancedMeasurementSettingsRequest'] = _GETENHANCEDMEASUREMENTSETTINGSREQUEST
@@ -2477,6 +3483,33 @@ DESCRIPTOR.message_types_by_name['ListGoogleAdsLinksResponse'] = _LISTGOOGLEADSL
 DESCRIPTOR.message_types_by_name['GetDataSharingSettingsRequest'] = _GETDATASHARINGSETTINGSREQUEST
 DESCRIPTOR.message_types_by_name['ListAccountSummariesRequest'] = _LISTACCOUNTSUMMARIESREQUEST
 DESCRIPTOR.message_types_by_name['ListAccountSummariesResponse'] = _LISTACCOUNTSUMMARIESRESPONSE
+DESCRIPTOR.message_types_by_name['SearchChangeHistoryEventsRequest'] = _SEARCHCHANGEHISTORYEVENTSREQUEST
+DESCRIPTOR.message_types_by_name['SearchChangeHistoryEventsResponse'] = _SEARCHCHANGEHISTORYEVENTSRESPONSE
+DESCRIPTOR.message_types_by_name['GetMeasurementProtocolSecretRequest'] = _GETMEASUREMENTPROTOCOLSECRETREQUEST
+DESCRIPTOR.message_types_by_name['CreateMeasurementProtocolSecretRequest'] = _CREATEMEASUREMENTPROTOCOLSECRETREQUEST
+DESCRIPTOR.message_types_by_name['DeleteMeasurementProtocolSecretRequest'] = _DELETEMEASUREMENTPROTOCOLSECRETREQUEST
+DESCRIPTOR.message_types_by_name['UpdateMeasurementProtocolSecretRequest'] = _UPDATEMEASUREMENTPROTOCOLSECRETREQUEST
+DESCRIPTOR.message_types_by_name['ListMeasurementProtocolSecretsRequest'] = _LISTMEASUREMENTPROTOCOLSECRETSREQUEST
+DESCRIPTOR.message_types_by_name['ListMeasurementProtocolSecretsResponse'] = _LISTMEASUREMENTPROTOCOLSECRETSRESPONSE
+DESCRIPTOR.message_types_by_name['GetGoogleSignalsSettingsRequest'] = _GETGOOGLESIGNALSSETTINGSREQUEST
+DESCRIPTOR.message_types_by_name['UpdateGoogleSignalsSettingsRequest'] = _UPDATEGOOGLESIGNALSSETTINGSREQUEST
+DESCRIPTOR.message_types_by_name['CreateConversionEventRequest'] = _CREATECONVERSIONEVENTREQUEST
+DESCRIPTOR.message_types_by_name['GetConversionEventRequest'] = _GETCONVERSIONEVENTREQUEST
+DESCRIPTOR.message_types_by_name['DeleteConversionEventRequest'] = _DELETECONVERSIONEVENTREQUEST
+DESCRIPTOR.message_types_by_name['ListConversionEventsRequest'] = _LISTCONVERSIONEVENTSREQUEST
+DESCRIPTOR.message_types_by_name['ListConversionEventsResponse'] = _LISTCONVERSIONEVENTSRESPONSE
+DESCRIPTOR.message_types_by_name['CreateCustomDimensionRequest'] = _CREATECUSTOMDIMENSIONREQUEST
+DESCRIPTOR.message_types_by_name['UpdateCustomDimensionRequest'] = _UPDATECUSTOMDIMENSIONREQUEST
+DESCRIPTOR.message_types_by_name['ListCustomDimensionsRequest'] = _LISTCUSTOMDIMENSIONSREQUEST
+DESCRIPTOR.message_types_by_name['ListCustomDimensionsResponse'] = _LISTCUSTOMDIMENSIONSRESPONSE
+DESCRIPTOR.message_types_by_name['ArchiveCustomDimensionRequest'] = _ARCHIVECUSTOMDIMENSIONREQUEST
+DESCRIPTOR.message_types_by_name['GetCustomDimensionRequest'] = _GETCUSTOMDIMENSIONREQUEST
+DESCRIPTOR.message_types_by_name['CreateCustomMetricRequest'] = _CREATECUSTOMMETRICREQUEST
+DESCRIPTOR.message_types_by_name['UpdateCustomMetricRequest'] = _UPDATECUSTOMMETRICREQUEST
+DESCRIPTOR.message_types_by_name['ListCustomMetricsRequest'] = _LISTCUSTOMMETRICSREQUEST
+DESCRIPTOR.message_types_by_name['ListCustomMetricsResponse'] = _LISTCUSTOMMETRICSRESPONSE
+DESCRIPTOR.message_types_by_name['ArchiveCustomMetricRequest'] = _ARCHIVECUSTOMMETRICREQUEST
+DESCRIPTOR.message_types_by_name['GetCustomMetricRequest'] = _GETCUSTOMMETRICREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 GetAccountRequest = _reflection.GeneratedProtocolMessageType('GetAccountRequest', (_message.Message,), {
@@ -2738,13 +3771,6 @@ UpdateIosAppDataStreamRequest = _reflection.GeneratedProtocolMessageType('Update
   })
 _sym_db.RegisterMessage(UpdateIosAppDataStreamRequest)
 
-CreateIosAppDataStreamRequest = _reflection.GeneratedProtocolMessageType('CreateIosAppDataStreamRequest', (_message.Message,), {
-  'DESCRIPTOR' : _CREATEIOSAPPDATASTREAMREQUEST,
-  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
-  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.CreateIosAppDataStreamRequest)
-  })
-_sym_db.RegisterMessage(CreateIosAppDataStreamRequest)
-
 ListIosAppDataStreamsRequest = _reflection.GeneratedProtocolMessageType('ListIosAppDataStreamsRequest', (_message.Message,), {
   'DESCRIPTOR' : _LISTIOSAPPDATASTREAMSREQUEST,
   '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
@@ -2779,13 +3805,6 @@ UpdateAndroidAppDataStreamRequest = _reflection.GeneratedProtocolMessageType('Up
   # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.UpdateAndroidAppDataStreamRequest)
   })
 _sym_db.RegisterMessage(UpdateAndroidAppDataStreamRequest)
-
-CreateAndroidAppDataStreamRequest = _reflection.GeneratedProtocolMessageType('CreateAndroidAppDataStreamRequest', (_message.Message,), {
-  'DESCRIPTOR' : _CREATEANDROIDAPPDATASTREAMREQUEST,
-  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
-  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.CreateAndroidAppDataStreamRequest)
-  })
-_sym_db.RegisterMessage(CreateAndroidAppDataStreamRequest)
 
 ListAndroidAppDataStreamsRequest = _reflection.GeneratedProtocolMessageType('ListAndroidAppDataStreamsRequest', (_message.Message,), {
   'DESCRIPTOR' : _LISTANDROIDAPPDATASTREAMSREQUEST,
@@ -2913,6 +3932,195 @@ ListAccountSummariesResponse = _reflection.GeneratedProtocolMessageType('ListAcc
   })
 _sym_db.RegisterMessage(ListAccountSummariesResponse)
 
+SearchChangeHistoryEventsRequest = _reflection.GeneratedProtocolMessageType('SearchChangeHistoryEventsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SEARCHCHANGEHISTORYEVENTSREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.SearchChangeHistoryEventsRequest)
+  })
+_sym_db.RegisterMessage(SearchChangeHistoryEventsRequest)
+
+SearchChangeHistoryEventsResponse = _reflection.GeneratedProtocolMessageType('SearchChangeHistoryEventsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SEARCHCHANGEHISTORYEVENTSRESPONSE,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.SearchChangeHistoryEventsResponse)
+  })
+_sym_db.RegisterMessage(SearchChangeHistoryEventsResponse)
+
+GetMeasurementProtocolSecretRequest = _reflection.GeneratedProtocolMessageType('GetMeasurementProtocolSecretRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETMEASUREMENTPROTOCOLSECRETREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.GetMeasurementProtocolSecretRequest)
+  })
+_sym_db.RegisterMessage(GetMeasurementProtocolSecretRequest)
+
+CreateMeasurementProtocolSecretRequest = _reflection.GeneratedProtocolMessageType('CreateMeasurementProtocolSecretRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEMEASUREMENTPROTOCOLSECRETREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.CreateMeasurementProtocolSecretRequest)
+  })
+_sym_db.RegisterMessage(CreateMeasurementProtocolSecretRequest)
+
+DeleteMeasurementProtocolSecretRequest = _reflection.GeneratedProtocolMessageType('DeleteMeasurementProtocolSecretRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEMEASUREMENTPROTOCOLSECRETREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.DeleteMeasurementProtocolSecretRequest)
+  })
+_sym_db.RegisterMessage(DeleteMeasurementProtocolSecretRequest)
+
+UpdateMeasurementProtocolSecretRequest = _reflection.GeneratedProtocolMessageType('UpdateMeasurementProtocolSecretRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEMEASUREMENTPROTOCOLSECRETREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.UpdateMeasurementProtocolSecretRequest)
+  })
+_sym_db.RegisterMessage(UpdateMeasurementProtocolSecretRequest)
+
+ListMeasurementProtocolSecretsRequest = _reflection.GeneratedProtocolMessageType('ListMeasurementProtocolSecretsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTMEASUREMENTPROTOCOLSECRETSREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.ListMeasurementProtocolSecretsRequest)
+  })
+_sym_db.RegisterMessage(ListMeasurementProtocolSecretsRequest)
+
+ListMeasurementProtocolSecretsResponse = _reflection.GeneratedProtocolMessageType('ListMeasurementProtocolSecretsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTMEASUREMENTPROTOCOLSECRETSRESPONSE,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.ListMeasurementProtocolSecretsResponse)
+  })
+_sym_db.RegisterMessage(ListMeasurementProtocolSecretsResponse)
+
+GetGoogleSignalsSettingsRequest = _reflection.GeneratedProtocolMessageType('GetGoogleSignalsSettingsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETGOOGLESIGNALSSETTINGSREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.GetGoogleSignalsSettingsRequest)
+  })
+_sym_db.RegisterMessage(GetGoogleSignalsSettingsRequest)
+
+UpdateGoogleSignalsSettingsRequest = _reflection.GeneratedProtocolMessageType('UpdateGoogleSignalsSettingsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEGOOGLESIGNALSSETTINGSREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.UpdateGoogleSignalsSettingsRequest)
+  })
+_sym_db.RegisterMessage(UpdateGoogleSignalsSettingsRequest)
+
+CreateConversionEventRequest = _reflection.GeneratedProtocolMessageType('CreateConversionEventRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATECONVERSIONEVENTREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.CreateConversionEventRequest)
+  })
+_sym_db.RegisterMessage(CreateConversionEventRequest)
+
+GetConversionEventRequest = _reflection.GeneratedProtocolMessageType('GetConversionEventRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETCONVERSIONEVENTREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.GetConversionEventRequest)
+  })
+_sym_db.RegisterMessage(GetConversionEventRequest)
+
+DeleteConversionEventRequest = _reflection.GeneratedProtocolMessageType('DeleteConversionEventRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETECONVERSIONEVENTREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.DeleteConversionEventRequest)
+  })
+_sym_db.RegisterMessage(DeleteConversionEventRequest)
+
+ListConversionEventsRequest = _reflection.GeneratedProtocolMessageType('ListConversionEventsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCONVERSIONEVENTSREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.ListConversionEventsRequest)
+  })
+_sym_db.RegisterMessage(ListConversionEventsRequest)
+
+ListConversionEventsResponse = _reflection.GeneratedProtocolMessageType('ListConversionEventsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCONVERSIONEVENTSRESPONSE,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.ListConversionEventsResponse)
+  })
+_sym_db.RegisterMessage(ListConversionEventsResponse)
+
+CreateCustomDimensionRequest = _reflection.GeneratedProtocolMessageType('CreateCustomDimensionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATECUSTOMDIMENSIONREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.CreateCustomDimensionRequest)
+  })
+_sym_db.RegisterMessage(CreateCustomDimensionRequest)
+
+UpdateCustomDimensionRequest = _reflection.GeneratedProtocolMessageType('UpdateCustomDimensionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATECUSTOMDIMENSIONREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.UpdateCustomDimensionRequest)
+  })
+_sym_db.RegisterMessage(UpdateCustomDimensionRequest)
+
+ListCustomDimensionsRequest = _reflection.GeneratedProtocolMessageType('ListCustomDimensionsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCUSTOMDIMENSIONSREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.ListCustomDimensionsRequest)
+  })
+_sym_db.RegisterMessage(ListCustomDimensionsRequest)
+
+ListCustomDimensionsResponse = _reflection.GeneratedProtocolMessageType('ListCustomDimensionsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCUSTOMDIMENSIONSRESPONSE,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.ListCustomDimensionsResponse)
+  })
+_sym_db.RegisterMessage(ListCustomDimensionsResponse)
+
+ArchiveCustomDimensionRequest = _reflection.GeneratedProtocolMessageType('ArchiveCustomDimensionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _ARCHIVECUSTOMDIMENSIONREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.ArchiveCustomDimensionRequest)
+  })
+_sym_db.RegisterMessage(ArchiveCustomDimensionRequest)
+
+GetCustomDimensionRequest = _reflection.GeneratedProtocolMessageType('GetCustomDimensionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETCUSTOMDIMENSIONREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.GetCustomDimensionRequest)
+  })
+_sym_db.RegisterMessage(GetCustomDimensionRequest)
+
+CreateCustomMetricRequest = _reflection.GeneratedProtocolMessageType('CreateCustomMetricRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATECUSTOMMETRICREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.CreateCustomMetricRequest)
+  })
+_sym_db.RegisterMessage(CreateCustomMetricRequest)
+
+UpdateCustomMetricRequest = _reflection.GeneratedProtocolMessageType('UpdateCustomMetricRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATECUSTOMMETRICREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.UpdateCustomMetricRequest)
+  })
+_sym_db.RegisterMessage(UpdateCustomMetricRequest)
+
+ListCustomMetricsRequest = _reflection.GeneratedProtocolMessageType('ListCustomMetricsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCUSTOMMETRICSREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.ListCustomMetricsRequest)
+  })
+_sym_db.RegisterMessage(ListCustomMetricsRequest)
+
+ListCustomMetricsResponse = _reflection.GeneratedProtocolMessageType('ListCustomMetricsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCUSTOMMETRICSRESPONSE,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.ListCustomMetricsResponse)
+  })
+_sym_db.RegisterMessage(ListCustomMetricsResponse)
+
+ArchiveCustomMetricRequest = _reflection.GeneratedProtocolMessageType('ArchiveCustomMetricRequest', (_message.Message,), {
+  'DESCRIPTOR' : _ARCHIVECUSTOMMETRICREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.ArchiveCustomMetricRequest)
+  })
+_sym_db.RegisterMessage(ArchiveCustomMetricRequest)
+
+GetCustomMetricRequest = _reflection.GeneratedProtocolMessageType('GetCustomMetricRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETCUSTOMMETRICREQUEST,
+  '__module__' : 'google.analytics.admin.v1alpha.analytics_admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.admin.v1alpha.GetCustomMetricRequest)
+  })
+_sym_db.RegisterMessage(GetCustomMetricRequest)
+
 
 DESCRIPTOR._options = None
 _GETACCOUNTREQUEST.fields_by_name['name']._options = None
@@ -2953,15 +4161,11 @@ _GETIOSAPPDATASTREAMREQUEST.fields_by_name['name']._options = None
 _DELETEIOSAPPDATASTREAMREQUEST.fields_by_name['name']._options = None
 _UPDATEIOSAPPDATASTREAMREQUEST.fields_by_name['ios_app_data_stream']._options = None
 _UPDATEIOSAPPDATASTREAMREQUEST.fields_by_name['update_mask']._options = None
-_CREATEIOSAPPDATASTREAMREQUEST.fields_by_name['ios_app_data_stream']._options = None
-_CREATEIOSAPPDATASTREAMREQUEST.fields_by_name['parent']._options = None
 _LISTIOSAPPDATASTREAMSREQUEST.fields_by_name['parent']._options = None
 _GETANDROIDAPPDATASTREAMREQUEST.fields_by_name['name']._options = None
 _DELETEANDROIDAPPDATASTREAMREQUEST.fields_by_name['name']._options = None
 _UPDATEANDROIDAPPDATASTREAMREQUEST.fields_by_name['android_app_data_stream']._options = None
 _UPDATEANDROIDAPPDATASTREAMREQUEST.fields_by_name['update_mask']._options = None
-_CREATEANDROIDAPPDATASTREAMREQUEST.fields_by_name['android_app_data_stream']._options = None
-_CREATEANDROIDAPPDATASTREAMREQUEST.fields_by_name['parent']._options = None
 _LISTANDROIDAPPDATASTREAMSREQUEST.fields_by_name['parent']._options = None
 _GETENHANCEDMEASUREMENTSETTINGSREQUEST.fields_by_name['name']._options = None
 _UPDATEENHANCEDMEASUREMENTSETTINGSREQUEST.fields_by_name['enhanced_measurement_settings']._options = None
@@ -2979,6 +4183,41 @@ _UPDATEGOOGLEADSLINKREQUEST.fields_by_name['update_mask']._options = None
 _DELETEGOOGLEADSLINKREQUEST.fields_by_name['name']._options = None
 _LISTGOOGLEADSLINKSREQUEST.fields_by_name['parent']._options = None
 _GETDATASHARINGSETTINGSREQUEST.fields_by_name['name']._options = None
+_SEARCHCHANGEHISTORYEVENTSREQUEST.fields_by_name['account']._options = None
+_SEARCHCHANGEHISTORYEVENTSREQUEST.fields_by_name['property']._options = None
+_SEARCHCHANGEHISTORYEVENTSREQUEST.fields_by_name['resource_type']._options = None
+_SEARCHCHANGEHISTORYEVENTSREQUEST.fields_by_name['action']._options = None
+_SEARCHCHANGEHISTORYEVENTSREQUEST.fields_by_name['actor_email']._options = None
+_SEARCHCHANGEHISTORYEVENTSREQUEST.fields_by_name['earliest_change_time']._options = None
+_SEARCHCHANGEHISTORYEVENTSREQUEST.fields_by_name['latest_change_time']._options = None
+_SEARCHCHANGEHISTORYEVENTSREQUEST.fields_by_name['page_size']._options = None
+_SEARCHCHANGEHISTORYEVENTSREQUEST.fields_by_name['page_token']._options = None
+_GETMEASUREMENTPROTOCOLSECRETREQUEST.fields_by_name['name']._options = None
+_CREATEMEASUREMENTPROTOCOLSECRETREQUEST.fields_by_name['parent']._options = None
+_CREATEMEASUREMENTPROTOCOLSECRETREQUEST.fields_by_name['measurement_protocol_secret']._options = None
+_DELETEMEASUREMENTPROTOCOLSECRETREQUEST.fields_by_name['name']._options = None
+_UPDATEMEASUREMENTPROTOCOLSECRETREQUEST.fields_by_name['measurement_protocol_secret']._options = None
+_LISTMEASUREMENTPROTOCOLSECRETSREQUEST.fields_by_name['parent']._options = None
+_GETGOOGLESIGNALSSETTINGSREQUEST.fields_by_name['name']._options = None
+_UPDATEGOOGLESIGNALSSETTINGSREQUEST.fields_by_name['google_signals_settings']._options = None
+_UPDATEGOOGLESIGNALSSETTINGSREQUEST.fields_by_name['update_mask']._options = None
+_CREATECONVERSIONEVENTREQUEST.fields_by_name['conversion_event']._options = None
+_CREATECONVERSIONEVENTREQUEST.fields_by_name['parent']._options = None
+_GETCONVERSIONEVENTREQUEST.fields_by_name['name']._options = None
+_DELETECONVERSIONEVENTREQUEST.fields_by_name['name']._options = None
+_LISTCONVERSIONEVENTSREQUEST.fields_by_name['parent']._options = None
+_CREATECUSTOMDIMENSIONREQUEST.fields_by_name['parent']._options = None
+_CREATECUSTOMDIMENSIONREQUEST.fields_by_name['custom_dimension']._options = None
+_UPDATECUSTOMDIMENSIONREQUEST.fields_by_name['update_mask']._options = None
+_LISTCUSTOMDIMENSIONSREQUEST.fields_by_name['parent']._options = None
+_ARCHIVECUSTOMDIMENSIONREQUEST.fields_by_name['name']._options = None
+_GETCUSTOMDIMENSIONREQUEST.fields_by_name['name']._options = None
+_CREATECUSTOMMETRICREQUEST.fields_by_name['parent']._options = None
+_CREATECUSTOMMETRICREQUEST.fields_by_name['custom_metric']._options = None
+_UPDATECUSTOMMETRICREQUEST.fields_by_name['update_mask']._options = None
+_LISTCUSTOMMETRICSREQUEST.fields_by_name['parent']._options = None
+_ARCHIVECUSTOMMETRICREQUEST.fields_by_name['name']._options = None
+_GETCUSTOMMETRICREQUEST.fields_by_name['name']._options = None
 
 _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   name='AnalyticsAdminService',
@@ -2987,8 +4226,8 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\035analyticsadmin.googleapis.com\322A\330\001https://www.googleapis.com/auth/analytics.edit,https://www.googleapis.com/auth/analytics.manage.users,https://www.googleapis.com/auth/analytics.manage.users.readonly,https://www.googleapis.com/auth/analytics.readonly',
   create_key=_descriptor._internal_create_key,
-  serialized_start=8237,
-  serialized_end=18840,
+  serialized_start=12039,
+  serialized_end=28260,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetAccount',
@@ -3086,7 +4325,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
     index=9,
     containing_service=None,
     input_type=_DELETEPROPERTYREQUEST,
-    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._PROPERTY,
     serialized_options=b'\202\323\344\223\002\036*\034/v1alpha/{name=properties/*}\332A\004name',
     create_key=_descriptor._internal_create_key,
   ),
@@ -3281,19 +4520,9 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='CreateIosAppDataStream',
-    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateIosAppDataStream',
-    index=29,
-    containing_service=None,
-    input_type=_CREATEIOSAPPDATASTREAMREQUEST,
-    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._IOSAPPDATASTREAM,
-    serialized_options=b'\202\323\344\223\002G\"0/v1alpha/{parent=properties/*}/iosAppDataStreams:\023ios_app_data_stream\332A\032parent,ios_app_data_stream',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
     name='ListIosAppDataStreams',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListIosAppDataStreams',
-    index=30,
+    index=29,
     containing_service=None,
     input_type=_LISTIOSAPPDATASTREAMSREQUEST,
     output_type=_LISTIOSAPPDATASTREAMSRESPONSE,
@@ -3303,7 +4532,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetAndroidAppDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetAndroidAppDataStream',
-    index=31,
+    index=30,
     containing_service=None,
     input_type=_GETANDROIDAPPDATASTREAMREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ANDROIDAPPDATASTREAM,
@@ -3313,7 +4542,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteAndroidAppDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.DeleteAndroidAppDataStream',
-    index=32,
+    index=31,
     containing_service=None,
     input_type=_DELETEANDROIDAPPDATASTREAMREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -3323,7 +4552,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateAndroidAppDataStream',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateAndroidAppDataStream',
-    index=33,
+    index=32,
     containing_service=None,
     input_type=_UPDATEANDROIDAPPDATASTREAMREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ANDROIDAPPDATASTREAM,
@@ -3331,19 +4560,9 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='CreateAndroidAppDataStream',
-    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateAndroidAppDataStream',
-    index=34,
-    containing_service=None,
-    input_type=_CREATEANDROIDAPPDATASTREAMREQUEST,
-    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ANDROIDAPPDATASTREAM,
-    serialized_options=b'\202\323\344\223\002O\"4/v1alpha/{parent=properties/*}/androidAppDataStreams:\027android_app_data_stream\332A\036parent,android_app_data_stream',
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
     name='ListAndroidAppDataStreams',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListAndroidAppDataStreams',
-    index=35,
+    index=33,
     containing_service=None,
     input_type=_LISTANDROIDAPPDATASTREAMSREQUEST,
     output_type=_LISTANDROIDAPPDATASTREAMSRESPONSE,
@@ -3353,7 +4572,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetEnhancedMeasurementSettings',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetEnhancedMeasurementSettings',
-    index=36,
+    index=34,
     containing_service=None,
     input_type=_GETENHANCEDMEASUREMENTSETTINGSREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ENHANCEDMEASUREMENTSETTINGS,
@@ -3363,7 +4582,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateEnhancedMeasurementSettings',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateEnhancedMeasurementSettings',
-    index=37,
+    index=35,
     containing_service=None,
     input_type=_UPDATEENHANCEDMEASUREMENTSETTINGSREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._ENHANCEDMEASUREMENTSETTINGS,
@@ -3373,7 +4592,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateFirebaseLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateFirebaseLink',
-    index=38,
+    index=36,
     containing_service=None,
     input_type=_CREATEFIREBASELINKREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._FIREBASELINK,
@@ -3383,7 +4602,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateFirebaseLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateFirebaseLink',
-    index=39,
+    index=37,
     containing_service=None,
     input_type=_UPDATEFIREBASELINKREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._FIREBASELINK,
@@ -3393,7 +4612,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteFirebaseLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.DeleteFirebaseLink',
-    index=40,
+    index=38,
     containing_service=None,
     input_type=_DELETEFIREBASELINKREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -3403,7 +4622,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListFirebaseLinks',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListFirebaseLinks',
-    index=41,
+    index=39,
     containing_service=None,
     input_type=_LISTFIREBASELINKSREQUEST,
     output_type=_LISTFIREBASELINKSRESPONSE,
@@ -3413,7 +4632,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetGlobalSiteTag',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetGlobalSiteTag',
-    index=42,
+    index=40,
     containing_service=None,
     input_type=_GETGLOBALSITETAGREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._GLOBALSITETAG,
@@ -3423,7 +4642,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateGoogleAdsLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateGoogleAdsLink',
-    index=43,
+    index=41,
     containing_service=None,
     input_type=_CREATEGOOGLEADSLINKREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._GOOGLEADSLINK,
@@ -3433,7 +4652,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateGoogleAdsLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateGoogleAdsLink',
-    index=44,
+    index=42,
     containing_service=None,
     input_type=_UPDATEGOOGLEADSLINKREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._GOOGLEADSLINK,
@@ -3443,7 +4662,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteGoogleAdsLink',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.DeleteGoogleAdsLink',
-    index=45,
+    index=43,
     containing_service=None,
     input_type=_DELETEGOOGLEADSLINKREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -3453,7 +4672,7 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListGoogleAdsLinks',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListGoogleAdsLinks',
-    index=46,
+    index=44,
     containing_service=None,
     input_type=_LISTGOOGLEADSLINKSREQUEST,
     output_type=_LISTGOOGLEADSLINKSRESPONSE,
@@ -3463,11 +4682,231 @@ _ANALYTICSADMINSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetDataSharingSettings',
     full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetDataSharingSettings',
-    index=47,
+    index=45,
     containing_service=None,
     input_type=_GETDATASHARINGSETTINGSREQUEST,
     output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._DATASHARINGSETTINGS,
     serialized_options=b'\202\323\344\223\0020\022./v1alpha/{name=accounts/*/dataSharingSettings}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetMeasurementProtocolSecret',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetMeasurementProtocolSecret',
+    index=46,
+    containing_service=None,
+    input_type=_GETMEASUREMENTPROTOCOLSECRETREQUEST,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._MEASUREMENTPROTOCOLSECRET,
+    serialized_options=b'\202\323\344\223\002\362\001\022J/v1alpha/{name=properties/*/webDataStreams/*/measurementProtocolSecrets/*}ZO\022M/v1alpha/{name=properties/*/iosAppDataStreams/*/measurementProtocolSecrets/*}ZS\022Q/v1alpha/{name=properties/*/androidAppDataStreams/*/measurementProtocolSecrets/*}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListMeasurementProtocolSecrets',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListMeasurementProtocolSecrets',
+    index=47,
+    containing_service=None,
+    input_type=_LISTMEASUREMENTPROTOCOLSECRETSREQUEST,
+    output_type=_LISTMEASUREMENTPROTOCOLSECRETSRESPONSE,
+    serialized_options=b'\202\323\344\223\002\362\001\022J/v1alpha/{parent=properties/*/webDataStreams/*}/measurementProtocolSecretsZO\022M/v1alpha/{parent=properties/*/iosAppDataStreams/*}/measurementProtocolSecretsZS\022Q/v1alpha/{parent=properties/*/androidAppDataStreams/*}/measurementProtocolSecrets\332A\006parent',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='CreateMeasurementProtocolSecret',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateMeasurementProtocolSecret',
+    index=48,
+    containing_service=None,
+    input_type=_CREATEMEASUREMENTPROTOCOLSECRETREQUEST,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._MEASUREMENTPROTOCOLSECRET,
+    serialized_options=b'\202\323\344\223\002\311\002\"J/v1alpha/{parent=properties/*/webDataStreams/*}/measurementProtocolSecrets:\033measurement_protocol_secretZl\"M/v1alpha/{parent=properties/*/iosAppDataStreams/*}/measurementProtocolSecrets:\033measurement_protocol_secretZp\"Q/v1alpha/{parent=properties/*/androidAppDataStreams/*}/measurementProtocolSecrets:\033measurement_protocol_secret\332A\"parent,measurement_protocol_secret',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteMeasurementProtocolSecret',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.DeleteMeasurementProtocolSecret',
+    index=49,
+    containing_service=None,
+    input_type=_DELETEMEASUREMENTPROTOCOLSECRETREQUEST,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=b'\202\323\344\223\002\362\001*J/v1alpha/{name=properties/*/webDataStreams/*/measurementProtocolSecrets/*}ZO*M/v1alpha/{name=properties/*/iosAppDataStreams/*/measurementProtocolSecrets/*}ZS*Q/v1alpha/{name=properties/*/androidAppDataStreams/*/measurementProtocolSecrets/*}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UpdateMeasurementProtocolSecret',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateMeasurementProtocolSecret',
+    index=50,
+    containing_service=None,
+    input_type=_UPDATEMEASUREMENTPROTOCOLSECRETREQUEST,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._MEASUREMENTPROTOCOLSECRET,
+    serialized_options=b'\202\323\344\223\002\237\0032f/v1alpha/{measurement_protocol_secret.name=properties/*/webDataStreams/*/measurementProtocolSecrets/*}:\033measurement_protocol_secretZ\210\0012i/v1alpha/{measurement_protocol_secret.name=properties/*/iosAppDataStreams/*/measurementProtocolSecrets/*}:\033measurement_protocol_secretZ\214\0012m/v1alpha/{measurement_protocol_secret.name=properties/*/androidAppDataStreams/*/measurementProtocolSecrets/*}:\033measurement_protocol_secret\332A\'measurement_protocol_secret,update_mask',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SearchChangeHistoryEvents',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.SearchChangeHistoryEvents',
+    index=51,
+    containing_service=None,
+    input_type=_SEARCHCHANGEHISTORYEVENTSREQUEST,
+    output_type=_SEARCHCHANGEHISTORYEVENTSRESPONSE,
+    serialized_options=b'\202\323\344\223\002<\"7/v1alpha/{account=accounts/*}:searchChangeHistoryEvents:\001*',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetGoogleSignalsSettings',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetGoogleSignalsSettings',
+    index=52,
+    containing_service=None,
+    input_type=_GETGOOGLESIGNALSSETTINGSREQUEST,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._GOOGLESIGNALSSETTINGS,
+    serialized_options=b'\202\323\344\223\0024\0222/v1alpha/{name=properties/*/googleSignalsSettings}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UpdateGoogleSignalsSettings',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateGoogleSignalsSettings',
+    index=53,
+    containing_service=None,
+    input_type=_UPDATEGOOGLESIGNALSSETTINGSREQUEST,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._GOOGLESIGNALSSETTINGS,
+    serialized_options=b'\202\323\344\223\002e2J/v1alpha/{google_signals_settings.name=properties/*/googleSignalsSettings}:\027google_signals_settings\332A#google_signals_settings,update_mask',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='CreateConversionEvent',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateConversionEvent',
+    index=54,
+    containing_service=None,
+    input_type=_CREATECONVERSIONEVENTREQUEST,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CONVERSIONEVENT,
+    serialized_options=b'\202\323\344\223\002C\"//v1alpha/{parent=properties/*}/conversionEvents:\020conversion_event\332A\027parent,conversion_event',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetConversionEvent',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetConversionEvent',
+    index=55,
+    containing_service=None,
+    input_type=_GETCONVERSIONEVENTREQUEST,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CONVERSIONEVENT,
+    serialized_options=b'\202\323\344\223\0021\022//v1alpha/{name=properties/*/conversionEvents/*}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteConversionEvent',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.DeleteConversionEvent',
+    index=56,
+    containing_service=None,
+    input_type=_DELETECONVERSIONEVENTREQUEST,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=b'\202\323\344\223\0021*//v1alpha/{name=properties/*/conversionEvents/*}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListConversionEvents',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListConversionEvents',
+    index=57,
+    containing_service=None,
+    input_type=_LISTCONVERSIONEVENTSREQUEST,
+    output_type=_LISTCONVERSIONEVENTSRESPONSE,
+    serialized_options=b'\202\323\344\223\0021\022//v1alpha/{parent=properties/*}/conversionEvents\332A\006parent',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='CreateCustomDimension',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateCustomDimension',
+    index=58,
+    containing_service=None,
+    input_type=_CREATECUSTOMDIMENSIONREQUEST,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CUSTOMDIMENSION,
+    serialized_options=b'\202\323\344\223\002C\"//v1alpha/{parent=properties/*}/customDimensions:\020custom_dimension\332A\027parent,custom_dimension',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UpdateCustomDimension',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateCustomDimension',
+    index=59,
+    containing_service=None,
+    input_type=_UPDATECUSTOMDIMENSIONREQUEST,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CUSTOMDIMENSION,
+    serialized_options=b'\202\323\344\223\002T2@/v1alpha/{custom_dimension.name=properties/*/customDimensions/*}:\020custom_dimension\332A\034custom_dimension,update_mask',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListCustomDimensions',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListCustomDimensions',
+    index=60,
+    containing_service=None,
+    input_type=_LISTCUSTOMDIMENSIONSREQUEST,
+    output_type=_LISTCUSTOMDIMENSIONSRESPONSE,
+    serialized_options=b'\202\323\344\223\0021\022//v1alpha/{parent=properties/*}/customDimensions\332A\006parent',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ArchiveCustomDimension',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ArchiveCustomDimension',
+    index=61,
+    containing_service=None,
+    input_type=_ARCHIVECUSTOMDIMENSIONREQUEST,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=b'\202\323\344\223\002<\"7/v1alpha/{name=properties/*/customDimensions/*}:archive:\001*\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetCustomDimension',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetCustomDimension',
+    index=62,
+    containing_service=None,
+    input_type=_GETCUSTOMDIMENSIONREQUEST,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CUSTOMDIMENSION,
+    serialized_options=b'\202\323\344\223\0021\022//v1alpha/{name=properties/*/customDimensions/*}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='CreateCustomMetric',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.CreateCustomMetric',
+    index=63,
+    containing_service=None,
+    input_type=_CREATECUSTOMMETRICREQUEST,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CUSTOMMETRIC,
+    serialized_options=b'\202\323\344\223\002=\",/v1alpha/{parent=properties/*}/customMetrics:\rcustom_metric\332A\024parent,custom_metric',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UpdateCustomMetric',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.UpdateCustomMetric',
+    index=64,
+    containing_service=None,
+    input_type=_UPDATECUSTOMMETRICREQUEST,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CUSTOMMETRIC,
+    serialized_options=b'\202\323\344\223\002K2:/v1alpha/{custom_metric.name=properties/*/customMetrics/*}:\rcustom_metric\332A\031custom_metric,update_mask',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListCustomMetrics',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ListCustomMetrics',
+    index=65,
+    containing_service=None,
+    input_type=_LISTCUSTOMMETRICSREQUEST,
+    output_type=_LISTCUSTOMMETRICSRESPONSE,
+    serialized_options=b'\202\323\344\223\002.\022,/v1alpha/{parent=properties/*}/customMetrics\332A\006parent',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ArchiveCustomMetric',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.ArchiveCustomMetric',
+    index=66,
+    containing_service=None,
+    input_type=_ARCHIVECUSTOMMETRICREQUEST,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=b'\202\323\344\223\0029\"4/v1alpha/{name=properties/*/customMetrics/*}:archive:\001*\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetCustomMetric',
+    full_name='google.analytics.admin.v1alpha.AnalyticsAdminService.GetCustomMetric',
+    index=67,
+    containing_service=None,
+    input_type=_GETCUSTOMMETRICREQUEST,
+    output_type=google_dot_analytics_dot_admin_dot_v1alpha_dot_resources__pb2._CUSTOMMETRIC,
+    serialized_options=b'\202\323\344\223\002.\022,/v1alpha/{name=properties/*/customMetrics/*}\332A\004name',
     create_key=_descriptor._internal_create_key,
   ),
 ])

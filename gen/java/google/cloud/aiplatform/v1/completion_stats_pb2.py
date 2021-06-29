@@ -20,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1/completion_stats.proto',
   package='google.cloud.aiplatform.v1',
   syntax='proto3',
-  serialized_options=b'\n\036com.google.cloud.aiplatform.v1B\024CompletionStatsProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform',
+  serialized_options=b'\n\036com.google.cloud.aiplatform.v1B\024CompletionStatsProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\252\002\032Google.Cloud.AIPlatform.V1\312\002\032Google\\Cloud\\AIPlatform\\V1\352\002\035Google::Cloud::AIPlatform::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n1google/cloud/aiplatform/v1/completion_stats.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x17google/rpc/status.proto\x1a\x1cgoogle/api/annotations.proto\"j\n\x0f\x43ompletionStats\x12\x1d\n\x10successful_count\x18\x01 \x01(\x03\x42\x03\xe0\x41\x03\x12\x19\n\x0c\x66\x61iled_count\x18\x02 \x01(\x03\x42\x03\xe0\x41\x03\x12\x1d\n\x10incomplete_count\x18\x03 \x01(\x03\x42\x03\xe0\x41\x03\x42~\n\x1e\x63om.google.cloud.aiplatform.v1B\x14\x43ompletionStatsProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatformb\x06proto3'
+  serialized_pb=b'\n1google/cloud/aiplatform/v1/completion_stats.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x17google/rpc/status.proto\x1a\x1cgoogle/api/annotations.proto\"j\n\x0f\x43ompletionStats\x12\x1d\n\x10successful_count\x18\x01 \x01(\x03\x42\x03\xe0\x41\x03\x12\x19\n\x0c\x66\x61iled_count\x18\x02 \x01(\x03\x42\x03\xe0\x41\x03\x12\x1d\n\x10incomplete_count\x18\x03 \x01(\x03\x42\x03\xe0\x41\x03\x42\xd8\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x14\x43ompletionStatsProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 

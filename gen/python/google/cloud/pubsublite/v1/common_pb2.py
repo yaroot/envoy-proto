@@ -14,6 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.cloud.pubsublite.protoB\013CommonProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\370\001\001\252\002\032Google.Cloud.PubSubLite.V1\312\002\032Google\\Cloud\\PubSubLite\\V1\352\002\035Google::Cloud::PubSubLite::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'google/cloud/pubsublite/v1/common.proto\x12\x1agoogle.cloud.pubsublite.v1\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"!\n\x0f\x41ttributeValues\x12\x0e\n\x06values\x18\x01 \x03(\x0c\"\x89\x02\n\rPubSubMessage\x12\x0b\n\x03key\x18\x01 \x01(\x0c\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\x12M\n\nattributes\x18\x03 \x03(\x0b\x32\x39.google.cloud.pubsublite.v1.PubSubMessage.AttributesEntry\x12.\n\nevent_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a^\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\x05value\x18\x02 \x01(\x0b\x32+.google.cloud.pubsublite.v1.AttributeValues:\x02\x38\x01\"\x18\n\x06\x43ursor\x12\x0e\n\x06offset\x18\x01 \x01(\x03\"\xc8\x01\n\x10SequencedMessage\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\x12\x30\n\x0cpublish_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12:\n\x07message\x18\x03 \x01(\x0b\x32).google.cloud.pubsublite.v1.PubSubMessage\x12\x12\n\nsize_bytes\x18\x04 \x01(\x03\"\xc5\x04\n\x05Topic\x12\x0c\n\x04name\x18\x01 \x01(\t\x12K\n\x10partition_config\x18\x02 \x01(\x0b\x32\x31.google.cloud.pubsublite.v1.Topic.PartitionConfig\x12K\n\x10retention_config\x18\x03 \x01(\x0b\x32\x31.google.cloud.pubsublite.v1.Topic.RetentionConfig\x1a\xda\x01\n\x0fPartitionConfig\x12\r\n\x05\x63ount\x18\x01 \x01(\x03\x12\x13\n\x05scale\x18\x02 \x01(\x05\x42\x02\x18\x01H\x00\x12N\n\x08\x63\x61pacity\x18\x03 \x01(\x0b\x32:.google.cloud.pubsublite.v1.Topic.PartitionConfig.CapacityH\x00\x1a\x46\n\x08\x43\x61pacity\x12\x1b\n\x13publish_mib_per_sec\x18\x01 \x01(\x05\x12\x1d\n\x15subscribe_mib_per_sec\x18\x02 \x01(\x05\x42\x0b\n\tdimension\x1aY\n\x0fRetentionConfig\x12\x1b\n\x13per_partition_bytes\x18\x01 \x01(\x03\x12)\n\x06period\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration:\\\xea\x41Y\n\x1fpubsublite.googleapis.com/Topic\x12\x36projects/{project}/locations/{location}/topics/{topic}\"\x84\x04\n\x0cSubscription\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x33\n\x05topic\x18\x02 \x01(\tB$\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\x12P\n\x0f\x64\x65livery_config\x18\x03 \x01(\x0b\x32\x37.google.cloud.pubsublite.v1.Subscription.DeliveryConfig\x1a\xeb\x01\n\x0e\x44\x65liveryConfig\x12i\n\x14\x64\x65livery_requirement\x18\x03 \x01(\x0e\x32K.google.cloud.pubsublite.v1.Subscription.DeliveryConfig.DeliveryRequirement\"n\n\x13\x44\x65liveryRequirement\x12$\n DELIVERY_REQUIREMENT_UNSPECIFIED\x10\x00\x12\x17\n\x13\x44\x45LIVER_IMMEDIATELY\x10\x01\x12\x18\n\x14\x44\x45LIVER_AFTER_STORED\x10\x02:q\xea\x41n\n&pubsublite.googleapis.com/Subscription\x12\x44projects/{project}/locations/{location}/subscriptions/{subscription}B\xd5\x01\n!com.google.cloud.pubsublite.protoB\x0b\x43ommonProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\xf8\x01\x01\xaa\x02\x1aGoogle.Cloud.PubSubLite.V1\xca\x02\x1aGoogle\\Cloud\\PubSubLite\\V1\xea\x02\x1dGoogle::Cloud::PubSubLite::V1b\x06proto3'
+  serialized_pb=b'\n\'google/cloud/pubsublite/v1/common.proto\x12\x1agoogle.cloud.pubsublite.v1\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"!\n\x0f\x41ttributeValues\x12\x0e\n\x06values\x18\x01 \x03(\x0c\"\x89\x02\n\rPubSubMessage\x12\x0b\n\x03key\x18\x01 \x01(\x0c\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\x12M\n\nattributes\x18\x03 \x03(\x0b\x32\x39.google.cloud.pubsublite.v1.PubSubMessage.AttributesEntry\x12.\n\nevent_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a^\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\x05value\x18\x02 \x01(\x0b\x32+.google.cloud.pubsublite.v1.AttributeValues:\x02\x38\x01\"\x18\n\x06\x43ursor\x12\x0e\n\x06offset\x18\x01 \x01(\x03\"\xc8\x01\n\x10SequencedMessage\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\x12\x30\n\x0cpublish_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12:\n\x07message\x18\x03 \x01(\x0b\x32).google.cloud.pubsublite.v1.PubSubMessage\x12\x12\n\nsize_bytes\x18\x04 \x01(\x03\"\xa8\x01\n\x0bReservation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1b\n\x13throughput_capacity\x18\x02 \x01(\x03:n\xea\x41k\n%pubsublite.googleapis.com/Reservation\x12\x42projects/{project}/locations/{location}/reservations/{reservation}\"\xf7\x05\n\x05Topic\x12\x0c\n\x04name\x18\x01 \x01(\t\x12K\n\x10partition_config\x18\x02 \x01(\x0b\x32\x31.google.cloud.pubsublite.v1.Topic.PartitionConfig\x12K\n\x10retention_config\x18\x03 \x01(\x0b\x32\x31.google.cloud.pubsublite.v1.Topic.RetentionConfig\x12O\n\x12reservation_config\x18\x04 \x01(\x0b\x32\x33.google.cloud.pubsublite.v1.Topic.ReservationConfig\x1a\xda\x01\n\x0fPartitionConfig\x12\r\n\x05\x63ount\x18\x01 \x01(\x03\x12\x13\n\x05scale\x18\x02 \x01(\x05\x42\x02\x18\x01H\x00\x12N\n\x08\x63\x61pacity\x18\x03 \x01(\x0b\x32:.google.cloud.pubsublite.v1.Topic.PartitionConfig.CapacityH\x00\x1a\x46\n\x08\x43\x61pacity\x12\x1b\n\x13publish_mib_per_sec\x18\x01 \x01(\x05\x12\x1d\n\x15subscribe_mib_per_sec\x18\x02 \x01(\x05\x42\x0b\n\tdimension\x1aY\n\x0fRetentionConfig\x12\x1b\n\x13per_partition_bytes\x18\x01 \x01(\x03\x12)\n\x06period\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x1a_\n\x11ReservationConfig\x12J\n\x16throughput_reservation\x18\x01 \x01(\tB*\xfa\x41\'\n%pubsublite.googleapis.com/Reservation:\\\xea\x41Y\n\x1fpubsublite.googleapis.com/Topic\x12\x36projects/{project}/locations/{location}/topics/{topic}\"\x84\x04\n\x0cSubscription\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x33\n\x05topic\x18\x02 \x01(\tB$\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\x12P\n\x0f\x64\x65livery_config\x18\x03 \x01(\x0b\x32\x37.google.cloud.pubsublite.v1.Subscription.DeliveryConfig\x1a\xeb\x01\n\x0e\x44\x65liveryConfig\x12i\n\x14\x64\x65livery_requirement\x18\x03 \x01(\x0e\x32K.google.cloud.pubsublite.v1.Subscription.DeliveryConfig.DeliveryRequirement\"n\n\x13\x44\x65liveryRequirement\x12$\n DELIVERY_REQUIREMENT_UNSPECIFIED\x10\x00\x12\x17\n\x13\x44\x45LIVER_IMMEDIATELY\x10\x01\x12\x18\n\x14\x44\x45LIVER_AFTER_STORED\x10\x02:q\xea\x41n\n&pubsublite.googleapis.com/Subscription\x12\x44projects/{project}/locations/{location}/subscriptions/{subscription}\"z\n\nTimeTarget\x12\x32\n\x0cpublish_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12\x30\n\nevent_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x42\x06\n\x04timeB\xd5\x01\n!com.google.cloud.pubsublite.protoB\x0b\x43ommonProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\xf8\x01\x01\xaa\x02\x1aGoogle.Cloud.PubSubLite.V1\xca\x02\x1aGoogle\\Cloud\\PubSubLite\\V1\xea\x02\x1dGoogle::Cloud::PubSubLite::V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -53,8 +54,8 @@ _SUBSCRIPTION_DELIVERYCONFIG_DELIVERYREQUIREMENT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1571,
-  serialized_end=1681,
+  serialized_start=1950,
+  serialized_end=2060,
 )
 _sym_db.RegisterEnumDescriptor(_SUBSCRIPTION_DELIVERYCONFIG_DELIVERYREQUIREMENT)
 
@@ -86,8 +87,8 @@ _ATTRIBUTEVALUES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=163,
-  serialized_end=196,
+  serialized_start=193,
+  serialized_end=226,
 )
 
 
@@ -125,8 +126,8 @@ _PUBSUBMESSAGE_ATTRIBUTESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=370,
-  serialized_end=464,
+  serialized_start=400,
+  serialized_end=494,
 )
 
 _PUBSUBMESSAGE = _descriptor.Descriptor(
@@ -177,8 +178,8 @@ _PUBSUBMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=199,
-  serialized_end=464,
+  serialized_start=229,
+  serialized_end=494,
 )
 
 
@@ -209,8 +210,8 @@ _CURSOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=466,
-  serialized_end=490,
+  serialized_start=496,
+  serialized_end=520,
 )
 
 
@@ -262,8 +263,47 @@ _SEQUENCEDMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=493,
-  serialized_end=693,
+  serialized_start=523,
+  serialized_end=723,
+)
+
+
+_RESERVATION = _descriptor.Descriptor(
+  name='Reservation',
+  full_name='google.cloud.pubsublite.v1.Reservation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.pubsublite.v1.Reservation.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='throughput_capacity', full_name='google.cloud.pubsublite.v1.Reservation.throughput_capacity', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\352Ak\n%pubsublite.googleapis.com/Reservation\022Bprojects/{project}/locations/{location}/reservations/{reservation}',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=726,
+  serialized_end=894,
 )
 
 
@@ -301,8 +341,8 @@ _TOPIC_PARTITIONCONFIG_CAPACITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1009,
-  serialized_end=1079,
+  serialized_start=1291,
+  serialized_end=1361,
 )
 
 _TOPIC_PARTITIONCONFIG = _descriptor.Descriptor(
@@ -351,8 +391,8 @@ _TOPIC_PARTITIONCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=874,
-  serialized_end=1092,
+  serialized_start=1156,
+  serialized_end=1374,
 )
 
 _TOPIC_RETENTIONCONFIG = _descriptor.Descriptor(
@@ -389,8 +429,39 @@ _TOPIC_RETENTIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1094,
-  serialized_end=1183,
+  serialized_start=1376,
+  serialized_end=1465,
+)
+
+_TOPIC_RESERVATIONCONFIG = _descriptor.Descriptor(
+  name='ReservationConfig',
+  full_name='google.cloud.pubsublite.v1.Topic.ReservationConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='throughput_reservation', full_name='google.cloud.pubsublite.v1.Topic.ReservationConfig.throughput_reservation', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A\'\n%pubsublite.googleapis.com/Reservation', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1467,
+  serialized_end=1562,
 )
 
 _TOPIC = _descriptor.Descriptor(
@@ -422,10 +493,17 @@ _TOPIC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='reservation_config', full_name='google.cloud.pubsublite.v1.Topic.reservation_config', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_TOPIC_PARTITIONCONFIG, _TOPIC_RETENTIONCONFIG, ],
+  nested_types=[_TOPIC_PARTITIONCONFIG, _TOPIC_RETENTIONCONFIG, _TOPIC_RESERVATIONCONFIG, ],
   enum_types=[
   ],
   serialized_options=b'\352AY\n\037pubsublite.googleapis.com/Topic\0226projects/{project}/locations/{location}/topics/{topic}',
@@ -434,8 +512,8 @@ _TOPIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=696,
-  serialized_end=1277,
+  serialized_start=897,
+  serialized_end=1656,
 )
 
 
@@ -467,8 +545,8 @@ _SUBSCRIPTION_DELIVERYCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1446,
-  serialized_end=1681,
+  serialized_start=1825,
+  serialized_end=2060,
 )
 
 _SUBSCRIPTION = _descriptor.Descriptor(
@@ -512,8 +590,52 @@ _SUBSCRIPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1280,
-  serialized_end=1796,
+  serialized_start=1659,
+  serialized_end=2175,
+)
+
+
+_TIMETARGET = _descriptor.Descriptor(
+  name='TimeTarget',
+  full_name='google.cloud.pubsublite.v1.TimeTarget',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='publish_time', full_name='google.cloud.pubsublite.v1.TimeTarget.publish_time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='event_time', full_name='google.cloud.pubsublite.v1.TimeTarget.event_time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='time', full_name='google.cloud.pubsublite.v1.TimeTarget.time',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2177,
+  serialized_end=2299,
 )
 
 _PUBSUBMESSAGE_ATTRIBUTESENTRY.fields_by_name['value'].message_type = _ATTRIBUTEVALUES
@@ -534,18 +656,30 @@ _TOPIC_PARTITIONCONFIG.oneofs_by_name['dimension'].fields.append(
 _TOPIC_PARTITIONCONFIG.fields_by_name['capacity'].containing_oneof = _TOPIC_PARTITIONCONFIG.oneofs_by_name['dimension']
 _TOPIC_RETENTIONCONFIG.fields_by_name['period'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _TOPIC_RETENTIONCONFIG.containing_type = _TOPIC
+_TOPIC_RESERVATIONCONFIG.containing_type = _TOPIC
 _TOPIC.fields_by_name['partition_config'].message_type = _TOPIC_PARTITIONCONFIG
 _TOPIC.fields_by_name['retention_config'].message_type = _TOPIC_RETENTIONCONFIG
+_TOPIC.fields_by_name['reservation_config'].message_type = _TOPIC_RESERVATIONCONFIG
 _SUBSCRIPTION_DELIVERYCONFIG.fields_by_name['delivery_requirement'].enum_type = _SUBSCRIPTION_DELIVERYCONFIG_DELIVERYREQUIREMENT
 _SUBSCRIPTION_DELIVERYCONFIG.containing_type = _SUBSCRIPTION
 _SUBSCRIPTION_DELIVERYCONFIG_DELIVERYREQUIREMENT.containing_type = _SUBSCRIPTION_DELIVERYCONFIG
 _SUBSCRIPTION.fields_by_name['delivery_config'].message_type = _SUBSCRIPTION_DELIVERYCONFIG
+_TIMETARGET.fields_by_name['publish_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TIMETARGET.fields_by_name['event_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TIMETARGET.oneofs_by_name['time'].fields.append(
+  _TIMETARGET.fields_by_name['publish_time'])
+_TIMETARGET.fields_by_name['publish_time'].containing_oneof = _TIMETARGET.oneofs_by_name['time']
+_TIMETARGET.oneofs_by_name['time'].fields.append(
+  _TIMETARGET.fields_by_name['event_time'])
+_TIMETARGET.fields_by_name['event_time'].containing_oneof = _TIMETARGET.oneofs_by_name['time']
 DESCRIPTOR.message_types_by_name['AttributeValues'] = _ATTRIBUTEVALUES
 DESCRIPTOR.message_types_by_name['PubSubMessage'] = _PUBSUBMESSAGE
 DESCRIPTOR.message_types_by_name['Cursor'] = _CURSOR
 DESCRIPTOR.message_types_by_name['SequencedMessage'] = _SEQUENCEDMESSAGE
+DESCRIPTOR.message_types_by_name['Reservation'] = _RESERVATION
 DESCRIPTOR.message_types_by_name['Topic'] = _TOPIC
 DESCRIPTOR.message_types_by_name['Subscription'] = _SUBSCRIPTION
+DESCRIPTOR.message_types_by_name['TimeTarget'] = _TIMETARGET
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 AttributeValues = _reflection.GeneratedProtocolMessageType('AttributeValues', (_message.Message,), {
@@ -584,6 +718,13 @@ SequencedMessage = _reflection.GeneratedProtocolMessageType('SequencedMessage', 
   })
 _sym_db.RegisterMessage(SequencedMessage)
 
+Reservation = _reflection.GeneratedProtocolMessageType('Reservation', (_message.Message,), {
+  'DESCRIPTOR' : _RESERVATION,
+  '__module__' : 'google.cloud.pubsublite.v1.common_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.Reservation)
+  })
+_sym_db.RegisterMessage(Reservation)
+
 Topic = _reflection.GeneratedProtocolMessageType('Topic', (_message.Message,), {
 
   'PartitionConfig' : _reflection.GeneratedProtocolMessageType('PartitionConfig', (_message.Message,), {
@@ -606,6 +747,13 @@ Topic = _reflection.GeneratedProtocolMessageType('Topic', (_message.Message,), {
     # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.Topic.RetentionConfig)
     })
   ,
+
+  'ReservationConfig' : _reflection.GeneratedProtocolMessageType('ReservationConfig', (_message.Message,), {
+    'DESCRIPTOR' : _TOPIC_RESERVATIONCONFIG,
+    '__module__' : 'google.cloud.pubsublite.v1.common_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.Topic.ReservationConfig)
+    })
+  ,
   'DESCRIPTOR' : _TOPIC,
   '__module__' : 'google.cloud.pubsublite.v1.common_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.Topic)
@@ -614,6 +762,7 @@ _sym_db.RegisterMessage(Topic)
 _sym_db.RegisterMessage(Topic.PartitionConfig)
 _sym_db.RegisterMessage(Topic.PartitionConfig.Capacity)
 _sym_db.RegisterMessage(Topic.RetentionConfig)
+_sym_db.RegisterMessage(Topic.ReservationConfig)
 
 Subscription = _reflection.GeneratedProtocolMessageType('Subscription', (_message.Message,), {
 
@@ -630,10 +779,19 @@ Subscription = _reflection.GeneratedProtocolMessageType('Subscription', (_messag
 _sym_db.RegisterMessage(Subscription)
 _sym_db.RegisterMessage(Subscription.DeliveryConfig)
 
+TimeTarget = _reflection.GeneratedProtocolMessageType('TimeTarget', (_message.Message,), {
+  'DESCRIPTOR' : _TIMETARGET,
+  '__module__' : 'google.cloud.pubsublite.v1.common_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.TimeTarget)
+  })
+_sym_db.RegisterMessage(TimeTarget)
+
 
 DESCRIPTOR._options = None
 _PUBSUBMESSAGE_ATTRIBUTESENTRY._options = None
+_RESERVATION._options = None
 _TOPIC_PARTITIONCONFIG.fields_by_name['scale']._options = None
+_TOPIC_RESERVATIONCONFIG.fields_by_name['throughput_reservation']._options = None
 _TOPIC._options = None
 _SUBSCRIPTION.fields_by_name['topic']._options = None
 _SUBSCRIPTION._options = None

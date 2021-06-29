@@ -11,8 +11,8 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n)com.google.cloud.securitycenter.v1p1beta1P\001ZSgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1p1beta1;securitycenter\252\002%Google.Cloud.SecurityCenter.V1P1Beta1\312\002%Google\\Cloud\\SecurityCenter\\V1p1beta1\352\002(Google::Cloud::SecurityCenter::V1p1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n2google/cloud/securitycenter/v1p1beta1/source.proto\x12%google.cloud.securitycenter.v1p1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/resource.proto\"\x9b\x01\n\x06Source\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t:X\xea\x41U\n$securitycenter.googleapis.com/Source\x12-organizations/{organization}/sources/{source}B\xfd\x01\n)com.google.cloud.securitycenter.v1p1beta1P\x01ZSgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1p1beta1;securitycenter\xaa\x02%Google.Cloud.SecurityCenter.V1P1Beta1\xca\x02%Google\\Cloud\\SecurityCenter\\V1p1beta1\xea\x02(Google::Cloud::SecurityCenter::V1p1beta1b\x06proto3'
+  serialized_pb=b'\n2google/cloud/securitycenter/v1p1beta1/source.proto\x12%google.cloud.securitycenter.v1p1beta1\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\xfd\x01\n\x06Source\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x16\n\x0e\x63\x61nonical_name\x18\x0e \x01(\t:\xa1\x01\xea\x41\x9d\x01\n$securitycenter.googleapis.com/Source\x12-organizations/{organization}/sources/{source}\x12!folders/{folder}/sources/{source}\x12#projects/{project}/sources/{source}B\xfd\x01\n)com.google.cloud.securitycenter.v1p1beta1P\x01ZSgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1p1beta1;securitycenter\xaa\x02%Google.Cloud.SecurityCenter.V1P1Beta1\xca\x02%Google\\Cloud\\SecurityCenter\\V1p1beta1\xea\x02(Google::Cloud::SecurityCenter::V1p1beta1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -57,20 +57,27 @@ _SOURCE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='canonical_name', full_name='google.cloud.securitycenter.v1p1beta1.Source.canonical_name', index=3,
+      number=14, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=b'\352AU\n$securitycenter.googleapis.com/Source\022-organizations/{organization}/sources/{source}',
+  serialized_options=b'\352A\235\001\n$securitycenter.googleapis.com/Source\022-organizations/{organization}/sources/{source}\022!folders/{folder}/sources/{source}\022#projects/{project}/sources/{source}',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=151,
-  serialized_end=306,
+  serialized_end=404,
 )
 
 DESCRIPTOR.message_types_by_name['Source'] = _SOURCE

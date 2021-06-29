@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.api import distribution_pb2 as google_dot_api_dot_distribution__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -19,8 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n com.google.api.servicecontrol.v1B\021DistributionProtoP\001ZJgoogle.golang.org/genproto/googleapis/api/servicecontrol/v1;servicecontrol\370\001\001\252\002\036Google.Cloud.ServiceControl.V1\312\002\036Google\\Cloud\\ServiceControl\\V1\352\002!Google::Cloud::ServiceControl::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n/google/api/servicecontrol/v1/distribution.proto\x12\x1cgoogle.api.servicecontrol.v1\"\xe8\x04\n\x0c\x44istribution\x12\r\n\x05\x63ount\x18\x01 \x01(\x03\x12\x0c\n\x04mean\x18\x02 \x01(\x01\x12\x0f\n\x07minimum\x18\x03 \x01(\x01\x12\x0f\n\x07maximum\x18\x04 \x01(\x01\x12 \n\x18sum_of_squared_deviation\x18\x05 \x01(\x01\x12\x15\n\rbucket_counts\x18\x06 \x03(\x03\x12R\n\x0elinear_buckets\x18\x07 \x01(\x0b\x32\x38.google.api.servicecontrol.v1.Distribution.LinearBucketsH\x00\x12\\\n\x13\x65xponential_buckets\x18\x08 \x01(\x0b\x32=.google.api.servicecontrol.v1.Distribution.ExponentialBucketsH\x00\x12V\n\x10\x65xplicit_buckets\x18\t \x01(\x0b\x32:.google.api.servicecontrol.v1.Distribution.ExplicitBucketsH\x00\x1aJ\n\rLinearBuckets\x12\x1a\n\x12num_finite_buckets\x18\x01 \x01(\x05\x12\r\n\x05width\x18\x02 \x01(\x01\x12\x0e\n\x06offset\x18\x03 \x01(\x01\x1aV\n\x12\x45xponentialBuckets\x12\x1a\n\x12num_finite_buckets\x18\x01 \x01(\x05\x12\x15\n\rgrowth_factor\x18\x02 \x01(\x01\x12\r\n\x05scale\x18\x03 \x01(\x01\x1a!\n\x0f\x45xplicitBuckets\x12\x0e\n\x06\x62ounds\x18\x01 \x03(\x01\x42\x0f\n\rbucket_optionB\xec\x01\n com.google.api.servicecontrol.v1B\x11\x44istributionProtoP\x01ZJgoogle.golang.org/genproto/googleapis/api/servicecontrol/v1;servicecontrol\xf8\x01\x01\xaa\x02\x1eGoogle.Cloud.ServiceControl.V1\xca\x02\x1eGoogle\\Cloud\\ServiceControl\\V1\xea\x02!Google::Cloud::ServiceControl::V1b\x06proto3'
-)
+  serialized_pb=b'\n/google/api/servicecontrol/v1/distribution.proto\x12\x1cgoogle.api.servicecontrol.v1\x1a\x1dgoogle/api/distribution.proto\"\x9e\x05\n\x0c\x44istribution\x12\r\n\x05\x63ount\x18\x01 \x01(\x03\x12\x0c\n\x04mean\x18\x02 \x01(\x01\x12\x0f\n\x07minimum\x18\x03 \x01(\x01\x12\x0f\n\x07maximum\x18\x04 \x01(\x01\x12 \n\x18sum_of_squared_deviation\x18\x05 \x01(\x01\x12\x15\n\rbucket_counts\x18\x06 \x03(\x03\x12R\n\x0elinear_buckets\x18\x07 \x01(\x0b\x32\x38.google.api.servicecontrol.v1.Distribution.LinearBucketsH\x00\x12\\\n\x13\x65xponential_buckets\x18\x08 \x01(\x0b\x32=.google.api.servicecontrol.v1.Distribution.ExponentialBucketsH\x00\x12V\n\x10\x65xplicit_buckets\x18\t \x01(\x0b\x32:.google.api.servicecontrol.v1.Distribution.ExplicitBucketsH\x00\x12\x34\n\texemplars\x18\n \x03(\x0b\x32!.google.api.Distribution.Exemplar\x1aJ\n\rLinearBuckets\x12\x1a\n\x12num_finite_buckets\x18\x01 \x01(\x05\x12\r\n\x05width\x18\x02 \x01(\x01\x12\x0e\n\x06offset\x18\x03 \x01(\x01\x1aV\n\x12\x45xponentialBuckets\x12\x1a\n\x12num_finite_buckets\x18\x01 \x01(\x05\x12\x15\n\rgrowth_factor\x18\x02 \x01(\x01\x12\r\n\x05scale\x18\x03 \x01(\x01\x1a!\n\x0f\x45xplicitBuckets\x12\x0e\n\x06\x62ounds\x18\x01 \x03(\x01\x42\x0f\n\rbucket_optionB\xec\x01\n com.google.api.servicecontrol.v1B\x11\x44istributionProtoP\x01ZJgoogle.golang.org/genproto/googleapis/api/servicecontrol/v1;servicecontrol\xf8\x01\x01\xaa\x02\x1eGoogle.Cloud.ServiceControl.V1\xca\x02\x1eGoogle\\Cloud\\ServiceControl\\V1\xea\x02!Google::Cloud::ServiceControl::V1b\x06proto3'
+  ,
+  dependencies=[google_dot_api_dot_distribution__pb2.DESCRIPTOR,])
 
 
 
@@ -66,8 +68,8 @@ _DISTRIBUTION_LINEARBUCKETS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=484,
-  serialized_end=558,
+  serialized_start=569,
+  serialized_end=643,
 )
 
 _DISTRIBUTION_EXPONENTIALBUCKETS = _descriptor.Descriptor(
@@ -111,8 +113,8 @@ _DISTRIBUTION_EXPONENTIALBUCKETS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=560,
-  serialized_end=646,
+  serialized_start=645,
+  serialized_end=731,
 )
 
 _DISTRIBUTION_EXPLICITBUCKETS = _descriptor.Descriptor(
@@ -142,8 +144,8 @@ _DISTRIBUTION_EXPLICITBUCKETS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=648,
-  serialized_end=681,
+  serialized_start=733,
+  serialized_end=766,
 )
 
 _DISTRIBUTION = _descriptor.Descriptor(
@@ -217,6 +219,13 @@ _DISTRIBUTION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='exemplars', full_name='google.api.servicecontrol.v1.Distribution.exemplars', index=9,
+      number=10, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -234,8 +243,8 @@ _DISTRIBUTION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=82,
-  serialized_end=698,
+  serialized_start=113,
+  serialized_end=783,
 )
 
 _DISTRIBUTION_LINEARBUCKETS.containing_type = _DISTRIBUTION
@@ -244,6 +253,7 @@ _DISTRIBUTION_EXPLICITBUCKETS.containing_type = _DISTRIBUTION
 _DISTRIBUTION.fields_by_name['linear_buckets'].message_type = _DISTRIBUTION_LINEARBUCKETS
 _DISTRIBUTION.fields_by_name['exponential_buckets'].message_type = _DISTRIBUTION_EXPONENTIALBUCKETS
 _DISTRIBUTION.fields_by_name['explicit_buckets'].message_type = _DISTRIBUTION_EXPLICITBUCKETS
+_DISTRIBUTION.fields_by_name['exemplars'].message_type = google_dot_api_dot_distribution__pb2._DISTRIBUTION_EXEMPLAR
 _DISTRIBUTION.oneofs_by_name['bucket_option'].fields.append(
   _DISTRIBUTION.fields_by_name['linear_buckets'])
 _DISTRIBUTION.fields_by_name['linear_buckets'].containing_oneof = _DISTRIBUTION.oneofs_by_name['bucket_option']

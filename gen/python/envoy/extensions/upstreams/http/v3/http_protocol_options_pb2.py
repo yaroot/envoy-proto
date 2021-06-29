@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n0io.envoyproxy.envoy.extensions.upstreams.http.v3B\030HttpProtocolOptionsProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n>envoy/extensions/upstreams/http/v3/http_protocol_options.proto\x12\"envoy.extensions.upstreams.http.v3\x1a#envoy/config/core/v3/protocol.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\xb6\n\n\x13HttpProtocolOptions\x12O\n\x1c\x63ommon_http_protocol_options\x18\x01 \x01(\x0b\x32).envoy.config.core.v3.HttpProtocolOptions\x12Y\n\x1eupstream_http_protocol_options\x18\x02 \x01(\x0b\x32\x31.envoy.config.core.v3.UpstreamHttpProtocolOptions\x12j\n\x14\x65xplicit_http_config\x18\x03 \x01(\x0b\x32J.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfigH\x00\x12y\n\x1euse_downstream_protocol_config\x18\x04 \x01(\x0b\x32O.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfigH\x00\x12]\n\x0b\x61uto_config\x18\x05 \x01(\x0b\x32\x46.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfigH\x00\x1a\x95\x02\n\x12\x45xplicitHttpConfig\x12K\n\x15http_protocol_options\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.Http1ProtocolOptionsH\x00\x12L\n\x16http2_protocol_options\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.Http2ProtocolOptionsH\x00\x12L\n\x16http3_protocol_options\x18\x03 \x01(\x0b\x32*.envoy.config.core.v3.Http3ProtocolOptionsH\x00\x42\x16\n\x0fprotocol_config\x12\x03\xf8\x42\x01\x1a\xfc\x01\n\x17UseDownstreamHttpConfig\x12I\n\x15http_protocol_options\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.Http1ProtocolOptions\x12J\n\x16http2_protocol_options\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.Http2ProtocolOptions\x12J\n\x16http3_protocol_options\x18\x03 \x01(\x0b\x32*.envoy.config.core.v3.Http3ProtocolOptions\x1a\xf3\x01\n\x0e\x41utoHttpConfig\x12I\n\x15http_protocol_options\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.Http1ProtocolOptions\x12J\n\x16http2_protocol_options\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.Http2ProtocolOptions\x12J\n\x16http3_protocol_options\x18\x03 \x01(\x0b\x32*.envoy.config.core.v3.Http3ProtocolOptionsB \n\x19upstream_protocol_options\x12\x03\xf8\x42\x01\x42V\n0io.envoyproxy.envoy.extensions.upstreams.http.v3B\x18HttpProtocolOptionsProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n>envoy/extensions/upstreams/http/v3/http_protocol_options.proto\x12\"envoy.extensions.upstreams.http.v3\x1a#envoy/config/core/v3/protocol.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\x97\x0b\n\x13HttpProtocolOptions\x12O\n\x1c\x63ommon_http_protocol_options\x18\x01 \x01(\x0b\x32).envoy.config.core.v3.HttpProtocolOptions\x12Y\n\x1eupstream_http_protocol_options\x18\x02 \x01(\x0b\x32\x31.envoy.config.core.v3.UpstreamHttpProtocolOptions\x12j\n\x14\x65xplicit_http_config\x18\x03 \x01(\x0b\x32J.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfigH\x00\x12y\n\x1euse_downstream_protocol_config\x18\x04 \x01(\x0b\x32O.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfigH\x00\x12]\n\x0b\x61uto_config\x18\x05 \x01(\x0b\x32\x46.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfigH\x00\x1a\x95\x02\n\x12\x45xplicitHttpConfig\x12K\n\x15http_protocol_options\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.Http1ProtocolOptionsH\x00\x12L\n\x16http2_protocol_options\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.Http2ProtocolOptionsH\x00\x12L\n\x16http3_protocol_options\x18\x03 \x01(\x0b\x32*.envoy.config.core.v3.Http3ProtocolOptionsH\x00\x42\x16\n\x0fprotocol_config\x12\x03\xf8\x42\x01\x1a\xfc\x01\n\x17UseDownstreamHttpConfig\x12I\n\x15http_protocol_options\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.Http1ProtocolOptions\x12J\n\x16http2_protocol_options\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.Http2ProtocolOptions\x12J\n\x16http3_protocol_options\x18\x03 \x01(\x0b\x32*.envoy.config.core.v3.Http3ProtocolOptions\x1a\xd4\x02\n\x0e\x41utoHttpConfig\x12I\n\x15http_protocol_options\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.Http1ProtocolOptions\x12J\n\x16http2_protocol_options\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.Http2ProtocolOptions\x12J\n\x16http3_protocol_options\x18\x03 \x01(\x0b\x32*.envoy.config.core.v3.Http3ProtocolOptions\x12_\n!alternate_protocols_cache_options\x18\x04 \x01(\x0b\x32\x34.envoy.config.core.v3.AlternateProtocolsCacheOptionsB \n\x19upstream_protocol_options\x12\x03\xf8\x42\x01\x42V\n0io.envoyproxy.envoy.extensions.upstreams.http.v3B\x18HttpProtocolOptionsProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_protocol__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -153,6 +153,13 @@ _HTTPPROTOCOLOPTIONS_AUTOHTTPCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='alternate_protocols_cache_options', full_name='envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfig.alternate_protocols_cache_options', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -166,7 +173,7 @@ _HTTPPROTOCOLOPTIONS_AUTOHTTPCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1253,
-  serialized_end=1496,
+  serialized_end=1593,
 )
 
 _HTTPPROTOCOLOPTIONS = _descriptor.Descriptor(
@@ -230,7 +237,7 @@ _HTTPPROTOCOLOPTIONS = _descriptor.Descriptor(
     fields=[], serialized_options=b'\370B\001'),
   ],
   serialized_start=196,
-  serialized_end=1530,
+  serialized_end=1627,
 )
 
 _HTTPPROTOCOLOPTIONS_EXPLICITHTTPCONFIG.fields_by_name['http_protocol_options'].message_type = envoy_dot_config_dot_core_dot_v3_dot_protocol__pb2._HTTP1PROTOCOLOPTIONS
@@ -253,6 +260,7 @@ _HTTPPROTOCOLOPTIONS_USEDOWNSTREAMHTTPCONFIG.containing_type = _HTTPPROTOCOLOPTI
 _HTTPPROTOCOLOPTIONS_AUTOHTTPCONFIG.fields_by_name['http_protocol_options'].message_type = envoy_dot_config_dot_core_dot_v3_dot_protocol__pb2._HTTP1PROTOCOLOPTIONS
 _HTTPPROTOCOLOPTIONS_AUTOHTTPCONFIG.fields_by_name['http2_protocol_options'].message_type = envoy_dot_config_dot_core_dot_v3_dot_protocol__pb2._HTTP2PROTOCOLOPTIONS
 _HTTPPROTOCOLOPTIONS_AUTOHTTPCONFIG.fields_by_name['http3_protocol_options'].message_type = envoy_dot_config_dot_core_dot_v3_dot_protocol__pb2._HTTP3PROTOCOLOPTIONS
+_HTTPPROTOCOLOPTIONS_AUTOHTTPCONFIG.fields_by_name['alternate_protocols_cache_options'].message_type = envoy_dot_config_dot_core_dot_v3_dot_protocol__pb2._ALTERNATEPROTOCOLSCACHEOPTIONS
 _HTTPPROTOCOLOPTIONS_AUTOHTTPCONFIG.containing_type = _HTTPPROTOCOLOPTIONS
 _HTTPPROTOCOLOPTIONS.fields_by_name['common_http_protocol_options'].message_type = envoy_dot_config_dot_core_dot_v3_dot_protocol__pb2._HTTPPROTOCOLOPTIONS
 _HTTPPROTOCOLOPTIONS.fields_by_name['upstream_http_protocol_options'].message_type = envoy_dot_config_dot_core_dot_v3_dot_protocol__pb2._UPSTREAMHTTPPROTOCOLOPTIONS

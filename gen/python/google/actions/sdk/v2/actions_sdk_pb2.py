@@ -29,7 +29,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\031com.google.actions.sdk.v2B\017ActionsSdkProtoP\001Z8google.golang.org/genproto/googleapis/actions/sdk/v2;sdk',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'google/actions/sdk/v2/actions_sdk.proto\x12\x15google.actions.sdk.v2\x1a\x32google/actions/sdk/v2/account_linking_secret.proto\x1a!google/actions/sdk/v2/files.proto\x1a+google/actions/sdk/v2/release_channel.proto\x1a.google/actions/sdk/v2/validation_results.proto\x1a#google/actions/sdk/v2/version.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/wrappers.proto\"{\n\x11WriteDraftRequest\x12\x34\n\x06parent\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\x12\x1c\x61\x63tions.googleapis.com/Draft\x12\x30\n\x05\x66iles\x18\x04 \x01(\x0b\x32\x1c.google.actions.sdk.v2.FilesB\x03\xe0\x41\x02\"\x98\x01\n\x05\x44raft\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x44\n\x12validation_results\x18\x02 \x01(\x0b\x32(.google.actions.sdk.v2.ValidationResults:;\xea\x41\x38\n\x1c\x61\x63tions.googleapis.com/Draft\x12\x18projects/{project}/draft\"\xc0\x04\n\x13WritePreviewRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \x12\x1e\x61\x63tions.googleapis.com/Preview\x12-\n\x05\x66iles\x18\x05 \x01(\x0b\x32\x1c.google.actions.sdk.v2.FilesH\x00\x12L\n\x05\x64raft\x18\x06 \x01(\x0b\x32;.google.actions.sdk.v2.WritePreviewRequest.ContentFromDraftH\x00\x12\x63\n\x11submitted_version\x18\x07 \x01(\x0b\x32\x46.google.actions.sdk.v2.WritePreviewRequest.ContentFromSubmittedVersionH\x00\x12Y\n\x10preview_settings\x18\x04 \x01(\x0b\x32:.google.actions.sdk.v2.WritePreviewRequest.PreviewSettingsB\x03\xe0\x41\x02\x1a\x12\n\x10\x43ontentFromDraft\x1aV\n\x1b\x43ontentFromSubmittedVersion\x12\x37\n\x07version\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x61\x63tions.googleapis.com/Version\x1a>\n\x0fPreviewSettings\x12+\n\x07sandbox\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x08\n\x06source\"\xc0\x01\n\x07Preview\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x44\n\x12validation_results\x18\x02 \x01(\x0b\x32(.google.actions.sdk.v2.ValidationResults\x12\x15\n\rsimulator_url\x18\x03 \x01(\t:J\xea\x41G\n\x1e\x61\x63tions.googleapis.com/Preview\x12%projects/{project}/previews/{preview}\"\x9e\x01\n\x14\x43reateVersionRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \x12\x1e\x61\x63tions.googleapis.com/Version\x12\x30\n\x05\x66iles\x18\x05 \x01(\x0b\x32\x1c.google.actions.sdk.v2.FilesB\x03\xe0\x41\x02\x12\x1c\n\x0frelease_channel\x18\x04 \x01(\tB\x03\xe0\x41\x01\"X\n\x10ReadDraftRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x31\n$client_secret_encryption_key_version\x18\x02 \x01(\tB\x03\xe0\x41\x01\"@\n\x11ReadDraftResponse\x12+\n\x05\x66iles\x18\x03 \x01(\x0b\x32\x1c.google.actions.sdk.v2.Files\"Z\n\x12ReadVersionRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x31\n$client_secret_encryption_key_version\x18\x02 \x01(\tB\x03\xe0\x41\x01\"B\n\x13ReadVersionResponse\x12+\n\x05\x66iles\x18\x01 \x01(\x0b\x32\x1c.google.actions.sdk.v2.Files\"2\n\x14\x45ncryptSecretRequest\x12\x1a\n\rclient_secret\x18\x01 \x01(\tB\x03\xe0\x41\x02\"d\n\x15\x45ncryptSecretResponse\x12K\n\x16\x61\x63\x63ount_linking_secret\x18\x01 \x01(\x0b\x32+.google.actions.sdk.v2.AccountLinkingSecret\"<\n\x14\x44\x65\x63ryptSecretRequest\x12$\n\x17\x65ncrypted_client_secret\x18\x01 \x01(\x0c\x42\x03\xe0\x41\x02\".\n\x15\x44\x65\x63ryptSecretResponse\x12\x15\n\rclient_secret\x18\x01 \x01(\t\"\x82\x01\n\x1aListReleaseChannelsRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%actions.googleapis.com/ReleaseChannel\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"w\n\x1bListReleaseChannelsResponse\x12?\n\x10release_channels\x18\x01 \x03(\x0b\x32%.google.actions.sdk.v2.ReleaseChannel\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"t\n\x13ListVersionsRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \x12\x1e\x61\x63tions.googleapis.com/Version\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"a\n\x14ListVersionsResponse\x12\x30\n\x08versions\x18\x01 \x03(\x0b\x32\x1e.google.actions.sdk.v2.Version\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xed\n\n\nActionsSdk\x12\x86\x01\n\nWriteDraft\x12(.google.actions.sdk.v2.WriteDraftRequest\x1a\x1c.google.actions.sdk.v2.Draft\".\x82\xd3\xe4\x93\x02(\"#/v2/{parent=projects/*}/draft:write:\x01*(\x01\x12\x8e\x01\n\x0cWritePreview\x12*.google.actions.sdk.v2.WritePreviewRequest\x1a\x1e.google.actions.sdk.v2.Preview\"0\x82\xd3\xe4\x93\x02*\"%/v2/{parent=projects/*}/preview:write:\x01*(\x01\x12\x92\x01\n\rCreateVersion\x12+.google.actions.sdk.v2.CreateVersionRequest\x1a\x1e.google.actions.sdk.v2.Version\"2\x82\xd3\xe4\x93\x02,\"\'/v2/{parent=projects/*}/versions:create:\x01*(\x01\x12\x8d\x01\n\tReadDraft\x12\'.google.actions.sdk.v2.ReadDraftRequest\x1a(.google.actions.sdk.v2.ReadDraftResponse\"+\x82\xd3\xe4\x93\x02%\" /v2/{name=projects/*/draft}:read:\x01*0\x01\x12\x98\x01\n\x0bReadVersion\x12).google.actions.sdk.v2.ReadVersionRequest\x1a*.google.actions.sdk.v2.ReadVersionResponse\"0\x82\xd3\xe4\x93\x02*\"%/v2/{name=projects/*/versions/*}:read:\x01*0\x01\x12\x88\x01\n\rEncryptSecret\x12+.google.actions.sdk.v2.EncryptSecretRequest\x1a,.google.actions.sdk.v2.EncryptSecretResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x11/v2:encryptSecret:\x01*\x12\x88\x01\n\rDecryptSecret\x12+.google.actions.sdk.v2.DecryptSecretRequest\x1a,.google.actions.sdk.v2.DecryptSecretResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x11/v2:decryptSecret:\x01*\x12\xb6\x01\n\x13ListReleaseChannels\x12\x31.google.actions.sdk.v2.ListReleaseChannelsRequest\x1a\x32.google.actions.sdk.v2.ListReleaseChannelsResponse\"8\x82\xd3\xe4\x93\x02)\x12\'/v2/{parent=projects/*}/releaseChannels\xda\x41\x06parent\x12\x9a\x01\n\x0cListVersions\x12*.google.actions.sdk.v2.ListVersionsRequest\x1a+.google.actions.sdk.v2.ListVersionsResponse\"1\x82\xd3\xe4\x93\x02\"\x12 /v2/{parent=projects/*}/versions\xda\x41\x06parent\x1a\x19\xca\x41\x16\x61\x63tions.googleapis.comBh\n\x19\x63om.google.actions.sdk.v2B\x0f\x41\x63tionsSdkProtoP\x01Z8google.golang.org/genproto/googleapis/actions/sdk/v2;sdkb\x06proto3'
+  serialized_pb=b'\n\'google/actions/sdk/v2/actions_sdk.proto\x12\x15google.actions.sdk.v2\x1a\x32google/actions/sdk/v2/account_linking_secret.proto\x1a!google/actions/sdk/v2/files.proto\x1a+google/actions/sdk/v2/release_channel.proto\x1a.google/actions/sdk/v2/validation_results.proto\x1a#google/actions/sdk/v2/version.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/wrappers.proto\"{\n\x11WriteDraftRequest\x12\x34\n\x06parent\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\x12\x1c\x61\x63tions.googleapis.com/Draft\x12\x30\n\x05\x66iles\x18\x04 \x01(\x0b\x32\x1c.google.actions.sdk.v2.FilesB\x03\xe0\x41\x02\"\x98\x01\n\x05\x44raft\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x44\n\x12validation_results\x18\x02 \x01(\x0b\x32(.google.actions.sdk.v2.ValidationResults:;\xea\x41\x38\n\x1c\x61\x63tions.googleapis.com/Draft\x12\x18projects/{project}/draft\"\xc0\x04\n\x13WritePreviewRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \x12\x1e\x61\x63tions.googleapis.com/Preview\x12-\n\x05\x66iles\x18\x05 \x01(\x0b\x32\x1c.google.actions.sdk.v2.FilesH\x00\x12L\n\x05\x64raft\x18\x06 \x01(\x0b\x32;.google.actions.sdk.v2.WritePreviewRequest.ContentFromDraftH\x00\x12\x63\n\x11submitted_version\x18\x07 \x01(\x0b\x32\x46.google.actions.sdk.v2.WritePreviewRequest.ContentFromSubmittedVersionH\x00\x12Y\n\x10preview_settings\x18\x04 \x01(\x0b\x32:.google.actions.sdk.v2.WritePreviewRequest.PreviewSettingsB\x03\xe0\x41\x02\x1a\x12\n\x10\x43ontentFromDraft\x1aV\n\x1b\x43ontentFromSubmittedVersion\x12\x37\n\x07version\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x61\x63tions.googleapis.com/Version\x1a>\n\x0fPreviewSettings\x12+\n\x07sandbox\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x08\n\x06source\"\xc0\x01\n\x07Preview\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x44\n\x12validation_results\x18\x02 \x01(\x0b\x32(.google.actions.sdk.v2.ValidationResults\x12\x15\n\rsimulator_url\x18\x03 \x01(\t:J\xea\x41G\n\x1e\x61\x63tions.googleapis.com/Preview\x12%projects/{project}/previews/{preview}\"\x9e\x01\n\x14\x43reateVersionRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \x12\x1e\x61\x63tions.googleapis.com/Version\x12\x30\n\x05\x66iles\x18\x05 \x01(\x0b\x32\x1c.google.actions.sdk.v2.FilesB\x03\xe0\x41\x02\x12\x1c\n\x0frelease_channel\x18\x04 \x01(\tB\x03\xe0\x41\x01\"X\n\x10ReadDraftRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x31\n$client_secret_encryption_key_version\x18\x02 \x01(\tB\x03\xe0\x41\x01\"@\n\x11ReadDraftResponse\x12+\n\x05\x66iles\x18\x03 \x01(\x0b\x32\x1c.google.actions.sdk.v2.Files\"Z\n\x12ReadVersionRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x31\n$client_secret_encryption_key_version\x18\x02 \x01(\tB\x03\xe0\x41\x01\"B\n\x13ReadVersionResponse\x12+\n\x05\x66iles\x18\x01 \x01(\x0b\x32\x1c.google.actions.sdk.v2.Files\"2\n\x14\x45ncryptSecretRequest\x12\x1a\n\rclient_secret\x18\x01 \x01(\tB\x03\xe0\x41\x02\"d\n\x15\x45ncryptSecretResponse\x12K\n\x16\x61\x63\x63ount_linking_secret\x18\x01 \x01(\x0b\x32+.google.actions.sdk.v2.AccountLinkingSecret\"<\n\x14\x44\x65\x63ryptSecretRequest\x12$\n\x17\x65ncrypted_client_secret\x18\x01 \x01(\x0c\x42\x03\xe0\x41\x02\".\n\x15\x44\x65\x63ryptSecretResponse\x12\x15\n\rclient_secret\x18\x01 \x01(\t\"L\n\x19ListSampleProjectsRequest\x12\x16\n\tpage_size\x18\x01 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01\"t\n\x1aListSampleProjectsResponse\x12=\n\x0fsample_projects\x18\x01 \x03(\x0b\x32$.google.actions.sdk.v2.SampleProject\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x92\x01\n\rSampleProject\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nhosted_url\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t:J\xea\x41G\n$actions.googleapis.com/SampleProject\x12\x1fsampleProjects/{sample_project}\"\x82\x01\n\x1aListReleaseChannelsRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%actions.googleapis.com/ReleaseChannel\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"w\n\x1bListReleaseChannelsResponse\x12?\n\x10release_channels\x18\x01 \x03(\x0b\x32%.google.actions.sdk.v2.ReleaseChannel\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"t\n\x13ListVersionsRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \x12\x1e\x61\x63tions.googleapis.com/Version\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"a\n\x14ListVersionsResponse\x12\x30\n\x08versions\x18\x01 \x03(\x0b\x32\x1e.google.actions.sdk.v2.Version\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\x85\x0c\n\nActionsSdk\x12\x86\x01\n\nWriteDraft\x12(.google.actions.sdk.v2.WriteDraftRequest\x1a\x1c.google.actions.sdk.v2.Draft\".\x82\xd3\xe4\x93\x02(\"#/v2/{parent=projects/*}/draft:write:\x01*(\x01\x12\x8e\x01\n\x0cWritePreview\x12*.google.actions.sdk.v2.WritePreviewRequest\x1a\x1e.google.actions.sdk.v2.Preview\"0\x82\xd3\xe4\x93\x02*\"%/v2/{parent=projects/*}/preview:write:\x01*(\x01\x12\x92\x01\n\rCreateVersion\x12+.google.actions.sdk.v2.CreateVersionRequest\x1a\x1e.google.actions.sdk.v2.Version\"2\x82\xd3\xe4\x93\x02,\"\'/v2/{parent=projects/*}/versions:create:\x01*(\x01\x12\x8d\x01\n\tReadDraft\x12\'.google.actions.sdk.v2.ReadDraftRequest\x1a(.google.actions.sdk.v2.ReadDraftResponse\"+\x82\xd3\xe4\x93\x02%\" /v2/{name=projects/*/draft}:read:\x01*0\x01\x12\x98\x01\n\x0bReadVersion\x12).google.actions.sdk.v2.ReadVersionRequest\x1a*.google.actions.sdk.v2.ReadVersionResponse\"0\x82\xd3\xe4\x93\x02*\"%/v2/{name=projects/*/versions/*}:read:\x01*0\x01\x12\x88\x01\n\rEncryptSecret\x12+.google.actions.sdk.v2.EncryptSecretRequest\x1a,.google.actions.sdk.v2.EncryptSecretResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x11/v2:encryptSecret:\x01*\x12\x88\x01\n\rDecryptSecret\x12+.google.actions.sdk.v2.DecryptSecretRequest\x1a,.google.actions.sdk.v2.DecryptSecretResponse\"\x1c\x82\xd3\xe4\x93\x02\x16\"\x11/v2:decryptSecret:\x01*\x12\x95\x01\n\x12ListSampleProjects\x12\x30.google.actions.sdk.v2.ListSampleProjectsRequest\x1a\x31.google.actions.sdk.v2.ListSampleProjectsResponse\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/v2/sampleProjects\x12\xb6\x01\n\x13ListReleaseChannels\x12\x31.google.actions.sdk.v2.ListReleaseChannelsRequest\x1a\x32.google.actions.sdk.v2.ListReleaseChannelsResponse\"8\x82\xd3\xe4\x93\x02)\x12\'/v2/{parent=projects/*}/releaseChannels\xda\x41\x06parent\x12\x9a\x01\n\x0cListVersions\x12*.google.actions.sdk.v2.ListVersionsRequest\x1a+.google.actions.sdk.v2.ListVersionsResponse\"1\x82\xd3\xe4\x93\x02\"\x12 /v2/{parent=projects/*}/versions\xda\x41\x06parent\x1a\x19\xca\x41\x16\x61\x63tions.googleapis.comBh\n\x19\x63om.google.actions.sdk.v2B\x0f\x41\x63tionsSdkProtoP\x01Z8google.golang.org/genproto/googleapis/actions/sdk/v2;sdkb\x06proto3'
   ,
   dependencies=[google_dot_actions_dot_sdk_dot_v2_dot_account__linking__secret__pb2.DESCRIPTOR,google_dot_actions_dot_sdk_dot_v2_dot_files__pb2.DESCRIPTOR,google_dot_actions_dot_sdk_dot_v2_dot_release__channel__pb2.DESCRIPTOR,google_dot_actions_dot_sdk_dot_v2_dot_validation__results__pb2.DESCRIPTOR,google_dot_actions_dot_sdk_dot_v2_dot_version__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -627,6 +627,130 @@ _DECRYPTSECRETRESPONSE = _descriptor.Descriptor(
 )
 
 
+_LISTSAMPLEPROJECTSREQUEST = _descriptor.Descriptor(
+  name='ListSampleProjectsRequest',
+  full_name='google.actions.sdk.v2.ListSampleProjectsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.actions.sdk.v2.ListSampleProjectsRequest.page_size', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.actions.sdk.v2.ListSampleProjectsRequest.page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2225,
+  serialized_end=2301,
+)
+
+
+_LISTSAMPLEPROJECTSRESPONSE = _descriptor.Descriptor(
+  name='ListSampleProjectsResponse',
+  full_name='google.actions.sdk.v2.ListSampleProjectsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sample_projects', full_name='google.actions.sdk.v2.ListSampleProjectsResponse.sample_projects', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.actions.sdk.v2.ListSampleProjectsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2303,
+  serialized_end=2419,
+)
+
+
+_SAMPLEPROJECT = _descriptor.Descriptor(
+  name='SampleProject',
+  full_name='google.actions.sdk.v2.SampleProject',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.actions.sdk.v2.SampleProject.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='hosted_url', full_name='google.actions.sdk.v2.SampleProject.hosted_url', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='description', full_name='google.actions.sdk.v2.SampleProject.description', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\352AG\n$actions.googleapis.com/SampleProject\022\037sampleProjects/{sample_project}',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2422,
+  serialized_end=2568,
+)
+
+
 _LISTRELEASECHANNELSREQUEST = _descriptor.Descriptor(
   name='ListReleaseChannelsRequest',
   full_name='google.actions.sdk.v2.ListReleaseChannelsRequest',
@@ -668,8 +792,8 @@ _LISTRELEASECHANNELSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2226,
-  serialized_end=2356,
+  serialized_start=2571,
+  serialized_end=2701,
 )
 
 
@@ -707,8 +831,8 @@ _LISTRELEASECHANNELSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2358,
-  serialized_end=2477,
+  serialized_start=2703,
+  serialized_end=2822,
 )
 
 
@@ -753,8 +877,8 @@ _LISTVERSIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2479,
-  serialized_end=2595,
+  serialized_start=2824,
+  serialized_end=2940,
 )
 
 
@@ -792,8 +916,8 @@ _LISTVERSIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2597,
-  serialized_end=2694,
+  serialized_start=2942,
+  serialized_end=3039,
 )
 
 _WRITEDRAFTREQUEST.fields_by_name['files'].message_type = google_dot_actions_dot_sdk_dot_v2_dot_files__pb2._FILES
@@ -820,6 +944,7 @@ _CREATEVERSIONREQUEST.fields_by_name['files'].message_type = google_dot_actions_
 _READDRAFTRESPONSE.fields_by_name['files'].message_type = google_dot_actions_dot_sdk_dot_v2_dot_files__pb2._FILES
 _READVERSIONRESPONSE.fields_by_name['files'].message_type = google_dot_actions_dot_sdk_dot_v2_dot_files__pb2._FILES
 _ENCRYPTSECRETRESPONSE.fields_by_name['account_linking_secret'].message_type = google_dot_actions_dot_sdk_dot_v2_dot_account__linking__secret__pb2._ACCOUNTLINKINGSECRET
+_LISTSAMPLEPROJECTSRESPONSE.fields_by_name['sample_projects'].message_type = _SAMPLEPROJECT
 _LISTRELEASECHANNELSRESPONSE.fields_by_name['release_channels'].message_type = google_dot_actions_dot_sdk_dot_v2_dot_release__channel__pb2._RELEASECHANNEL
 _LISTVERSIONSRESPONSE.fields_by_name['versions'].message_type = google_dot_actions_dot_sdk_dot_v2_dot_version__pb2._VERSION
 DESCRIPTOR.message_types_by_name['WriteDraftRequest'] = _WRITEDRAFTREQUEST
@@ -835,6 +960,9 @@ DESCRIPTOR.message_types_by_name['EncryptSecretRequest'] = _ENCRYPTSECRETREQUEST
 DESCRIPTOR.message_types_by_name['EncryptSecretResponse'] = _ENCRYPTSECRETRESPONSE
 DESCRIPTOR.message_types_by_name['DecryptSecretRequest'] = _DECRYPTSECRETREQUEST
 DESCRIPTOR.message_types_by_name['DecryptSecretResponse'] = _DECRYPTSECRETRESPONSE
+DESCRIPTOR.message_types_by_name['ListSampleProjectsRequest'] = _LISTSAMPLEPROJECTSREQUEST
+DESCRIPTOR.message_types_by_name['ListSampleProjectsResponse'] = _LISTSAMPLEPROJECTSRESPONSE
+DESCRIPTOR.message_types_by_name['SampleProject'] = _SAMPLEPROJECT
 DESCRIPTOR.message_types_by_name['ListReleaseChannelsRequest'] = _LISTRELEASECHANNELSREQUEST
 DESCRIPTOR.message_types_by_name['ListReleaseChannelsResponse'] = _LISTRELEASECHANNELSRESPONSE
 DESCRIPTOR.message_types_by_name['ListVersionsRequest'] = _LISTVERSIONSREQUEST
@@ -956,6 +1084,27 @@ DecryptSecretResponse = _reflection.GeneratedProtocolMessageType('DecryptSecretR
   })
 _sym_db.RegisterMessage(DecryptSecretResponse)
 
+ListSampleProjectsRequest = _reflection.GeneratedProtocolMessageType('ListSampleProjectsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTSAMPLEPROJECTSREQUEST,
+  '__module__' : 'google.actions.sdk.v2.actions_sdk_pb2'
+  # @@protoc_insertion_point(class_scope:google.actions.sdk.v2.ListSampleProjectsRequest)
+  })
+_sym_db.RegisterMessage(ListSampleProjectsRequest)
+
+ListSampleProjectsResponse = _reflection.GeneratedProtocolMessageType('ListSampleProjectsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTSAMPLEPROJECTSRESPONSE,
+  '__module__' : 'google.actions.sdk.v2.actions_sdk_pb2'
+  # @@protoc_insertion_point(class_scope:google.actions.sdk.v2.ListSampleProjectsResponse)
+  })
+_sym_db.RegisterMessage(ListSampleProjectsResponse)
+
+SampleProject = _reflection.GeneratedProtocolMessageType('SampleProject', (_message.Message,), {
+  'DESCRIPTOR' : _SAMPLEPROJECT,
+  '__module__' : 'google.actions.sdk.v2.actions_sdk_pb2'
+  # @@protoc_insertion_point(class_scope:google.actions.sdk.v2.SampleProject)
+  })
+_sym_db.RegisterMessage(SampleProject)
+
 ListReleaseChannelsRequest = _reflection.GeneratedProtocolMessageType('ListReleaseChannelsRequest', (_message.Message,), {
   'DESCRIPTOR' : _LISTRELEASECHANNELSREQUEST,
   '__module__' : 'google.actions.sdk.v2.actions_sdk_pb2'
@@ -1002,6 +1151,9 @@ _READVERSIONREQUEST.fields_by_name['name']._options = None
 _READVERSIONREQUEST.fields_by_name['client_secret_encryption_key_version']._options = None
 _ENCRYPTSECRETREQUEST.fields_by_name['client_secret']._options = None
 _DECRYPTSECRETREQUEST.fields_by_name['encrypted_client_secret']._options = None
+_LISTSAMPLEPROJECTSREQUEST.fields_by_name['page_size']._options = None
+_LISTSAMPLEPROJECTSREQUEST.fields_by_name['page_token']._options = None
+_SAMPLEPROJECT._options = None
 _LISTRELEASECHANNELSREQUEST.fields_by_name['parent']._options = None
 _LISTVERSIONSREQUEST.fields_by_name['parent']._options = None
 
@@ -1012,8 +1164,8 @@ _ACTIONSSDK = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\026actions.googleapis.com',
   create_key=_descriptor._internal_create_key,
-  serialized_start=2697,
-  serialized_end=4086,
+  serialized_start=3042,
+  serialized_end=4583,
   methods=[
   _descriptor.MethodDescriptor(
     name='WriteDraft',
@@ -1086,9 +1238,19 @@ _ACTIONSSDK = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='ListSampleProjects',
+    full_name='google.actions.sdk.v2.ActionsSdk.ListSampleProjects',
+    index=7,
+    containing_service=None,
+    input_type=_LISTSAMPLEPROJECTSREQUEST,
+    output_type=_LISTSAMPLEPROJECTSRESPONSE,
+    serialized_options=b'\202\323\344\223\002\024\022\022/v2/sampleProjects',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='ListReleaseChannels',
     full_name='google.actions.sdk.v2.ActionsSdk.ListReleaseChannels',
-    index=7,
+    index=8,
     containing_service=None,
     input_type=_LISTRELEASECHANNELSREQUEST,
     output_type=_LISTRELEASECHANNELSRESPONSE,
@@ -1098,7 +1260,7 @@ _ACTIONSSDK = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListVersions',
     full_name='google.actions.sdk.v2.ActionsSdk.ListVersions',
-    index=8,
+    index=9,
     containing_service=None,
     input_type=_LISTVERSIONSREQUEST,
     output_type=_LISTVERSIONSRESPONSE,

@@ -12,10 +12,13 @@ _sym_db = _symbol_database.Default()
 
 
 from envoy.config.core.v4alpha import base_pb2 as envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2
+from envoy.config.core.v4alpha import extension_pb2 as envoy_dot_config_dot_core_dot_v4alpha_dot_extension__pb2
 from envoy.config.core.v4alpha import protocol_pb2 as envoy_dot_config_dot_core_dot_v4alpha_dot_protocol__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from udpa.annotations import versioning_pb2 as udpa_dot_annotations_dot_versioning__pb2
+from validate import validate_pb2 as validate_dot_validate__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -24,9 +27,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n+io.envoyproxy.envoy.config.listener.v4alphaB\017QuicConfigProtoP\001\272\200\310\321\006\002\020\003',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n/envoy/config/listener/v4alpha/quic_config.proto\x12\x1d\x65nvoy.config.listener.v4alpha\x1a$envoy/config/core/v4alpha/base.proto\x1a(envoy/config/core/v4alpha/protocol.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"\xc7\x02\n\x13QuicProtocolOptions\x12M\n\x15quic_protocol_options\x18\x01 \x01(\x0b\x32..envoy.config.core.v4alpha.QuicProtocolOptions\x12/\n\x0cidle_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12;\n\x18\x63rypto_handshake_timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12>\n\x07\x65nabled\x18\x04 \x01(\x0b\x32-.envoy.config.core.v4alpha.RuntimeFeatureFlag:3\x9a\xc5\x88\x1e.\n,envoy.config.listener.v3.QuicProtocolOptionsBH\n+io.envoyproxy.envoy.config.listener.v4alphaB\x0fQuicConfigProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
+  serialized_pb=b'\n/envoy/config/listener/v4alpha/quic_config.proto\x12\x1d\x65nvoy.config.listener.v4alpha\x1a$envoy/config/core/v4alpha/base.proto\x1a)envoy/config/core/v4alpha/extension.proto\x1a(envoy/config/core/v4alpha/protocol.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xbe\x04\n\x13QuicProtocolOptions\x12M\n\x15quic_protocol_options\x18\x01 \x01(\x0b\x32..envoy.config.core.v4alpha.QuicProtocolOptions\x12/\n\x0cidle_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12;\n\x18\x63rypto_handshake_timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12>\n\x07\x65nabled\x18\x04 \x01(\x0b\x32-.envoy.config.core.v4alpha.RuntimeFeatureFlag\x12X\n)packets_to_read_to_connection_count_ratio\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12M\n\x14\x63rypto_stream_config\x18\x06 \x01(\x0b\x32/.envoy.config.core.v4alpha.TypedExtensionConfig\x12L\n\x13proof_source_config\x18\x07 \x01(\x0b\x32/.envoy.config.core.v4alpha.TypedExtensionConfig:3\x9a\xc5\x88\x1e.\n,envoy.config.listener.v3.QuicProtocolOptionsBH\n+io.envoyproxy.envoy.config.listener.v4alphaB\x0fQuicConfigProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x03\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_protocol__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_extension__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v4alpha_dot_protocol__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -67,6 +70,27 @@ _QUICPROTOCOLOPTIONS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='packets_to_read_to_connection_count_ratio', full_name='envoy.config.listener.v4alpha.QuicProtocolOptions.packets_to_read_to_connection_count_ratio', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\004*\002(\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='crypto_stream_config', full_name='envoy.config.listener.v4alpha.QuicProtocolOptions.crypto_stream_config', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='proof_source_config', full_name='envoy.config.listener.v4alpha.QuicProtocolOptions.proof_source_config', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -79,14 +103,17 @@ _QUICPROTOCOLOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=261,
-  serialized_end=588,
+  serialized_start=361,
+  serialized_end=935,
 )
 
 _QUICPROTOCOLOPTIONS.fields_by_name['quic_protocol_options'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_protocol__pb2._QUICPROTOCOLOPTIONS
 _QUICPROTOCOLOPTIONS.fields_by_name['idle_timeout'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _QUICPROTOCOLOPTIONS.fields_by_name['crypto_handshake_timeout'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _QUICPROTOCOLOPTIONS.fields_by_name['enabled'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_base__pb2._RUNTIMEFEATUREFLAG
+_QUICPROTOCOLOPTIONS.fields_by_name['packets_to_read_to_connection_count_ratio'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
+_QUICPROTOCOLOPTIONS.fields_by_name['crypto_stream_config'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_extension__pb2._TYPEDEXTENSIONCONFIG
+_QUICPROTOCOLOPTIONS.fields_by_name['proof_source_config'].message_type = envoy_dot_config_dot_core_dot_v4alpha_dot_extension__pb2._TYPEDEXTENSIONCONFIG
 DESCRIPTOR.message_types_by_name['QuicProtocolOptions'] = _QUICPROTOCOLOPTIONS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -99,5 +126,6 @@ _sym_db.RegisterMessage(QuicProtocolOptions)
 
 
 DESCRIPTOR._options = None
+_QUICPROTOCOLOPTIONS.fields_by_name['packets_to_read_to_connection_count_ratio']._options = None
 _QUICPROTOCOLOPTIONS._options = None
 # @@protoc_insertion_point(module_scope)

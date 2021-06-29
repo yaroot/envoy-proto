@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n*com.google.cloud.osconfig.agentendpoint.v1B\021ConfigCommonProtoP\001ZSgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1;agentendpoint',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n:google/cloud/osconfig/agentendpoint/v1/config_common.proto\x12&google.cloud.osconfig.agentendpoint.v1\"\xa0\x03\n\x1aOSPolicyResourceConfigStep\x12U\n\x04type\x18\x01 \x01(\x0e\x32G.google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceConfigStep.Type\x12[\n\x07outcome\x18\x02 \x01(\x0e\x32J.google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceConfigStep.Outcome\"\x8e\x01\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x0e\n\nVALIDATION\x10\x01\x12\x17\n\x13\x44\x45SIRED_STATE_CHECK\x10\x02\x12\x1d\n\x19\x44\x45SIRED_STATE_ENFORCEMENT\x10\x03\x12(\n$DESIRED_STATE_CHECK_POST_ENFORCEMENT\x10\x04\"=\n\x07Outcome\x12\x17\n\x13OUTCOME_UNSPECIFIED\x10\x00\x12\r\n\tSUCCEEDED\x10\x01\x12\n\n\x06\x46\x41ILED\x10\x02\"\xe5\x01\n\x1aOSPolicyResourceCompliance\x12\x1d\n\x15os_policy_resource_id\x18\x01 \x01(\t\x12X\n\x0c\x63onfig_steps\x18\x02 \x03(\x0b\x32\x42.google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceConfigStep\x12N\n\x05state\x18\x03 \x01(\x0e\x32?.google.cloud.osconfig.agentendpoint.v1.OSPolicyComplianceState*\x93\x01\n\x17OSPolicyComplianceState\x12*\n&OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED\x10\x00\x12\r\n\tCOMPLIANT\x10\x01\x12\x11\n\rNON_COMPLIANT\x10\x02\x12\x0b\n\x07UNKNOWN\x10\x03\x12\x1d\n\x19NO_OS_POLICIES_APPLICABLE\x10\x04\x42\x96\x01\n*com.google.cloud.osconfig.agentendpoint.v1B\x11\x43onfigCommonProtoP\x01ZSgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1;agentendpointb\x06proto3'
+  serialized_pb=b'\n:google/cloud/osconfig/agentendpoint/v1/config_common.proto\x12&google.cloud.osconfig.agentendpoint.v1\"\xb7\x03\n\x1aOSPolicyResourceConfigStep\x12U\n\x04type\x18\x01 \x01(\x0e\x32G.google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceConfigStep.Type\x12[\n\x07outcome\x18\x02 \x01(\x0e\x32J.google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceConfigStep.Outcome\x12\x15\n\rerror_message\x18\x03 \x01(\t\"\x8e\x01\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x0e\n\nVALIDATION\x10\x01\x12\x17\n\x13\x44\x45SIRED_STATE_CHECK\x10\x02\x12\x1d\n\x19\x44\x45SIRED_STATE_ENFORCEMENT\x10\x03\x12(\n$DESIRED_STATE_CHECK_POST_ENFORCEMENT\x10\x04\"=\n\x07Outcome\x12\x17\n\x13OUTCOME_UNSPECIFIED\x10\x00\x12\r\n\tSUCCEEDED\x10\x01\x12\n\n\x06\x46\x41ILED\x10\x02\"\x98\x03\n\x1aOSPolicyResourceCompliance\x12\x1d\n\x15os_policy_resource_id\x18\x01 \x01(\t\x12X\n\x0c\x63onfig_steps\x18\x02 \x03(\x0b\x32\x42.google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceConfigStep\x12N\n\x05state\x18\x03 \x01(\x0e\x32?.google.cloud.osconfig.agentendpoint.v1.OSPolicyComplianceState\x12u\n\x14\x65xec_resource_output\x18\x04 \x01(\x0b\x32U.google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceCompliance.ExecResourceOutputH\x00\x1a\x30\n\x12\x45xecResourceOutput\x12\x1a\n\x12\x65nforcement_output\x18\x02 \x01(\x0c\x42\x08\n\x06output*\x93\x01\n\x17OSPolicyComplianceState\x12*\n&OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED\x10\x00\x12\r\n\tCOMPLIANT\x10\x01\x12\x11\n\rNON_COMPLIANT\x10\x02\x12\x0b\n\x07UNKNOWN\x10\x03\x12\x1d\n\x19NO_OS_POLICIES_APPLICABLE\x10\x04\x42\x96\x01\n*com.google.cloud.osconfig.agentendpoint.v1B\x11\x43onfigCommonProtoP\x01ZSgoogle.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1;agentendpointb\x06proto3'
 )
 
 _OSPOLICYCOMPLIANCESTATE = _descriptor.EnumDescriptor(
@@ -58,8 +58,8 @@ _OSPOLICYCOMPLIANCESTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=754,
-  serialized_end=901,
+  serialized_start=956,
+  serialized_end=1103,
 )
 _sym_db.RegisterEnumDescriptor(_OSPOLICYCOMPLIANCESTATE)
 
@@ -106,8 +106,8 @@ _OSPOLICYRESOURCECONFIGSTEP_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=314,
-  serialized_end=456,
+  serialized_start=337,
+  serialized_end=479,
 )
 _sym_db.RegisterEnumDescriptor(_OSPOLICYRESOURCECONFIGSTEP_TYPE)
 
@@ -136,8 +136,8 @@ _OSPOLICYRESOURCECONFIGSTEP_OUTCOME = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=458,
-  serialized_end=519,
+  serialized_start=481,
+  serialized_end=542,
 )
 _sym_db.RegisterEnumDescriptor(_OSPOLICYRESOURCECONFIGSTEP_OUTCOME)
 
@@ -164,6 +164,13 @@ _OSPOLICYRESOURCECONFIGSTEP = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error_message', full_name='google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceConfigStep.error_message', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -179,9 +186,40 @@ _OSPOLICYRESOURCECONFIGSTEP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=103,
-  serialized_end=519,
+  serialized_end=542,
 )
 
+
+_OSPOLICYRESOURCECOMPLIANCE_EXECRESOURCEOUTPUT = _descriptor.Descriptor(
+  name='ExecResourceOutput',
+  full_name='google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceCompliance.ExecResourceOutput',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='enforcement_output', full_name='google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceCompliance.ExecResourceOutput.enforcement_output', index=0,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=895,
+  serialized_end=943,
+)
 
 _OSPOLICYRESOURCECOMPLIANCE = _descriptor.Descriptor(
   name='OSPolicyResourceCompliance',
@@ -212,10 +250,17 @@ _OSPOLICYRESOURCECOMPLIANCE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='exec_resource_output', full_name='google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceCompliance.exec_resource_output', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_OSPOLICYRESOURCECOMPLIANCE_EXECRESOURCEOUTPUT, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -223,17 +268,27 @@ _OSPOLICYRESOURCECOMPLIANCE = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='output', full_name='google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceCompliance.output',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=522,
-  serialized_end=751,
+  serialized_start=545,
+  serialized_end=953,
 )
 
 _OSPOLICYRESOURCECONFIGSTEP.fields_by_name['type'].enum_type = _OSPOLICYRESOURCECONFIGSTEP_TYPE
 _OSPOLICYRESOURCECONFIGSTEP.fields_by_name['outcome'].enum_type = _OSPOLICYRESOURCECONFIGSTEP_OUTCOME
 _OSPOLICYRESOURCECONFIGSTEP_TYPE.containing_type = _OSPOLICYRESOURCECONFIGSTEP
 _OSPOLICYRESOURCECONFIGSTEP_OUTCOME.containing_type = _OSPOLICYRESOURCECONFIGSTEP
+_OSPOLICYRESOURCECOMPLIANCE_EXECRESOURCEOUTPUT.containing_type = _OSPOLICYRESOURCECOMPLIANCE
 _OSPOLICYRESOURCECOMPLIANCE.fields_by_name['config_steps'].message_type = _OSPOLICYRESOURCECONFIGSTEP
 _OSPOLICYRESOURCECOMPLIANCE.fields_by_name['state'].enum_type = _OSPOLICYCOMPLIANCESTATE
+_OSPOLICYRESOURCECOMPLIANCE.fields_by_name['exec_resource_output'].message_type = _OSPOLICYRESOURCECOMPLIANCE_EXECRESOURCEOUTPUT
+_OSPOLICYRESOURCECOMPLIANCE.oneofs_by_name['output'].fields.append(
+  _OSPOLICYRESOURCECOMPLIANCE.fields_by_name['exec_resource_output'])
+_OSPOLICYRESOURCECOMPLIANCE.fields_by_name['exec_resource_output'].containing_oneof = _OSPOLICYRESOURCECOMPLIANCE.oneofs_by_name['output']
 DESCRIPTOR.message_types_by_name['OSPolicyResourceConfigStep'] = _OSPOLICYRESOURCECONFIGSTEP
 DESCRIPTOR.message_types_by_name['OSPolicyResourceCompliance'] = _OSPOLICYRESOURCECOMPLIANCE
 DESCRIPTOR.enum_types_by_name['OSPolicyComplianceState'] = _OSPOLICYCOMPLIANCESTATE
@@ -247,11 +302,19 @@ OSPolicyResourceConfigStep = _reflection.GeneratedProtocolMessageType('OSPolicyR
 _sym_db.RegisterMessage(OSPolicyResourceConfigStep)
 
 OSPolicyResourceCompliance = _reflection.GeneratedProtocolMessageType('OSPolicyResourceCompliance', (_message.Message,), {
+
+  'ExecResourceOutput' : _reflection.GeneratedProtocolMessageType('ExecResourceOutput', (_message.Message,), {
+    'DESCRIPTOR' : _OSPOLICYRESOURCECOMPLIANCE_EXECRESOURCEOUTPUT,
+    '__module__' : 'google.cloud.osconfig.agentendpoint.v1.config_common_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceCompliance.ExecResourceOutput)
+    })
+  ,
   'DESCRIPTOR' : _OSPOLICYRESOURCECOMPLIANCE,
   '__module__' : 'google.cloud.osconfig.agentendpoint.v1.config_common_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.osconfig.agentendpoint.v1.OSPolicyResourceCompliance)
   })
 _sym_db.RegisterMessage(OSPolicyResourceCompliance)
+_sym_db.RegisterMessage(OSPolicyResourceCompliance.ExecResourceOutput)
 
 
 DESCRIPTOR._options = None

@@ -12,9 +12,7 @@ _sym_db = _symbol_database.Default()
 
 
 from envoy.config.core.v3 import extension_pb2 as envoy_dot_config_dot_core_dot_v3_dot_extension__pb2
-from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
-from udpa.annotations import versioning_pb2 as udpa_dot_annotations_dot_versioning__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n8io.envoyproxy.envoy.extensions.filters.http.composite.v3B\016CompositeProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n:envoy/extensions/filters/http/composite/v3/composite.proto\x12*envoy.extensions.filters.http.composite.v3\x1a$envoy/config/core/v3/extension.proto\x1a\x19google/protobuf/any.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\"\x0b\n\tComposite\"W\n\x13\x45xecuteFilterAction\x12@\n\x0ctyped_config\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigBT\n8io.envoyproxy.envoy.extensions.filters.http.composite.v3B\x0e\x43ompositeProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n:envoy/extensions/filters/http/composite/v3/composite.proto\x12*envoy.extensions.filters.http.composite.v3\x1a$envoy/config/core/v3/extension.proto\x1a\x1dudpa/annotations/status.proto\"\x0b\n\tComposite\"W\n\x13\x45xecuteFilterAction\x12@\n\x0ctyped_config\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigBT\n8io.envoyproxy.envoy.extensions.filters.http.composite.v3B\x0e\x43ompositeProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_extension__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_extension__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,])
 
 
 
@@ -50,8 +48,8 @@ _COMPOSITE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=237,
-  serialized_end=248,
+  serialized_start=175,
+  serialized_end=186,
 )
 
 
@@ -82,8 +80,8 @@ _EXECUTEFILTERACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=250,
-  serialized_end=337,
+  serialized_start=188,
+  serialized_end=275,
 )
 
 _EXECUTEFILTERACTION.fields_by_name['typed_config'].message_type = envoy_dot_config_dot_core_dot_v3_dot_extension__pb2._TYPEDEXTENSIONCONFIG

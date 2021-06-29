@@ -29,11 +29,46 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\030com.google.cloudbuild.v1P\001ZGgoogle.golang.org/genproto/googleapis/devtools/cloudbuild/v1;cloudbuild\242\002\003GCB\252\002\032Google.Cloud.CloudBuild.V1\352\002\030Google::Cloud::Build::V1\352AN\n\036compute.googleapis.com/Network\022,projects/{project}/global/networks/{network}\352AY\n!iam.googleapis.com/ServiceAccount\0224projects/{project}/serviceAccounts/{service_account}\352AJ\n#secretmanager.googleapis.com/Secret\022#projects/{project}/secrets/{secret}\352Ad\n*secretmanager.googleapis.com/SecretVersion\0226projects/{project}/secrets/{secret}/versions/{version}\352Ap\n!cloudkms.googleapis.com/CryptoKey\022Kprojects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}\352AU\n\"pubsub.googleapis.com/Subscription\022/projects/{project}/subscriptions/{subscription}\352A@\n\033pubsub.googleapis.com/Topic\022!projects/{project}/topics/{topic}',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.google/devtools/cloudbuild/v1/cloudbuild.proto\x12\x1dgoogle.devtools.cloudbuild.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/httpbody.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"q\n\x11RetryBuildRequest\x12\x32\n\x04name\x18\x03 \x01(\tB$\xfa\x41!\n\x1f\x63loudbuild.googleapis.com/Build\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0f\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\x85\x01\n\x16RunBuildTriggerRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ntrigger_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x39\n\x06source\x18\x03 \x01(\x0b\x32).google.devtools.cloudbuild.v1.RepoSource\"C\n\rStorageSource\x12\x0e\n\x06\x62ucket\x18\x01 \x01(\t\x12\x0e\n\x06object\x18\x02 \x01(\t\x12\x12\n\ngeneration\x18\x03 \x01(\x03\"\xae\x02\n\nRepoSource\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12\x11\n\trepo_name\x18\x02 \x01(\t\x12\x15\n\x0b\x62ranch_name\x18\x03 \x01(\tH\x00\x12\x12\n\x08tag_name\x18\x04 \x01(\tH\x00\x12\x14\n\ncommit_sha\x18\x05 \x01(\tH\x00\x12\x0b\n\x03\x64ir\x18\x07 \x01(\t\x12\x14\n\x0cinvert_regex\x18\x08 \x01(\x08\x12S\n\rsubstitutions\x18\t \x03(\x0b\x32<.google.devtools.cloudbuild.v1.RepoSource.SubstitutionsEntry\x1a\x34\n\x12SubstitutionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\n\n\x08revision\"\x9c\x01\n\x06Source\x12\x46\n\x0estorage_source\x18\x02 \x01(\x0b\x32,.google.devtools.cloudbuild.v1.StorageSourceH\x00\x12@\n\x0brepo_source\x18\x03 \x01(\x0b\x32).google.devtools.cloudbuild.v1.RepoSourceH\x00\x42\x08\n\x06source\"m\n\nBuiltImage\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06\x64igest\x18\x03 \x01(\t\x12\x41\n\x0bpush_timing\x18\x04 \x01(\x0b\x32\'.google.devtools.cloudbuild.v1.TimeSpanB\x03\xe0\x41\x03\"\xae\x03\n\tBuildStep\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03\x65nv\x18\x02 \x03(\t\x12\x0c\n\x04\x61rgs\x18\x03 \x03(\t\x12\x0b\n\x03\x64ir\x18\x04 \x01(\t\x12\n\n\x02id\x18\x05 \x01(\t\x12\x10\n\x08wait_for\x18\x06 \x03(\t\x12\x12\n\nentrypoint\x18\x07 \x01(\t\x12\x12\n\nsecret_env\x18\x08 \x03(\t\x12\x36\n\x07volumes\x18\t \x03(\x0b\x32%.google.devtools.cloudbuild.v1.Volume\x12<\n\x06timing\x18\n \x01(\x0b\x32\'.google.devtools.cloudbuild.v1.TimeSpanB\x03\xe0\x41\x03\x12\x41\n\x0bpull_timing\x18\r \x01(\x0b\x32\'.google.devtools.cloudbuild.v1.TimeSpanB\x03\xe0\x41\x03\x12*\n\x07timeout\x18\x0b \x01(\x0b\x32\x19.google.protobuf.Duration\x12@\n\x06status\x18\x0c \x01(\x0e\x32+.google.devtools.cloudbuild.v1.Build.StatusB\x03\xe0\x41\x03\"$\n\x06Volume\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04path\x18\x02 \x01(\t\"\xef\x01\n\x07Results\x12\x39\n\x06images\x18\x02 \x03(\x0b\x32).google.devtools.cloudbuild.v1.BuiltImage\x12\x19\n\x11\x62uild_step_images\x18\x03 \x03(\t\x12\x19\n\x11\x61rtifact_manifest\x18\x04 \x01(\t\x12\x15\n\rnum_artifacts\x18\x05 \x01(\x03\x12\x1a\n\x12\x62uild_step_outputs\x18\x06 \x03(\x0c\x12@\n\x0f\x61rtifact_timing\x18\x07 \x01(\x0b\x32\'.google.devtools.cloudbuild.v1.TimeSpan\"`\n\x0e\x41rtifactResult\x12\x10\n\x08location\x18\x01 \x01(\t\x12<\n\tfile_hash\x18\x02 \x03(\x0b\x32).google.devtools.cloudbuild.v1.FileHashes\"\xf0\x0c\n\x05\x42uild\x12\x11\n\x04name\x18- \x01(\tB\x03\xe0\x41\x03\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x17\n\nproject_id\x18\x10 \x01(\tB\x03\xe0\x41\x03\x12@\n\x06status\x18\x02 \x01(\x0e\x32+.google.devtools.cloudbuild.v1.Build.StatusB\x03\xe0\x41\x03\x12\x1a\n\rstatus_detail\x18\x18 \x01(\tB\x03\xe0\x41\x03\x12\x35\n\x06source\x18\x03 \x01(\x0b\x32%.google.devtools.cloudbuild.v1.Source\x12\x37\n\x05steps\x18\x0b \x03(\x0b\x32(.google.devtools.cloudbuild.v1.BuildStep\x12<\n\x07results\x18\n \x01(\x0b\x32&.google.devtools.cloudbuild.v1.ResultsB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x33\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0b\x66inish_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12*\n\x07timeout\x18\x0c \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x0e\n\x06images\x18\r \x03(\t\x12,\n\tqueue_ttl\x18( \x01(\x0b\x32\x19.google.protobuf.Duration\x12;\n\tartifacts\x18% \x01(\x0b\x32(.google.devtools.cloudbuild.v1.Artifacts\x12\x13\n\x0blogs_bucket\x18\x13 \x01(\t\x12O\n\x11source_provenance\x18\x15 \x01(\x0b\x32/.google.devtools.cloudbuild.v1.SourceProvenanceB\x03\xe0\x41\x03\x12\x1d\n\x10\x62uild_trigger_id\x18\x16 \x01(\tB\x03\xe0\x41\x03\x12<\n\x07options\x18\x17 \x01(\x0b\x32+.google.devtools.cloudbuild.v1.BuildOptions\x12\x14\n\x07log_url\x18\x19 \x01(\tB\x03\xe0\x41\x03\x12N\n\rsubstitutions\x18\x1d \x03(\x0b\x32\x37.google.devtools.cloudbuild.v1.Build.SubstitutionsEntry\x12\x0c\n\x04tags\x18\x1f \x03(\t\x12\x36\n\x07secrets\x18  \x03(\x0b\x32%.google.devtools.cloudbuild.v1.Secret\x12\x45\n\x06timing\x18! \x03(\x0b\x32\x30.google.devtools.cloudbuild.v1.Build.TimingEntryB\x03\xe0\x41\x03\x12?\n\x0fservice_account\x18* \x01(\tB&\xfa\x41#\n!iam.googleapis.com/ServiceAccount\x12\x41\n\x11\x61vailable_secrets\x18/ \x01(\x0b\x32&.google.devtools.cloudbuild.v1.Secrets\x1a\x34\n\x12SubstitutionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1aV\n\x0bTimingEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x36\n\x05value\x18\x02 \x01(\x0b\x32\'.google.devtools.cloudbuild.v1.TimeSpan:\x02\x38\x01\"\x8c\x01\n\x06Status\x12\x12\n\x0eSTATUS_UNKNOWN\x10\x00\x12\n\n\x06QUEUED\x10\x01\x12\x0b\n\x07WORKING\x10\x02\x12\x0b\n\x07SUCCESS\x10\x03\x12\x0b\n\x07\x46\x41ILURE\x10\x04\x12\x12\n\x0eINTERNAL_ERROR\x10\x05\x12\x0b\n\x07TIMEOUT\x10\x06\x12\r\n\tCANCELLED\x10\x07\x12\x0b\n\x07\x45XPIRED\x10\t:\x7f\xea\x41|\n\x1f\x63loudbuild.googleapis.com/Build\x12!projects/{project}/builds/{build}\x12\x36projects/{project}/locations/{location}/builds/{build}\"\xd8\x01\n\tArtifacts\x12\x0e\n\x06images\x18\x01 \x03(\t\x12I\n\x07objects\x18\x02 \x01(\x0b\x32\x38.google.devtools.cloudbuild.v1.Artifacts.ArtifactObjects\x1ap\n\x0f\x41rtifactObjects\x12\x10\n\x08location\x18\x01 \x01(\t\x12\r\n\x05paths\x18\x02 \x03(\t\x12<\n\x06timing\x18\x03 \x01(\x0b\x32\'.google.devtools.cloudbuild.v1.TimeSpanB\x03\xe0\x41\x03\"h\n\x08TimeSpan\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"M\n\x16\x42uildOperationMetadata\x12\x33\n\x05\x62uild\x18\x01 \x01(\x0b\x32$.google.devtools.cloudbuild.v1.Build\"\xe3\x02\n\x10SourceProvenance\x12M\n\x17resolved_storage_source\x18\x03 \x01(\x0b\x32,.google.devtools.cloudbuild.v1.StorageSource\x12G\n\x14resolved_repo_source\x18\x06 \x01(\x0b\x32).google.devtools.cloudbuild.v1.RepoSource\x12Y\n\x0b\x66ile_hashes\x18\x04 \x03(\x0b\x32?.google.devtools.cloudbuild.v1.SourceProvenance.FileHashesEntryB\x03\xe0\x41\x03\x1a\\\n\x0f\x46ileHashesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x38\n\x05value\x18\x02 \x01(\x0b\x32).google.devtools.cloudbuild.v1.FileHashes:\x02\x38\x01\"D\n\nFileHashes\x12\x36\n\tfile_hash\x18\x01 \x03(\x0b\x32#.google.devtools.cloudbuild.v1.Hash\"|\n\x04Hash\x12:\n\x04type\x18\x01 \x01(\x0e\x32,.google.devtools.cloudbuild.v1.Hash.HashType\x12\r\n\x05value\x18\x02 \x01(\x0c\")\n\x08HashType\x12\x08\n\x04NONE\x10\x00\x12\n\n\x06SHA256\x10\x01\x12\x07\n\x03MD5\x10\x02\"\x92\x01\n\x07Secrets\x12J\n\x0esecret_manager\x18\x01 \x03(\x0b\x32\x32.google.devtools.cloudbuild.v1.SecretManagerSecret\x12;\n\x06inline\x18\x02 \x03(\x0b\x32+.google.devtools.cloudbuild.v1.InlineSecret\"\xc5\x01\n\x0cInlineSecret\x12<\n\x0ckms_key_name\x18\x01 \x01(\tB&\xfa\x41#\n!cloudkms.googleapis.com/CryptoKey\x12H\n\x07\x65nv_map\x18\x02 \x03(\x0b\x32\x37.google.devtools.cloudbuild.v1.InlineSecret.EnvMapEntry\x1a-\n\x0b\x45nvMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x0c:\x02\x38\x01\"i\n\x13SecretManagerSecret\x12\x45\n\x0cversion_name\x18\x01 \x01(\tB/\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\x12\x0b\n\x03\x65nv\x18\x02 \x01(\t\"\x9a\x01\n\x06Secret\x12\x14\n\x0ckms_key_name\x18\x01 \x01(\t\x12H\n\nsecret_env\x18\x03 \x03(\x0b\x32\x34.google.devtools.cloudbuild.v1.Secret.SecretEnvEntry\x1a\x30\n\x0eSecretEnvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x0c:\x02\x38\x01\"\x9d\x01\n\x12\x43reateBuildRequest\x12\x34\n\x06parent\x18\x04 \x01(\tB$\xfa\x41!\x12\x1f\x63loudbuild.googleapis.com/Build\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x38\n\x05\x62uild\x18\x02 \x01(\x0b\x32$.google.devtools.cloudbuild.v1.BuildB\x03\xe0\x41\x02\"o\n\x0fGetBuildRequest\x12\x32\n\x04name\x18\x04 \x01(\tB$\xfa\x41!\n\x1f\x63loudbuild.googleapis.com/Build\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0f\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\x99\x01\n\x11ListBuildsRequest\x12\x34\n\x06parent\x18\t \x01(\tB$\xfa\x41!\x12\x1f\x63loudbuild.googleapis.com/Build\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x08 \x01(\t\"c\n\x12ListBuildsResponse\x12\x34\n\x06\x62uilds\x18\x01 \x03(\x0b\x32$.google.devtools.cloudbuild.v1.Build\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"r\n\x12\x43\x61ncelBuildRequest\x12\x32\n\x04name\x18\x04 \x01(\tB$\xfa\x41!\n\x1f\x63loudbuild.googleapis.com/Build\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0f\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\xeb\x05\n\x0c\x42uildTrigger\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x13\n\x0b\x64\x65scription\x18\n \x01(\t\x12\x0c\n\x04name\x18\x15 \x01(\t\x12\x0c\n\x04tags\x18\x13 \x03(\t\x12\x43\n\x10trigger_template\x18\x07 \x01(\x0b\x32).google.devtools.cloudbuild.v1.RepoSource\x12\x41\n\x06github\x18\r \x01(\x0b\x32\x31.google.devtools.cloudbuild.v1.GitHubEventsConfig\x12G\n\rpubsub_config\x18\x1d \x01(\x0b\x32+.google.devtools.cloudbuild.v1.PubsubConfigB\x03\xe0\x41\x01\x12\x35\n\x05\x62uild\x18\x04 \x01(\x0b\x32$.google.devtools.cloudbuild.v1.BuildH\x00\x12\x12\n\x08\x66ilename\x18\x08 \x01(\tH\x00\x12\x34\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x10\n\x08\x64isabled\x18\t \x01(\x08\x12U\n\rsubstitutions\x18\x0b \x03(\x0b\x32>.google.devtools.cloudbuild.v1.BuildTrigger.SubstitutionsEntry\x12\x15\n\rignored_files\x18\x0f \x03(\t\x12\x16\n\x0eincluded_files\x18\x10 \x03(\t\x12\x13\n\x06\x66ilter\x18\x1e \x01(\tB\x03\xe0\x41\x01\x1a\x34\n\x12SubstitutionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:R\xea\x41O\n&cloudbuild.googleapis.com/BuildTrigger\x12%projects/{project}/triggers/{trigger}B\x10\n\x0e\x62uild_template\"\xdc\x01\n\x12GitHubEventsConfig\x12\x1b\n\x0finstallation_id\x18\x01 \x01(\x03\x42\x02\x18\x01\x12\r\n\x05owner\x18\x06 \x01(\t\x12\x0c\n\x04name\x18\x07 \x01(\t\x12H\n\x0cpull_request\x18\x04 \x01(\x0b\x32\x30.google.devtools.cloudbuild.v1.PullRequestFilterH\x00\x12\x39\n\x04push\x18\x05 \x01(\x0b\x32).google.devtools.cloudbuild.v1.PushFilterH\x00\x42\x07\n\x05\x65vent\"\xff\x02\n\x0cPubsubConfig\x12@\n\x0csubscription\x18\x01 \x01(\tB*\xe0\x41\x03\xfa\x41$\n\"pubsub.googleapis.com/Subscription\x12/\n\x05topic\x18\x02 \x01(\tB \xfa\x41\x1d\n\x1bpubsub.googleapis.com/Topic\x12\x45\n\x15service_account_email\x18\x03 \x01(\tB&\xfa\x41#\n!iam.googleapis.com/ServiceAccount\x12@\n\x05state\x18\x04 \x01(\x0e\x32\x31.google.devtools.cloudbuild.v1.PubsubConfig.State\"s\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x06\n\x02OK\x10\x01\x12\x18\n\x14SUBSCRIPTION_DELETED\x10\x02\x12\x11\n\rTOPIC_DELETED\x10\x03\x12\x1e\n\x1aSUBSCRIPTION_MISCONFIGURED\x10\x04\"\x94\x02\n\x11PullRequestFilter\x12\x10\n\x06\x62ranch\x18\x02 \x01(\tH\x00\x12X\n\x0f\x63omment_control\x18\x05 \x01(\x0e\x32?.google.devtools.cloudbuild.v1.PullRequestFilter.CommentControl\x12\x14\n\x0cinvert_regex\x18\x06 \x01(\x08\"r\n\x0e\x43ommentControl\x12\x15\n\x11\x43OMMENTS_DISABLED\x10\x00\x12\x14\n\x10\x43OMMENTS_ENABLED\x10\x01\x12\x33\n/COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY\x10\x02\x42\t\n\x07git_ref\"N\n\nPushFilter\x12\x10\n\x06\x62ranch\x18\x02 \x01(\tH\x00\x12\r\n\x03tag\x18\x03 \x01(\tH\x00\x12\x14\n\x0cinvert_regex\x18\x04 \x01(\x08\x42\t\n\x07git_ref\"w\n\x19\x43reateBuildTriggerRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x41\n\x07trigger\x18\x02 \x01(\x0b\x32+.google.devtools.cloudbuild.v1.BuildTriggerB\x03\xe0\x41\x02\"J\n\x16GetBuildTriggerRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ntrigger_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"Z\n\x18ListBuildTriggersRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"s\n\x19ListBuildTriggersResponse\x12=\n\x08triggers\x18\x01 \x03(\x0b\x32+.google.devtools.cloudbuild.v1.BuildTrigger\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"M\n\x19\x44\x65leteBuildTriggerRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ntrigger_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\x90\x01\n\x19UpdateBuildTriggerRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ntrigger_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x41\n\x07trigger\x18\x03 \x01(\x0b\x32+.google.devtools.cloudbuild.v1.BuildTriggerB\x03\xe0\x41\x02\"\xc6\x08\n\x0c\x42uildOptions\x12L\n\x16source_provenance_hash\x18\x01 \x03(\x0e\x32,.google.devtools.cloudbuild.v1.Hash.HashType\x12Y\n\x17requested_verify_option\x18\x02 \x01(\x0e\x32\x38.google.devtools.cloudbuild.v1.BuildOptions.VerifyOption\x12M\n\x0cmachine_type\x18\x03 \x01(\x0e\x32\x37.google.devtools.cloudbuild.v1.BuildOptions.MachineType\x12\x14\n\x0c\x64isk_size_gb\x18\x06 \x01(\x03\x12[\n\x13substitution_option\x18\x04 \x01(\x0e\x32>.google.devtools.cloudbuild.v1.BuildOptions.SubstitutionOption\x12\x1d\n\x15\x64ynamic_substitutions\x18\x11 \x01(\x08\x12\\\n\x14log_streaming_option\x18\x05 \x01(\x0e\x32>.google.devtools.cloudbuild.v1.BuildOptions.LogStreamingOption\x12\x13\n\x0bworker_pool\x18\x07 \x01(\t\x12H\n\x07logging\x18\x0b \x01(\x0e\x32\x37.google.devtools.cloudbuild.v1.BuildOptions.LoggingMode\x12\x0b\n\x03\x65nv\x18\x0c \x03(\t\x12\x12\n\nsecret_env\x18\r \x03(\t\x12\x36\n\x07volumes\x18\x0e \x03(\x0b\x32%.google.devtools.cloudbuild.v1.Volume\".\n\x0cVerifyOption\x12\x10\n\x0cNOT_VERIFIED\x10\x00\x12\x0c\n\x08VERIFIED\x10\x01\"h\n\x0bMachineType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x10\n\x0cN1_HIGHCPU_8\x10\x01\x12\x11\n\rN1_HIGHCPU_32\x10\x02\x12\x10\n\x0c\x45\x32_HIGHCPU_8\x10\x05\x12\x11\n\rE2_HIGHCPU_32\x10\x06\"5\n\x12SubstitutionOption\x12\x0e\n\nMUST_MATCH\x10\x00\x12\x0f\n\x0b\x41LLOW_LOOSE\x10\x01\"G\n\x12LogStreamingOption\x12\x12\n\x0eSTREAM_DEFAULT\x10\x00\x12\r\n\tSTREAM_ON\x10\x01\x12\x0e\n\nSTREAM_OFF\x10\x02\"|\n\x0bLoggingMode\x12\x17\n\x13LOGGING_UNSPECIFIED\x10\x00\x12\n\n\x06LEGACY\x10\x01\x12\x0c\n\x08GCS_ONLY\x10\x02\x12\x18\n\x10STACKDRIVER_ONLY\x10\x03\x1a\x02\x08\x01\x12\x16\n\x12\x43LOUD_LOGGING_ONLY\x10\x05\x12\x08\n\x04NONE\x10\x04\"w\n\x1cReceiveTriggerWebhookRequest\x12\"\n\x04\x62ody\x18\x01 \x01(\x0b\x32\x14.google.api.HttpBody\x12\x12\n\nproject_id\x18\x02 \x01(\t\x12\x0f\n\x07trigger\x18\x03 \x01(\t\x12\x0e\n\x06secret\x18\x04 \x01(\t\"\x1f\n\x1dReceiveTriggerWebhookResponse\"\xf4\x04\n\nWorkerPool\x12\x0c\n\x04name\x18\x0e \x01(\t\x12\x12\n\nproject_id\x18\x02 \x01(\t\x12\x1d\n\x15service_account_email\x18\x03 \x01(\t\x12\x14\n\x0cworker_count\x18\x04 \x01(\x03\x12\x42\n\rworker_config\x18\x10 \x01(\x0b\x32+.google.devtools.cloudbuild.v1.WorkerConfig\x12\x41\n\x07regions\x18\t \x03(\x0e\x32\x30.google.devtools.cloudbuild.v1.WorkerPool.Region\x12/\n\x0b\x63reate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x11 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x64\x65lete_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12@\n\x06status\x18\r \x01(\x0e\x32\x30.google.devtools.cloudbuild.v1.WorkerPool.Status\"[\n\x06Region\x12\x16\n\x12REGION_UNSPECIFIED\x10\x00\x12\x0f\n\x0bUS_CENTRAL1\x10\x01\x12\x0c\n\x08US_WEST1\x10\x02\x12\x0c\n\x08US_EAST1\x10\x03\x12\x0c\n\x08US_EAST4\x10\x04\"V\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x0c\n\x08\x44\x45LETING\x10\x03\x12\x0b\n\x07\x44\x45LETED\x10\x04\"\x80\x01\n\x0cWorkerConfig\x12\x14\n\x0cmachine_type\x18\x01 \x01(\t\x12\x14\n\x0c\x64isk_size_gb\x18\x02 \x01(\x03\x12\x37\n\x07network\x18\x03 \x01(\x0b\x32&.google.devtools.cloudbuild.v1.Network\x12\x0b\n\x03tag\x18\x04 \x01(\t\"B\n\x07Network\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12\x0f\n\x07network\x18\x02 \x01(\t\x12\x12\n\nsubnetwork\x18\x03 \x01(\t\"i\n\x17\x43reateWorkerPoolRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12>\n\x0bworker_pool\x18\x02 \x01(\x0b\x32).google.devtools.cloudbuild.v1.WorkerPool\"$\n\x14GetWorkerPoolRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\'\n\x17\x44\x65leteWorkerPoolRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"g\n\x17UpdateWorkerPoolRequest\x12\x0c\n\x04name\x18\x02 \x01(\t\x12>\n\x0bworker_pool\x18\x03 \x01(\x0b\x32).google.devtools.cloudbuild.v1.WorkerPool\"(\n\x16ListWorkerPoolsRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\"Z\n\x17ListWorkerPoolsResponse\x12?\n\x0cworker_pools\x18\x01 \x03(\x0b\x32).google.devtools.cloudbuild.v1.WorkerPool2\xfc\x19\n\nCloudBuild\x12\xfb\x01\n\x0b\x43reateBuild\x12\x31.google.devtools.cloudbuild.v1.CreateBuildRequest\x1a\x1d.google.longrunning.Operation\"\x99\x01\x82\xd3\xe4\x93\x02^\" /v1/projects/{project_id}/builds:\x05\x62uildZ3\"*/v1/{parent=projects/*/locations/*}/builds:\x05\x62uild\xda\x41\x10project_id,build\xca\x41\x1f\n\x05\x42uild\x12\x16\x42uildOperationMetadata\x12\xcd\x01\n\x08GetBuild\x12..google.devtools.cloudbuild.v1.GetBuildRequest\x1a$.google.devtools.cloudbuild.v1.Build\"k\x82\xd3\xe4\x93\x02U\x12%/v1/projects/{project_id}/builds/{id}Z,\x12*/v1/{name=projects/*/locations/*/builds/*}\xda\x41\rproject_id,id\x12\xdd\x01\n\nListBuilds\x12\x30.google.devtools.cloudbuild.v1.ListBuildsRequest\x1a\x31.google.devtools.cloudbuild.v1.ListBuildsResponse\"j\x82\xd3\xe4\x93\x02P\x12 /v1/projects/{project_id}/buildsZ,\x12*/v1/{parent=projects/*/locations/*}/builds\xda\x41\x11project_id,filter\x12\xe7\x01\n\x0b\x43\x61ncelBuild\x12\x31.google.devtools.cloudbuild.v1.CancelBuildRequest\x1a$.google.devtools.cloudbuild.v1.Build\"\x7f\x82\xd3\xe4\x93\x02i\",/v1/projects/{project_id}/builds/{id}:cancel:\x01*Z6\"1/v1/{name=projects/*/locations/*/builds/*}:cancel:\x01*\xda\x41\rproject_id,id\x12\xff\x01\n\nRetryBuild\x12\x30.google.devtools.cloudbuild.v1.RetryBuildRequest\x1a\x1d.google.longrunning.Operation\"\x9f\x01\x82\xd3\xe4\x93\x02g\"+/v1/projects/{project_id}/builds/{id}:retry:\x01*Z5\"0/v1/{name=projects/*/locations/*/builds/*}:retry:\x01*\xda\x41\rproject_id,id\xca\x41\x1f\n\x05\x42uild\x12\x16\x42uildOperationMetadata\x12\xc5\x01\n\x12\x43reateBuildTrigger\x12\x38.google.devtools.cloudbuild.v1.CreateBuildTriggerRequest\x1a+.google.devtools.cloudbuild.v1.BuildTrigger\"H\x82\xd3\xe4\x93\x02-\"\"/v1/projects/{project_id}/triggers:\x07trigger\xda\x41\x12project_id,trigger\x12\xc6\x01\n\x0fGetBuildTrigger\x12\x35.google.devtools.cloudbuild.v1.GetBuildTriggerRequest\x1a+.google.devtools.cloudbuild.v1.BuildTrigger\"O\x82\xd3\xe4\x93\x02\x31\x12//v1/projects/{project_id}/triggers/{trigger_id}\xda\x41\x15project_id,trigger_id\x12\xbf\x01\n\x11ListBuildTriggers\x12\x37.google.devtools.cloudbuild.v1.ListBuildTriggersRequest\x1a\x38.google.devtools.cloudbuild.v1.ListBuildTriggersResponse\"7\x82\xd3\xe4\x93\x02$\x12\"/v1/projects/{project_id}/triggers\xda\x41\nproject_id\x12\xb7\x01\n\x12\x44\x65leteBuildTrigger\x12\x38.google.devtools.cloudbuild.v1.DeleteBuildTriggerRequest\x1a\x16.google.protobuf.Empty\"O\x82\xd3\xe4\x93\x02\x31*//v1/projects/{project_id}/triggers/{trigger_id}\xda\x41\x15project_id,trigger_id\x12\xdd\x01\n\x12UpdateBuildTrigger\x12\x38.google.devtools.cloudbuild.v1.UpdateBuildTriggerRequest\x1a+.google.devtools.cloudbuild.v1.BuildTrigger\"`\x82\xd3\xe4\x93\x02:2//v1/projects/{project_id}/triggers/{trigger_id}:\x07trigger\xda\x41\x1dproject_id,trigger_id,trigger\x12\xee\x01\n\x0fRunBuildTrigger\x12\x35.google.devtools.cloudbuild.v1.RunBuildTriggerRequest\x1a\x1d.google.longrunning.Operation\"\x84\x01\x82\xd3\xe4\x93\x02=\"3/v1/projects/{project_id}/triggers/{trigger_id}:run:\x06source\xda\x41\x1cproject_id,trigger_id,source\xca\x41\x1f\n\x05\x42uild\x12\x16\x42uildOperationMetadata\x12\xd6\x01\n\x15ReceiveTriggerWebhook\x12;.google.devtools.cloudbuild.v1.ReceiveTriggerWebhookRequest\x1a<.google.devtools.cloudbuild.v1.ReceiveTriggerWebhookResponse\"B\x82\xd3\xe4\x93\x02<\"4/v1/projects/{project_id}/triggers/{trigger}:webhook:\x04\x62ody\x12w\n\x10\x43reateWorkerPool\x12\x36.google.devtools.cloudbuild.v1.CreateWorkerPoolRequest\x1a).google.devtools.cloudbuild.v1.WorkerPool\"\x00\x12q\n\rGetWorkerPool\x12\x33.google.devtools.cloudbuild.v1.GetWorkerPoolRequest\x1a).google.devtools.cloudbuild.v1.WorkerPool\"\x00\x12\x64\n\x10\x44\x65leteWorkerPool\x12\x36.google.devtools.cloudbuild.v1.DeleteWorkerPoolRequest\x1a\x16.google.protobuf.Empty\"\x00\x12w\n\x10UpdateWorkerPool\x12\x36.google.devtools.cloudbuild.v1.UpdateWorkerPoolRequest\x1a).google.devtools.cloudbuild.v1.WorkerPool\"\x00\x12\x82\x01\n\x0fListWorkerPools\x12\x35.google.devtools.cloudbuild.v1.ListWorkerPoolsRequest\x1a\x36.google.devtools.cloudbuild.v1.ListWorkerPoolsResponse\"\x00\x1aM\xca\x41\x19\x63loudbuild.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x92\x06\n\x18\x63om.google.cloudbuild.v1P\x01ZGgoogle.golang.org/genproto/googleapis/devtools/cloudbuild/v1;cloudbuild\xa2\x02\x03GCB\xaa\x02\x1aGoogle.Cloud.CloudBuild.V1\xea\x02\x18Google::Cloud::Build::V1\xea\x41N\n\x1e\x63ompute.googleapis.com/Network\x12,projects/{project}/global/networks/{network}\xea\x41Y\n!iam.googleapis.com/ServiceAccount\x12\x34projects/{project}/serviceAccounts/{service_account}\xea\x41J\n#secretmanager.googleapis.com/Secret\x12#projects/{project}/secrets/{secret}\xea\x41\x64\n*secretmanager.googleapis.com/SecretVersion\x12\x36projects/{project}/secrets/{secret}/versions/{version}\xea\x41p\n!cloudkms.googleapis.com/CryptoKey\x12Kprojects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}\xea\x41U\n\"pubsub.googleapis.com/Subscription\x12/projects/{project}/subscriptions/{subscription}\xea\x41@\n\x1bpubsub.googleapis.com/Topic\x12!projects/{project}/topics/{topic}b\x06proto3'
+  serialized_pb=b'\n.google/devtools/cloudbuild/v1/cloudbuild.proto\x12\x1dgoogle.devtools.cloudbuild.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/httpbody.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"q\n\x11RetryBuildRequest\x12\x32\n\x04name\x18\x03 \x01(\tB$\xfa\x41!\n\x1f\x63loudbuild.googleapis.com/Build\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0f\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\xc0\x01\n\x16RunBuildTriggerRequest\x12\x39\n\x04name\x18\x04 \x01(\tB+\xfa\x41(\n&cloudbuild.googleapis.com/BuildTrigger\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ntrigger_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x39\n\x06source\x18\x03 \x01(\x0b\x32).google.devtools.cloudbuild.v1.RepoSource\"C\n\rStorageSource\x12\x0e\n\x06\x62ucket\x18\x01 \x01(\t\x12\x0e\n\x06object\x18\x02 \x01(\t\x12\x12\n\ngeneration\x18\x03 \x01(\x03\"\xae\x02\n\nRepoSource\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12\x11\n\trepo_name\x18\x02 \x01(\t\x12\x15\n\x0b\x62ranch_name\x18\x03 \x01(\tH\x00\x12\x12\n\x08tag_name\x18\x04 \x01(\tH\x00\x12\x14\n\ncommit_sha\x18\x05 \x01(\tH\x00\x12\x0b\n\x03\x64ir\x18\x07 \x01(\t\x12\x14\n\x0cinvert_regex\x18\x08 \x01(\x08\x12S\n\rsubstitutions\x18\t \x03(\x0b\x32<.google.devtools.cloudbuild.v1.RepoSource.SubstitutionsEntry\x1a\x34\n\x12SubstitutionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\n\n\x08revision\"K\n\x15StorageSourceManifest\x12\x0e\n\x06\x62ucket\x18\x01 \x01(\t\x12\x0e\n\x06object\x18\x02 \x01(\t\x12\x12\n\ngeneration\x18\x03 \x01(\x03\"\xf5\x01\n\x06Source\x12\x46\n\x0estorage_source\x18\x02 \x01(\x0b\x32,.google.devtools.cloudbuild.v1.StorageSourceH\x00\x12@\n\x0brepo_source\x18\x03 \x01(\x0b\x32).google.devtools.cloudbuild.v1.RepoSourceH\x00\x12W\n\x17storage_source_manifest\x18\x08 \x01(\x0b\x32\x34.google.devtools.cloudbuild.v1.StorageSourceManifestH\x00\x42\x08\n\x06source\"m\n\nBuiltImage\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06\x64igest\x18\x03 \x01(\t\x12\x41\n\x0bpush_timing\x18\x04 \x01(\x0b\x32\'.google.devtools.cloudbuild.v1.TimeSpanB\x03\xe0\x41\x03\"\xae\x03\n\tBuildStep\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03\x65nv\x18\x02 \x03(\t\x12\x0c\n\x04\x61rgs\x18\x03 \x03(\t\x12\x0b\n\x03\x64ir\x18\x04 \x01(\t\x12\n\n\x02id\x18\x05 \x01(\t\x12\x10\n\x08wait_for\x18\x06 \x03(\t\x12\x12\n\nentrypoint\x18\x07 \x01(\t\x12\x12\n\nsecret_env\x18\x08 \x03(\t\x12\x36\n\x07volumes\x18\t \x03(\x0b\x32%.google.devtools.cloudbuild.v1.Volume\x12<\n\x06timing\x18\n \x01(\x0b\x32\'.google.devtools.cloudbuild.v1.TimeSpanB\x03\xe0\x41\x03\x12\x41\n\x0bpull_timing\x18\r \x01(\x0b\x32\'.google.devtools.cloudbuild.v1.TimeSpanB\x03\xe0\x41\x03\x12*\n\x07timeout\x18\x0b \x01(\x0b\x32\x19.google.protobuf.Duration\x12@\n\x06status\x18\x0c \x01(\x0e\x32+.google.devtools.cloudbuild.v1.Build.StatusB\x03\xe0\x41\x03\"$\n\x06Volume\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04path\x18\x02 \x01(\t\"\xef\x01\n\x07Results\x12\x39\n\x06images\x18\x02 \x03(\x0b\x32).google.devtools.cloudbuild.v1.BuiltImage\x12\x19\n\x11\x62uild_step_images\x18\x03 \x03(\t\x12\x19\n\x11\x61rtifact_manifest\x18\x04 \x01(\t\x12\x15\n\rnum_artifacts\x18\x05 \x01(\x03\x12\x1a\n\x12\x62uild_step_outputs\x18\x06 \x03(\x0c\x12@\n\x0f\x61rtifact_timing\x18\x07 \x01(\x0b\x32\'.google.devtools.cloudbuild.v1.TimeSpan\"`\n\x0e\x41rtifactResult\x12\x10\n\x08location\x18\x01 \x01(\t\x12<\n\tfile_hash\x18\x02 \x03(\x0b\x32).google.devtools.cloudbuild.v1.FileHashes\"\xe0\x0e\n\x05\x42uild\x12\x11\n\x04name\x18- \x01(\tB\x03\xe0\x41\x03\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x17\n\nproject_id\x18\x10 \x01(\tB\x03\xe0\x41\x03\x12@\n\x06status\x18\x02 \x01(\x0e\x32+.google.devtools.cloudbuild.v1.Build.StatusB\x03\xe0\x41\x03\x12\x1a\n\rstatus_detail\x18\x18 \x01(\tB\x03\xe0\x41\x03\x12\x35\n\x06source\x18\x03 \x01(\x0b\x32%.google.devtools.cloudbuild.v1.Source\x12\x37\n\x05steps\x18\x0b \x03(\x0b\x32(.google.devtools.cloudbuild.v1.BuildStep\x12<\n\x07results\x18\n \x01(\x0b\x32&.google.devtools.cloudbuild.v1.ResultsB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x33\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0b\x66inish_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12*\n\x07timeout\x18\x0c \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x0e\n\x06images\x18\r \x03(\t\x12,\n\tqueue_ttl\x18( \x01(\x0b\x32\x19.google.protobuf.Duration\x12;\n\tartifacts\x18% \x01(\x0b\x32(.google.devtools.cloudbuild.v1.Artifacts\x12\x13\n\x0blogs_bucket\x18\x13 \x01(\t\x12O\n\x11source_provenance\x18\x15 \x01(\x0b\x32/.google.devtools.cloudbuild.v1.SourceProvenanceB\x03\xe0\x41\x03\x12\x1d\n\x10\x62uild_trigger_id\x18\x16 \x01(\tB\x03\xe0\x41\x03\x12<\n\x07options\x18\x17 \x01(\x0b\x32+.google.devtools.cloudbuild.v1.BuildOptions\x12\x14\n\x07log_url\x18\x19 \x01(\tB\x03\xe0\x41\x03\x12N\n\rsubstitutions\x18\x1d \x03(\x0b\x32\x37.google.devtools.cloudbuild.v1.Build.SubstitutionsEntry\x12\x0c\n\x04tags\x18\x1f \x03(\t\x12\x36\n\x07secrets\x18  \x03(\x0b\x32%.google.devtools.cloudbuild.v1.Secret\x12\x45\n\x06timing\x18! \x03(\x0b\x32\x30.google.devtools.cloudbuild.v1.Build.TimingEntryB\x03\xe0\x41\x03\x12?\n\x0fservice_account\x18* \x01(\tB&\xfa\x41#\n!iam.googleapis.com/ServiceAccount\x12\x41\n\x11\x61vailable_secrets\x18/ \x01(\x0b\x32&.google.devtools.cloudbuild.v1.Secrets\x12\x43\n\x08warnings\x18\x31 \x03(\x0b\x32,.google.devtools.cloudbuild.v1.Build.WarningB\x03\xe0\x41\x03\x1a\xa8\x01\n\x07Warning\x12\x0c\n\x04text\x18\x01 \x01(\t\x12G\n\x08priority\x18\x02 \x01(\x0e\x32\x35.google.devtools.cloudbuild.v1.Build.Warning.Priority\"F\n\x08Priority\x12\x18\n\x14PRIORITY_UNSPECIFIED\x10\x00\x12\x08\n\x04INFO\x10\x01\x12\x0b\n\x07WARNING\x10\x02\x12\t\n\x05\x41LERT\x10\x03\x1a\x34\n\x12SubstitutionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1aV\n\x0bTimingEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x36\n\x05value\x18\x02 \x01(\x0b\x32\'.google.devtools.cloudbuild.v1.TimeSpan:\x02\x38\x01\"\x8c\x01\n\x06Status\x12\x12\n\x0eSTATUS_UNKNOWN\x10\x00\x12\n\n\x06QUEUED\x10\x01\x12\x0b\n\x07WORKING\x10\x02\x12\x0b\n\x07SUCCESS\x10\x03\x12\x0b\n\x07\x46\x41ILURE\x10\x04\x12\x12\n\x0eINTERNAL_ERROR\x10\x05\x12\x0b\n\x07TIMEOUT\x10\x06\x12\r\n\tCANCELLED\x10\x07\x12\x0b\n\x07\x45XPIRED\x10\t:\x7f\xea\x41|\n\x1f\x63loudbuild.googleapis.com/Build\x12!projects/{project}/builds/{build}\x12\x36projects/{project}/locations/{location}/builds/{build}\"\xd8\x01\n\tArtifacts\x12\x0e\n\x06images\x18\x01 \x03(\t\x12I\n\x07objects\x18\x02 \x01(\x0b\x32\x38.google.devtools.cloudbuild.v1.Artifacts.ArtifactObjects\x1ap\n\x0f\x41rtifactObjects\x12\x10\n\x08location\x18\x01 \x01(\t\x12\r\n\x05paths\x18\x02 \x03(\t\x12<\n\x06timing\x18\x03 \x01(\x0b\x32\'.google.devtools.cloudbuild.v1.TimeSpanB\x03\xe0\x41\x03\"h\n\x08TimeSpan\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"M\n\x16\x42uildOperationMetadata\x12\x33\n\x05\x62uild\x18\x01 \x01(\x0b\x32$.google.devtools.cloudbuild.v1.Build\"\xc3\x03\n\x10SourceProvenance\x12M\n\x17resolved_storage_source\x18\x03 \x01(\x0b\x32,.google.devtools.cloudbuild.v1.StorageSource\x12G\n\x14resolved_repo_source\x18\x06 \x01(\x0b\x32).google.devtools.cloudbuild.v1.RepoSource\x12^\n resolved_storage_source_manifest\x18\t \x01(\x0b\x32\x34.google.devtools.cloudbuild.v1.StorageSourceManifest\x12Y\n\x0b\x66ile_hashes\x18\x04 \x03(\x0b\x32?.google.devtools.cloudbuild.v1.SourceProvenance.FileHashesEntryB\x03\xe0\x41\x03\x1a\\\n\x0f\x46ileHashesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x38\n\x05value\x18\x02 \x01(\x0b\x32).google.devtools.cloudbuild.v1.FileHashes:\x02\x38\x01\"D\n\nFileHashes\x12\x36\n\tfile_hash\x18\x01 \x03(\x0b\x32#.google.devtools.cloudbuild.v1.Hash\"|\n\x04Hash\x12:\n\x04type\x18\x01 \x01(\x0e\x32,.google.devtools.cloudbuild.v1.Hash.HashType\x12\r\n\x05value\x18\x02 \x01(\x0c\")\n\x08HashType\x12\x08\n\x04NONE\x10\x00\x12\n\n\x06SHA256\x10\x01\x12\x07\n\x03MD5\x10\x02\"\x92\x01\n\x07Secrets\x12J\n\x0esecret_manager\x18\x01 \x03(\x0b\x32\x32.google.devtools.cloudbuild.v1.SecretManagerSecret\x12;\n\x06inline\x18\x02 \x03(\x0b\x32+.google.devtools.cloudbuild.v1.InlineSecret\"\xc5\x01\n\x0cInlineSecret\x12<\n\x0ckms_key_name\x18\x01 \x01(\tB&\xfa\x41#\n!cloudkms.googleapis.com/CryptoKey\x12H\n\x07\x65nv_map\x18\x02 \x03(\x0b\x32\x37.google.devtools.cloudbuild.v1.InlineSecret.EnvMapEntry\x1a-\n\x0b\x45nvMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x0c:\x02\x38\x01\"i\n\x13SecretManagerSecret\x12\x45\n\x0cversion_name\x18\x01 \x01(\tB/\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\x12\x0b\n\x03\x65nv\x18\x02 \x01(\t\"\x9a\x01\n\x06Secret\x12\x14\n\x0ckms_key_name\x18\x01 \x01(\t\x12H\n\nsecret_env\x18\x03 \x03(\x0b\x32\x34.google.devtools.cloudbuild.v1.Secret.SecretEnvEntry\x1a\x30\n\x0eSecretEnvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x0c:\x02\x38\x01\"\x9d\x01\n\x12\x43reateBuildRequest\x12\x34\n\x06parent\x18\x04 \x01(\tB$\xfa\x41!\x12\x1f\x63loudbuild.googleapis.com/Build\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x38\n\x05\x62uild\x18\x02 \x01(\x0b\x32$.google.devtools.cloudbuild.v1.BuildB\x03\xe0\x41\x02\"o\n\x0fGetBuildRequest\x12\x32\n\x04name\x18\x04 \x01(\tB$\xfa\x41!\n\x1f\x63loudbuild.googleapis.com/Build\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0f\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\x99\x01\n\x11ListBuildsRequest\x12\x34\n\x06parent\x18\t \x01(\tB$\xfa\x41!\x12\x1f\x63loudbuild.googleapis.com/Build\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x08 \x01(\t\"c\n\x12ListBuildsResponse\x12\x34\n\x06\x62uilds\x18\x01 \x03(\x0b\x32$.google.devtools.cloudbuild.v1.Build\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"r\n\x12\x43\x61ncelBuildRequest\x12\x32\n\x04name\x18\x04 \x01(\tB$\xfa\x41!\n\x1f\x63loudbuild.googleapis.com/Build\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0f\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\xaa\x07\n\x0c\x42uildTrigger\x12\x15\n\rresource_name\x18\" \x01(\t\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x13\n\x0b\x64\x65scription\x18\n \x01(\t\x12\x0c\n\x04name\x18\x15 \x01(\t\x12\x0c\n\x04tags\x18\x13 \x03(\t\x12\x43\n\x10trigger_template\x18\x07 \x01(\x0b\x32).google.devtools.cloudbuild.v1.RepoSource\x12\x41\n\x06github\x18\r \x01(\x0b\x32\x31.google.devtools.cloudbuild.v1.GitHubEventsConfig\x12\x42\n\rpubsub_config\x18\x1d \x01(\x0b\x32+.google.devtools.cloudbuild.v1.PubsubConfig\x12\x44\n\x0ewebhook_config\x18\x1f \x01(\x0b\x32,.google.devtools.cloudbuild.v1.WebhookConfig\x12\x14\n\nautodetect\x18\x12 \x01(\x08H\x00\x12\x35\n\x05\x62uild\x18\x04 \x01(\x0b\x32$.google.devtools.cloudbuild.v1.BuildH\x00\x12\x12\n\x08\x66ilename\x18\x08 \x01(\tH\x00\x12\x34\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x10\n\x08\x64isabled\x18\t \x01(\x08\x12U\n\rsubstitutions\x18\x0b \x03(\x0b\x32>.google.devtools.cloudbuild.v1.BuildTrigger.SubstitutionsEntry\x12\x15\n\rignored_files\x18\x0f \x03(\t\x12\x16\n\x0eincluded_files\x18\x10 \x03(\t\x12\x13\n\x06\x66ilter\x18\x1e \x01(\tB\x03\xe0\x41\x01\x1a\x34\n\x12SubstitutionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\xa2\x01\xea\x41\x9e\x01\n&cloudbuild.googleapis.com/BuildTrigger\x12%projects/{project}/triggers/{trigger}\x12:projects/{project}/locations/{location}/triggers/{trigger}*\x08triggers2\x07triggerB\x10\n\x0e\x62uild_template\"\xdc\x01\n\x12GitHubEventsConfig\x12\x1b\n\x0finstallation_id\x18\x01 \x01(\x03\x42\x02\x18\x01\x12\r\n\x05owner\x18\x06 \x01(\t\x12\x0c\n\x04name\x18\x07 \x01(\t\x12H\n\x0cpull_request\x18\x04 \x01(\x0b\x32\x30.google.devtools.cloudbuild.v1.PullRequestFilterH\x00\x12\x39\n\x04push\x18\x05 \x01(\x0b\x32).google.devtools.cloudbuild.v1.PushFilterH\x00\x42\x07\n\x05\x65vent\"\xff\x02\n\x0cPubsubConfig\x12@\n\x0csubscription\x18\x01 \x01(\tB*\xe0\x41\x03\xfa\x41$\n\"pubsub.googleapis.com/Subscription\x12/\n\x05topic\x18\x02 \x01(\tB \xfa\x41\x1d\n\x1bpubsub.googleapis.com/Topic\x12\x45\n\x15service_account_email\x18\x03 \x01(\tB&\xfa\x41#\n!iam.googleapis.com/ServiceAccount\x12@\n\x05state\x18\x04 \x01(\x0e\x32\x31.google.devtools.cloudbuild.v1.PubsubConfig.State\"s\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x06\n\x02OK\x10\x01\x12\x18\n\x14SUBSCRIPTION_DELETED\x10\x02\x12\x11\n\rTOPIC_DELETED\x10\x03\x12\x1e\n\x1aSUBSCRIPTION_MISCONFIGURED\x10\x04\"\xe3\x01\n\rWebhookConfig\x12\x44\n\x06secret\x18\x03 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersionH\x00\x12\x41\n\x05state\x18\x04 \x01(\x0e\x32\x32.google.devtools.cloudbuild.v1.WebhookConfig.State\":\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x06\n\x02OK\x10\x01\x12\x12\n\x0eSECRET_DELETED\x10\x02\x42\r\n\x0b\x61uth_method\"\x94\x02\n\x11PullRequestFilter\x12\x10\n\x06\x62ranch\x18\x02 \x01(\tH\x00\x12X\n\x0f\x63omment_control\x18\x05 \x01(\x0e\x32?.google.devtools.cloudbuild.v1.PullRequestFilter.CommentControl\x12\x14\n\x0cinvert_regex\x18\x06 \x01(\x08\"r\n\x0e\x43ommentControl\x12\x15\n\x11\x43OMMENTS_DISABLED\x10\x00\x12\x14\n\x10\x43OMMENTS_ENABLED\x10\x01\x12\x33\n/COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY\x10\x02\x42\t\n\x07git_ref\"N\n\nPushFilter\x12\x10\n\x06\x62ranch\x18\x02 \x01(\tH\x00\x12\r\n\x03tag\x18\x03 \x01(\tH\x00\x12\x14\n\x0cinvert_regex\x18\x04 \x01(\x08\x42\t\n\x07git_ref\"\xb4\x01\n\x19\x43reateBuildTriggerRequest\x12;\n\x06parent\x18\x03 \x01(\tB+\xfa\x41(\x12&cloudbuild.googleapis.com/BuildTrigger\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x41\n\x07trigger\x18\x02 \x01(\x0b\x32+.google.devtools.cloudbuild.v1.BuildTriggerB\x03\xe0\x41\x02\"\x85\x01\n\x16GetBuildTriggerRequest\x12\x39\n\x04name\x18\x03 \x01(\tB+\xfa\x41(\n&cloudbuild.googleapis.com/BuildTrigger\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ntrigger_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\x97\x01\n\x18ListBuildTriggersRequest\x12;\n\x06parent\x18\x04 \x01(\tB+\xfa\x41(\x12&cloudbuild.googleapis.com/BuildTrigger\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"s\n\x19ListBuildTriggersResponse\x12=\n\x08triggers\x18\x01 \x03(\x0b\x32+.google.devtools.cloudbuild.v1.BuildTrigger\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x88\x01\n\x19\x44\x65leteBuildTriggerRequest\x12\x39\n\x04name\x18\x03 \x01(\tB+\xfa\x41(\n&cloudbuild.googleapis.com/BuildTrigger\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ntrigger_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\x90\x01\n\x19UpdateBuildTriggerRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ntrigger_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x41\n\x07trigger\x18\x03 \x01(\x0b\x32+.google.devtools.cloudbuild.v1.BuildTriggerB\x03\xe0\x41\x02\"\xc6\x08\n\x0c\x42uildOptions\x12L\n\x16source_provenance_hash\x18\x01 \x03(\x0e\x32,.google.devtools.cloudbuild.v1.Hash.HashType\x12Y\n\x17requested_verify_option\x18\x02 \x01(\x0e\x32\x38.google.devtools.cloudbuild.v1.BuildOptions.VerifyOption\x12M\n\x0cmachine_type\x18\x03 \x01(\x0e\x32\x37.google.devtools.cloudbuild.v1.BuildOptions.MachineType\x12\x14\n\x0c\x64isk_size_gb\x18\x06 \x01(\x03\x12[\n\x13substitution_option\x18\x04 \x01(\x0e\x32>.google.devtools.cloudbuild.v1.BuildOptions.SubstitutionOption\x12\x1d\n\x15\x64ynamic_substitutions\x18\x11 \x01(\x08\x12\\\n\x14log_streaming_option\x18\x05 \x01(\x0e\x32>.google.devtools.cloudbuild.v1.BuildOptions.LogStreamingOption\x12\x13\n\x0bworker_pool\x18\x07 \x01(\t\x12H\n\x07logging\x18\x0b \x01(\x0e\x32\x37.google.devtools.cloudbuild.v1.BuildOptions.LoggingMode\x12\x0b\n\x03\x65nv\x18\x0c \x03(\t\x12\x12\n\nsecret_env\x18\r \x03(\t\x12\x36\n\x07volumes\x18\x0e \x03(\x0b\x32%.google.devtools.cloudbuild.v1.Volume\".\n\x0cVerifyOption\x12\x10\n\x0cNOT_VERIFIED\x10\x00\x12\x0c\n\x08VERIFIED\x10\x01\"h\n\x0bMachineType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x10\n\x0cN1_HIGHCPU_8\x10\x01\x12\x11\n\rN1_HIGHCPU_32\x10\x02\x12\x10\n\x0c\x45\x32_HIGHCPU_8\x10\x05\x12\x11\n\rE2_HIGHCPU_32\x10\x06\"5\n\x12SubstitutionOption\x12\x0e\n\nMUST_MATCH\x10\x00\x12\x0f\n\x0b\x41LLOW_LOOSE\x10\x01\"G\n\x12LogStreamingOption\x12\x12\n\x0eSTREAM_DEFAULT\x10\x00\x12\r\n\tSTREAM_ON\x10\x01\x12\x0e\n\nSTREAM_OFF\x10\x02\"|\n\x0bLoggingMode\x12\x17\n\x13LOGGING_UNSPECIFIED\x10\x00\x12\n\n\x06LEGACY\x10\x01\x12\x0c\n\x08GCS_ONLY\x10\x02\x12\x18\n\x10STACKDRIVER_ONLY\x10\x03\x1a\x02\x08\x01\x12\x16\n\x12\x43LOUD_LOGGING_ONLY\x10\x05\x12\x08\n\x04NONE\x10\x04\"\x85\x01\n\x1cReceiveTriggerWebhookRequest\x12\x0c\n\x04name\x18\x05 \x01(\t\x12\"\n\x04\x62ody\x18\x01 \x01(\x0b\x32\x14.google.api.HttpBody\x12\x12\n\nproject_id\x18\x02 \x01(\t\x12\x0f\n\x07trigger\x18\x03 \x01(\t\x12\x0e\n\x06secret\x18\x04 \x01(\t\"\x1f\n\x1dReceiveTriggerWebhookResponse\"\xf4\x04\n\nWorkerPool\x12\x0c\n\x04name\x18\x0e \x01(\t\x12\x12\n\nproject_id\x18\x02 \x01(\t\x12\x1d\n\x15service_account_email\x18\x03 \x01(\t\x12\x14\n\x0cworker_count\x18\x04 \x01(\x03\x12\x42\n\rworker_config\x18\x10 \x01(\x0b\x32+.google.devtools.cloudbuild.v1.WorkerConfig\x12\x41\n\x07regions\x18\t \x03(\x0e\x32\x30.google.devtools.cloudbuild.v1.WorkerPool.Region\x12/\n\x0b\x63reate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x11 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x64\x65lete_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12@\n\x06status\x18\r \x01(\x0e\x32\x30.google.devtools.cloudbuild.v1.WorkerPool.Status\"[\n\x06Region\x12\x16\n\x12REGION_UNSPECIFIED\x10\x00\x12\x0f\n\x0bUS_CENTRAL1\x10\x01\x12\x0c\n\x08US_WEST1\x10\x02\x12\x0c\n\x08US_EAST1\x10\x03\x12\x0c\n\x08US_EAST4\x10\x04\"V\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x0c\n\x08\x44\x45LETING\x10\x03\x12\x0b\n\x07\x44\x45LETED\x10\x04\"\x80\x01\n\x0cWorkerConfig\x12\x14\n\x0cmachine_type\x18\x01 \x01(\t\x12\x14\n\x0c\x64isk_size_gb\x18\x02 \x01(\x03\x12\x37\n\x07network\x18\x03 \x01(\x0b\x32&.google.devtools.cloudbuild.v1.Network\x12\x0b\n\x03tag\x18\x04 \x01(\t\"B\n\x07Network\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12\x0f\n\x07network\x18\x02 \x01(\t\x12\x12\n\nsubnetwork\x18\x03 \x01(\t\"i\n\x17\x43reateWorkerPoolRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12>\n\x0bworker_pool\x18\x02 \x01(\x0b\x32).google.devtools.cloudbuild.v1.WorkerPool\"$\n\x14GetWorkerPoolRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\'\n\x17\x44\x65leteWorkerPoolRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"g\n\x17UpdateWorkerPoolRequest\x12\x0c\n\x04name\x18\x02 \x01(\t\x12>\n\x0bworker_pool\x18\x03 \x01(\x0b\x32).google.devtools.cloudbuild.v1.WorkerPool\"(\n\x16ListWorkerPoolsRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\"Z\n\x17ListWorkerPoolsResponse\x12?\n\x0cworker_pools\x18\x01 \x03(\x0b\x32).google.devtools.cloudbuild.v1.WorkerPool2\x88\x1d\n\nCloudBuild\x12\xfb\x01\n\x0b\x43reateBuild\x12\x31.google.devtools.cloudbuild.v1.CreateBuildRequest\x1a\x1d.google.longrunning.Operation\"\x99\x01\x82\xd3\xe4\x93\x02^\" /v1/projects/{project_id}/builds:\x05\x62uildZ3\"*/v1/{parent=projects/*/locations/*}/builds:\x05\x62uild\xda\x41\x10project_id,build\xca\x41\x1f\n\x05\x42uild\x12\x16\x42uildOperationMetadata\x12\xcd\x01\n\x08GetBuild\x12..google.devtools.cloudbuild.v1.GetBuildRequest\x1a$.google.devtools.cloudbuild.v1.Build\"k\x82\xd3\xe4\x93\x02U\x12%/v1/projects/{project_id}/builds/{id}Z,\x12*/v1/{name=projects/*/locations/*/builds/*}\xda\x41\rproject_id,id\x12\xdd\x01\n\nListBuilds\x12\x30.google.devtools.cloudbuild.v1.ListBuildsRequest\x1a\x31.google.devtools.cloudbuild.v1.ListBuildsResponse\"j\x82\xd3\xe4\x93\x02P\x12 /v1/projects/{project_id}/buildsZ,\x12*/v1/{parent=projects/*/locations/*}/builds\xda\x41\x11project_id,filter\x12\xe7\x01\n\x0b\x43\x61ncelBuild\x12\x31.google.devtools.cloudbuild.v1.CancelBuildRequest\x1a$.google.devtools.cloudbuild.v1.Build\"\x7f\x82\xd3\xe4\x93\x02i\",/v1/projects/{project_id}/builds/{id}:cancel:\x01*Z6\"1/v1/{name=projects/*/locations/*/builds/*}:cancel:\x01*\xda\x41\rproject_id,id\x12\xff\x01\n\nRetryBuild\x12\x30.google.devtools.cloudbuild.v1.RetryBuildRequest\x1a\x1d.google.longrunning.Operation\"\x9f\x01\x82\xd3\xe4\x93\x02g\"+/v1/projects/{project_id}/builds/{id}:retry:\x01*Z5\"0/v1/{name=projects/*/locations/*/builds/*}:retry:\x01*\xda\x41\rproject_id,id\xca\x41\x1f\n\x05\x42uild\x12\x16\x42uildOperationMetadata\x12\xff\x01\n\x12\x43reateBuildTrigger\x12\x38.google.devtools.cloudbuild.v1.CreateBuildTriggerRequest\x1a+.google.devtools.cloudbuild.v1.BuildTrigger\"\x81\x01\x82\xd3\xe4\x93\x02\x66\"\"/v1/projects/{project_id}/triggers:\x07triggerZ7\",/v1/{parent=projects/*/locations/*}/triggers:\x07trigger\xda\x41\x12project_id,trigger\x12\xf6\x01\n\x0fGetBuildTrigger\x12\x35.google.devtools.cloudbuild.v1.GetBuildTriggerRequest\x1a+.google.devtools.cloudbuild.v1.BuildTrigger\"\x7f\x82\xd3\xe4\x93\x02\x61\x12//v1/projects/{project_id}/triggers/{trigger_id}Z.\x12,/v1/{name=projects/*/locations/*/triggers/*}\xda\x41\x15project_id,trigger_id\x12\xef\x01\n\x11ListBuildTriggers\x12\x37.google.devtools.cloudbuild.v1.ListBuildTriggersRequest\x1a\x38.google.devtools.cloudbuild.v1.ListBuildTriggersResponse\"g\x82\xd3\xe4\x93\x02T\x12\"/v1/projects/{project_id}/triggersZ.\x12,/v1/{parent=projects/*/locations/*}/triggers\xda\x41\nproject_id\x12\xe7\x01\n\x12\x44\x65leteBuildTrigger\x12\x38.google.devtools.cloudbuild.v1.DeleteBuildTriggerRequest\x1a\x16.google.protobuf.Empty\"\x7f\x82\xd3\xe4\x93\x02\x61*//v1/projects/{project_id}/triggers/{trigger_id}Z.*,/v1/{name=projects/*/locations/*/triggers/*}\xda\x41\x15project_id,trigger_id\x12\xa9\x02\n\x12UpdateBuildTrigger\x12\x38.google.devtools.cloudbuild.v1.UpdateBuildTriggerRequest\x1a+.google.devtools.cloudbuild.v1.BuildTrigger\"\xab\x01\x82\xd3\xe4\x93\x02\x84\x01\x32//v1/projects/{project_id}/triggers/{trigger_id}:\x07triggerZH2=/v1/{trigger.resource_name=projects/*/locations/*/triggers/*}:\x07trigger\xda\x41\x1dproject_id,trigger_id,trigger\x12\xa5\x02\n\x0fRunBuildTrigger\x12\x35.google.devtools.cloudbuild.v1.RunBuildTriggerRequest\x1a\x1d.google.longrunning.Operation\"\xbb\x01\x82\xd3\xe4\x93\x02t\"3/v1/projects/{project_id}/triggers/{trigger_id}:run:\x06sourceZ5\"0/v1/{name=projects/*/locations/*/triggers/*}:run:\x01*\xda\x41\x1cproject_id,trigger_id,source\xca\x41\x1f\n\x05\x42uild\x12\x16\x42uildOperationMetadata\x12\x95\x02\n\x15ReceiveTriggerWebhook\x12;.google.devtools.cloudbuild.v1.ReceiveTriggerWebhookRequest\x1a<.google.devtools.cloudbuild.v1.ReceiveTriggerWebhookResponse\"\x80\x01\x82\xd3\xe4\x93\x02z\"4/v1/projects/{project_id}/triggers/{trigger}:webhook:\x04\x62odyZ<\"4/v1/{name=projects/*/locations/*/triggers/*}:webhook:\x04\x62ody\x12w\n\x10\x43reateWorkerPool\x12\x36.google.devtools.cloudbuild.v1.CreateWorkerPoolRequest\x1a).google.devtools.cloudbuild.v1.WorkerPool\"\x00\x12q\n\rGetWorkerPool\x12\x33.google.devtools.cloudbuild.v1.GetWorkerPoolRequest\x1a).google.devtools.cloudbuild.v1.WorkerPool\"\x00\x12\x64\n\x10\x44\x65leteWorkerPool\x12\x36.google.devtools.cloudbuild.v1.DeleteWorkerPoolRequest\x1a\x16.google.protobuf.Empty\"\x00\x12w\n\x10UpdateWorkerPool\x12\x36.google.devtools.cloudbuild.v1.UpdateWorkerPoolRequest\x1a).google.devtools.cloudbuild.v1.WorkerPool\"\x00\x12\x82\x01\n\x0fListWorkerPools\x12\x35.google.devtools.cloudbuild.v1.ListWorkerPoolsRequest\x1a\x36.google.devtools.cloudbuild.v1.ListWorkerPoolsResponse\"\x00\x1aM\xca\x41\x19\x63loudbuild.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x92\x06\n\x18\x63om.google.cloudbuild.v1P\x01ZGgoogle.golang.org/genproto/googleapis/devtools/cloudbuild/v1;cloudbuild\xa2\x02\x03GCB\xaa\x02\x1aGoogle.Cloud.CloudBuild.V1\xea\x02\x18Google::Cloud::Build::V1\xea\x41N\n\x1e\x63ompute.googleapis.com/Network\x12,projects/{project}/global/networks/{network}\xea\x41Y\n!iam.googleapis.com/ServiceAccount\x12\x34projects/{project}/serviceAccounts/{service_account}\xea\x41J\n#secretmanager.googleapis.com/Secret\x12#projects/{project}/secrets/{secret}\xea\x41\x64\n*secretmanager.googleapis.com/SecretVersion\x12\x36projects/{project}/secrets/{secret}/versions/{version}\xea\x41p\n!cloudkms.googleapis.com/CryptoKey\x12Kprojects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}\xea\x41U\n\"pubsub.googleapis.com/Subscription\x12/projects/{project}/subscriptions/{subscription}\xea\x41@\n\x1bpubsub.googleapis.com/Topic\x12!projects/{project}/topics/{topic}b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_httpbody__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
+
+_BUILD_WARNING_PRIORITY = _descriptor.EnumDescriptor(
+  name='Priority',
+  full_name='google.devtools.cloudbuild.v1.Build.Warning.Priority',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='PRIORITY_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='INFO', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='WARNING', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ALERT', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3724,
+  serialized_end=3794,
+)
+_sym_db.RegisterEnumDescriptor(_BUILD_WARNING_PRIORITY)
 
 _BUILD_STATUS = _descriptor.EnumDescriptor(
   name='Status',
@@ -90,8 +125,8 @@ _BUILD_STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3474,
-  serialized_end=3614,
+  serialized_start=3939,
+  serialized_end=4079,
 )
 _sym_db.RegisterEnumDescriptor(_BUILD_STATUS)
 
@@ -120,8 +155,8 @@ _HASH_HASHTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4660,
-  serialized_end=4701,
+  serialized_start=5221,
+  serialized_end=5262,
 )
 _sym_db.RegisterEnumDescriptor(_HASH_HASHTYPE)
 
@@ -160,10 +195,40 @@ _PUBSUBCONFIG_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7204,
-  serialized_end=7319,
+  serialized_start=7956,
+  serialized_end=8071,
 )
 _sym_db.RegisterEnumDescriptor(_PUBSUBCONFIG_STATE)
+
+_WEBHOOKCONFIG_STATE = _descriptor.EnumDescriptor(
+  name='State',
+  full_name='google.devtools.cloudbuild.v1.WebhookConfig.State',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='STATE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='OK', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SECRET_DELETED', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=8228,
+  serialized_end=8286,
+)
+_sym_db.RegisterEnumDescriptor(_WEBHOOKCONFIG_STATE)
 
 _PULLREQUESTFILTER_COMMENTCONTROL = _descriptor.EnumDescriptor(
   name='CommentControl',
@@ -190,8 +255,8 @@ _PULLREQUESTFILTER_COMMENTCONTROL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7473,
-  serialized_end=7587,
+  serialized_start=8455,
+  serialized_end=8569,
 )
 _sym_db.RegisterEnumDescriptor(_PULLREQUESTFILTER_COMMENTCONTROL)
 
@@ -215,8 +280,8 @@ _BUILDOPTIONS_VERIFYOPTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9001,
-  serialized_end=9047,
+  serialized_start=10227,
+  serialized_end=10273,
 )
 _sym_db.RegisterEnumDescriptor(_BUILDOPTIONS_VERIFYOPTION)
 
@@ -255,8 +320,8 @@ _BUILDOPTIONS_MACHINETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9049,
-  serialized_end=9153,
+  serialized_start=10275,
+  serialized_end=10379,
 )
 _sym_db.RegisterEnumDescriptor(_BUILDOPTIONS_MACHINETYPE)
 
@@ -280,8 +345,8 @@ _BUILDOPTIONS_SUBSTITUTIONOPTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9155,
-  serialized_end=9208,
+  serialized_start=10381,
+  serialized_end=10434,
 )
 _sym_db.RegisterEnumDescriptor(_BUILDOPTIONS_SUBSTITUTIONOPTION)
 
@@ -310,8 +375,8 @@ _BUILDOPTIONS_LOGSTREAMINGOPTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9210,
-  serialized_end=9281,
+  serialized_start=10436,
+  serialized_end=10507,
 )
 _sym_db.RegisterEnumDescriptor(_BUILDOPTIONS_LOGSTREAMINGOPTION)
 
@@ -355,8 +420,8 @@ _BUILDOPTIONS_LOGGINGMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=9283,
-  serialized_end=9407,
+  serialized_start=10509,
+  serialized_end=10633,
 )
 _sym_db.RegisterEnumDescriptor(_BUILDOPTIONS_LOGGINGMODE)
 
@@ -395,8 +460,8 @@ _WORKERPOOL_REGION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10013,
-  serialized_end=10104,
+  serialized_start=11254,
+  serialized_end=11345,
 )
 _sym_db.RegisterEnumDescriptor(_WORKERPOOL_REGION)
 
@@ -435,8 +500,8 @@ _WORKERPOOL_STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10106,
-  serialized_end=10192,
+  serialized_start=11347,
+  serialized_end=11433,
 )
 _sym_db.RegisterEnumDescriptor(_WORKERPOOL_STATUS)
 
@@ -496,21 +561,28 @@ _RUNBUILDTRIGGERREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='google.devtools.cloudbuild.v1.RunBuildTriggerRequest.project_id', index=0,
+      name='name', full_name='google.devtools.cloudbuild.v1.RunBuildTriggerRequest.name', index=0,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A(\n&cloudbuild.googleapis.com/BuildTrigger', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='project_id', full_name='google.devtools.cloudbuild.v1.RunBuildTriggerRequest.project_id', index=1,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='trigger_id', full_name='google.devtools.cloudbuild.v1.RunBuildTriggerRequest.trigger_id', index=1,
+      name='trigger_id', full_name='google.devtools.cloudbuild.v1.RunBuildTriggerRequest.trigger_id', index=2,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='source', full_name='google.devtools.cloudbuild.v1.RunBuildTriggerRequest.source', index=2,
+      name='source', full_name='google.devtools.cloudbuild.v1.RunBuildTriggerRequest.source', index=3,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -529,7 +601,7 @@ _RUNBUILDTRIGGERREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=504,
-  serialized_end=637,
+  serialized_end=696,
 )
 
 
@@ -574,8 +646,8 @@ _STORAGESOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=639,
-  serialized_end=706,
+  serialized_start=698,
+  serialized_end=765,
 )
 
 
@@ -613,8 +685,8 @@ _REPOSOURCE_SUBSTITUTIONSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=947,
-  serialized_end=999,
+  serialized_start=1006,
+  serialized_end=1058,
 )
 
 _REPOSOURCE = _descriptor.Descriptor(
@@ -698,8 +770,54 @@ _REPOSOURCE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=709,
-  serialized_end=1011,
+  serialized_start=768,
+  serialized_end=1070,
+)
+
+
+_STORAGESOURCEMANIFEST = _descriptor.Descriptor(
+  name='StorageSourceManifest',
+  full_name='google.devtools.cloudbuild.v1.StorageSourceManifest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='bucket', full_name='google.devtools.cloudbuild.v1.StorageSourceManifest.bucket', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='object', full_name='google.devtools.cloudbuild.v1.StorageSourceManifest.object', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='generation', full_name='google.devtools.cloudbuild.v1.StorageSourceManifest.generation', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1072,
+  serialized_end=1147,
 )
 
 
@@ -725,6 +843,13 @@ _SOURCE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='storage_source_manifest', full_name='google.devtools.cloudbuild.v1.Source.storage_source_manifest', index=2,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -742,8 +867,8 @@ _SOURCE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1014,
-  serialized_end=1170,
+  serialized_start=1150,
+  serialized_end=1395,
 )
 
 
@@ -788,8 +913,8 @@ _BUILTIMAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1172,
-  serialized_end=1281,
+  serialized_start=1397,
+  serialized_end=1506,
 )
 
 
@@ -904,8 +1029,8 @@ _BUILDSTEP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1284,
-  serialized_end=1714,
+  serialized_start=1509,
+  serialized_end=1939,
 )
 
 
@@ -943,8 +1068,8 @@ _VOLUME = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1716,
-  serialized_end=1752,
+  serialized_start=1941,
+  serialized_end=1977,
 )
 
 
@@ -1010,8 +1135,8 @@ _RESULTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1755,
-  serialized_end=1994,
+  serialized_start=1980,
+  serialized_end=2219,
 )
 
 
@@ -1049,10 +1174,49 @@ _ARTIFACTRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1996,
-  serialized_end=2092,
+  serialized_start=2221,
+  serialized_end=2317,
 )
 
+
+_BUILD_WARNING = _descriptor.Descriptor(
+  name='Warning',
+  full_name='google.devtools.cloudbuild.v1.Build.Warning',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='text', full_name='google.devtools.cloudbuild.v1.Build.Warning.text', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='priority', full_name='google.devtools.cloudbuild.v1.Build.Warning.priority', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _BUILD_WARNING_PRIORITY,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3626,
+  serialized_end=3794,
+)
 
 _BUILD_SUBSTITUTIONSENTRY = _descriptor.Descriptor(
   name='SubstitutionsEntry',
@@ -1088,8 +1252,8 @@ _BUILD_SUBSTITUTIONSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=947,
-  serialized_end=999,
+  serialized_start=1006,
+  serialized_end=1058,
 )
 
 _BUILD_TIMINGENTRY = _descriptor.Descriptor(
@@ -1126,8 +1290,8 @@ _BUILD_TIMINGENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3385,
-  serialized_end=3471,
+  serialized_start=3850,
+  serialized_end=3936,
 )
 
 _BUILD = _descriptor.Descriptor(
@@ -1320,10 +1484,17 @@ _BUILD = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='warnings', full_name='google.devtools.cloudbuild.v1.Build.warnings', index=26,
+      number=49, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_BUILD_SUBSTITUTIONSENTRY, _BUILD_TIMINGENTRY, ],
+  nested_types=[_BUILD_WARNING, _BUILD_SUBSTITUTIONSENTRY, _BUILD_TIMINGENTRY, ],
   enum_types=[
     _BUILD_STATUS,
   ],
@@ -1333,8 +1504,8 @@ _BUILD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2095,
-  serialized_end=3743,
+  serialized_start=2320,
+  serialized_end=4208,
 )
 
 
@@ -1379,8 +1550,8 @@ _ARTIFACTS_ARTIFACTOBJECTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3850,
-  serialized_end=3962,
+  serialized_start=4315,
+  serialized_end=4427,
 )
 
 _ARTIFACTS = _descriptor.Descriptor(
@@ -1417,8 +1588,8 @@ _ARTIFACTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3746,
-  serialized_end=3962,
+  serialized_start=4211,
+  serialized_end=4427,
 )
 
 
@@ -1456,8 +1627,8 @@ _TIMESPAN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3964,
-  serialized_end=4068,
+  serialized_start=4429,
+  serialized_end=4533,
 )
 
 
@@ -1488,8 +1659,8 @@ _BUILDOPERATIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4070,
-  serialized_end=4147,
+  serialized_start=4535,
+  serialized_end=4612,
 )
 
 
@@ -1527,8 +1698,8 @@ _SOURCEPROVENANCE_FILEHASHESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4413,
-  serialized_end=4505,
+  serialized_start=4974,
+  serialized_end=5066,
 )
 
 _SOURCEPROVENANCE = _descriptor.Descriptor(
@@ -1554,7 +1725,14 @@ _SOURCEPROVENANCE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='file_hashes', full_name='google.devtools.cloudbuild.v1.SourceProvenance.file_hashes', index=2,
+      name='resolved_storage_source_manifest', full_name='google.devtools.cloudbuild.v1.SourceProvenance.resolved_storage_source_manifest', index=2,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='file_hashes', full_name='google.devtools.cloudbuild.v1.SourceProvenance.file_hashes', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1572,8 +1750,8 @@ _SOURCEPROVENANCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4150,
-  serialized_end=4505,
+  serialized_start=4615,
+  serialized_end=5066,
 )
 
 
@@ -1604,8 +1782,8 @@ _FILEHASHES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4507,
-  serialized_end=4575,
+  serialized_start=5068,
+  serialized_end=5136,
 )
 
 
@@ -1644,8 +1822,8 @@ _HASH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4577,
-  serialized_end=4701,
+  serialized_start=5138,
+  serialized_end=5262,
 )
 
 
@@ -1683,8 +1861,8 @@ _SECRETS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4704,
-  serialized_end=4850,
+  serialized_start=5265,
+  serialized_end=5411,
 )
 
 
@@ -1722,8 +1900,8 @@ _INLINESECRET_ENVMAPENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5005,
-  serialized_end=5050,
+  serialized_start=5566,
+  serialized_end=5611,
 )
 
 _INLINESECRET = _descriptor.Descriptor(
@@ -1760,8 +1938,8 @@ _INLINESECRET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4853,
-  serialized_end=5050,
+  serialized_start=5414,
+  serialized_end=5611,
 )
 
 
@@ -1799,8 +1977,8 @@ _SECRETMANAGERSECRET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5052,
-  serialized_end=5157,
+  serialized_start=5613,
+  serialized_end=5718,
 )
 
 
@@ -1838,8 +2016,8 @@ _SECRET_SECRETENVENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5266,
-  serialized_end=5314,
+  serialized_start=5827,
+  serialized_end=5875,
 )
 
 _SECRET = _descriptor.Descriptor(
@@ -1876,8 +2054,8 @@ _SECRET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5160,
-  serialized_end=5314,
+  serialized_start=5721,
+  serialized_end=5875,
 )
 
 
@@ -1922,8 +2100,8 @@ _CREATEBUILDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5317,
-  serialized_end=5474,
+  serialized_start=5878,
+  serialized_end=6035,
 )
 
 
@@ -1968,8 +2146,8 @@ _GETBUILDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5476,
-  serialized_end=5587,
+  serialized_start=6037,
+  serialized_end=6148,
 )
 
 
@@ -2028,8 +2206,8 @@ _LISTBUILDSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5590,
-  serialized_end=5743,
+  serialized_start=6151,
+  serialized_end=6304,
 )
 
 
@@ -2067,8 +2245,8 @@ _LISTBUILDSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5745,
-  serialized_end=5844,
+  serialized_start=6306,
+  serialized_end=6405,
 )
 
 
@@ -2113,8 +2291,8 @@ _CANCELBUILDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5846,
-  serialized_end=5960,
+  serialized_start=6407,
+  serialized_end=6521,
 )
 
 
@@ -2152,8 +2330,8 @@ _BUILDTRIGGER_SUBSTITUTIONSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=947,
-  serialized_end=999,
+  serialized_start=1006,
+  serialized_end=1058,
 )
 
 _BUILDTRIGGER = _descriptor.Descriptor(
@@ -2165,105 +2343,126 @@ _BUILDTRIGGER = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='google.devtools.cloudbuild.v1.BuildTrigger.id', index=0,
+      name='resource_name', full_name='google.devtools.cloudbuild.v1.BuildTrigger.resource_name', index=0,
+      number=34, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='id', full_name='google.devtools.cloudbuild.v1.BuildTrigger.id', index=1,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='description', full_name='google.devtools.cloudbuild.v1.BuildTrigger.description', index=1,
+      name='description', full_name='google.devtools.cloudbuild.v1.BuildTrigger.description', index=2,
       number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='name', full_name='google.devtools.cloudbuild.v1.BuildTrigger.name', index=2,
+      name='name', full_name='google.devtools.cloudbuild.v1.BuildTrigger.name', index=3,
       number=21, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tags', full_name='google.devtools.cloudbuild.v1.BuildTrigger.tags', index=3,
+      name='tags', full_name='google.devtools.cloudbuild.v1.BuildTrigger.tags', index=4,
       number=19, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='trigger_template', full_name='google.devtools.cloudbuild.v1.BuildTrigger.trigger_template', index=4,
+      name='trigger_template', full_name='google.devtools.cloudbuild.v1.BuildTrigger.trigger_template', index=5,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='github', full_name='google.devtools.cloudbuild.v1.BuildTrigger.github', index=5,
+      name='github', full_name='google.devtools.cloudbuild.v1.BuildTrigger.github', index=6,
       number=13, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='pubsub_config', full_name='google.devtools.cloudbuild.v1.BuildTrigger.pubsub_config', index=6,
+      name='pubsub_config', full_name='google.devtools.cloudbuild.v1.BuildTrigger.pubsub_config', index=7,
       number=29, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='build', full_name='google.devtools.cloudbuild.v1.BuildTrigger.build', index=7,
+      name='webhook_config', full_name='google.devtools.cloudbuild.v1.BuildTrigger.webhook_config', index=8,
+      number=31, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='autodetect', full_name='google.devtools.cloudbuild.v1.BuildTrigger.autodetect', index=9,
+      number=18, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='build', full_name='google.devtools.cloudbuild.v1.BuildTrigger.build', index=10,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='filename', full_name='google.devtools.cloudbuild.v1.BuildTrigger.filename', index=8,
+      name='filename', full_name='google.devtools.cloudbuild.v1.BuildTrigger.filename', index=11,
       number=8, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='create_time', full_name='google.devtools.cloudbuild.v1.BuildTrigger.create_time', index=9,
+      name='create_time', full_name='google.devtools.cloudbuild.v1.BuildTrigger.create_time', index=12,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='disabled', full_name='google.devtools.cloudbuild.v1.BuildTrigger.disabled', index=10,
+      name='disabled', full_name='google.devtools.cloudbuild.v1.BuildTrigger.disabled', index=13,
       number=9, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='substitutions', full_name='google.devtools.cloudbuild.v1.BuildTrigger.substitutions', index=11,
+      name='substitutions', full_name='google.devtools.cloudbuild.v1.BuildTrigger.substitutions', index=14,
       number=11, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ignored_files', full_name='google.devtools.cloudbuild.v1.BuildTrigger.ignored_files', index=12,
+      name='ignored_files', full_name='google.devtools.cloudbuild.v1.BuildTrigger.ignored_files', index=15,
       number=15, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='included_files', full_name='google.devtools.cloudbuild.v1.BuildTrigger.included_files', index=13,
+      name='included_files', full_name='google.devtools.cloudbuild.v1.BuildTrigger.included_files', index=16,
       number=16, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='filter', full_name='google.devtools.cloudbuild.v1.BuildTrigger.filter', index=14,
+      name='filter', full_name='google.devtools.cloudbuild.v1.BuildTrigger.filter', index=17,
       number=30, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -2275,7 +2474,7 @@ _BUILDTRIGGER = _descriptor.Descriptor(
   nested_types=[_BUILDTRIGGER_SUBSTITUTIONSENTRY, ],
   enum_types=[
   ],
-  serialized_options=b'\352AO\n&cloudbuild.googleapis.com/BuildTrigger\022%projects/{project}/triggers/{trigger}',
+  serialized_options=b'\352A\236\001\n&cloudbuild.googleapis.com/BuildTrigger\022%projects/{project}/triggers/{trigger}\022:projects/{project}/locations/{location}/triggers/{trigger}*\010triggers2\007trigger',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -2286,8 +2485,8 @@ _BUILDTRIGGER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=5963,
-  serialized_end=6710,
+  serialized_start=6524,
+  serialized_end=7462,
 )
 
 
@@ -2351,8 +2550,8 @@ _GITHUBEVENTSCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=6713,
-  serialized_end=6933,
+  serialized_start=7465,
+  serialized_end=7685,
 )
 
 
@@ -2405,8 +2604,53 @@ _PUBSUBCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6936,
-  serialized_end=7319,
+  serialized_start=7688,
+  serialized_end=8071,
+)
+
+
+_WEBHOOKCONFIG = _descriptor.Descriptor(
+  name='WebhookConfig',
+  full_name='google.devtools.cloudbuild.v1.WebhookConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='secret', full_name='google.devtools.cloudbuild.v1.WebhookConfig.secret', index=0,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A,\n*secretmanager.googleapis.com/SecretVersion', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='state', full_name='google.devtools.cloudbuild.v1.WebhookConfig.state', index=1,
+      number=4, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _WEBHOOKCONFIG_STATE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='auth_method', full_name='google.devtools.cloudbuild.v1.WebhookConfig.auth_method',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=8074,
+  serialized_end=8301,
 )
 
 
@@ -2457,8 +2701,8 @@ _PULLREQUESTFILTER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=7322,
-  serialized_end=7598,
+  serialized_start=8304,
+  serialized_end=8580,
 )
 
 
@@ -2508,8 +2752,8 @@ _PUSHFILTER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=7600,
-  serialized_end=7678,
+  serialized_start=8582,
+  serialized_end=8660,
 )
 
 
@@ -2522,14 +2766,21 @@ _CREATEBUILDTRIGGERREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='google.devtools.cloudbuild.v1.CreateBuildTriggerRequest.project_id', index=0,
+      name='parent', full_name='google.devtools.cloudbuild.v1.CreateBuildTriggerRequest.parent', index=0,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A(\022&cloudbuild.googleapis.com/BuildTrigger', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='project_id', full_name='google.devtools.cloudbuild.v1.CreateBuildTriggerRequest.project_id', index=1,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='trigger', full_name='google.devtools.cloudbuild.v1.CreateBuildTriggerRequest.trigger', index=1,
+      name='trigger', full_name='google.devtools.cloudbuild.v1.CreateBuildTriggerRequest.trigger', index=2,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -2547,8 +2798,8 @@ _CREATEBUILDTRIGGERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7680,
-  serialized_end=7799,
+  serialized_start=8663,
+  serialized_end=8843,
 )
 
 
@@ -2561,14 +2812,21 @@ _GETBUILDTRIGGERREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='google.devtools.cloudbuild.v1.GetBuildTriggerRequest.project_id', index=0,
+      name='name', full_name='google.devtools.cloudbuild.v1.GetBuildTriggerRequest.name', index=0,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A(\n&cloudbuild.googleapis.com/BuildTrigger', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='project_id', full_name='google.devtools.cloudbuild.v1.GetBuildTriggerRequest.project_id', index=1,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='trigger_id', full_name='google.devtools.cloudbuild.v1.GetBuildTriggerRequest.trigger_id', index=1,
+      name='trigger_id', full_name='google.devtools.cloudbuild.v1.GetBuildTriggerRequest.trigger_id', index=2,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -2586,8 +2844,8 @@ _GETBUILDTRIGGERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7801,
-  serialized_end=7875,
+  serialized_start=8846,
+  serialized_end=8979,
 )
 
 
@@ -2600,21 +2858,28 @@ _LISTBUILDTRIGGERSREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='google.devtools.cloudbuild.v1.ListBuildTriggersRequest.project_id', index=0,
+      name='parent', full_name='google.devtools.cloudbuild.v1.ListBuildTriggersRequest.parent', index=0,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A(\022&cloudbuild.googleapis.com/BuildTrigger', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='project_id', full_name='google.devtools.cloudbuild.v1.ListBuildTriggersRequest.project_id', index=1,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='page_size', full_name='google.devtools.cloudbuild.v1.ListBuildTriggersRequest.page_size', index=1,
+      name='page_size', full_name='google.devtools.cloudbuild.v1.ListBuildTriggersRequest.page_size', index=2,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='page_token', full_name='google.devtools.cloudbuild.v1.ListBuildTriggersRequest.page_token', index=2,
+      name='page_token', full_name='google.devtools.cloudbuild.v1.ListBuildTriggersRequest.page_token', index=3,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -2632,8 +2897,8 @@ _LISTBUILDTRIGGERSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7877,
-  serialized_end=7967,
+  serialized_start=8982,
+  serialized_end=9133,
 )
 
 
@@ -2671,8 +2936,8 @@ _LISTBUILDTRIGGERSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7969,
-  serialized_end=8084,
+  serialized_start=9135,
+  serialized_end=9250,
 )
 
 
@@ -2685,14 +2950,21 @@ _DELETEBUILDTRIGGERREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='google.devtools.cloudbuild.v1.DeleteBuildTriggerRequest.project_id', index=0,
+      name='name', full_name='google.devtools.cloudbuild.v1.DeleteBuildTriggerRequest.name', index=0,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A(\n&cloudbuild.googleapis.com/BuildTrigger', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='project_id', full_name='google.devtools.cloudbuild.v1.DeleteBuildTriggerRequest.project_id', index=1,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='trigger_id', full_name='google.devtools.cloudbuild.v1.DeleteBuildTriggerRequest.trigger_id', index=1,
+      name='trigger_id', full_name='google.devtools.cloudbuild.v1.DeleteBuildTriggerRequest.trigger_id', index=2,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -2710,8 +2982,8 @@ _DELETEBUILDTRIGGERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8086,
-  serialized_end=8163,
+  serialized_start=9253,
+  serialized_end=9389,
 )
 
 
@@ -2756,8 +3028,8 @@ _UPDATEBUILDTRIGGERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8166,
-  serialized_end=8310,
+  serialized_start=9392,
+  serialized_end=9536,
 )
 
 
@@ -2870,8 +3142,8 @@ _BUILDOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8313,
-  serialized_end=9407,
+  serialized_start=9539,
+  serialized_end=10633,
 )
 
 
@@ -2884,28 +3156,35 @@ _RECEIVETRIGGERWEBHOOKREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='body', full_name='google.devtools.cloudbuild.v1.ReceiveTriggerWebhookRequest.body', index=0,
+      name='name', full_name='google.devtools.cloudbuild.v1.ReceiveTriggerWebhookRequest.name', index=0,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='body', full_name='google.devtools.cloudbuild.v1.ReceiveTriggerWebhookRequest.body', index=1,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='google.devtools.cloudbuild.v1.ReceiveTriggerWebhookRequest.project_id', index=1,
+      name='project_id', full_name='google.devtools.cloudbuild.v1.ReceiveTriggerWebhookRequest.project_id', index=2,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='trigger', full_name='google.devtools.cloudbuild.v1.ReceiveTriggerWebhookRequest.trigger', index=2,
+      name='trigger', full_name='google.devtools.cloudbuild.v1.ReceiveTriggerWebhookRequest.trigger', index=3,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='secret', full_name='google.devtools.cloudbuild.v1.ReceiveTriggerWebhookRequest.secret', index=3,
+      name='secret', full_name='google.devtools.cloudbuild.v1.ReceiveTriggerWebhookRequest.secret', index=4,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -2923,8 +3202,8 @@ _RECEIVETRIGGERWEBHOOKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9409,
-  serialized_end=9528,
+  serialized_start=10636,
+  serialized_end=10769,
 )
 
 
@@ -2948,8 +3227,8 @@ _RECEIVETRIGGERWEBHOOKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9530,
-  serialized_end=9561,
+  serialized_start=10771,
+  serialized_end=10802,
 )
 
 
@@ -3045,8 +3324,8 @@ _WORKERPOOL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9564,
-  serialized_end=10192,
+  serialized_start=10805,
+  serialized_end=11433,
 )
 
 
@@ -3098,8 +3377,8 @@ _WORKERCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10195,
-  serialized_end=10323,
+  serialized_start=11436,
+  serialized_end=11564,
 )
 
 
@@ -3144,8 +3423,8 @@ _NETWORK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10325,
-  serialized_end=10391,
+  serialized_start=11566,
+  serialized_end=11632,
 )
 
 
@@ -3183,8 +3462,8 @@ _CREATEWORKERPOOLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10393,
-  serialized_end=10498,
+  serialized_start=11634,
+  serialized_end=11739,
 )
 
 
@@ -3215,8 +3494,8 @@ _GETWORKERPOOLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10500,
-  serialized_end=10536,
+  serialized_start=11741,
+  serialized_end=11777,
 )
 
 
@@ -3247,8 +3526,8 @@ _DELETEWORKERPOOLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10538,
-  serialized_end=10577,
+  serialized_start=11779,
+  serialized_end=11818,
 )
 
 
@@ -3286,8 +3565,8 @@ _UPDATEWORKERPOOLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10579,
-  serialized_end=10682,
+  serialized_start=11820,
+  serialized_end=11923,
 )
 
 
@@ -3318,8 +3597,8 @@ _LISTWORKERPOOLSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10684,
-  serialized_end=10724,
+  serialized_start=11925,
+  serialized_end=11965,
 )
 
 
@@ -3350,8 +3629,8 @@ _LISTWORKERPOOLSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10726,
-  serialized_end=10816,
+  serialized_start=11967,
+  serialized_end=12057,
 )
 
 _RUNBUILDTRIGGERREQUEST.fields_by_name['source'].message_type = _REPOSOURCE
@@ -3368,12 +3647,16 @@ _REPOSOURCE.oneofs_by_name['revision'].fields.append(
 _REPOSOURCE.fields_by_name['commit_sha'].containing_oneof = _REPOSOURCE.oneofs_by_name['revision']
 _SOURCE.fields_by_name['storage_source'].message_type = _STORAGESOURCE
 _SOURCE.fields_by_name['repo_source'].message_type = _REPOSOURCE
+_SOURCE.fields_by_name['storage_source_manifest'].message_type = _STORAGESOURCEMANIFEST
 _SOURCE.oneofs_by_name['source'].fields.append(
   _SOURCE.fields_by_name['storage_source'])
 _SOURCE.fields_by_name['storage_source'].containing_oneof = _SOURCE.oneofs_by_name['source']
 _SOURCE.oneofs_by_name['source'].fields.append(
   _SOURCE.fields_by_name['repo_source'])
 _SOURCE.fields_by_name['repo_source'].containing_oneof = _SOURCE.oneofs_by_name['source']
+_SOURCE.oneofs_by_name['source'].fields.append(
+  _SOURCE.fields_by_name['storage_source_manifest'])
+_SOURCE.fields_by_name['storage_source_manifest'].containing_oneof = _SOURCE.oneofs_by_name['source']
 _BUILTIMAGE.fields_by_name['push_timing'].message_type = _TIMESPAN
 _BUILDSTEP.fields_by_name['volumes'].message_type = _VOLUME
 _BUILDSTEP.fields_by_name['timing'].message_type = _TIMESPAN
@@ -3383,6 +3666,9 @@ _BUILDSTEP.fields_by_name['status'].enum_type = _BUILD_STATUS
 _RESULTS.fields_by_name['images'].message_type = _BUILTIMAGE
 _RESULTS.fields_by_name['artifact_timing'].message_type = _TIMESPAN
 _ARTIFACTRESULT.fields_by_name['file_hash'].message_type = _FILEHASHES
+_BUILD_WARNING.fields_by_name['priority'].enum_type = _BUILD_WARNING_PRIORITY
+_BUILD_WARNING.containing_type = _BUILD
+_BUILD_WARNING_PRIORITY.containing_type = _BUILD_WARNING
 _BUILD_SUBSTITUTIONSENTRY.containing_type = _BUILD
 _BUILD_TIMINGENTRY.fields_by_name['value'].message_type = _TIMESPAN
 _BUILD_TIMINGENTRY.containing_type = _BUILD
@@ -3402,6 +3688,7 @@ _BUILD.fields_by_name['substitutions'].message_type = _BUILD_SUBSTITUTIONSENTRY
 _BUILD.fields_by_name['secrets'].message_type = _SECRET
 _BUILD.fields_by_name['timing'].message_type = _BUILD_TIMINGENTRY
 _BUILD.fields_by_name['available_secrets'].message_type = _SECRETS
+_BUILD.fields_by_name['warnings'].message_type = _BUILD_WARNING
 _BUILD_STATUS.containing_type = _BUILD
 _ARTIFACTS_ARTIFACTOBJECTS.fields_by_name['timing'].message_type = _TIMESPAN
 _ARTIFACTS_ARTIFACTOBJECTS.containing_type = _ARTIFACTS
@@ -3413,6 +3700,7 @@ _SOURCEPROVENANCE_FILEHASHESENTRY.fields_by_name['value'].message_type = _FILEHA
 _SOURCEPROVENANCE_FILEHASHESENTRY.containing_type = _SOURCEPROVENANCE
 _SOURCEPROVENANCE.fields_by_name['resolved_storage_source'].message_type = _STORAGESOURCE
 _SOURCEPROVENANCE.fields_by_name['resolved_repo_source'].message_type = _REPOSOURCE
+_SOURCEPROVENANCE.fields_by_name['resolved_storage_source_manifest'].message_type = _STORAGESOURCEMANIFEST
 _SOURCEPROVENANCE.fields_by_name['file_hashes'].message_type = _SOURCEPROVENANCE_FILEHASHESENTRY
 _FILEHASHES.fields_by_name['file_hash'].message_type = _HASH
 _HASH.fields_by_name['type'].enum_type = _HASH_HASHTYPE
@@ -3429,9 +3717,13 @@ _BUILDTRIGGER_SUBSTITUTIONSENTRY.containing_type = _BUILDTRIGGER
 _BUILDTRIGGER.fields_by_name['trigger_template'].message_type = _REPOSOURCE
 _BUILDTRIGGER.fields_by_name['github'].message_type = _GITHUBEVENTSCONFIG
 _BUILDTRIGGER.fields_by_name['pubsub_config'].message_type = _PUBSUBCONFIG
+_BUILDTRIGGER.fields_by_name['webhook_config'].message_type = _WEBHOOKCONFIG
 _BUILDTRIGGER.fields_by_name['build'].message_type = _BUILD
 _BUILDTRIGGER.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _BUILDTRIGGER.fields_by_name['substitutions'].message_type = _BUILDTRIGGER_SUBSTITUTIONSENTRY
+_BUILDTRIGGER.oneofs_by_name['build_template'].fields.append(
+  _BUILDTRIGGER.fields_by_name['autodetect'])
+_BUILDTRIGGER.fields_by_name['autodetect'].containing_oneof = _BUILDTRIGGER.oneofs_by_name['build_template']
 _BUILDTRIGGER.oneofs_by_name['build_template'].fields.append(
   _BUILDTRIGGER.fields_by_name['build'])
 _BUILDTRIGGER.fields_by_name['build'].containing_oneof = _BUILDTRIGGER.oneofs_by_name['build_template']
@@ -3448,6 +3740,11 @@ _GITHUBEVENTSCONFIG.oneofs_by_name['event'].fields.append(
 _GITHUBEVENTSCONFIG.fields_by_name['push'].containing_oneof = _GITHUBEVENTSCONFIG.oneofs_by_name['event']
 _PUBSUBCONFIG.fields_by_name['state'].enum_type = _PUBSUBCONFIG_STATE
 _PUBSUBCONFIG_STATE.containing_type = _PUBSUBCONFIG
+_WEBHOOKCONFIG.fields_by_name['state'].enum_type = _WEBHOOKCONFIG_STATE
+_WEBHOOKCONFIG_STATE.containing_type = _WEBHOOKCONFIG
+_WEBHOOKCONFIG.oneofs_by_name['auth_method'].fields.append(
+  _WEBHOOKCONFIG.fields_by_name['secret'])
+_WEBHOOKCONFIG.fields_by_name['secret'].containing_oneof = _WEBHOOKCONFIG.oneofs_by_name['auth_method']
 _PULLREQUESTFILTER.fields_by_name['comment_control'].enum_type = _PULLREQUESTFILTER_COMMENTCONTROL
 _PULLREQUESTFILTER_COMMENTCONTROL.containing_type = _PULLREQUESTFILTER
 _PULLREQUESTFILTER.oneofs_by_name['git_ref'].fields.append(
@@ -3491,6 +3788,7 @@ DESCRIPTOR.message_types_by_name['RetryBuildRequest'] = _RETRYBUILDREQUEST
 DESCRIPTOR.message_types_by_name['RunBuildTriggerRequest'] = _RUNBUILDTRIGGERREQUEST
 DESCRIPTOR.message_types_by_name['StorageSource'] = _STORAGESOURCE
 DESCRIPTOR.message_types_by_name['RepoSource'] = _REPOSOURCE
+DESCRIPTOR.message_types_by_name['StorageSourceManifest'] = _STORAGESOURCEMANIFEST
 DESCRIPTOR.message_types_by_name['Source'] = _SOURCE
 DESCRIPTOR.message_types_by_name['BuiltImage'] = _BUILTIMAGE
 DESCRIPTOR.message_types_by_name['BuildStep'] = _BUILDSTEP
@@ -3516,6 +3814,7 @@ DESCRIPTOR.message_types_by_name['CancelBuildRequest'] = _CANCELBUILDREQUEST
 DESCRIPTOR.message_types_by_name['BuildTrigger'] = _BUILDTRIGGER
 DESCRIPTOR.message_types_by_name['GitHubEventsConfig'] = _GITHUBEVENTSCONFIG
 DESCRIPTOR.message_types_by_name['PubsubConfig'] = _PUBSUBCONFIG
+DESCRIPTOR.message_types_by_name['WebhookConfig'] = _WEBHOOKCONFIG
 DESCRIPTOR.message_types_by_name['PullRequestFilter'] = _PULLREQUESTFILTER
 DESCRIPTOR.message_types_by_name['PushFilter'] = _PUSHFILTER
 DESCRIPTOR.message_types_by_name['CreateBuildTriggerRequest'] = _CREATEBUILDTRIGGERREQUEST
@@ -3574,6 +3873,13 @@ RepoSource = _reflection.GeneratedProtocolMessageType('RepoSource', (_message.Me
 _sym_db.RegisterMessage(RepoSource)
 _sym_db.RegisterMessage(RepoSource.SubstitutionsEntry)
 
+StorageSourceManifest = _reflection.GeneratedProtocolMessageType('StorageSourceManifest', (_message.Message,), {
+  'DESCRIPTOR' : _STORAGESOURCEMANIFEST,
+  '__module__' : 'google.devtools.cloudbuild.v1.cloudbuild_pb2'
+  # @@protoc_insertion_point(class_scope:google.devtools.cloudbuild.v1.StorageSourceManifest)
+  })
+_sym_db.RegisterMessage(StorageSourceManifest)
+
 Source = _reflection.GeneratedProtocolMessageType('Source', (_message.Message,), {
   'DESCRIPTOR' : _SOURCE,
   '__module__' : 'google.devtools.cloudbuild.v1.cloudbuild_pb2'
@@ -3618,6 +3924,13 @@ _sym_db.RegisterMessage(ArtifactResult)
 
 Build = _reflection.GeneratedProtocolMessageType('Build', (_message.Message,), {
 
+  'Warning' : _reflection.GeneratedProtocolMessageType('Warning', (_message.Message,), {
+    'DESCRIPTOR' : _BUILD_WARNING,
+    '__module__' : 'google.devtools.cloudbuild.v1.cloudbuild_pb2'
+    # @@protoc_insertion_point(class_scope:google.devtools.cloudbuild.v1.Build.Warning)
+    })
+  ,
+
   'SubstitutionsEntry' : _reflection.GeneratedProtocolMessageType('SubstitutionsEntry', (_message.Message,), {
     'DESCRIPTOR' : _BUILD_SUBSTITUTIONSENTRY,
     '__module__' : 'google.devtools.cloudbuild.v1.cloudbuild_pb2'
@@ -3636,6 +3949,7 @@ Build = _reflection.GeneratedProtocolMessageType('Build', (_message.Message,), {
   # @@protoc_insertion_point(class_scope:google.devtools.cloudbuild.v1.Build)
   })
 _sym_db.RegisterMessage(Build)
+_sym_db.RegisterMessage(Build.Warning)
 _sym_db.RegisterMessage(Build.SubstitutionsEntry)
 _sym_db.RegisterMessage(Build.TimingEntry)
 
@@ -3805,6 +4119,13 @@ PubsubConfig = _reflection.GeneratedProtocolMessageType('PubsubConfig', (_messag
   })
 _sym_db.RegisterMessage(PubsubConfig)
 
+WebhookConfig = _reflection.GeneratedProtocolMessageType('WebhookConfig', (_message.Message,), {
+  'DESCRIPTOR' : _WEBHOOKCONFIG,
+  '__module__' : 'google.devtools.cloudbuild.v1.cloudbuild_pb2'
+  # @@protoc_insertion_point(class_scope:google.devtools.cloudbuild.v1.WebhookConfig)
+  })
+_sym_db.RegisterMessage(WebhookConfig)
+
 PullRequestFilter = _reflection.GeneratedProtocolMessageType('PullRequestFilter', (_message.Message,), {
   'DESCRIPTOR' : _PULLREQUESTFILTER,
   '__module__' : 'google.devtools.cloudbuild.v1.cloudbuild_pb2'
@@ -3950,6 +4271,7 @@ DESCRIPTOR._options = None
 _RETRYBUILDREQUEST.fields_by_name['name']._options = None
 _RETRYBUILDREQUEST.fields_by_name['project_id']._options = None
 _RETRYBUILDREQUEST.fields_by_name['id']._options = None
+_RUNBUILDTRIGGERREQUEST.fields_by_name['name']._options = None
 _RUNBUILDTRIGGERREQUEST.fields_by_name['project_id']._options = None
 _RUNBUILDTRIGGERREQUEST.fields_by_name['trigger_id']._options = None
 _REPOSOURCE_SUBSTITUTIONSENTRY._options = None
@@ -3973,6 +4295,7 @@ _BUILD.fields_by_name['build_trigger_id']._options = None
 _BUILD.fields_by_name['log_url']._options = None
 _BUILD.fields_by_name['timing']._options = None
 _BUILD.fields_by_name['service_account']._options = None
+_BUILD.fields_by_name['warnings']._options = None
 _BUILD._options = None
 _ARTIFACTS_ARTIFACTOBJECTS.fields_by_name['timing']._options = None
 _SOURCEPROVENANCE_FILEHASHESENTRY._options = None
@@ -3994,7 +4317,6 @@ _CANCELBUILDREQUEST.fields_by_name['project_id']._options = None
 _CANCELBUILDREQUEST.fields_by_name['id']._options = None
 _BUILDTRIGGER_SUBSTITUTIONSENTRY._options = None
 _BUILDTRIGGER.fields_by_name['id']._options = None
-_BUILDTRIGGER.fields_by_name['pubsub_config']._options = None
 _BUILDTRIGGER.fields_by_name['create_time']._options = None
 _BUILDTRIGGER.fields_by_name['filter']._options = None
 _BUILDTRIGGER._options = None
@@ -4002,11 +4324,16 @@ _GITHUBEVENTSCONFIG.fields_by_name['installation_id']._options = None
 _PUBSUBCONFIG.fields_by_name['subscription']._options = None
 _PUBSUBCONFIG.fields_by_name['topic']._options = None
 _PUBSUBCONFIG.fields_by_name['service_account_email']._options = None
+_WEBHOOKCONFIG.fields_by_name['secret']._options = None
+_CREATEBUILDTRIGGERREQUEST.fields_by_name['parent']._options = None
 _CREATEBUILDTRIGGERREQUEST.fields_by_name['project_id']._options = None
 _CREATEBUILDTRIGGERREQUEST.fields_by_name['trigger']._options = None
+_GETBUILDTRIGGERREQUEST.fields_by_name['name']._options = None
 _GETBUILDTRIGGERREQUEST.fields_by_name['project_id']._options = None
 _GETBUILDTRIGGERREQUEST.fields_by_name['trigger_id']._options = None
+_LISTBUILDTRIGGERSREQUEST.fields_by_name['parent']._options = None
 _LISTBUILDTRIGGERSREQUEST.fields_by_name['project_id']._options = None
+_DELETEBUILDTRIGGERREQUEST.fields_by_name['name']._options = None
 _DELETEBUILDTRIGGERREQUEST.fields_by_name['project_id']._options = None
 _DELETEBUILDTRIGGERREQUEST.fields_by_name['trigger_id']._options = None
 _UPDATEBUILDTRIGGERREQUEST.fields_by_name['project_id']._options = None
@@ -4021,8 +4348,8 @@ _CLOUDBUILD = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031cloudbuild.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=10819,
-  serialized_end=14143,
+  serialized_start=12060,
+  serialized_end=15780,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateBuild',
@@ -4081,7 +4408,7 @@ _CLOUDBUILD = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_CREATEBUILDTRIGGERREQUEST,
     output_type=_BUILDTRIGGER,
-    serialized_options=b'\202\323\344\223\002-\"\"/v1/projects/{project_id}/triggers:\007trigger\332A\022project_id,trigger',
+    serialized_options=b'\202\323\344\223\002f\"\"/v1/projects/{project_id}/triggers:\007triggerZ7\",/v1/{parent=projects/*/locations/*}/triggers:\007trigger\332A\022project_id,trigger',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -4091,7 +4418,7 @@ _CLOUDBUILD = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETBUILDTRIGGERREQUEST,
     output_type=_BUILDTRIGGER,
-    serialized_options=b'\202\323\344\223\0021\022//v1/projects/{project_id}/triggers/{trigger_id}\332A\025project_id,trigger_id',
+    serialized_options=b'\202\323\344\223\002a\022//v1/projects/{project_id}/triggers/{trigger_id}Z.\022,/v1/{name=projects/*/locations/*/triggers/*}\332A\025project_id,trigger_id',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -4101,7 +4428,7 @@ _CLOUDBUILD = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_LISTBUILDTRIGGERSREQUEST,
     output_type=_LISTBUILDTRIGGERSRESPONSE,
-    serialized_options=b'\202\323\344\223\002$\022\"/v1/projects/{project_id}/triggers\332A\nproject_id',
+    serialized_options=b'\202\323\344\223\002T\022\"/v1/projects/{project_id}/triggersZ.\022,/v1/{parent=projects/*/locations/*}/triggers\332A\nproject_id',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -4111,7 +4438,7 @@ _CLOUDBUILD = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_DELETEBUILDTRIGGERREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
-    serialized_options=b'\202\323\344\223\0021*//v1/projects/{project_id}/triggers/{trigger_id}\332A\025project_id,trigger_id',
+    serialized_options=b'\202\323\344\223\002a*//v1/projects/{project_id}/triggers/{trigger_id}Z.*,/v1/{name=projects/*/locations/*/triggers/*}\332A\025project_id,trigger_id',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -4121,7 +4448,7 @@ _CLOUDBUILD = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_UPDATEBUILDTRIGGERREQUEST,
     output_type=_BUILDTRIGGER,
-    serialized_options=b'\202\323\344\223\002:2//v1/projects/{project_id}/triggers/{trigger_id}:\007trigger\332A\035project_id,trigger_id,trigger',
+    serialized_options=b'\202\323\344\223\002\204\0012//v1/projects/{project_id}/triggers/{trigger_id}:\007triggerZH2=/v1/{trigger.resource_name=projects/*/locations/*/triggers/*}:\007trigger\332A\035project_id,trigger_id,trigger',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -4131,7 +4458,7 @@ _CLOUDBUILD = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_RUNBUILDTRIGGERREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
-    serialized_options=b'\202\323\344\223\002=\"3/v1/projects/{project_id}/triggers/{trigger_id}:run:\006source\332A\034project_id,trigger_id,source\312A\037\n\005Build\022\026BuildOperationMetadata',
+    serialized_options=b'\202\323\344\223\002t\"3/v1/projects/{project_id}/triggers/{trigger_id}:run:\006sourceZ5\"0/v1/{name=projects/*/locations/*/triggers/*}:run:\001*\332A\034project_id,trigger_id,source\312A\037\n\005Build\022\026BuildOperationMetadata',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
@@ -4141,7 +4468,7 @@ _CLOUDBUILD = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_RECEIVETRIGGERWEBHOOKREQUEST,
     output_type=_RECEIVETRIGGERWEBHOOKRESPONSE,
-    serialized_options=b'\202\323\344\223\002<\"4/v1/projects/{project_id}/triggers/{trigger}:webhook:\004body',
+    serialized_options=b'\202\323\344\223\002z\"4/v1/projects/{project_id}/triggers/{trigger}:webhook:\004bodyZ<\"4/v1/{name=projects/*/locations/*/triggers/*}:webhook:\004body',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(

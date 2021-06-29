@@ -19,9 +19,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1/io.proto',
   package='google.cloud.aiplatform.v1',
   syntax='proto3',
-  serialized_options=b'\n\036com.google.cloud.aiplatform.v1B\007IoProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform',
+  serialized_options=b'\n\036com.google.cloud.aiplatform.v1B\007IoProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\252\002\032Google.Cloud.AIPlatform.V1\312\002\032Google\\Cloud\\AIPlatform\\V1\352\002\035Google::Cloud::AIPlatform::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n#google/cloud/aiplatform/v1/io.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/api/annotations.proto\"\x1e\n\tGcsSource\x12\x11\n\x04uris\x18\x01 \x03(\tB\x03\xe0\x41\x02\"0\n\x0eGcsDestination\x12\x1e\n\x11output_uri_prefix\x18\x01 \x01(\tB\x03\xe0\x41\x02\"(\n\x0e\x42igQuerySource\x12\x16\n\tinput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\".\n\x13\x42igQueryDestination\x12\x17\n\noutput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\"7\n\x1c\x43ontainerRegistryDestination\x12\x17\n\noutput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x42q\n\x1e\x63om.google.cloud.aiplatform.v1B\x07IoProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatformb\x06proto3'
+  serialized_pb=b'\n#google/cloud/aiplatform/v1/io.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/api/annotations.proto\"\x1e\n\tGcsSource\x12\x11\n\x04uris\x18\x01 \x03(\tB\x03\xe0\x41\x02\"0\n\x0eGcsDestination\x12\x1e\n\x11output_uri_prefix\x18\x01 \x01(\tB\x03\xe0\x41\x02\"(\n\x0e\x42igQuerySource\x12\x16\n\tinput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\".\n\x13\x42igQueryDestination\x12\x17\n\noutput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\"7\n\x1c\x43ontainerRegistryDestination\x12\x17\n\noutput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x42\xcb\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x07IoProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 

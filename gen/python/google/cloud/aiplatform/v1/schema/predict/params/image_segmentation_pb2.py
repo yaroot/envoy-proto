@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1/schema/predict/params/image_segmentation.proto',
   package='google.cloud.aiplatform.v1.schema.predict.params',
   syntax='proto3',
-  serialized_options=b'\n4com.google.cloud.aiplatform.v1.schema.predict.paramsB&ImageSegmentationPredictionParamsProtoP\001ZVgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/params;params',
+  serialized_options=b'\n4com.google.cloud.aiplatform.v1.schema.predict.paramsB&ImageSegmentationPredictionParamsProtoP\001ZVgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/params;params\252\0020Google.Cloud.AIPlatform.V1.Schema.Predict.Params\312\0020Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Params\352\0026Google::Cloud::AIPlatform::V1::Schema::Predict::Params',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nIgoogle/cloud/aiplatform/v1/schema/predict/params/image_segmentation.proto\x12\x30google.cloud.aiplatform.v1.schema.predict.params\x1a\x1cgoogle/api/annotations.proto\"A\n!ImageSegmentationPredictionParams\x12\x1c\n\x14\x63onfidence_threshold\x18\x01 \x01(\x02\x42\xb8\x01\n4com.google.cloud.aiplatform.v1.schema.predict.paramsB&ImageSegmentationPredictionParamsProtoP\x01ZVgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/params;paramsb\x06proto3'
+  serialized_pb=b'\nIgoogle/cloud/aiplatform/v1/schema/predict/params/image_segmentation.proto\x12\x30google.cloud.aiplatform.v1.schema.predict.params\x1a\x1cgoogle/api/annotations.proto\"A\n!ImageSegmentationPredictionParams\x12\x1c\n\x14\x63onfidence_threshold\x18\x01 \x01(\x02\x42\xd7\x02\n4com.google.cloud.aiplatform.v1.schema.predict.paramsB&ImageSegmentationPredictionParamsProtoP\x01ZVgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/params;params\xaa\x02\x30Google.Cloud.AIPlatform.V1.Schema.Predict.Params\xca\x02\x30Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Params\xea\x02\x36Google::Cloud::AIPlatform::V1::Schema::Predict::Paramsb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 

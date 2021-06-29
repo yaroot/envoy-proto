@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n&com.google.cloud.dialogflow.cx.v3beta1B\020FulfillmentProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\370\001\001\242\002\002DF\252\002\"Google.Cloud.Dialogflow.Cx.V3Beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n4google/cloud/dialogflow/cx/v3beta1/fulfillment.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x19google/api/resource.proto\x1a\x39google/cloud/dialogflow/cx/v3beta1/response_message.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1cgoogle/api/annotations.proto\"\xe4\x06\n\x0b\x46ulfillment\x12\x45\n\x08messages\x18\x01 \x03(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.ResponseMessage\x12\x37\n\x07webhook\x18\x02 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Webhook\x12\x0b\n\x03tag\x18\x03 \x01(\t\x12\x61\n\x15set_parameter_actions\x18\x04 \x03(\x0b\x32\x42.google.cloud.dialogflow.cx.v3beta1.Fulfillment.SetParameterAction\x12[\n\x11\x63onditional_cases\x18\x05 \x03(\x0b\x32@.google.cloud.dialogflow.cx.v3beta1.Fulfillment.ConditionalCases\x1aN\n\x12SetParameterAction\x12\x11\n\tparameter\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value\x1a\xb7\x03\n\x10\x43onditionalCases\x12T\n\x05\x63\x61ses\x18\x01 \x03(\x0b\x32\x45.google.cloud.dialogflow.cx.v3beta1.Fulfillment.ConditionalCases.Case\x1a\xcc\x02\n\x04\x43\x61se\x12\x11\n\tcondition\x18\x01 \x01(\t\x12g\n\x0c\x63\x61se_content\x18\x02 \x03(\x0b\x32Q.google.cloud.dialogflow.cx.v3beta1.Fulfillment.ConditionalCases.Case.CaseContent\x1a\xc7\x01\n\x0b\x43\x61seContent\x12\x46\n\x07message\x18\x01 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.ResponseMessageH\x00\x12\\\n\x10\x61\x64\x64itional_cases\x18\x02 \x01(\x0b\x32@.google.cloud.dialogflow.cx.v3beta1.Fulfillment.ConditionalCasesH\x00\x42\x12\n\x10\x63\x61ses_or_messageB\xaf\x01\n&com.google.cloud.dialogflow.cx.v3beta1B\x10\x46ulfillmentProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1b\x06proto3'
+  serialized_pb=b'\n4google/cloud/dialogflow/cx/v3beta1/fulfillment.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x19google/api/resource.proto\x1a\x39google/cloud/dialogflow/cx/v3beta1/response_message.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1cgoogle/api/annotations.proto\"\x86\x07\n\x0b\x46ulfillment\x12\x45\n\x08messages\x18\x01 \x03(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.ResponseMessage\x12\x37\n\x07webhook\x18\x02 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Webhook\x12 \n\x18return_partial_responses\x18\x08 \x01(\x08\x12\x0b\n\x03tag\x18\x03 \x01(\t\x12\x61\n\x15set_parameter_actions\x18\x04 \x03(\x0b\x32\x42.google.cloud.dialogflow.cx.v3beta1.Fulfillment.SetParameterAction\x12[\n\x11\x63onditional_cases\x18\x05 \x03(\x0b\x32@.google.cloud.dialogflow.cx.v3beta1.Fulfillment.ConditionalCases\x1aN\n\x12SetParameterAction\x12\x11\n\tparameter\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value\x1a\xb7\x03\n\x10\x43onditionalCases\x12T\n\x05\x63\x61ses\x18\x01 \x03(\x0b\x32\x45.google.cloud.dialogflow.cx.v3beta1.Fulfillment.ConditionalCases.Case\x1a\xcc\x02\n\x04\x43\x61se\x12\x11\n\tcondition\x18\x01 \x01(\t\x12g\n\x0c\x63\x61se_content\x18\x02 \x03(\x0b\x32Q.google.cloud.dialogflow.cx.v3beta1.Fulfillment.ConditionalCases.Case.CaseContent\x1a\xc7\x01\n\x0b\x43\x61seContent\x12\x46\n\x07message\x18\x01 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.ResponseMessageH\x00\x12\\\n\x10\x61\x64\x64itional_cases\x18\x02 \x01(\x0b\x32@.google.cloud.dialogflow.cx.v3beta1.Fulfillment.ConditionalCasesH\x00\x42\x12\n\x10\x63\x61ses_or_messageB\xaf\x01\n&com.google.cloud.dialogflow.cx.v3beta1B\x10\x46ulfillmentProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_response__message__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -64,8 +64,8 @@ _FULFILLMENT_SETPARAMETERACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=587,
-  serialized_end=665,
+  serialized_start=621,
+  serialized_end=699,
 )
 
 _FULFILLMENT_CONDITIONALCASES_CASE_CASECONTENT = _descriptor.Descriptor(
@@ -107,8 +107,8 @@ _FULFILLMENT_CONDITIONALCASES_CASE_CASECONTENT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=908,
-  serialized_end=1107,
+  serialized_start=942,
+  serialized_end=1141,
 )
 
 _FULFILLMENT_CONDITIONALCASES_CASE = _descriptor.Descriptor(
@@ -145,8 +145,8 @@ _FULFILLMENT_CONDITIONALCASES_CASE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=775,
-  serialized_end=1107,
+  serialized_start=809,
+  serialized_end=1141,
 )
 
 _FULFILLMENT_CONDITIONALCASES = _descriptor.Descriptor(
@@ -176,8 +176,8 @@ _FULFILLMENT_CONDITIONALCASES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=668,
-  serialized_end=1107,
+  serialized_start=702,
+  serialized_end=1141,
 )
 
 _FULFILLMENT = _descriptor.Descriptor(
@@ -203,21 +203,28 @@ _FULFILLMENT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\372A#\n!dialogflow.googleapis.com/Webhook', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tag', full_name='google.cloud.dialogflow.cx.v3beta1.Fulfillment.tag', index=2,
+      name='return_partial_responses', full_name='google.cloud.dialogflow.cx.v3beta1.Fulfillment.return_partial_responses', index=2,
+      number=8, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='tag', full_name='google.cloud.dialogflow.cx.v3beta1.Fulfillment.tag', index=3,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='set_parameter_actions', full_name='google.cloud.dialogflow.cx.v3beta1.Fulfillment.set_parameter_actions', index=3,
+      name='set_parameter_actions', full_name='google.cloud.dialogflow.cx.v3beta1.Fulfillment.set_parameter_actions', index=4,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='conditional_cases', full_name='google.cloud.dialogflow.cx.v3beta1.Fulfillment.conditional_cases', index=4,
+      name='conditional_cases', full_name='google.cloud.dialogflow.cx.v3beta1.Fulfillment.conditional_cases', index=5,
       number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -236,7 +243,7 @@ _FULFILLMENT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=239,
-  serialized_end=1107,
+  serialized_end=1141,
 )
 
 _FULFILLMENT_SETPARAMETERACTION.fields_by_name['value'].message_type = google_dot_protobuf_dot_struct__pb2._VALUE

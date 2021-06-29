@@ -11,7 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.cloud.pubsublite.v1 import common_pb2 as google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 
 
@@ -21,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.cloud.pubsublite.protoB\017SubscriberProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\370\001\001\252\002\032Google.Cloud.PubSubLite.V1\312\002\032Google\\Cloud\\PubSubLite\\V1\352\002\035Google::Cloud::PubSubLite::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n+google/cloud/pubsublite/v1/subscriber.proto\x12\x1agoogle.cloud.pubsublite.v1\x1a\'google/cloud/pubsublite/v1/common.proto\x1a\x17google/api/client.proto\"B\n\x17InitialSubscribeRequest\x12\x14\n\x0csubscription\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\x03\"N\n\x18InitialSubscribeResponse\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\"\xe7\x01\n\x0bSeekRequest\x12K\n\x0cnamed_target\x18\x01 \x01(\x0e\x32\x33.google.cloud.pubsublite.v1.SeekRequest.NamedTargetH\x00\x12\x34\n\x06\x63ursor\x18\x02 \x01(\x0b\x32\".google.cloud.pubsublite.v1.CursorH\x00\"K\n\x0bNamedTarget\x12\x1c\n\x18NAMED_TARGET_UNSPECIFIED\x10\x00\x12\x08\n\x04HEAD\x10\x01\x12\x14\n\x10\x43OMMITTED_CURSOR\x10\x02\x42\x08\n\x06target\"B\n\x0cSeekResponse\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\"E\n\x12\x46lowControlRequest\x12\x18\n\x10\x61llowed_messages\x18\x01 \x01(\x03\x12\x15\n\rallowed_bytes\x18\x02 \x01(\x03\"\xe6\x01\n\x10SubscribeRequest\x12\x46\n\x07initial\x18\x01 \x01(\x0b\x32\x33.google.cloud.pubsublite.v1.InitialSubscribeRequestH\x00\x12\x37\n\x04seek\x18\x02 \x01(\x0b\x32\'.google.cloud.pubsublite.v1.SeekRequestH\x00\x12\x46\n\x0c\x66low_control\x18\x03 \x01(\x0b\x32..google.cloud.pubsublite.v1.FlowControlRequestH\x00\x42\t\n\x07request\"Q\n\x0fMessageResponse\x12>\n\x08messages\x18\x01 \x03(\x0b\x32,.google.cloud.pubsublite.v1.SequencedMessage\"\xe3\x01\n\x11SubscribeResponse\x12G\n\x07initial\x18\x01 \x01(\x0b\x32\x34.google.cloud.pubsublite.v1.InitialSubscribeResponseH\x00\x12\x38\n\x04seek\x18\x02 \x01(\x0b\x32(.google.cloud.pubsublite.v1.SeekResponseH\x00\x12?\n\x08messages\x18\x03 \x01(\x0b\x32+.google.cloud.pubsublite.v1.MessageResponseH\x00\x42\n\n\x08response\"L\n!InitialPartitionAssignmentRequest\x12\x14\n\x0csubscription\x18\x01 \x01(\t\x12\x11\n\tclient_id\x18\x02 \x01(\x0c\")\n\x13PartitionAssignment\x12\x12\n\npartitions\x18\x01 \x03(\x03\"\x18\n\x16PartitionAssignmentAck\"\xbc\x01\n\x1aPartitionAssignmentRequest\x12P\n\x07initial\x18\x01 \x01(\x0b\x32=.google.cloud.pubsublite.v1.InitialPartitionAssignmentRequestH\x00\x12\x41\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\x32.google.cloud.pubsublite.v1.PartitionAssignmentAckH\x00\x42\t\n\x07request2\xd2\x01\n\x11SubscriberService\x12n\n\tSubscribe\x12,.google.cloud.pubsublite.v1.SubscribeRequest\x1a-.google.cloud.pubsublite.v1.SubscribeResponse\"\x00(\x01\x30\x01\x1aM\xca\x41\x19pubsublite.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platform2\xef\x01\n\x1aPartitionAssignmentService\x12\x81\x01\n\x10\x41ssignPartitions\x12\x36.google.cloud.pubsublite.v1.PartitionAssignmentRequest\x1a/.google.cloud.pubsublite.v1.PartitionAssignment\"\x00(\x01\x30\x01\x1aM\xca\x41\x19pubsublite.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xd9\x01\n!com.google.cloud.pubsublite.protoB\x0fSubscriberProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\xf8\x01\x01\xaa\x02\x1aGoogle.Cloud.PubSubLite.V1\xca\x02\x1aGoogle\\Cloud\\PubSubLite\\V1\xea\x02\x1dGoogle::Cloud::PubSubLite::V1b\x06proto3'
+  serialized_pb=b'\n+google/cloud/pubsublite/v1/subscriber.proto\x12\x1agoogle.cloud.pubsublite.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\'google/cloud/pubsublite/v1/common.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\"\x8a\x01\n\x17InitialSubscribeRequest\x12\x14\n\x0csubscription\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\x03\x12\x46\n\x10initial_location\x18\x04 \x01(\x0b\x32\'.google.cloud.pubsublite.v1.SeekRequestB\x03\xe0\x41\x01\"N\n\x18InitialSubscribeResponse\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\"\xe7\x01\n\x0bSeekRequest\x12K\n\x0cnamed_target\x18\x01 \x01(\x0e\x32\x33.google.cloud.pubsublite.v1.SeekRequest.NamedTargetH\x00\x12\x34\n\x06\x63ursor\x18\x02 \x01(\x0b\x32\".google.cloud.pubsublite.v1.CursorH\x00\"K\n\x0bNamedTarget\x12\x1c\n\x18NAMED_TARGET_UNSPECIFIED\x10\x00\x12\x08\n\x04HEAD\x10\x01\x12\x14\n\x10\x43OMMITTED_CURSOR\x10\x02\x42\x08\n\x06target\"B\n\x0cSeekResponse\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\"E\n\x12\x46lowControlRequest\x12\x18\n\x10\x61llowed_messages\x18\x01 \x01(\x03\x12\x15\n\rallowed_bytes\x18\x02 \x01(\x03\"\xe6\x01\n\x10SubscribeRequest\x12\x46\n\x07initial\x18\x01 \x01(\x0b\x32\x33.google.cloud.pubsublite.v1.InitialSubscribeRequestH\x00\x12\x37\n\x04seek\x18\x02 \x01(\x0b\x32\'.google.cloud.pubsublite.v1.SeekRequestH\x00\x12\x46\n\x0c\x66low_control\x18\x03 \x01(\x0b\x32..google.cloud.pubsublite.v1.FlowControlRequestH\x00\x42\t\n\x07request\"Q\n\x0fMessageResponse\x12>\n\x08messages\x18\x01 \x03(\x0b\x32,.google.cloud.pubsublite.v1.SequencedMessage\"\xe3\x01\n\x11SubscribeResponse\x12G\n\x07initial\x18\x01 \x01(\x0b\x32\x34.google.cloud.pubsublite.v1.InitialSubscribeResponseH\x00\x12\x38\n\x04seek\x18\x02 \x01(\x0b\x32(.google.cloud.pubsublite.v1.SeekResponseH\x00\x12?\n\x08messages\x18\x03 \x01(\x0b\x32+.google.cloud.pubsublite.v1.MessageResponseH\x00\x42\n\n\x08response\"L\n!InitialPartitionAssignmentRequest\x12\x14\n\x0csubscription\x18\x01 \x01(\t\x12\x11\n\tclient_id\x18\x02 \x01(\x0c\")\n\x13PartitionAssignment\x12\x12\n\npartitions\x18\x01 \x03(\x03\"\x18\n\x16PartitionAssignmentAck\"\xbc\x01\n\x1aPartitionAssignmentRequest\x12P\n\x07initial\x18\x01 \x01(\x0b\x32=.google.cloud.pubsublite.v1.InitialPartitionAssignmentRequestH\x00\x12\x41\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\x32.google.cloud.pubsublite.v1.PartitionAssignmentAckH\x00\x42\t\n\x07request2\xd2\x01\n\x11SubscriberService\x12n\n\tSubscribe\x12,.google.cloud.pubsublite.v1.SubscribeRequest\x1a-.google.cloud.pubsublite.v1.SubscribeResponse\"\x00(\x01\x30\x01\x1aM\xca\x41\x19pubsublite.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platform2\xef\x01\n\x1aPartitionAssignmentService\x12\x81\x01\n\x10\x41ssignPartitions\x12\x36.google.cloud.pubsublite.v1.PartitionAssignmentRequest\x1a/.google.cloud.pubsublite.v1.PartitionAssignment\"\x00(\x01\x30\x01\x1aM\xca\x41\x19pubsublite.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xd9\x01\n!com.google.cloud.pubsublite.protoB\x0fSubscriberProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\xf8\x01\x01\xaa\x02\x1aGoogle.Cloud.PubSubLite.V1\xca\x02\x1aGoogle\\Cloud\\PubSubLite\\V1\xea\x02\x1dGoogle::Cloud::PubSubLite::V1b\x06proto3'
   ,
-  dependencies=[google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,])
 
 
 
@@ -52,8 +54,8 @@ _SEEKREQUEST_NAMEDTARGET = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=436,
-  serialized_end=511,
+  serialized_start=572,
+  serialized_end=647,
 )
 _sym_db.RegisterEnumDescriptor(_SEEKREQUEST_NAMEDTARGET)
 
@@ -80,6 +82,13 @@ _INITIALSUBSCRIBEREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='initial_location', full_name='google.cloud.pubsublite.v1.InitialSubscribeRequest.initial_location', index=2,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -92,8 +101,8 @@ _INITIALSUBSCRIBEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=141,
-  serialized_end=207,
+  serialized_start=205,
+  serialized_end=343,
 )
 
 
@@ -124,8 +133,8 @@ _INITIALSUBSCRIBERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=209,
-  serialized_end=287,
+  serialized_start=345,
+  serialized_end=423,
 )
 
 
@@ -169,8 +178,8 @@ _SEEKREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=290,
-  serialized_end=521,
+  serialized_start=426,
+  serialized_end=657,
 )
 
 
@@ -201,8 +210,8 @@ _SEEKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=523,
-  serialized_end=589,
+  serialized_start=659,
+  serialized_end=725,
 )
 
 
@@ -240,8 +249,8 @@ _FLOWCONTROLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=591,
-  serialized_end=660,
+  serialized_start=727,
+  serialized_end=796,
 )
 
 
@@ -291,8 +300,8 @@ _SUBSCRIBEREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=663,
-  serialized_end=893,
+  serialized_start=799,
+  serialized_end=1029,
 )
 
 
@@ -323,8 +332,8 @@ _MESSAGERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=895,
-  serialized_end=976,
+  serialized_start=1031,
+  serialized_end=1112,
 )
 
 
@@ -374,8 +383,8 @@ _SUBSCRIBERESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=979,
-  serialized_end=1206,
+  serialized_start=1115,
+  serialized_end=1342,
 )
 
 
@@ -413,8 +422,8 @@ _INITIALPARTITIONASSIGNMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1208,
-  serialized_end=1284,
+  serialized_start=1344,
+  serialized_end=1420,
 )
 
 
@@ -445,8 +454,8 @@ _PARTITIONASSIGNMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1286,
-  serialized_end=1327,
+  serialized_start=1422,
+  serialized_end=1463,
 )
 
 
@@ -470,8 +479,8 @@ _PARTITIONASSIGNMENTACK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1329,
-  serialized_end=1353,
+  serialized_start=1465,
+  serialized_end=1489,
 )
 
 
@@ -514,10 +523,11 @@ _PARTITIONASSIGNMENTREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1356,
-  serialized_end=1544,
+  serialized_start=1492,
+  serialized_end=1680,
 )
 
+_INITIALSUBSCRIBEREQUEST.fields_by_name['initial_location'].message_type = _SEEKREQUEST
 _INITIALSUBSCRIBERESPONSE.fields_by_name['cursor'].message_type = google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2._CURSOR
 _SEEKREQUEST.fields_by_name['named_target'].enum_type = _SEEKREQUEST_NAMEDTARGET
 _SEEKREQUEST.fields_by_name['cursor'].message_type = google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2._CURSOR
@@ -662,6 +672,7 @@ _sym_db.RegisterMessage(PartitionAssignmentRequest)
 
 
 DESCRIPTOR._options = None
+_INITIALSUBSCRIBEREQUEST.fields_by_name['initial_location']._options = None
 
 _SUBSCRIBERSERVICE = _descriptor.ServiceDescriptor(
   name='SubscriberService',
@@ -670,8 +681,8 @@ _SUBSCRIBERSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031pubsublite.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1547,
-  serialized_end=1757,
+  serialized_start=1683,
+  serialized_end=1893,
   methods=[
   _descriptor.MethodDescriptor(
     name='Subscribe',
@@ -696,8 +707,8 @@ _PARTITIONASSIGNMENTSERVICE = _descriptor.ServiceDescriptor(
   index=1,
   serialized_options=b'\312A\031pubsublite.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1760,
-  serialized_end=1999,
+  serialized_start=1896,
+  serialized_end=2135,
   methods=[
   _descriptor.MethodDescriptor(
     name='AssignPartitions',

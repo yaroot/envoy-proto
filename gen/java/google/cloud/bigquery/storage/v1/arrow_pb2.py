@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.cloud.bigquery.storage.v1B\nArrowProtoP\001ZGgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1;storage\252\002 Google.Cloud.BigQuery.Storage.V1\312\002 Google\\Cloud\\BigQuery\\Storage\\V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,google/cloud/bigquery/storage/v1/arrow.proto\x12 google.cloud.bigquery.storage.v1\"(\n\x0b\x41rrowSchema\x12\x19\n\x11serialized_schema\x18\x01 \x01(\x0c\"F\n\x10\x41rrowRecordBatch\x12\x1f\n\x17serialized_record_batch\x18\x01 \x01(\x0c\x12\x11\n\trow_count\x18\x02 \x01(\x03\"\xc5\x01\n\x19\x41rrowSerializationOptions\x12h\n\x12\x62uffer_compression\x18\x02 \x01(\x0e\x32L.google.cloud.bigquery.storage.v1.ArrowSerializationOptions.CompressionCodec\">\n\x10\x43ompressionCodec\x12\x1b\n\x17\x43OMPRESSION_UNSPECIFIED\x10\x00\x12\r\n\tLZ4_FRAME\x10\x01\x42\xc3\x01\n$com.google.cloud.bigquery.storage.v1B\nArrowProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1;storage\xaa\x02 Google.Cloud.BigQuery.Storage.V1\xca\x02 Google\\Cloud\\BigQuery\\Storage\\V1b\x06proto3'
+  serialized_pb=b'\n,google/cloud/bigquery/storage/v1/arrow.proto\x12 google.cloud.bigquery.storage.v1\"(\n\x0b\x41rrowSchema\x12\x19\n\x11serialized_schema\x18\x01 \x01(\x0c\"F\n\x10\x41rrowRecordBatch\x12\x1f\n\x17serialized_record_batch\x18\x01 \x01(\x0c\x12\x11\n\trow_count\x18\x02 \x01(\x03\"\xcf\x01\n\x19\x41rrowSerializationOptions\x12h\n\x12\x62uffer_compression\x18\x02 \x01(\x0e\x32L.google.cloud.bigquery.storage.v1.ArrowSerializationOptions.CompressionCodec\"H\n\x10\x43ompressionCodec\x12\x1b\n\x17\x43OMPRESSION_UNSPECIFIED\x10\x00\x12\r\n\tLZ4_FRAME\x10\x01\x12\x08\n\x04ZSTD\x10\x02\x42\xc3\x01\n$com.google.cloud.bigquery.storage.v1B\nArrowProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1;storage\xaa\x02 Google.Cloud.BigQuery.Storage.V1\xca\x02 Google\\Cloud\\BigQuery\\Storage\\V1b\x06proto3'
 )
 
 
@@ -41,11 +41,16 @@ _ARROWSERIALIZATIONOPTIONS_COMPRESSIONCODEC = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ZSTD', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=332,
-  serialized_end=394,
+  serialized_end=404,
 )
 _sym_db.RegisterEnumDescriptor(_ARROWSERIALIZATIONOPTIONS_COMPRESSIONCODEC)
 
@@ -150,7 +155,7 @@ _ARROWSERIALIZATIONOPTIONS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=197,
-  serialized_end=394,
+  serialized_end=404,
 )
 
 _ARROWSERIALIZATIONOPTIONS.fields_by_name['buffer_compression'].enum_type = _ARROWSERIALIZATIONOPTIONS_COMPRESSIONCODEC

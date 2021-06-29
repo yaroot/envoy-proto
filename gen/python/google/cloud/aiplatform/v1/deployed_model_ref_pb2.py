@@ -20,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1/deployed_model_ref.proto',
   package='google.cloud.aiplatform.v1',
   syntax='proto3',
-  serialized_options=b'\n\036com.google.cloud.aiplatform.v1B\026DeployedModelNameProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform',
+  serialized_options=b'\n\036com.google.cloud.aiplatform.v1B\026DeployedModelNameProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\252\002\032Google.Cloud.AIPlatform.V1\312\002\032Google\\Cloud\\AIPlatform\\V1\352\002\035Google::Cloud::AIPlatform::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n3google/cloud/aiplatform/v1/deployed_model_ref.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"p\n\x10\x44\x65ployedModelRef\x12<\n\x08\x65ndpoint\x18\x01 \x01(\tB*\xe0\x41\x05\xfa\x41$\n\"aiplatform.googleapis.com/Endpoint\x12\x1e\n\x11\x64\x65ployed_model_id\x18\x02 \x01(\tB\x03\xe0\x41\x05\x42\x80\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x16\x44\x65ployedModelNameProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatformb\x06proto3'
+  serialized_pb=b'\n3google/cloud/aiplatform/v1/deployed_model_ref.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"p\n\x10\x44\x65ployedModelRef\x12<\n\x08\x65ndpoint\x18\x01 \x01(\tB*\xe0\x41\x05\xfa\x41$\n\"aiplatform.googleapis.com/Endpoint\x12\x1e\n\x11\x64\x65ployed_model_id\x18\x02 \x01(\tB\x03\xe0\x41\x05\x42\xda\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x16\x44\x65ployedModelNameProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 

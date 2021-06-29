@@ -26,7 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\036com.google.cloud.dialogflow.v2B\017EntityTypeProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2;dialogflow\370\001\001\242\002\002DF\252\002\032Google.Cloud.Dialogflow.V2',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,google/cloud/dialogflow/v2/entity_type.proto\x12\x1agoogle.cloud.dialogflow.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\xf8\x04\n\nEntityType\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12>\n\x04kind\x18\x03 \x01(\x0e\x32+.google.cloud.dialogflow.v2.EntityType.KindB\x03\xe0\x41\x02\x12Z\n\x13\x61uto_expansion_mode\x18\x04 \x01(\x0e\x32\x38.google.cloud.dialogflow.v2.EntityType.AutoExpansionModeB\x03\xe0\x41\x01\x12\x44\n\x08\x65ntities\x18\x06 \x03(\x0b\x32-.google.cloud.dialogflow.v2.EntityType.EntityB\x03\xe0\x41\x01\x12$\n\x17\x65nable_fuzzy_extraction\x18\x07 \x01(\x08\x42\x03\xe0\x41\x01\x1a\x33\n\x06\x45ntity\x12\x12\n\x05value\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08synonyms\x18\x02 \x03(\tB\x03\xe0\x41\x02\"J\n\x04Kind\x12\x14\n\x10KIND_UNSPECIFIED\x10\x00\x12\x0c\n\x08KIND_MAP\x10\x01\x12\r\n\tKIND_LIST\x10\x02\x12\x0f\n\x0bKIND_REGEXP\x10\x03\"Y\n\x11\x41utoExpansionMode\x12#\n\x1f\x41UTO_EXPANSION_MODE_UNSPECIFIED\x10\x00\x12\x1f\n\x1b\x41UTO_EXPANSION_MODE_DEFAULT\x10\x01:]\xea\x41Z\n$dialogflow.googleapis.com/EntityType\x12\x32projects/{project}/agent/entityTypes/{entity_type}\"\xa3\x01\n\x16ListEntityTypesRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\x12$dialogflow.googleapis.com/EntityType\x12\x1a\n\rlanguage_code\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x16\n\tpage_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x04 \x01(\tB\x03\xe0\x41\x01\"p\n\x17ListEntityTypesResponse\x12<\n\x0c\x65ntity_types\x18\x01 \x03(\x0b\x32&.google.cloud.dialogflow.v2.EntityType\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"n\n\x14GetEntityTypeRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\x12\x1a\n\rlanguage_code\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\xb5\x01\n\x17\x43reateEntityTypeRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\x12$dialogflow.googleapis.com/EntityType\x12@\n\x0b\x65ntity_type\x18\x02 \x01(\x0b\x32&.google.cloud.dialogflow.v2.EntityTypeB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xad\x01\n\x17UpdateEntityTypeRequest\x12@\n\x0b\x65ntity_type\x18\x01 \x01(\x0b\x32&.google.cloud.dialogflow.v2.EntityTypeB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x34\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\"U\n\x17\x44\x65leteEntityTypeRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\"\xb6\x02\n\x1d\x42\x61tchUpdateEntityTypesRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\x12$dialogflow.googleapis.com/EntityType\x12\x1f\n\x15\x65ntity_type_batch_uri\x18\x02 \x01(\tH\x00\x12O\n\x18\x65ntity_type_batch_inline\x18\x03 \x01(\x0b\x32+.google.cloud.dialogflow.v2.EntityTypeBatchH\x00\x12\x1a\n\rlanguage_code\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x34\n\x0bupdate_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\x42\x13\n\x11\x65ntity_type_batch\"^\n\x1e\x42\x61tchUpdateEntityTypesResponse\x12<\n\x0c\x65ntity_types\x18\x01 \x03(\x0b\x32&.google.cloud.dialogflow.v2.EntityType\"}\n\x1d\x42\x61tchDeleteEntityTypesRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\x12$dialogflow.googleapis.com/EntityType\x12\x1e\n\x11\x65ntity_type_names\x18\x02 \x03(\tB\x03\xe0\x41\x02\"\xbc\x01\n\x1a\x42\x61tchCreateEntitiesRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\x12\x44\n\x08\x65ntities\x18\x02 \x03(\x0b\x32-.google.cloud.dialogflow.v2.EntityType.EntityB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xf2\x01\n\x1a\x42\x61tchUpdateEntitiesRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\x12\x44\n\x08\x65ntities\x18\x02 \x03(\x0b\x32-.google.cloud.dialogflow.v2.EntityType.EntityB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x34\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\"\x92\x01\n\x1a\x42\x61tchDeleteEntitiesRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\x12\x1a\n\rentity_values\x18\x02 \x03(\tB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\"O\n\x0f\x45ntityTypeBatch\x12<\n\x0c\x65ntity_types\x18\x01 \x03(\x0b\x32&.google.cloud.dialogflow.v2.EntityType2\xd6\x19\n\x0b\x45ntityTypes\x12\x87\x02\n\x0fListEntityTypes\x12\x32.google.cloud.dialogflow.v2.ListEntityTypesRequest\x1a\x33.google.cloud.dialogflow.v2.ListEntityTypesResponse\"\x8a\x01\x82\xd3\xe4\x93\x02\x64\x12)/v2/{parent=projects/*/agent}/entityTypesZ7\x12\x35/v2/{parent=projects/*/locations/*/agent}/entityTypes\xda\x41\x06parent\xda\x41\x14parent,language_code\x12\xf2\x01\n\rGetEntityType\x12\x30.google.cloud.dialogflow.v2.GetEntityTypeRequest\x1a&.google.cloud.dialogflow.v2.EntityType\"\x86\x01\x82\xd3\xe4\x93\x02\x64\x12)/v2/{name=projects/*/agent/entityTypes/*}Z7\x12\x35/v2/{name=projects/*/locations/*/agent/entityTypes/*}\xda\x41\x04name\xda\x41\x12name,language_code\x12\xae\x02\n\x10\x43reateEntityType\x12\x33.google.cloud.dialogflow.v2.CreateEntityTypeRequest\x1a&.google.cloud.dialogflow.v2.EntityType\"\xbc\x01\x82\xd3\xe4\x93\x02~\")/v2/{parent=projects/*/agent}/entityTypes:\x0b\x65ntity_typeZD\"5/v2/{parent=projects/*/locations/*/agent}/entityTypes:\x0b\x65ntity_type\xda\x41\x12parent,entity_type\xda\x41 parent,entity_type,language_code\x12\xb9\x02\n\x10UpdateEntityType\x12\x33.google.cloud.dialogflow.v2.UpdateEntityTypeRequest\x1a&.google.cloud.dialogflow.v2.EntityType\"\xc7\x01\x82\xd3\xe4\x93\x02\x96\x01\x32\x35/v2/{entity_type.name=projects/*/agent/entityTypes/*}:\x0b\x65ntity_typeZP2A/v2/{entity_type.name=projects/*/locations/*/agent/entityTypes/*}:\x0b\x65ntity_type\xda\x41\x0b\x65ntity_type\xda\x41\x19\x65ntity_type,language_code\x12\xd2\x01\n\x10\x44\x65leteEntityType\x12\x33.google.cloud.dialogflow.v2.DeleteEntityTypeRequest\x1a\x16.google.protobuf.Empty\"q\x82\xd3\xe4\x93\x02\x64*)/v2/{name=projects/*/agent/entityTypes/*}Z7*5/v2/{name=projects/*/locations/*/agent/entityTypes/*}\xda\x41\x04name\x12\xd4\x02\n\x16\x42\x61tchUpdateEntityTypes\x12\x39.google.cloud.dialogflow.v2.BatchUpdateEntityTypesRequest\x1a\x1d.google.longrunning.Operation\"\xdf\x01\x82\xd3\xe4\x93\x02\x82\x01\"5/v2/{parent=projects/*/agent}/entityTypes:batchUpdate:\x01*ZF\"A/v2/{parent=projects/*/locations/*/agent}/entityTypes:batchUpdate:\x01*\xca\x41S\n9google.cloud.dialogflow.v2.BatchUpdateEntityTypesResponse\x12\x16google.protobuf.Struct\x12\xcb\x02\n\x16\x42\x61tchDeleteEntityTypes\x12\x39.google.cloud.dialogflow.v2.BatchDeleteEntityTypesRequest\x1a\x1d.google.longrunning.Operation\"\xd6\x01\x82\xd3\xe4\x93\x02\x82\x01\"5/v2/{parent=projects/*/agent}/entityTypes:batchDelete:\x01*ZF\"A/v2/{parent=projects/*/locations/*/agent}/entityTypes:batchDelete:\x01*\xda\x41\x18parent,entity_type_names\xca\x41/\n\x15google.protobuf.Empty\x12\x16google.protobuf.Struct\x12\xf2\x02\n\x13\x42\x61tchCreateEntities\x12\x36.google.cloud.dialogflow.v2.BatchCreateEntitiesRequest\x1a\x1d.google.longrunning.Operation\"\x83\x02\x82\xd3\xe4\x93\x02\x98\x01\"@/v2/{parent=projects/*/agent/entityTypes/*}/entities:batchCreate:\x01*ZQ\"L/v2/{parent=projects/*/locations/*/agent/entityTypes/*}/entities:batchCreate:\x01*\xda\x41\x0fparent,entities\xda\x41\x1dparent,entities,language_code\xca\x41/\n\x15google.protobuf.Empty\x12\x16google.protobuf.Struct\x12\xf2\x02\n\x13\x42\x61tchUpdateEntities\x12\x36.google.cloud.dialogflow.v2.BatchUpdateEntitiesRequest\x1a\x1d.google.longrunning.Operation\"\x83\x02\x82\xd3\xe4\x93\x02\x98\x01\"@/v2/{parent=projects/*/agent/entityTypes/*}/entities:batchUpdate:\x01*ZQ\"L/v2/{parent=projects/*/locations/*/agent/entityTypes/*}/entities:batchUpdate:\x01*\xda\x41\x0fparent,entities\xda\x41\x1dparent,entities,language_code\xca\x41/\n\x15google.protobuf.Empty\x12\x16google.protobuf.Struct\x12\xfc\x02\n\x13\x42\x61tchDeleteEntities\x12\x36.google.cloud.dialogflow.v2.BatchDeleteEntitiesRequest\x1a\x1d.google.longrunning.Operation\"\x8d\x02\x82\xd3\xe4\x93\x02\x98\x01\"@/v2/{parent=projects/*/agent/entityTypes/*}/entities:batchDelete:\x01*ZQ\"L/v2/{parent=projects/*/locations/*/agent/entityTypes/*}/entities:batchDelete:\x01*\xda\x41\x14parent,entity_values\xda\x41\"parent,entity_values,language_code\xca\x41/\n\x15google.protobuf.Empty\x12\x16google.protobuf.Struct\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\x9e\x01\n\x1e\x63om.google.cloud.dialogflow.v2B\x0f\x45ntityTypeProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2;dialogflow\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1aGoogle.Cloud.Dialogflow.V2b\x06proto3'
+  serialized_pb=b'\n,google/cloud/dialogflow/v2/entity_type.proto\x12\x1agoogle.cloud.dialogflow.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\xc3\x05\n\nEntityType\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12>\n\x04kind\x18\x03 \x01(\x0e\x32+.google.cloud.dialogflow.v2.EntityType.KindB\x03\xe0\x41\x02\x12Z\n\x13\x61uto_expansion_mode\x18\x04 \x01(\x0e\x32\x38.google.cloud.dialogflow.v2.EntityType.AutoExpansionModeB\x03\xe0\x41\x01\x12\x44\n\x08\x65ntities\x18\x06 \x03(\x0b\x32-.google.cloud.dialogflow.v2.EntityType.EntityB\x03\xe0\x41\x01\x12$\n\x17\x65nable_fuzzy_extraction\x18\x07 \x01(\x08\x42\x03\xe0\x41\x01\x1a\x33\n\x06\x45ntity\x12\x12\n\x05value\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08synonyms\x18\x02 \x03(\tB\x03\xe0\x41\x02\"J\n\x04Kind\x12\x14\n\x10KIND_UNSPECIFIED\x10\x00\x12\x0c\n\x08KIND_MAP\x10\x01\x12\r\n\tKIND_LIST\x10\x02\x12\x0f\n\x0bKIND_REGEXP\x10\x03\"Y\n\x11\x41utoExpansionMode\x12#\n\x1f\x41UTO_EXPANSION_MODE_UNSPECIFIED\x10\x00\x12\x1f\n\x1b\x41UTO_EXPANSION_MODE_DEFAULT\x10\x01:\xa7\x01\xea\x41\xa3\x01\n$dialogflow.googleapis.com/EntityType\x12\x32projects/{project}/agent/entityTypes/{entity_type}\x12Gprojects/{project}/locations/{location}/agent/entityTypes/{entity_type}\"\xa3\x01\n\x16ListEntityTypesRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\x12$dialogflow.googleapis.com/EntityType\x12\x1a\n\rlanguage_code\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x16\n\tpage_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x04 \x01(\tB\x03\xe0\x41\x01\"p\n\x17ListEntityTypesResponse\x12<\n\x0c\x65ntity_types\x18\x01 \x03(\x0b\x32&.google.cloud.dialogflow.v2.EntityType\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"n\n\x14GetEntityTypeRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\x12\x1a\n\rlanguage_code\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\xb5\x01\n\x17\x43reateEntityTypeRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\x12$dialogflow.googleapis.com/EntityType\x12@\n\x0b\x65ntity_type\x18\x02 \x01(\x0b\x32&.google.cloud.dialogflow.v2.EntityTypeB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xad\x01\n\x17UpdateEntityTypeRequest\x12@\n\x0b\x65ntity_type\x18\x01 \x01(\x0b\x32&.google.cloud.dialogflow.v2.EntityTypeB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x34\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\"U\n\x17\x44\x65leteEntityTypeRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\"\xb6\x02\n\x1d\x42\x61tchUpdateEntityTypesRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\x12$dialogflow.googleapis.com/EntityType\x12\x1f\n\x15\x65ntity_type_batch_uri\x18\x02 \x01(\tH\x00\x12O\n\x18\x65ntity_type_batch_inline\x18\x03 \x01(\x0b\x32+.google.cloud.dialogflow.v2.EntityTypeBatchH\x00\x12\x1a\n\rlanguage_code\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x34\n\x0bupdate_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\x42\x13\n\x11\x65ntity_type_batch\"^\n\x1e\x42\x61tchUpdateEntityTypesResponse\x12<\n\x0c\x65ntity_types\x18\x01 \x03(\x0b\x32&.google.cloud.dialogflow.v2.EntityType\"}\n\x1d\x42\x61tchDeleteEntityTypesRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\x12$dialogflow.googleapis.com/EntityType\x12\x1e\n\x11\x65ntity_type_names\x18\x02 \x03(\tB\x03\xe0\x41\x02\"\xbc\x01\n\x1a\x42\x61tchCreateEntitiesRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\x12\x44\n\x08\x65ntities\x18\x02 \x03(\x0b\x32-.google.cloud.dialogflow.v2.EntityType.EntityB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xf2\x01\n\x1a\x42\x61tchUpdateEntitiesRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\x12\x44\n\x08\x65ntities\x18\x02 \x03(\x0b\x32-.google.cloud.dialogflow.v2.EntityType.EntityB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x34\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\"\x92\x01\n\x1a\x42\x61tchDeleteEntitiesRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\x12\x1a\n\rentity_values\x18\x02 \x03(\tB\x03\xe0\x41\x02\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\"O\n\x0f\x45ntityTypeBatch\x12<\n\x0c\x65ntity_types\x18\x01 \x03(\x0b\x32&.google.cloud.dialogflow.v2.EntityType2\xd6\x19\n\x0b\x45ntityTypes\x12\x87\x02\n\x0fListEntityTypes\x12\x32.google.cloud.dialogflow.v2.ListEntityTypesRequest\x1a\x33.google.cloud.dialogflow.v2.ListEntityTypesResponse\"\x8a\x01\x82\xd3\xe4\x93\x02\x64\x12)/v2/{parent=projects/*/agent}/entityTypesZ7\x12\x35/v2/{parent=projects/*/locations/*/agent}/entityTypes\xda\x41\x06parent\xda\x41\x14parent,language_code\x12\xf2\x01\n\rGetEntityType\x12\x30.google.cloud.dialogflow.v2.GetEntityTypeRequest\x1a&.google.cloud.dialogflow.v2.EntityType\"\x86\x01\x82\xd3\xe4\x93\x02\x64\x12)/v2/{name=projects/*/agent/entityTypes/*}Z7\x12\x35/v2/{name=projects/*/locations/*/agent/entityTypes/*}\xda\x41\x04name\xda\x41\x12name,language_code\x12\xae\x02\n\x10\x43reateEntityType\x12\x33.google.cloud.dialogflow.v2.CreateEntityTypeRequest\x1a&.google.cloud.dialogflow.v2.EntityType\"\xbc\x01\x82\xd3\xe4\x93\x02~\")/v2/{parent=projects/*/agent}/entityTypes:\x0b\x65ntity_typeZD\"5/v2/{parent=projects/*/locations/*/agent}/entityTypes:\x0b\x65ntity_type\xda\x41\x12parent,entity_type\xda\x41 parent,entity_type,language_code\x12\xb9\x02\n\x10UpdateEntityType\x12\x33.google.cloud.dialogflow.v2.UpdateEntityTypeRequest\x1a&.google.cloud.dialogflow.v2.EntityType\"\xc7\x01\x82\xd3\xe4\x93\x02\x96\x01\x32\x35/v2/{entity_type.name=projects/*/agent/entityTypes/*}:\x0b\x65ntity_typeZP2A/v2/{entity_type.name=projects/*/locations/*/agent/entityTypes/*}:\x0b\x65ntity_type\xda\x41\x0b\x65ntity_type\xda\x41\x19\x65ntity_type,language_code\x12\xd2\x01\n\x10\x44\x65leteEntityType\x12\x33.google.cloud.dialogflow.v2.DeleteEntityTypeRequest\x1a\x16.google.protobuf.Empty\"q\x82\xd3\xe4\x93\x02\x64*)/v2/{name=projects/*/agent/entityTypes/*}Z7*5/v2/{name=projects/*/locations/*/agent/entityTypes/*}\xda\x41\x04name\x12\xd4\x02\n\x16\x42\x61tchUpdateEntityTypes\x12\x39.google.cloud.dialogflow.v2.BatchUpdateEntityTypesRequest\x1a\x1d.google.longrunning.Operation\"\xdf\x01\x82\xd3\xe4\x93\x02\x82\x01\"5/v2/{parent=projects/*/agent}/entityTypes:batchUpdate:\x01*ZF\"A/v2/{parent=projects/*/locations/*/agent}/entityTypes:batchUpdate:\x01*\xca\x41S\n9google.cloud.dialogflow.v2.BatchUpdateEntityTypesResponse\x12\x16google.protobuf.Struct\x12\xcb\x02\n\x16\x42\x61tchDeleteEntityTypes\x12\x39.google.cloud.dialogflow.v2.BatchDeleteEntityTypesRequest\x1a\x1d.google.longrunning.Operation\"\xd6\x01\x82\xd3\xe4\x93\x02\x82\x01\"5/v2/{parent=projects/*/agent}/entityTypes:batchDelete:\x01*ZF\"A/v2/{parent=projects/*/locations/*/agent}/entityTypes:batchDelete:\x01*\xda\x41\x18parent,entity_type_names\xca\x41/\n\x15google.protobuf.Empty\x12\x16google.protobuf.Struct\x12\xf2\x02\n\x13\x42\x61tchCreateEntities\x12\x36.google.cloud.dialogflow.v2.BatchCreateEntitiesRequest\x1a\x1d.google.longrunning.Operation\"\x83\x02\x82\xd3\xe4\x93\x02\x98\x01\"@/v2/{parent=projects/*/agent/entityTypes/*}/entities:batchCreate:\x01*ZQ\"L/v2/{parent=projects/*/locations/*/agent/entityTypes/*}/entities:batchCreate:\x01*\xda\x41\x0fparent,entities\xda\x41\x1dparent,entities,language_code\xca\x41/\n\x15google.protobuf.Empty\x12\x16google.protobuf.Struct\x12\xf2\x02\n\x13\x42\x61tchUpdateEntities\x12\x36.google.cloud.dialogflow.v2.BatchUpdateEntitiesRequest\x1a\x1d.google.longrunning.Operation\"\x83\x02\x82\xd3\xe4\x93\x02\x98\x01\"@/v2/{parent=projects/*/agent/entityTypes/*}/entities:batchUpdate:\x01*ZQ\"L/v2/{parent=projects/*/locations/*/agent/entityTypes/*}/entities:batchUpdate:\x01*\xda\x41\x0fparent,entities\xda\x41\x1dparent,entities,language_code\xca\x41/\n\x15google.protobuf.Empty\x12\x16google.protobuf.Struct\x12\xfc\x02\n\x13\x42\x61tchDeleteEntities\x12\x36.google.cloud.dialogflow.v2.BatchDeleteEntitiesRequest\x1a\x1d.google.longrunning.Operation\"\x8d\x02\x82\xd3\xe4\x93\x02\x98\x01\"@/v2/{parent=projects/*/agent/entityTypes/*}/entities:batchDelete:\x01*ZQ\"L/v2/{parent=projects/*/locations/*/agent/entityTypes/*}/entities:batchDelete:\x01*\xda\x41\x14parent,entity_values\xda\x41\"parent,entity_values,language_code\xca\x41/\n\x15google.protobuf.Empty\x12\x16google.protobuf.Struct\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\x9e\x01\n\x1e\x63om.google.cloud.dialogflow.v2B\x0f\x45ntityTypeProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2;dialogflow\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1aGoogle.Cloud.Dialogflow.V2b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
 
@@ -189,14 +189,14 @@ _ENTITYTYPE = _descriptor.Descriptor(
     _ENTITYTYPE_KIND,
     _ENTITYTYPE_AUTOEXPANSIONMODE,
   ],
-  serialized_options=b'\352AZ\n$dialogflow.googleapis.com/EntityType\0222projects/{project}/agent/entityTypes/{entity_type}',
+  serialized_options=b'\352A\243\001\n$dialogflow.googleapis.com/EntityType\0222projects/{project}/agent/entityTypes/{entity_type}\022Gprojects/{project}/locations/{location}/agent/entityTypes/{entity_type}',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=292,
-  serialized_end=924,
+  serialized_end=999,
 )
 
 
@@ -248,8 +248,8 @@ _LISTENTITYTYPESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=927,
-  serialized_end=1090,
+  serialized_start=1002,
+  serialized_end=1165,
 )
 
 
@@ -287,8 +287,8 @@ _LISTENTITYTYPESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1092,
-  serialized_end=1204,
+  serialized_start=1167,
+  serialized_end=1279,
 )
 
 
@@ -326,8 +326,8 @@ _GETENTITYTYPEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1206,
-  serialized_end=1316,
+  serialized_start=1281,
+  serialized_end=1391,
 )
 
 
@@ -372,8 +372,8 @@ _CREATEENTITYTYPEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1319,
-  serialized_end=1500,
+  serialized_start=1394,
+  serialized_end=1575,
 )
 
 
@@ -418,8 +418,8 @@ _UPDATEENTITYTYPEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1503,
-  serialized_end=1676,
+  serialized_start=1578,
+  serialized_end=1751,
 )
 
 
@@ -450,8 +450,8 @@ _DELETEENTITYTYPEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1678,
-  serialized_end=1763,
+  serialized_start=1753,
+  serialized_end=1838,
 )
 
 
@@ -515,8 +515,8 @@ _BATCHUPDATEENTITYTYPESREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1766,
-  serialized_end=2076,
+  serialized_start=1841,
+  serialized_end=2151,
 )
 
 
@@ -547,8 +547,8 @@ _BATCHUPDATEENTITYTYPESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2078,
-  serialized_end=2172,
+  serialized_start=2153,
+  serialized_end=2247,
 )
 
 
@@ -586,8 +586,8 @@ _BATCHDELETEENTITYTYPESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2174,
-  serialized_end=2299,
+  serialized_start=2249,
+  serialized_end=2374,
 )
 
 
@@ -632,8 +632,8 @@ _BATCHCREATEENTITIESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2302,
-  serialized_end=2490,
+  serialized_start=2377,
+  serialized_end=2565,
 )
 
 
@@ -685,8 +685,8 @@ _BATCHUPDATEENTITIESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2493,
-  serialized_end=2735,
+  serialized_start=2568,
+  serialized_end=2810,
 )
 
 
@@ -731,8 +731,8 @@ _BATCHDELETEENTITIESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2738,
-  serialized_end=2884,
+  serialized_start=2813,
+  serialized_end=2959,
 )
 
 
@@ -763,8 +763,8 @@ _ENTITYTYPEBATCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2886,
-  serialized_end=2965,
+  serialized_start=2961,
+  serialized_end=3040,
 )
 
 _ENTITYTYPE_ENTITY.containing_type = _ENTITYTYPE
@@ -958,8 +958,8 @@ _ENTITYTYPES = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=2968,
-  serialized_end=6254,
+  serialized_start=3043,
+  serialized_end=6329,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListEntityTypes',

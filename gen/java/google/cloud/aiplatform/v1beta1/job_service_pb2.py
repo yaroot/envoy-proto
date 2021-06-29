@@ -19,6 +19,7 @@ from google.cloud.aiplatform.v1beta1 import batch_prediction_job_pb2 as google_d
 from google.cloud.aiplatform.v1beta1 import custom_job_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_custom__job__pb2
 from google.cloud.aiplatform.v1beta1 import data_labeling_job_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_data__labeling__job__pb2
 from google.cloud.aiplatform.v1beta1 import hyperparameter_tuning_job_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_hyperparameter__tuning__job__pb2
+from google.cloud.aiplatform.v1beta1 import model_deployment_monitoring_job_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_model__deployment__monitoring__job__pb2
 from google.cloud.aiplatform.v1beta1 import operation_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_operation__pb2
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
@@ -32,9 +33,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\017JobServiceProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n1google/cloud/aiplatform/v1beta1/job_service.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a:google/cloud/aiplatform/v1beta1/batch_prediction_job.proto\x1a\x30google/cloud/aiplatform/v1beta1/custom_job.proto\x1a\x37google/cloud/aiplatform/v1beta1/data_labeling_job.proto\x1a?google/cloud/aiplatform/v1beta1/hyperparameter_tuning_job.proto\x1a/google/cloud/aiplatform/v1beta1/operation.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x98\x01\n\x16\x43reateCustomJobRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x43\n\ncustom_job\x18\x02 \x01(\x0b\x32*.google.cloud.aiplatform.v1beta1.CustomJobB\x03\xe0\x41\x02\"P\n\x13GetCustomJobRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#aiplatform.googleapis.com/CustomJob\"\xb8\x01\n\x15ListCustomJobsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"r\n\x16ListCustomJobsResponse\x12?\n\x0b\x63ustom_jobs\x18\x01 \x03(\x0b\x32*.google.cloud.aiplatform.v1beta1.CustomJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"S\n\x16\x44\x65leteCustomJobRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#aiplatform.googleapis.com/CustomJob\"S\n\x16\x43\x61ncelCustomJobRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#aiplatform.googleapis.com/CustomJob\"\xab\x01\n\x1c\x43reateDataLabelingJobRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12P\n\x11\x64\x61ta_labeling_job\x18\x02 \x01(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.DataLabelingJobB\x03\xe0\x41\x02\"\\\n\x19GetDataLabelingJobRequest\x12?\n\x04name\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41+\n)aiplatform.googleapis.com/DataLabelingJob\"\xd0\x01\n\x1bListDataLabelingJobsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12\x10\n\x08order_by\x18\x06 \x01(\t\"\x85\x01\n\x1cListDataLabelingJobsResponse\x12L\n\x12\x64\x61ta_labeling_jobs\x18\x01 \x03(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.DataLabelingJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"_\n\x1c\x44\x65leteDataLabelingJobRequest\x12?\n\x04name\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41+\n)aiplatform.googleapis.com/DataLabelingJob\"_\n\x1c\x43\x61ncelDataLabelingJobRequest\x12?\n\x04name\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41+\n)aiplatform.googleapis.com/DataLabelingJob\"\xc3\x01\n$CreateHyperparameterTuningJobRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12`\n\x19hyperparameter_tuning_job\x18\x02 \x01(\x0b\x32\x38.google.cloud.aiplatform.v1beta1.HyperparameterTuningJobB\x03\xe0\x41\x02\"l\n!GetHyperparameterTuningJobRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1aiplatform.googleapis.com/HyperparameterTuningJob\"\xc6\x01\n#ListHyperparameterTuningJobsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\x9d\x01\n$ListHyperparameterTuningJobsResponse\x12\\\n\x1ahyperparameter_tuning_jobs\x18\x01 \x03(\x0b\x32\x38.google.cloud.aiplatform.v1beta1.HyperparameterTuningJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"o\n$DeleteHyperparameterTuningJobRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1aiplatform.googleapis.com/HyperparameterTuningJob\"o\n$CancelHyperparameterTuningJobRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1aiplatform.googleapis.com/HyperparameterTuningJob\"\xb4\x01\n\x1f\x43reateBatchPredictionJobRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12V\n\x14\x62\x61tch_prediction_job\x18\x02 \x01(\x0b\x32\x33.google.cloud.aiplatform.v1beta1.BatchPredictionJobB\x03\xe0\x41\x02\"b\n\x1cGetBatchPredictionJobRequest\x12\x42\n\x04name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,aiplatform.googleapis.com/BatchPredictionJob\"\xc1\x01\n\x1eListBatchPredictionJobsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\x8e\x01\n\x1fListBatchPredictionJobsResponse\x12R\n\x15\x62\x61tch_prediction_jobs\x18\x01 \x03(\x0b\x32\x33.google.cloud.aiplatform.v1beta1.BatchPredictionJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"e\n\x1f\x44\x65leteBatchPredictionJobRequest\x12\x42\n\x04name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,aiplatform.googleapis.com/BatchPredictionJob\"e\n\x1f\x43\x61ncelBatchPredictionJobRequest\x12\x42\n\x04name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,aiplatform.googleapis.com/BatchPredictionJob2\xdb$\n\nJobService\x12\xd3\x01\n\x0f\x43reateCustomJob\x12\x37.google.cloud.aiplatform.v1beta1.CreateCustomJobRequest\x1a*.google.cloud.aiplatform.v1beta1.CustomJob\"[\x82\xd3\xe4\x93\x02\x41\"3/v1beta1/{parent=projects/*/locations/*}/customJobs:\ncustom_job\xda\x41\x11parent,custom_job\x12\xb4\x01\n\x0cGetCustomJob\x12\x34.google.cloud.aiplatform.v1beta1.GetCustomJobRequest\x1a*.google.cloud.aiplatform.v1beta1.CustomJob\"B\x82\xd3\xe4\x93\x02\x35\x12\x33/v1beta1/{name=projects/*/locations/*/customJobs/*}\xda\x41\x04name\x12\xc7\x01\n\x0eListCustomJobs\x12\x36.google.cloud.aiplatform.v1beta1.ListCustomJobsRequest\x1a\x37.google.cloud.aiplatform.v1beta1.ListCustomJobsResponse\"D\x82\xd3\xe4\x93\x02\x35\x12\x33/v1beta1/{parent=projects/*/locations/*}/customJobs\xda\x41\x06parent\x12\xe0\x01\n\x0f\x44\x65leteCustomJob\x12\x37.google.cloud.aiplatform.v1beta1.DeleteCustomJobRequest\x1a\x1d.google.longrunning.Operation\"u\x82\xd3\xe4\x93\x02\x35*3/v1beta1/{name=projects/*/locations/*/customJobs/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xb0\x01\n\x0f\x43\x61ncelCustomJob\x12\x37.google.cloud.aiplatform.v1beta1.CancelCustomJobRequest\x1a\x16.google.protobuf.Empty\"L\x82\xd3\xe4\x93\x02?\":/v1beta1/{name=projects/*/locations/*/customJobs/*}:cancel:\x01*\xda\x41\x04name\x12\xf9\x01\n\x15\x43reateDataLabelingJob\x12=.google.cloud.aiplatform.v1beta1.CreateDataLabelingJobRequest\x1a\x30.google.cloud.aiplatform.v1beta1.DataLabelingJob\"o\x82\xd3\xe4\x93\x02N\"9/v1beta1/{parent=projects/*/locations/*}/dataLabelingJobs:\x11\x64\x61ta_labeling_job\xda\x41\x18parent,data_labeling_job\x12\xcc\x01\n\x12GetDataLabelingJob\x12:.google.cloud.aiplatform.v1beta1.GetDataLabelingJobRequest\x1a\x30.google.cloud.aiplatform.v1beta1.DataLabelingJob\"H\x82\xd3\xe4\x93\x02;\x12\x39/v1beta1/{name=projects/*/locations/*/dataLabelingJobs/*}\xda\x41\x04name\x12\xdf\x01\n\x14ListDataLabelingJobs\x12<.google.cloud.aiplatform.v1beta1.ListDataLabelingJobsRequest\x1a=.google.cloud.aiplatform.v1beta1.ListDataLabelingJobsResponse\"J\x82\xd3\xe4\x93\x02;\x12\x39/v1beta1/{parent=projects/*/locations/*}/dataLabelingJobs\xda\x41\x06parent\x12\xf2\x01\n\x15\x44\x65leteDataLabelingJob\x12=.google.cloud.aiplatform.v1beta1.DeleteDataLabelingJobRequest\x1a\x1d.google.longrunning.Operation\"{\x82\xd3\xe4\x93\x02;*9/v1beta1/{name=projects/*/locations/*/dataLabelingJobs/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xc2\x01\n\x15\x43\x61ncelDataLabelingJob\x12=.google.cloud.aiplatform.v1beta1.CancelDataLabelingJobRequest\x1a\x16.google.protobuf.Empty\"R\x82\xd3\xe4\x93\x02\x45\"@/v1beta1/{name=projects/*/locations/*/dataLabelingJobs/*}:cancel:\x01*\xda\x41\x04name\x12\xaa\x02\n\x1d\x43reateHyperparameterTuningJob\x12\x45.google.cloud.aiplatform.v1beta1.CreateHyperparameterTuningJobRequest\x1a\x38.google.cloud.aiplatform.v1beta1.HyperparameterTuningJob\"\x87\x01\x82\xd3\xe4\x93\x02^\"A/v1beta1/{parent=projects/*/locations/*}/hyperparameterTuningJobs:\x19hyperparameter_tuning_job\xda\x41 parent,hyperparameter_tuning_job\x12\xec\x01\n\x1aGetHyperparameterTuningJob\x12\x42.google.cloud.aiplatform.v1beta1.GetHyperparameterTuningJobRequest\x1a\x38.google.cloud.aiplatform.v1beta1.HyperparameterTuningJob\"P\x82\xd3\xe4\x93\x02\x43\x12\x41/v1beta1/{name=projects/*/locations/*/hyperparameterTuningJobs/*}\xda\x41\x04name\x12\xff\x01\n\x1cListHyperparameterTuningJobs\x12\x44.google.cloud.aiplatform.v1beta1.ListHyperparameterTuningJobsRequest\x1a\x45.google.cloud.aiplatform.v1beta1.ListHyperparameterTuningJobsResponse\"R\x82\xd3\xe4\x93\x02\x43\x12\x41/v1beta1/{parent=projects/*/locations/*}/hyperparameterTuningJobs\xda\x41\x06parent\x12\x8b\x02\n\x1d\x44\x65leteHyperparameterTuningJob\x12\x45.google.cloud.aiplatform.v1beta1.DeleteHyperparameterTuningJobRequest\x1a\x1d.google.longrunning.Operation\"\x83\x01\x82\xd3\xe4\x93\x02\x43*A/v1beta1/{name=projects/*/locations/*/hyperparameterTuningJobs/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xda\x01\n\x1d\x43\x61ncelHyperparameterTuningJob\x12\x45.google.cloud.aiplatform.v1beta1.CancelHyperparameterTuningJobRequest\x1a\x16.google.protobuf.Empty\"Z\x82\xd3\xe4\x93\x02M\"H/v1beta1/{name=projects/*/locations/*/hyperparameterTuningJobs/*}:cancel:\x01*\xda\x41\x04name\x12\x8b\x02\n\x18\x43reateBatchPredictionJob\x12@.google.cloud.aiplatform.v1beta1.CreateBatchPredictionJobRequest\x1a\x33.google.cloud.aiplatform.v1beta1.BatchPredictionJob\"x\x82\xd3\xe4\x93\x02T\"</v1beta1/{parent=projects/*/locations/*}/batchPredictionJobs:\x14\x62\x61tch_prediction_job\xda\x41\x1bparent,batch_prediction_job\x12\xd8\x01\n\x15GetBatchPredictionJob\x12=.google.cloud.aiplatform.v1beta1.GetBatchPredictionJobRequest\x1a\x33.google.cloud.aiplatform.v1beta1.BatchPredictionJob\"K\x82\xd3\xe4\x93\x02>\x12</v1beta1/{name=projects/*/locations/*/batchPredictionJobs/*}\xda\x41\x04name\x12\xeb\x01\n\x17ListBatchPredictionJobs\x12?.google.cloud.aiplatform.v1beta1.ListBatchPredictionJobsRequest\x1a@.google.cloud.aiplatform.v1beta1.ListBatchPredictionJobsResponse\"M\x82\xd3\xe4\x93\x02>\x12</v1beta1/{parent=projects/*/locations/*}/batchPredictionJobs\xda\x41\x06parent\x12\xfb\x01\n\x18\x44\x65leteBatchPredictionJob\x12@.google.cloud.aiplatform.v1beta1.DeleteBatchPredictionJobRequest\x1a\x1d.google.longrunning.Operation\"~\x82\xd3\xe4\x93\x02>*</v1beta1/{name=projects/*/locations/*/batchPredictionJobs/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xcb\x01\n\x18\x43\x61ncelBatchPredictionJob\x12@.google.cloud.aiplatform.v1beta1.CancelBatchPredictionJobRequest\x1a\x16.google.protobuf.Empty\"U\x82\xd3\xe4\x93\x02H\"C/v1beta1/{name=projects/*/locations/*/batchPredictionJobs/*}:cancel:\x01*\xda\x41\x04name\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x83\x01\n#com.google.cloud.aiplatform.v1beta1B\x0fJobServiceProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n1google/cloud/aiplatform/v1beta1/job_service.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a:google/cloud/aiplatform/v1beta1/batch_prediction_job.proto\x1a\x30google/cloud/aiplatform/v1beta1/custom_job.proto\x1a\x37google/cloud/aiplatform/v1beta1/data_labeling_job.proto\x1a?google/cloud/aiplatform/v1beta1/hyperparameter_tuning_job.proto\x1a\x45google/cloud/aiplatform/v1beta1/model_deployment_monitoring_job.proto\x1a/google/cloud/aiplatform/v1beta1/operation.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x98\x01\n\x16\x43reateCustomJobRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x43\n\ncustom_job\x18\x02 \x01(\x0b\x32*.google.cloud.aiplatform.v1beta1.CustomJobB\x03\xe0\x41\x02\"P\n\x13GetCustomJobRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#aiplatform.googleapis.com/CustomJob\"\xb8\x01\n\x15ListCustomJobsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"r\n\x16ListCustomJobsResponse\x12?\n\x0b\x63ustom_jobs\x18\x01 \x03(\x0b\x32*.google.cloud.aiplatform.v1beta1.CustomJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"S\n\x16\x44\x65leteCustomJobRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#aiplatform.googleapis.com/CustomJob\"S\n\x16\x43\x61ncelCustomJobRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#aiplatform.googleapis.com/CustomJob\"\xab\x01\n\x1c\x43reateDataLabelingJobRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12P\n\x11\x64\x61ta_labeling_job\x18\x02 \x01(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.DataLabelingJobB\x03\xe0\x41\x02\"\\\n\x19GetDataLabelingJobRequest\x12?\n\x04name\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41+\n)aiplatform.googleapis.com/DataLabelingJob\"\xd0\x01\n\x1bListDataLabelingJobsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12\x10\n\x08order_by\x18\x06 \x01(\t\"\x85\x01\n\x1cListDataLabelingJobsResponse\x12L\n\x12\x64\x61ta_labeling_jobs\x18\x01 \x03(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.DataLabelingJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"_\n\x1c\x44\x65leteDataLabelingJobRequest\x12?\n\x04name\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41+\n)aiplatform.googleapis.com/DataLabelingJob\"_\n\x1c\x43\x61ncelDataLabelingJobRequest\x12?\n\x04name\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41+\n)aiplatform.googleapis.com/DataLabelingJob\"\xc3\x01\n$CreateHyperparameterTuningJobRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12`\n\x19hyperparameter_tuning_job\x18\x02 \x01(\x0b\x32\x38.google.cloud.aiplatform.v1beta1.HyperparameterTuningJobB\x03\xe0\x41\x02\"l\n!GetHyperparameterTuningJobRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1aiplatform.googleapis.com/HyperparameterTuningJob\"\xc6\x01\n#ListHyperparameterTuningJobsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\x9d\x01\n$ListHyperparameterTuningJobsResponse\x12\\\n\x1ahyperparameter_tuning_jobs\x18\x01 \x03(\x0b\x32\x38.google.cloud.aiplatform.v1beta1.HyperparameterTuningJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"o\n$DeleteHyperparameterTuningJobRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1aiplatform.googleapis.com/HyperparameterTuningJob\"o\n$CancelHyperparameterTuningJobRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1aiplatform.googleapis.com/HyperparameterTuningJob\"\xb4\x01\n\x1f\x43reateBatchPredictionJobRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12V\n\x14\x62\x61tch_prediction_job\x18\x02 \x01(\x0b\x32\x33.google.cloud.aiplatform.v1beta1.BatchPredictionJobB\x03\xe0\x41\x02\"b\n\x1cGetBatchPredictionJobRequest\x12\x42\n\x04name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,aiplatform.googleapis.com/BatchPredictionJob\"\xc1\x01\n\x1eListBatchPredictionJobsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\x8e\x01\n\x1fListBatchPredictionJobsResponse\x12R\n\x15\x62\x61tch_prediction_jobs\x18\x01 \x03(\x0b\x32\x33.google.cloud.aiplatform.v1beta1.BatchPredictionJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"e\n\x1f\x44\x65leteBatchPredictionJobRequest\x12\x42\n\x04name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,aiplatform.googleapis.com/BatchPredictionJob\"e\n\x1f\x43\x61ncelBatchPredictionJobRequest\x12\x42\n\x04name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,aiplatform.googleapis.com/BatchPredictionJob\"\xd3\x01\n)CreateModelDeploymentMonitoringJobRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12k\n\x1fmodel_deployment_monitoring_job\x18\x02 \x01(\x0b\x32=.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringJobB\x03\xe0\x41\x02\"\xf9\x04\n4SearchModelDeploymentMonitoringStatsAnomaliesRequest\x12g\n\x1fmodel_deployment_monitoring_job\x18\x01 \x01(\tB>\xe0\x41\x02\xfa\x41\x38\n6aiplatform.googleapis.com/ModelDeploymentMonitoringJob\x12\x1e\n\x11\x64\x65ployed_model_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x1c\n\x14\x66\x65\x61ture_display_name\x18\x03 \x01(\t\x12\x86\x01\n\nobjectives\x18\x04 \x03(\x0b\x32m.google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjectiveB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x05 \x01(\x05\x12\x12\n\npage_token\x18\x06 \x01(\t\x12.\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x8b\x01\n\x17StatsAnomaliesObjective\x12U\n\x04type\x18\x01 \x01(\x0e\x32G.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringObjectiveType\x12\x19\n\x11top_feature_count\x18\x04 \x01(\x05\"\xaa\x01\n5SearchModelDeploymentMonitoringStatsAnomaliesResponse\x12X\n\x10monitoring_stats\x18\x01 \x03(\x0b\x32>.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"v\n&GetModelDeploymentMonitoringJobRequest\x12L\n\x04name\x18\x01 \x01(\tB>\xe0\x41\x02\xfa\x41\x38\n6aiplatform.googleapis.com/ModelDeploymentMonitoringJob\"\xcb\x01\n(ListModelDeploymentMonitoringJobsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xad\x01\n)ListModelDeploymentMonitoringJobsResponse\x12g\n model_deployment_monitoring_jobs\x18\x01 \x03(\x0b\x32=.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xce\x01\n)UpdateModelDeploymentMonitoringJobRequest\x12k\n\x1fmodel_deployment_monitoring_job\x18\x01 \x01(\x0b\x32=.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringJobB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"y\n)DeleteModelDeploymentMonitoringJobRequest\x12L\n\x04name\x18\x01 \x01(\tB>\xe0\x41\x02\xfa\x41\x38\n6aiplatform.googleapis.com/ModelDeploymentMonitoringJob\"x\n(PauseModelDeploymentMonitoringJobRequest\x12L\n\x04name\x18\x01 \x01(\tB>\xe0\x41\x02\xfa\x41\x38\n6aiplatform.googleapis.com/ModelDeploymentMonitoringJob\"y\n)ResumeModelDeploymentMonitoringJobRequest\x12L\n\x04name\x18\x01 \x01(\tB>\xe0\x41\x02\xfa\x41\x38\n6aiplatform.googleapis.com/ModelDeploymentMonitoringJob\"\x8a\x01\n3UpdateModelDeploymentMonitoringJobOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata2\x90\x38\n\nJobService\x12\xd3\x01\n\x0f\x43reateCustomJob\x12\x37.google.cloud.aiplatform.v1beta1.CreateCustomJobRequest\x1a*.google.cloud.aiplatform.v1beta1.CustomJob\"[\x82\xd3\xe4\x93\x02\x41\"3/v1beta1/{parent=projects/*/locations/*}/customJobs:\ncustom_job\xda\x41\x11parent,custom_job\x12\xb4\x01\n\x0cGetCustomJob\x12\x34.google.cloud.aiplatform.v1beta1.GetCustomJobRequest\x1a*.google.cloud.aiplatform.v1beta1.CustomJob\"B\x82\xd3\xe4\x93\x02\x35\x12\x33/v1beta1/{name=projects/*/locations/*/customJobs/*}\xda\x41\x04name\x12\xc7\x01\n\x0eListCustomJobs\x12\x36.google.cloud.aiplatform.v1beta1.ListCustomJobsRequest\x1a\x37.google.cloud.aiplatform.v1beta1.ListCustomJobsResponse\"D\x82\xd3\xe4\x93\x02\x35\x12\x33/v1beta1/{parent=projects/*/locations/*}/customJobs\xda\x41\x06parent\x12\xe0\x01\n\x0f\x44\x65leteCustomJob\x12\x37.google.cloud.aiplatform.v1beta1.DeleteCustomJobRequest\x1a\x1d.google.longrunning.Operation\"u\x82\xd3\xe4\x93\x02\x35*3/v1beta1/{name=projects/*/locations/*/customJobs/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xb0\x01\n\x0f\x43\x61ncelCustomJob\x12\x37.google.cloud.aiplatform.v1beta1.CancelCustomJobRequest\x1a\x16.google.protobuf.Empty\"L\x82\xd3\xe4\x93\x02?\":/v1beta1/{name=projects/*/locations/*/customJobs/*}:cancel:\x01*\xda\x41\x04name\x12\xf9\x01\n\x15\x43reateDataLabelingJob\x12=.google.cloud.aiplatform.v1beta1.CreateDataLabelingJobRequest\x1a\x30.google.cloud.aiplatform.v1beta1.DataLabelingJob\"o\x82\xd3\xe4\x93\x02N\"9/v1beta1/{parent=projects/*/locations/*}/dataLabelingJobs:\x11\x64\x61ta_labeling_job\xda\x41\x18parent,data_labeling_job\x12\xcc\x01\n\x12GetDataLabelingJob\x12:.google.cloud.aiplatform.v1beta1.GetDataLabelingJobRequest\x1a\x30.google.cloud.aiplatform.v1beta1.DataLabelingJob\"H\x82\xd3\xe4\x93\x02;\x12\x39/v1beta1/{name=projects/*/locations/*/dataLabelingJobs/*}\xda\x41\x04name\x12\xdf\x01\n\x14ListDataLabelingJobs\x12<.google.cloud.aiplatform.v1beta1.ListDataLabelingJobsRequest\x1a=.google.cloud.aiplatform.v1beta1.ListDataLabelingJobsResponse\"J\x82\xd3\xe4\x93\x02;\x12\x39/v1beta1/{parent=projects/*/locations/*}/dataLabelingJobs\xda\x41\x06parent\x12\xf2\x01\n\x15\x44\x65leteDataLabelingJob\x12=.google.cloud.aiplatform.v1beta1.DeleteDataLabelingJobRequest\x1a\x1d.google.longrunning.Operation\"{\x82\xd3\xe4\x93\x02;*9/v1beta1/{name=projects/*/locations/*/dataLabelingJobs/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xc2\x01\n\x15\x43\x61ncelDataLabelingJob\x12=.google.cloud.aiplatform.v1beta1.CancelDataLabelingJobRequest\x1a\x16.google.protobuf.Empty\"R\x82\xd3\xe4\x93\x02\x45\"@/v1beta1/{name=projects/*/locations/*/dataLabelingJobs/*}:cancel:\x01*\xda\x41\x04name\x12\xaa\x02\n\x1d\x43reateHyperparameterTuningJob\x12\x45.google.cloud.aiplatform.v1beta1.CreateHyperparameterTuningJobRequest\x1a\x38.google.cloud.aiplatform.v1beta1.HyperparameterTuningJob\"\x87\x01\x82\xd3\xe4\x93\x02^\"A/v1beta1/{parent=projects/*/locations/*}/hyperparameterTuningJobs:\x19hyperparameter_tuning_job\xda\x41 parent,hyperparameter_tuning_job\x12\xec\x01\n\x1aGetHyperparameterTuningJob\x12\x42.google.cloud.aiplatform.v1beta1.GetHyperparameterTuningJobRequest\x1a\x38.google.cloud.aiplatform.v1beta1.HyperparameterTuningJob\"P\x82\xd3\xe4\x93\x02\x43\x12\x41/v1beta1/{name=projects/*/locations/*/hyperparameterTuningJobs/*}\xda\x41\x04name\x12\xff\x01\n\x1cListHyperparameterTuningJobs\x12\x44.google.cloud.aiplatform.v1beta1.ListHyperparameterTuningJobsRequest\x1a\x45.google.cloud.aiplatform.v1beta1.ListHyperparameterTuningJobsResponse\"R\x82\xd3\xe4\x93\x02\x43\x12\x41/v1beta1/{parent=projects/*/locations/*}/hyperparameterTuningJobs\xda\x41\x06parent\x12\x8b\x02\n\x1d\x44\x65leteHyperparameterTuningJob\x12\x45.google.cloud.aiplatform.v1beta1.DeleteHyperparameterTuningJobRequest\x1a\x1d.google.longrunning.Operation\"\x83\x01\x82\xd3\xe4\x93\x02\x43*A/v1beta1/{name=projects/*/locations/*/hyperparameterTuningJobs/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xda\x01\n\x1d\x43\x61ncelHyperparameterTuningJob\x12\x45.google.cloud.aiplatform.v1beta1.CancelHyperparameterTuningJobRequest\x1a\x16.google.protobuf.Empty\"Z\x82\xd3\xe4\x93\x02M\"H/v1beta1/{name=projects/*/locations/*/hyperparameterTuningJobs/*}:cancel:\x01*\xda\x41\x04name\x12\x8b\x02\n\x18\x43reateBatchPredictionJob\x12@.google.cloud.aiplatform.v1beta1.CreateBatchPredictionJobRequest\x1a\x33.google.cloud.aiplatform.v1beta1.BatchPredictionJob\"x\x82\xd3\xe4\x93\x02T\"</v1beta1/{parent=projects/*/locations/*}/batchPredictionJobs:\x14\x62\x61tch_prediction_job\xda\x41\x1bparent,batch_prediction_job\x12\xd8\x01\n\x15GetBatchPredictionJob\x12=.google.cloud.aiplatform.v1beta1.GetBatchPredictionJobRequest\x1a\x33.google.cloud.aiplatform.v1beta1.BatchPredictionJob\"K\x82\xd3\xe4\x93\x02>\x12</v1beta1/{name=projects/*/locations/*/batchPredictionJobs/*}\xda\x41\x04name\x12\xeb\x01\n\x17ListBatchPredictionJobs\x12?.google.cloud.aiplatform.v1beta1.ListBatchPredictionJobsRequest\x1a@.google.cloud.aiplatform.v1beta1.ListBatchPredictionJobsResponse\"M\x82\xd3\xe4\x93\x02>\x12</v1beta1/{parent=projects/*/locations/*}/batchPredictionJobs\xda\x41\x06parent\x12\xfb\x01\n\x18\x44\x65leteBatchPredictionJob\x12@.google.cloud.aiplatform.v1beta1.DeleteBatchPredictionJobRequest\x1a\x1d.google.longrunning.Operation\"~\x82\xd3\xe4\x93\x02>*</v1beta1/{name=projects/*/locations/*/batchPredictionJobs/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xcb\x01\n\x18\x43\x61ncelBatchPredictionJob\x12@.google.cloud.aiplatform.v1beta1.CancelBatchPredictionJobRequest\x1a\x16.google.protobuf.Empty\"U\x82\xd3\xe4\x93\x02H\"C/v1beta1/{name=projects/*/locations/*/batchPredictionJobs/*}:cancel:\x01*\xda\x41\x04name\x12\xca\x02\n\"CreateModelDeploymentMonitoringJob\x12J.google.cloud.aiplatform.v1beta1.CreateModelDeploymentMonitoringJobRequest\x1a=.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringJob\"\x98\x01\x82\xd3\xe4\x93\x02i\"F/v1beta1/{parent=projects/*/locations/*}/modelDeploymentMonitoringJobs:\x1fmodel_deployment_monitoring_job\xda\x41&parent,model_deployment_monitoring_job\x12\xb1\x03\n-SearchModelDeploymentMonitoringStatsAnomalies\x12U.google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest\x1aV.google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesResponse\"\xd0\x01\x82\xd3\xe4\x93\x02\x95\x01\"\x8f\x01/v1beta1/{model_deployment_monitoring_job=projects/*/locations/*/modelDeploymentMonitoringJobs/*}:searchModelDeploymentMonitoringStatsAnomalies:\x01*\xda\x41\x31model_deployment_monitoring_job,deployed_model_id\x12\x80\x02\n\x1fGetModelDeploymentMonitoringJob\x12G.google.cloud.aiplatform.v1beta1.GetModelDeploymentMonitoringJobRequest\x1a=.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringJob\"U\x82\xd3\xe4\x93\x02H\x12\x46/v1beta1/{name=projects/*/locations/*/modelDeploymentMonitoringJobs/*}\xda\x41\x04name\x12\x93\x02\n!ListModelDeploymentMonitoringJobs\x12I.google.cloud.aiplatform.v1beta1.ListModelDeploymentMonitoringJobsRequest\x1aJ.google.cloud.aiplatform.v1beta1.ListModelDeploymentMonitoringJobsResponse\"W\x82\xd3\xe4\x93\x02H\x12\x46/v1beta1/{parent=projects/*/locations/*}/modelDeploymentMonitoringJobs\xda\x41\x06parent\x12\xa6\x03\n\"UpdateModelDeploymentMonitoringJob\x12J.google.cloud.aiplatform.v1beta1.UpdateModelDeploymentMonitoringJobRequest\x1a\x1d.google.longrunning.Operation\"\x94\x02\x82\xd3\xe4\x93\x02\x89\x01\x32\x66/v1beta1/{model_deployment_monitoring_job.name=projects/*/locations/*/modelDeploymentMonitoringJobs/*}:\x1fmodel_deployment_monitoring_job\xda\x41+model_deployment_monitoring_job,update_mask\xca\x41S\n\x1cModelDeploymentMonitoringJob\x12\x33UpdateModelDeploymentMonitoringJobOperationMetadata\x12\x9a\x02\n\"DeleteModelDeploymentMonitoringJob\x12J.google.cloud.aiplatform.v1beta1.DeleteModelDeploymentMonitoringJobRequest\x1a\x1d.google.longrunning.Operation\"\x88\x01\x82\xd3\xe4\x93\x02H*F/v1beta1/{name=projects/*/locations/*/modelDeploymentMonitoringJobs/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xe6\x01\n!PauseModelDeploymentMonitoringJob\x12I.google.cloud.aiplatform.v1beta1.PauseModelDeploymentMonitoringJobRequest\x1a\x16.google.protobuf.Empty\"^\x82\xd3\xe4\x93\x02Q\"L/v1beta1/{name=projects/*/locations/*/modelDeploymentMonitoringJobs/*}:pause:\x01*\xda\x41\x04name\x12\xe9\x01\n\"ResumeModelDeploymentMonitoringJob\x12J.google.cloud.aiplatform.v1beta1.ResumeModelDeploymentMonitoringJobRequest\x1a\x16.google.protobuf.Empty\"_\x82\xd3\xe4\x93\x02R\"M/v1beta1/{name=projects/*/locations/*/modelDeploymentMonitoringJobs/*}:resume:\x01*\xda\x41\x04name\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x83\x01\n#com.google.cloud.aiplatform.v1beta1B\x0fJobServiceProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_batch__prediction__job__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_custom__job__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_data__labeling__job__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_hyperparameter__tuning__job__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_operation__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_batch__prediction__job__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_custom__job__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_data__labeling__job__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_hyperparameter__tuning__job__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_model__deployment__monitoring__job__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_operation__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
 
@@ -73,8 +74,8 @@ _CREATECUSTOMJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=616,
-  serialized_end=768,
+  serialized_start=687,
+  serialized_end=839,
 )
 
 
@@ -105,8 +106,8 @@ _GETCUSTOMJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=770,
-  serialized_end=850,
+  serialized_start=841,
+  serialized_end=921,
 )
 
 
@@ -165,8 +166,8 @@ _LISTCUSTOMJOBSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=853,
-  serialized_end=1037,
+  serialized_start=924,
+  serialized_end=1108,
 )
 
 
@@ -204,8 +205,8 @@ _LISTCUSTOMJOBSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1039,
-  serialized_end=1153,
+  serialized_start=1110,
+  serialized_end=1224,
 )
 
 
@@ -236,8 +237,8 @@ _DELETECUSTOMJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1155,
-  serialized_end=1238,
+  serialized_start=1226,
+  serialized_end=1309,
 )
 
 
@@ -268,8 +269,8 @@ _CANCELCUSTOMJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1240,
-  serialized_end=1323,
+  serialized_start=1311,
+  serialized_end=1394,
 )
 
 
@@ -307,8 +308,8 @@ _CREATEDATALABELINGJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1326,
-  serialized_end=1497,
+  serialized_start=1397,
+  serialized_end=1568,
 )
 
 
@@ -339,8 +340,8 @@ _GETDATALABELINGJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1499,
-  serialized_end=1591,
+  serialized_start=1570,
+  serialized_end=1662,
 )
 
 
@@ -406,8 +407,8 @@ _LISTDATALABELINGJOBSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1594,
-  serialized_end=1802,
+  serialized_start=1665,
+  serialized_end=1873,
 )
 
 
@@ -445,8 +446,8 @@ _LISTDATALABELINGJOBSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1805,
-  serialized_end=1938,
+  serialized_start=1876,
+  serialized_end=2009,
 )
 
 
@@ -477,8 +478,8 @@ _DELETEDATALABELINGJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1940,
-  serialized_end=2035,
+  serialized_start=2011,
+  serialized_end=2106,
 )
 
 
@@ -509,8 +510,8 @@ _CANCELDATALABELINGJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2037,
-  serialized_end=2132,
+  serialized_start=2108,
+  serialized_end=2203,
 )
 
 
@@ -548,8 +549,8 @@ _CREATEHYPERPARAMETERTUNINGJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2135,
-  serialized_end=2330,
+  serialized_start=2206,
+  serialized_end=2401,
 )
 
 
@@ -580,8 +581,8 @@ _GETHYPERPARAMETERTUNINGJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2332,
-  serialized_end=2440,
+  serialized_start=2403,
+  serialized_end=2511,
 )
 
 
@@ -640,8 +641,8 @@ _LISTHYPERPARAMETERTUNINGJOBSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2443,
-  serialized_end=2641,
+  serialized_start=2514,
+  serialized_end=2712,
 )
 
 
@@ -679,8 +680,8 @@ _LISTHYPERPARAMETERTUNINGJOBSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2644,
-  serialized_end=2801,
+  serialized_start=2715,
+  serialized_end=2872,
 )
 
 
@@ -711,8 +712,8 @@ _DELETEHYPERPARAMETERTUNINGJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2803,
-  serialized_end=2914,
+  serialized_start=2874,
+  serialized_end=2985,
 )
 
 
@@ -743,8 +744,8 @@ _CANCELHYPERPARAMETERTUNINGJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2916,
-  serialized_end=3027,
+  serialized_start=2987,
+  serialized_end=3098,
 )
 
 
@@ -782,8 +783,8 @@ _CREATEBATCHPREDICTIONJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3030,
-  serialized_end=3210,
+  serialized_start=3101,
+  serialized_end=3281,
 )
 
 
@@ -814,8 +815,8 @@ _GETBATCHPREDICTIONJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3212,
-  serialized_end=3310,
+  serialized_start=3283,
+  serialized_end=3381,
 )
 
 
@@ -874,8 +875,8 @@ _LISTBATCHPREDICTIONJOBSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3313,
-  serialized_end=3506,
+  serialized_start=3384,
+  serialized_end=3577,
 )
 
 
@@ -913,8 +914,8 @@ _LISTBATCHPREDICTIONJOBSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3509,
-  serialized_end=3651,
+  serialized_start=3580,
+  serialized_end=3722,
 )
 
 
@@ -945,8 +946,8 @@ _DELETEBATCHPREDICTIONJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3653,
-  serialized_end=3754,
+  serialized_start=3724,
+  serialized_end=3825,
 )
 
 
@@ -977,8 +978,503 @@ _CANCELBATCHPREDICTIONJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3756,
-  serialized_end=3857,
+  serialized_start=3827,
+  serialized_end=3928,
+)
+
+
+_CREATEMODELDEPLOYMENTMONITORINGJOBREQUEST = _descriptor.Descriptor(
+  name='CreateModelDeploymentMonitoringJobRequest',
+  full_name='google.cloud.aiplatform.v1beta1.CreateModelDeploymentMonitoringJobRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.aiplatform.v1beta1.CreateModelDeploymentMonitoringJobRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='model_deployment_monitoring_job', full_name='google.cloud.aiplatform.v1beta1.CreateModelDeploymentMonitoringJobRequest.model_deployment_monitoring_job', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3931,
+  serialized_end=4142,
+)
+
+
+_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST_STATSANOMALIESOBJECTIVE = _descriptor.Descriptor(
+  name='StatsAnomaliesObjective',
+  full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='top_feature_count', full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective.top_feature_count', index=1,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4639,
+  serialized_end=4778,
+)
+
+_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST = _descriptor.Descriptor(
+  name='SearchModelDeploymentMonitoringStatsAnomaliesRequest',
+  full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='model_deployment_monitoring_job', full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.model_deployment_monitoring_job', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A8\n6aiplatform.googleapis.com/ModelDeploymentMonitoringJob', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='deployed_model_id', full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.deployed_model_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='feature_display_name', full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.feature_display_name', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='objectives', full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.objectives', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.page_size', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.page_token', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.start_time', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_time', full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.end_time', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST_STATSANOMALIESOBJECTIVE, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4145,
+  serialized_end=4778,
+)
+
+
+_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESRESPONSE = _descriptor.Descriptor(
+  name='SearchModelDeploymentMonitoringStatsAnomaliesResponse',
+  full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='monitoring_stats', full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesResponse.monitoring_stats', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4781,
+  serialized_end=4951,
+)
+
+
+_GETMODELDEPLOYMENTMONITORINGJOBREQUEST = _descriptor.Descriptor(
+  name='GetModelDeploymentMonitoringJobRequest',
+  full_name='google.cloud.aiplatform.v1beta1.GetModelDeploymentMonitoringJobRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.aiplatform.v1beta1.GetModelDeploymentMonitoringJobRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A8\n6aiplatform.googleapis.com/ModelDeploymentMonitoringJob', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4953,
+  serialized_end=5071,
+)
+
+
+_LISTMODELDEPLOYMENTMONITORINGJOBSREQUEST = _descriptor.Descriptor(
+  name='ListModelDeploymentMonitoringJobsRequest',
+  full_name='google.cloud.aiplatform.v1beta1.ListModelDeploymentMonitoringJobsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.aiplatform.v1beta1.ListModelDeploymentMonitoringJobsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filter', full_name='google.cloud.aiplatform.v1beta1.ListModelDeploymentMonitoringJobsRequest.filter', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.cloud.aiplatform.v1beta1.ListModelDeploymentMonitoringJobsRequest.page_size', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.cloud.aiplatform.v1beta1.ListModelDeploymentMonitoringJobsRequest.page_token', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='read_mask', full_name='google.cloud.aiplatform.v1beta1.ListModelDeploymentMonitoringJobsRequest.read_mask', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5074,
+  serialized_end=5277,
+)
+
+
+_LISTMODELDEPLOYMENTMONITORINGJOBSRESPONSE = _descriptor.Descriptor(
+  name='ListModelDeploymentMonitoringJobsResponse',
+  full_name='google.cloud.aiplatform.v1beta1.ListModelDeploymentMonitoringJobsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='model_deployment_monitoring_jobs', full_name='google.cloud.aiplatform.v1beta1.ListModelDeploymentMonitoringJobsResponse.model_deployment_monitoring_jobs', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.cloud.aiplatform.v1beta1.ListModelDeploymentMonitoringJobsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5280,
+  serialized_end=5453,
+)
+
+
+_UPDATEMODELDEPLOYMENTMONITORINGJOBREQUEST = _descriptor.Descriptor(
+  name='UpdateModelDeploymentMonitoringJobRequest',
+  full_name='google.cloud.aiplatform.v1beta1.UpdateModelDeploymentMonitoringJobRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='model_deployment_monitoring_job', full_name='google.cloud.aiplatform.v1beta1.UpdateModelDeploymentMonitoringJobRequest.model_deployment_monitoring_job', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_mask', full_name='google.cloud.aiplatform.v1beta1.UpdateModelDeploymentMonitoringJobRequest.update_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5456,
+  serialized_end=5662,
+)
+
+
+_DELETEMODELDEPLOYMENTMONITORINGJOBREQUEST = _descriptor.Descriptor(
+  name='DeleteModelDeploymentMonitoringJobRequest',
+  full_name='google.cloud.aiplatform.v1beta1.DeleteModelDeploymentMonitoringJobRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.aiplatform.v1beta1.DeleteModelDeploymentMonitoringJobRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A8\n6aiplatform.googleapis.com/ModelDeploymentMonitoringJob', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5664,
+  serialized_end=5785,
+)
+
+
+_PAUSEMODELDEPLOYMENTMONITORINGJOBREQUEST = _descriptor.Descriptor(
+  name='PauseModelDeploymentMonitoringJobRequest',
+  full_name='google.cloud.aiplatform.v1beta1.PauseModelDeploymentMonitoringJobRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.aiplatform.v1beta1.PauseModelDeploymentMonitoringJobRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A8\n6aiplatform.googleapis.com/ModelDeploymentMonitoringJob', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5787,
+  serialized_end=5907,
+)
+
+
+_RESUMEMODELDEPLOYMENTMONITORINGJOBREQUEST = _descriptor.Descriptor(
+  name='ResumeModelDeploymentMonitoringJobRequest',
+  full_name='google.cloud.aiplatform.v1beta1.ResumeModelDeploymentMonitoringJobRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.aiplatform.v1beta1.ResumeModelDeploymentMonitoringJobRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A8\n6aiplatform.googleapis.com/ModelDeploymentMonitoringJob', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5909,
+  serialized_end=6030,
+)
+
+
+_UPDATEMODELDEPLOYMENTMONITORINGJOBOPERATIONMETADATA = _descriptor.Descriptor(
+  name='UpdateModelDeploymentMonitoringJobOperationMetadata',
+  full_name='google.cloud.aiplatform.v1beta1.UpdateModelDeploymentMonitoringJobOperationMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='generic_metadata', full_name='google.cloud.aiplatform.v1beta1.UpdateModelDeploymentMonitoringJobOperationMetadata.generic_metadata', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6033,
+  serialized_end=6171,
 )
 
 _CREATECUSTOMJOBREQUEST.fields_by_name['custom_job'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_custom__job__pb2._CUSTOMJOB
@@ -993,6 +1489,18 @@ _LISTHYPERPARAMETERTUNINGJOBSRESPONSE.fields_by_name['hyperparameter_tuning_jobs
 _CREATEBATCHPREDICTIONJOBREQUEST.fields_by_name['batch_prediction_job'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_batch__prediction__job__pb2._BATCHPREDICTIONJOB
 _LISTBATCHPREDICTIONJOBSREQUEST.fields_by_name['read_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 _LISTBATCHPREDICTIONJOBSRESPONSE.fields_by_name['batch_prediction_jobs'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_batch__prediction__job__pb2._BATCHPREDICTIONJOB
+_CREATEMODELDEPLOYMENTMONITORINGJOBREQUEST.fields_by_name['model_deployment_monitoring_job'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_model__deployment__monitoring__job__pb2._MODELDEPLOYMENTMONITORINGJOB
+_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST_STATSANOMALIESOBJECTIVE.fields_by_name['type'].enum_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_model__deployment__monitoring__job__pb2._MODELDEPLOYMENTMONITORINGOBJECTIVETYPE
+_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST_STATSANOMALIESOBJECTIVE.containing_type = _SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST
+_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST.fields_by_name['objectives'].message_type = _SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST_STATSANOMALIESOBJECTIVE
+_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESRESPONSE.fields_by_name['monitoring_stats'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_model__deployment__monitoring__job__pb2._MODELMONITORINGSTATSANOMALIES
+_LISTMODELDEPLOYMENTMONITORINGJOBSREQUEST.fields_by_name['read_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_LISTMODELDEPLOYMENTMONITORINGJOBSRESPONSE.fields_by_name['model_deployment_monitoring_jobs'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_model__deployment__monitoring__job__pb2._MODELDEPLOYMENTMONITORINGJOB
+_UPDATEMODELDEPLOYMENTMONITORINGJOBREQUEST.fields_by_name['model_deployment_monitoring_job'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_model__deployment__monitoring__job__pb2._MODELDEPLOYMENTMONITORINGJOB
+_UPDATEMODELDEPLOYMENTMONITORINGJOBREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_UPDATEMODELDEPLOYMENTMONITORINGJOBOPERATIONMETADATA.fields_by_name['generic_metadata'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_operation__pb2._GENERICOPERATIONMETADATA
 DESCRIPTOR.message_types_by_name['CreateCustomJobRequest'] = _CREATECUSTOMJOBREQUEST
 DESCRIPTOR.message_types_by_name['GetCustomJobRequest'] = _GETCUSTOMJOBREQUEST
 DESCRIPTOR.message_types_by_name['ListCustomJobsRequest'] = _LISTCUSTOMJOBSREQUEST
@@ -1017,6 +1525,17 @@ DESCRIPTOR.message_types_by_name['ListBatchPredictionJobsRequest'] = _LISTBATCHP
 DESCRIPTOR.message_types_by_name['ListBatchPredictionJobsResponse'] = _LISTBATCHPREDICTIONJOBSRESPONSE
 DESCRIPTOR.message_types_by_name['DeleteBatchPredictionJobRequest'] = _DELETEBATCHPREDICTIONJOBREQUEST
 DESCRIPTOR.message_types_by_name['CancelBatchPredictionJobRequest'] = _CANCELBATCHPREDICTIONJOBREQUEST
+DESCRIPTOR.message_types_by_name['CreateModelDeploymentMonitoringJobRequest'] = _CREATEMODELDEPLOYMENTMONITORINGJOBREQUEST
+DESCRIPTOR.message_types_by_name['SearchModelDeploymentMonitoringStatsAnomaliesRequest'] = _SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST
+DESCRIPTOR.message_types_by_name['SearchModelDeploymentMonitoringStatsAnomaliesResponse'] = _SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESRESPONSE
+DESCRIPTOR.message_types_by_name['GetModelDeploymentMonitoringJobRequest'] = _GETMODELDEPLOYMENTMONITORINGJOBREQUEST
+DESCRIPTOR.message_types_by_name['ListModelDeploymentMonitoringJobsRequest'] = _LISTMODELDEPLOYMENTMONITORINGJOBSREQUEST
+DESCRIPTOR.message_types_by_name['ListModelDeploymentMonitoringJobsResponse'] = _LISTMODELDEPLOYMENTMONITORINGJOBSRESPONSE
+DESCRIPTOR.message_types_by_name['UpdateModelDeploymentMonitoringJobRequest'] = _UPDATEMODELDEPLOYMENTMONITORINGJOBREQUEST
+DESCRIPTOR.message_types_by_name['DeleteModelDeploymentMonitoringJobRequest'] = _DELETEMODELDEPLOYMENTMONITORINGJOBREQUEST
+DESCRIPTOR.message_types_by_name['PauseModelDeploymentMonitoringJobRequest'] = _PAUSEMODELDEPLOYMENTMONITORINGJOBREQUEST
+DESCRIPTOR.message_types_by_name['ResumeModelDeploymentMonitoringJobRequest'] = _RESUMEMODELDEPLOYMENTMONITORINGJOBREQUEST
+DESCRIPTOR.message_types_by_name['UpdateModelDeploymentMonitoringJobOperationMetadata'] = _UPDATEMODELDEPLOYMENTMONITORINGJOBOPERATIONMETADATA
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateCustomJobRequest = _reflection.GeneratedProtocolMessageType('CreateCustomJobRequest', (_message.Message,), {
@@ -1187,6 +1706,91 @@ CancelBatchPredictionJobRequest = _reflection.GeneratedProtocolMessageType('Canc
   })
 _sym_db.RegisterMessage(CancelBatchPredictionJobRequest)
 
+CreateModelDeploymentMonitoringJobRequest = _reflection.GeneratedProtocolMessageType('CreateModelDeploymentMonitoringJobRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEMODELDEPLOYMENTMONITORINGJOBREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.job_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.CreateModelDeploymentMonitoringJobRequest)
+  })
+_sym_db.RegisterMessage(CreateModelDeploymentMonitoringJobRequest)
+
+SearchModelDeploymentMonitoringStatsAnomaliesRequest = _reflection.GeneratedProtocolMessageType('SearchModelDeploymentMonitoringStatsAnomaliesRequest', (_message.Message,), {
+
+  'StatsAnomaliesObjective' : _reflection.GeneratedProtocolMessageType('StatsAnomaliesObjective', (_message.Message,), {
+    'DESCRIPTOR' : _SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST_STATSANOMALIESOBJECTIVE,
+    '__module__' : 'google.cloud.aiplatform.v1beta1.job_service_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective)
+    })
+  ,
+  'DESCRIPTOR' : _SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.job_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest)
+  })
+_sym_db.RegisterMessage(SearchModelDeploymentMonitoringStatsAnomaliesRequest)
+_sym_db.RegisterMessage(SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective)
+
+SearchModelDeploymentMonitoringStatsAnomaliesResponse = _reflection.GeneratedProtocolMessageType('SearchModelDeploymentMonitoringStatsAnomaliesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESRESPONSE,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.job_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.SearchModelDeploymentMonitoringStatsAnomaliesResponse)
+  })
+_sym_db.RegisterMessage(SearchModelDeploymentMonitoringStatsAnomaliesResponse)
+
+GetModelDeploymentMonitoringJobRequest = _reflection.GeneratedProtocolMessageType('GetModelDeploymentMonitoringJobRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETMODELDEPLOYMENTMONITORINGJOBREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.job_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.GetModelDeploymentMonitoringJobRequest)
+  })
+_sym_db.RegisterMessage(GetModelDeploymentMonitoringJobRequest)
+
+ListModelDeploymentMonitoringJobsRequest = _reflection.GeneratedProtocolMessageType('ListModelDeploymentMonitoringJobsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTMODELDEPLOYMENTMONITORINGJOBSREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.job_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.ListModelDeploymentMonitoringJobsRequest)
+  })
+_sym_db.RegisterMessage(ListModelDeploymentMonitoringJobsRequest)
+
+ListModelDeploymentMonitoringJobsResponse = _reflection.GeneratedProtocolMessageType('ListModelDeploymentMonitoringJobsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTMODELDEPLOYMENTMONITORINGJOBSRESPONSE,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.job_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.ListModelDeploymentMonitoringJobsResponse)
+  })
+_sym_db.RegisterMessage(ListModelDeploymentMonitoringJobsResponse)
+
+UpdateModelDeploymentMonitoringJobRequest = _reflection.GeneratedProtocolMessageType('UpdateModelDeploymentMonitoringJobRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEMODELDEPLOYMENTMONITORINGJOBREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.job_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.UpdateModelDeploymentMonitoringJobRequest)
+  })
+_sym_db.RegisterMessage(UpdateModelDeploymentMonitoringJobRequest)
+
+DeleteModelDeploymentMonitoringJobRequest = _reflection.GeneratedProtocolMessageType('DeleteModelDeploymentMonitoringJobRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEMODELDEPLOYMENTMONITORINGJOBREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.job_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.DeleteModelDeploymentMonitoringJobRequest)
+  })
+_sym_db.RegisterMessage(DeleteModelDeploymentMonitoringJobRequest)
+
+PauseModelDeploymentMonitoringJobRequest = _reflection.GeneratedProtocolMessageType('PauseModelDeploymentMonitoringJobRequest', (_message.Message,), {
+  'DESCRIPTOR' : _PAUSEMODELDEPLOYMENTMONITORINGJOBREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.job_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.PauseModelDeploymentMonitoringJobRequest)
+  })
+_sym_db.RegisterMessage(PauseModelDeploymentMonitoringJobRequest)
+
+ResumeModelDeploymentMonitoringJobRequest = _reflection.GeneratedProtocolMessageType('ResumeModelDeploymentMonitoringJobRequest', (_message.Message,), {
+  'DESCRIPTOR' : _RESUMEMODELDEPLOYMENTMONITORINGJOBREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.job_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.ResumeModelDeploymentMonitoringJobRequest)
+  })
+_sym_db.RegisterMessage(ResumeModelDeploymentMonitoringJobRequest)
+
+UpdateModelDeploymentMonitoringJobOperationMetadata = _reflection.GeneratedProtocolMessageType('UpdateModelDeploymentMonitoringJobOperationMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEMODELDEPLOYMENTMONITORINGJOBOPERATIONMETADATA,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.job_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.UpdateModelDeploymentMonitoringJobOperationMetadata)
+  })
+_sym_db.RegisterMessage(UpdateModelDeploymentMonitoringJobOperationMetadata)
+
 
 DESCRIPTOR._options = None
 _CREATECUSTOMJOBREQUEST.fields_by_name['parent']._options = None
@@ -1213,6 +1817,18 @@ _GETBATCHPREDICTIONJOBREQUEST.fields_by_name['name']._options = None
 _LISTBATCHPREDICTIONJOBSREQUEST.fields_by_name['parent']._options = None
 _DELETEBATCHPREDICTIONJOBREQUEST.fields_by_name['name']._options = None
 _CANCELBATCHPREDICTIONJOBREQUEST.fields_by_name['name']._options = None
+_CREATEMODELDEPLOYMENTMONITORINGJOBREQUEST.fields_by_name['parent']._options = None
+_CREATEMODELDEPLOYMENTMONITORINGJOBREQUEST.fields_by_name['model_deployment_monitoring_job']._options = None
+_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST.fields_by_name['model_deployment_monitoring_job']._options = None
+_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST.fields_by_name['deployed_model_id']._options = None
+_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST.fields_by_name['objectives']._options = None
+_GETMODELDEPLOYMENTMONITORINGJOBREQUEST.fields_by_name['name']._options = None
+_LISTMODELDEPLOYMENTMONITORINGJOBSREQUEST.fields_by_name['parent']._options = None
+_UPDATEMODELDEPLOYMENTMONITORINGJOBREQUEST.fields_by_name['model_deployment_monitoring_job']._options = None
+_UPDATEMODELDEPLOYMENTMONITORINGJOBREQUEST.fields_by_name['update_mask']._options = None
+_DELETEMODELDEPLOYMENTMONITORINGJOBREQUEST.fields_by_name['name']._options = None
+_PAUSEMODELDEPLOYMENTMONITORINGJOBREQUEST.fields_by_name['name']._options = None
+_RESUMEMODELDEPLOYMENTMONITORINGJOBREQUEST.fields_by_name['name']._options = None
 
 _JOBSERVICE = _descriptor.ServiceDescriptor(
   name='JobService',
@@ -1221,8 +1837,8 @@ _JOBSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031aiplatform.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=3860,
-  serialized_end=8559,
+  serialized_start=6174,
+  serialized_end=13358,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateCustomJob',
@@ -1422,6 +2038,86 @@ _JOBSERVICE = _descriptor.ServiceDescriptor(
     input_type=_CANCELBATCHPREDICTIONJOBREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=b'\202\323\344\223\002H\"C/v1beta1/{name=projects/*/locations/*/batchPredictionJobs/*}:cancel:\001*\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='CreateModelDeploymentMonitoringJob',
+    full_name='google.cloud.aiplatform.v1beta1.JobService.CreateModelDeploymentMonitoringJob',
+    index=20,
+    containing_service=None,
+    input_type=_CREATEMODELDEPLOYMENTMONITORINGJOBREQUEST,
+    output_type=google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_model__deployment__monitoring__job__pb2._MODELDEPLOYMENTMONITORINGJOB,
+    serialized_options=b'\202\323\344\223\002i\"F/v1beta1/{parent=projects/*/locations/*}/modelDeploymentMonitoringJobs:\037model_deployment_monitoring_job\332A&parent,model_deployment_monitoring_job',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SearchModelDeploymentMonitoringStatsAnomalies',
+    full_name='google.cloud.aiplatform.v1beta1.JobService.SearchModelDeploymentMonitoringStatsAnomalies',
+    index=21,
+    containing_service=None,
+    input_type=_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESREQUEST,
+    output_type=_SEARCHMODELDEPLOYMENTMONITORINGSTATSANOMALIESRESPONSE,
+    serialized_options=b'\202\323\344\223\002\225\001\"\217\001/v1beta1/{model_deployment_monitoring_job=projects/*/locations/*/modelDeploymentMonitoringJobs/*}:searchModelDeploymentMonitoringStatsAnomalies:\001*\332A1model_deployment_monitoring_job,deployed_model_id',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetModelDeploymentMonitoringJob',
+    full_name='google.cloud.aiplatform.v1beta1.JobService.GetModelDeploymentMonitoringJob',
+    index=22,
+    containing_service=None,
+    input_type=_GETMODELDEPLOYMENTMONITORINGJOBREQUEST,
+    output_type=google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_model__deployment__monitoring__job__pb2._MODELDEPLOYMENTMONITORINGJOB,
+    serialized_options=b'\202\323\344\223\002H\022F/v1beta1/{name=projects/*/locations/*/modelDeploymentMonitoringJobs/*}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListModelDeploymentMonitoringJobs',
+    full_name='google.cloud.aiplatform.v1beta1.JobService.ListModelDeploymentMonitoringJobs',
+    index=23,
+    containing_service=None,
+    input_type=_LISTMODELDEPLOYMENTMONITORINGJOBSREQUEST,
+    output_type=_LISTMODELDEPLOYMENTMONITORINGJOBSRESPONSE,
+    serialized_options=b'\202\323\344\223\002H\022F/v1beta1/{parent=projects/*/locations/*}/modelDeploymentMonitoringJobs\332A\006parent',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UpdateModelDeploymentMonitoringJob',
+    full_name='google.cloud.aiplatform.v1beta1.JobService.UpdateModelDeploymentMonitoringJob',
+    index=24,
+    containing_service=None,
+    input_type=_UPDATEMODELDEPLOYMENTMONITORINGJOBREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002\211\0012f/v1beta1/{model_deployment_monitoring_job.name=projects/*/locations/*/modelDeploymentMonitoringJobs/*}:\037model_deployment_monitoring_job\332A+model_deployment_monitoring_job,update_mask\312AS\n\034ModelDeploymentMonitoringJob\0223UpdateModelDeploymentMonitoringJobOperationMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteModelDeploymentMonitoringJob',
+    full_name='google.cloud.aiplatform.v1beta1.JobService.DeleteModelDeploymentMonitoringJob',
+    index=25,
+    containing_service=None,
+    input_type=_DELETEMODELDEPLOYMENTMONITORINGJOBREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002H*F/v1beta1/{name=projects/*/locations/*/modelDeploymentMonitoringJobs/*}\332A\004name\312A0\n\025google.protobuf.Empty\022\027DeleteOperationMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='PauseModelDeploymentMonitoringJob',
+    full_name='google.cloud.aiplatform.v1beta1.JobService.PauseModelDeploymentMonitoringJob',
+    index=26,
+    containing_service=None,
+    input_type=_PAUSEMODELDEPLOYMENTMONITORINGJOBREQUEST,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=b'\202\323\344\223\002Q\"L/v1beta1/{name=projects/*/locations/*/modelDeploymentMonitoringJobs/*}:pause:\001*\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ResumeModelDeploymentMonitoringJob',
+    full_name='google.cloud.aiplatform.v1beta1.JobService.ResumeModelDeploymentMonitoringJob',
+    index=27,
+    containing_service=None,
+    input_type=_RESUMEMODELDEPLOYMENTMONITORINGJOBREQUEST,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=b'\202\323\344\223\002R\"M/v1beta1/{name=projects/*/locations/*/modelDeploymentMonitoringJobs/*}:resume:\001*\332A\004name',
     create_key=_descriptor._internal_create_key,
   ),
 ])

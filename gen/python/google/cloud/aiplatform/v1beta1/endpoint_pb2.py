@@ -16,6 +16,7 @@ from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.aiplatform.v1beta1 import encryption_spec_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_encryption__spec__pb2
 from google.cloud.aiplatform.v1beta1 import explanation_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_explanation__pb2
 from google.cloud.aiplatform.v1beta1 import machine_resources_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_machine__resources__pb2
+from google.cloud.aiplatform.v1beta1 import model_deployment_monitoring_job_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_model__deployment__monitoring__job__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
@@ -26,9 +27,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\rEndpointProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.google/cloud/aiplatform/v1beta1/endpoint.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x35google/cloud/aiplatform/v1beta1/encryption_spec.proto\x1a\x31google/cloud/aiplatform/v1beta1/explanation.proto\x1a\x37google/cloud/aiplatform/v1beta1/machine_resources.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xc5\x05\n\x08\x45ndpoint\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12L\n\x0f\x64\x65ployed_models\x18\x04 \x03(\x0b\x32..google.cloud.aiplatform.v1beta1.DeployedModelB\x03\xe0\x41\x03\x12R\n\rtraffic_split\x18\x05 \x03(\x0b\x32;.google.cloud.aiplatform.v1beta1.Endpoint.TrafficSplitEntry\x12\x0c\n\x04\x65tag\x18\x06 \x01(\t\x12\x45\n\x06labels\x18\x07 \x03(\x0b\x32\x35.google.cloud.aiplatform.v1beta1.Endpoint.LabelsEntry\x12\x34\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12H\n\x0f\x65ncryption_spec\x18\n \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.EncryptionSpec\x1a\x33\n\x11TrafficSplitEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:e\xea\x41\x62\n\"aiplatform.googleapis.com/Endpoint\x12<projects/{project}/locations/{location}/endpoints/{endpoint}\"\x8a\x04\n\rDeployedModel\x12R\n\x13\x64\x65\x64icated_resources\x18\x07 \x01(\x0b\x32\x33.google.cloud.aiplatform.v1beta1.DedicatedResourcesH\x00\x12R\n\x13\x61utomatic_resources\x18\x08 \x01(\x0b\x32\x33.google.cloud.aiplatform.v1beta1.AutomaticResourcesH\x00\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x36\n\x05model\x18\x02 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x61iplatform.googleapis.com/Model\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12J\n\x10\x65xplanation_spec\x18\t \x01(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.ExplanationSpec\x12\x17\n\x0fservice_account\x18\x0b \x01(\t\x12 \n\x18\x65nable_container_logging\x18\x0c \x01(\x08\x12\x1d\n\x15\x65nable_access_logging\x18\r \x01(\x08\x42\x16\n\x14prediction_resourcesB\x81\x01\n#com.google.cloud.aiplatform.v1beta1B\rEndpointProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n.google/cloud/aiplatform/v1beta1/endpoint.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x35google/cloud/aiplatform/v1beta1/encryption_spec.proto\x1a\x31google/cloud/aiplatform/v1beta1/explanation.proto\x1a\x37google/cloud/aiplatform/v1beta1/machine_resources.proto\x1a\x45google/cloud/aiplatform/v1beta1/model_deployment_monitoring_job.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xc5\x05\n\x08\x45ndpoint\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12L\n\x0f\x64\x65ployed_models\x18\x04 \x03(\x0b\x32..google.cloud.aiplatform.v1beta1.DeployedModelB\x03\xe0\x41\x03\x12R\n\rtraffic_split\x18\x05 \x03(\x0b\x32;.google.cloud.aiplatform.v1beta1.Endpoint.TrafficSplitEntry\x12\x0c\n\x04\x65tag\x18\x06 \x01(\t\x12\x45\n\x06labels\x18\x07 \x03(\x0b\x32\x35.google.cloud.aiplatform.v1beta1.Endpoint.LabelsEntry\x12\x34\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12H\n\x0f\x65ncryption_spec\x18\n \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.EncryptionSpec\x1a\x33\n\x11TrafficSplitEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:e\xea\x41\x62\n\"aiplatform.googleapis.com/Endpoint\x12<projects/{project}/locations/{location}/endpoints/{endpoint}\"\x8a\x04\n\rDeployedModel\x12R\n\x13\x64\x65\x64icated_resources\x18\x07 \x01(\x0b\x32\x33.google.cloud.aiplatform.v1beta1.DedicatedResourcesH\x00\x12R\n\x13\x61utomatic_resources\x18\x08 \x01(\x0b\x32\x33.google.cloud.aiplatform.v1beta1.AutomaticResourcesH\x00\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x36\n\x05model\x18\x02 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x61iplatform.googleapis.com/Model\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12J\n\x10\x65xplanation_spec\x18\t \x01(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.ExplanationSpec\x12\x17\n\x0fservice_account\x18\x0b \x01(\t\x12 \n\x18\x65nable_container_logging\x18\x0c \x01(\x08\x12\x1d\n\x15\x65nable_access_logging\x18\r \x01(\x08\x42\x16\n\x14prediction_resourcesB\x81\x01\n#com.google.cloud.aiplatform.v1beta1B\rEndpointProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_encryption__spec__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_explanation__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_machine__resources__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_encryption__spec__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_explanation__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_machine__resources__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_model__deployment__monitoring__job__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -67,8 +68,8 @@ _ENDPOINT_TRAFFICSPLITENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=878,
-  serialized_end=929,
+  serialized_start=949,
+  serialized_end=1000,
 )
 
 _ENDPOINT_LABELSENTRY = _descriptor.Descriptor(
@@ -105,8 +106,8 @@ _ENDPOINT_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=931,
-  serialized_end=976,
+  serialized_start=1002,
+  serialized_end=1047,
 )
 
 _ENDPOINT = _descriptor.Descriptor(
@@ -199,8 +200,8 @@ _ENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=370,
-  serialized_end=1079,
+  serialized_start=441,
+  serialized_end=1150,
 )
 
 
@@ -299,8 +300,8 @@ _DEPLOYEDMODEL = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1082,
-  serialized_end=1604,
+  serialized_start=1153,
+  serialized_end=1675,
 )
 
 _ENDPOINT_TRAFFICSPLITENTRY.containing_type = _ENDPOINT

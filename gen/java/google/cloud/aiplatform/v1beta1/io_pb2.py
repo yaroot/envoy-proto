@@ -21,11 +21,75 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\007IoProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n(google/cloud/aiplatform/v1beta1/io.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/api/annotations.proto\"\x1e\n\tGcsSource\x12\x11\n\x04uris\x18\x01 \x03(\tB\x03\xe0\x41\x02\"0\n\x0eGcsDestination\x12\x1e\n\x11output_uri_prefix\x18\x01 \x01(\tB\x03\xe0\x41\x02\"(\n\x0e\x42igQuerySource\x12\x16\n\tinput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\".\n\x13\x42igQueryDestination\x12\x17\n\noutput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\"7\n\x1c\x43ontainerRegistryDestination\x12\x17\n\noutput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x42{\n#com.google.cloud.aiplatform.v1beta1B\x07IoProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n(google/cloud/aiplatform/v1beta1/io.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/api/annotations.proto\"Q\n\nAvroSource\x12\x43\n\ngcs_source\x18\x01 \x01(\x0b\x32*.google.cloud.aiplatform.v1beta1.GcsSourceB\x03\xe0\x41\x02\"P\n\tCsvSource\x12\x43\n\ngcs_source\x18\x01 \x01(\x0b\x32*.google.cloud.aiplatform.v1beta1.GcsSourceB\x03\xe0\x41\x02\"\x1e\n\tGcsSource\x12\x11\n\x04uris\x18\x01 \x03(\tB\x03\xe0\x41\x02\"0\n\x0eGcsDestination\x12\x1e\n\x11output_uri_prefix\x18\x01 \x01(\tB\x03\xe0\x41\x02\"(\n\x0e\x42igQuerySource\x12\x16\n\tinput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\".\n\x13\x42igQueryDestination\x12\x17\n\noutput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\"_\n\x0e\x43svDestination\x12M\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.GcsDestinationB\x03\xe0\x41\x02\"d\n\x13TFRecordDestination\x12M\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.GcsDestinationB\x03\xe0\x41\x02\"7\n\x1c\x43ontainerRegistryDestination\x12\x17\n\noutput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x42{\n#com.google.cloud.aiplatform.v1beta1B\x07IoProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
+
+
+_AVROSOURCE = _descriptor.Descriptor(
+  name='AvroSource',
+  full_name='google.cloud.aiplatform.v1beta1.AvroSource',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='gcs_source', full_name='google.cloud.aiplatform.v1beta1.AvroSource.gcs_source', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=140,
+  serialized_end=221,
+)
+
+
+_CSVSOURCE = _descriptor.Descriptor(
+  name='CsvSource',
+  full_name='google.cloud.aiplatform.v1beta1.CsvSource',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='gcs_source', full_name='google.cloud.aiplatform.v1beta1.CsvSource.gcs_source', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=223,
+  serialized_end=303,
+)
 
 
 _GCSSOURCE = _descriptor.Descriptor(
@@ -55,8 +119,8 @@ _GCSSOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=140,
-  serialized_end=170,
+  serialized_start=305,
+  serialized_end=335,
 )
 
 
@@ -87,8 +151,8 @@ _GCSDESTINATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=172,
-  serialized_end=220,
+  serialized_start=337,
+  serialized_end=385,
 )
 
 
@@ -119,8 +183,8 @@ _BIGQUERYSOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=222,
-  serialized_end=262,
+  serialized_start=387,
+  serialized_end=427,
 )
 
 
@@ -151,8 +215,72 @@ _BIGQUERYDESTINATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=264,
-  serialized_end=310,
+  serialized_start=429,
+  serialized_end=475,
+)
+
+
+_CSVDESTINATION = _descriptor.Descriptor(
+  name='CsvDestination',
+  full_name='google.cloud.aiplatform.v1beta1.CsvDestination',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='gcs_destination', full_name='google.cloud.aiplatform.v1beta1.CsvDestination.gcs_destination', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=477,
+  serialized_end=572,
+)
+
+
+_TFRECORDDESTINATION = _descriptor.Descriptor(
+  name='TFRecordDestination',
+  full_name='google.cloud.aiplatform.v1beta1.TFRecordDestination',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='gcs_destination', full_name='google.cloud.aiplatform.v1beta1.TFRecordDestination.gcs_destination', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=574,
+  serialized_end=674,
 )
 
 
@@ -183,16 +311,38 @@ _CONTAINERREGISTRYDESTINATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=312,
-  serialized_end=367,
+  serialized_start=676,
+  serialized_end=731,
 )
 
+_AVROSOURCE.fields_by_name['gcs_source'].message_type = _GCSSOURCE
+_CSVSOURCE.fields_by_name['gcs_source'].message_type = _GCSSOURCE
+_CSVDESTINATION.fields_by_name['gcs_destination'].message_type = _GCSDESTINATION
+_TFRECORDDESTINATION.fields_by_name['gcs_destination'].message_type = _GCSDESTINATION
+DESCRIPTOR.message_types_by_name['AvroSource'] = _AVROSOURCE
+DESCRIPTOR.message_types_by_name['CsvSource'] = _CSVSOURCE
 DESCRIPTOR.message_types_by_name['GcsSource'] = _GCSSOURCE
 DESCRIPTOR.message_types_by_name['GcsDestination'] = _GCSDESTINATION
 DESCRIPTOR.message_types_by_name['BigQuerySource'] = _BIGQUERYSOURCE
 DESCRIPTOR.message_types_by_name['BigQueryDestination'] = _BIGQUERYDESTINATION
+DESCRIPTOR.message_types_by_name['CsvDestination'] = _CSVDESTINATION
+DESCRIPTOR.message_types_by_name['TFRecordDestination'] = _TFRECORDDESTINATION
 DESCRIPTOR.message_types_by_name['ContainerRegistryDestination'] = _CONTAINERREGISTRYDESTINATION
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+AvroSource = _reflection.GeneratedProtocolMessageType('AvroSource', (_message.Message,), {
+  'DESCRIPTOR' : _AVROSOURCE,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.io_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.AvroSource)
+  })
+_sym_db.RegisterMessage(AvroSource)
+
+CsvSource = _reflection.GeneratedProtocolMessageType('CsvSource', (_message.Message,), {
+  'DESCRIPTOR' : _CSVSOURCE,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.io_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.CsvSource)
+  })
+_sym_db.RegisterMessage(CsvSource)
 
 GcsSource = _reflection.GeneratedProtocolMessageType('GcsSource', (_message.Message,), {
   'DESCRIPTOR' : _GCSSOURCE,
@@ -222,6 +372,20 @@ BigQueryDestination = _reflection.GeneratedProtocolMessageType('BigQueryDestinat
   })
 _sym_db.RegisterMessage(BigQueryDestination)
 
+CsvDestination = _reflection.GeneratedProtocolMessageType('CsvDestination', (_message.Message,), {
+  'DESCRIPTOR' : _CSVDESTINATION,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.io_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.CsvDestination)
+  })
+_sym_db.RegisterMessage(CsvDestination)
+
+TFRecordDestination = _reflection.GeneratedProtocolMessageType('TFRecordDestination', (_message.Message,), {
+  'DESCRIPTOR' : _TFRECORDDESTINATION,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.io_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.TFRecordDestination)
+  })
+_sym_db.RegisterMessage(TFRecordDestination)
+
 ContainerRegistryDestination = _reflection.GeneratedProtocolMessageType('ContainerRegistryDestination', (_message.Message,), {
   'DESCRIPTOR' : _CONTAINERREGISTRYDESTINATION,
   '__module__' : 'google.cloud.aiplatform.v1beta1.io_pb2'
@@ -231,9 +395,13 @@ _sym_db.RegisterMessage(ContainerRegistryDestination)
 
 
 DESCRIPTOR._options = None
+_AVROSOURCE.fields_by_name['gcs_source']._options = None
+_CSVSOURCE.fields_by_name['gcs_source']._options = None
 _GCSSOURCE.fields_by_name['uris']._options = None
 _GCSDESTINATION.fields_by_name['output_uri_prefix']._options = None
 _BIGQUERYSOURCE.fields_by_name['input_uri']._options = None
 _BIGQUERYDESTINATION.fields_by_name['output_uri']._options = None
+_CSVDESTINATION.fields_by_name['gcs_destination']._options = None
+_TFRECORDDESTINATION.fields_by_name['gcs_destination']._options = None
 _CONTAINERREGISTRYDESTINATION.fields_by_name['output_uri']._options = None
 # @@protoc_insertion_point(module_scope)

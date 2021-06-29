@@ -11,8 +11,8 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"com.google.cloud.securitycenter.v1P\001ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\252\002\036Google.Cloud.SecurityCenter.V1\312\002\036Google\\Cloud\\SecurityCenter\\V1\352\002!Google::Cloud::SecurityCenter::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n:google/cloud/securitycenter/v1/organization_settings.proto\x12\x1egoogle.cloud.securitycenter.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/resource.proto\"\x8a\x04\n\x14OrganizationSettings\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1e\n\x16\x65nable_asset_discovery\x18\x02 \x01(\x08\x12i\n\x16\x61sset_discovery_config\x18\x03 \x01(\x0b\x32I.google.cloud.securitycenter.v1.OrganizationSettings.AssetDiscoveryConfig\x1a\xec\x01\n\x14\x41ssetDiscoveryConfig\x12\x13\n\x0bproject_ids\x18\x01 \x03(\t\x12o\n\x0einclusion_mode\x18\x02 \x01(\x0e\x32W.google.cloud.securitycenter.v1.OrganizationSettings.AssetDiscoveryConfig.InclusionMode\"N\n\rInclusionMode\x12\x1e\n\x1aINCLUSION_MODE_UNSPECIFIED\x10\x00\x12\x10\n\x0cINCLUDE_ONLY\x10\x01\x12\x0b\n\x07\x45XCLUDE\x10\x02:j\xea\x41g\n2securitycenter.googleapis.com/OrganizationSettings\x12\x31organizations/{organization}/organizationSettingsB\xda\x01\n\"com.google.cloud.securitycenter.v1P\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1b\x06proto3'
+  serialized_pb=b'\n:google/cloud/securitycenter/v1/organization_settings.proto\x12\x1egoogle.cloud.securitycenter.v1\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\x9e\x04\n\x14OrganizationSettings\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1e\n\x16\x65nable_asset_discovery\x18\x02 \x01(\x08\x12i\n\x16\x61sset_discovery_config\x18\x03 \x01(\x0b\x32I.google.cloud.securitycenter.v1.OrganizationSettings.AssetDiscoveryConfig\x1a\x80\x02\n\x14\x41ssetDiscoveryConfig\x12\x13\n\x0bproject_ids\x18\x01 \x03(\t\x12o\n\x0einclusion_mode\x18\x02 \x01(\x0e\x32W.google.cloud.securitycenter.v1.OrganizationSettings.AssetDiscoveryConfig.InclusionMode\x12\x12\n\nfolder_ids\x18\x03 \x03(\t\"N\n\rInclusionMode\x12\x1e\n\x1aINCLUSION_MODE_UNSPECIFIED\x10\x00\x12\x10\n\x0cINCLUDE_ONLY\x10\x01\x12\x0b\n\x07\x45XCLUDE\x10\x02:j\xea\x41g\n2securitycenter.googleapis.com/OrganizationSettings\x12\x31organizations/{organization}/organizationSettingsB\xda\x01\n\"com.google.cloud.securitycenter.v1P\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -52,8 +52,8 @@ _ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG_INCLUSIONMODE = _descriptor.EnumDescr
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=488,
-  serialized_end=566,
+  serialized_start=508,
+  serialized_end=586,
 )
 _sym_db.RegisterEnumDescriptor(_ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG_INCLUSIONMODE)
 
@@ -80,6 +80,13 @@ _ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='folder_ids', full_name='google.cloud.securitycenter.v1.OrganizationSettings.AssetDiscoveryConfig.folder_ids', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -94,7 +101,7 @@ _ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=330,
-  serialized_end=566,
+  serialized_end=586,
 )
 
 _ORGANIZATIONSETTINGS = _descriptor.Descriptor(
@@ -139,7 +146,7 @@ _ORGANIZATIONSETTINGS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=152,
-  serialized_end=674,
+  serialized_end=694,
 )
 
 _ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG.fields_by_name['inclusion_mode'].enum_type = _ORGANIZATIONSETTINGS_ASSETDISCOVERYCONFIG_INCLUSIONMODE

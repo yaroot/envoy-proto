@@ -11,9 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.cloud.securitycenter.v1 import finding_pb2 as google_dot_cloud_dot_securitycenter_dot_v1_dot_finding__pb2
 from google.cloud.securitycenter.v1 import resource_pb2 as google_dot_cloud_dot_securitycenter_dot_v1_dot_resource__pb2
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"com.google.cloud.securitycenter.v1B\030NotificationMessageProtoP\001ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\252\002\036Google.Cloud.SecurityCenter.V1\312\002\036Google\\Cloud\\SecurityCenter\\V1\352\002!Google::Cloud::SecurityCenter::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n9google/cloud/securitycenter/v1/notification_message.proto\x12\x1egoogle.cloud.securitycenter.v1\x1a\x1cgoogle/api/annotations.proto\x1a,google/cloud/securitycenter/v1/finding.proto\x1a-google/cloud/securitycenter/v1/resource.proto\"\xb8\x01\n\x13NotificationMessage\x12 \n\x18notification_config_name\x18\x01 \x01(\t\x12:\n\x07\x66inding\x18\x02 \x01(\x0b\x32\'.google.cloud.securitycenter.v1.FindingH\x00\x12:\n\x08resource\x18\x03 \x01(\x0b\x32(.google.cloud.securitycenter.v1.ResourceB\x07\n\x05\x65ventB\xf4\x01\n\"com.google.cloud.securitycenter.v1B\x18NotificationMessageProtoP\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1b\x06proto3'
+  serialized_pb=b'\n9google/cloud/securitycenter/v1/notification_message.proto\x12\x1egoogle.cloud.securitycenter.v1\x1a,google/cloud/securitycenter/v1/finding.proto\x1a-google/cloud/securitycenter/v1/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\xb8\x01\n\x13NotificationMessage\x12 \n\x18notification_config_name\x18\x01 \x01(\t\x12:\n\x07\x66inding\x18\x02 \x01(\x0b\x32\'.google.cloud.securitycenter.v1.FindingH\x00\x12:\n\x08resource\x18\x03 \x01(\x0b\x32(.google.cloud.securitycenter.v1.ResourceB\x07\n\x05\x65ventB\xf4\x01\n\"com.google.cloud.securitycenter.v1B\x18NotificationMessageProtoP\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_cloud_dot_securitycenter_dot_v1_dot_finding__pb2.DESCRIPTOR,google_dot_cloud_dot_securitycenter_dot_v1_dot_resource__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_cloud_dot_securitycenter_dot_v1_dot_finding__pb2.DESCRIPTOR,google_dot_cloud_dot_securitycenter_dot_v1_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 

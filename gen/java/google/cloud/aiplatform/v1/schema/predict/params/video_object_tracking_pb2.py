@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1/schema/predict/params/video_object_tracking.proto',
   package='google.cloud.aiplatform.v1.schema.predict.params',
   syntax='proto3',
-  serialized_options=b'\n4com.google.cloud.aiplatform.v1.schema.predict.paramsB(VideoObjectTrackingPredictionParamsProtoP\001ZVgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/params;params',
+  serialized_options=b'\n4com.google.cloud.aiplatform.v1.schema.predict.paramsB(VideoObjectTrackingPredictionParamsProtoP\001ZVgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/params;params\252\0020Google.Cloud.AIPlatform.V1.Schema.Predict.Params\312\0020Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Params\352\0026Google::Cloud::AIPlatform::V1::Schema::Predict::Params',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nLgoogle/cloud/aiplatform/v1/schema/predict/params/video_object_tracking.proto\x12\x30google.cloud.aiplatform.v1.schema.predict.params\x1a\x1cgoogle/api/annotations.proto\"{\n#VideoObjectTrackingPredictionParams\x12\x1c\n\x14\x63onfidence_threshold\x18\x01 \x01(\x02\x12\x17\n\x0fmax_predictions\x18\x02 \x01(\x05\x12\x1d\n\x15min_bounding_box_size\x18\x03 \x01(\x02\x42\xba\x01\n4com.google.cloud.aiplatform.v1.schema.predict.paramsB(VideoObjectTrackingPredictionParamsProtoP\x01ZVgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/params;paramsb\x06proto3'
+  serialized_pb=b'\nLgoogle/cloud/aiplatform/v1/schema/predict/params/video_object_tracking.proto\x12\x30google.cloud.aiplatform.v1.schema.predict.params\x1a\x1cgoogle/api/annotations.proto\"{\n#VideoObjectTrackingPredictionParams\x12\x1c\n\x14\x63onfidence_threshold\x18\x01 \x01(\x02\x12\x17\n\x0fmax_predictions\x18\x02 \x01(\x05\x12\x1d\n\x15min_bounding_box_size\x18\x03 \x01(\x02\x42\xd9\x02\n4com.google.cloud.aiplatform.v1.schema.predict.paramsB(VideoObjectTrackingPredictionParamsProtoP\x01ZVgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/params;params\xaa\x02\x30Google.Cloud.AIPlatform.V1.Schema.Predict.Params\xca\x02\x30Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Params\xea\x02\x36Google::Cloud::AIPlatform::V1::Schema::Predict::Paramsb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 

@@ -17,6 +17,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.documentai.v1 import document_pb2 as google_dot_cloud_dot_documentai_dot_v1_dot_document__pb2
 from google.cloud.documentai.v1 import document_io_pb2 as google_dot_cloud_dot_documentai_dot_v1_dot_document__io__pb2
+from google.cloud.documentai.v1 import operation_metadata_pb2 as google_dot_cloud_dot_documentai_dot_v1_dot_operation__metadata__pb2
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
@@ -29,9 +30,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\036com.google.cloud.documentai.v1B\032DocumentAiProcessorServiceP\001ZDgoogle.golang.org/genproto/googleapis/cloud/documentai/v1;documentai\252\002\032Google.Cloud.DocumentAI.V1\312\002\032Google\\Cloud\\DocumentAI\\V1\352\002\035Google::Cloud::DocumentAI::V1\352AM\n\"documentai.googleapis.com/Location\022\'projects/{project}/locations/{location}\352Ae\n#documentai.googleapis.com/Processor\022>projects/{project}/locations/{location}/processors/{processor}\352A\177\n+documentai.googleapis.com/HumanReviewConfig\022Pprojects/{project}/locations/{location}/processors/{processor}/humanReviewConfig',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n;google/cloud/documentai/v1/document_processor_service.proto\x12\x1agoogle.cloud.documentai.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a)google/cloud/documentai/v1/document.proto\x1a,google/cloud/documentai/v1/document_io.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xf2\x01\n\x0eProcessRequest\x12?\n\x0finline_document\x18\x04 \x01(\x0b\x32$.google.cloud.documentai.v1.DocumentH\x00\x12?\n\x0craw_document\x18\x05 \x01(\x0b\x32\'.google.cloud.documentai.v1.RawDocumentH\x00\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\x12\x19\n\x11skip_human_review\x18\x03 \x01(\x08\x42\x08\n\x06source\"\xee\x01\n\x11HumanReviewStatus\x12\x42\n\x05state\x18\x01 \x01(\x0e\x32\x33.google.cloud.documentai.v1.HumanReviewStatus.State\x12\x15\n\rstate_message\x18\x02 \x01(\t\x12\x1e\n\x16human_review_operation\x18\x03 \x01(\t\"^\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07SKIPPED\x10\x01\x12\x15\n\x11VALIDATION_PASSED\x10\x02\x12\x0f\n\x0bIN_PROGRESS\x10\x03\x12\t\n\x05\x45RROR\x10\x04\"\x95\x01\n\x0fProcessResponse\x12\x36\n\x08\x64ocument\x18\x01 \x01(\x0b\x32$.google.cloud.documentai.v1.Document\x12J\n\x13human_review_status\x18\x03 \x01(\x0b\x32-.google.cloud.documentai.v1.HumanReviewStatus\"\x8d\x02\n\x13\x42\x61tchProcessRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\x12N\n\x0finput_documents\x18\x05 \x01(\x0b\x32\x35.google.cloud.documentai.v1.BatchDocumentsInputConfig\x12P\n\x16\x64ocument_output_config\x18\x06 \x01(\x0b\x32\x30.google.cloud.documentai.v1.DocumentOutputConfig\x12\x19\n\x11skip_human_review\x18\x04 \x01(\x08\"\x16\n\x14\x42\x61tchProcessResponse\"\xff\x04\n\x14\x42\x61tchProcessMetadata\x12\x45\n\x05state\x18\x01 \x01(\x0e\x32\x36.google.cloud.documentai.v1.BatchProcessMetadata.State\x12\x15\n\rstate_message\x18\x02 \x01(\t\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12m\n\x1bindividual_process_statuses\x18\x05 \x03(\x0b\x32H.google.cloud.documentai.v1.BatchProcessMetadata.IndividualProcessStatus\x1a\xc3\x01\n\x17IndividualProcessStatus\x12\x18\n\x10input_gcs_source\x18\x01 \x01(\t\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\x12\x1e\n\x16output_gcs_destination\x18\x03 \x01(\t\x12J\n\x13human_review_status\x18\x05 \x01(\x0b\x32-.google.cloud.documentai.v1.HumanReviewStatus\"r\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07WAITING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\r\n\tSUCCEEDED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\x12\n\n\x06\x46\x41ILED\x10\x06\"\xb4\x01\n\x15ReviewDocumentRequest\x12?\n\x0finline_document\x18\x04 \x01(\x0b\x32$.google.cloud.documentai.v1.DocumentH\x00\x12P\n\x13human_review_config\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+documentai.googleapis.com/HumanReviewConfigB\x08\n\x06source\"1\n\x16ReviewDocumentResponse\x12\x17\n\x0fgcs_destination\x18\x01 \x01(\t\"o\n\x1fReviewDocumentOperationMetadata\x12L\n\x0f\x63ommon_metadata\x18\x05 \x01(\x0b\x32\x33.google.cloud.documentai.v1.CommonOperationMetadata\"\xc3\x02\n\x17\x43ommonOperationMetadata\x12H\n\x05state\x18\x01 \x01(\x0e\x32\x39.google.cloud.documentai.v1.CommonOperationMetadata.State\x12\x15\n\rstate_message\x18\x02 \x01(\t\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\x0e\n\nCANCELLING\x10\x02\x12\r\n\tSUCCEEDED\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04\x12\r\n\tCANCELLED\x10\x05\x32\xae\x06\n\x18\x44ocumentProcessorService\x12\xb4\x01\n\x0fProcessDocument\x12*.google.cloud.documentai.v1.ProcessRequest\x1a+.google.cloud.documentai.v1.ProcessResponse\"H\x82\xd3\xe4\x93\x02;\"6/v1/{name=projects/*/locations/*/processors/*}:process:\x01*\xda\x41\x04name\x12\xe5\x01\n\x15\x42\x61tchProcessDocuments\x12/.google.cloud.documentai.v1.BatchProcessRequest\x1a\x1d.google.longrunning.Operation\"|\x82\xd3\xe4\x93\x02@\";/v1/{name=projects/*/locations/*/processors/*}:batchProcess:\x01*\xda\x41\x04name\xca\x41,\n\x14\x42\x61tchProcessResponse\x12\x14\x42\x61tchProcessMetadata\x12\xa0\x02\n\x0eReviewDocument\x12\x31.google.cloud.documentai.v1.ReviewDocumentRequest\x1a\x1d.google.longrunning.Operation\"\xbb\x01\x82\xd3\xe4\x93\x02\x63\"^/v1/{human_review_config=projects/*/locations/*/processors/*/humanReviewConfig}:reviewDocument:\x01*\xda\x41\x13human_review_config\xca\x41\x39\n\x16ReviewDocumentResponse\x12\x1fReviewDocumentOperationMetadata\x1aP\xca\x41\x1cus-documentai.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x98\x04\n\x1e\x63om.google.cloud.documentai.v1B\x1a\x44ocumentAiProcessorServiceP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/documentai/v1;documentai\xaa\x02\x1aGoogle.Cloud.DocumentAI.V1\xca\x02\x1aGoogle\\Cloud\\DocumentAI\\V1\xea\x02\x1dGoogle::Cloud::DocumentAI::V1\xea\x41M\n\"documentai.googleapis.com/Location\x12\'projects/{project}/locations/{location}\xea\x41\x65\n#documentai.googleapis.com/Processor\x12>projects/{project}/locations/{location}/processors/{processor}\xea\x41\x7f\n+documentai.googleapis.com/HumanReviewConfig\x12Pprojects/{project}/locations/{location}/processors/{processor}/humanReviewConfigb\x06proto3'
+  serialized_pb=b'\n;google/cloud/documentai/v1/document_processor_service.proto\x12\x1agoogle.cloud.documentai.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a)google/cloud/documentai/v1/document.proto\x1a,google/cloud/documentai/v1/document_io.proto\x1a\x33google/cloud/documentai/v1/operation_metadata.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xf2\x01\n\x0eProcessRequest\x12?\n\x0finline_document\x18\x04 \x01(\x0b\x32$.google.cloud.documentai.v1.DocumentH\x00\x12?\n\x0craw_document\x18\x05 \x01(\x0b\x32\'.google.cloud.documentai.v1.RawDocumentH\x00\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\x12\x19\n\x11skip_human_review\x18\x03 \x01(\x08\x42\x08\n\x06source\"\xee\x01\n\x11HumanReviewStatus\x12\x42\n\x05state\x18\x01 \x01(\x0e\x32\x33.google.cloud.documentai.v1.HumanReviewStatus.State\x12\x15\n\rstate_message\x18\x02 \x01(\t\x12\x1e\n\x16human_review_operation\x18\x03 \x01(\t\"^\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07SKIPPED\x10\x01\x12\x15\n\x11VALIDATION_PASSED\x10\x02\x12\x0f\n\x0bIN_PROGRESS\x10\x03\x12\t\n\x05\x45RROR\x10\x04\"\x95\x01\n\x0fProcessResponse\x12\x36\n\x08\x64ocument\x18\x01 \x01(\x0b\x32$.google.cloud.documentai.v1.Document\x12J\n\x13human_review_status\x18\x03 \x01(\x0b\x32-.google.cloud.documentai.v1.HumanReviewStatus\"\x8d\x02\n\x13\x42\x61tchProcessRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\x12N\n\x0finput_documents\x18\x05 \x01(\x0b\x32\x35.google.cloud.documentai.v1.BatchDocumentsInputConfig\x12P\n\x16\x64ocument_output_config\x18\x06 \x01(\x0b\x32\x30.google.cloud.documentai.v1.DocumentOutputConfig\x12\x19\n\x11skip_human_review\x18\x04 \x01(\x08\"\x16\n\x14\x42\x61tchProcessResponse\"\xff\x04\n\x14\x42\x61tchProcessMetadata\x12\x45\n\x05state\x18\x01 \x01(\x0e\x32\x36.google.cloud.documentai.v1.BatchProcessMetadata.State\x12\x15\n\rstate_message\x18\x02 \x01(\t\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12m\n\x1bindividual_process_statuses\x18\x05 \x03(\x0b\x32H.google.cloud.documentai.v1.BatchProcessMetadata.IndividualProcessStatus\x1a\xc3\x01\n\x17IndividualProcessStatus\x12\x18\n\x10input_gcs_source\x18\x01 \x01(\t\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\x12\x1e\n\x16output_gcs_destination\x18\x03 \x01(\t\x12J\n\x13human_review_status\x18\x05 \x01(\x0b\x32-.google.cloud.documentai.v1.HumanReviewStatus\"r\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07WAITING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\r\n\tSUCCEEDED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\x12\n\n\x06\x46\x41ILED\x10\x06\"\xcf\x02\n\x15ReviewDocumentRequest\x12?\n\x0finline_document\x18\x04 \x01(\x0b\x32$.google.cloud.documentai.v1.DocumentH\x00\x12P\n\x13human_review_config\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+documentai.googleapis.com/HumanReviewConfig\x12 \n\x18\x65nable_schema_validation\x18\x03 \x01(\x08\x12L\n\x08priority\x18\x05 \x01(\x0e\x32:.google.cloud.documentai.v1.ReviewDocumentRequest.Priority\"#\n\x08Priority\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x00\x12\n\n\x06URGENT\x10\x01\x42\x08\n\x06sourceJ\x04\x08\x02\x10\x03\"1\n\x16ReviewDocumentResponse\x12\x17\n\x0fgcs_destination\x18\x01 \x01(\t\"o\n\x1fReviewDocumentOperationMetadata\x12L\n\x0f\x63ommon_metadata\x18\x05 \x01(\x0b\x32\x33.google.cloud.documentai.v1.CommonOperationMetadata2\xab\x06\n\x18\x44ocumentProcessorService\x12\xb4\x01\n\x0fProcessDocument\x12*.google.cloud.documentai.v1.ProcessRequest\x1a+.google.cloud.documentai.v1.ProcessResponse\"H\x82\xd3\xe4\x93\x02;\"6/v1/{name=projects/*/locations/*/processors/*}:process:\x01*\xda\x41\x04name\x12\xe5\x01\n\x15\x42\x61tchProcessDocuments\x12/.google.cloud.documentai.v1.BatchProcessRequest\x1a\x1d.google.longrunning.Operation\"|\x82\xd3\xe4\x93\x02@\";/v1/{name=projects/*/locations/*/processors/*}:batchProcess:\x01*\xda\x41\x04name\xca\x41,\n\x14\x42\x61tchProcessResponse\x12\x14\x42\x61tchProcessMetadata\x12\xa0\x02\n\x0eReviewDocument\x12\x31.google.cloud.documentai.v1.ReviewDocumentRequest\x1a\x1d.google.longrunning.Operation\"\xbb\x01\x82\xd3\xe4\x93\x02\x63\"^/v1/{human_review_config=projects/*/locations/*/processors/*/humanReviewConfig}:reviewDocument:\x01*\xda\x41\x13human_review_config\xca\x41\x39\n\x16ReviewDocumentResponse\x12\x1fReviewDocumentOperationMetadata\x1aM\xca\x41\x19\x64ocumentai.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x98\x04\n\x1e\x63om.google.cloud.documentai.v1B\x1a\x44ocumentAiProcessorServiceP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/documentai/v1;documentai\xaa\x02\x1aGoogle.Cloud.DocumentAI.V1\xca\x02\x1aGoogle\\Cloud\\DocumentAI\\V1\xea\x02\x1dGoogle::Cloud::DocumentAI::V1\xea\x41M\n\"documentai.googleapis.com/Location\x12\'projects/{project}/locations/{location}\xea\x41\x65\n#documentai.googleapis.com/Processor\x12>projects/{project}/locations/{location}/processors/{processor}\xea\x41\x7f\n+documentai.googleapis.com/HumanReviewConfig\x12Pprojects/{project}/locations/{location}/processors/{processor}/humanReviewConfigb\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_documentai_dot_v1_dot_document__pb2.DESCRIPTOR,google_dot_cloud_dot_documentai_dot_v1_dot_document__io__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_documentai_dot_v1_dot_document__pb2.DESCRIPTOR,google_dot_cloud_dot_documentai_dot_v1_dot_document__io__pb2.DESCRIPTOR,google_dot_cloud_dot_documentai_dot_v1_dot_operation__metadata__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
 
 
@@ -70,8 +71,8 @@ _HUMANREVIEWSTATUS_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=814,
-  serialized_end=908,
+  serialized_start=867,
+  serialized_end=961,
 )
 _sym_db.RegisterEnumDescriptor(_HUMANREVIEWSTATUS_STATE)
 
@@ -120,55 +121,35 @@ _BATCHPROCESSMETADATA_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1884,
-  serialized_end=1998,
+  serialized_start=1937,
+  serialized_end=2051,
 )
 _sym_db.RegisterEnumDescriptor(_BATCHPROCESSMETADATA_STATE)
 
-_COMMONOPERATIONMETADATA_STATE = _descriptor.EnumDescriptor(
-  name='State',
-  full_name='google.cloud.documentai.v1.CommonOperationMetadata.State',
+_REVIEWDOCUMENTREQUEST_PRIORITY = _descriptor.EnumDescriptor(
+  name='Priority',
+  full_name='google.cloud.documentai.v1.ReviewDocumentRequest.Priority',
   filename=None,
   file=DESCRIPTOR,
   create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='STATE_UNSPECIFIED', index=0, number=0,
+      name='DEFAULT', index=0, number=0,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='RUNNING', index=1, number=1,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='CANCELLING', index=2, number=2,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='SUCCEEDED', index=3, number=3,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='FAILED', index=4, number=4,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='CANCELLED', index=5, number=5,
+      name='URGENT', index=1, number=1,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2570,
-  serialized_end=2671,
+  serialized_start=2338,
+  serialized_end=2373,
 )
-_sym_db.RegisterEnumDescriptor(_COMMONOPERATIONMETADATA_STATE)
+_sym_db.RegisterEnumDescriptor(_REVIEWDOCUMENTREQUEST_PRIORITY)
 
 
 _PROCESSREQUEST = _descriptor.Descriptor(
@@ -224,8 +205,8 @@ _PROCESSREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=425,
-  serialized_end=667,
+  serialized_start=478,
+  serialized_end=720,
 )
 
 
@@ -271,8 +252,8 @@ _HUMANREVIEWSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=670,
-  serialized_end=908,
+  serialized_start=723,
+  serialized_end=961,
 )
 
 
@@ -310,8 +291,8 @@ _PROCESSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=911,
-  serialized_end=1060,
+  serialized_start=964,
+  serialized_end=1113,
 )
 
 
@@ -363,8 +344,8 @@ _BATCHPROCESSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1063,
-  serialized_end=1332,
+  serialized_start=1116,
+  serialized_end=1385,
 )
 
 
@@ -388,8 +369,8 @@ _BATCHPROCESSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1334,
-  serialized_end=1356,
+  serialized_start=1387,
+  serialized_end=1409,
 )
 
 
@@ -441,8 +422,8 @@ _BATCHPROCESSMETADATA_INDIVIDUALPROCESSSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1687,
-  serialized_end=1882,
+  serialized_start=1740,
+  serialized_end=1935,
 )
 
 _BATCHPROCESSMETADATA = _descriptor.Descriptor(
@@ -501,8 +482,8 @@ _BATCHPROCESSMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1359,
-  serialized_end=1998,
+  serialized_start=1412,
+  serialized_end=2051,
 )
 
 
@@ -528,11 +509,26 @@ _REVIEWDOCUMENTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002\372A-\n+documentai.googleapis.com/HumanReviewConfig', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='enable_schema_validation', full_name='google.cloud.documentai.v1.ReviewDocumentRequest.enable_schema_validation', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='priority', full_name='google.cloud.documentai.v1.ReviewDocumentRequest.priority', index=3,
+      number=5, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
+    _REVIEWDOCUMENTREQUEST_PRIORITY,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -545,8 +541,8 @@ _REVIEWDOCUMENTREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2001,
-  serialized_end=2181,
+  serialized_start=2054,
+  serialized_end=2389,
 )
 
 
@@ -577,8 +573,8 @@ _REVIEWDOCUMENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2183,
-  serialized_end=2232,
+  serialized_start=2391,
+  serialized_end=2440,
 )
 
 
@@ -609,62 +605,8 @@ _REVIEWDOCUMENTOPERATIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2234,
-  serialized_end=2345,
-)
-
-
-_COMMONOPERATIONMETADATA = _descriptor.Descriptor(
-  name='CommonOperationMetadata',
-  full_name='google.cloud.documentai.v1.CommonOperationMetadata',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='state', full_name='google.cloud.documentai.v1.CommonOperationMetadata.state', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='state_message', full_name='google.cloud.documentai.v1.CommonOperationMetadata.state_message', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='create_time', full_name='google.cloud.documentai.v1.CommonOperationMetadata.create_time', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='update_time', full_name='google.cloud.documentai.v1.CommonOperationMetadata.update_time', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-    _COMMONOPERATIONMETADATA_STATE,
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2348,
-  serialized_end=2671,
+  serialized_start=2442,
+  serialized_end=2553,
 )
 
 _PROCESSREQUEST.fields_by_name['inline_document'].message_type = google_dot_cloud_dot_documentai_dot_v1_dot_document__pb2._DOCUMENT
@@ -690,14 +632,12 @@ _BATCHPROCESSMETADATA.fields_by_name['update_time'].message_type = google_dot_pr
 _BATCHPROCESSMETADATA.fields_by_name['individual_process_statuses'].message_type = _BATCHPROCESSMETADATA_INDIVIDUALPROCESSSTATUS
 _BATCHPROCESSMETADATA_STATE.containing_type = _BATCHPROCESSMETADATA
 _REVIEWDOCUMENTREQUEST.fields_by_name['inline_document'].message_type = google_dot_cloud_dot_documentai_dot_v1_dot_document__pb2._DOCUMENT
+_REVIEWDOCUMENTREQUEST.fields_by_name['priority'].enum_type = _REVIEWDOCUMENTREQUEST_PRIORITY
+_REVIEWDOCUMENTREQUEST_PRIORITY.containing_type = _REVIEWDOCUMENTREQUEST
 _REVIEWDOCUMENTREQUEST.oneofs_by_name['source'].fields.append(
   _REVIEWDOCUMENTREQUEST.fields_by_name['inline_document'])
 _REVIEWDOCUMENTREQUEST.fields_by_name['inline_document'].containing_oneof = _REVIEWDOCUMENTREQUEST.oneofs_by_name['source']
-_REVIEWDOCUMENTOPERATIONMETADATA.fields_by_name['common_metadata'].message_type = _COMMONOPERATIONMETADATA
-_COMMONOPERATIONMETADATA.fields_by_name['state'].enum_type = _COMMONOPERATIONMETADATA_STATE
-_COMMONOPERATIONMETADATA.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
-_COMMONOPERATIONMETADATA.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
-_COMMONOPERATIONMETADATA_STATE.containing_type = _COMMONOPERATIONMETADATA
+_REVIEWDOCUMENTOPERATIONMETADATA.fields_by_name['common_metadata'].message_type = google_dot_cloud_dot_documentai_dot_v1_dot_operation__metadata__pb2._COMMONOPERATIONMETADATA
 DESCRIPTOR.message_types_by_name['ProcessRequest'] = _PROCESSREQUEST
 DESCRIPTOR.message_types_by_name['HumanReviewStatus'] = _HUMANREVIEWSTATUS
 DESCRIPTOR.message_types_by_name['ProcessResponse'] = _PROCESSRESPONSE
@@ -707,7 +647,6 @@ DESCRIPTOR.message_types_by_name['BatchProcessMetadata'] = _BATCHPROCESSMETADATA
 DESCRIPTOR.message_types_by_name['ReviewDocumentRequest'] = _REVIEWDOCUMENTREQUEST
 DESCRIPTOR.message_types_by_name['ReviewDocumentResponse'] = _REVIEWDOCUMENTRESPONSE
 DESCRIPTOR.message_types_by_name['ReviewDocumentOperationMetadata'] = _REVIEWDOCUMENTOPERATIONMETADATA
-DESCRIPTOR.message_types_by_name['CommonOperationMetadata'] = _COMMONOPERATIONMETADATA
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ProcessRequest = _reflection.GeneratedProtocolMessageType('ProcessRequest', (_message.Message,), {
@@ -781,13 +720,6 @@ ReviewDocumentOperationMetadata = _reflection.GeneratedProtocolMessageType('Revi
   })
 _sym_db.RegisterMessage(ReviewDocumentOperationMetadata)
 
-CommonOperationMetadata = _reflection.GeneratedProtocolMessageType('CommonOperationMetadata', (_message.Message,), {
-  'DESCRIPTOR' : _COMMONOPERATIONMETADATA,
-  '__module__' : 'google.cloud.documentai.v1.document_processor_service_pb2'
-  # @@protoc_insertion_point(class_scope:google.cloud.documentai.v1.CommonOperationMetadata)
-  })
-_sym_db.RegisterMessage(CommonOperationMetadata)
-
 
 DESCRIPTOR._options = None
 _PROCESSREQUEST.fields_by_name['name']._options = None
@@ -799,10 +731,10 @@ _DOCUMENTPROCESSORSERVICE = _descriptor.ServiceDescriptor(
   full_name='google.cloud.documentai.v1.DocumentProcessorService',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=b'\312A\034us-documentai.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
+  serialized_options=b'\312A\031documentai.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=2674,
-  serialized_end=3488,
+  serialized_start=2556,
+  serialized_end=3367,
   methods=[
   _descriptor.MethodDescriptor(
     name='ProcessDocument',

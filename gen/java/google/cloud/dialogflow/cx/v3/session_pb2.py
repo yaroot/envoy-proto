@@ -33,11 +33,41 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.cloud.dialogflow.cx.v3B\014SessionProtoP\001Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\370\001\001\242\002\002DF\252\002\035Google.Cloud.Dialogflow.Cx.V3\352A\324\001\n!dialogflow.googleapis.com/Session\022Iprojects/{project}/locations/{location}/agents/{agent}/sessions/{session}\022dprojects/{project}/locations/{location}/agents/{agent}/environments/{environment}/sessions/{session}',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n+google/cloud/dialogflow/cx/v3/session.proto\x12\x1dgoogle.cloud.dialogflow.cx.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x30google/cloud/dialogflow/cx/v3/audio_config.proto\x1a(google/cloud/dialogflow/cx/v3/flow.proto\x1a*google/cloud/dialogflow/cx/v3/intent.proto\x1a(google/cloud/dialogflow/cx/v3/page.proto\x1a\x34google/cloud/dialogflow/cx/v3/response_message.proto\x1a\x37google/cloud/dialogflow/cx/v3/session_entity_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x17google/rpc/status.proto\x1a\x18google/type/latlng.proto\x1a\x17google/api/client.proto\"\xab\x02\n\x13\x44\x65tectIntentRequest\x12:\n\x07session\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Session\x12\x44\n\x0cquery_params\x18\x02 \x01(\x0b\x32..google.cloud.dialogflow.cx.v3.QueryParameters\x12\x43\n\x0bquery_input\x18\x03 \x01(\x0b\x32).google.cloud.dialogflow.cx.v3.QueryInputB\x03\xe0\x41\x02\x12M\n\x13output_audio_config\x18\x04 \x01(\x0b\x32\x30.google.cloud.dialogflow.cx.v3.OutputAudioConfig\"\xd2\x01\n\x14\x44\x65tectIntentResponse\x12\x13\n\x0bresponse_id\x18\x01 \x01(\t\x12@\n\x0cquery_result\x18\x02 \x01(\x0b\x32*.google.cloud.dialogflow.cx.v3.QueryResult\x12\x14\n\x0coutput_audio\x18\x04 \x01(\x0c\x12M\n\x13output_audio_config\x18\x05 \x01(\x0b\x32\x30.google.cloud.dialogflow.cx.v3.OutputAudioConfig\"\xb1\x02\n\x1cStreamingDetectIntentRequest\x12\x37\n\x07session\x18\x01 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Session\x12\x44\n\x0cquery_params\x18\x02 \x01(\x0b\x32..google.cloud.dialogflow.cx.v3.QueryParameters\x12\x43\n\x0bquery_input\x18\x03 \x01(\x0b\x32).google.cloud.dialogflow.cx.v3.QueryInputB\x03\xe0\x41\x02\x12M\n\x13output_audio_config\x18\x04 \x01(\x0b\x32\x30.google.cloud.dialogflow.cx.v3.OutputAudioConfig\"\xdb\x01\n\x1dStreamingDetectIntentResponse\x12W\n\x12recognition_result\x18\x01 \x01(\x0b\x32\x39.google.cloud.dialogflow.cx.v3.StreamingRecognitionResultH\x00\x12U\n\x16\x64\x65tect_intent_response\x18\x02 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3.DetectIntentResponseH\x00\x42\n\n\x08response\"\x9f\x03\n\x1aStreamingRecognitionResult\x12[\n\x0cmessage_type\x18\x01 \x01(\x0e\x32\x45.google.cloud.dialogflow.cx.v3.StreamingRecognitionResult.MessageType\x12\x12\n\ntranscript\x18\x02 \x01(\t\x12\x10\n\x08is_final\x18\x03 \x01(\x08\x12\x12\n\nconfidence\x18\x04 \x01(\x02\x12\x11\n\tstability\x18\x06 \x01(\x02\x12G\n\x10speech_word_info\x18\x07 \x03(\x0b\x32-.google.cloud.dialogflow.cx.v3.SpeechWordInfo\x12\x34\n\x11speech_end_offset\x18\x08 \x01(\x0b\x32\x19.google.protobuf.Duration\"X\n\x0bMessageType\x12\x1c\n\x18MESSAGE_TYPE_UNSPECIFIED\x10\x00\x12\x0e\n\nTRANSCRIPT\x10\x01\x12\x1b\n\x17\x45ND_OF_SINGLE_UTTERANCE\x10\x02\"\x84\x04\n\x0fQueryParameters\x12\x11\n\ttime_zone\x18\x01 \x01(\t\x12)\n\x0cgeo_location\x18\x02 \x01(\x0b\x32\x13.google.type.LatLng\x12N\n\x14session_entity_types\x18\x03 \x03(\x0b\x32\x30.google.cloud.dialogflow.cx.v3.SessionEntityType\x12(\n\x07payload\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x12+\n\nparameters\x18\x05 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x39\n\x0c\x63urrent_page\x18\x06 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/Page\x12\x17\n\x0f\x64isable_webhook\x18\x07 \x01(\x08\x12$\n\x1c\x61nalyze_query_text_sentiment\x18\x08 \x01(\x08\x12[\n\x0fwebhook_headers\x18\n \x03(\x0b\x32\x42.google.cloud.dialogflow.cx.v3.QueryParameters.WebhookHeadersEntry\x1a\x35\n\x13WebhookHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xdb\x02\n\nQueryInput\x12\x38\n\x04text\x18\x02 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3.TextInputH\x00\x12<\n\x06intent\x18\x03 \x01(\x0b\x32*.google.cloud.dialogflow.cx.v3.IntentInputH\x00\x12:\n\x05\x61udio\x18\x05 \x01(\x0b\x32).google.cloud.dialogflow.cx.v3.AudioInputH\x00\x12:\n\x05\x65vent\x18\x06 \x01(\x0b\x32).google.cloud.dialogflow.cx.v3.EventInputH\x00\x12\x38\n\x04\x64tmf\x18\x07 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3.DtmfInputH\x00\x12\x1a\n\rlanguage_code\x18\x04 \x01(\tB\x03\xe0\x41\x02\x42\x07\n\x05input\"\xe7\x05\n\x0bQueryResult\x12\x0e\n\x04text\x18\x01 \x01(\tH\x00\x12?\n\x0etrigger_intent\x18\x0b \x01(\tB%\xfa\x41\"\n dialogflow.googleapis.com/IntentH\x00\x12\x14\n\ntranscript\x18\x0c \x01(\tH\x00\x12\x17\n\rtrigger_event\x18\x0e \x01(\tH\x00\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\x12+\n\nparameters\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\x12I\n\x11response_messages\x18\x04 \x03(\x0b\x32..google.cloud.dialogflow.cx.v3.ResponseMessage\x12,\n\x10webhook_statuses\x18\r \x03(\x0b\x32\x12.google.rpc.Status\x12\x31\n\x10webhook_payloads\x18\x06 \x03(\x0b\x32\x17.google.protobuf.Struct\x12\x39\n\x0c\x63urrent_page\x18\x07 \x01(\x0b\x32#.google.cloud.dialogflow.cx.v3.Page\x12\x39\n\x06intent\x18\x08 \x01(\x0b\x32%.google.cloud.dialogflow.cx.v3.IntentB\x02\x18\x01\x12\'\n\x1bintent_detection_confidence\x18\t \x01(\x02\x42\x02\x18\x01\x12\x33\n\x05match\x18\x0f \x01(\x0b\x32$.google.cloud.dialogflow.cx.v3.Match\x12\x30\n\x0f\x64iagnostic_info\x18\n \x01(\x0b\x32\x17.google.protobuf.Struct\x12Y\n\x19sentiment_analysis_result\x18\x11 \x01(\x0b\x32\x36.google.cloud.dialogflow.cx.v3.SentimentAnalysisResultB\x07\n\x05query\"\x1e\n\tTextInput\x12\x11\n\x04text\x18\x01 \x01(\tB\x03\xe0\x41\x02\"G\n\x0bIntentInput\x12\x38\n\x06intent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n dialogflow.googleapis.com/Intent\"a\n\nAudioInput\x12\x44\n\x06\x63onfig\x18\x01 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3.InputAudioConfigB\x03\xe0\x41\x02\x12\r\n\x05\x61udio\x18\x02 \x01(\x0c\"\x1b\n\nEventInput\x12\r\n\x05\x65vent\x18\x01 \x01(\t\"1\n\tDtmfInput\x12\x0e\n\x06\x64igits\x18\x01 \x01(\t\x12\x14\n\x0c\x66inish_digit\x18\x02 \x01(\t\"\xf1\x02\n\x05Match\x12\x35\n\x06intent\x18\x01 \x01(\x0b\x32%.google.cloud.dialogflow.cx.v3.Intent\x12\r\n\x05\x65vent\x18\x06 \x01(\t\x12+\n\nparameters\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x16\n\x0eresolved_input\x18\x03 \x01(\t\x12\x42\n\nmatch_type\x18\x04 \x01(\x0e\x32..google.cloud.dialogflow.cx.v3.Match.MatchType\x12\x12\n\nconfidence\x18\x05 \x01(\x02\"\x84\x01\n\tMatchType\x12\x1a\n\x16MATCH_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06INTENT\x10\x01\x12\x11\n\rDIRECT_INTENT\x10\x02\x12\x15\n\x11PARAMETER_FILLING\x10\x03\x12\x0c\n\x08NO_MATCH\x10\x04\x12\x0c\n\x08NO_INPUT\x10\x05\x12\t\n\x05\x45VENT\x10\x06\"\xdb\x01\n\x12MatchIntentRequest\x12:\n\x07session\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Session\x12\x44\n\x0cquery_params\x18\x02 \x01(\x0b\x32..google.cloud.dialogflow.cx.v3.QueryParameters\x12\x43\n\x0bquery_input\x18\x03 \x01(\x0b\x32).google.cloud.dialogflow.cx.v3.QueryInputB\x03\xe0\x41\x02\"\x90\x02\n\x13MatchIntentResponse\x12\x0e\n\x04text\x18\x01 \x01(\tH\x00\x12?\n\x0etrigger_intent\x18\x02 \x01(\tB%\xfa\x41\"\n dialogflow.googleapis.com/IntentH\x00\x12\x14\n\ntranscript\x18\x03 \x01(\tH\x00\x12\x17\n\rtrigger_event\x18\x06 \x01(\tH\x00\x12\x35\n\x07matches\x18\x04 \x03(\x0b\x32$.google.cloud.dialogflow.cx.v3.Match\x12\x39\n\x0c\x63urrent_page\x18\x05 \x01(\x0b\x32#.google.cloud.dialogflow.cx.v3.PageB\x07\n\x05query\"\xeb\x01\n\x14\x46ulfillIntentRequest\x12O\n\x14match_intent_request\x18\x01 \x01(\x0b\x32\x31.google.cloud.dialogflow.cx.v3.MatchIntentRequest\x12\x33\n\x05match\x18\x02 \x01(\x0b\x32$.google.cloud.dialogflow.cx.v3.Match\x12M\n\x13output_audio_config\x18\x03 \x01(\x0b\x32\x30.google.cloud.dialogflow.cx.v3.OutputAudioConfig\"\xd3\x01\n\x15\x46ulfillIntentResponse\x12\x13\n\x0bresponse_id\x18\x01 \x01(\t\x12@\n\x0cquery_result\x18\x02 \x01(\x0b\x32*.google.cloud.dialogflow.cx.v3.QueryResult\x12\x14\n\x0coutput_audio\x18\x03 \x01(\x0c\x12M\n\x13output_audio_config\x18\x04 \x01(\x0b\x32\x30.google.cloud.dialogflow.cx.v3.OutputAudioConfig\";\n\x17SentimentAnalysisResult\x12\r\n\x05score\x18\x01 \x01(\x02\x12\x11\n\tmagnitude\x18\x02 \x01(\x02\x32\xc4\t\n\x08Sessions\x12\xa6\x02\n\x0c\x44\x65tectIntent\x12\x32.google.cloud.dialogflow.cx.v3.DetectIntentRequest\x1a\x33.google.cloud.dialogflow.cx.v3.DetectIntentResponse\"\xac\x01\x82\xd3\xe4\x93\x02\xa5\x01\"E/v3/{session=projects/*/locations/*/agents/*/sessions/*}:detectIntent:\x01*ZY\"T/v3/{session=projects/*/locations/*/agents/*/environments/*/sessions/*}:detectIntent:\x01*\x12\x98\x01\n\x15StreamingDetectIntent\x12;.google.cloud.dialogflow.cx.v3.StreamingDetectIntentRequest\x1a<.google.cloud.dialogflow.cx.v3.StreamingDetectIntentResponse\"\x00(\x01\x30\x01\x12\xa1\x02\n\x0bMatchIntent\x12\x31.google.cloud.dialogflow.cx.v3.MatchIntentRequest\x1a\x32.google.cloud.dialogflow.cx.v3.MatchIntentResponse\"\xaa\x01\x82\xd3\xe4\x93\x02\xa3\x01\"D/v3/{session=projects/*/locations/*/agents/*/sessions/*}:matchIntent:\x01*ZX\"S/v3/{session=projects/*/locations/*/agents/*/environments/*/sessions/*}:matchIntent:\x01*\x12\xd5\x02\n\rFulfillIntent\x12\x33.google.cloud.dialogflow.cx.v3.FulfillIntentRequest\x1a\x34.google.cloud.dialogflow.cx.v3.FulfillIntentResponse\"\xd8\x01\x82\xd3\xe4\x93\x02\xd1\x01\"[/v3/{match_intent_request.session=projects/*/locations/*/agents/*/sessions/*}:fulfillIntent:\x01*Zo\"j/v3/{match_intent_request.session=projects/*/locations/*/agents/*/environments/*/sessions/*}:fulfillIntent:\x01*\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xf4\x02\n!com.google.cloud.dialogflow.cx.v3B\x0cSessionProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1dGoogle.Cloud.Dialogflow.Cx.V3\xea\x41\xd4\x01\n!dialogflow.googleapis.com/Session\x12Iprojects/{project}/locations/{location}/agents/{agent}/sessions/{session}\x12\x64projects/{project}/locations/{location}/agents/{agent}/environments/{environment}/sessions/{session}b\x06proto3'
+  serialized_pb=b'\n+google/cloud/dialogflow/cx/v3/session.proto\x12\x1dgoogle.cloud.dialogflow.cx.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x30google/cloud/dialogflow/cx/v3/audio_config.proto\x1a(google/cloud/dialogflow/cx/v3/flow.proto\x1a*google/cloud/dialogflow/cx/v3/intent.proto\x1a(google/cloud/dialogflow/cx/v3/page.proto\x1a\x34google/cloud/dialogflow/cx/v3/response_message.proto\x1a\x37google/cloud/dialogflow/cx/v3/session_entity_type.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x17google/rpc/status.proto\x1a\x18google/type/latlng.proto\x1a\x17google/api/client.proto\"\xab\x02\n\x13\x44\x65tectIntentRequest\x12:\n\x07session\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Session\x12\x44\n\x0cquery_params\x18\x02 \x01(\x0b\x32..google.cloud.dialogflow.cx.v3.QueryParameters\x12\x43\n\x0bquery_input\x18\x03 \x01(\x0b\x32).google.cloud.dialogflow.cx.v3.QueryInputB\x03\xe0\x41\x02\x12M\n\x13output_audio_config\x18\x04 \x01(\x0b\x32\x30.google.cloud.dialogflow.cx.v3.OutputAudioConfig\"\x8e\x03\n\x14\x44\x65tectIntentResponse\x12\x13\n\x0bresponse_id\x18\x01 \x01(\t\x12@\n\x0cquery_result\x18\x02 \x01(\x0b\x32*.google.cloud.dialogflow.cx.v3.QueryResult\x12\x14\n\x0coutput_audio\x18\x04 \x01(\x0c\x12M\n\x13output_audio_config\x18\x05 \x01(\x0b\x32\x30.google.cloud.dialogflow.cx.v3.OutputAudioConfig\x12W\n\rresponse_type\x18\x06 \x01(\x0e\x32@.google.cloud.dialogflow.cx.v3.DetectIntentResponse.ResponseType\x12\x1a\n\x12\x61llow_cancellation\x18\x07 \x01(\x08\"E\n\x0cResponseType\x12\x1d\n\x19RESPONSE_TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PARTIAL\x10\x01\x12\t\n\x05\x46INAL\x10\x02\"\xd2\x02\n\x1cStreamingDetectIntentRequest\x12\x37\n\x07session\x18\x01 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Session\x12\x44\n\x0cquery_params\x18\x02 \x01(\x0b\x32..google.cloud.dialogflow.cx.v3.QueryParameters\x12\x43\n\x0bquery_input\x18\x03 \x01(\x0b\x32).google.cloud.dialogflow.cx.v3.QueryInputB\x03\xe0\x41\x02\x12M\n\x13output_audio_config\x18\x04 \x01(\x0b\x32\x30.google.cloud.dialogflow.cx.v3.OutputAudioConfig\x12\x1f\n\x17\x65nable_partial_response\x18\x05 \x01(\x08\"\xdb\x01\n\x1dStreamingDetectIntentResponse\x12W\n\x12recognition_result\x18\x01 \x01(\x0b\x32\x39.google.cloud.dialogflow.cx.v3.StreamingRecognitionResultH\x00\x12U\n\x16\x64\x65tect_intent_response\x18\x02 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3.DetectIntentResponseH\x00\x42\n\n\x08response\"\x9f\x03\n\x1aStreamingRecognitionResult\x12[\n\x0cmessage_type\x18\x01 \x01(\x0e\x32\x45.google.cloud.dialogflow.cx.v3.StreamingRecognitionResult.MessageType\x12\x12\n\ntranscript\x18\x02 \x01(\t\x12\x10\n\x08is_final\x18\x03 \x01(\x08\x12\x12\n\nconfidence\x18\x04 \x01(\x02\x12\x11\n\tstability\x18\x06 \x01(\x02\x12G\n\x10speech_word_info\x18\x07 \x03(\x0b\x32-.google.cloud.dialogflow.cx.v3.SpeechWordInfo\x12\x34\n\x11speech_end_offset\x18\x08 \x01(\x0b\x32\x19.google.protobuf.Duration\"X\n\x0bMessageType\x12\x1c\n\x18MESSAGE_TYPE_UNSPECIFIED\x10\x00\x12\x0e\n\nTRANSCRIPT\x10\x01\x12\x1b\n\x17\x45ND_OF_SINGLE_UTTERANCE\x10\x02\"\x84\x04\n\x0fQueryParameters\x12\x11\n\ttime_zone\x18\x01 \x01(\t\x12)\n\x0cgeo_location\x18\x02 \x01(\x0b\x32\x13.google.type.LatLng\x12N\n\x14session_entity_types\x18\x03 \x03(\x0b\x32\x30.google.cloud.dialogflow.cx.v3.SessionEntityType\x12(\n\x07payload\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x12+\n\nparameters\x18\x05 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x39\n\x0c\x63urrent_page\x18\x06 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/Page\x12\x17\n\x0f\x64isable_webhook\x18\x07 \x01(\x08\x12$\n\x1c\x61nalyze_query_text_sentiment\x18\x08 \x01(\x08\x12[\n\x0fwebhook_headers\x18\n \x03(\x0b\x32\x42.google.cloud.dialogflow.cx.v3.QueryParameters.WebhookHeadersEntry\x1a\x35\n\x13WebhookHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xdb\x02\n\nQueryInput\x12\x38\n\x04text\x18\x02 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3.TextInputH\x00\x12<\n\x06intent\x18\x03 \x01(\x0b\x32*.google.cloud.dialogflow.cx.v3.IntentInputH\x00\x12:\n\x05\x61udio\x18\x05 \x01(\x0b\x32).google.cloud.dialogflow.cx.v3.AudioInputH\x00\x12:\n\x05\x65vent\x18\x06 \x01(\x0b\x32).google.cloud.dialogflow.cx.v3.EventInputH\x00\x12\x38\n\x04\x64tmf\x18\x07 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3.DtmfInputH\x00\x12\x1a\n\rlanguage_code\x18\x04 \x01(\tB\x03\xe0\x41\x02\x42\x07\n\x05input\"\xe7\x05\n\x0bQueryResult\x12\x0e\n\x04text\x18\x01 \x01(\tH\x00\x12?\n\x0etrigger_intent\x18\x0b \x01(\tB%\xfa\x41\"\n dialogflow.googleapis.com/IntentH\x00\x12\x14\n\ntranscript\x18\x0c \x01(\tH\x00\x12\x17\n\rtrigger_event\x18\x0e \x01(\tH\x00\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\x12+\n\nparameters\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\x12I\n\x11response_messages\x18\x04 \x03(\x0b\x32..google.cloud.dialogflow.cx.v3.ResponseMessage\x12,\n\x10webhook_statuses\x18\r \x03(\x0b\x32\x12.google.rpc.Status\x12\x31\n\x10webhook_payloads\x18\x06 \x03(\x0b\x32\x17.google.protobuf.Struct\x12\x39\n\x0c\x63urrent_page\x18\x07 \x01(\x0b\x32#.google.cloud.dialogflow.cx.v3.Page\x12\x39\n\x06intent\x18\x08 \x01(\x0b\x32%.google.cloud.dialogflow.cx.v3.IntentB\x02\x18\x01\x12\'\n\x1bintent_detection_confidence\x18\t \x01(\x02\x42\x02\x18\x01\x12\x33\n\x05match\x18\x0f \x01(\x0b\x32$.google.cloud.dialogflow.cx.v3.Match\x12\x30\n\x0f\x64iagnostic_info\x18\n \x01(\x0b\x32\x17.google.protobuf.Struct\x12Y\n\x19sentiment_analysis_result\x18\x11 \x01(\x0b\x32\x36.google.cloud.dialogflow.cx.v3.SentimentAnalysisResultB\x07\n\x05query\"\x1e\n\tTextInput\x12\x11\n\x04text\x18\x01 \x01(\tB\x03\xe0\x41\x02\"G\n\x0bIntentInput\x12\x38\n\x06intent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n dialogflow.googleapis.com/Intent\"a\n\nAudioInput\x12\x44\n\x06\x63onfig\x18\x01 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3.InputAudioConfigB\x03\xe0\x41\x02\x12\r\n\x05\x61udio\x18\x02 \x01(\x0c\"\x1b\n\nEventInput\x12\r\n\x05\x65vent\x18\x01 \x01(\t\"1\n\tDtmfInput\x12\x0e\n\x06\x64igits\x18\x01 \x01(\t\x12\x14\n\x0c\x66inish_digit\x18\x02 \x01(\t\"\xf1\x02\n\x05Match\x12\x35\n\x06intent\x18\x01 \x01(\x0b\x32%.google.cloud.dialogflow.cx.v3.Intent\x12\r\n\x05\x65vent\x18\x06 \x01(\t\x12+\n\nparameters\x18\x02 \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x16\n\x0eresolved_input\x18\x03 \x01(\t\x12\x42\n\nmatch_type\x18\x04 \x01(\x0e\x32..google.cloud.dialogflow.cx.v3.Match.MatchType\x12\x12\n\nconfidence\x18\x05 \x01(\x02\"\x84\x01\n\tMatchType\x12\x1a\n\x16MATCH_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06INTENT\x10\x01\x12\x11\n\rDIRECT_INTENT\x10\x02\x12\x15\n\x11PARAMETER_FILLING\x10\x03\x12\x0c\n\x08NO_MATCH\x10\x04\x12\x0c\n\x08NO_INPUT\x10\x05\x12\t\n\x05\x45VENT\x10\x06\"\xdb\x01\n\x12MatchIntentRequest\x12:\n\x07session\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Session\x12\x44\n\x0cquery_params\x18\x02 \x01(\x0b\x32..google.cloud.dialogflow.cx.v3.QueryParameters\x12\x43\n\x0bquery_input\x18\x03 \x01(\x0b\x32).google.cloud.dialogflow.cx.v3.QueryInputB\x03\xe0\x41\x02\"\x90\x02\n\x13MatchIntentResponse\x12\x0e\n\x04text\x18\x01 \x01(\tH\x00\x12?\n\x0etrigger_intent\x18\x02 \x01(\tB%\xfa\x41\"\n dialogflow.googleapis.com/IntentH\x00\x12\x14\n\ntranscript\x18\x03 \x01(\tH\x00\x12\x17\n\rtrigger_event\x18\x06 \x01(\tH\x00\x12\x35\n\x07matches\x18\x04 \x03(\x0b\x32$.google.cloud.dialogflow.cx.v3.Match\x12\x39\n\x0c\x63urrent_page\x18\x05 \x01(\x0b\x32#.google.cloud.dialogflow.cx.v3.PageB\x07\n\x05query\"\xeb\x01\n\x14\x46ulfillIntentRequest\x12O\n\x14match_intent_request\x18\x01 \x01(\x0b\x32\x31.google.cloud.dialogflow.cx.v3.MatchIntentRequest\x12\x33\n\x05match\x18\x02 \x01(\x0b\x32$.google.cloud.dialogflow.cx.v3.Match\x12M\n\x13output_audio_config\x18\x03 \x01(\x0b\x32\x30.google.cloud.dialogflow.cx.v3.OutputAudioConfig\"\xd3\x01\n\x15\x46ulfillIntentResponse\x12\x13\n\x0bresponse_id\x18\x01 \x01(\t\x12@\n\x0cquery_result\x18\x02 \x01(\x0b\x32*.google.cloud.dialogflow.cx.v3.QueryResult\x12\x14\n\x0coutput_audio\x18\x03 \x01(\x0c\x12M\n\x13output_audio_config\x18\x04 \x01(\x0b\x32\x30.google.cloud.dialogflow.cx.v3.OutputAudioConfig\";\n\x17SentimentAnalysisResult\x12\r\n\x05score\x18\x01 \x01(\x02\x12\x11\n\tmagnitude\x18\x02 \x01(\x02\x32\xc4\t\n\x08Sessions\x12\xa6\x02\n\x0c\x44\x65tectIntent\x12\x32.google.cloud.dialogflow.cx.v3.DetectIntentRequest\x1a\x33.google.cloud.dialogflow.cx.v3.DetectIntentResponse\"\xac\x01\x82\xd3\xe4\x93\x02\xa5\x01\"E/v3/{session=projects/*/locations/*/agents/*/sessions/*}:detectIntent:\x01*ZY\"T/v3/{session=projects/*/locations/*/agents/*/environments/*/sessions/*}:detectIntent:\x01*\x12\x98\x01\n\x15StreamingDetectIntent\x12;.google.cloud.dialogflow.cx.v3.StreamingDetectIntentRequest\x1a<.google.cloud.dialogflow.cx.v3.StreamingDetectIntentResponse\"\x00(\x01\x30\x01\x12\xa1\x02\n\x0bMatchIntent\x12\x31.google.cloud.dialogflow.cx.v3.MatchIntentRequest\x1a\x32.google.cloud.dialogflow.cx.v3.MatchIntentResponse\"\xaa\x01\x82\xd3\xe4\x93\x02\xa3\x01\"D/v3/{session=projects/*/locations/*/agents/*/sessions/*}:matchIntent:\x01*ZX\"S/v3/{session=projects/*/locations/*/agents/*/environments/*/sessions/*}:matchIntent:\x01*\x12\xd5\x02\n\rFulfillIntent\x12\x33.google.cloud.dialogflow.cx.v3.FulfillIntentRequest\x1a\x34.google.cloud.dialogflow.cx.v3.FulfillIntentResponse\"\xd8\x01\x82\xd3\xe4\x93\x02\xd1\x01\"[/v3/{match_intent_request.session=projects/*/locations/*/agents/*/sessions/*}:fulfillIntent:\x01*Zo\"j/v3/{match_intent_request.session=projects/*/locations/*/agents/*/environments/*/sessions/*}:fulfillIntent:\x01*\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xf4\x02\n!com.google.cloud.dialogflow.cx.v3B\x0cSessionProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1dGoogle.Cloud.Dialogflow.Cx.V3\xea\x41\xd4\x01\n!dialogflow.googleapis.com/Session\x12Iprojects/{project}/locations/{location}/agents/{agent}/sessions/{session}\x12\x64projects/{project}/locations/{location}/agents/{agent}/environments/{environment}/sessions/{session}b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3_dot_audio__config__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3_dot_flow__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3_dot_intent__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3_dot_page__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3_dot_response__message__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3_dot_session__entity__type__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,google_dot_type_dot_latlng__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,])
 
 
+
+_DETECTINTENTRESPONSE_RESPONSETYPE = _descriptor.EnumDescriptor(
+  name='ResponseType',
+  full_name='google.cloud.dialogflow.cx.v3.DetectIntentResponse.ResponseType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='RESPONSE_TYPE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PARTIAL', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FINAL', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1227,
+  serialized_end=1296,
+)
+_sym_db.RegisterEnumDescriptor(_DETECTINTENTRESPONSE_RESPONSETYPE)
 
 _STREAMINGRECOGNITIONRESULT_MESSAGETYPE = _descriptor.EnumDescriptor(
   name='MessageType',
@@ -64,8 +94,8 @@ _STREAMINGRECOGNITIONRESULT_MESSAGETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1968,
-  serialized_end=2056,
+  serialized_start=2189,
+  serialized_end=2277,
 )
 _sym_db.RegisterEnumDescriptor(_STREAMINGRECOGNITIONRESULT_MESSAGETYPE)
 
@@ -114,8 +144,8 @@ _MATCH_MATCHTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4195,
-  serialized_end=4327,
+  serialized_start=4416,
+  serialized_end=4548,
 )
 _sym_db.RegisterEnumDescriptor(_MATCH_MATCHTYPE)
 
@@ -209,11 +239,26 @@ _DETECTINTENTRESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='response_type', full_name='google.cloud.dialogflow.cx.v3.DetectIntentResponse.response_type', index=4,
+      number=6, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allow_cancellation', full_name='google.cloud.dialogflow.cx.v3.DetectIntentResponse.allow_cancellation', index=5,
+      number=7, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
+    _DETECTINTENTRESPONSE_RESPONSETYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -222,7 +267,7 @@ _DETECTINTENTRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=898,
-  serialized_end=1108,
+  serialized_end=1296,
 )
 
 
@@ -262,6 +307,13 @@ _STREAMINGDETECTINTENTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='enable_partial_response', full_name='google.cloud.dialogflow.cx.v3.StreamingDetectIntentRequest.enable_partial_response', index=4,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -274,8 +326,8 @@ _STREAMINGDETECTINTENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1111,
-  serialized_end=1416,
+  serialized_start=1299,
+  serialized_end=1637,
 )
 
 
@@ -318,8 +370,8 @@ _STREAMINGDETECTINTENTRESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1419,
-  serialized_end=1638,
+  serialized_start=1640,
+  serialized_end=1859,
 )
 
 
@@ -393,8 +445,8 @@ _STREAMINGRECOGNITIONRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1641,
-  serialized_end=2056,
+  serialized_start=1862,
+  serialized_end=2277,
 )
 
 
@@ -432,8 +484,8 @@ _QUERYPARAMETERS_WEBHOOKHEADERSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2522,
-  serialized_end=2575,
+  serialized_start=2743,
+  serialized_end=2796,
 )
 
 _QUERYPARAMETERS = _descriptor.Descriptor(
@@ -519,8 +571,8 @@ _QUERYPARAMETERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2059,
-  serialized_end=2575,
+  serialized_start=2280,
+  serialized_end=2796,
 )
 
 
@@ -591,8 +643,8 @@ _QUERYINPUT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2578,
-  serialized_end=2925,
+  serialized_start=2799,
+  serialized_end=3146,
 )
 
 
@@ -726,8 +778,8 @@ _QUERYRESULT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2928,
-  serialized_end=3671,
+  serialized_start=3149,
+  serialized_end=3892,
 )
 
 
@@ -758,8 +810,8 @@ _TEXTINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3673,
-  serialized_end=3703,
+  serialized_start=3894,
+  serialized_end=3924,
 )
 
 
@@ -790,8 +842,8 @@ _INTENTINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3705,
-  serialized_end=3776,
+  serialized_start=3926,
+  serialized_end=3997,
 )
 
 
@@ -829,8 +881,8 @@ _AUDIOINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3778,
-  serialized_end=3875,
+  serialized_start=3999,
+  serialized_end=4096,
 )
 
 
@@ -861,8 +913,8 @@ _EVENTINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3877,
-  serialized_end=3904,
+  serialized_start=4098,
+  serialized_end=4125,
 )
 
 
@@ -900,8 +952,8 @@ _DTMFINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3906,
-  serialized_end=3955,
+  serialized_start=4127,
+  serialized_end=4176,
 )
 
 
@@ -968,8 +1020,8 @@ _MATCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3958,
-  serialized_end=4327,
+  serialized_start=4179,
+  serialized_end=4548,
 )
 
 
@@ -1014,8 +1066,8 @@ _MATCHINTENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4330,
-  serialized_end=4549,
+  serialized_start=4551,
+  serialized_end=4770,
 )
 
 
@@ -1086,8 +1138,8 @@ _MATCHINTENTRESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4552,
-  serialized_end=4824,
+  serialized_start=4773,
+  serialized_end=5045,
 )
 
 
@@ -1132,8 +1184,8 @@ _FULFILLINTENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4827,
-  serialized_end=5062,
+  serialized_start=5048,
+  serialized_end=5283,
 )
 
 
@@ -1185,8 +1237,8 @@ _FULFILLINTENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5065,
-  serialized_end=5276,
+  serialized_start=5286,
+  serialized_end=5497,
 )
 
 
@@ -1224,8 +1276,8 @@ _SENTIMENTANALYSISRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5278,
-  serialized_end=5337,
+  serialized_start=5499,
+  serialized_end=5558,
 )
 
 _DETECTINTENTREQUEST.fields_by_name['query_params'].message_type = _QUERYPARAMETERS
@@ -1233,6 +1285,8 @@ _DETECTINTENTREQUEST.fields_by_name['query_input'].message_type = _QUERYINPUT
 _DETECTINTENTREQUEST.fields_by_name['output_audio_config'].message_type = google_dot_cloud_dot_dialogflow_dot_cx_dot_v3_dot_audio__config__pb2._OUTPUTAUDIOCONFIG
 _DETECTINTENTRESPONSE.fields_by_name['query_result'].message_type = _QUERYRESULT
 _DETECTINTENTRESPONSE.fields_by_name['output_audio_config'].message_type = google_dot_cloud_dot_dialogflow_dot_cx_dot_v3_dot_audio__config__pb2._OUTPUTAUDIOCONFIG
+_DETECTINTENTRESPONSE.fields_by_name['response_type'].enum_type = _DETECTINTENTRESPONSE_RESPONSETYPE
+_DETECTINTENTRESPONSE_RESPONSETYPE.containing_type = _DETECTINTENTRESPONSE
 _STREAMINGDETECTINTENTREQUEST.fields_by_name['query_params'].message_type = _QUERYPARAMETERS
 _STREAMINGDETECTINTENTREQUEST.fields_by_name['query_input'].message_type = _QUERYINPUT
 _STREAMINGDETECTINTENTREQUEST.fields_by_name['output_audio_config'].message_type = google_dot_cloud_dot_dialogflow_dot_cx_dot_v3_dot_audio__config__pb2._OUTPUTAUDIOCONFIG
@@ -1509,8 +1563,8 @@ _SESSIONS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=5340,
-  serialized_end=6560,
+  serialized_start=5561,
+  serialized_end=6781,
   methods=[
   _descriptor.MethodDescriptor(
     name='DetectIntent',

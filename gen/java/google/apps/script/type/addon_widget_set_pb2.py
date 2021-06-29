@@ -17,9 +17,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/apps/script/type/addon_widget_set.proto',
   package='google.apps.script.type',
   syntax='proto3',
-  serialized_options=b'\n\033com.google.apps.script.typeP\001Z6google.golang.org/genproto/googleapis/apps/script/type\252\002\027Google.Apps.Script.Type\312\002\027Google\\Apps\\Script\\Type\352\002\032Google::Apps::Script::Type',
+  serialized_options=b'\n\033com.google.apps.script.typeB\023AddOnWidgetSetProtoP\001Z6google.golang.org/genproto/googleapis/apps/script/type\252\002\027Google.Apps.Script.Type\312\002\027Google\\Apps\\Script\\Type\352\002\032Google::Apps::Script::Type',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.google/apps/script/type/addon_widget_set.proto\x12\x17google.apps.script.type\"\xa4\x02\n\x0e\x41\x64\x64OnWidgetSet\x12H\n\x0cused_widgets\x18\x01 \x03(\x0e\x32\x32.google.apps.script.type.AddOnWidgetSet.WidgetType\"\xc7\x01\n\nWidgetType\x12\x1b\n\x17WIDGET_TYPE_UNSPECIFIED\x10\x00\x12\x0f\n\x0b\x44\x41TE_PICKER\x10\x01\x12\x12\n\x0eSTYLED_BUTTONS\x10\x02\x12\x14\n\x10PERSISTENT_FORMS\x10\x03\x12\x10\n\x0c\x46IXED_FOOTER\x10\x04\x12!\n\x1dUPDATE_SUBJECT_AND_RECIPIENTS\x10\x05\x12\x0f\n\x0bGRID_WIDGET\x10\x06\x12\x1b\n\x17\x41\x44\x44ON_COMPOSE_UI_ACTION\x10\x07\x42\xa8\x01\n\x1b\x63om.google.apps.script.typeP\x01Z6google.golang.org/genproto/googleapis/apps/script/type\xaa\x02\x17Google.Apps.Script.Type\xca\x02\x17Google\\Apps\\Script\\Type\xea\x02\x1aGoogle::Apps::Script::Typeb\x06proto3'
+  serialized_pb=b'\n.google/apps/script/type/addon_widget_set.proto\x12\x17google.apps.script.type\"\xa4\x02\n\x0e\x41\x64\x64OnWidgetSet\x12H\n\x0cused_widgets\x18\x01 \x03(\x0e\x32\x32.google.apps.script.type.AddOnWidgetSet.WidgetType\"\xc7\x01\n\nWidgetType\x12\x1b\n\x17WIDGET_TYPE_UNSPECIFIED\x10\x00\x12\x0f\n\x0b\x44\x41TE_PICKER\x10\x01\x12\x12\n\x0eSTYLED_BUTTONS\x10\x02\x12\x14\n\x10PERSISTENT_FORMS\x10\x03\x12\x10\n\x0c\x46IXED_FOOTER\x10\x04\x12!\n\x1dUPDATE_SUBJECT_AND_RECIPIENTS\x10\x05\x12\x0f\n\x0bGRID_WIDGET\x10\x06\x12\x1b\n\x17\x41\x44\x44ON_COMPOSE_UI_ACTION\x10\x07\x42\xbd\x01\n\x1b\x63om.google.apps.script.typeB\x13\x41\x64\x64OnWidgetSetProtoP\x01Z6google.golang.org/genproto/googleapis/apps/script/type\xaa\x02\x17Google.Apps.Script.Type\xca\x02\x17Google\\Apps\\Script\\Type\xea\x02\x1aGoogle::Apps::Script::Typeb\x06proto3'
 )
 
 

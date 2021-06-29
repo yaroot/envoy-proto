@@ -28,9 +28,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/dialogflow/v2beta1/conversation_profile.proto',
   package='google.cloud.dialogflow.v2beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.dialogflow.v2beta1B\030ConversationProfileProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2beta1;dialogflow\370\001\001\242\002\002DF\252\002\037Google.Cloud.Dialogflow.V2beta1',
+  serialized_options=b'\n#com.google.cloud.dialogflow.v2beta1B\030ConversationProfileProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2beta1;dialogflow\370\001\001\242\002\002DF\252\002\037Google.Cloud.Dialogflow.V2beta1\352A|\n,dialogflow.googleapis.com/CXSecuritySettings\022Lprojects/{project}/locations/{location}/securitySettings/{security_settings}\352A~\n+dialogflow.googleapis.com/ConversationModel\022Oprojects/{project}/locations/{location}/conversationModels/{conversation_model}',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n:google/cloud/dialogflow/v2beta1/conversation_profile.proto\x12\x1fgoogle.cloud.dialogflow.v2beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x32google/cloud/dialogflow/v2beta1/audio_config.proto\x1a.google/cloud/dialogflow/v2beta1/document.proto\x1a\x31google/cloud/dialogflow/v2beta1/participant.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xea\x07\n\x13\x43onversationProfile\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x34\n\x0b\x63reate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12U\n\x16\x61utomated_agent_config\x18\x03 \x01(\x0b\x32\x35.google.cloud.dialogflow.v2beta1.AutomatedAgentConfig\x12`\n\x1chuman_agent_assistant_config\x18\x04 \x01(\x0b\x32:.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig\x12\\\n\x1ahuman_agent_handoff_config\x18\x05 \x01(\x0b\x32\x38.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig\x12P\n\x13notification_config\x18\x06 \x01(\x0b\x32\x33.google.cloud.dialogflow.v2beta1.NotificationConfig\x12\x46\n\x0elogging_config\x18\x07 \x01(\x0b\x32..google.cloud.dialogflow.v2beta1.LoggingConfig\x12\x62\n%new_message_event_notification_config\x18\x08 \x01(\x0b\x32\x33.google.cloud.dialogflow.v2beta1.NotificationConfig\x12G\n\nstt_config\x18\t \x01(\x0b\x32\x33.google.cloud.dialogflow.v2beta1.SpeechToTextConfig\x12\x15\n\rlanguage_code\x18\n \x01(\t:\xc8\x01\xea\x41\xc4\x01\n-dialogflow.googleapis.com/ConversationProfile\x12>projects/{project}/conversationProfiles/{conversation_profile}\x12Sprojects/{project}/locations/{location}/conversationProfiles/{conversation_profile}\"N\n\x14\x41utomatedAgentConfig\x12\x36\n\x05\x61gent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x64ialogflow.googleapis.com/Agent\"\xc3\x12\n\x19HumanAgentAssistantConfig\x12P\n\x13notification_config\x18\x02 \x01(\x0b\x32\x33.google.cloud.dialogflow.v2beta1.NotificationConfig\x12r\n\x1dhuman_agent_suggestion_config\x18\x03 \x01(\x0b\x32K.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionConfig\x12o\n\x1a\x65nd_user_suggestion_config\x18\x04 \x01(\x0b\x32K.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionConfig\x12q\n\x17message_analysis_config\x18\x05 \x01(\x0b\x32P.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.MessageAnalysisConfig\x1aI\n\x19SuggestionTriggerSettings\x12\x15\n\rno_small_talk\x18\x01 \x01(\x08\x12\x15\n\ronly_end_user\x18\x02 \x01(\x08\x1a\xea\x03\n\x17SuggestionFeatureConfig\x12N\n\x12suggestion_feature\x18\x05 \x01(\x0b\x32\x32.google.cloud.dialogflow.v2beta1.SuggestionFeature\x12%\n\x1d\x65nable_event_based_suggestion\x18\x03 \x01(\x08\x12y\n\x1bsuggestion_trigger_settings\x18\n \x01(\x0b\x32T.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionTriggerSettings\x12\x66\n\x0cquery_config\x18\x06 \x01(\x0b\x32P.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig\x12u\n\x19\x63onversation_model_config\x18\x07 \x01(\x0b\x32R.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.ConversationModelConfig\x1a\xa3\x01\n\x10SuggestionConfig\x12k\n\x0f\x66\x65\x61ture_configs\x18\x02 \x03(\x0b\x32R.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig\x12\"\n\x1agroup_suggestion_responses\x18\x03 \x01(\x08\x1a\x90\x08\n\x15SuggestionQueryConfig\x12\x90\x01\n\x1bknowledge_base_query_source\x18\x01 \x01(\x0b\x32i.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.KnowledgeBaseQuerySourceH\x00\x12\x85\x01\n\x15\x64ocument_query_source\x18\x02 \x01(\x0b\x32\x64.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.DocumentQuerySourceH\x00\x12\x89\x01\n\x17\x64ialogflow_query_source\x18\x03 \x01(\x0b\x32\x66.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.DialogflowQuerySourceH\x00\x12\x13\n\x0bmax_results\x18\x04 \x01(\x05\x12\x1c\n\x14\x63onfidence_threshold\x18\x05 \x01(\x02\x12\x87\x01\n\x17\x63ontext_filter_settings\x18\x07 \x01(\x0b\x32\x66.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.ContextFilterSettings\x1a\x64\n\x18KnowledgeBaseQuerySource\x12H\n\x0fknowledge_bases\x18\x01 \x03(\tB/\xe0\x41\x02\xfa\x41)\n\'dialogflow.googleapis.com/KnowledgeBase\x1aT\n\x13\x44ocumentQuerySource\x12=\n\tdocuments\x18\x01 \x03(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/Document\x1aO\n\x15\x44ialogflowQuerySource\x12\x36\n\x05\x61gent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x64ialogflow.googleapis.com/Agent\x1av\n\x15\x43ontextFilterSettings\x12\x1d\n\x15\x64rop_handoff_messages\x18\x01 \x01(\x08\x12#\n\x1b\x64rop_virtual_agent_messages\x18\x02 \x01(\x08\x12\x19\n\x11\x64rop_ivr_messages\x18\x03 \x01(\x08\x42\x0e\n\x0cquery_source\x1a-\n\x17\x43onversationModelConfig\x12\x12\n\x05model\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\\\n\x15MessageAnalysisConfig\x12 \n\x18\x65nable_entity_extraction\x18\x02 \x01(\x08\x12!\n\x19\x65nable_sentiment_analysis\x18\x03 \x01(\x08\"\xce\x03\n\x17HumanAgentHandoffConfig\x12g\n\x12live_person_config\x18\x01 \x01(\x0b\x32I.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfigH\x00\x12z\n\x1csalesforce_live_agent_config\x18\x02 \x01(\x0b\x32R.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfigH\x00\x1a/\n\x10LivePersonConfig\x12\x1b\n\x0e\x61\x63\x63ount_number\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x8b\x01\n\x19SalesforceLiveAgentConfig\x12\x1c\n\x0forganization_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rdeployment_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tbutton_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x1c\n\x0f\x65ndpoint_domain\x18\x04 \x01(\tB\x03\xe0\x41\x02\x42\x0f\n\ragent_service\"\xc4\x01\n\x12NotificationConfig\x12\r\n\x05topic\x18\x01 \x01(\t\x12Y\n\x0emessage_format\x18\x02 \x01(\x0e\x32\x41.google.cloud.dialogflow.v2beta1.NotificationConfig.MessageFormat\"D\n\rMessageFormat\x12\x1e\n\x1aMESSAGE_FORMAT_UNSPECIFIED\x10\x00\x12\t\n\x05PROTO\x10\x01\x12\x08\n\x04JSON\x10\x02\"3\n\rLoggingConfig\x12\"\n\x1a\x65nable_stackdriver_logging\x18\x03 \x01(\x08\"\x8f\x01\n\x1fListConversationProfilesRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-dialogflow.googleapis.com/ConversationProfile\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x90\x01\n ListConversationProfilesResponse\x12S\n\x15\x63onversation_profiles\x18\x01 \x03(\x0b\x32\x34.google.cloud.dialogflow.v2beta1.ConversationProfile\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"d\n\x1dGetConversationProfileRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-dialogflow.googleapis.com/ConversationProfile\"\xc2\x01\n CreateConversationProfileRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-dialogflow.googleapis.com/ConversationProfile\x12W\n\x14\x63onversation_profile\x18\x02 \x01(\x0b\x32\x34.google.cloud.dialogflow.v2beta1.ConversationProfileB\x03\xe0\x41\x02\"\xb1\x01\n UpdateConversationProfileRequest\x12W\n\x14\x63onversation_profile\x18\x01 \x01(\x0b\x32\x34.google.cloud.dialogflow.v2beta1.ConversationProfileB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"g\n DeleteConversationProfileRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-dialogflow.googleapis.com/ConversationProfile2\xb7\r\n\x14\x43onversationProfiles\x12\xa5\x02\n\x18ListConversationProfiles\x12@.google.cloud.dialogflow.v2beta1.ListConversationProfilesRequest\x1a\x41.google.cloud.dialogflow.v2beta1.ListConversationProfilesResponse\"\x83\x01\x82\xd3\xe4\x93\x02t\x12\x31/v2beta1/{parent=projects/*}/conversationProfilesZ?\x12=/v2beta1/{parent=projects/*/locations/*}/conversationProfiles\xda\x41\x06parent\x12\x92\x02\n\x16GetConversationProfile\x12>.google.cloud.dialogflow.v2beta1.GetConversationProfileRequest\x1a\x34.google.cloud.dialogflow.v2beta1.ConversationProfile\"\x81\x01\x82\xd3\xe4\x93\x02t\x12\x31/v2beta1/{name=projects/*/conversationProfiles/*}Z?\x12=/v2beta1/{name=projects/*/locations/*/conversationProfiles/*}\xda\x41\x04name\x12\xdc\x02\n\x19\x43reateConversationProfile\x12\x41.google.cloud.dialogflow.v2beta1.CreateConversationProfileRequest\x1a\x34.google.cloud.dialogflow.v2beta1.ConversationProfile\"\xc5\x01\x82\xd3\xe4\x93\x02\xa0\x01\"1/v2beta1/{parent=projects/*}/conversationProfiles:\x14\x63onversation_profileZU\"=/v2beta1/{parent=projects/*/locations/*}/conversationProfiles:\x14\x63onversation_profile\xda\x41\x1bparent,conversation_profile\x12\x8b\x03\n\x19UpdateConversationProfile\x12\x41.google.cloud.dialogflow.v2beta1.UpdateConversationProfileRequest\x1a\x34.google.cloud.dialogflow.v2beta1.ConversationProfile\"\xf4\x01\x82\xd3\xe4\x93\x02\xca\x01\x32\x46/v2beta1/{conversation_profile.name=projects/*/conversationProfiles/*}:\x14\x63onversation_profileZj2R/v2beta1/{conversation_profile.name=projects/*/locations/*/conversationProfiles/*}:\x14\x63onversation_profile\xda\x41 conversation_profile,update_mask\x12\xfa\x01\n\x19\x44\x65leteConversationProfile\x12\x41.google.cloud.dialogflow.v2beta1.DeleteConversationProfileRequest\x1a\x16.google.protobuf.Empty\"\x81\x01\x82\xd3\xe4\x93\x02t*1/v2beta1/{name=projects/*/conversationProfiles/*}Z?*=/v2beta1/{name=projects/*/locations/*/conversationProfiles/*}\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xb6\x01\n#com.google.cloud.dialogflow.v2beta1B\x18\x43onversationProfileProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2beta1;dialogflow\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1fGoogle.Cloud.Dialogflow.V2beta1b\x06proto3'
+  serialized_pb=b'\n:google/cloud/dialogflow/v2beta1/conversation_profile.proto\x12\x1fgoogle.cloud.dialogflow.v2beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x32google/cloud/dialogflow/v2beta1/audio_config.proto\x1a.google/cloud/dialogflow/v2beta1/document.proto\x1a\x31google/cloud/dialogflow/v2beta1/participant.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xea\x07\n\x13\x43onversationProfile\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x34\n\x0b\x63reate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12U\n\x16\x61utomated_agent_config\x18\x03 \x01(\x0b\x32\x35.google.cloud.dialogflow.v2beta1.AutomatedAgentConfig\x12`\n\x1chuman_agent_assistant_config\x18\x04 \x01(\x0b\x32:.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig\x12\\\n\x1ahuman_agent_handoff_config\x18\x05 \x01(\x0b\x32\x38.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig\x12P\n\x13notification_config\x18\x06 \x01(\x0b\x32\x33.google.cloud.dialogflow.v2beta1.NotificationConfig\x12\x46\n\x0elogging_config\x18\x07 \x01(\x0b\x32..google.cloud.dialogflow.v2beta1.LoggingConfig\x12\x62\n%new_message_event_notification_config\x18\x08 \x01(\x0b\x32\x33.google.cloud.dialogflow.v2beta1.NotificationConfig\x12G\n\nstt_config\x18\t \x01(\x0b\x32\x33.google.cloud.dialogflow.v2beta1.SpeechToTextConfig\x12\x15\n\rlanguage_code\x18\n \x01(\t:\xc8\x01\xea\x41\xc4\x01\n-dialogflow.googleapis.com/ConversationProfile\x12>projects/{project}/conversationProfiles/{conversation_profile}\x12Sprojects/{project}/locations/{location}/conversationProfiles/{conversation_profile}\"N\n\x14\x41utomatedAgentConfig\x12\x36\n\x05\x61gent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x64ialogflow.googleapis.com/Agent\"\xf0\x12\n\x19HumanAgentAssistantConfig\x12P\n\x13notification_config\x18\x02 \x01(\x0b\x32\x33.google.cloud.dialogflow.v2beta1.NotificationConfig\x12r\n\x1dhuman_agent_suggestion_config\x18\x03 \x01(\x0b\x32K.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionConfig\x12o\n\x1a\x65nd_user_suggestion_config\x18\x04 \x01(\x0b\x32K.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionConfig\x12q\n\x17message_analysis_config\x18\x05 \x01(\x0b\x32P.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.MessageAnalysisConfig\x1aI\n\x19SuggestionTriggerSettings\x12\x15\n\rno_small_talk\x18\x01 \x01(\x08\x12\x15\n\ronly_end_user\x18\x02 \x01(\x08\x1a\xea\x03\n\x17SuggestionFeatureConfig\x12N\n\x12suggestion_feature\x18\x05 \x01(\x0b\x32\x32.google.cloud.dialogflow.v2beta1.SuggestionFeature\x12%\n\x1d\x65nable_event_based_suggestion\x18\x03 \x01(\x08\x12y\n\x1bsuggestion_trigger_settings\x18\n \x01(\x0b\x32T.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionTriggerSettings\x12\x66\n\x0cquery_config\x18\x06 \x01(\x0b\x32P.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig\x12u\n\x19\x63onversation_model_config\x18\x07 \x01(\x0b\x32R.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.ConversationModelConfig\x1a\xa3\x01\n\x10SuggestionConfig\x12k\n\x0f\x66\x65\x61ture_configs\x18\x02 \x03(\x0b\x32R.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig\x12\"\n\x1agroup_suggestion_responses\x18\x03 \x01(\x08\x1a\x90\x08\n\x15SuggestionQueryConfig\x12\x90\x01\n\x1bknowledge_base_query_source\x18\x01 \x01(\x0b\x32i.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.KnowledgeBaseQuerySourceH\x00\x12\x85\x01\n\x15\x64ocument_query_source\x18\x02 \x01(\x0b\x32\x64.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.DocumentQuerySourceH\x00\x12\x89\x01\n\x17\x64ialogflow_query_source\x18\x03 \x01(\x0b\x32\x66.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.DialogflowQuerySourceH\x00\x12\x13\n\x0bmax_results\x18\x04 \x01(\x05\x12\x1c\n\x14\x63onfidence_threshold\x18\x05 \x01(\x02\x12\x87\x01\n\x17\x63ontext_filter_settings\x18\x07 \x01(\x0b\x32\x66.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.ContextFilterSettings\x1a\x64\n\x18KnowledgeBaseQuerySource\x12H\n\x0fknowledge_bases\x18\x01 \x03(\tB/\xe0\x41\x02\xfa\x41)\n\'dialogflow.googleapis.com/KnowledgeBase\x1aT\n\x13\x44ocumentQuerySource\x12=\n\tdocuments\x18\x01 \x03(\tB*\xe0\x41\x02\xfa\x41$\n\"dialogflow.googleapis.com/Document\x1aO\n\x15\x44ialogflowQuerySource\x12\x36\n\x05\x61gent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x64ialogflow.googleapis.com/Agent\x1av\n\x15\x43ontextFilterSettings\x12\x1d\n\x15\x64rop_handoff_messages\x18\x01 \x01(\x08\x12#\n\x1b\x64rop_virtual_agent_messages\x18\x02 \x01(\x08\x12\x19\n\x11\x64rop_ivr_messages\x18\x03 \x01(\x08\x42\x0e\n\x0cquery_source\x1aZ\n\x17\x43onversationModelConfig\x12?\n\x05model\x18\x01 \x01(\tB0\xfa\x41-\n+dialogflow.googleapis.com/ConversationModel\x1a\\\n\x15MessageAnalysisConfig\x12 \n\x18\x65nable_entity_extraction\x18\x02 \x01(\x08\x12!\n\x19\x65nable_sentiment_analysis\x18\x03 \x01(\x08\"\xce\x03\n\x17HumanAgentHandoffConfig\x12g\n\x12live_person_config\x18\x01 \x01(\x0b\x32I.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfigH\x00\x12z\n\x1csalesforce_live_agent_config\x18\x02 \x01(\x0b\x32R.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfigH\x00\x1a/\n\x10LivePersonConfig\x12\x1b\n\x0e\x61\x63\x63ount_number\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x8b\x01\n\x19SalesforceLiveAgentConfig\x12\x1c\n\x0forganization_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rdeployment_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tbutton_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x1c\n\x0f\x65ndpoint_domain\x18\x04 \x01(\tB\x03\xe0\x41\x02\x42\x0f\n\ragent_service\"\xc4\x01\n\x12NotificationConfig\x12\r\n\x05topic\x18\x01 \x01(\t\x12Y\n\x0emessage_format\x18\x02 \x01(\x0e\x32\x41.google.cloud.dialogflow.v2beta1.NotificationConfig.MessageFormat\"D\n\rMessageFormat\x12\x1e\n\x1aMESSAGE_FORMAT_UNSPECIFIED\x10\x00\x12\t\n\x05PROTO\x10\x01\x12\x08\n\x04JSON\x10\x02\"3\n\rLoggingConfig\x12\"\n\x1a\x65nable_stackdriver_logging\x18\x03 \x01(\x08\"\x8f\x01\n\x1fListConversationProfilesRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-dialogflow.googleapis.com/ConversationProfile\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x90\x01\n ListConversationProfilesResponse\x12S\n\x15\x63onversation_profiles\x18\x01 \x03(\x0b\x32\x34.google.cloud.dialogflow.v2beta1.ConversationProfile\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"d\n\x1dGetConversationProfileRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-dialogflow.googleapis.com/ConversationProfile\"\xc2\x01\n CreateConversationProfileRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-dialogflow.googleapis.com/ConversationProfile\x12W\n\x14\x63onversation_profile\x18\x02 \x01(\x0b\x32\x34.google.cloud.dialogflow.v2beta1.ConversationProfileB\x03\xe0\x41\x02\"\xb1\x01\n UpdateConversationProfileRequest\x12W\n\x14\x63onversation_profile\x18\x01 \x01(\x0b\x32\x34.google.cloud.dialogflow.v2beta1.ConversationProfileB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"g\n DeleteConversationProfileRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-dialogflow.googleapis.com/ConversationProfile2\xb7\r\n\x14\x43onversationProfiles\x12\xa5\x02\n\x18ListConversationProfiles\x12@.google.cloud.dialogflow.v2beta1.ListConversationProfilesRequest\x1a\x41.google.cloud.dialogflow.v2beta1.ListConversationProfilesResponse\"\x83\x01\x82\xd3\xe4\x93\x02t\x12\x31/v2beta1/{parent=projects/*}/conversationProfilesZ?\x12=/v2beta1/{parent=projects/*/locations/*}/conversationProfiles\xda\x41\x06parent\x12\x92\x02\n\x16GetConversationProfile\x12>.google.cloud.dialogflow.v2beta1.GetConversationProfileRequest\x1a\x34.google.cloud.dialogflow.v2beta1.ConversationProfile\"\x81\x01\x82\xd3\xe4\x93\x02t\x12\x31/v2beta1/{name=projects/*/conversationProfiles/*}Z?\x12=/v2beta1/{name=projects/*/locations/*/conversationProfiles/*}\xda\x41\x04name\x12\xdc\x02\n\x19\x43reateConversationProfile\x12\x41.google.cloud.dialogflow.v2beta1.CreateConversationProfileRequest\x1a\x34.google.cloud.dialogflow.v2beta1.ConversationProfile\"\xc5\x01\x82\xd3\xe4\x93\x02\xa0\x01\"1/v2beta1/{parent=projects/*}/conversationProfiles:\x14\x63onversation_profileZU\"=/v2beta1/{parent=projects/*/locations/*}/conversationProfiles:\x14\x63onversation_profile\xda\x41\x1bparent,conversation_profile\x12\x8b\x03\n\x19UpdateConversationProfile\x12\x41.google.cloud.dialogflow.v2beta1.UpdateConversationProfileRequest\x1a\x34.google.cloud.dialogflow.v2beta1.ConversationProfile\"\xf4\x01\x82\xd3\xe4\x93\x02\xca\x01\x32\x46/v2beta1/{conversation_profile.name=projects/*/conversationProfiles/*}:\x14\x63onversation_profileZj2R/v2beta1/{conversation_profile.name=projects/*/locations/*/conversationProfiles/*}:\x14\x63onversation_profile\xda\x41 conversation_profile,update_mask\x12\xfa\x01\n\x19\x44\x65leteConversationProfile\x12\x41.google.cloud.dialogflow.v2beta1.DeleteConversationProfileRequest\x1a\x16.google.protobuf.Empty\"\x81\x01\x82\xd3\xe4\x93\x02t*1/v2beta1/{name=projects/*/conversationProfiles/*}Z?*=/v2beta1/{name=projects/*/locations/*/conversationProfiles/*}\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xb6\x03\n#com.google.cloud.dialogflow.v2beta1B\x18\x43onversationProfileProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2beta1;dialogflow\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1fGoogle.Cloud.Dialogflow.V2beta1\xea\x41|\n,dialogflow.googleapis.com/CXSecuritySettings\x12Lprojects/{project}/locations/{location}/securitySettings/{security_settings}\xea\x41~\n+dialogflow.googleapis.com/ConversationModel\x12Oprojects/{project}/locations/{location}/conversationModels/{conversation_model}b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_v2beta1_dot_audio__config__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_v2beta1_dot_document__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_v2beta1_dot_participant__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -61,8 +61,8 @@ _NOTIFICATIONCONFIG_MESSAGEFORMAT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4547,
-  serialized_end=4615,
+  serialized_start=4592,
+  serialized_end=4660,
 )
 _sym_db.RegisterEnumDescriptor(_NOTIFICATIONCONFIG_MESSAGEFORMAT)
 
@@ -566,7 +566,7 @@ _HUMANAGENTASSISTANTCONFIG_CONVERSATIONMODELCONFIG = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372A-\n+dialogflow.googleapis.com/ConversationModel', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -580,7 +580,7 @@ _HUMANAGENTASSISTANTCONFIG_CONVERSATIONMODELCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=3812,
-  serialized_end=3857,
+  serialized_end=3902,
 )
 
 _HUMANAGENTASSISTANTCONFIG_MESSAGEANALYSISCONFIG = _descriptor.Descriptor(
@@ -617,8 +617,8 @@ _HUMANAGENTASSISTANTCONFIG_MESSAGEANALYSISCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3859,
-  serialized_end=3951,
+  serialized_start=3904,
+  serialized_end=3996,
 )
 
 _HUMANAGENTASSISTANTCONFIG = _descriptor.Descriptor(
@@ -670,7 +670,7 @@ _HUMANAGENTASSISTANTCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1580,
-  serialized_end=3951,
+  serialized_end=3996,
 )
 
 
@@ -701,8 +701,8 @@ _HUMANAGENTHANDOFFCONFIG_LIVEPERSONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4210,
-  serialized_end=4257,
+  serialized_start=4255,
+  serialized_end=4302,
 )
 
 _HUMANAGENTHANDOFFCONFIG_SALESFORCELIVEAGENTCONFIG = _descriptor.Descriptor(
@@ -753,8 +753,8 @@ _HUMANAGENTHANDOFFCONFIG_SALESFORCELIVEAGENTCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4260,
-  serialized_end=4399,
+  serialized_start=4305,
+  serialized_end=4444,
 )
 
 _HUMANAGENTHANDOFFCONFIG = _descriptor.Descriptor(
@@ -796,8 +796,8 @@ _HUMANAGENTHANDOFFCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3954,
-  serialized_end=4416,
+  serialized_start=3999,
+  serialized_end=4461,
 )
 
 
@@ -836,8 +836,8 @@ _NOTIFICATIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4419,
-  serialized_end=4615,
+  serialized_start=4464,
+  serialized_end=4660,
 )
 
 
@@ -868,8 +868,8 @@ _LOGGINGCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4617,
-  serialized_end=4668,
+  serialized_start=4662,
+  serialized_end=4713,
 )
 
 
@@ -914,8 +914,8 @@ _LISTCONVERSATIONPROFILESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4671,
-  serialized_end=4814,
+  serialized_start=4716,
+  serialized_end=4859,
 )
 
 
@@ -953,8 +953,8 @@ _LISTCONVERSATIONPROFILESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4817,
-  serialized_end=4961,
+  serialized_start=4862,
+  serialized_end=5006,
 )
 
 
@@ -985,8 +985,8 @@ _GETCONVERSATIONPROFILEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4963,
-  serialized_end=5063,
+  serialized_start=5008,
+  serialized_end=5108,
 )
 
 
@@ -1024,8 +1024,8 @@ _CREATECONVERSATIONPROFILEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5066,
-  serialized_end=5260,
+  serialized_start=5111,
+  serialized_end=5305,
 )
 
 
@@ -1063,8 +1063,8 @@ _UPDATECONVERSATIONPROFILEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5263,
-  serialized_end=5440,
+  serialized_start=5308,
+  serialized_end=5485,
 )
 
 
@@ -1095,8 +1095,8 @@ _DELETECONVERSATIONPROFILEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5442,
-  serialized_end=5545,
+  serialized_start=5487,
+  serialized_end=5590,
 )
 
 _CONVERSATIONPROFILE.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -1381,8 +1381,8 @@ _CONVERSATIONPROFILES = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=5548,
-  serialized_end=7267,
+  serialized_start=5593,
+  serialized_end=7312,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListConversationProfiles',

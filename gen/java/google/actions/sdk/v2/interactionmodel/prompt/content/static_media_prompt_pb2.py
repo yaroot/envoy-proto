@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n1com.google.actions.sdk.v2.interactionmodel.promptB\026StaticMediaPromptProtoP\001ZSgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/prompt;prompt',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nOgoogle/actions/sdk/v2/interactionmodel/prompt/content/static_media_prompt.proto\x12-google.actions.sdk.v2.interactionmodel.prompt\x1aOgoogle/actions/sdk/v2/interactionmodel/prompt/content/static_image_prompt.proto\x1a\x1egoogle/protobuf/duration.proto\"\x95\x04\n\x11StaticMediaPrompt\x12^\n\nmedia_type\x18\x08 \x01(\x0e\x32J.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType\x12/\n\x0cstart_offset\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12w\n\x17optional_media_controls\x18\x06 \x03(\x0e\x32V.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.OptionalMediaControls\x12Q\n\rmedia_objects\x18\x07 \x03(\x0b\x32:.google.actions.sdk.v2.interactionmodel.prompt.MediaObject\"H\n\tMediaType\x12\x1a\n\x16MEDIA_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05\x41UDIO\x10\x01\x12\x14\n\x10MEDIA_STATUS_ACK\x10\x02\"Y\n\x15OptionalMediaControls\x12\'\n#OPTIONAL_MEDIA_CONTROLS_UNSPECIFIED\x10\x00\x12\n\n\x06PAUSED\x10\x01\x12\x0b\n\x07STOPPED\x10\x02\"\x87\x01\n\x0bMediaObject\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0b\n\x03url\x18\x03 \x01(\t\x12H\n\x05image\x18\x04 \x01(\x0b\x32\x39.google.actions.sdk.v2.interactionmodel.prompt.MediaImage\"\xba\x01\n\nMediaImage\x12Q\n\x05large\x18\x01 \x01(\x0b\x32@.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePromptH\x00\x12P\n\x04icon\x18\x02 \x01(\x0b\x32@.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePromptH\x00\x42\x07\n\x05imageB\xa2\x01\n1com.google.actions.sdk.v2.interactionmodel.promptB\x16StaticMediaPromptProtoP\x01ZSgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/prompt;promptb\x06proto3'
+  serialized_pb=b'\nOgoogle/actions/sdk/v2/interactionmodel/prompt/content/static_media_prompt.proto\x12-google.actions.sdk.v2.interactionmodel.prompt\x1aOgoogle/actions/sdk/v2/interactionmodel/prompt/content/static_image_prompt.proto\x1a\x1egoogle/protobuf/duration.proto\"\xb4\x05\n\x11StaticMediaPrompt\x12^\n\nmedia_type\x18\x08 \x01(\x0e\x32J.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType\x12/\n\x0cstart_offset\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12w\n\x17optional_media_controls\x18\x06 \x03(\x0e\x32V.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.OptionalMediaControls\x12Q\n\rmedia_objects\x18\x07 \x03(\x0b\x32:.google.actions.sdk.v2.interactionmodel.prompt.MediaObject\x12`\n\x0brepeat_mode\x18\t \x01(\x0e\x32K.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode\"H\n\tMediaType\x12\x1a\n\x16MEDIA_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05\x41UDIO\x10\x01\x12\x14\n\x10MEDIA_STATUS_ACK\x10\x02\"Y\n\x15OptionalMediaControls\x12\'\n#OPTIONAL_MEDIA_CONTROLS_UNSPECIFIED\x10\x00\x12\n\n\x06PAUSED\x10\x01\x12\x0b\n\x07STOPPED\x10\x02\";\n\nRepeatMode\x12\x1b\n\x17REPEAT_MODE_UNSPECIFIED\x10\x00\x12\x07\n\x03OFF\x10\x01\x12\x07\n\x03\x41LL\x10\x02\"\x87\x01\n\x0bMediaObject\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0b\n\x03url\x18\x03 \x01(\t\x12H\n\x05image\x18\x04 \x01(\x0b\x32\x39.google.actions.sdk.v2.interactionmodel.prompt.MediaImage\"\xba\x01\n\nMediaImage\x12Q\n\x05large\x18\x01 \x01(\x0b\x32@.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePromptH\x00\x12P\n\x04icon\x18\x02 \x01(\x0b\x32@.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePromptH\x00\x42\x07\n\x05imageB\xa2\x01\n1com.google.actions.sdk.v2.interactionmodel.promptB\x16StaticMediaPromptProtoP\x01ZSgoogle.golang.org/genproto/googleapis/actions/sdk/v2/interactionmodel/prompt;promptb\x06proto3'
   ,
   dependencies=[google_dot_actions_dot_sdk_dot_v2_dot_interactionmodel_dot_prompt_dot_content_dot_static__image__prompt__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,])
 
@@ -52,8 +52,8 @@ _STATICMEDIAPROMPT_MEDIATYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=614,
-  serialized_end=686,
+  serialized_start=712,
+  serialized_end=784,
 )
 _sym_db.RegisterEnumDescriptor(_STATICMEDIAPROMPT_MEDIATYPE)
 
@@ -82,10 +82,40 @@ _STATICMEDIAPROMPT_OPTIONALMEDIACONTROLS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=688,
-  serialized_end=777,
+  serialized_start=786,
+  serialized_end=875,
 )
 _sym_db.RegisterEnumDescriptor(_STATICMEDIAPROMPT_OPTIONALMEDIACONTROLS)
+
+_STATICMEDIAPROMPT_REPEATMODE = _descriptor.EnumDescriptor(
+  name='RepeatMode',
+  full_name='google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='REPEAT_MODE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='OFF', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ALL', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=877,
+  serialized_end=936,
+)
+_sym_db.RegisterEnumDescriptor(_STATICMEDIAPROMPT_REPEATMODE)
 
 
 _STATICMEDIAPROMPT = _descriptor.Descriptor(
@@ -124,6 +154,13 @@ _STATICMEDIAPROMPT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='repeat_mode', full_name='google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.repeat_mode', index=4,
+      number=9, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -131,6 +168,7 @@ _STATICMEDIAPROMPT = _descriptor.Descriptor(
   enum_types=[
     _STATICMEDIAPROMPT_MEDIATYPE,
     _STATICMEDIAPROMPT_OPTIONALMEDIACONTROLS,
+    _STATICMEDIAPROMPT_REPEATMODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -139,7 +177,7 @@ _STATICMEDIAPROMPT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=244,
-  serialized_end=777,
+  serialized_end=936,
 )
 
 
@@ -191,8 +229,8 @@ _MEDIAOBJECT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=780,
-  serialized_end=915,
+  serialized_start=939,
+  serialized_end=1074,
 )
 
 
@@ -235,16 +273,18 @@ _MEDIAIMAGE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=918,
-  serialized_end=1104,
+  serialized_start=1077,
+  serialized_end=1263,
 )
 
 _STATICMEDIAPROMPT.fields_by_name['media_type'].enum_type = _STATICMEDIAPROMPT_MEDIATYPE
 _STATICMEDIAPROMPT.fields_by_name['start_offset'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _STATICMEDIAPROMPT.fields_by_name['optional_media_controls'].enum_type = _STATICMEDIAPROMPT_OPTIONALMEDIACONTROLS
 _STATICMEDIAPROMPT.fields_by_name['media_objects'].message_type = _MEDIAOBJECT
+_STATICMEDIAPROMPT.fields_by_name['repeat_mode'].enum_type = _STATICMEDIAPROMPT_REPEATMODE
 _STATICMEDIAPROMPT_MEDIATYPE.containing_type = _STATICMEDIAPROMPT
 _STATICMEDIAPROMPT_OPTIONALMEDIACONTROLS.containing_type = _STATICMEDIAPROMPT
+_STATICMEDIAPROMPT_REPEATMODE.containing_type = _STATICMEDIAPROMPT
 _MEDIAOBJECT.fields_by_name['image'].message_type = _MEDIAIMAGE
 _MEDIAIMAGE.fields_by_name['large'].message_type = google_dot_actions_dot_sdk_dot_v2_dot_interactionmodel_dot_prompt_dot_content_dot_static__image__prompt__pb2._STATICIMAGEPROMPT
 _MEDIAIMAGE.fields_by_name['icon'].message_type = google_dot_actions_dot_sdk_dot_v2_dot_interactionmodel_dot_prompt_dot_content_dot_static__image__prompt__pb2._STATICIMAGEPROMPT

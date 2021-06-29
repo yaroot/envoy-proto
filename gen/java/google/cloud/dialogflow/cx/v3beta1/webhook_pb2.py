@@ -28,7 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n&com.google.cloud.dialogflow.cx.v3beta1B\014WebhookProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\370\001\001\242\002\002DF\252\002\"Google.Cloud.Dialogflow.Cx.V3Beta1\352A|\n\'servicedirectory.googleapis.com/Service\022Qprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n0google/cloud/dialogflow/cx/v3beta1/webhook.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x39google/cloud/dialogflow/cx/v3beta1/response_message.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xc3\x04\n\x07Webhook\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\\\n\x13generic_web_service\x18\x04 \x01(\x0b\x32=.google.cloud.dialogflow.cx.v3beta1.Webhook.GenericWebServiceH\x00\x12*\n\x07timeout\x18\x06 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x10\n\x08\x64isabled\x18\x05 \x01(\x08\x1a\xf4\x01\n\x11GenericWebService\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x08username\x18\x02 \x01(\tB\x02\x18\x01\x12\x14\n\x08password\x18\x03 \x01(\tB\x02\x18\x01\x12j\n\x0frequest_headers\x18\x04 \x03(\x0b\x32Q.google.cloud.dialogflow.cx.v3beta1.Webhook.GenericWebService.RequestHeadersEntry\x1a\x35\n\x13RequestHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:q\xea\x41n\n!dialogflow.googleapis.com/Webhook\x12Iprojects/{project}/locations/{location}/agents/{agent}/webhooks/{webhook}B\t\n\x07webhook\"w\n\x13ListWebhooksRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!dialogflow.googleapis.com/Webhook\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"n\n\x14ListWebhooksResponse\x12=\n\x08webhooks\x18\x01 \x03(\x0b\x32+.google.cloud.dialogflow.cx.v3beta1.Webhook\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"L\n\x11GetWebhookRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Webhook\"\x94\x01\n\x14\x43reateWebhookRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!dialogflow.googleapis.com/Webhook\x12\x41\n\x07webhook\x18\x02 \x01(\x0b\x32+.google.cloud.dialogflow.cx.v3beta1.WebhookB\x03\xe0\x41\x02\"\x8a\x01\n\x14UpdateWebhookRequest\x12\x41\n\x07webhook\x18\x01 \x01(\x0b\x32+.google.cloud.dialogflow.cx.v3beta1.WebhookB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"^\n\x14\x44\x65leteWebhookRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Webhook\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\"\x92\n\n\x0eWebhookRequest\x12!\n\x19\x64\x65tect_intent_response_id\x18\x01 \x01(\t\x12\x0e\n\x04text\x18\n \x01(\tH\x00\x12?\n\x0etrigger_intent\x18\x0b \x01(\tB%\xfa\x41\"\n dialogflow.googleapis.com/IntentH\x00\x12\x14\n\ntranscript\x18\x0c \x01(\tH\x00\x12\x17\n\rtrigger_event\x18\x0e \x01(\tH\x00\x12\x15\n\rlanguage_code\x18\x0f \x01(\t\x12\\\n\x10\x66ulfillment_info\x18\x06 \x01(\x0b\x32\x42.google.cloud.dialogflow.cx.v3beta1.WebhookRequest.FulfillmentInfo\x12R\n\x0bintent_info\x18\x03 \x01(\x0b\x32=.google.cloud.dialogflow.cx.v3beta1.WebhookRequest.IntentInfo\x12?\n\tpage_info\x18\x04 \x01(\x0b\x32,.google.cloud.dialogflow.cx.v3beta1.PageInfo\x12\x45\n\x0csession_info\x18\x05 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.SessionInfo\x12\x45\n\x08messages\x18\x07 \x03(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.ResponseMessage\x12(\n\x07payload\x18\x08 \x01(\x0b\x32\x17.google.protobuf.Struct\x12m\n\x19sentiment_analysis_result\x18\t \x01(\x0b\x32J.google.cloud.dialogflow.cx.v3beta1.WebhookRequest.SentimentAnalysisResult\x1a\x1e\n\x0f\x46ulfillmentInfo\x12\x0b\n\x03tag\x18\x01 \x01(\t\x1a\xc5\x03\n\nIntentInfo\x12\x42\n\x13last_matched_intent\x18\x01 \x01(\tB%\xfa\x41\"\n dialogflow.googleapis.com/Intent\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x61\n\nparameters\x18\x02 \x03(\x0b\x32M.google.cloud.dialogflow.cx.v3beta1.WebhookRequest.IntentInfo.ParametersEntry\x12\x12\n\nconfidence\x18\x04 \x01(\x02\x1a^\n\x14IntentParameterValue\x12\x16\n\x0eoriginal_value\x18\x01 \x01(\t\x12.\n\x0eresolved_value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value\x1a\x85\x01\n\x0fParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x61\n\x05value\x18\x02 \x01(\x0b\x32R.google.cloud.dialogflow.cx.v3beta1.WebhookRequest.IntentInfo.IntentParameterValue:\x02\x38\x01\x1a;\n\x17SentimentAnalysisResult\x12\r\n\x05score\x18\x01 \x01(\x02\x12\x11\n\tmagnitude\x18\x02 \x01(\x02\x42\x07\n\x05query\"\xc8\x05\n\x0fWebhookResponse\x12\x65\n\x14\x66ulfillment_response\x18\x01 \x01(\x0b\x32G.google.cloud.dialogflow.cx.v3beta1.WebhookResponse.FulfillmentResponse\x12?\n\tpage_info\x18\x02 \x01(\x0b\x32,.google.cloud.dialogflow.cx.v3beta1.PageInfo\x12\x45\n\x0csession_info\x18\x03 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.SessionInfo\x12(\n\x07payload\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x12:\n\x0btarget_page\x18\x05 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/PageH\x00\x12:\n\x0btarget_flow\x18\x06 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/FlowH\x00\x1a\x95\x02\n\x13\x46ulfillmentResponse\x12\x45\n\x08messages\x18\x01 \x03(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.ResponseMessage\x12m\n\x0emerge_behavior\x18\x02 \x01(\x0e\x32U.google.cloud.dialogflow.cx.v3beta1.WebhookResponse.FulfillmentResponse.MergeBehavior\"H\n\rMergeBehavior\x12\x1e\n\x1aMERGE_BEHAVIOR_UNSPECIFIED\x10\x00\x12\n\n\x06\x41PPEND\x10\x01\x12\x0b\n\x07REPLACE\x10\x02\x42\x0c\n\ntransition\"\xac\x04\n\x08PageInfo\x12\x39\n\x0c\x63urrent_page\x18\x01 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/Page\x12H\n\tform_info\x18\x03 \x01(\x0b\x32\x35.google.cloud.dialogflow.cx.v3beta1.PageInfo.FormInfo\x1a\x9a\x03\n\x08\x46ormInfo\x12[\n\x0eparameter_info\x18\x02 \x03(\x0b\x32\x43.google.cloud.dialogflow.cx.v3beta1.PageInfo.FormInfo.ParameterInfo\x1a\xb0\x02\n\rParameterInfo\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12\x10\n\x08required\x18\x02 \x01(\x08\x12\x61\n\x05state\x18\x03 \x01(\x0e\x32R.google.cloud.dialogflow.cx.v3beta1.PageInfo.FormInfo.ParameterInfo.ParameterState\x12%\n\x05value\x18\x04 \x01(\x0b\x32\x16.google.protobuf.Value\x12\x16\n\x0ejust_collected\x18\x05 \x01(\x08\"U\n\x0eParameterState\x12\x1f\n\x1bPARAMETER_STATE_UNSPECIFIED\x10\x00\x12\t\n\x05\x45MPTY\x10\x01\x12\x0b\n\x07INVALID\x10\x02\x12\n\n\x06\x46ILLED\x10\x03\"\xe6\x01\n\x0bSessionInfo\x12\x37\n\x07session\x18\x01 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Session\x12S\n\nparameters\x18\x02 \x03(\x0b\x32?.google.cloud.dialogflow.cx.v3beta1.SessionInfo.ParametersEntry\x1aI\n\x0fParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value:\x02\x38\x01\x32\xfd\x08\n\x08Webhooks\x12\xce\x01\n\x0cListWebhooks\x12\x37.google.cloud.dialogflow.cx.v3beta1.ListWebhooksRequest\x1a\x38.google.cloud.dialogflow.cx.v3beta1.ListWebhooksResponse\"K\x82\xd3\xe4\x93\x02<\x12:/v3beta1/{parent=projects/*/locations/*/agents/*}/webhooks\xda\x41\x06parent\x12\xbb\x01\n\nGetWebhook\x12\x35.google.cloud.dialogflow.cx.v3beta1.GetWebhookRequest\x1a+.google.cloud.dialogflow.cx.v3beta1.Webhook\"I\x82\xd3\xe4\x93\x02<\x12:/v3beta1/{name=projects/*/locations/*/agents/*/webhooks/*}\xda\x41\x04name\x12\xd4\x01\n\rCreateWebhook\x12\x38.google.cloud.dialogflow.cx.v3beta1.CreateWebhookRequest\x1a+.google.cloud.dialogflow.cx.v3beta1.Webhook\"\\\x82\xd3\xe4\x93\x02\x45\":/v3beta1/{parent=projects/*/locations/*/agents/*}/webhooks:\x07webhook\xda\x41\x0eparent,webhook\x12\xe1\x01\n\rUpdateWebhook\x12\x38.google.cloud.dialogflow.cx.v3beta1.UpdateWebhookRequest\x1a+.google.cloud.dialogflow.cx.v3beta1.Webhook\"i\x82\xd3\xe4\x93\x02M2B/v3beta1/{webhook.name=projects/*/locations/*/agents/*/webhooks/*}:\x07webhook\xda\x41\x13webhook,update_mask\x12\xac\x01\n\rDeleteWebhook\x12\x38.google.cloud.dialogflow.cx.v3beta1.DeleteWebhookRequest\x1a\x16.google.protobuf.Empty\"I\x82\xd3\xe4\x93\x02<*:/v3beta1/{name=projects/*/locations/*/agents/*/webhooks/*}\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xaa\x02\n&com.google.cloud.dialogflow.cx.v3beta1B\x0cWebhookProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1\xea\x41|\n\'servicedirectory.googleapis.com/Service\x12Qprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}b\x06proto3'
+  serialized_pb=b'\n0google/cloud/dialogflow/cx/v3beta1/webhook.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x39google/cloud/dialogflow/cx/v3beta1/response_message.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xdd\x06\n\x07Webhook\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\\\n\x13generic_web_service\x18\x04 \x01(\x0b\x32=.google.cloud.dialogflow.cx.v3beta1.Webhook.GenericWebServiceH\x00\x12_\n\x11service_directory\x18\x07 \x01(\x0b\x32\x42.google.cloud.dialogflow.cx.v3beta1.Webhook.ServiceDirectoryConfigH\x00\x12*\n\x07timeout\x18\x06 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x10\n\x08\x64isabled\x18\x05 \x01(\x08\x1a\xf4\x01\n\x11GenericWebService\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x08username\x18\x02 \x01(\tB\x02\x18\x01\x12\x14\n\x08password\x18\x03 \x01(\tB\x02\x18\x01\x12j\n\x0frequest_headers\x18\x04 \x03(\x0b\x32Q.google.cloud.dialogflow.cx.v3beta1.Webhook.GenericWebService.RequestHeadersEntry\x1a\x35\n\x13RequestHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\xb6\x01\n\x16ServiceDirectoryConfig\x12@\n\x07service\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'servicedirectory.googleapis.com/Service\x12Z\n\x13generic_web_service\x18\x02 \x01(\x0b\x32=.google.cloud.dialogflow.cx.v3beta1.Webhook.GenericWebService:q\xea\x41n\n!dialogflow.googleapis.com/Webhook\x12Iprojects/{project}/locations/{location}/agents/{agent}/webhooks/{webhook}B\t\n\x07webhook\"w\n\x13ListWebhooksRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!dialogflow.googleapis.com/Webhook\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"n\n\x14ListWebhooksResponse\x12=\n\x08webhooks\x18\x01 \x03(\x0b\x32+.google.cloud.dialogflow.cx.v3beta1.Webhook\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"L\n\x11GetWebhookRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Webhook\"\x94\x01\n\x14\x43reateWebhookRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!dialogflow.googleapis.com/Webhook\x12\x41\n\x07webhook\x18\x02 \x01(\x0b\x32+.google.cloud.dialogflow.cx.v3beta1.WebhookB\x03\xe0\x41\x02\"\x8a\x01\n\x14UpdateWebhookRequest\x12\x41\n\x07webhook\x18\x01 \x01(\x0b\x32+.google.cloud.dialogflow.cx.v3beta1.WebhookB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"^\n\x14\x44\x65leteWebhookRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Webhook\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\"\x92\n\n\x0eWebhookRequest\x12!\n\x19\x64\x65tect_intent_response_id\x18\x01 \x01(\t\x12\x0e\n\x04text\x18\n \x01(\tH\x00\x12?\n\x0etrigger_intent\x18\x0b \x01(\tB%\xfa\x41\"\n dialogflow.googleapis.com/IntentH\x00\x12\x14\n\ntranscript\x18\x0c \x01(\tH\x00\x12\x17\n\rtrigger_event\x18\x0e \x01(\tH\x00\x12\x15\n\rlanguage_code\x18\x0f \x01(\t\x12\\\n\x10\x66ulfillment_info\x18\x06 \x01(\x0b\x32\x42.google.cloud.dialogflow.cx.v3beta1.WebhookRequest.FulfillmentInfo\x12R\n\x0bintent_info\x18\x03 \x01(\x0b\x32=.google.cloud.dialogflow.cx.v3beta1.WebhookRequest.IntentInfo\x12?\n\tpage_info\x18\x04 \x01(\x0b\x32,.google.cloud.dialogflow.cx.v3beta1.PageInfo\x12\x45\n\x0csession_info\x18\x05 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.SessionInfo\x12\x45\n\x08messages\x18\x07 \x03(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.ResponseMessage\x12(\n\x07payload\x18\x08 \x01(\x0b\x32\x17.google.protobuf.Struct\x12m\n\x19sentiment_analysis_result\x18\t \x01(\x0b\x32J.google.cloud.dialogflow.cx.v3beta1.WebhookRequest.SentimentAnalysisResult\x1a\x1e\n\x0f\x46ulfillmentInfo\x12\x0b\n\x03tag\x18\x01 \x01(\t\x1a\xc5\x03\n\nIntentInfo\x12\x42\n\x13last_matched_intent\x18\x01 \x01(\tB%\xfa\x41\"\n dialogflow.googleapis.com/Intent\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x61\n\nparameters\x18\x02 \x03(\x0b\x32M.google.cloud.dialogflow.cx.v3beta1.WebhookRequest.IntentInfo.ParametersEntry\x12\x12\n\nconfidence\x18\x04 \x01(\x02\x1a^\n\x14IntentParameterValue\x12\x16\n\x0eoriginal_value\x18\x01 \x01(\t\x12.\n\x0eresolved_value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value\x1a\x85\x01\n\x0fParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x61\n\x05value\x18\x02 \x01(\x0b\x32R.google.cloud.dialogflow.cx.v3beta1.WebhookRequest.IntentInfo.IntentParameterValue:\x02\x38\x01\x1a;\n\x17SentimentAnalysisResult\x12\r\n\x05score\x18\x01 \x01(\x02\x12\x11\n\tmagnitude\x18\x02 \x01(\x02\x42\x07\n\x05query\"\xc8\x05\n\x0fWebhookResponse\x12\x65\n\x14\x66ulfillment_response\x18\x01 \x01(\x0b\x32G.google.cloud.dialogflow.cx.v3beta1.WebhookResponse.FulfillmentResponse\x12?\n\tpage_info\x18\x02 \x01(\x0b\x32,.google.cloud.dialogflow.cx.v3beta1.PageInfo\x12\x45\n\x0csession_info\x18\x03 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.SessionInfo\x12(\n\x07payload\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct\x12:\n\x0btarget_page\x18\x05 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/PageH\x00\x12:\n\x0btarget_flow\x18\x06 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/FlowH\x00\x1a\x95\x02\n\x13\x46ulfillmentResponse\x12\x45\n\x08messages\x18\x01 \x03(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.ResponseMessage\x12m\n\x0emerge_behavior\x18\x02 \x01(\x0e\x32U.google.cloud.dialogflow.cx.v3beta1.WebhookResponse.FulfillmentResponse.MergeBehavior\"H\n\rMergeBehavior\x12\x1e\n\x1aMERGE_BEHAVIOR_UNSPECIFIED\x10\x00\x12\n\n\x06\x41PPEND\x10\x01\x12\x0b\n\x07REPLACE\x10\x02\x42\x0c\n\ntransition\"\xac\x04\n\x08PageInfo\x12\x39\n\x0c\x63urrent_page\x18\x01 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/Page\x12H\n\tform_info\x18\x03 \x01(\x0b\x32\x35.google.cloud.dialogflow.cx.v3beta1.PageInfo.FormInfo\x1a\x9a\x03\n\x08\x46ormInfo\x12[\n\x0eparameter_info\x18\x02 \x03(\x0b\x32\x43.google.cloud.dialogflow.cx.v3beta1.PageInfo.FormInfo.ParameterInfo\x1a\xb0\x02\n\rParameterInfo\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12\x10\n\x08required\x18\x02 \x01(\x08\x12\x61\n\x05state\x18\x03 \x01(\x0e\x32R.google.cloud.dialogflow.cx.v3beta1.PageInfo.FormInfo.ParameterInfo.ParameterState\x12%\n\x05value\x18\x04 \x01(\x0b\x32\x16.google.protobuf.Value\x12\x16\n\x0ejust_collected\x18\x05 \x01(\x08\"U\n\x0eParameterState\x12\x1f\n\x1bPARAMETER_STATE_UNSPECIFIED\x10\x00\x12\t\n\x05\x45MPTY\x10\x01\x12\x0b\n\x07INVALID\x10\x02\x12\n\n\x06\x46ILLED\x10\x03\"\xe6\x01\n\x0bSessionInfo\x12\x37\n\x07session\x18\x01 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Session\x12S\n\nparameters\x18\x02 \x03(\x0b\x32?.google.cloud.dialogflow.cx.v3beta1.SessionInfo.ParametersEntry\x1aI\n\x0fParametersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value:\x02\x38\x01\x32\xfd\x08\n\x08Webhooks\x12\xce\x01\n\x0cListWebhooks\x12\x37.google.cloud.dialogflow.cx.v3beta1.ListWebhooksRequest\x1a\x38.google.cloud.dialogflow.cx.v3beta1.ListWebhooksResponse\"K\x82\xd3\xe4\x93\x02<\x12:/v3beta1/{parent=projects/*/locations/*/agents/*}/webhooks\xda\x41\x06parent\x12\xbb\x01\n\nGetWebhook\x12\x35.google.cloud.dialogflow.cx.v3beta1.GetWebhookRequest\x1a+.google.cloud.dialogflow.cx.v3beta1.Webhook\"I\x82\xd3\xe4\x93\x02<\x12:/v3beta1/{name=projects/*/locations/*/agents/*/webhooks/*}\xda\x41\x04name\x12\xd4\x01\n\rCreateWebhook\x12\x38.google.cloud.dialogflow.cx.v3beta1.CreateWebhookRequest\x1a+.google.cloud.dialogflow.cx.v3beta1.Webhook\"\\\x82\xd3\xe4\x93\x02\x45\":/v3beta1/{parent=projects/*/locations/*/agents/*}/webhooks:\x07webhook\xda\x41\x0eparent,webhook\x12\xe1\x01\n\rUpdateWebhook\x12\x38.google.cloud.dialogflow.cx.v3beta1.UpdateWebhookRequest\x1a+.google.cloud.dialogflow.cx.v3beta1.Webhook\"i\x82\xd3\xe4\x93\x02M2B/v3beta1/{webhook.name=projects/*/locations/*/agents/*/webhooks/*}:\x07webhook\xda\x41\x13webhook,update_mask\x12\xac\x01\n\rDeleteWebhook\x12\x38.google.cloud.dialogflow.cx.v3beta1.DeleteWebhookRequest\x1a\x16.google.protobuf.Empty\"I\x82\xd3\xe4\x93\x02<*:/v3beta1/{name=projects/*/locations/*/agents/*/webhooks/*}\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xaa\x02\n&com.google.cloud.dialogflow.cx.v3beta1B\x0cWebhookProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1\xea\x41|\n\'servicedirectory.googleapis.com/Service\x12Qprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_response__message__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
@@ -59,8 +59,8 @@ _WEBHOOKRESPONSE_FULFILLMENTRESPONSE_MERGEBEHAVIOR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3596,
-  serialized_end=3668,
+  serialized_start=3878,
+  serialized_end=3950,
 )
 _sym_db.RegisterEnumDescriptor(_WEBHOOKRESPONSE_FULFILLMENTRESPONSE_MERGEBEHAVIOR)
 
@@ -94,8 +94,8 @@ _PAGEINFO_FORMINFO_PARAMETERINFO_PARAMETERSTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4156,
-  serialized_end=4241,
+  serialized_start=4438,
+  serialized_end=4523,
 )
 _sym_db.RegisterEnumDescriptor(_PAGEINFO_FORMINFO_PARAMETERINFO_PARAMETERSTATE)
 
@@ -134,8 +134,8 @@ _WEBHOOK_GENERICWEBSERVICE_REQUESTHEADERSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=788,
-  serialized_end=841,
+  serialized_start=885,
+  serialized_end=938,
 )
 
 _WEBHOOK_GENERICWEBSERVICE = _descriptor.Descriptor(
@@ -186,8 +186,46 @@ _WEBHOOK_GENERICWEBSERVICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=597,
-  serialized_end=841,
+  serialized_start=694,
+  serialized_end=938,
+)
+
+_WEBHOOK_SERVICEDIRECTORYCONFIG = _descriptor.Descriptor(
+  name='ServiceDirectoryConfig',
+  full_name='google.cloud.dialogflow.cx.v3beta1.Webhook.ServiceDirectoryConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='service', full_name='google.cloud.dialogflow.cx.v3beta1.Webhook.ServiceDirectoryConfig.service', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A)\n\'servicedirectory.googleapis.com/Service', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='generic_web_service', full_name='google.cloud.dialogflow.cx.v3beta1.Webhook.ServiceDirectoryConfig.generic_web_service', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=941,
+  serialized_end=1123,
 )
 
 _WEBHOOK = _descriptor.Descriptor(
@@ -220,14 +258,21 @@ _WEBHOOK = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='timeout', full_name='google.cloud.dialogflow.cx.v3beta1.Webhook.timeout', index=3,
+      name='service_directory', full_name='google.cloud.dialogflow.cx.v3beta1.Webhook.service_directory', index=3,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='timeout', full_name='google.cloud.dialogflow.cx.v3beta1.Webhook.timeout', index=4,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='disabled', full_name='google.cloud.dialogflow.cx.v3beta1.Webhook.disabled', index=4,
+      name='disabled', full_name='google.cloud.dialogflow.cx.v3beta1.Webhook.disabled', index=5,
       number=5, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -236,7 +281,7 @@ _WEBHOOK = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_WEBHOOK_GENERICWEBSERVICE, ],
+  nested_types=[_WEBHOOK_GENERICWEBSERVICE, _WEBHOOK_SERVICEDIRECTORYCONFIG, ],
   enum_types=[
   ],
   serialized_options=b'\352An\n!dialogflow.googleapis.com/Webhook\022Iprojects/{project}/locations/{location}/agents/{agent}/webhooks/{webhook}',
@@ -251,7 +296,7 @@ _WEBHOOK = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=388,
-  serialized_end=967,
+  serialized_end=1249,
 )
 
 
@@ -296,8 +341,8 @@ _LISTWEBHOOKSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=969,
-  serialized_end=1088,
+  serialized_start=1251,
+  serialized_end=1370,
 )
 
 
@@ -335,8 +380,8 @@ _LISTWEBHOOKSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1090,
-  serialized_end=1200,
+  serialized_start=1372,
+  serialized_end=1482,
 )
 
 
@@ -367,8 +412,8 @@ _GETWEBHOOKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1202,
-  serialized_end=1278,
+  serialized_start=1484,
+  serialized_end=1560,
 )
 
 
@@ -406,8 +451,8 @@ _CREATEWEBHOOKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1281,
-  serialized_end=1429,
+  serialized_start=1563,
+  serialized_end=1711,
 )
 
 
@@ -445,8 +490,8 @@ _UPDATEWEBHOOKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1432,
-  serialized_end=1570,
+  serialized_start=1714,
+  serialized_end=1852,
 )
 
 
@@ -484,8 +529,8 @@ _DELETEWEBHOOKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1572,
-  serialized_end=1666,
+  serialized_start=1854,
+  serialized_end=1948,
 )
 
 
@@ -516,8 +561,8 @@ _WEBHOOKREQUEST_FULFILLMENTINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2411,
-  serialized_end=2441,
+  serialized_start=2693,
+  serialized_end=2723,
 )
 
 _WEBHOOKREQUEST_INTENTINFO_INTENTPARAMETERVALUE = _descriptor.Descriptor(
@@ -554,8 +599,8 @@ _WEBHOOKREQUEST_INTENTINFO_INTENTPARAMETERVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2667,
-  serialized_end=2761,
+  serialized_start=2949,
+  serialized_end=3043,
 )
 
 _WEBHOOKREQUEST_INTENTINFO_PARAMETERSENTRY = _descriptor.Descriptor(
@@ -592,8 +637,8 @@ _WEBHOOKREQUEST_INTENTINFO_PARAMETERSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2764,
-  serialized_end=2897,
+  serialized_start=3046,
+  serialized_end=3179,
 )
 
 _WEBHOOKREQUEST_INTENTINFO = _descriptor.Descriptor(
@@ -644,8 +689,8 @@ _WEBHOOKREQUEST_INTENTINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2444,
-  serialized_end=2897,
+  serialized_start=2726,
+  serialized_end=3179,
 )
 
 _WEBHOOKREQUEST_SENTIMENTANALYSISRESULT = _descriptor.Descriptor(
@@ -682,8 +727,8 @@ _WEBHOOKREQUEST_SENTIMENTANALYSISRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2899,
-  serialized_end=2958,
+  serialized_start=3181,
+  serialized_end=3240,
 )
 
 _WEBHOOKREQUEST = _descriptor.Descriptor(
@@ -802,8 +847,8 @@ _WEBHOOKREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1669,
-  serialized_end=2967,
+  serialized_start=1951,
+  serialized_end=3249,
 )
 
 
@@ -842,8 +887,8 @@ _WEBHOOKRESPONSE_FULFILLMENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3391,
-  serialized_end=3668,
+  serialized_start=3673,
+  serialized_end=3950,
 )
 
 _WEBHOOKRESPONSE = _descriptor.Descriptor(
@@ -913,8 +958,8 @@ _WEBHOOKRESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2970,
-  serialized_end=3682,
+  serialized_start=3252,
+  serialized_end=3964,
 )
 
 
@@ -974,8 +1019,8 @@ _PAGEINFO_FORMINFO_PARAMETERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3937,
-  serialized_end=4241,
+  serialized_start=4219,
+  serialized_end=4523,
 )
 
 _PAGEINFO_FORMINFO = _descriptor.Descriptor(
@@ -1005,8 +1050,8 @@ _PAGEINFO_FORMINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3831,
-  serialized_end=4241,
+  serialized_start=4113,
+  serialized_end=4523,
 )
 
 _PAGEINFO = _descriptor.Descriptor(
@@ -1043,8 +1088,8 @@ _PAGEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3685,
-  serialized_end=4241,
+  serialized_start=3967,
+  serialized_end=4523,
 )
 
 
@@ -1082,8 +1127,8 @@ _SESSIONINFO_PARAMETERSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4401,
-  serialized_end=4474,
+  serialized_start=4683,
+  serialized_end=4756,
 )
 
 _SESSIONINFO = _descriptor.Descriptor(
@@ -1120,18 +1165,24 @@ _SESSIONINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4244,
-  serialized_end=4474,
+  serialized_start=4526,
+  serialized_end=4756,
 )
 
 _WEBHOOK_GENERICWEBSERVICE_REQUESTHEADERSENTRY.containing_type = _WEBHOOK_GENERICWEBSERVICE
 _WEBHOOK_GENERICWEBSERVICE.fields_by_name['request_headers'].message_type = _WEBHOOK_GENERICWEBSERVICE_REQUESTHEADERSENTRY
 _WEBHOOK_GENERICWEBSERVICE.containing_type = _WEBHOOK
+_WEBHOOK_SERVICEDIRECTORYCONFIG.fields_by_name['generic_web_service'].message_type = _WEBHOOK_GENERICWEBSERVICE
+_WEBHOOK_SERVICEDIRECTORYCONFIG.containing_type = _WEBHOOK
 _WEBHOOK.fields_by_name['generic_web_service'].message_type = _WEBHOOK_GENERICWEBSERVICE
+_WEBHOOK.fields_by_name['service_directory'].message_type = _WEBHOOK_SERVICEDIRECTORYCONFIG
 _WEBHOOK.fields_by_name['timeout'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _WEBHOOK.oneofs_by_name['webhook'].fields.append(
   _WEBHOOK.fields_by_name['generic_web_service'])
 _WEBHOOK.fields_by_name['generic_web_service'].containing_oneof = _WEBHOOK.oneofs_by_name['webhook']
+_WEBHOOK.oneofs_by_name['webhook'].fields.append(
+  _WEBHOOK.fields_by_name['service_directory'])
+_WEBHOOK.fields_by_name['service_directory'].containing_oneof = _WEBHOOK.oneofs_by_name['webhook']
 _LISTWEBHOOKSRESPONSE.fields_by_name['webhooks'].message_type = _WEBHOOK
 _CREATEWEBHOOKREQUEST.fields_by_name['webhook'].message_type = _WEBHOOK
 _UPDATEWEBHOOKREQUEST.fields_by_name['webhook'].message_type = _WEBHOOK
@@ -1215,6 +1266,13 @@ Webhook = _reflection.GeneratedProtocolMessageType('Webhook', (_message.Message,
     # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3beta1.Webhook.GenericWebService)
     })
   ,
+
+  'ServiceDirectoryConfig' : _reflection.GeneratedProtocolMessageType('ServiceDirectoryConfig', (_message.Message,), {
+    'DESCRIPTOR' : _WEBHOOK_SERVICEDIRECTORYCONFIG,
+    '__module__' : 'google.cloud.dialogflow.cx.v3beta1.webhook_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3beta1.Webhook.ServiceDirectoryConfig)
+    })
+  ,
   'DESCRIPTOR' : _WEBHOOK,
   '__module__' : 'google.cloud.dialogflow.cx.v3beta1.webhook_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3beta1.Webhook)
@@ -1222,6 +1280,7 @@ Webhook = _reflection.GeneratedProtocolMessageType('Webhook', (_message.Message,
 _sym_db.RegisterMessage(Webhook)
 _sym_db.RegisterMessage(Webhook.GenericWebService)
 _sym_db.RegisterMessage(Webhook.GenericWebService.RequestHeadersEntry)
+_sym_db.RegisterMessage(Webhook.ServiceDirectoryConfig)
 
 ListWebhooksRequest = _reflection.GeneratedProtocolMessageType('ListWebhooksRequest', (_message.Message,), {
   'DESCRIPTOR' : _LISTWEBHOOKSREQUEST,
@@ -1371,6 +1430,7 @@ _WEBHOOK_GENERICWEBSERVICE_REQUESTHEADERSENTRY._options = None
 _WEBHOOK_GENERICWEBSERVICE.fields_by_name['uri']._options = None
 _WEBHOOK_GENERICWEBSERVICE.fields_by_name['username']._options = None
 _WEBHOOK_GENERICWEBSERVICE.fields_by_name['password']._options = None
+_WEBHOOK_SERVICEDIRECTORYCONFIG.fields_by_name['service']._options = None
 _WEBHOOK.fields_by_name['display_name']._options = None
 _WEBHOOK._options = None
 _LISTWEBHOOKSREQUEST.fields_by_name['parent']._options = None
@@ -1395,8 +1455,8 @@ _WEBHOOKS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=4477,
-  serialized_end=5626,
+  serialized_start=4759,
+  serialized_end=5908,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListWebhooks',

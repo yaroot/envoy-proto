@@ -16,7 +16,7 @@ try:
   envoy_dot_api_dot_v2_dot_core_dot_socket__option__pb2 = envoy_dot_api_dot_v2_dot_core_dot_base__pb2.envoy_dot_api_dot_v2_dot_core_dot_socket__option__pb2
 except AttributeError:
   envoy_dot_api_dot_v2_dot_core_dot_socket__option__pb2 = envoy_dot_api_dot_v2_dot_core_dot_base__pb2.envoy.api.v2.core.socket_option_pb2
-import metrics_pb2 as metrics__pb2
+from io.prometheus.client import metrics_pb2 as io_dot_prometheus_dot_client_dot_metrics__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from validate import validate_pb2 as validate_dot_validate__pb2
 
@@ -27,9 +27,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n&io.envoyproxy.envoy.service.metrics.v2B\023MetricsServiceProtoP\001\210\001\001\272\200\310\321\006\002\020\001',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.envoy/service/metrics/v2/metrics_service.proto\x12\x18\x65nvoy.service.metrics.v2\x1a\x1c\x65nvoy/api/v2/core/base.proto\x1a\rmetrics.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\x17\n\x15StreamMetricsResponse\"\xdf\x01\n\x14StreamMetricsMessage\x12M\n\nidentifier\x18\x01 \x01(\x0b\x32\x39.envoy.service.metrics.v2.StreamMetricsMessage.Identifier\x12\x39\n\renvoy_metrics\x18\x02 \x03(\x0b\x32\".io.prometheus.client.MetricFamily\x1a=\n\nIdentifier\x12/\n\x04node\x18\x01 \x01(\x0b\x32\x17.envoy.api.v2.core.NodeB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x32\x86\x01\n\x0eMetricsService\x12t\n\rStreamMetrics\x12..envoy.service.metrics.v2.StreamMetricsMessage\x1a/.envoy.service.metrics.v2.StreamMetricsResponse\"\x00(\x01\x42J\n&io.envoyproxy.envoy.service.metrics.v2B\x13MetricsServiceProtoP\x01\x88\x01\x01\xba\x80\xc8\xd1\x06\x02\x10\x01\x62\x06proto3'
+  serialized_pb=b'\n.envoy/service/metrics/v2/metrics_service.proto\x12\x18\x65nvoy.service.metrics.v2\x1a\x1c\x65nvoy/api/v2/core/base.proto\x1a\"io/prometheus/client/metrics.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\x17\n\x15StreamMetricsResponse\"\xdf\x01\n\x14StreamMetricsMessage\x12M\n\nidentifier\x18\x01 \x01(\x0b\x32\x39.envoy.service.metrics.v2.StreamMetricsMessage.Identifier\x12\x39\n\renvoy_metrics\x18\x02 \x03(\x0b\x32\".io.prometheus.client.MetricFamily\x1a=\n\nIdentifier\x12/\n\x04node\x18\x01 \x01(\x0b\x32\x17.envoy.api.v2.core.NodeB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x32\x86\x01\n\x0eMetricsService\x12t\n\rStreamMetrics\x12..envoy.service.metrics.v2.StreamMetricsMessage\x1a/.envoy.service.metrics.v2.StreamMetricsResponse\"\x00(\x01\x42J\n&io.envoyproxy.envoy.service.metrics.v2B\x13MetricsServiceProtoP\x01\x88\x01\x01\xba\x80\xc8\xd1\x06\x02\x10\x01\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_api_dot_v2_dot_core_dot_base__pb2.DESCRIPTOR,metrics__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_api_dot_v2_dot_core_dot_base__pb2.DESCRIPTOR,io_dot_prometheus_dot_client_dot_metrics__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -54,8 +54,8 @@ _STREAMMETRICSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=177,
-  serialized_end=200,
+  serialized_start=198,
+  serialized_end=221,
 )
 
 
@@ -86,8 +86,8 @@ _STREAMMETRICSMESSAGE_IDENTIFIER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=365,
-  serialized_end=426,
+  serialized_start=386,
+  serialized_end=447,
 )
 
 _STREAMMETRICSMESSAGE = _descriptor.Descriptor(
@@ -124,14 +124,14 @@ _STREAMMETRICSMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=203,
-  serialized_end=426,
+  serialized_start=224,
+  serialized_end=447,
 )
 
 _STREAMMETRICSMESSAGE_IDENTIFIER.fields_by_name['node'].message_type = envoy_dot_api_dot_v2_dot_core_dot_base__pb2._NODE
 _STREAMMETRICSMESSAGE_IDENTIFIER.containing_type = _STREAMMETRICSMESSAGE
 _STREAMMETRICSMESSAGE.fields_by_name['identifier'].message_type = _STREAMMETRICSMESSAGE_IDENTIFIER
-_STREAMMETRICSMESSAGE.fields_by_name['envoy_metrics'].message_type = metrics__pb2._METRICFAMILY
+_STREAMMETRICSMESSAGE.fields_by_name['envoy_metrics'].message_type = io_dot_prometheus_dot_client_dot_metrics__pb2._METRICFAMILY
 DESCRIPTOR.message_types_by_name['StreamMetricsResponse'] = _STREAMMETRICSRESPONSE
 DESCRIPTOR.message_types_by_name['StreamMetricsMessage'] = _STREAMMETRICSMESSAGE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -169,8 +169,8 @@ _METRICSSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=429,
-  serialized_end=563,
+  serialized_start=450,
+  serialized_end=584,
   methods=[
   _descriptor.MethodDescriptor(
     name='StreamMetrics',

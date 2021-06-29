@@ -11,8 +11,8 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n)com.google.cloud.securitycenter.v1p1beta1P\001ZSgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1p1beta1;securitycenter\252\002%Google.Cloud.SecurityCenter.V1P1Beta1\312\002%Google\\Cloud\\SecurityCenter\\V1p1beta1\352\002(Google::Cloud::SecurityCenter::V1p1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n:google/cloud/securitycenter/v1p1beta1/security_marks.proto\x12%google.cloud.securitycenter.v1p1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/resource.proto\"\xda\x02\n\rSecurityMarks\x12\x0c\n\x04name\x18\x01 \x01(\t\x12N\n\x05marks\x18\x02 \x03(\x0b\x32?.google.cloud.securitycenter.v1p1beta1.SecurityMarks.MarksEntry\x1a,\n\nMarksEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\xbc\x01\xea\x41\xb8\x01\n+securitycenter.googleapis.com/SecurityMarks\x12\x39organizations/{organization}/assets/{asset}/securityMarks\x12Norganizations/{organization}/sources/{source}/findings/{finding}/securityMarksB\xfd\x01\n)com.google.cloud.securitycenter.v1p1beta1P\x01ZSgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1p1beta1;securitycenter\xaa\x02%Google.Cloud.SecurityCenter.V1P1Beta1\xca\x02%Google\\Cloud\\SecurityCenter\\V1p1beta1\xea\x02(Google::Cloud::SecurityCenter::V1p1beta1b\x06proto3'
+  serialized_pb=b'\n:google/cloud/securitycenter/v1p1beta1/security_marks.proto\x12%google.cloud.securitycenter.v1p1beta1\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\xdc\x04\n\rSecurityMarks\x12\x0c\n\x04name\x18\x01 \x01(\t\x12N\n\x05marks\x18\x02 \x03(\x0b\x32?.google.cloud.securitycenter.v1p1beta1.SecurityMarks.MarksEntry\x12\x16\n\x0e\x63\x61nonical_name\x18\x03 \x01(\t\x1a,\n\nMarksEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\xa6\x03\xea\x41\xa2\x03\n+securitycenter.googleapis.com/SecurityMarks\x12\x39organizations/{organization}/assets/{asset}/securityMarks\x12Norganizations/{organization}/sources/{source}/findings/{finding}/securityMarks\x12-folders/{folder}/assets/{asset}/securityMarks\x12/projects/{project}/assets/{asset}/securityMarks\x12\x42\x66olders/{folder}/sources/{source}/findings/{finding}/securityMarks\x12\x44projects/{project}/sources/{source}/findings/{finding}/securityMarksB\xfd\x01\n)com.google.cloud.securitycenter.v1p1beta1P\x01ZSgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1p1beta1;securitycenter\xaa\x02%Google.Cloud.SecurityCenter.V1P1Beta1\xca\x02%Google\\Cloud\\SecurityCenter\\V1p1beta1\xea\x02(Google::Cloud::SecurityCenter::V1p1beta1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -62,8 +62,8 @@ _SECURITYMARKS_MARKSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=270,
-  serialized_end=314,
+  serialized_start=294,
+  serialized_end=338,
 )
 
 _SECURITYMARKS = _descriptor.Descriptor(
@@ -88,20 +88,27 @@ _SECURITYMARKS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='canonical_name', full_name='google.cloud.securitycenter.v1p1beta1.SecurityMarks.canonical_name', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
   nested_types=[_SECURITYMARKS_MARKSENTRY, ],
   enum_types=[
   ],
-  serialized_options=b'\352A\270\001\n+securitycenter.googleapis.com/SecurityMarks\0229organizations/{organization}/assets/{asset}/securityMarks\022Norganizations/{organization}/sources/{source}/findings/{finding}/securityMarks',
+  serialized_options=b'\352A\242\003\n+securitycenter.googleapis.com/SecurityMarks\0229organizations/{organization}/assets/{asset}/securityMarks\022Norganizations/{organization}/sources/{source}/findings/{finding}/securityMarks\022-folders/{folder}/assets/{asset}/securityMarks\022/projects/{project}/assets/{asset}/securityMarks\022Bfolders/{folder}/sources/{source}/findings/{finding}/securityMarks\022Dprojects/{project}/sources/{source}/findings/{finding}/securityMarks',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=159,
-  serialized_end=505,
+  serialized_end=763,
 )
 
 _SECURITYMARKS_MARKSENTRY.containing_type = _SECURITYMARKS

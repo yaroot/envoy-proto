@@ -16,8 +16,10 @@ from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.pubsublite.v1 import common_pb2 as google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2
+from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -26,11 +28,41 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.cloud.pubsublite.protoB\nAdminProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\252\002\032Google.Cloud.PubSubLite.V1\312\002\032Google\\Cloud\\PubSubLite\\V1\352\002\035Google::Cloud::PubSubLite::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n&google/cloud/pubsublite/v1/admin.proto\x12\x1agoogle.cloud.pubsublite.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\'google/cloud/pubsublite/v1/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\x9d\x01\n\x12\x43reateTopicRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x35\n\x05topic\x18\x02 \x01(\x0b\x32!.google.cloud.pubsublite.v1.TopicB\x03\xe0\x41\x02\x12\x15\n\x08topic_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"H\n\x0fGetTopicRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\"R\n\x19GetTopicPartitionsRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\"*\n\x0fTopicPartitions\x12\x17\n\x0fpartition_count\x18\x01 \x01(\x03\"u\n\x11ListTopicsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"`\n\x12ListTopicsResponse\x12\x31\n\x06topics\x18\x01 \x03(\x0b\x32!.google.cloud.pubsublite.v1.Topic\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x81\x01\n\x12UpdateTopicRequest\x12\x35\n\x05topic\x18\x01 \x01(\x0b\x32!.google.cloud.pubsublite.v1.TopicB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"K\n\x12\x44\x65leteTopicRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\"}\n\x1dListTopicSubscriptionsRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"P\n\x1eListTopicSubscriptionsResponse\x12\x15\n\rsubscriptions\x18\x01 \x03(\t\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xcf\x01\n\x19\x43reateSubscriptionRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x43\n\x0csubscription\x18\x02 \x01(\x0b\x32(.google.cloud.pubsublite.v1.SubscriptionB\x03\xe0\x41\x02\x12\x1c\n\x0fsubscription_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0cskip_backlog\x18\x04 \x01(\x08\"V\n\x16GetSubscriptionRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&pubsublite.googleapis.com/Subscription\"|\n\x18ListSubscriptionsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"u\n\x19ListSubscriptionsResponse\x12?\n\rsubscriptions\x18\x01 \x03(\x0b\x32(.google.cloud.pubsublite.v1.Subscription\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x96\x01\n\x19UpdateSubscriptionRequest\x12\x43\n\x0csubscription\x18\x01 \x01(\x0b\x32(.google.cloud.pubsublite.v1.SubscriptionB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"Y\n\x19\x44\x65leteSubscriptionRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&pubsublite.googleapis.com/Subscription2\xf8\x12\n\x0c\x41\x64minService\x12\xb9\x01\n\x0b\x43reateTopic\x12..google.cloud.pubsublite.v1.CreateTopicRequest\x1a!.google.cloud.pubsublite.v1.Topic\"W\x82\xd3\xe4\x93\x02\x39\"0/v1/admin/{parent=projects/*/locations/*}/topics:\x05topic\xda\x41\x15parent,topic,topic_id\x12\x9b\x01\n\x08GetTopic\x12+.google.cloud.pubsublite.v1.GetTopicRequest\x1a!.google.cloud.pubsublite.v1.Topic\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/admin/{name=projects/*/locations/*/topics/*}\xda\x41\x04name\x12\xc4\x01\n\x12GetTopicPartitions\x12\x35.google.cloud.pubsublite.v1.GetTopicPartitionsRequest\x1a+.google.cloud.pubsublite.v1.TopicPartitions\"J\x82\xd3\xe4\x93\x02=\x12;/v1/admin/{name=projects/*/locations/*/topics/*}/partitions\xda\x41\x04name\x12\xae\x01\n\nListTopics\x12-.google.cloud.pubsublite.v1.ListTopicsRequest\x1a..google.cloud.pubsublite.v1.ListTopicsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/admin/{parent=projects/*/locations/*}/topics\xda\x41\x06parent\x12\xbb\x01\n\x0bUpdateTopic\x12..google.cloud.pubsublite.v1.UpdateTopicRequest\x1a!.google.cloud.pubsublite.v1.Topic\"Y\x82\xd3\xe4\x93\x02?26/v1/admin/{topic.name=projects/*/locations/*/topics/*}:\x05topic\xda\x41\x11topic,update_mask\x12\x96\x01\n\x0b\x44\x65leteTopic\x12..google.cloud.pubsublite.v1.DeleteTopicRequest\x1a\x16.google.protobuf.Empty\"?\x82\xd3\xe4\x93\x02\x32*0/v1/admin/{name=projects/*/locations/*/topics/*}\xda\x41\x04name\x12\xde\x01\n\x16ListTopicSubscriptions\x12\x39.google.cloud.pubsublite.v1.ListTopicSubscriptionsRequest\x1a:.google.cloud.pubsublite.v1.ListTopicSubscriptionsResponse\"M\x82\xd3\xe4\x93\x02@\x12>/v1/admin/{name=projects/*/locations/*/topics/*}/subscriptions\xda\x41\x04name\x12\xea\x01\n\x12\x43reateSubscription\x12\x35.google.cloud.pubsublite.v1.CreateSubscriptionRequest\x1a(.google.cloud.pubsublite.v1.Subscription\"s\x82\xd3\xe4\x93\x02G\"7/v1/admin/{parent=projects/*/locations/*}/subscriptions:\x0csubscription\xda\x41#parent,subscription,subscription_id\x12\xb7\x01\n\x0fGetSubscription\x12\x32.google.cloud.pubsublite.v1.GetSubscriptionRequest\x1a(.google.cloud.pubsublite.v1.Subscription\"F\x82\xd3\xe4\x93\x02\x39\x12\x37/v1/admin/{name=projects/*/locations/*/subscriptions/*}\xda\x41\x04name\x12\xca\x01\n\x11ListSubscriptions\x12\x34.google.cloud.pubsublite.v1.ListSubscriptionsRequest\x1a\x35.google.cloud.pubsublite.v1.ListSubscriptionsResponse\"H\x82\xd3\xe4\x93\x02\x39\x12\x37/v1/admin/{parent=projects/*/locations/*}/subscriptions\xda\x41\x06parent\x12\xec\x01\n\x12UpdateSubscription\x12\x35.google.cloud.pubsublite.v1.UpdateSubscriptionRequest\x1a(.google.cloud.pubsublite.v1.Subscription\"u\x82\xd3\xe4\x93\x02T2D/v1/admin/{subscription.name=projects/*/locations/*/subscriptions/*}:\x0csubscription\xda\x41\x18subscription,update_mask\x12\xab\x01\n\x12\x44\x65leteSubscription\x12\x35.google.cloud.pubsublite.v1.DeleteSubscriptionRequest\x1a\x16.google.protobuf.Empty\"F\x82\xd3\xe4\x93\x02\x39*7/v1/admin/{name=projects/*/locations/*/subscriptions/*}\xda\x41\x04name\x1aM\xca\x41\x19pubsublite.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xd1\x01\n!com.google.cloud.pubsublite.protoB\nAdminProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\xaa\x02\x1aGoogle.Cloud.PubSubLite.V1\xca\x02\x1aGoogle\\Cloud\\PubSubLite\\V1\xea\x02\x1dGoogle::Cloud::PubSubLite::V1b\x06proto3'
+  serialized_pb=b'\n&google/cloud/pubsublite/v1/admin.proto\x12\x1agoogle.cloud.pubsublite.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\'google/cloud/pubsublite/v1/common.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9d\x01\n\x12\x43reateTopicRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x35\n\x05topic\x18\x02 \x01(\x0b\x32!.google.cloud.pubsublite.v1.TopicB\x03\xe0\x41\x02\x12\x15\n\x08topic_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"H\n\x0fGetTopicRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\"R\n\x19GetTopicPartitionsRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\"*\n\x0fTopicPartitions\x12\x17\n\x0fpartition_count\x18\x01 \x01(\x03\"u\n\x11ListTopicsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"`\n\x12ListTopicsResponse\x12\x31\n\x06topics\x18\x01 \x03(\x0b\x32!.google.cloud.pubsublite.v1.Topic\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x81\x01\n\x12UpdateTopicRequest\x12\x35\n\x05topic\x18\x01 \x01(\x0b\x32!.google.cloud.pubsublite.v1.TopicB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"K\n\x12\x44\x65leteTopicRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\"}\n\x1dListTopicSubscriptionsRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"P\n\x1eListTopicSubscriptionsResponse\x12\x15\n\rsubscriptions\x18\x01 \x03(\t\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xcf\x01\n\x19\x43reateSubscriptionRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x43\n\x0csubscription\x18\x02 \x01(\x0b\x32(.google.cloud.pubsublite.v1.SubscriptionB\x03\xe0\x41\x02\x12\x1c\n\x0fsubscription_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0cskip_backlog\x18\x04 \x01(\x08\"V\n\x16GetSubscriptionRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&pubsublite.googleapis.com/Subscription\"|\n\x18ListSubscriptionsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"u\n\x19ListSubscriptionsResponse\x12?\n\rsubscriptions\x18\x01 \x03(\x0b\x32(.google.cloud.pubsublite.v1.Subscription\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x96\x01\n\x19UpdateSubscriptionRequest\x12\x43\n\x0csubscription\x18\x01 \x01(\x0b\x32(.google.cloud.pubsublite.v1.SubscriptionB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"Y\n\x19\x44\x65leteSubscriptionRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&pubsublite.googleapis.com/Subscription\"\xba\x02\n\x17SeekSubscriptionRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&pubsublite.googleapis.com/Subscription\x12W\n\x0cnamed_target\x18\x02 \x01(\x0e\x32?.google.cloud.pubsublite.v1.SeekSubscriptionRequest.NamedTargetH\x00\x12=\n\x0btime_target\x18\x03 \x01(\x0b\x32&.google.cloud.pubsublite.v1.TimeTargetH\x00\"?\n\x0bNamedTarget\x12\x1c\n\x18NAMED_TARGET_UNSPECIFIED\x10\x00\x12\x08\n\x04TAIL\x10\x01\x12\x08\n\x04HEAD\x10\x02\x42\x08\n\x06target\"\x1a\n\x18SeekSubscriptionResponse\"\x90\x01\n\x11OperationMetadata\x12/\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0e\n\x06target\x18\x03 \x01(\t\x12\x0c\n\x04verb\x18\x04 \x01(\t\"\xb5\x01\n\x18\x43reateReservationRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x41\n\x0breservation\x18\x02 \x01(\x0b\x32\'.google.cloud.pubsublite.v1.ReservationB\x03\xe0\x41\x02\x12\x1b\n\x0ereservation_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"T\n\x15GetReservationRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%pubsublite.googleapis.com/Reservation\"{\n\x17ListReservationsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"r\n\x18ListReservationsResponse\x12=\n\x0creservations\x18\x01 \x03(\x0b\x32\'.google.cloud.pubsublite.v1.Reservation\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x93\x01\n\x18UpdateReservationRequest\x12\x41\n\x0breservation\x18\x01 \x01(\x0b\x32\'.google.cloud.pubsublite.v1.ReservationB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"W\n\x18\x44\x65leteReservationRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%pubsublite.googleapis.com/Reservation\"\x82\x01\n\x1cListReservationTopicsRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%pubsublite.googleapis.com/Reservation\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"H\n\x1dListReservationTopicsResponse\x12\x0e\n\x06topics\x18\x01 \x03(\t\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xaf\x1e\n\x0c\x41\x64minService\x12\xb9\x01\n\x0b\x43reateTopic\x12..google.cloud.pubsublite.v1.CreateTopicRequest\x1a!.google.cloud.pubsublite.v1.Topic\"W\x82\xd3\xe4\x93\x02\x39\"0/v1/admin/{parent=projects/*/locations/*}/topics:\x05topic\xda\x41\x15parent,topic,topic_id\x12\x9b\x01\n\x08GetTopic\x12+.google.cloud.pubsublite.v1.GetTopicRequest\x1a!.google.cloud.pubsublite.v1.Topic\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/admin/{name=projects/*/locations/*/topics/*}\xda\x41\x04name\x12\xc4\x01\n\x12GetTopicPartitions\x12\x35.google.cloud.pubsublite.v1.GetTopicPartitionsRequest\x1a+.google.cloud.pubsublite.v1.TopicPartitions\"J\x82\xd3\xe4\x93\x02=\x12;/v1/admin/{name=projects/*/locations/*/topics/*}/partitions\xda\x41\x04name\x12\xae\x01\n\nListTopics\x12-.google.cloud.pubsublite.v1.ListTopicsRequest\x1a..google.cloud.pubsublite.v1.ListTopicsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/admin/{parent=projects/*/locations/*}/topics\xda\x41\x06parent\x12\xbb\x01\n\x0bUpdateTopic\x12..google.cloud.pubsublite.v1.UpdateTopicRequest\x1a!.google.cloud.pubsublite.v1.Topic\"Y\x82\xd3\xe4\x93\x02?26/v1/admin/{topic.name=projects/*/locations/*/topics/*}:\x05topic\xda\x41\x11topic,update_mask\x12\x96\x01\n\x0b\x44\x65leteTopic\x12..google.cloud.pubsublite.v1.DeleteTopicRequest\x1a\x16.google.protobuf.Empty\"?\x82\xd3\xe4\x93\x02\x32*0/v1/admin/{name=projects/*/locations/*/topics/*}\xda\x41\x04name\x12\xde\x01\n\x16ListTopicSubscriptions\x12\x39.google.cloud.pubsublite.v1.ListTopicSubscriptionsRequest\x1a:.google.cloud.pubsublite.v1.ListTopicSubscriptionsResponse\"M\x82\xd3\xe4\x93\x02@\x12>/v1/admin/{name=projects/*/locations/*/topics/*}/subscriptions\xda\x41\x04name\x12\xea\x01\n\x12\x43reateSubscription\x12\x35.google.cloud.pubsublite.v1.CreateSubscriptionRequest\x1a(.google.cloud.pubsublite.v1.Subscription\"s\x82\xd3\xe4\x93\x02G\"7/v1/admin/{parent=projects/*/locations/*}/subscriptions:\x0csubscription\xda\x41#parent,subscription,subscription_id\x12\xb7\x01\n\x0fGetSubscription\x12\x32.google.cloud.pubsublite.v1.GetSubscriptionRequest\x1a(.google.cloud.pubsublite.v1.Subscription\"F\x82\xd3\xe4\x93\x02\x39\x12\x37/v1/admin/{name=projects/*/locations/*/subscriptions/*}\xda\x41\x04name\x12\xca\x01\n\x11ListSubscriptions\x12\x34.google.cloud.pubsublite.v1.ListSubscriptionsRequest\x1a\x35.google.cloud.pubsublite.v1.ListSubscriptionsResponse\"H\x82\xd3\xe4\x93\x02\x39\x12\x37/v1/admin/{parent=projects/*/locations/*}/subscriptions\xda\x41\x06parent\x12\xec\x01\n\x12UpdateSubscription\x12\x35.google.cloud.pubsublite.v1.UpdateSubscriptionRequest\x1a(.google.cloud.pubsublite.v1.Subscription\"u\x82\xd3\xe4\x93\x02T2D/v1/admin/{subscription.name=projects/*/locations/*/subscriptions/*}:\x0csubscription\xda\x41\x18subscription,update_mask\x12\xab\x01\n\x12\x44\x65leteSubscription\x12\x35.google.cloud.pubsublite.v1.DeleteSubscriptionRequest\x1a\x16.google.protobuf.Empty\"F\x82\xd3\xe4\x93\x02\x39*7/v1/admin/{name=projects/*/locations/*/subscriptions/*}\xda\x41\x04name\x12\xdf\x01\n\x10SeekSubscription\x12\x33.google.cloud.pubsublite.v1.SeekSubscriptionRequest\x1a\x1d.google.longrunning.Operation\"w\x82\xd3\xe4\x93\x02\x41\"</v1/admin/{name=projects/*/locations/*/subscriptions/*}:seek:\x01*\xca\x41-\n\x18SeekSubscriptionResponse\x12\x11OperationMetadata\x12\xe3\x01\n\x11\x43reateReservation\x12\x34.google.cloud.pubsublite.v1.CreateReservationRequest\x1a\'.google.cloud.pubsublite.v1.Reservation\"o\x82\xd3\xe4\x93\x02\x45\"6/v1/admin/{parent=projects/*/locations/*}/reservations:\x0breservation\xda\x41!parent,reservation,reservation_id\x12\xb3\x01\n\x0eGetReservation\x12\x31.google.cloud.pubsublite.v1.GetReservationRequest\x1a\'.google.cloud.pubsublite.v1.Reservation\"E\x82\xd3\xe4\x93\x02\x38\x12\x36/v1/admin/{name=projects/*/locations/*/reservations/*}\xda\x41\x04name\x12\xc6\x01\n\x10ListReservations\x12\x33.google.cloud.pubsublite.v1.ListReservationsRequest\x1a\x34.google.cloud.pubsublite.v1.ListReservationsResponse\"G\x82\xd3\xe4\x93\x02\x38\x12\x36/v1/admin/{parent=projects/*/locations/*}/reservations\xda\x41\x06parent\x12\xe5\x01\n\x11UpdateReservation\x12\x34.google.cloud.pubsublite.v1.UpdateReservationRequest\x1a\'.google.cloud.pubsublite.v1.Reservation\"q\x82\xd3\xe4\x93\x02Q2B/v1/admin/{reservation.name=projects/*/locations/*/reservations/*}:\x0breservation\xda\x41\x17reservation,update_mask\x12\xa8\x01\n\x11\x44\x65leteReservation\x12\x34.google.cloud.pubsublite.v1.DeleteReservationRequest\x1a\x16.google.protobuf.Empty\"E\x82\xd3\xe4\x93\x02\x38*6/v1/admin/{name=projects/*/locations/*/reservations/*}\xda\x41\x04name\x12\xda\x01\n\x15ListReservationTopics\x12\x38.google.cloud.pubsublite.v1.ListReservationTopicsRequest\x1a\x39.google.cloud.pubsublite.v1.ListReservationTopicsResponse\"L\x82\xd3\xe4\x93\x02?\x12=/v1/admin/{name=projects/*/locations/*/reservations/*}/topics\xda\x41\x04name\x1aM\xca\x41\x19pubsublite.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xd1\x01\n!com.google.cloud.pubsublite.protoB\nAdminProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\xaa\x02\x1aGoogle.Cloud.PubSubLite.V1\xca\x02\x1aGoogle\\Cloud\\PubSubLite\\V1\xea\x02\x1dGoogle::Cloud::PubSubLite::V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
+
+_SEEKSUBSCRIPTIONREQUEST_NAMEDTARGET = _descriptor.EnumDescriptor(
+  name='NamedTarget',
+  full_name='google.cloud.pubsublite.v1.SeekSubscriptionRequest.NamedTarget',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='NAMED_TARGET_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TAIL', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='HEAD', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2385,
+  serialized_end=2448,
+)
+_sym_db.RegisterEnumDescriptor(_SEEKSUBSCRIPTIONREQUEST_NAMEDTARGET)
 
 
 _CREATETOPICREQUEST = _descriptor.Descriptor(
@@ -74,8 +106,8 @@ _CREATETOPICREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=290,
-  serialized_end=447,
+  serialized_start=360,
+  serialized_end=517,
 )
 
 
@@ -106,8 +138,8 @@ _GETTOPICREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=449,
-  serialized_end=521,
+  serialized_start=519,
+  serialized_end=591,
 )
 
 
@@ -138,8 +170,8 @@ _GETTOPICPARTITIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=523,
-  serialized_end=605,
+  serialized_start=593,
+  serialized_end=675,
 )
 
 
@@ -170,8 +202,8 @@ _TOPICPARTITIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=607,
-  serialized_end=649,
+  serialized_start=677,
+  serialized_end=719,
 )
 
 
@@ -216,8 +248,8 @@ _LISTTOPICSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=651,
-  serialized_end=768,
+  serialized_start=721,
+  serialized_end=838,
 )
 
 
@@ -255,8 +287,8 @@ _LISTTOPICSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=770,
-  serialized_end=866,
+  serialized_start=840,
+  serialized_end=936,
 )
 
 
@@ -294,8 +326,8 @@ _UPDATETOPICREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=869,
-  serialized_end=998,
+  serialized_start=939,
+  serialized_end=1068,
 )
 
 
@@ -326,8 +358,8 @@ _DELETETOPICREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1000,
-  serialized_end=1075,
+  serialized_start=1070,
+  serialized_end=1145,
 )
 
 
@@ -372,8 +404,8 @@ _LISTTOPICSUBSCRIPTIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1077,
-  serialized_end=1202,
+  serialized_start=1147,
+  serialized_end=1272,
 )
 
 
@@ -411,8 +443,8 @@ _LISTTOPICSUBSCRIPTIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1204,
-  serialized_end=1284,
+  serialized_start=1274,
+  serialized_end=1354,
 )
 
 
@@ -464,8 +496,8 @@ _CREATESUBSCRIPTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1287,
-  serialized_end=1494,
+  serialized_start=1357,
+  serialized_end=1564,
 )
 
 
@@ -496,8 +528,8 @@ _GETSUBSCRIPTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1496,
-  serialized_end=1582,
+  serialized_start=1566,
+  serialized_end=1652,
 )
 
 
@@ -542,8 +574,8 @@ _LISTSUBSCRIPTIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1584,
-  serialized_end=1708,
+  serialized_start=1654,
+  serialized_end=1778,
 )
 
 
@@ -581,8 +613,8 @@ _LISTSUBSCRIPTIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1710,
-  serialized_end=1827,
+  serialized_start=1780,
+  serialized_end=1897,
 )
 
 
@@ -620,8 +652,8 @@ _UPDATESUBSCRIPTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1830,
-  serialized_end=1980,
+  serialized_start=1900,
+  serialized_end=2050,
 )
 
 
@@ -652,8 +684,457 @@ _DELETESUBSCRIPTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1982,
-  serialized_end=2071,
+  serialized_start=2052,
+  serialized_end=2141,
+)
+
+
+_SEEKSUBSCRIPTIONREQUEST = _descriptor.Descriptor(
+  name='SeekSubscriptionRequest',
+  full_name='google.cloud.pubsublite.v1.SeekSubscriptionRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.pubsublite.v1.SeekSubscriptionRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A(\n&pubsublite.googleapis.com/Subscription', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='named_target', full_name='google.cloud.pubsublite.v1.SeekSubscriptionRequest.named_target', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time_target', full_name='google.cloud.pubsublite.v1.SeekSubscriptionRequest.time_target', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _SEEKSUBSCRIPTIONREQUEST_NAMEDTARGET,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='target', full_name='google.cloud.pubsublite.v1.SeekSubscriptionRequest.target',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2144,
+  serialized_end=2458,
+)
+
+
+_SEEKSUBSCRIPTIONRESPONSE = _descriptor.Descriptor(
+  name='SeekSubscriptionResponse',
+  full_name='google.cloud.pubsublite.v1.SeekSubscriptionResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2460,
+  serialized_end=2486,
+)
+
+
+_OPERATIONMETADATA = _descriptor.Descriptor(
+  name='OperationMetadata',
+  full_name='google.cloud.pubsublite.v1.OperationMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='create_time', full_name='google.cloud.pubsublite.v1.OperationMetadata.create_time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_time', full_name='google.cloud.pubsublite.v1.OperationMetadata.end_time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='target', full_name='google.cloud.pubsublite.v1.OperationMetadata.target', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='verb', full_name='google.cloud.pubsublite.v1.OperationMetadata.verb', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2489,
+  serialized_end=2633,
+)
+
+
+_CREATERESERVATIONREQUEST = _descriptor.Descriptor(
+  name='CreateReservationRequest',
+  full_name='google.cloud.pubsublite.v1.CreateReservationRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.pubsublite.v1.CreateReservationRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='reservation', full_name='google.cloud.pubsublite.v1.CreateReservationRequest.reservation', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='reservation_id', full_name='google.cloud.pubsublite.v1.CreateReservationRequest.reservation_id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2636,
+  serialized_end=2817,
+)
+
+
+_GETRESERVATIONREQUEST = _descriptor.Descriptor(
+  name='GetReservationRequest',
+  full_name='google.cloud.pubsublite.v1.GetReservationRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.pubsublite.v1.GetReservationRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\'\n%pubsublite.googleapis.com/Reservation', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2819,
+  serialized_end=2903,
+)
+
+
+_LISTRESERVATIONSREQUEST = _descriptor.Descriptor(
+  name='ListReservationsRequest',
+  full_name='google.cloud.pubsublite.v1.ListReservationsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.pubsublite.v1.ListReservationsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.cloud.pubsublite.v1.ListReservationsRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.cloud.pubsublite.v1.ListReservationsRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2905,
+  serialized_end=3028,
+)
+
+
+_LISTRESERVATIONSRESPONSE = _descriptor.Descriptor(
+  name='ListReservationsResponse',
+  full_name='google.cloud.pubsublite.v1.ListReservationsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='reservations', full_name='google.cloud.pubsublite.v1.ListReservationsResponse.reservations', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.cloud.pubsublite.v1.ListReservationsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3030,
+  serialized_end=3144,
+)
+
+
+_UPDATERESERVATIONREQUEST = _descriptor.Descriptor(
+  name='UpdateReservationRequest',
+  full_name='google.cloud.pubsublite.v1.UpdateReservationRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='reservation', full_name='google.cloud.pubsublite.v1.UpdateReservationRequest.reservation', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_mask', full_name='google.cloud.pubsublite.v1.UpdateReservationRequest.update_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3147,
+  serialized_end=3294,
+)
+
+
+_DELETERESERVATIONREQUEST = _descriptor.Descriptor(
+  name='DeleteReservationRequest',
+  full_name='google.cloud.pubsublite.v1.DeleteReservationRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.pubsublite.v1.DeleteReservationRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\'\n%pubsublite.googleapis.com/Reservation', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3296,
+  serialized_end=3383,
+)
+
+
+_LISTRESERVATIONTOPICSREQUEST = _descriptor.Descriptor(
+  name='ListReservationTopicsRequest',
+  full_name='google.cloud.pubsublite.v1.ListReservationTopicsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.pubsublite.v1.ListReservationTopicsRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\'\n%pubsublite.googleapis.com/Reservation', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.cloud.pubsublite.v1.ListReservationTopicsRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.cloud.pubsublite.v1.ListReservationTopicsRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3386,
+  serialized_end=3516,
+)
+
+
+_LISTRESERVATIONTOPICSRESPONSE = _descriptor.Descriptor(
+  name='ListReservationTopicsResponse',
+  full_name='google.cloud.pubsublite.v1.ListReservationTopicsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='topics', full_name='google.cloud.pubsublite.v1.ListReservationTopicsResponse.topics', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.cloud.pubsublite.v1.ListReservationTopicsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3518,
+  serialized_end=3590,
 )
 
 _CREATETOPICREQUEST.fields_by_name['topic'].message_type = google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2._TOPIC
@@ -664,6 +1145,21 @@ _CREATESUBSCRIPTIONREQUEST.fields_by_name['subscription'].message_type = google_
 _LISTSUBSCRIPTIONSRESPONSE.fields_by_name['subscriptions'].message_type = google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2._SUBSCRIPTION
 _UPDATESUBSCRIPTIONREQUEST.fields_by_name['subscription'].message_type = google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2._SUBSCRIPTION
 _UPDATESUBSCRIPTIONREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_SEEKSUBSCRIPTIONREQUEST.fields_by_name['named_target'].enum_type = _SEEKSUBSCRIPTIONREQUEST_NAMEDTARGET
+_SEEKSUBSCRIPTIONREQUEST.fields_by_name['time_target'].message_type = google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2._TIMETARGET
+_SEEKSUBSCRIPTIONREQUEST_NAMEDTARGET.containing_type = _SEEKSUBSCRIPTIONREQUEST
+_SEEKSUBSCRIPTIONREQUEST.oneofs_by_name['target'].fields.append(
+  _SEEKSUBSCRIPTIONREQUEST.fields_by_name['named_target'])
+_SEEKSUBSCRIPTIONREQUEST.fields_by_name['named_target'].containing_oneof = _SEEKSUBSCRIPTIONREQUEST.oneofs_by_name['target']
+_SEEKSUBSCRIPTIONREQUEST.oneofs_by_name['target'].fields.append(
+  _SEEKSUBSCRIPTIONREQUEST.fields_by_name['time_target'])
+_SEEKSUBSCRIPTIONREQUEST.fields_by_name['time_target'].containing_oneof = _SEEKSUBSCRIPTIONREQUEST.oneofs_by_name['target']
+_OPERATIONMETADATA.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_OPERATIONMETADATA.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CREATERESERVATIONREQUEST.fields_by_name['reservation'].message_type = google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2._RESERVATION
+_LISTRESERVATIONSRESPONSE.fields_by_name['reservations'].message_type = google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2._RESERVATION
+_UPDATERESERVATIONREQUEST.fields_by_name['reservation'].message_type = google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2._RESERVATION
+_UPDATERESERVATIONREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 DESCRIPTOR.message_types_by_name['CreateTopicRequest'] = _CREATETOPICREQUEST
 DESCRIPTOR.message_types_by_name['GetTopicRequest'] = _GETTOPICREQUEST
 DESCRIPTOR.message_types_by_name['GetTopicPartitionsRequest'] = _GETTOPICPARTITIONSREQUEST
@@ -680,6 +1176,17 @@ DESCRIPTOR.message_types_by_name['ListSubscriptionsRequest'] = _LISTSUBSCRIPTION
 DESCRIPTOR.message_types_by_name['ListSubscriptionsResponse'] = _LISTSUBSCRIPTIONSRESPONSE
 DESCRIPTOR.message_types_by_name['UpdateSubscriptionRequest'] = _UPDATESUBSCRIPTIONREQUEST
 DESCRIPTOR.message_types_by_name['DeleteSubscriptionRequest'] = _DELETESUBSCRIPTIONREQUEST
+DESCRIPTOR.message_types_by_name['SeekSubscriptionRequest'] = _SEEKSUBSCRIPTIONREQUEST
+DESCRIPTOR.message_types_by_name['SeekSubscriptionResponse'] = _SEEKSUBSCRIPTIONRESPONSE
+DESCRIPTOR.message_types_by_name['OperationMetadata'] = _OPERATIONMETADATA
+DESCRIPTOR.message_types_by_name['CreateReservationRequest'] = _CREATERESERVATIONREQUEST
+DESCRIPTOR.message_types_by_name['GetReservationRequest'] = _GETRESERVATIONREQUEST
+DESCRIPTOR.message_types_by_name['ListReservationsRequest'] = _LISTRESERVATIONSREQUEST
+DESCRIPTOR.message_types_by_name['ListReservationsResponse'] = _LISTRESERVATIONSRESPONSE
+DESCRIPTOR.message_types_by_name['UpdateReservationRequest'] = _UPDATERESERVATIONREQUEST
+DESCRIPTOR.message_types_by_name['DeleteReservationRequest'] = _DELETERESERVATIONREQUEST
+DESCRIPTOR.message_types_by_name['ListReservationTopicsRequest'] = _LISTRESERVATIONTOPICSREQUEST
+DESCRIPTOR.message_types_by_name['ListReservationTopicsResponse'] = _LISTRESERVATIONTOPICSRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateTopicRequest = _reflection.GeneratedProtocolMessageType('CreateTopicRequest', (_message.Message,), {
@@ -794,6 +1301,83 @@ DeleteSubscriptionRequest = _reflection.GeneratedProtocolMessageType('DeleteSubs
   })
 _sym_db.RegisterMessage(DeleteSubscriptionRequest)
 
+SeekSubscriptionRequest = _reflection.GeneratedProtocolMessageType('SeekSubscriptionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SEEKSUBSCRIPTIONREQUEST,
+  '__module__' : 'google.cloud.pubsublite.v1.admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.SeekSubscriptionRequest)
+  })
+_sym_db.RegisterMessage(SeekSubscriptionRequest)
+
+SeekSubscriptionResponse = _reflection.GeneratedProtocolMessageType('SeekSubscriptionResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SEEKSUBSCRIPTIONRESPONSE,
+  '__module__' : 'google.cloud.pubsublite.v1.admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.SeekSubscriptionResponse)
+  })
+_sym_db.RegisterMessage(SeekSubscriptionResponse)
+
+OperationMetadata = _reflection.GeneratedProtocolMessageType('OperationMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _OPERATIONMETADATA,
+  '__module__' : 'google.cloud.pubsublite.v1.admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.OperationMetadata)
+  })
+_sym_db.RegisterMessage(OperationMetadata)
+
+CreateReservationRequest = _reflection.GeneratedProtocolMessageType('CreateReservationRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATERESERVATIONREQUEST,
+  '__module__' : 'google.cloud.pubsublite.v1.admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.CreateReservationRequest)
+  })
+_sym_db.RegisterMessage(CreateReservationRequest)
+
+GetReservationRequest = _reflection.GeneratedProtocolMessageType('GetReservationRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETRESERVATIONREQUEST,
+  '__module__' : 'google.cloud.pubsublite.v1.admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.GetReservationRequest)
+  })
+_sym_db.RegisterMessage(GetReservationRequest)
+
+ListReservationsRequest = _reflection.GeneratedProtocolMessageType('ListReservationsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTRESERVATIONSREQUEST,
+  '__module__' : 'google.cloud.pubsublite.v1.admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.ListReservationsRequest)
+  })
+_sym_db.RegisterMessage(ListReservationsRequest)
+
+ListReservationsResponse = _reflection.GeneratedProtocolMessageType('ListReservationsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTRESERVATIONSRESPONSE,
+  '__module__' : 'google.cloud.pubsublite.v1.admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.ListReservationsResponse)
+  })
+_sym_db.RegisterMessage(ListReservationsResponse)
+
+UpdateReservationRequest = _reflection.GeneratedProtocolMessageType('UpdateReservationRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATERESERVATIONREQUEST,
+  '__module__' : 'google.cloud.pubsublite.v1.admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.UpdateReservationRequest)
+  })
+_sym_db.RegisterMessage(UpdateReservationRequest)
+
+DeleteReservationRequest = _reflection.GeneratedProtocolMessageType('DeleteReservationRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETERESERVATIONREQUEST,
+  '__module__' : 'google.cloud.pubsublite.v1.admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.DeleteReservationRequest)
+  })
+_sym_db.RegisterMessage(DeleteReservationRequest)
+
+ListReservationTopicsRequest = _reflection.GeneratedProtocolMessageType('ListReservationTopicsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTRESERVATIONTOPICSREQUEST,
+  '__module__' : 'google.cloud.pubsublite.v1.admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.ListReservationTopicsRequest)
+  })
+_sym_db.RegisterMessage(ListReservationTopicsRequest)
+
+ListReservationTopicsResponse = _reflection.GeneratedProtocolMessageType('ListReservationTopicsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTRESERVATIONTOPICSRESPONSE,
+  '__module__' : 'google.cloud.pubsublite.v1.admin_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.pubsublite.v1.ListReservationTopicsResponse)
+  })
+_sym_db.RegisterMessage(ListReservationTopicsResponse)
+
 
 DESCRIPTOR._options = None
 _CREATETOPICREQUEST.fields_by_name['parent']._options = None
@@ -814,6 +1398,16 @@ _LISTSUBSCRIPTIONSREQUEST.fields_by_name['parent']._options = None
 _UPDATESUBSCRIPTIONREQUEST.fields_by_name['subscription']._options = None
 _UPDATESUBSCRIPTIONREQUEST.fields_by_name['update_mask']._options = None
 _DELETESUBSCRIPTIONREQUEST.fields_by_name['name']._options = None
+_SEEKSUBSCRIPTIONREQUEST.fields_by_name['name']._options = None
+_CREATERESERVATIONREQUEST.fields_by_name['parent']._options = None
+_CREATERESERVATIONREQUEST.fields_by_name['reservation']._options = None
+_CREATERESERVATIONREQUEST.fields_by_name['reservation_id']._options = None
+_GETRESERVATIONREQUEST.fields_by_name['name']._options = None
+_LISTRESERVATIONSREQUEST.fields_by_name['parent']._options = None
+_UPDATERESERVATIONREQUEST.fields_by_name['reservation']._options = None
+_UPDATERESERVATIONREQUEST.fields_by_name['update_mask']._options = None
+_DELETERESERVATIONREQUEST.fields_by_name['name']._options = None
+_LISTRESERVATIONTOPICSREQUEST.fields_by_name['name']._options = None
 
 _ADMINSERVICE = _descriptor.ServiceDescriptor(
   name='AdminService',
@@ -822,8 +1416,8 @@ _ADMINSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031pubsublite.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=2074,
-  serialized_end=4498,
+  serialized_start=3593,
+  serialized_end=7480,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateTopic',
@@ -943,6 +1537,76 @@ _ADMINSERVICE = _descriptor.ServiceDescriptor(
     input_type=_DELETESUBSCRIPTIONREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=b'\202\323\344\223\0029*7/v1/admin/{name=projects/*/locations/*/subscriptions/*}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SeekSubscription',
+    full_name='google.cloud.pubsublite.v1.AdminService.SeekSubscription',
+    index=12,
+    containing_service=None,
+    input_type=_SEEKSUBSCRIPTIONREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002A\"</v1/admin/{name=projects/*/locations/*/subscriptions/*}:seek:\001*\312A-\n\030SeekSubscriptionResponse\022\021OperationMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='CreateReservation',
+    full_name='google.cloud.pubsublite.v1.AdminService.CreateReservation',
+    index=13,
+    containing_service=None,
+    input_type=_CREATERESERVATIONREQUEST,
+    output_type=google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2._RESERVATION,
+    serialized_options=b'\202\323\344\223\002E\"6/v1/admin/{parent=projects/*/locations/*}/reservations:\013reservation\332A!parent,reservation,reservation_id',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetReservation',
+    full_name='google.cloud.pubsublite.v1.AdminService.GetReservation',
+    index=14,
+    containing_service=None,
+    input_type=_GETRESERVATIONREQUEST,
+    output_type=google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2._RESERVATION,
+    serialized_options=b'\202\323\344\223\0028\0226/v1/admin/{name=projects/*/locations/*/reservations/*}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListReservations',
+    full_name='google.cloud.pubsublite.v1.AdminService.ListReservations',
+    index=15,
+    containing_service=None,
+    input_type=_LISTRESERVATIONSREQUEST,
+    output_type=_LISTRESERVATIONSRESPONSE,
+    serialized_options=b'\202\323\344\223\0028\0226/v1/admin/{parent=projects/*/locations/*}/reservations\332A\006parent',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UpdateReservation',
+    full_name='google.cloud.pubsublite.v1.AdminService.UpdateReservation',
+    index=16,
+    containing_service=None,
+    input_type=_UPDATERESERVATIONREQUEST,
+    output_type=google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2._RESERVATION,
+    serialized_options=b'\202\323\344\223\002Q2B/v1/admin/{reservation.name=projects/*/locations/*/reservations/*}:\013reservation\332A\027reservation,update_mask',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteReservation',
+    full_name='google.cloud.pubsublite.v1.AdminService.DeleteReservation',
+    index=17,
+    containing_service=None,
+    input_type=_DELETERESERVATIONREQUEST,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=b'\202\323\344\223\0028*6/v1/admin/{name=projects/*/locations/*/reservations/*}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListReservationTopics',
+    full_name='google.cloud.pubsublite.v1.AdminService.ListReservationTopics',
+    index=18,
+    containing_service=None,
+    input_type=_LISTRESERVATIONTOPICSREQUEST,
+    output_type=_LISTRESERVATIONTOPICSRESPONSE,
+    serialized_options=b'\202\323\344\223\002?\022=/v1/admin/{name=projects/*/locations/*/reservations/*}/topics\332A\004name',
     create_key=_descriptor._internal_create_key,
   ),
 ])

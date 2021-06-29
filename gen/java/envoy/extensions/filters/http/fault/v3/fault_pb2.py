@@ -26,7 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n4io.envoyproxy.envoy.extensions.filters.http.fault.v3B\nFaultProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n2envoy/extensions/filters/http/fault/v3/fault.proto\x12&envoy.extensions.filters.http.fault.v3\x1a,envoy/config/route/v3/route_components.proto\x1a\x34\x65nvoy/extensions/filters/common/fault/v3/fault.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xf3\x02\n\nFaultAbort\x12\"\n\x0bhttp_status\x18\x02 \x01(\rB\x0b\xfa\x42\x08*\x06\x10\xd8\x04(\xc8\x01H\x00\x12\x15\n\x0bgrpc_status\x18\x05 \x01(\rH\x00\x12V\n\x0cheader_abort\x18\x04 \x01(\x0b\x32>.envoy.extensions.filters.http.fault.v3.FaultAbort.HeaderAbortH\x00\x12\x34\n\npercentage\x18\x03 \x01(\x0b\x32 .envoy.type.v3.FractionalPercent\x1aN\n\x0bHeaderAbort:?\x9a\xc5\x88\x1e:\n8envoy.config.filter.http.fault.v2.FaultAbort.HeaderAbort:3\x9a\xc5\x88\x1e.\n,envoy.config.filter.http.fault.v2.FaultAbortB\x11\n\nerror_type\x12\x03\xf8\x42\x01J\x04\x08\x01\x10\x02\"\xb6\x05\n\tHTTPFault\x12\x43\n\x05\x64\x65lay\x18\x01 \x01(\x0b\x32\x34.envoy.extensions.filters.common.fault.v3.FaultDelay\x12\x41\n\x05\x61\x62ort\x18\x02 \x01(\x0b\x32\x32.envoy.extensions.filters.http.fault.v3.FaultAbort\x12\x18\n\x10upstream_cluster\x18\x03 \x01(\t\x12\x35\n\x07headers\x18\x04 \x03(\x0b\x32$.envoy.config.route.v3.HeaderMatcher\x12\x18\n\x10\x64ownstream_nodes\x18\x05 \x03(\t\x12\x37\n\x11max_active_faults\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12U\n\x13response_rate_limit\x18\x07 \x01(\x0b\x32\x38.envoy.extensions.filters.common.fault.v3.FaultRateLimit\x12\x1d\n\x15\x64\x65lay_percent_runtime\x18\x08 \x01(\t\x12\x1d\n\x15\x61\x62ort_percent_runtime\x18\t \x01(\t\x12\x1e\n\x16\x64\x65lay_duration_runtime\x18\n \x01(\t\x12!\n\x19\x61\x62ort_http_status_runtime\x18\x0b \x01(\t\x12!\n\x19max_active_faults_runtime\x18\x0c \x01(\t\x12+\n#response_rate_limit_percent_runtime\x18\r \x01(\t\x12!\n\x19\x61\x62ort_grpc_status_runtime\x18\x0e \x01(\t:2\x9a\xc5\x88\x1e-\n+envoy.config.filter.http.fault.v2.HTTPFaultBL\n4io.envoyproxy.envoy.extensions.filters.http.fault.v3B\nFaultProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n2envoy/extensions/filters/http/fault/v3/fault.proto\x12&envoy.extensions.filters.http.fault.v3\x1a,envoy/config/route/v3/route_components.proto\x1a\x34\x65nvoy/extensions/filters/common/fault/v3/fault.proto\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xf3\x02\n\nFaultAbort\x12\"\n\x0bhttp_status\x18\x02 \x01(\rB\x0b\xfa\x42\x08*\x06\x10\xd8\x04(\xc8\x01H\x00\x12\x15\n\x0bgrpc_status\x18\x05 \x01(\rH\x00\x12V\n\x0cheader_abort\x18\x04 \x01(\x0b\x32>.envoy.extensions.filters.http.fault.v3.FaultAbort.HeaderAbortH\x00\x12\x34\n\npercentage\x18\x03 \x01(\x0b\x32 .envoy.type.v3.FractionalPercent\x1aN\n\x0bHeaderAbort:?\x9a\xc5\x88\x1e:\n8envoy.config.filter.http.fault.v2.FaultAbort.HeaderAbort:3\x9a\xc5\x88\x1e.\n,envoy.config.filter.http.fault.v2.FaultAbortB\x11\n\nerror_type\x12\x03\xf8\x42\x01J\x04\x08\x01\x10\x02\"\xe0\x05\n\tHTTPFault\x12\x43\n\x05\x64\x65lay\x18\x01 \x01(\x0b\x32\x34.envoy.extensions.filters.common.fault.v3.FaultDelay\x12\x41\n\x05\x61\x62ort\x18\x02 \x01(\x0b\x32\x32.envoy.extensions.filters.http.fault.v3.FaultAbort\x12\x18\n\x10upstream_cluster\x18\x03 \x01(\t\x12\x35\n\x07headers\x18\x04 \x03(\x0b\x32$.envoy.config.route.v3.HeaderMatcher\x12\x18\n\x10\x64ownstream_nodes\x18\x05 \x03(\t\x12\x37\n\x11max_active_faults\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12U\n\x13response_rate_limit\x18\x07 \x01(\x0b\x32\x38.envoy.extensions.filters.common.fault.v3.FaultRateLimit\x12\x1d\n\x15\x64\x65lay_percent_runtime\x18\x08 \x01(\t\x12\x1d\n\x15\x61\x62ort_percent_runtime\x18\t \x01(\t\x12\x1e\n\x16\x64\x65lay_duration_runtime\x18\n \x01(\t\x12!\n\x19\x61\x62ort_http_status_runtime\x18\x0b \x01(\t\x12!\n\x19max_active_faults_runtime\x18\x0c \x01(\t\x12+\n#response_rate_limit_percent_runtime\x18\r \x01(\t\x12!\n\x19\x61\x62ort_grpc_status_runtime\x18\x0e \x01(\t\x12(\n disable_downstream_cluster_stats\x18\x0f \x01(\x08:2\x9a\xc5\x88\x1e-\n+envoy.config.filter.http.fault.v2.HTTPFaultBL\n4io.envoyproxy.envoy.extensions.filters.http.fault.v3B\nFaultProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2.DESCRIPTOR,envoy_dot_extensions_dot_filters_dot_common_dot_fault_dot_v3_dot_fault__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -221,6 +221,13 @@ _HTTPFAULT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='disable_downstream_cluster_stats', full_name='envoy.extensions.filters.http.fault.v3.HTTPFault.disable_downstream_cluster_stats', index=14,
+      number=15, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -234,7 +241,7 @@ _HTTPFAULT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=721,
-  serialized_end=1415,
+  serialized_end=1457,
 )
 
 _FAULTABORT_HEADERABORT.containing_type = _FAULTABORT

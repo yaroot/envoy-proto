@@ -28,11 +28,41 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.cloud.dialogflow.cx.v3B\020EnvironmentProtoP\001Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\370\001\001\242\002\002DF\252\002\035Google.Cloud.Dialogflow.Cx.V3',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n/google/cloud/dialogflow/cx/v3/environment.proto\x12\x1dgoogle.cloud.dialogflow.cx.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/dialogflow/cx/v3/test_case.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa5\x03\n\x0b\x45nvironment\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12V\n\x0fversion_configs\x18\x06 \x03(\x0b\x32\x38.google.cloud.dialogflow.cx.v3.Environment.VersionConfigB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1aK\n\rVersionConfig\x12:\n\x07version\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Version:}\xea\x41z\n%dialogflow.googleapis.com/Environment\x12Qprojects/{project}/locations/{location}/agents/{agent}/environments/{environment}\"\x7f\n\x17ListEnvironmentsRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Environment\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"u\n\x18ListEnvironmentsResponse\x12@\n\x0c\x65nvironments\x18\x01 \x03(\x0b\x32*.google.cloud.dialogflow.cx.v3.Environment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"T\n\x15GetEnvironmentRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\"\x9f\x01\n\x18\x43reateEnvironmentRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Environment\x12\x44\n\x0b\x65nvironment\x18\x02 \x01(\x0b\x32*.google.cloud.dialogflow.cx.v3.EnvironmentB\x03\xe0\x41\x02\"\x96\x01\n\x18UpdateEnvironmentRequest\x12\x44\n\x0b\x65nvironment\x18\x01 \x01(\x0b\x32*.google.cloud.dialogflow.cx.v3.EnvironmentB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"W\n\x18\x44\x65leteEnvironmentRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\"\x85\x01\n\x1fLookupEnvironmentHistoryRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"}\n LookupEnvironmentHistoryResponse\x12@\n\x0c\x65nvironments\x18\x01 \x03(\x0b\x32*.google.cloud.dialogflow.cx.v3.Environment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xd4\x0b\n\x0c\x45nvironments\x12\xcf\x01\n\x10ListEnvironments\x12\x36.google.cloud.dialogflow.cx.v3.ListEnvironmentsRequest\x1a\x37.google.cloud.dialogflow.cx.v3.ListEnvironmentsResponse\"J\x82\xd3\xe4\x93\x02;\x12\x39/v3/{parent=projects/*/locations/*/agents/*}/environments\xda\x41\x06parent\x12\xbc\x01\n\x0eGetEnvironment\x12\x34.google.cloud.dialogflow.cx.v3.GetEnvironmentRequest\x1a*.google.cloud.dialogflow.cx.v3.Environment\"H\x82\xd3\xe4\x93\x02;\x12\x39/v3/{name=projects/*/locations/*/agents/*/environments/*}\xda\x41\x04name\x12\xf9\x01\n\x11\x43reateEnvironment\x12\x37.google.cloud.dialogflow.cx.v3.CreateEnvironmentRequest\x1a\x1d.google.longrunning.Operation\"\x8b\x01\x82\xd3\xe4\x93\x02H\"9/v3/{parent=projects/*/locations/*/agents/*}/environments:\x0b\x65nvironment\xda\x41\x12parent,environment\xca\x41%\n\x0b\x45nvironment\x12\x16google.protobuf.Struct\x12\x8a\x02\n\x11UpdateEnvironment\x12\x37.google.cloud.dialogflow.cx.v3.UpdateEnvironmentRequest\x1a\x1d.google.longrunning.Operation\"\x9c\x01\x82\xd3\xe4\x93\x02T2E/v3/{environment.name=projects/*/locations/*/agents/*/environments/*}:\x0b\x65nvironment\xda\x41\x17\x65nvironment,update_mask\xca\x41%\n\x0b\x45nvironment\x12\x16google.protobuf.Struct\x12\xae\x01\n\x11\x44\x65leteEnvironment\x12\x37.google.cloud.dialogflow.cx.v3.DeleteEnvironmentRequest\x1a\x16.google.protobuf.Empty\"H\x82\xd3\xe4\x93\x02;*9/v3/{name=projects/*/locations/*/agents/*/environments/*}\xda\x41\x04name\x12\xfe\x01\n\x18LookupEnvironmentHistory\x12>.google.cloud.dialogflow.cx.v3.LookupEnvironmentHistoryRequest\x1a?.google.cloud.dialogflow.cx.v3.LookupEnvironmentHistoryResponse\"a\x82\xd3\xe4\x93\x02T\x12R/v3/{name=projects/*/locations/*/agents/*/environments/*}:lookupEnvironmentHistory\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xa0\x01\n!com.google.cloud.dialogflow.cx.v3B\x10\x45nvironmentProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1dGoogle.Cloud.Dialogflow.Cx.V3b\x06proto3'
+  serialized_pb=b'\n/google/cloud/dialogflow/cx/v3/environment.proto\x12\x1dgoogle.cloud.dialogflow.cx.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/dialogflow/cx/v3/test_case.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa5\x03\n\x0b\x45nvironment\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12V\n\x0fversion_configs\x18\x06 \x03(\x0b\x32\x38.google.cloud.dialogflow.cx.v3.Environment.VersionConfigB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1aK\n\rVersionConfig\x12:\n\x07version\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Version:}\xea\x41z\n%dialogflow.googleapis.com/Environment\x12Qprojects/{project}/locations/{location}/agents/{agent}/environments/{environment}\"\x7f\n\x17ListEnvironmentsRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Environment\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"u\n\x18ListEnvironmentsResponse\x12@\n\x0c\x65nvironments\x18\x01 \x03(\x0b\x32*.google.cloud.dialogflow.cx.v3.Environment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"T\n\x15GetEnvironmentRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\"\x9f\x01\n\x18\x43reateEnvironmentRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Environment\x12\x44\n\x0b\x65nvironment\x18\x02 \x01(\x0b\x32*.google.cloud.dialogflow.cx.v3.EnvironmentB\x03\xe0\x41\x02\"\x96\x01\n\x18UpdateEnvironmentRequest\x12\x44\n\x0b\x65nvironment\x18\x01 \x01(\x0b\x32*.google.cloud.dialogflow.cx.v3.EnvironmentB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"W\n\x18\x44\x65leteEnvironmentRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\"\x85\x01\n\x1fLookupEnvironmentHistoryRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"}\n LookupEnvironmentHistoryResponse\x12@\n\x0c\x65nvironments\x18\x01 \x03(\x0b\x32*.google.cloud.dialogflow.cx.v3.Environment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x88\x04\n\x14\x43ontinuousTestResult\x12\x0c\n\x04name\x18\x01 \x01(\t\x12X\n\x06result\x18\x02 \x01(\x0e\x32H.google.cloud.dialogflow.cx.v3.ContinuousTestResult.AggregatedTestResult\x12H\n\x11test_case_results\x18\x03 \x03(\tB-\xfa\x41*\n(dialogflow.googleapis.com/TestCaseResult\x12,\n\x08run_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"V\n\x14\x41ggregatedTestResult\x12&\n\"AGGREGATED_TEST_RESULT_UNSPECIFIED\x10\x00\x12\n\n\x06PASSED\x10\x01\x12\n\n\x06\x46\x41ILED\x10\x02:\xb7\x01\xea\x41\xb3\x01\n.dialogflow.googleapis.com/ContinuousTestResult\x12\x80\x01projects/{project}/locations/{location}/agents/{agent}/environments/{environment}/continuousTestResults/{continuous_test_result}\"^\n\x18RunContinuousTestRequest\x12\x42\n\x0b\x65nvironment\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\"p\n\x19RunContinuousTestResponse\x12S\n\x16\x63ontinuous_test_result\x18\x01 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3.ContinuousTestResult\"U\n\x19RunContinuousTestMetadata\x12\x38\n\x06\x65rrors\x18\x01 \x03(\x0b\x32(.google.cloud.dialogflow.cx.v3.TestError\"\x91\x01\n ListContinuousTestResultsRequest\x12\x46\n\x06parent\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\x12.dialogflow.googleapis.com/ContinuousTestResult\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x92\x01\n!ListContinuousTestResultsResponse\x12T\n\x17\x63ontinuous_test_results\x18\x01 \x03(\x0b\x32\x33.google.cloud.dialogflow.cx.v3.ContinuousTestResult\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xe0\x0f\n\x0c\x45nvironments\x12\xcf\x01\n\x10ListEnvironments\x12\x36.google.cloud.dialogflow.cx.v3.ListEnvironmentsRequest\x1a\x37.google.cloud.dialogflow.cx.v3.ListEnvironmentsResponse\"J\x82\xd3\xe4\x93\x02;\x12\x39/v3/{parent=projects/*/locations/*/agents/*}/environments\xda\x41\x06parent\x12\xbc\x01\n\x0eGetEnvironment\x12\x34.google.cloud.dialogflow.cx.v3.GetEnvironmentRequest\x1a*.google.cloud.dialogflow.cx.v3.Environment\"H\x82\xd3\xe4\x93\x02;\x12\x39/v3/{name=projects/*/locations/*/agents/*/environments/*}\xda\x41\x04name\x12\xf9\x01\n\x11\x43reateEnvironment\x12\x37.google.cloud.dialogflow.cx.v3.CreateEnvironmentRequest\x1a\x1d.google.longrunning.Operation\"\x8b\x01\x82\xd3\xe4\x93\x02H\"9/v3/{parent=projects/*/locations/*/agents/*}/environments:\x0b\x65nvironment\xda\x41\x12parent,environment\xca\x41%\n\x0b\x45nvironment\x12\x16google.protobuf.Struct\x12\x8a\x02\n\x11UpdateEnvironment\x12\x37.google.cloud.dialogflow.cx.v3.UpdateEnvironmentRequest\x1a\x1d.google.longrunning.Operation\"\x9c\x01\x82\xd3\xe4\x93\x02T2E/v3/{environment.name=projects/*/locations/*/agents/*/environments/*}:\x0b\x65nvironment\xda\x41\x17\x65nvironment,update_mask\xca\x41%\n\x0b\x45nvironment\x12\x16google.protobuf.Struct\x12\xae\x01\n\x11\x44\x65leteEnvironment\x12\x37.google.cloud.dialogflow.cx.v3.DeleteEnvironmentRequest\x1a\x16.google.protobuf.Empty\"H\x82\xd3\xe4\x93\x02;*9/v3/{name=projects/*/locations/*/agents/*/environments/*}\xda\x41\x04name\x12\xfe\x01\n\x18LookupEnvironmentHistory\x12>.google.cloud.dialogflow.cx.v3.LookupEnvironmentHistoryRequest\x1a?.google.cloud.dialogflow.cx.v3.LookupEnvironmentHistoryResponse\"a\x82\xd3\xe4\x93\x02T\x12R/v3/{name=projects/*/locations/*/agents/*/environments/*}:lookupEnvironmentHistory\xda\x41\x04name\x12\x84\x02\n\x11RunContinuousTest\x12\x37.google.cloud.dialogflow.cx.v3.RunContinuousTestRequest\x1a\x1d.google.longrunning.Operation\"\x96\x01\x82\xd3\xe4\x93\x02W\"R/v3/{environment=projects/*/locations/*/agents/*/environments/*}:runContinuousTest:\x01*\xca\x41\x36\n\x19RunContinuousTestResponse\x12\x19RunContinuousTestMetadata\x12\x82\x02\n\x19ListContinuousTestResults\x12?.google.cloud.dialogflow.cx.v3.ListContinuousTestResultsRequest\x1a@.google.cloud.dialogflow.cx.v3.ListContinuousTestResultsResponse\"b\x82\xd3\xe4\x93\x02S\x12Q/v3/{parent=projects/*/locations/*/agents/*/environments/*}/continuousTestResults\xda\x41\x06parent\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xa0\x01\n!com.google.cloud.dialogflow.cx.v3B\x10\x45nvironmentProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1dGoogle.Cloud.Dialogflow.Cx.V3b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3_dot_test__case__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
+
+_CONTINUOUSTESTRESULT_AGGREGATEDTESTRESULT = _descriptor.EnumDescriptor(
+  name='AggregatedTestResult',
+  full_name='google.cloud.dialogflow.cx.v3.ContinuousTestResult.AggregatedTestResult',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='AGGREGATED_TEST_RESULT_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PASSED', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FAILED', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2051,
+  serialized_end=2137,
+)
+_sym_db.RegisterEnumDescriptor(_CONTINUOUSTESTRESULT_AGGREGATEDTESTRESULT)
 
 
 _ENVIRONMENT_VERSIONCONFIG = _descriptor.Descriptor(
@@ -437,6 +467,241 @@ _LOOKUPENVIRONMENTHISTORYRESPONSE = _descriptor.Descriptor(
   serialized_end=1800,
 )
 
+
+_CONTINUOUSTESTRESULT = _descriptor.Descriptor(
+  name='ContinuousTestResult',
+  full_name='google.cloud.dialogflow.cx.v3.ContinuousTestResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.dialogflow.cx.v3.ContinuousTestResult.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='result', full_name='google.cloud.dialogflow.cx.v3.ContinuousTestResult.result', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='test_case_results', full_name='google.cloud.dialogflow.cx.v3.ContinuousTestResult.test_case_results', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A*\n(dialogflow.googleapis.com/TestCaseResult', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='run_time', full_name='google.cloud.dialogflow.cx.v3.ContinuousTestResult.run_time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _CONTINUOUSTESTRESULT_AGGREGATEDTESTRESULT,
+  ],
+  serialized_options=b'\352A\263\001\n.dialogflow.googleapis.com/ContinuousTestResult\022\200\001projects/{project}/locations/{location}/agents/{agent}/environments/{environment}/continuousTestResults/{continuous_test_result}',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1803,
+  serialized_end=2323,
+)
+
+
+_RUNCONTINUOUSTESTREQUEST = _descriptor.Descriptor(
+  name='RunContinuousTestRequest',
+  full_name='google.cloud.dialogflow.cx.v3.RunContinuousTestRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='environment', full_name='google.cloud.dialogflow.cx.v3.RunContinuousTestRequest.environment', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\'\n%dialogflow.googleapis.com/Environment', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2325,
+  serialized_end=2419,
+)
+
+
+_RUNCONTINUOUSTESTRESPONSE = _descriptor.Descriptor(
+  name='RunContinuousTestResponse',
+  full_name='google.cloud.dialogflow.cx.v3.RunContinuousTestResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='continuous_test_result', full_name='google.cloud.dialogflow.cx.v3.RunContinuousTestResponse.continuous_test_result', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2421,
+  serialized_end=2533,
+)
+
+
+_RUNCONTINUOUSTESTMETADATA = _descriptor.Descriptor(
+  name='RunContinuousTestMetadata',
+  full_name='google.cloud.dialogflow.cx.v3.RunContinuousTestMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='errors', full_name='google.cloud.dialogflow.cx.v3.RunContinuousTestMetadata.errors', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2535,
+  serialized_end=2620,
+)
+
+
+_LISTCONTINUOUSTESTRESULTSREQUEST = _descriptor.Descriptor(
+  name='ListContinuousTestResultsRequest',
+  full_name='google.cloud.dialogflow.cx.v3.ListContinuousTestResultsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.dialogflow.cx.v3.ListContinuousTestResultsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A0\022.dialogflow.googleapis.com/ContinuousTestResult', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.cloud.dialogflow.cx.v3.ListContinuousTestResultsRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.cloud.dialogflow.cx.v3.ListContinuousTestResultsRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2623,
+  serialized_end=2768,
+)
+
+
+_LISTCONTINUOUSTESTRESULTSRESPONSE = _descriptor.Descriptor(
+  name='ListContinuousTestResultsResponse',
+  full_name='google.cloud.dialogflow.cx.v3.ListContinuousTestResultsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='continuous_test_results', full_name='google.cloud.dialogflow.cx.v3.ListContinuousTestResultsResponse.continuous_test_results', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.cloud.dialogflow.cx.v3.ListContinuousTestResultsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2771,
+  serialized_end=2917,
+)
+
 _ENVIRONMENT_VERSIONCONFIG.containing_type = _ENVIRONMENT
 _ENVIRONMENT.fields_by_name['version_configs'].message_type = _ENVIRONMENT_VERSIONCONFIG
 _ENVIRONMENT.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -445,6 +710,12 @@ _CREATEENVIRONMENTREQUEST.fields_by_name['environment'].message_type = _ENVIRONM
 _UPDATEENVIRONMENTREQUEST.fields_by_name['environment'].message_type = _ENVIRONMENT
 _UPDATEENVIRONMENTREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 _LOOKUPENVIRONMENTHISTORYRESPONSE.fields_by_name['environments'].message_type = _ENVIRONMENT
+_CONTINUOUSTESTRESULT.fields_by_name['result'].enum_type = _CONTINUOUSTESTRESULT_AGGREGATEDTESTRESULT
+_CONTINUOUSTESTRESULT.fields_by_name['run_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CONTINUOUSTESTRESULT_AGGREGATEDTESTRESULT.containing_type = _CONTINUOUSTESTRESULT
+_RUNCONTINUOUSTESTRESPONSE.fields_by_name['continuous_test_result'].message_type = _CONTINUOUSTESTRESULT
+_RUNCONTINUOUSTESTMETADATA.fields_by_name['errors'].message_type = google_dot_cloud_dot_dialogflow_dot_cx_dot_v3_dot_test__case__pb2._TESTERROR
+_LISTCONTINUOUSTESTRESULTSRESPONSE.fields_by_name['continuous_test_results'].message_type = _CONTINUOUSTESTRESULT
 DESCRIPTOR.message_types_by_name['Environment'] = _ENVIRONMENT
 DESCRIPTOR.message_types_by_name['ListEnvironmentsRequest'] = _LISTENVIRONMENTSREQUEST
 DESCRIPTOR.message_types_by_name['ListEnvironmentsResponse'] = _LISTENVIRONMENTSRESPONSE
@@ -454,6 +725,12 @@ DESCRIPTOR.message_types_by_name['UpdateEnvironmentRequest'] = _UPDATEENVIRONMEN
 DESCRIPTOR.message_types_by_name['DeleteEnvironmentRequest'] = _DELETEENVIRONMENTREQUEST
 DESCRIPTOR.message_types_by_name['LookupEnvironmentHistoryRequest'] = _LOOKUPENVIRONMENTHISTORYREQUEST
 DESCRIPTOR.message_types_by_name['LookupEnvironmentHistoryResponse'] = _LOOKUPENVIRONMENTHISTORYRESPONSE
+DESCRIPTOR.message_types_by_name['ContinuousTestResult'] = _CONTINUOUSTESTRESULT
+DESCRIPTOR.message_types_by_name['RunContinuousTestRequest'] = _RUNCONTINUOUSTESTREQUEST
+DESCRIPTOR.message_types_by_name['RunContinuousTestResponse'] = _RUNCONTINUOUSTESTRESPONSE
+DESCRIPTOR.message_types_by_name['RunContinuousTestMetadata'] = _RUNCONTINUOUSTESTMETADATA
+DESCRIPTOR.message_types_by_name['ListContinuousTestResultsRequest'] = _LISTCONTINUOUSTESTRESULTSREQUEST
+DESCRIPTOR.message_types_by_name['ListContinuousTestResultsResponse'] = _LISTCONTINUOUSTESTRESULTSRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Environment = _reflection.GeneratedProtocolMessageType('Environment', (_message.Message,), {
@@ -527,6 +804,48 @@ LookupEnvironmentHistoryResponse = _reflection.GeneratedProtocolMessageType('Loo
   })
 _sym_db.RegisterMessage(LookupEnvironmentHistoryResponse)
 
+ContinuousTestResult = _reflection.GeneratedProtocolMessageType('ContinuousTestResult', (_message.Message,), {
+  'DESCRIPTOR' : _CONTINUOUSTESTRESULT,
+  '__module__' : 'google.cloud.dialogflow.cx.v3.environment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3.ContinuousTestResult)
+  })
+_sym_db.RegisterMessage(ContinuousTestResult)
+
+RunContinuousTestRequest = _reflection.GeneratedProtocolMessageType('RunContinuousTestRequest', (_message.Message,), {
+  'DESCRIPTOR' : _RUNCONTINUOUSTESTREQUEST,
+  '__module__' : 'google.cloud.dialogflow.cx.v3.environment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3.RunContinuousTestRequest)
+  })
+_sym_db.RegisterMessage(RunContinuousTestRequest)
+
+RunContinuousTestResponse = _reflection.GeneratedProtocolMessageType('RunContinuousTestResponse', (_message.Message,), {
+  'DESCRIPTOR' : _RUNCONTINUOUSTESTRESPONSE,
+  '__module__' : 'google.cloud.dialogflow.cx.v3.environment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3.RunContinuousTestResponse)
+  })
+_sym_db.RegisterMessage(RunContinuousTestResponse)
+
+RunContinuousTestMetadata = _reflection.GeneratedProtocolMessageType('RunContinuousTestMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _RUNCONTINUOUSTESTMETADATA,
+  '__module__' : 'google.cloud.dialogflow.cx.v3.environment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3.RunContinuousTestMetadata)
+  })
+_sym_db.RegisterMessage(RunContinuousTestMetadata)
+
+ListContinuousTestResultsRequest = _reflection.GeneratedProtocolMessageType('ListContinuousTestResultsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCONTINUOUSTESTRESULTSREQUEST,
+  '__module__' : 'google.cloud.dialogflow.cx.v3.environment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3.ListContinuousTestResultsRequest)
+  })
+_sym_db.RegisterMessage(ListContinuousTestResultsRequest)
+
+ListContinuousTestResultsResponse = _reflection.GeneratedProtocolMessageType('ListContinuousTestResultsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTCONTINUOUSTESTRESULTSRESPONSE,
+  '__module__' : 'google.cloud.dialogflow.cx.v3.environment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3.ListContinuousTestResultsResponse)
+  })
+_sym_db.RegisterMessage(ListContinuousTestResultsResponse)
+
 
 DESCRIPTOR._options = None
 _ENVIRONMENT_VERSIONCONFIG.fields_by_name['version']._options = None
@@ -542,6 +861,10 @@ _UPDATEENVIRONMENTREQUEST.fields_by_name['environment']._options = None
 _UPDATEENVIRONMENTREQUEST.fields_by_name['update_mask']._options = None
 _DELETEENVIRONMENTREQUEST.fields_by_name['name']._options = None
 _LOOKUPENVIRONMENTHISTORYREQUEST.fields_by_name['name']._options = None
+_CONTINUOUSTESTRESULT.fields_by_name['test_case_results']._options = None
+_CONTINUOUSTESTRESULT._options = None
+_RUNCONTINUOUSTESTREQUEST.fields_by_name['environment']._options = None
+_LISTCONTINUOUSTESTRESULTSREQUEST.fields_by_name['parent']._options = None
 
 _ENVIRONMENTS = _descriptor.ServiceDescriptor(
   name='Environments',
@@ -550,8 +873,8 @@ _ENVIRONMENTS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1803,
-  serialized_end=3295,
+  serialized_start=2920,
+  serialized_end=4936,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListEnvironments',
@@ -611,6 +934,26 @@ _ENVIRONMENTS = _descriptor.ServiceDescriptor(
     input_type=_LOOKUPENVIRONMENTHISTORYREQUEST,
     output_type=_LOOKUPENVIRONMENTHISTORYRESPONSE,
     serialized_options=b'\202\323\344\223\002T\022R/v3/{name=projects/*/locations/*/agents/*/environments/*}:lookupEnvironmentHistory\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='RunContinuousTest',
+    full_name='google.cloud.dialogflow.cx.v3.Environments.RunContinuousTest',
+    index=6,
+    containing_service=None,
+    input_type=_RUNCONTINUOUSTESTREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002W\"R/v3/{environment=projects/*/locations/*/agents/*/environments/*}:runContinuousTest:\001*\312A6\n\031RunContinuousTestResponse\022\031RunContinuousTestMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListContinuousTestResults',
+    full_name='google.cloud.dialogflow.cx.v3.Environments.ListContinuousTestResults',
+    index=7,
+    containing_service=None,
+    input_type=_LISTCONTINUOUSTESTRESULTSREQUEST,
+    output_type=_LISTCONTINUOUSTESTRESULTSRESPONSE,
+    serialized_options=b'\202\323\344\223\002S\022Q/v3/{parent=projects/*/locations/*/agents/*/environments/*}/continuousTestResults\332A\006parent',
     create_key=_descriptor._internal_create_key,
   ),
 ])
