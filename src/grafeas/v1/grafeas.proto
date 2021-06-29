@@ -16,11 +16,6 @@ syntax = "proto3";
 
 package grafeas.v1;
 
-option go_package = "github.com/grafeas/grafeas/proto/v1/grafeas_go_proto";
-option java_multiple_files = true;
-option java_package = "io.grafeas.v1";
-option objc_class_prefix = "GRA";
-
 import "google/api/annotations.proto";
 import "google/api/client.proto";
 import "google/api/field_behavior.proto";
@@ -28,16 +23,24 @@ import "google/api/resource.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/v1/attestation.proto";
-import "proto/v1/build.proto";
-import "proto/v1/common.proto";
-import "proto/v1/deployment.proto";
-import "proto/v1/discovery.proto";
-import "proto/v1/image.proto";
-import "proto/v1/package.proto";
-import "proto/v1/upgrade.proto";
-import "proto/v1/vulnerability.proto";
-import "proto/v1/compliance.proto";
+import "grafeas/v1/attestation.proto";
+import "grafeas/v1/build.proto";
+import "grafeas/v1/common.proto";
+import "grafeas/v1/deployment.proto";
+import "grafeas/v1/discovery.proto";
+import "grafeas/v1/image.proto";
+import "grafeas/v1/package.proto";
+import "grafeas/v1/upgrade.proto";
+import "grafeas/v1/vulnerability.proto";
+
+option go_package = "google.golang.org/genproto/googleapis/grafeas/v1;grafeas";
+option java_multiple_files = true;
+option java_package = "io.grafeas.v1";
+option objc_class_prefix = "GRA";
+option (google.api.resource_definition) = {
+  type: "grafeas.io/Project"
+  pattern: "projects/{project}"
+};
 
 // [Grafeas](https://grafeas.io) API.
 //
@@ -54,13 +57,15 @@ import "proto/v1/compliance.proto";
 // there would be one note for the vulnerability and an occurrence for each
 // image with the vulnerability referring to that note.
 service Grafeas {
+  option (google.api.default_host) = "containeranalysis.googleapis.com";
+
   // Gets the specified occurrence.
   rpc GetOccurrence(GetOccurrenceRequest) returns (Occurrence) {
     option (google.api.http) = {
       get: "/v1/{name=projects/*/occurrences/*}"
     };
     option (google.api.method_signature) = "name";
-  };
+  }
 
   // Lists occurrences for the specified project.
   rpc ListOccurrences(ListOccurrencesRequest)
@@ -69,7 +74,7 @@ service Grafeas {
       get: "/v1/{parent=projects/*}/occurrences"
     };
     option (google.api.method_signature) = "parent,filter";
-  };
+  }
 
   // Deletes the specified occurrence. For example, use this method to delete an
   // occurrence when the occurrence is no longer applicable for the given
@@ -80,7 +85,7 @@ service Grafeas {
       delete: "/v1/{name=projects/*/occurrences/*}"
     };
     option (google.api.method_signature) = "name";
-  };
+  }
 
   // Creates a new occurrence.
   rpc CreateOccurrence(CreateOccurrenceRequest) returns (Occurrence) {
@@ -89,7 +94,7 @@ service Grafeas {
       body: "occurrence"
     };
     option (google.api.method_signature) = "parent,occurrence";
-  };
+  }
 
   // Creates new occurrences in batch.
   rpc BatchCreateOccurrences(BatchCreateOccurrencesRequest)
@@ -99,7 +104,7 @@ service Grafeas {
       body: "*"
     };
     option (google.api.method_signature) = "parent,occurrences";
-  };
+  }
 
   // Updates the specified occurrence.
   rpc UpdateOccurrence(UpdateOccurrenceRequest) returns (Occurrence) {
@@ -108,7 +113,7 @@ service Grafeas {
       body: "occurrence"
     };
     option (google.api.method_signature) = "name,occurrence,update_mask";
-  };
+  }
 
   // Gets the note attached to the specified occurrence. Consumer projects can
   // use this method to get a note that belongs to a provider project.
@@ -117,7 +122,7 @@ service Grafeas {
       get: "/v1/{name=projects/*/occurrences/*}/notes"
     };
     option (google.api.method_signature) = "name";
-  };
+  }
 
   // Gets the specified note.
   rpc GetNote(GetNoteRequest) returns (Note) {
@@ -125,7 +130,7 @@ service Grafeas {
       get: "/v1/{name=projects/*/notes/*}"
     };
     option (google.api.method_signature) = "name";
-  };
+  }
 
   // Lists notes for the specified project.
   rpc ListNotes(ListNotesRequest) returns (ListNotesResponse) {
@@ -133,7 +138,7 @@ service Grafeas {
       get: "/v1/{parent=projects/*}/notes"
     };
     option (google.api.method_signature) = "parent,filter";
-  };
+  }
 
   // Deletes the specified note.
   rpc DeleteNote(DeleteNoteRequest) returns (google.protobuf.Empty) {
@@ -141,7 +146,7 @@ service Grafeas {
       delete: "/v1/{name=projects/*/notes/*}"
     };
     option (google.api.method_signature) = "name";
-  };
+  }
 
   // Creates a new note.
   rpc CreateNote(CreateNoteRequest) returns (Note) {
@@ -150,7 +155,7 @@ service Grafeas {
       body: "note"
     };
     option (google.api.method_signature) = "parent,note_id,note";
-  };
+  }
 
   // Creates new notes in batch.
   rpc BatchCreateNotes(BatchCreateNotesRequest)
@@ -160,7 +165,7 @@ service Grafeas {
       body: "*"
     };
     option (google.api.method_signature) = "parent,notes";
-  };
+  }
 
   // Updates the specified note.
   rpc UpdateNote(UpdateNoteRequest) returns (Note) {
@@ -169,7 +174,7 @@ service Grafeas {
       body: "note"
     };
     option (google.api.method_signature) = "name,note,update_mask";
-  };
+  }
 
   // Lists occurrences referencing the specified note. Provider projects can use
   // this method to get all occurrences across consumer projects referencing the
@@ -180,8 +185,8 @@ service Grafeas {
       get: "/v1/{name=projects/*/notes/*}/occurrences"
     };
     option (google.api.method_signature) = "name,filter";
-  };
-};
+  }
+}
 
 // An instance of an analysis type that has been found on a resource.
 message Occurrence {
@@ -237,8 +242,6 @@ message Occurrence {
     grafeas.v1.AttestationOccurrence attestation = 14;
     // Describes an available package upgrade on the linked resource.
     grafeas.v1.UpgradeOccurrence upgrade = 15;
-    // Describes a compliance violation on a linked resource.
-    grafeas.v1.ComplianceOccurrence compliance = 16;
   }
 }
 
@@ -298,8 +301,6 @@ message Note {
     grafeas.v1.AttestationNote attestation = 16;
     // A note describing available package upgrades.
     grafeas.v1.UpgradeNote upgrade = 17;
-    // A note describing a compliance check.
-    grafeas.v1.ComplianceNote compliance = 18;
   }
 }
 
