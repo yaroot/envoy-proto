@@ -206,11 +206,8 @@ php_grpc_library(
 
 php_gapic_library(
     name = "containeranalysis_php_gapic",
-    src = ":containeranalysis_proto_with_info",
-    gapic_yaml = "containeranalysis_gapic.yaml",
+    srcs = [":containeranalysis_proto_with_info"],
     grpc_service_config = "containeranalysis_grpc_service_config.json",
-    package = "google.devtools.containeranalysis.v1",
-    service_yaml = "containeranalysis_v1.yaml",
     deps = [
         ":containeranalysis_php_grpc",
         ":containeranalysis_php_proto",
@@ -264,8 +261,8 @@ nodejs_gapic_assembly_pkg(
 ##############################################################################
 load(
     "@com_google_googleapis_imports//:imports.bzl",
-    "ruby_gapic_assembly_pkg",
     "ruby_cloud_gapic_library",
+    "ruby_gapic_assembly_pkg",
     "ruby_grpc_library",
     "ruby_proto_library",
 )

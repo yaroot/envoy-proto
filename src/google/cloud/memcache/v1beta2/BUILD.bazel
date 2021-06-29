@@ -195,10 +195,8 @@ php_grpc_library(
 
 php_gapic_library(
     name = "memcache_php_gapic",
-    src = ":memcache_proto_with_info",
-    gapic_yaml = "memcache_gapic.yaml",
+    srcs = [":memcache_proto_with_info"],
     grpc_service_config = "memcache_grpc_service_config.json",
-    package = "google.cloud.memcache.v1beta2",
     service_yaml = "memcache_v1beta2.yaml",
     deps = [
         ":memcache_php_grpc",
@@ -249,8 +247,8 @@ nodejs_gapic_assembly_pkg(
 ##############################################################################
 load(
     "@com_google_googleapis_imports//:imports.bzl",
-    "ruby_gapic_assembly_pkg",
     "ruby_cloud_gapic_library",
+    "ruby_gapic_assembly_pkg",
     "ruby_grpc_library",
     "ruby_proto_library",
 )

@@ -135,11 +135,30 @@ message Trial {
   // Output only. The final measurement containing the objective value.
   Measurement final_measurement = 5 [(google.api.field_behavior) = OUTPUT_ONLY];
 
+  // Output only. A list of measurements that are strictly lexicographically
+  // ordered by their induced tuples (steps, elapsed_duration).
+  // These are used for early stopping computations.
+  repeated Measurement measurements = 6 [(google.api.field_behavior) = OUTPUT_ONLY];
+
   // Output only. Time when the Trial was started.
   google.protobuf.Timestamp start_time = 7 [(google.api.field_behavior) = OUTPUT_ONLY];
 
   // Output only. Time when the Trial's status changed to `SUCCEEDED` or `INFEASIBLE`.
   google.protobuf.Timestamp end_time = 8 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  // Output only. The identifier of the client that originally requested this Trial.
+  // Each client is identified by a unique client_id. When a client
+  // asks for a suggestion, Vizier will assign it a Trial. The client should
+  // evaluate the Trial, complete it, and report back to Vizier.
+  // If suggestion is asked again by same client_id before the Trial is
+  // completed, the same Trial will be returned. Multiple clients with
+  // different client_ids can ask for suggestions simultaneously, each of them
+  // will get their own Trial.
+  string client_id = 9 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  // Output only. A human readable string describing why the Trial is
+  // infeasible. This is set only if Trial state is `INFEASIBLE`.
+  string infeasible_reason = 10 [(google.api.field_behavior) = OUTPUT_ONLY];
 
   // Output only. The CustomJob name linked to the Trial.
   // It's set for a HyperparameterTuningJob's Trial.
@@ -369,7 +388,9 @@ message StudySpec {
 
   // The available search algorithms for the Study.
   enum Algorithm {
-    // The default algorithm used by AI Platform Optimization service.
+    // The default algorithm used by Vertex AI for [hyperparameter
+    // tuning](https://cloud.google.com/vertex-ai/docs/training/hyperparameter-tuning-overview)
+    // and [Vertex Vizier](https://cloud.google.com/vertex-ai/docs/vizier).
     ALGORITHM_UNSPECIFIED = 0;
 
     // Simple grid search within the feasible space. To use grid search,
@@ -385,15 +406,15 @@ message StudySpec {
   // "Noisy" means that the repeated observations with the same Trial parameters
   // may lead to different metric evaluations.
   enum ObservationNoise {
-    // The default noise level chosen by the AI Platform service.
+    // The default noise level chosen by Vertex AI.
     OBSERVATION_NOISE_UNSPECIFIED = 0;
 
-    // AI Platform Vizier assumes that the objective function is (nearly)
+    // Vertex AI assumes that the objective function is (nearly)
     // perfectly reproducible, and will never repeat the same Trial
     // parameters.
     LOW = 1;
 
-    // AI Platform Vizier will estimate the amount of noise in metric
+    // Vertex AI will estimate the amount of noise in metric
     // evaluations, it may repeat the same Trial parameters more than once.
     HIGH = 2;
   }
@@ -464,6 +485,9 @@ message Measurement {
     // Output only. The value for this metric.
     double value = 2 [(google.api.field_behavior) = OUTPUT_ONLY];
   }
+
+  // Output only. Time that the Trial has been running at the point of this Measurement.
+  google.protobuf.Duration elapsed_duration = 1 [(google.api.field_behavior) = OUTPUT_ONLY];
 
   // Output only. The number of steps the machine learning model has been trained for.
   // Must be non-negative.

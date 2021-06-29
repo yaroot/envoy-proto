@@ -56,6 +56,10 @@ service TransitionRouteGroups {
   }
 
   // Creates an [TransitionRouteGroup][google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroup] in the specified flow.
+  //
+  // Note: You should always train a flow prior to sending it queries. See the
+  // [training
+  // documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
   rpc CreateTransitionRouteGroup(CreateTransitionRouteGroupRequest) returns (TransitionRouteGroup) {
     option (google.api.http) = {
       post: "/v3beta1/{parent=projects/*/locations/*/agents/*/flows/*}/transitionRouteGroups"
@@ -65,6 +69,10 @@ service TransitionRouteGroups {
   }
 
   // Updates the specified [TransitionRouteGroup][google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroup].
+  //
+  // Note: You should always train a flow prior to sending it queries. See the
+  // [training
+  // documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
   rpc UpdateTransitionRouteGroup(UpdateTransitionRouteGroupRequest) returns (TransitionRouteGroup) {
     option (google.api.http) = {
       patch: "/v3beta1/{transition_route_group.name=projects/*/locations/*/agents/*/flows/*/transitionRouteGroups/*}"
@@ -74,6 +82,10 @@ service TransitionRouteGroups {
   }
 
   // Deletes the specified [TransitionRouteGroup][google.cloud.dialogflow.cx.v3beta1.TransitionRouteGroup].
+  //
+  // Note: You should always train a flow prior to sending it queries. See the
+  // [training
+  // documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
   rpc DeleteTransitionRouteGroup(DeleteTransitionRouteGroupRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       delete: "/v3beta1/{name=projects/*/locations/*/agents/*/flows/*/transitionRouteGroups/*}"
@@ -124,9 +136,12 @@ message ListTransitionRouteGroupsRequest {
   // The next_page_token value returned from a previous list request.
   string page_token = 3;
 
-  // The language to list transition route groups for. The field
-  // [`messages`][TransitionRoute.trigger_fulfillment.messages] in
-  // [TransitionRoute][google.cloud.dialogflow.cx.v3beta1.TransitionRoute] is language dependent.
+  // The language to list transition route groups for. The following fields are
+  // language dependent:
+  //
+  // *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages`
+  // *
+  // `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
   //
   // If not specified, the agent's default language is used.
   // [Many
@@ -161,9 +176,12 @@ message GetTransitionRouteGroupRequest {
     }
   ];
 
-  // The language to list transition route groups for. The field
-  // [`messages`][TransitionRoute.trigger_fulfillment.messages] in
-  // [TransitionRoute][google.cloud.dialogflow.cx.v3beta1.TransitionRoute] is language dependent.
+  // The language to retrieve the transition route group for. The following
+  // fields are language dependent:
+  //
+  // *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages`
+  // *
+  // `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
   //
   // If not specified, the agent's default language is used.
   // [Many
@@ -188,9 +206,11 @@ message CreateTransitionRouteGroupRequest {
   // Required. The transition route group to create.
   TransitionRouteGroup transition_route_group = 2 [(google.api.field_behavior) = REQUIRED];
 
-  // The language to list transition route groups for. The field
-  // [`messages`][TransitionRoute.trigger_fulfillment.messages] in
-  // [TransitionRoute][google.cloud.dialogflow.cx.v3beta1.TransitionRoute] is language dependent.
+  // The language of the following fields in `TransitionRouteGroup`:
+  //
+  // *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages`
+  // *
+  // `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
   //
   // If not specified, the agent's default language is used.
   // [Many
@@ -208,9 +228,11 @@ message UpdateTransitionRouteGroupRequest {
   // The mask to control which fields get updated.
   google.protobuf.FieldMask update_mask = 2;
 
-  // The language to list transition route groups for. The field
-  // [`messages`][TransitionRoute.trigger_fulfillment.messages] in
-  // [TransitionRoute][google.cloud.dialogflow.cx.v3beta1.TransitionRoute] is language dependent.
+  // The language of the following fields in `TransitionRouteGroup`:
+  //
+  // *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages`
+  // *
+  // `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
   //
   // If not specified, the agent's default language is used.
   // [Many

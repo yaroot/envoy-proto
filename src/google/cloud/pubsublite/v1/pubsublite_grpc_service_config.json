@@ -14,8 +14,15 @@
           "method": "ListPartitionCursors"
         },
         {
-          "service": "google.cloud.pubsublite.v1.TopicStatsService",
-          "method": "ComputeMessageStats"
+          "service": "google.cloud.pubsublite.v1.TopicStatsService"
+        },
+        {
+          "service": "google.longrunning.Operations",
+          "method": "GetOperation"
+        },
+        {
+          "service": "google.longrunning.Operations",
+          "method": "ListOperations"
         }
       ],
       "timeout": "600s",

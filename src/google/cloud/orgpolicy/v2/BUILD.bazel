@@ -194,11 +194,8 @@ php_grpc_library(
 
 php_gapic_library(
     name = "orgpolicy_php_gapic",
-    src = ":orgpolicy_proto_with_info",
-    gapic_yaml = "orgpolicy_gapic.yaml",
+    srcs = [":orgpolicy_proto_with_info"],
     grpc_service_config = "orgpolicy_grpc_service_config.json",
-    package = "google.cloud.orgpolicy.v2",
-    service_yaml = "orgpolicy_v2.yaml",
     deps = [
         ":orgpolicy_php_grpc",
         ":orgpolicy_php_proto",
@@ -248,8 +245,8 @@ nodejs_gapic_assembly_pkg(
 ##############################################################################
 load(
     "@com_google_googleapis_imports//:imports.bzl",
-    "ruby_gapic_assembly_pkg",
     "ruby_cloud_gapic_library",
+    "ruby_gapic_assembly_pkg",
     "ruby_grpc_library",
     "ruby_proto_library",
 )
@@ -267,7 +264,7 @@ ruby_grpc_library(
 
 ruby_cloud_gapic_library(
     name = "orgpolicy_ruby_gapic",
-    srcs = [":orgpolicy_proto_with_info",],
+    srcs = [":orgpolicy_proto_with_info"],
     extra_protoc_parameters = [
         "ruby-cloud-gem-name=google-cloud-org_policy-v2",
         "ruby-cloud-env-prefix=ORG_POLICY",
