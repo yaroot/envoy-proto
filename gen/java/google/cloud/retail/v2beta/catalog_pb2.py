@@ -14,6 +14,8 @@ _sym_db = _symbol_database.Default()
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.retail.v2beta import common_pb2 as google_dot_cloud_dot_retail_dot_v2beta_dot_common__pb2
+from google.cloud.retail.v2beta import import_config_pb2 as google_dot_cloud_dot_retail_dot_v2beta_dot_import__config__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\036com.google.cloud.retail.v2betaB\014CatalogProtoP\001Z@google.golang.org/genproto/googleapis/cloud/retail/v2beta;retail\242\002\006RETAIL\252\002\032Google.Cloud.Retail.V2Beta\312\002\032Google\\Cloud\\Retail\\V2beta\352\002\035Google::Cloud::Retail::V2beta',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n(google/cloud/retail/v2beta/catalog.proto\x12\x1agoogle.cloud.retail.v2beta\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"^\n\x12ProductLevelConfig\x12\x1e\n\x16ingestion_product_type\x18\x01 \x01(\t\x12(\n merchant_center_product_id_field\x18\x02 \x01(\t\"\xf0\x01\n\x07\x43\x61talog\x12\x14\n\x04name\x18\x01 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12\x1c\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12Q\n\x14product_level_config\x18\x04 \x01(\x0b\x32..google.cloud.retail.v2beta.ProductLevelConfigB\x03\xe0\x41\x02:^\xea\x41[\n\x1dretail.googleapis.com/Catalog\x12:projects/{project}/locations/{location}/catalogs/{catalog}B\xd5\x01\n\x1e\x63om.google.cloud.retail.v2betaB\x0c\x43\x61talogProtoP\x01Z@google.golang.org/genproto/googleapis/cloud/retail/v2beta;retail\xa2\x02\x06RETAIL\xaa\x02\x1aGoogle.Cloud.Retail.V2Beta\xca\x02\x1aGoogle\\Cloud\\Retail\\V2beta\xea\x02\x1dGoogle::Cloud::Retail::V2betab\x06proto3'
+  serialized_pb=b'\n(google/cloud/retail/v2beta/catalog.proto\x12\x1agoogle.cloud.retail.v2beta\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\'google/cloud/retail/v2beta/common.proto\x1a.google/cloud/retail/v2beta/import_config.proto\"^\n\x12ProductLevelConfig\x12\x1e\n\x16ingestion_product_type\x18\x01 \x01(\t\x12(\n merchant_center_product_id_field\x18\x02 \x01(\t\"\xf0\x01\n\x07\x43\x61talog\x12\x14\n\x04name\x18\x01 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12\x1c\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12Q\n\x14product_level_config\x18\x04 \x01(\x0b\x32..google.cloud.retail.v2beta.ProductLevelConfigB\x03\xe0\x41\x02:^\xea\x41[\n\x1dretail.googleapis.com/Catalog\x12:projects/{project}/locations/{location}/catalogs/{catalog}B\xd5\x01\n\x1e\x63om.google.cloud.retail.v2betaB\x0c\x43\x61talogProtoP\x01Z@google.golang.org/genproto/googleapis/cloud/retail/v2beta;retail\xa2\x02\x06RETAIL\xaa\x02\x1aGoogle.Cloud.Retail.V2Beta\xca\x02\x1aGoogle\\Cloud\\Retail\\V2beta\xea\x02\x1dGoogle::Cloud::Retail::V2betab\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2beta_dot_common__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2beta_dot_import__config__pb2.DESCRIPTOR,])
 
 
 
@@ -63,8 +65,8 @@ _PRODUCTLEVELCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=162,
-  serialized_end=256,
+  serialized_start=251,
+  serialized_end=345,
 )
 
 
@@ -109,8 +111,8 @@ _CATALOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=259,
-  serialized_end=499,
+  serialized_start=348,
+  serialized_end=588,
 )
 
 _CATALOG.fields_by_name['product_level_config'].message_type = _PRODUCTLEVELCONFIG

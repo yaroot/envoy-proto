@@ -28,7 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n#com.google.cloud.dialogflow.v2beta1B\020EnvironmentProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2beta1;dialogflow\370\001\001\242\002\002DF\252\002\037Google.Cloud.Dialogflow.V2beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n1google/cloud/dialogflow/v2beta1/environment.proto\x12\x1fgoogle.cloud.dialogflow.v2beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x32google/cloud/dialogflow/v2beta1/audio_config.proto\x1a\x31google/cloud/dialogflow/v2beta1/fulfillment.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xed\x04\n\x0b\x45nvironment\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x18\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\ragent_version\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x46\n\x05state\x18\x04 \x01(\x0e\x32\x32.google.cloud.dialogflow.v2beta1.Environment.StateB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12[\n\x17text_to_speech_settings\x18\x07 \x01(\x0b\x32\x35.google.cloud.dialogflow.v2beta1.TextToSpeechSettingsB\x03\xe0\x41\x01\x12\x46\n\x0b\x66ulfillment\x18\x08 \x01(\x0b\x32,.google.cloud.dialogflow.v2beta1.FulfillmentB\x03\xe0\x41\x01\"E\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07STOPPED\x10\x01\x12\x0b\n\x07LOADING\x10\x02\x12\x0b\n\x07RUNNING\x10\x03:\xaa\x01\xea\x41\xa6\x01\n%dialogflow.googleapis.com/Environment\x12\x33projects/{project}/agent/environments/{environment}\x12Hprojects/{project}/locations/{location}/agent/environments/{environment}\"\xa9\x03\n\x14TextToSpeechSettings\x12\"\n\x15\x65nable_text_to_speech\x18\x01 \x01(\x08\x42\x03\xe0\x41\x01\x12X\n\x15output_audio_encoding\x18\x02 \x01(\x0e\x32\x34.google.cloud.dialogflow.v2beta1.OutputAudioEncodingB\x03\xe0\x41\x02\x12\x1e\n\x11sample_rate_hertz\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01\x12z\n\x19synthesize_speech_configs\x18\x04 \x03(\x0b\x32R.google.cloud.dialogflow.v2beta1.TextToSpeechSettings.SynthesizeSpeechConfigsEntryB\x03\xe0\x41\x01\x1aw\n\x1cSynthesizeSpeechConfigsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x46\n\x05value\x18\x02 \x01(\x0b\x32\x37.google.cloud.dialogflow.v2beta1.SynthesizeSpeechConfig:\x02\x38\x01\"\x89\x01\n\x17ListEnvironmentsRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Environment\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"w\n\x18ListEnvironmentsResponse\x12\x42\n\x0c\x65nvironments\x18\x01 \x03(\x0b\x32,.google.cloud.dialogflow.v2beta1.Environment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"T\n\x15GetEnvironmentRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\"\xbe\x01\n\x18\x43reateEnvironmentRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Environment\x12\x46\n\x0b\x65nvironment\x18\x02 \x01(\x0b\x32,.google.cloud.dialogflow.v2beta1.EnvironmentB\x03\xe0\x41\x02\x12\x1b\n\x0e\x65nvironment_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"\xce\x01\n\x18UpdateEnvironmentRequest\x12\x46\n\x0b\x65nvironment\x18\x01 \x01(\x0b\x32,.google.cloud.dialogflow.v2beta1.EnvironmentB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x34\n\'allow_load_to_draft_and_discard_changes\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\"W\n\x18\x44\x65leteEnvironmentRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\"\x8e\x01\n\x1cGetEnvironmentHistoryRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xfe\x01\n\x12\x45nvironmentHistory\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12O\n\x07\x65ntries\x18\x02 \x03(\x0b\x32\x39.google.cloud.dialogflow.v2beta1.EnvironmentHistory.EntryB\x03\xe0\x41\x03\x12\x1c\n\x0fnext_page_token\x18\x03 \x01(\tB\x03\xe0\x41\x03\x1a\x64\n\x05\x45ntry\x12\x15\n\ragent_version\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xbf\r\n\x0c\x45nvironments\x12\x88\x02\n\x10ListEnvironments\x12\x38.google.cloud.dialogflow.v2beta1.ListEnvironmentsRequest\x1a\x39.google.cloud.dialogflow.v2beta1.ListEnvironmentsResponse\"\x7f\x82\xd3\xe4\x93\x02p\x12//v2beta1/{parent=projects/*/agent}/environmentsZ=\x12;/v2beta1/{parent=projects/*/locations/*/agent}/environments\xda\x41\x06parent\x12\xee\x01\n\x0eGetEnvironment\x12\x36.google.cloud.dialogflow.v2beta1.GetEnvironmentRequest\x1a,.google.cloud.dialogflow.v2beta1.Environment\"v\x82\xd3\xe4\x93\x02p\x12//v2beta1/{name=projects/*/agent/environments/*}Z=\x12;/v2beta1/{name=projects/*/locations/*/agent/environments/*}\x12\x90\x02\n\x11\x43reateEnvironment\x12\x39.google.cloud.dialogflow.v2beta1.CreateEnvironmentRequest\x1a,.google.cloud.dialogflow.v2beta1.Environment\"\x91\x01\x82\xd3\xe4\x93\x02\x8a\x01\"//v2beta1/{parent=projects/*/agent}/environments:\x0b\x65nvironmentZJ\";/v2beta1/{parent=projects/*/locations/*/agent}/environments:\x0b\x65nvironment\x12\xa8\x02\n\x11UpdateEnvironment\x12\x39.google.cloud.dialogflow.v2beta1.UpdateEnvironmentRequest\x1a,.google.cloud.dialogflow.v2beta1.Environment\"\xa9\x01\x82\xd3\xe4\x93\x02\xa2\x01\x32;/v2beta1/{environment.name=projects/*/agent/environments/*}:\x0b\x65nvironmentZV2G/v2beta1/{environment.name=projects/*/locations/*/agent/environments/*}:\x0b\x65nvironment\x12\xde\x01\n\x11\x44\x65leteEnvironment\x12\x39.google.cloud.dialogflow.v2beta1.DeleteEnvironmentRequest\x1a\x16.google.protobuf.Empty\"v\x82\xd3\xe4\x93\x02p*//v2beta1/{name=projects/*/agent/environments/*}Z=*;/v2beta1/{name=projects/*/locations/*/agent/environments/*}\x12\x99\x02\n\x15GetEnvironmentHistory\x12=.google.cloud.dialogflow.v2beta1.GetEnvironmentHistoryRequest\x1a\x33.google.cloud.dialogflow.v2beta1.EnvironmentHistory\"\x8b\x01\x82\xd3\xe4\x93\x02\x84\x01\x12\x39/v2beta1/{parent=projects/*/agent/environments/*}/historyZG\x12\x45/v2beta1/{parent=projects/*/locations/*/agent/environments/*}/history\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xae\x01\n#com.google.cloud.dialogflow.v2beta1B\x10\x45nvironmentProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2beta1;dialogflow\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1fGoogle.Cloud.Dialogflow.V2beta1b\x06proto3'
+  serialized_pb=b'\n1google/cloud/dialogflow/v2beta1/environment.proto\x12\x1fgoogle.cloud.dialogflow.v2beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x32google/cloud/dialogflow/v2beta1/audio_config.proto\x1a\x31google/cloud/dialogflow/v2beta1/fulfillment.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x93\x05\n\x0b\x45nvironment\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x18\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12@\n\ragent_version\x18\x03 \x01(\tB)\xe0\x41\x01\xfa\x41#\n!dialogflow.googleapis.com/Version\x12\x46\n\x05state\x18\x04 \x01(\x0e\x32\x32.google.cloud.dialogflow.v2beta1.Environment.StateB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12[\n\x17text_to_speech_settings\x18\x07 \x01(\x0b\x32\x35.google.cloud.dialogflow.v2beta1.TextToSpeechSettingsB\x03\xe0\x41\x01\x12\x46\n\x0b\x66ulfillment\x18\x08 \x01(\x0b\x32,.google.cloud.dialogflow.v2beta1.FulfillmentB\x03\xe0\x41\x01\"E\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07STOPPED\x10\x01\x12\x0b\n\x07LOADING\x10\x02\x12\x0b\n\x07RUNNING\x10\x03:\xaa\x01\xea\x41\xa6\x01\n%dialogflow.googleapis.com/Environment\x12\x33projects/{project}/agent/environments/{environment}\x12Hprojects/{project}/locations/{location}/agent/environments/{environment}\"\xa9\x03\n\x14TextToSpeechSettings\x12\"\n\x15\x65nable_text_to_speech\x18\x01 \x01(\x08\x42\x03\xe0\x41\x01\x12X\n\x15output_audio_encoding\x18\x02 \x01(\x0e\x32\x34.google.cloud.dialogflow.v2beta1.OutputAudioEncodingB\x03\xe0\x41\x02\x12\x1e\n\x11sample_rate_hertz\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01\x12z\n\x19synthesize_speech_configs\x18\x04 \x03(\x0b\x32R.google.cloud.dialogflow.v2beta1.TextToSpeechSettings.SynthesizeSpeechConfigsEntryB\x03\xe0\x41\x01\x1aw\n\x1cSynthesizeSpeechConfigsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x46\n\x05value\x18\x02 \x01(\x0b\x32\x37.google.cloud.dialogflow.v2beta1.SynthesizeSpeechConfig:\x02\x38\x01\"\x89\x01\n\x17ListEnvironmentsRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Environment\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"w\n\x18ListEnvironmentsResponse\x12\x42\n\x0c\x65nvironments\x18\x01 \x03(\x0b\x32,.google.cloud.dialogflow.v2beta1.Environment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"T\n\x15GetEnvironmentRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\"\xbe\x01\n\x18\x43reateEnvironmentRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dialogflow.googleapis.com/Environment\x12\x46\n\x0b\x65nvironment\x18\x02 \x01(\x0b\x32,.google.cloud.dialogflow.v2beta1.EnvironmentB\x03\xe0\x41\x02\x12\x1b\n\x0e\x65nvironment_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"\xce\x01\n\x18UpdateEnvironmentRequest\x12\x46\n\x0b\x65nvironment\x18\x01 \x01(\x0b\x32,.google.cloud.dialogflow.v2beta1.EnvironmentB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x34\n\'allow_load_to_draft_and_discard_changes\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\"W\n\x18\x44\x65leteEnvironmentRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\"\x8e\x01\n\x1cGetEnvironmentHistoryRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dialogflow.googleapis.com/Environment\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xfe\x01\n\x12\x45nvironmentHistory\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12O\n\x07\x65ntries\x18\x02 \x03(\x0b\x32\x39.google.cloud.dialogflow.v2beta1.EnvironmentHistory.EntryB\x03\xe0\x41\x03\x12\x1c\n\x0fnext_page_token\x18\x03 \x01(\tB\x03\xe0\x41\x03\x1a\x64\n\x05\x45ntry\x12\x15\n\ragent_version\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xbf\r\n\x0c\x45nvironments\x12\x88\x02\n\x10ListEnvironments\x12\x38.google.cloud.dialogflow.v2beta1.ListEnvironmentsRequest\x1a\x39.google.cloud.dialogflow.v2beta1.ListEnvironmentsResponse\"\x7f\x82\xd3\xe4\x93\x02p\x12//v2beta1/{parent=projects/*/agent}/environmentsZ=\x12;/v2beta1/{parent=projects/*/locations/*/agent}/environments\xda\x41\x06parent\x12\xee\x01\n\x0eGetEnvironment\x12\x36.google.cloud.dialogflow.v2beta1.GetEnvironmentRequest\x1a,.google.cloud.dialogflow.v2beta1.Environment\"v\x82\xd3\xe4\x93\x02p\x12//v2beta1/{name=projects/*/agent/environments/*}Z=\x12;/v2beta1/{name=projects/*/locations/*/agent/environments/*}\x12\x90\x02\n\x11\x43reateEnvironment\x12\x39.google.cloud.dialogflow.v2beta1.CreateEnvironmentRequest\x1a,.google.cloud.dialogflow.v2beta1.Environment\"\x91\x01\x82\xd3\xe4\x93\x02\x8a\x01\"//v2beta1/{parent=projects/*/agent}/environments:\x0b\x65nvironmentZJ\";/v2beta1/{parent=projects/*/locations/*/agent}/environments:\x0b\x65nvironment\x12\xa8\x02\n\x11UpdateEnvironment\x12\x39.google.cloud.dialogflow.v2beta1.UpdateEnvironmentRequest\x1a,.google.cloud.dialogflow.v2beta1.Environment\"\xa9\x01\x82\xd3\xe4\x93\x02\xa2\x01\x32;/v2beta1/{environment.name=projects/*/agent/environments/*}:\x0b\x65nvironmentZV2G/v2beta1/{environment.name=projects/*/locations/*/agent/environments/*}:\x0b\x65nvironment\x12\xde\x01\n\x11\x44\x65leteEnvironment\x12\x39.google.cloud.dialogflow.v2beta1.DeleteEnvironmentRequest\x1a\x16.google.protobuf.Empty\"v\x82\xd3\xe4\x93\x02p*//v2beta1/{name=projects/*/agent/environments/*}Z=*;/v2beta1/{name=projects/*/locations/*/agent/environments/*}\x12\x99\x02\n\x15GetEnvironmentHistory\x12=.google.cloud.dialogflow.v2beta1.GetEnvironmentHistoryRequest\x1a\x33.google.cloud.dialogflow.v2beta1.EnvironmentHistory\"\x8b\x01\x82\xd3\xe4\x93\x02\x84\x01\x12\x39/v2beta1/{parent=projects/*/agent/environments/*}/historyZG\x12\x45/v2beta1/{parent=projects/*/locations/*/agent/environments/*}/history\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xae\x01\n#com.google.cloud.dialogflow.v2beta1B\x10\x45nvironmentProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/dialogflow/v2beta1;dialogflow\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1fGoogle.Cloud.Dialogflow.V2beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_v2beta1_dot_audio__config__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_v2beta1_dot_fulfillment__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -64,8 +64,8 @@ _ENVIRONMENT_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=780,
-  serialized_end=849,
+  serialized_start=818,
+  serialized_end=887,
 )
 _sym_db.RegisterEnumDescriptor(_ENVIRONMENT_STATE)
 
@@ -98,7 +98,7 @@ _ENVIRONMENT = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\001\372A#\n!dialogflow.googleapis.com/Version', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='state', full_name='google.cloud.dialogflow.v2beta1.Environment.state', index=3,
       number=4, type=14, cpp_type=8, label=1,
@@ -141,7 +141,7 @@ _ENVIRONMENT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=401,
-  serialized_end=1022,
+  serialized_end=1060,
 )
 
 
@@ -179,8 +179,8 @@ _TEXTTOSPEECHSETTINGS_SYNTHESIZESPEECHCONFIGSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1331,
-  serialized_end=1450,
+  serialized_start=1369,
+  serialized_end=1488,
 )
 
 _TEXTTOSPEECHSETTINGS = _descriptor.Descriptor(
@@ -231,8 +231,8 @@ _TEXTTOSPEECHSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1025,
-  serialized_end=1450,
+  serialized_start=1063,
+  serialized_end=1488,
 )
 
 
@@ -277,8 +277,8 @@ _LISTENVIRONMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1453,
-  serialized_end=1590,
+  serialized_start=1491,
+  serialized_end=1628,
 )
 
 
@@ -316,8 +316,8 @@ _LISTENVIRONMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1592,
-  serialized_end=1711,
+  serialized_start=1630,
+  serialized_end=1749,
 )
 
 
@@ -348,8 +348,8 @@ _GETENVIRONMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1713,
-  serialized_end=1797,
+  serialized_start=1751,
+  serialized_end=1835,
 )
 
 
@@ -394,8 +394,8 @@ _CREATEENVIRONMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1800,
-  serialized_end=1990,
+  serialized_start=1838,
+  serialized_end=2028,
 )
 
 
@@ -440,8 +440,8 @@ _UPDATEENVIRONMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1993,
-  serialized_end=2199,
+  serialized_start=2031,
+  serialized_end=2237,
 )
 
 
@@ -472,8 +472,8 @@ _DELETEENVIRONMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2201,
-  serialized_end=2288,
+  serialized_start=2239,
+  serialized_end=2326,
 )
 
 
@@ -518,8 +518,8 @@ _GETENVIRONMENTHISTORYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2291,
-  serialized_end=2433,
+  serialized_start=2329,
+  serialized_end=2471,
 )
 
 
@@ -564,8 +564,8 @@ _ENVIRONMENTHISTORY_ENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2590,
-  serialized_end=2690,
+  serialized_start=2628,
+  serialized_end=2728,
 )
 
 _ENVIRONMENTHISTORY = _descriptor.Descriptor(
@@ -609,8 +609,8 @@ _ENVIRONMENTHISTORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2436,
-  serialized_end=2690,
+  serialized_start=2474,
+  serialized_end=2728,
 )
 
 _ENVIRONMENT.fields_by_name['state'].enum_type = _ENVIRONMENT_STATE
@@ -767,8 +767,8 @@ _ENVIRONMENTS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=2693,
-  serialized_end=4420,
+  serialized_start=2731,
+  serialized_end=4458,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListEnvironments',

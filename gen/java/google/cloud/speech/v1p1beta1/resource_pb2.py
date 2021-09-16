@@ -12,6 +12,7 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
@@ -21,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.cloud.speech.v1p1beta1B\023SpeechResourceProtoP\001ZCgoogle.golang.org/genproto/googleapis/cloud/speech/v1p1beta1;speech\370\001\001\242\002\003GCS',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,google/cloud/speech/v1p1beta1/resource.proto\x12\x1dgoogle.cloud.speech.v1p1beta1\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\x83\x02\n\x0b\x43ustomClass\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x17\n\x0f\x63ustom_class_id\x18\x02 \x01(\t\x12\x43\n\x05items\x18\x03 \x03(\x0b\x32\x34.google.cloud.speech.v1p1beta1.CustomClass.ClassItem\x1a\x1a\n\tClassItem\x12\r\n\x05value\x18\x01 \x01(\t:l\xea\x41i\n!speech.googleapis.com/CustomClass\x12\x44projects/{project}/locations/{location}/customClasses/{custom_class}\"\xf9\x01\n\tPhraseSet\x12\x0c\n\x04name\x18\x01 \x01(\t\x12@\n\x07phrases\x18\x02 \x03(\x0b\x32/.google.cloud.speech.v1p1beta1.PhraseSet.Phrase\x12\r\n\x05\x62oost\x18\x04 \x01(\x02\x1a&\n\x06Phrase\x12\r\n\x05value\x18\x01 \x01(\t\x12\r\n\x05\x62oost\x18\x02 \x01(\x02:e\xea\x41\x62\n\x1fspeech.googleapis.com/PhraseSet\x12?projects/{project}/locations/{location}/phraseSets/{phrase_set}\"\xb4\x01\n\x10SpeechAdaptation\x12=\n\x0bphrase_sets\x18\x01 \x03(\x0b\x32(.google.cloud.speech.v1p1beta1.PhraseSet\x12\x1d\n\x15phrase_set_references\x18\x02 \x03(\t\x12\x42\n\x0e\x63ustom_classes\x18\x03 \x03(\x0b\x32*.google.cloud.speech.v1p1beta1.CustomClassB\x88\x01\n!com.google.cloud.speech.v1p1beta1B\x13SpeechResourceProtoP\x01ZCgoogle.golang.org/genproto/googleapis/cloud/speech/v1p1beta1;speech\xf8\x01\x01\xa2\x02\x03GCSb\x06proto3'
+  serialized_pb=b'\n,google/cloud/speech/v1p1beta1/resource.proto\x12\x1dgoogle.cloud.speech.v1p1beta1\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\x83\x02\n\x0b\x43ustomClass\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x17\n\x0f\x63ustom_class_id\x18\x02 \x01(\t\x12\x43\n\x05items\x18\x03 \x03(\x0b\x32\x34.google.cloud.speech.v1p1beta1.CustomClass.ClassItem\x1a\x1a\n\tClassItem\x12\r\n\x05value\x18\x01 \x01(\t:l\xea\x41i\n!speech.googleapis.com/CustomClass\x12\x44projects/{project}/locations/{location}/customClasses/{custom_class}\"\xf9\x01\n\tPhraseSet\x12\x0c\n\x04name\x18\x01 \x01(\t\x12@\n\x07phrases\x18\x02 \x03(\x0b\x32/.google.cloud.speech.v1p1beta1.PhraseSet.Phrase\x12\r\n\x05\x62oost\x18\x04 \x01(\x02\x1a&\n\x06Phrase\x12\r\n\x05value\x18\x01 \x01(\t\x12\r\n\x05\x62oost\x18\x02 \x01(\x02:e\xea\x41\x62\n\x1fspeech.googleapis.com/PhraseSet\x12?projects/{project}/locations/{location}/phraseSets/{phrase_set}\"\xda\x01\n\x10SpeechAdaptation\x12=\n\x0bphrase_sets\x18\x01 \x03(\x0b\x32(.google.cloud.speech.v1p1beta1.PhraseSet\x12\x43\n\x15phrase_set_references\x18\x02 \x03(\tB$\xfa\x41!\n\x1fspeech.googleapis.com/PhraseSet\x12\x42\n\x0e\x63ustom_classes\x18\x03 \x03(\x0b\x32*.google.cloud.speech.v1p1beta1.CustomClass\"\xaa\x01\n\x17TranscriptNormalization\x12M\n\x07\x65ntries\x18\x01 \x03(\x0b\x32<.google.cloud.speech.v1p1beta1.TranscriptNormalization.Entry\x1a@\n\x05\x45ntry\x12\x0e\n\x06search\x18\x01 \x01(\t\x12\x0f\n\x07replace\x18\x02 \x01(\t\x12\x16\n\x0e\x63\x61se_sensitive\x18\x03 \x01(\x08\x42\x88\x01\n!com.google.cloud.speech.v1p1beta1B\x13SpeechResourceProtoP\x01ZCgoogle.golang.org/genproto/googleapis/cloud/speech/v1p1beta1;speech\xf8\x01\x01\xa2\x02\x03GCSb\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -55,8 +56,8 @@ _CUSTOMCLASS_CLASSITEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=260,
-  serialized_end=286,
+  serialized_start=293,
+  serialized_end=319,
 )
 
 _CUSTOMCLASS = _descriptor.Descriptor(
@@ -100,8 +101,8 @@ _CUSTOMCLASS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=137,
-  serialized_end=396,
+  serialized_start=170,
+  serialized_end=429,
 )
 
 
@@ -139,8 +140,8 @@ _PHRASESET_PHRASE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=507,
-  serialized_end=545,
+  serialized_start=540,
+  serialized_end=578,
 )
 
 _PHRASESET = _descriptor.Descriptor(
@@ -184,8 +185,8 @@ _PHRASESET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=399,
-  serialized_end=648,
+  serialized_start=432,
+  serialized_end=681,
 )
 
 
@@ -210,7 +211,7 @@ _SPEECHADAPTATION = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372A!\n\037speech.googleapis.com/PhraseSet', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='custom_classes', full_name='google.cloud.speech.v1p1beta1.SpeechAdaptation.custom_classes', index=2,
       number=3, type=11, cpp_type=10, label=3,
@@ -230,8 +231,85 @@ _SPEECHADAPTATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=651,
-  serialized_end=831,
+  serialized_start=684,
+  serialized_end=902,
+)
+
+
+_TRANSCRIPTNORMALIZATION_ENTRY = _descriptor.Descriptor(
+  name='Entry',
+  full_name='google.cloud.speech.v1p1beta1.TranscriptNormalization.Entry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='search', full_name='google.cloud.speech.v1p1beta1.TranscriptNormalization.Entry.search', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='replace', full_name='google.cloud.speech.v1p1beta1.TranscriptNormalization.Entry.replace', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='case_sensitive', full_name='google.cloud.speech.v1p1beta1.TranscriptNormalization.Entry.case_sensitive', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1011,
+  serialized_end=1075,
+)
+
+_TRANSCRIPTNORMALIZATION = _descriptor.Descriptor(
+  name='TranscriptNormalization',
+  full_name='google.cloud.speech.v1p1beta1.TranscriptNormalization',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='entries', full_name='google.cloud.speech.v1p1beta1.TranscriptNormalization.entries', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_TRANSCRIPTNORMALIZATION_ENTRY, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=905,
+  serialized_end=1075,
 )
 
 _CUSTOMCLASS_CLASSITEM.containing_type = _CUSTOMCLASS
@@ -240,9 +318,12 @@ _PHRASESET_PHRASE.containing_type = _PHRASESET
 _PHRASESET.fields_by_name['phrases'].message_type = _PHRASESET_PHRASE
 _SPEECHADAPTATION.fields_by_name['phrase_sets'].message_type = _PHRASESET
 _SPEECHADAPTATION.fields_by_name['custom_classes'].message_type = _CUSTOMCLASS
+_TRANSCRIPTNORMALIZATION_ENTRY.containing_type = _TRANSCRIPTNORMALIZATION
+_TRANSCRIPTNORMALIZATION.fields_by_name['entries'].message_type = _TRANSCRIPTNORMALIZATION_ENTRY
 DESCRIPTOR.message_types_by_name['CustomClass'] = _CUSTOMCLASS
 DESCRIPTOR.message_types_by_name['PhraseSet'] = _PHRASESET
 DESCRIPTOR.message_types_by_name['SpeechAdaptation'] = _SPEECHADAPTATION
+DESCRIPTOR.message_types_by_name['TranscriptNormalization'] = _TRANSCRIPTNORMALIZATION
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CustomClass = _reflection.GeneratedProtocolMessageType('CustomClass', (_message.Message,), {
@@ -282,8 +363,24 @@ SpeechAdaptation = _reflection.GeneratedProtocolMessageType('SpeechAdaptation', 
   })
 _sym_db.RegisterMessage(SpeechAdaptation)
 
+TranscriptNormalization = _reflection.GeneratedProtocolMessageType('TranscriptNormalization', (_message.Message,), {
+
+  'Entry' : _reflection.GeneratedProtocolMessageType('Entry', (_message.Message,), {
+    'DESCRIPTOR' : _TRANSCRIPTNORMALIZATION_ENTRY,
+    '__module__' : 'google.cloud.speech.v1p1beta1.resource_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.speech.v1p1beta1.TranscriptNormalization.Entry)
+    })
+  ,
+  'DESCRIPTOR' : _TRANSCRIPTNORMALIZATION,
+  '__module__' : 'google.cloud.speech.v1p1beta1.resource_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.speech.v1p1beta1.TranscriptNormalization)
+  })
+_sym_db.RegisterMessage(TranscriptNormalization)
+_sym_db.RegisterMessage(TranscriptNormalization.Entry)
+
 
 DESCRIPTOR._options = None
 _CUSTOMCLASS._options = None
 _PHRASESET._options = None
+_SPEECHADAPTATION.fields_by_name['phrase_set_references']._options = None
 # @@protoc_insertion_point(module_scope)

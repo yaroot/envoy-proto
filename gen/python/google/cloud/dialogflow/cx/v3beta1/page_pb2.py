@@ -15,6 +15,7 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.dialogflow.cx.v3beta1 import advanced_settings_pb2 as google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_advanced__settings__pb2
 from google.cloud.dialogflow.cx.v3beta1 import fulfillment_pb2 as google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_fulfillment__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
@@ -25,11 +26,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/dialogflow/cx/v3beta1/page.proto',
   package='google.cloud.dialogflow.cx.v3beta1',
   syntax='proto3',
-  serialized_options=b'\n&com.google.cloud.dialogflow.cx.v3beta1B\tPageProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\370\001\001\242\002\002DF\252\002\"Google.Cloud.Dialogflow.Cx.V3Beta1',
+  serialized_options=b'\n&com.google.cloud.dialogflow.cx.v3beta1B\tPageProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\370\001\001\242\002\002DF\252\002\"Google.Cloud.Dialogflow.Cx.V3Beta1\352\002&Google::Cloud::Dialogflow::CX::V3beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n-google/cloud/dialogflow/cx/v3beta1/page.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x34google/cloud/dialogflow/cx/v3beta1/fulfillment.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x9a\x04\n\x04Page\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12J\n\x11\x65ntry_fulfillment\x18\x07 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.Fulfillment\x12\x36\n\x04\x66orm\x18\x04 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.Form\x12T\n\x17transition_route_groups\x18\x0b \x03(\tB3\xfa\x41\x30\n.dialogflow.googleapis.com/TransitionRouteGroup\x12N\n\x11transition_routes\x18\t \x03(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.TransitionRoute\x12H\n\x0e\x65vent_handlers\x18\n \x03(\x0b\x32\x30.google.cloud.dialogflow.cx.v3beta1.EventHandler:u\xea\x41r\n\x1e\x64ialogflow.googleapis.com/Page\x12Pprojects/{project}/locations/{location}/agents/{agent}/flows/{flow}/pages/{page}\"\xb7\x04\n\x04\x46orm\x12\x46\n\nparameters\x18\x01 \x03(\x0b\x32\x32.google.cloud.dialogflow.cx.v3beta1.Form.Parameter\x1a\xe6\x03\n\tParameter\x12\x19\n\x0c\x64isplay_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x08required\x18\x02 \x01(\x08\x12\x41\n\x0b\x65ntity_type\x18\x03 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\x12\x0f\n\x07is_list\x18\x04 \x01(\x08\x12[\n\rfill_behavior\x18\x07 \x01(\x0b\x32?.google.cloud.dialogflow.cx.v3beta1.Form.Parameter.FillBehaviorB\x03\xe0\x41\x02\x12-\n\rdefault_value\x18\t \x01(\x0b\x32\x16.google.protobuf.Value\x12\x0e\n\x06redact\x18\x0b \x01(\x08\x1a\xbb\x01\n\x0c\x46illBehavior\x12X\n\x1ainitial_prompt_fulfillment\x18\x03 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.FulfillmentB\x03\xe0\x41\x02\x12Q\n\x17reprompt_event_handlers\x18\x05 \x03(\x0b\x32\x30.google.cloud.dialogflow.cx.v3beta1.EventHandler\"\x85\x02\n\x0c\x45ventHandler\x12\x11\n\x04name\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12\x12\n\x05\x65vent\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12L\n\x13trigger_fulfillment\x18\x05 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.Fulfillment\x12:\n\x0btarget_page\x18\x02 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/PageH\x00\x12:\n\x0btarget_flow\x18\x03 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/FlowH\x00\x42\x08\n\x06target\"\xbe\x02\n\x0fTransitionRoute\x12\x11\n\x04name\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12\x35\n\x06intent\x18\x01 \x01(\tB%\xfa\x41\"\n dialogflow.googleapis.com/Intent\x12\x11\n\tcondition\x18\x02 \x01(\t\x12L\n\x13trigger_fulfillment\x18\x03 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.Fulfillment\x12:\n\x0btarget_page\x18\x04 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/PageH\x00\x12:\n\x0btarget_flow\x18\x05 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/FlowH\x00\x42\x08\n\x06target\"\x88\x01\n\x10ListPagesRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \x12\x1e\x64ialogflow.googleapis.com/Page\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"e\n\x11ListPagesResponse\x12\x37\n\x05pages\x18\x01 \x03(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.Page\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"]\n\x0eGetPageRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/Page\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\"\x9f\x01\n\x11\x43reatePageRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \x12\x1e\x64ialogflow.googleapis.com/Page\x12;\n\x04page\x18\x02 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.PageB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x03 \x01(\t\"\x98\x01\n\x11UpdatePageRequest\x12;\n\x04page\x18\x01 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.PageB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"X\n\x11\x44\x65letePageRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/Page\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\x32\xda\x08\n\x05Pages\x12\xca\x01\n\tListPages\x12\x34.google.cloud.dialogflow.cx.v3beta1.ListPagesRequest\x1a\x35.google.cloud.dialogflow.cx.v3beta1.ListPagesResponse\"P\x82\xd3\xe4\x93\x02\x41\x12?/v3beta1/{parent=projects/*/locations/*/agents/*/flows/*}/pages\xda\x41\x06parent\x12\xb7\x01\n\x07GetPage\x12\x32.google.cloud.dialogflow.cx.v3beta1.GetPageRequest\x1a(.google.cloud.dialogflow.cx.v3beta1.Page\"N\x82\xd3\xe4\x93\x02\x41\x12?/v3beta1/{name=projects/*/locations/*/agents/*/flows/*/pages/*}\xda\x41\x04name\x12\xca\x01\n\nCreatePage\x12\x35.google.cloud.dialogflow.cx.v3beta1.CreatePageRequest\x1a(.google.cloud.dialogflow.cx.v3beta1.Page\"[\x82\xd3\xe4\x93\x02G\"?/v3beta1/{parent=projects/*/locations/*/agents/*/flows/*}/pages:\x04page\xda\x41\x0bparent,page\x12\xd4\x01\n\nUpdatePage\x12\x35.google.cloud.dialogflow.cx.v3beta1.UpdatePageRequest\x1a(.google.cloud.dialogflow.cx.v3beta1.Page\"e\x82\xd3\xe4\x93\x02L2D/v3beta1/{page.name=projects/*/locations/*/agents/*/flows/*/pages/*}:\x04page\xda\x41\x10page,update_mask\x12\xab\x01\n\nDeletePage\x12\x35.google.cloud.dialogflow.cx.v3beta1.DeletePageRequest\x1a\x16.google.protobuf.Empty\"N\x82\xd3\xe4\x93\x02\x41*?/v3beta1/{name=projects/*/locations/*/agents/*/flows/*/pages/*}\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xa8\x01\n&com.google.cloud.dialogflow.cx.v3beta1B\tPageProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1b\x06proto3'
+  serialized_pb=b'\n-google/cloud/dialogflow/cx/v3beta1/page.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a:google/cloud/dialogflow/cx/v3beta1/advanced_settings.proto\x1a\x34google/cloud/dialogflow/cx/v3beta1/fulfillment.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/protobuf/struct.proto\"\x9a\x04\n\x04Page\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12J\n\x11\x65ntry_fulfillment\x18\x07 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.Fulfillment\x12\x36\n\x04\x66orm\x18\x04 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.Form\x12T\n\x17transition_route_groups\x18\x0b \x03(\tB3\xfa\x41\x30\n.dialogflow.googleapis.com/TransitionRouteGroup\x12N\n\x11transition_routes\x18\t \x03(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.TransitionRoute\x12H\n\x0e\x65vent_handlers\x18\n \x03(\x0b\x32\x30.google.cloud.dialogflow.cx.v3beta1.EventHandler:u\xea\x41r\n\x1e\x64ialogflow.googleapis.com/Page\x12Pprojects/{project}/locations/{location}/agents/{agent}/flows/{flow}/pages/{page}\"\xb7\x04\n\x04\x46orm\x12\x46\n\nparameters\x18\x01 \x03(\x0b\x32\x32.google.cloud.dialogflow.cx.v3beta1.Form.Parameter\x1a\xe6\x03\n\tParameter\x12\x19\n\x0c\x64isplay_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x10\n\x08required\x18\x02 \x01(\x08\x12\x41\n\x0b\x65ntity_type\x18\x03 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\x12\x0f\n\x07is_list\x18\x04 \x01(\x08\x12[\n\rfill_behavior\x18\x07 \x01(\x0b\x32?.google.cloud.dialogflow.cx.v3beta1.Form.Parameter.FillBehaviorB\x03\xe0\x41\x02\x12-\n\rdefault_value\x18\t \x01(\x0b\x32\x16.google.protobuf.Value\x12\x0e\n\x06redact\x18\x0b \x01(\x08\x1a\xbb\x01\n\x0c\x46illBehavior\x12X\n\x1ainitial_prompt_fulfillment\x18\x03 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.FulfillmentB\x03\xe0\x41\x02\x12Q\n\x17reprompt_event_handlers\x18\x05 \x03(\x0b\x32\x30.google.cloud.dialogflow.cx.v3beta1.EventHandler\"\x85\x02\n\x0c\x45ventHandler\x12\x11\n\x04name\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12\x12\n\x05\x65vent\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12L\n\x13trigger_fulfillment\x18\x05 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.Fulfillment\x12:\n\x0btarget_page\x18\x02 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/PageH\x00\x12:\n\x0btarget_flow\x18\x03 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/FlowH\x00\x42\x08\n\x06target\"\xbe\x02\n\x0fTransitionRoute\x12\x11\n\x04name\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12\x35\n\x06intent\x18\x01 \x01(\tB%\xfa\x41\"\n dialogflow.googleapis.com/Intent\x12\x11\n\tcondition\x18\x02 \x01(\t\x12L\n\x13trigger_fulfillment\x18\x03 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.Fulfillment\x12:\n\x0btarget_page\x18\x04 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/PageH\x00\x12:\n\x0btarget_flow\x18\x05 \x01(\tB#\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/FlowH\x00\x42\x08\n\x06target\"\x88\x01\n\x10ListPagesRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \x12\x1e\x64ialogflow.googleapis.com/Page\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"e\n\x11ListPagesResponse\x12\x37\n\x05pages\x18\x01 \x03(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.Page\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"]\n\x0eGetPageRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/Page\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\"\x9f\x01\n\x11\x43reatePageRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \x12\x1e\x64ialogflow.googleapis.com/Page\x12;\n\x04page\x18\x02 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.PageB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x03 \x01(\t\"\x98\x01\n\x11UpdatePageRequest\x12;\n\x04page\x18\x01 \x01(\x0b\x32(.google.cloud.dialogflow.cx.v3beta1.PageB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"X\n\x11\x44\x65letePageRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x64ialogflow.googleapis.com/Page\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\x32\xda\x08\n\x05Pages\x12\xca\x01\n\tListPages\x12\x34.google.cloud.dialogflow.cx.v3beta1.ListPagesRequest\x1a\x35.google.cloud.dialogflow.cx.v3beta1.ListPagesResponse\"P\x82\xd3\xe4\x93\x02\x41\x12?/v3beta1/{parent=projects/*/locations/*/agents/*/flows/*}/pages\xda\x41\x06parent\x12\xb7\x01\n\x07GetPage\x12\x32.google.cloud.dialogflow.cx.v3beta1.GetPageRequest\x1a(.google.cloud.dialogflow.cx.v3beta1.Page\"N\x82\xd3\xe4\x93\x02\x41\x12?/v3beta1/{name=projects/*/locations/*/agents/*/flows/*/pages/*}\xda\x41\x04name\x12\xca\x01\n\nCreatePage\x12\x35.google.cloud.dialogflow.cx.v3beta1.CreatePageRequest\x1a(.google.cloud.dialogflow.cx.v3beta1.Page\"[\x82\xd3\xe4\x93\x02G\"?/v3beta1/{parent=projects/*/locations/*/agents/*/flows/*}/pages:\x04page\xda\x41\x0bparent,page\x12\xd4\x01\n\nUpdatePage\x12\x35.google.cloud.dialogflow.cx.v3beta1.UpdatePageRequest\x1a(.google.cloud.dialogflow.cx.v3beta1.Page\"e\x82\xd3\xe4\x93\x02L2D/v3beta1/{page.name=projects/*/locations/*/agents/*/flows/*/pages/*}:\x04page\xda\x41\x10page,update_mask\x12\xab\x01\n\nDeletePage\x12\x35.google.cloud.dialogflow.cx.v3beta1.DeletePageRequest\x1a\x16.google.protobuf.Empty\"N\x82\xd3\xe4\x93\x02\x41*?/v3beta1/{name=projects/*/locations/*/agents/*/flows/*/pages/*}\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xd1\x01\n&com.google.cloud.dialogflow.cx.v3beta1B\tPageProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1\xea\x02&Google::Cloud::Dialogflow::CX::V3beta1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_fulfillment__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_advanced__settings__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_fulfillment__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
 
 
@@ -103,8 +104,8 @@ _PAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=348,
-  serialized_end=886,
+  serialized_start=408,
+  serialized_end=946,
 )
 
 
@@ -142,8 +143,8 @@ _FORM_PARAMETER_FILLBEHAVIOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1269,
-  serialized_end=1456,
+  serialized_start=1329,
+  serialized_end=1516,
 )
 
 _FORM_PARAMETER = _descriptor.Descriptor(
@@ -215,8 +216,8 @@ _FORM_PARAMETER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=970,
-  serialized_end=1456,
+  serialized_start=1030,
+  serialized_end=1516,
 )
 
 _FORM = _descriptor.Descriptor(
@@ -246,8 +247,8 @@ _FORM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=889,
-  serialized_end=1456,
+  serialized_start=949,
+  serialized_end=1516,
 )
 
 
@@ -311,8 +312,8 @@ _EVENTHANDLER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1459,
-  serialized_end=1720,
+  serialized_start=1519,
+  serialized_end=1780,
 )
 
 
@@ -383,8 +384,8 @@ _TRANSITIONROUTE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1723,
-  serialized_end=2041,
+  serialized_start=1783,
+  serialized_end=2101,
 )
 
 
@@ -436,8 +437,8 @@ _LISTPAGESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2044,
-  serialized_end=2180,
+  serialized_start=2104,
+  serialized_end=2240,
 )
 
 
@@ -475,8 +476,8 @@ _LISTPAGESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2182,
-  serialized_end=2283,
+  serialized_start=2242,
+  serialized_end=2343,
 )
 
 
@@ -514,8 +515,8 @@ _GETPAGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2285,
-  serialized_end=2378,
+  serialized_start=2345,
+  serialized_end=2438,
 )
 
 
@@ -560,8 +561,8 @@ _CREATEPAGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2381,
-  serialized_end=2540,
+  serialized_start=2441,
+  serialized_end=2600,
 )
 
 
@@ -606,8 +607,8 @@ _UPDATEPAGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2543,
-  serialized_end=2695,
+  serialized_start=2603,
+  serialized_end=2755,
 )
 
 
@@ -645,8 +646,8 @@ _DELETEPAGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2697,
-  serialized_end=2785,
+  serialized_start=2757,
+  serialized_end=2845,
 )
 
 _PAGE.fields_by_name['entry_fulfillment'].message_type = google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_fulfillment__pb2._FULFILLMENT
@@ -807,8 +808,8 @@ _PAGES = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=2788,
-  serialized_end=3902,
+  serialized_start=2848,
+  serialized_end=3962,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListPages',

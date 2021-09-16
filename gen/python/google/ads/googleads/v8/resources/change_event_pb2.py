@@ -14,6 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.ads.googleads.v8.enums import ad_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_ad__type__pb2
 from google.ads.googleads.v8.enums import advertising_channel_sub_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_advertising__channel__sub__type__pb2
 from google.ads.googleads.v8.enums import advertising_channel_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_advertising__channel__type__pb2
+from google.ads.googleads.v8.enums import asset_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_asset__type__pb2
 from google.ads.googleads.v8.enums import change_client_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__client__type__pb2
 from google.ads.googleads.v8.enums import change_event_resource_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__event__resource__type__pb2
 from google.ads.googleads.v8.enums import criterion_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_criterion__type__pb2
@@ -22,13 +23,17 @@ from google.ads.googleads.v8.enums import resource_change_operation_pb2 as googl
 from google.ads.googleads.v8.resources import ad_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__pb2
 from google.ads.googleads.v8.resources import ad_group_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__pb2
 from google.ads.googleads.v8.resources import ad_group_ad_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__ad__pb2
+from google.ads.googleads.v8.resources import ad_group_asset_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__asset__pb2
 from google.ads.googleads.v8.resources import ad_group_bid_modifier_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__bid__modifier__pb2
 from google.ads.googleads.v8.resources import ad_group_criterion_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__criterion__pb2
 from google.ads.googleads.v8.resources import ad_group_feed_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__feed__pb2
+from google.ads.googleads.v8.resources import asset_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_asset__pb2
 from google.ads.googleads.v8.resources import campaign_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__pb2
+from google.ads.googleads.v8.resources import campaign_asset_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__asset__pb2
 from google.ads.googleads.v8.resources import campaign_budget_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__budget__pb2
 from google.ads.googleads.v8.resources import campaign_criterion_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__criterion__pb2
 from google.ads.googleads.v8.resources import campaign_feed_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__feed__pb2
+from google.ads.googleads.v8.resources import customer_asset_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_customer__asset__pb2
 from google.ads.googleads.v8.resources import feed_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_feed__pb2
 from google.ads.googleads.v8.resources import feed_item_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_feed__item__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
@@ -43,9 +48,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n%com.google.ads.googleads.v8.resourcesB\020ChangeEventProtoP\001ZJgoogle.golang.org/genproto/googleapis/ads/googleads/v8/resources;resources\242\002\003GAA\252\002!Google.Ads.GoogleAds.V8.Resources\312\002!Google\\Ads\\GoogleAds\\V8\\Resources\352\002%Google::Ads::GoogleAds::V8::Resources',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n4google/ads/googleads/v8/resources/change_event.proto\x12!google.ads.googleads.v8.resources\x1a+google/ads/googleads/v8/enums/ad_type.proto\x1a@google/ads/googleads/v8/enums/advertising_channel_sub_type.proto\x1a<google/ads/googleads/v8/enums/advertising_channel_type.proto\x1a\x36google/ads/googleads/v8/enums/change_client_type.proto\x1a>google/ads/googleads/v8/enums/change_event_resource_type.proto\x1a\x32google/ads/googleads/v8/enums/criterion_type.proto\x1a/google/ads/googleads/v8/enums/feed_origin.proto\x1a=google/ads/googleads/v8/enums/resource_change_operation.proto\x1a*google/ads/googleads/v8/resources/ad.proto\x1a\x30google/ads/googleads/v8/resources/ad_group.proto\x1a\x33google/ads/googleads/v8/resources/ad_group_ad.proto\x1a=google/ads/googleads/v8/resources/ad_group_bid_modifier.proto\x1a:google/ads/googleads/v8/resources/ad_group_criterion.proto\x1a\x35google/ads/googleads/v8/resources/ad_group_feed.proto\x1a\x30google/ads/googleads/v8/resources/campaign.proto\x1a\x37google/ads/googleads/v8/resources/campaign_budget.proto\x1a:google/ads/googleads/v8/resources/campaign_criterion.proto\x1a\x35google/ads/googleads/v8/resources/campaign_feed.proto\x1a,google/ads/googleads/v8/resources/feed.proto\x1a\x31google/ads/googleads/v8/resources/feed_item.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/api/annotations.proto\"\xed\x0f\n\x0b\x43hangeEvent\x12\x43\n\rresource_name\x18\x01 \x01(\tB,\xe0\x41\x03\xfa\x41&\n$googleads.googleapis.com/ChangeEvent\x12\x1d\n\x10\x63hange_date_time\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12u\n\x14\x63hange_resource_type\x18\x03 \x01(\x0e\x32R.google.ads.googleads.v8.enums.ChangeEventResourceTypeEnum.ChangeEventResourceTypeB\x03\xe0\x41\x03\x12!\n\x14\x63hange_resource_name\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12^\n\x0b\x63lient_type\x18\x05 \x01(\x0e\x32\x44.google.ads.googleads.v8.enums.ChangeClientTypeEnum.ChangeClientTypeB\x03\xe0\x41\x03\x12\x17\n\nuser_email\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12Y\n\x0cold_resource\x18\x07 \x01(\x0b\x32>.google.ads.googleads.v8.resources.ChangeEvent.ChangedResourceB\x03\xe0\x41\x03\x12Y\n\x0cnew_resource\x18\x08 \x01(\x0b\x32>.google.ads.googleads.v8.resources.ChangeEvent.ChangedResourceB\x03\xe0\x41\x03\x12z\n\x19resource_change_operation\x18\t \x01(\x0e\x32R.google.ads.googleads.v8.enums.ResourceChangeOperationEnum.ResourceChangeOperationB\x03\xe0\x41\x03\x12\x37\n\x0e\x63hanged_fields\x18\n \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x03\x12;\n\x08\x63\x61mpaign\x18\x0b \x01(\tB)\xe0\x41\x03\xfa\x41#\n!googleads.googleapis.com/Campaign\x12:\n\x08\x61\x64_group\x18\x0c \x01(\tB(\xe0\x41\x03\xfa\x41\"\n googleads.googleapis.com/AdGroup\x12\x33\n\x04\x66\x65\x65\x64\x18\r \x01(\tB%\xe0\x41\x03\xfa\x41\x1f\n\x1dgoogleads.googleapis.com/Feed\x12<\n\tfeed_item\x18\x0e \x01(\tB)\xe0\x41\x03\xfa\x41#\n!googleads.googleapis.com/FeedItem\x1a\x8b\x07\n\x0f\x43hangedResource\x12\x36\n\x02\x61\x64\x18\x01 \x01(\x0b\x32%.google.ads.googleads.v8.resources.AdB\x03\xe0\x41\x03\x12\x41\n\x08\x61\x64_group\x18\x02 \x01(\x0b\x32*.google.ads.googleads.v8.resources.AdGroupB\x03\xe0\x41\x03\x12T\n\x12\x61\x64_group_criterion\x18\x03 \x01(\x0b\x32\x33.google.ads.googleads.v8.resources.AdGroupCriterionB\x03\xe0\x41\x03\x12\x42\n\x08\x63\x61mpaign\x18\x04 \x01(\x0b\x32+.google.ads.googleads.v8.resources.CampaignB\x03\xe0\x41\x03\x12O\n\x0f\x63\x61mpaign_budget\x18\x05 \x01(\x0b\x32\x31.google.ads.googleads.v8.resources.CampaignBudgetB\x03\xe0\x41\x03\x12Y\n\x15\x61\x64_group_bid_modifier\x18\x06 \x01(\x0b\x32\x35.google.ads.googleads.v8.resources.AdGroupBidModifierB\x03\xe0\x41\x03\x12U\n\x12\x63\x61mpaign_criterion\x18\x07 \x01(\x0b\x32\x34.google.ads.googleads.v8.resources.CampaignCriterionB\x03\xe0\x41\x03\x12:\n\x04\x66\x65\x65\x64\x18\x08 \x01(\x0b\x32\'.google.ads.googleads.v8.resources.FeedB\x03\xe0\x41\x03\x12\x43\n\tfeed_item\x18\t \x01(\x0b\x32+.google.ads.googleads.v8.resources.FeedItemB\x03\xe0\x41\x03\x12K\n\rcampaign_feed\x18\n \x01(\x0b\x32/.google.ads.googleads.v8.resources.CampaignFeedB\x03\xe0\x41\x03\x12J\n\rad_group_feed\x18\x0b \x01(\x0b\x32..google.ads.googleads.v8.resources.AdGroupFeedB\x03\xe0\x41\x03\x12\x46\n\x0b\x61\x64_group_ad\x18\x0c \x01(\x0b\x32,.google.ads.googleads.v8.resources.AdGroupAdB\x03\xe0\x41\x03:\x81\x01\xea\x41~\n$googleads.googleapis.com/ChangeEvent\x12Vcustomers/{customer_id}/changeEvents/{timestamp_micros}~{command_index}~{mutate_index}B\xfd\x01\n%com.google.ads.googleads.v8.resourcesB\x10\x43hangeEventProtoP\x01ZJgoogle.golang.org/genproto/googleapis/ads/googleads/v8/resources;resources\xa2\x02\x03GAA\xaa\x02!Google.Ads.GoogleAds.V8.Resources\xca\x02!Google\\Ads\\GoogleAds\\V8\\Resources\xea\x02%Google::Ads::GoogleAds::V8::Resourcesb\x06proto3'
+  serialized_pb=b'\n4google/ads/googleads/v8/resources/change_event.proto\x12!google.ads.googleads.v8.resources\x1a+google/ads/googleads/v8/enums/ad_type.proto\x1a@google/ads/googleads/v8/enums/advertising_channel_sub_type.proto\x1a<google/ads/googleads/v8/enums/advertising_channel_type.proto\x1a.google/ads/googleads/v8/enums/asset_type.proto\x1a\x36google/ads/googleads/v8/enums/change_client_type.proto\x1a>google/ads/googleads/v8/enums/change_event_resource_type.proto\x1a\x32google/ads/googleads/v8/enums/criterion_type.proto\x1a/google/ads/googleads/v8/enums/feed_origin.proto\x1a=google/ads/googleads/v8/enums/resource_change_operation.proto\x1a*google/ads/googleads/v8/resources/ad.proto\x1a\x30google/ads/googleads/v8/resources/ad_group.proto\x1a\x33google/ads/googleads/v8/resources/ad_group_ad.proto\x1a\x36google/ads/googleads/v8/resources/ad_group_asset.proto\x1a=google/ads/googleads/v8/resources/ad_group_bid_modifier.proto\x1a:google/ads/googleads/v8/resources/ad_group_criterion.proto\x1a\x35google/ads/googleads/v8/resources/ad_group_feed.proto\x1a-google/ads/googleads/v8/resources/asset.proto\x1a\x30google/ads/googleads/v8/resources/campaign.proto\x1a\x36google/ads/googleads/v8/resources/campaign_asset.proto\x1a\x37google/ads/googleads/v8/resources/campaign_budget.proto\x1a:google/ads/googleads/v8/resources/campaign_criterion.proto\x1a\x35google/ads/googleads/v8/resources/campaign_feed.proto\x1a\x36google/ads/googleads/v8/resources/customer_asset.proto\x1a,google/ads/googleads/v8/resources/feed.proto\x1a\x31google/ads/googleads/v8/resources/feed_item.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a google/protobuf/field_mask.proto\x1a\x1cgoogle/api/annotations.proto\"\xce\x12\n\x0b\x43hangeEvent\x12\x43\n\rresource_name\x18\x01 \x01(\tB,\xe0\x41\x03\xfa\x41&\n$googleads.googleapis.com/ChangeEvent\x12\x1d\n\x10\x63hange_date_time\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12u\n\x14\x63hange_resource_type\x18\x03 \x01(\x0e\x32R.google.ads.googleads.v8.enums.ChangeEventResourceTypeEnum.ChangeEventResourceTypeB\x03\xe0\x41\x03\x12!\n\x14\x63hange_resource_name\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12^\n\x0b\x63lient_type\x18\x05 \x01(\x0e\x32\x44.google.ads.googleads.v8.enums.ChangeClientTypeEnum.ChangeClientTypeB\x03\xe0\x41\x03\x12\x17\n\nuser_email\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12Y\n\x0cold_resource\x18\x07 \x01(\x0b\x32>.google.ads.googleads.v8.resources.ChangeEvent.ChangedResourceB\x03\xe0\x41\x03\x12Y\n\x0cnew_resource\x18\x08 \x01(\x0b\x32>.google.ads.googleads.v8.resources.ChangeEvent.ChangedResourceB\x03\xe0\x41\x03\x12z\n\x19resource_change_operation\x18\t \x01(\x0e\x32R.google.ads.googleads.v8.enums.ResourceChangeOperationEnum.ResourceChangeOperationB\x03\xe0\x41\x03\x12\x37\n\x0e\x63hanged_fields\x18\n \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x03\x12;\n\x08\x63\x61mpaign\x18\x0b \x01(\tB)\xe0\x41\x03\xfa\x41#\n!googleads.googleapis.com/Campaign\x12:\n\x08\x61\x64_group\x18\x0c \x01(\tB(\xe0\x41\x03\xfa\x41\"\n googleads.googleapis.com/AdGroup\x12\x33\n\x04\x66\x65\x65\x64\x18\r \x01(\tB%\xe0\x41\x03\xfa\x41\x1f\n\x1dgoogleads.googleapis.com/Feed\x12<\n\tfeed_item\x18\x0e \x01(\tB)\xe0\x41\x03\xfa\x41#\n!googleads.googleapis.com/FeedItem\x12\x35\n\x05\x61sset\x18\x14 \x01(\tB&\xe0\x41\x03\xfa\x41 \n\x1egoogleads.googleapis.com/Asset\x1a\xb5\t\n\x0f\x43hangedResource\x12\x36\n\x02\x61\x64\x18\x01 \x01(\x0b\x32%.google.ads.googleads.v8.resources.AdB\x03\xe0\x41\x03\x12\x41\n\x08\x61\x64_group\x18\x02 \x01(\x0b\x32*.google.ads.googleads.v8.resources.AdGroupB\x03\xe0\x41\x03\x12T\n\x12\x61\x64_group_criterion\x18\x03 \x01(\x0b\x32\x33.google.ads.googleads.v8.resources.AdGroupCriterionB\x03\xe0\x41\x03\x12\x42\n\x08\x63\x61mpaign\x18\x04 \x01(\x0b\x32+.google.ads.googleads.v8.resources.CampaignB\x03\xe0\x41\x03\x12O\n\x0f\x63\x61mpaign_budget\x18\x05 \x01(\x0b\x32\x31.google.ads.googleads.v8.resources.CampaignBudgetB\x03\xe0\x41\x03\x12Y\n\x15\x61\x64_group_bid_modifier\x18\x06 \x01(\x0b\x32\x35.google.ads.googleads.v8.resources.AdGroupBidModifierB\x03\xe0\x41\x03\x12U\n\x12\x63\x61mpaign_criterion\x18\x07 \x01(\x0b\x32\x34.google.ads.googleads.v8.resources.CampaignCriterionB\x03\xe0\x41\x03\x12:\n\x04\x66\x65\x65\x64\x18\x08 \x01(\x0b\x32\'.google.ads.googleads.v8.resources.FeedB\x03\xe0\x41\x03\x12\x43\n\tfeed_item\x18\t \x01(\x0b\x32+.google.ads.googleads.v8.resources.FeedItemB\x03\xe0\x41\x03\x12K\n\rcampaign_feed\x18\n \x01(\x0b\x32/.google.ads.googleads.v8.resources.CampaignFeedB\x03\xe0\x41\x03\x12J\n\rad_group_feed\x18\x0b \x01(\x0b\x32..google.ads.googleads.v8.resources.AdGroupFeedB\x03\xe0\x41\x03\x12\x46\n\x0b\x61\x64_group_ad\x18\x0c \x01(\x0b\x32,.google.ads.googleads.v8.resources.AdGroupAdB\x03\xe0\x41\x03\x12<\n\x05\x61sset\x18\r \x01(\x0b\x32(.google.ads.googleads.v8.resources.AssetB\x03\xe0\x41\x03\x12M\n\x0e\x63ustomer_asset\x18\x0e \x01(\x0b\x32\x30.google.ads.googleads.v8.resources.CustomerAssetB\x03\xe0\x41\x03\x12M\n\x0e\x63\x61mpaign_asset\x18\x0f \x01(\x0b\x32\x30.google.ads.googleads.v8.resources.CampaignAssetB\x03\xe0\x41\x03\x12L\n\x0e\x61\x64_group_asset\x18\x10 \x01(\x0b\x32/.google.ads.googleads.v8.resources.AdGroupAssetB\x03\xe0\x41\x03:\x81\x01\xea\x41~\n$googleads.googleapis.com/ChangeEvent\x12Vcustomers/{customer_id}/changeEvents/{timestamp_micros}~{command_index}~{mutate_index}B\xfd\x01\n%com.google.ads.googleads.v8.resourcesB\x10\x43hangeEventProtoP\x01ZJgoogle.golang.org/genproto/googleapis/ads/googleads/v8/resources;resources\xa2\x02\x03GAA\xaa\x02!Google.Ads.GoogleAds.V8.Resources\xca\x02!Google\\Ads\\GoogleAds\\V8\\Resources\xea\x02%Google::Ads::GoogleAds::V8::Resourcesb\x06proto3'
   ,
-  dependencies=[google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_ad__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_advertising__channel__sub__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_advertising__channel__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__client__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__event__resource__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_criterion__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_feed__origin__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_resource__change__operation__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__ad__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__bid__modifier__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__criterion__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__feed__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__budget__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__criterion__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__feed__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_feed__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_feed__item__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_ad__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_advertising__channel__sub__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_advertising__channel__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_asset__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__client__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__event__resource__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_criterion__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_feed__origin__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_resource__change__operation__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__ad__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__asset__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__bid__modifier__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__criterion__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__feed__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_asset__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__asset__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__budget__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__criterion__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__feed__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_customer__asset__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_feed__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_feed__item__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -142,6 +147,34 @@ _CHANGEEVENT_CHANGEDRESOURCE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asset', full_name='google.ads.googleads.v8.resources.ChangeEvent.ChangedResource.asset', index=12,
+      number=13, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='customer_asset', full_name='google.ads.googleads.v8.resources.ChangeEvent.ChangedResource.customer_asset', index=13,
+      number=14, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='campaign_asset', full_name='google.ads.googleads.v8.resources.ChangeEvent.ChangedResource.campaign_asset', index=14,
+      number=15, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ad_group_asset', full_name='google.ads.googleads.v8.resources.ChangeEvent.ChangedResource.ad_group_asset', index=15,
+      number=16, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -154,8 +187,8 @@ _CHANGEEVENT_CHANGEDRESOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2307,
-  serialized_end=3214,
+  serialized_start=2625,
+  serialized_end=3830,
 )
 
 _CHANGEEVENT = _descriptor.Descriptor(
@@ -264,6 +297,13 @@ _CHANGEEVENT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003\372A#\n!googleads.googleapis.com/FeedItem', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asset', full_name='google.ads.googleads.v8.resources.ChangeEvent.asset', index=14,
+      number=20, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003\372A \n\036googleads.googleapis.com/Asset', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -276,8 +316,8 @@ _CHANGEEVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1317,
-  serialized_end=3346,
+  serialized_start=1580,
+  serialized_end=3962,
 )
 
 _CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['ad'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__pb2._AD
@@ -292,6 +332,10 @@ _CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['feed_item'].message_type = google_d
 _CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['campaign_feed'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__feed__pb2._CAMPAIGNFEED
 _CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['ad_group_feed'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__feed__pb2._ADGROUPFEED
 _CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['ad_group_ad'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__ad__pb2._ADGROUPAD
+_CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['asset'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_asset__pb2._ASSET
+_CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['customer_asset'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_customer__asset__pb2._CUSTOMERASSET
+_CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['campaign_asset'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_campaign__asset__pb2._CAMPAIGNASSET
+_CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['ad_group_asset'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_resources_dot_ad__group__asset__pb2._ADGROUPASSET
 _CHANGEEVENT_CHANGEDRESOURCE.containing_type = _CHANGEEVENT
 _CHANGEEVENT.fields_by_name['change_resource_type'].enum_type = google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__event__resource__type__pb2._CHANGEEVENTRESOURCETYPEENUM_CHANGEEVENTRESOURCETYPE
 _CHANGEEVENT.fields_by_name['client_type'].enum_type = google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__client__type__pb2._CHANGECLIENTTYPEENUM_CHANGECLIENTTYPE
@@ -331,6 +375,10 @@ _CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['feed_item']._options = None
 _CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['campaign_feed']._options = None
 _CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['ad_group_feed']._options = None
 _CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['ad_group_ad']._options = None
+_CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['asset']._options = None
+_CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['customer_asset']._options = None
+_CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['campaign_asset']._options = None
+_CHANGEEVENT_CHANGEDRESOURCE.fields_by_name['ad_group_asset']._options = None
 _CHANGEEVENT.fields_by_name['resource_name']._options = None
 _CHANGEEVENT.fields_by_name['change_date_time']._options = None
 _CHANGEEVENT.fields_by_name['change_resource_type']._options = None
@@ -345,5 +393,6 @@ _CHANGEEVENT.fields_by_name['campaign']._options = None
 _CHANGEEVENT.fields_by_name['ad_group']._options = None
 _CHANGEEVENT.fields_by_name['feed']._options = None
 _CHANGEEVENT.fields_by_name['feed_item']._options = None
+_CHANGEEVENT.fields_by_name['asset']._options = None
 _CHANGEEVENT._options = None
 # @@protoc_insertion_point(module_scope)

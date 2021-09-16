@@ -25,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1beta1/index_service.proto',
   package='google.cloud.aiplatform.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\021IndexServiceProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
+  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\021IndexServiceProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\252\002\037Google.Cloud.AIPlatform.V1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1\352\002\"Google::Cloud::AIPlatform::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n3google/cloud/aiplatform/v1beta1/index_service.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a+google/cloud/aiplatform/v1beta1/index.proto\x1a/google/cloud/aiplatform/v1beta1/operation.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\"\x8b\x01\n\x12\x43reateIndexRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12:\n\x05index\x18\x02 \x01(\x0b\x32&.google.cloud.aiplatform.v1beta1.IndexB\x03\xe0\x41\x02\"\xf0\x01\n\x1c\x43reateIndexOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\x12{\n*nearest_neighbor_search_operation_metadata\x18\x02 \x01(\x0b\x32G.google.cloud.aiplatform.v1beta1.NearestNeighborSearchOperationMetadata\"H\n\x0fGetIndexRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x61iplatform.googleapis.com/Index\"\xb5\x01\n\x12ListIndexesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"g\n\x13ListIndexesResponse\x12\x37\n\x07indexes\x18\x01 \x03(\x0b\x32&.google.cloud.aiplatform.v1beta1.Index\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x81\x01\n\x12UpdateIndexRequest\x12:\n\x05index\x18\x01 \x01(\x0b\x32&.google.cloud.aiplatform.v1beta1.IndexB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xf0\x01\n\x1cUpdateIndexOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\x12{\n*nearest_neighbor_search_operation_metadata\x18\x02 \x01(\x0b\x32G.google.cloud.aiplatform.v1beta1.NearestNeighborSearchOperationMetadata\"K\n\x12\x44\x65leteIndexRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x61iplatform.googleapis.com/Index\"\xbf\x06\n&NearestNeighborSearchOperationMetadata\x12\x80\x01\n\x18\x63ontent_validation_stats\x18\x01 \x03(\x0b\x32^.google.cloud.aiplatform.v1beta1.NearestNeighborSearchOperationMetadata.ContentValidationStats\x1a\xb7\x03\n\x0bRecordError\x12w\n\nerror_type\x18\x01 \x01(\x0e\x32\x63.google.cloud.aiplatform.v1beta1.NearestNeighborSearchOperationMetadata.RecordError.RecordErrorType\x12\x15\n\rerror_message\x18\x02 \x01(\t\x12\x16\n\x0esource_gcs_uri\x18\x03 \x01(\t\x12\x14\n\x0c\x65mbedding_id\x18\x04 \x01(\t\x12\x12\n\nraw_record\x18\x05 \x01(\t\"\xd5\x01\n\x0fRecordErrorType\x12\x1a\n\x16\x45RROR_TYPE_UNSPECIFIED\x10\x00\x12\x0e\n\nEMPTY_LINE\x10\x01\x12\x17\n\x13INVALID_JSON_SYNTAX\x10\x02\x12\x16\n\x12INVALID_CSV_SYNTAX\x10\x03\x12\x17\n\x13INVALID_AVRO_SYNTAX\x10\x04\x12\x18\n\x14INVALID_EMBEDDING_ID\x10\x05\x12\x1b\n\x17\x45MBEDDING_SIZE_MISMATCH\x10\x06\x12\x15\n\x11NAMESPACE_MISSING\x10\x07\x1a\xd7\x01\n\x16\x43ontentValidationStats\x12\x16\n\x0esource_gcs_uri\x18\x01 \x01(\t\x12\x1a\n\x12valid_record_count\x18\x02 \x01(\x03\x12\x1c\n\x14invalid_record_count\x18\x03 \x01(\x03\x12k\n\x0epartial_errors\x18\x04 \x03(\x0b\x32S.google.cloud.aiplatform.v1beta1.NearestNeighborSearchOperationMetadata.RecordError2\xdf\x08\n\x0cIndexService\x12\xd9\x01\n\x0b\x43reateIndex\x12\x33.google.cloud.aiplatform.v1beta1.CreateIndexRequest\x1a\x1d.google.longrunning.Operation\"v\x82\xd3\xe4\x93\x02\x39\"0/v1beta1/{parent=projects/*/locations/*}/indexes:\x05index\xda\x41\x0cparent,index\xca\x41%\n\x05Index\x12\x1c\x43reateIndexOperationMetadata\x12\xa5\x01\n\x08GetIndex\x12\x30.google.cloud.aiplatform.v1beta1.GetIndexRequest\x1a&.google.cloud.aiplatform.v1beta1.Index\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta1/{name=projects/*/locations/*/indexes/*}\xda\x41\x04name\x12\xbb\x01\n\x0bListIndexes\x12\x33.google.cloud.aiplatform.v1beta1.ListIndexesRequest\x1a\x34.google.cloud.aiplatform.v1beta1.ListIndexesResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta1/{parent=projects/*/locations/*}/indexes\xda\x41\x06parent\x12\xe5\x01\n\x0bUpdateIndex\x12\x33.google.cloud.aiplatform.v1beta1.UpdateIndexRequest\x1a\x1d.google.longrunning.Operation\"\x81\x01\x82\xd3\xe4\x93\x02?26/v1beta1/{index.name=projects/*/locations/*/indexes/*}:\x05index\xda\x41\x11index,update_mask\xca\x41%\n\x05Index\x12\x1cUpdateIndexOperationMetadata\x12\xd5\x01\n\x0b\x44\x65leteIndex\x12\x33.google.cloud.aiplatform.v1beta1.DeleteIndexRequest\x1a\x1d.google.longrunning.Operation\"r\x82\xd3\xe4\x93\x02\x32*0/v1beta1/{name=projects/*/locations/*/indexes/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x85\x01\n#com.google.cloud.aiplatform.v1beta1B\x11IndexServiceProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n3google/cloud/aiplatform/v1beta1/index_service.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a+google/cloud/aiplatform/v1beta1/index.proto\x1a/google/cloud/aiplatform/v1beta1/operation.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\"\x8b\x01\n\x12\x43reateIndexRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12:\n\x05index\x18\x02 \x01(\x0b\x32&.google.cloud.aiplatform.v1beta1.IndexB\x03\xe0\x41\x02\"\xf0\x01\n\x1c\x43reateIndexOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\x12{\n*nearest_neighbor_search_operation_metadata\x18\x02 \x01(\x0b\x32G.google.cloud.aiplatform.v1beta1.NearestNeighborSearchOperationMetadata\"H\n\x0fGetIndexRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x61iplatform.googleapis.com/Index\"\xb5\x01\n\x12ListIndexesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"g\n\x13ListIndexesResponse\x12\x37\n\x07indexes\x18\x01 \x03(\x0b\x32&.google.cloud.aiplatform.v1beta1.Index\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x81\x01\n\x12UpdateIndexRequest\x12:\n\x05index\x18\x01 \x01(\x0b\x32&.google.cloud.aiplatform.v1beta1.IndexB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xf0\x01\n\x1cUpdateIndexOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\x12{\n*nearest_neighbor_search_operation_metadata\x18\x02 \x01(\x0b\x32G.google.cloud.aiplatform.v1beta1.NearestNeighborSearchOperationMetadata\"K\n\x12\x44\x65leteIndexRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x61iplatform.googleapis.com/Index\"\xd9\x06\n&NearestNeighborSearchOperationMetadata\x12\x80\x01\n\x18\x63ontent_validation_stats\x18\x01 \x03(\x0b\x32^.google.cloud.aiplatform.v1beta1.NearestNeighborSearchOperationMetadata.ContentValidationStats\x12\x18\n\x10\x64\x61ta_bytes_count\x18\x02 \x01(\x03\x1a\xb7\x03\n\x0bRecordError\x12w\n\nerror_type\x18\x01 \x01(\x0e\x32\x63.google.cloud.aiplatform.v1beta1.NearestNeighborSearchOperationMetadata.RecordError.RecordErrorType\x12\x15\n\rerror_message\x18\x02 \x01(\t\x12\x16\n\x0esource_gcs_uri\x18\x03 \x01(\t\x12\x14\n\x0c\x65mbedding_id\x18\x04 \x01(\t\x12\x12\n\nraw_record\x18\x05 \x01(\t\"\xd5\x01\n\x0fRecordErrorType\x12\x1a\n\x16\x45RROR_TYPE_UNSPECIFIED\x10\x00\x12\x0e\n\nEMPTY_LINE\x10\x01\x12\x17\n\x13INVALID_JSON_SYNTAX\x10\x02\x12\x16\n\x12INVALID_CSV_SYNTAX\x10\x03\x12\x17\n\x13INVALID_AVRO_SYNTAX\x10\x04\x12\x18\n\x14INVALID_EMBEDDING_ID\x10\x05\x12\x1b\n\x17\x45MBEDDING_SIZE_MISMATCH\x10\x06\x12\x15\n\x11NAMESPACE_MISSING\x10\x07\x1a\xd7\x01\n\x16\x43ontentValidationStats\x12\x16\n\x0esource_gcs_uri\x18\x01 \x01(\t\x12\x1a\n\x12valid_record_count\x18\x02 \x01(\x03\x12\x1c\n\x14invalid_record_count\x18\x03 \x01(\x03\x12k\n\x0epartial_errors\x18\x04 \x03(\x0b\x32S.google.cloud.aiplatform.v1beta1.NearestNeighborSearchOperationMetadata.RecordError2\xdf\x08\n\x0cIndexService\x12\xd9\x01\n\x0b\x43reateIndex\x12\x33.google.cloud.aiplatform.v1beta1.CreateIndexRequest\x1a\x1d.google.longrunning.Operation\"v\x82\xd3\xe4\x93\x02\x39\"0/v1beta1/{parent=projects/*/locations/*}/indexes:\x05index\xda\x41\x0cparent,index\xca\x41%\n\x05Index\x12\x1c\x43reateIndexOperationMetadata\x12\xa5\x01\n\x08GetIndex\x12\x30.google.cloud.aiplatform.v1beta1.GetIndexRequest\x1a&.google.cloud.aiplatform.v1beta1.Index\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta1/{name=projects/*/locations/*/indexes/*}\xda\x41\x04name\x12\xbb\x01\n\x0bListIndexes\x12\x33.google.cloud.aiplatform.v1beta1.ListIndexesRequest\x1a\x34.google.cloud.aiplatform.v1beta1.ListIndexesResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta1/{parent=projects/*/locations/*}/indexes\xda\x41\x06parent\x12\xe5\x01\n\x0bUpdateIndex\x12\x33.google.cloud.aiplatform.v1beta1.UpdateIndexRequest\x1a\x1d.google.longrunning.Operation\"\x81\x01\x82\xd3\xe4\x93\x02?26/v1beta1/{index.name=projects/*/locations/*/indexes/*}:\x05index\xda\x41\x11index,update_mask\xca\x41%\n\x05Index\x12\x1cUpdateIndexOperationMetadata\x12\xd5\x01\n\x0b\x44\x65leteIndex\x12\x33.google.cloud.aiplatform.v1beta1.DeleteIndexRequest\x1a\x1d.google.longrunning.Operation\"r\x82\xd3\xe4\x93\x02\x32*0/v1beta1/{name=projects/*/locations/*/indexes/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xee\x01\n#com.google.cloud.aiplatform.v1beta1B\x11IndexServiceProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_index__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_operation__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
 
@@ -83,8 +83,8 @@ _NEARESTNEIGHBORSEARCHOPERATIONMETADATA_RECORDERROR_RECORDERRORTYPE = _descripto
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1969,
-  serialized_end=2182,
+  serialized_start=1995,
+  serialized_end=2208,
 )
 _sym_db.RegisterEnumDescriptor(_NEARESTNEIGHBORSEARCHOPERATIONMETADATA_RECORDERROR_RECORDERRORTYPE)
 
@@ -464,8 +464,8 @@ _NEARESTNEIGHBORSEARCHOPERATIONMETADATA_RECORDERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1743,
-  serialized_end=2182,
+  serialized_start=1769,
+  serialized_end=2208,
 )
 
 _NEARESTNEIGHBORSEARCHOPERATIONMETADATA_CONTENTVALIDATIONSTATS = _descriptor.Descriptor(
@@ -516,8 +516,8 @@ _NEARESTNEIGHBORSEARCHOPERATIONMETADATA_CONTENTVALIDATIONSTATS = _descriptor.Des
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2185,
-  serialized_end=2400,
+  serialized_start=2211,
+  serialized_end=2426,
 )
 
 _NEARESTNEIGHBORSEARCHOPERATIONMETADATA = _descriptor.Descriptor(
@@ -535,6 +535,13 @@ _NEARESTNEIGHBORSEARCHOPERATIONMETADATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='data_bytes_count', full_name='google.cloud.aiplatform.v1beta1.NearestNeighborSearchOperationMetadata.data_bytes_count', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -548,7 +555,7 @@ _NEARESTNEIGHBORSEARCHOPERATIONMETADATA = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1569,
-  serialized_end=2400,
+  serialized_end=2426,
 )
 
 _CREATEINDEXREQUEST.fields_by_name['index'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_index__pb2._INDEX
@@ -672,8 +679,8 @@ _INDEXSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031aiplatform.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=2403,
-  serialized_end=3522,
+  serialized_start=2429,
+  serialized_end=3548,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateIndex',

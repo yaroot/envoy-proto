@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\nHio.envoyproxy.envoy.extensions.filters.http.grpc_http1_reverse_bridge.v3B\013ConfigProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nGenvoy/extensions/filters/http/grpc_http1_reverse_bridge/v3/config.proto\x12:envoy.extensions.filters.http.grpc_http1_reverse_bridge.v3\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x9c\x01\n\x0c\x46ilterConfig\x12\x1d\n\x0c\x63ontent_type\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x1c\n\x14withhold_grpc_frames\x18\x02 \x01(\x08:O\x9a\xc5\x88\x1eJ\nHenvoy.config.filter.http.grpc_http1_reverse_bridge.v2alpha1.FilterConfig\"\x81\x01\n\x14\x46ilterConfigPerRoute\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08:W\x9a\xc5\x88\x1eR\nPenvoy.config.filter.http.grpc_http1_reverse_bridge.v2alpha1.FilterConfigPerRouteBa\nHio.envoyproxy.envoy.extensions.filters.http.grpc_http1_reverse_bridge.v3B\x0b\x43onfigProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\nGenvoy/extensions/filters/http/grpc_http1_reverse_bridge/v3/config.proto\x12:envoy.extensions.filters.http.grpc_http1_reverse_bridge.v3\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xba\x01\n\x0c\x46ilterConfig\x12\x1d\n\x0c\x63ontent_type\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x1c\n\x14withhold_grpc_frames\x18\x02 \x01(\x08\x12\x1c\n\x14response_size_header\x18\x03 \x01(\t:O\x9a\xc5\x88\x1eJ\nHenvoy.config.filter.http.grpc_http1_reverse_bridge.v2alpha1.FilterConfig\"\x81\x01\n\x14\x46ilterConfigPerRoute\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08:W\x9a\xc5\x88\x1eR\nPenvoy.config.filter.http.grpc_http1_reverse_bridge.v2alpha1.FilterConfigPerRouteBa\nHio.envoyproxy.envoy.extensions.filters.http.grpc_http1_reverse_bridge.v3B\x0b\x43onfigProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -51,6 +51,13 @@ _FILTERCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='response_size_header', full_name='envoy.extensions.filters.http.grpc_http1_reverse_bridge.v3.FilterConfig.response_size_header', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -64,7 +71,7 @@ _FILTERCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=227,
-  serialized_end=383,
+  serialized_end=413,
 )
 
 
@@ -95,8 +102,8 @@ _FILTERCONFIGPERROUTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=386,
-  serialized_end=515,
+  serialized_start=416,
+  serialized_end=545,
 )
 
 DESCRIPTOR.message_types_by_name['FilterConfig'] = _FILTERCONFIG

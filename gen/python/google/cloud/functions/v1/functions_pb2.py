@@ -30,7 +30,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\035com.google.cloud.functions.v1B\016FunctionsProtoP\001ZBgoogle.golang.org/genproto/googleapis/cloud/functions/v1;functions\242\002\003GCF',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)google/cloud/functions/v1/functions.proto\x12\x19google.cloud.functions.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/iam/v1/iam_policy.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x83\x0c\n\rCloudFunction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1c\n\x12source_archive_url\x18\x03 \x01(\tH\x00\x12H\n\x11source_repository\x18\x04 \x01(\x0b\x32+.google.cloud.functions.v1.SourceRepositoryH\x00\x12\x1b\n\x11source_upload_url\x18\x10 \x01(\tH\x00\x12@\n\rhttps_trigger\x18\x05 \x01(\x0b\x32\'.google.cloud.functions.v1.HttpsTriggerH\x01\x12@\n\revent_trigger\x18\x06 \x01(\x0b\x32\'.google.cloud.functions.v1.EventTriggerH\x01\x12\x43\n\x06status\x18\x07 \x01(\x0e\x32..google.cloud.functions.v1.CloudFunctionStatusB\x03\xe0\x41\x03\x12\x13\n\x0b\x65ntry_point\x18\x08 \x01(\t\x12\x0f\n\x07runtime\x18\x13 \x01(\t\x12*\n\x07timeout\x18\t \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x1b\n\x13\x61vailable_memory_mb\x18\n \x01(\x05\x12\x1d\n\x15service_account_email\x18\x0b \x01(\t\x12\x34\n\x0bupdate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x17\n\nversion_id\x18\x0e \x01(\x03\x42\x03\xe0\x41\x03\x12\x44\n\x06labels\x18\x0f \x03(\x0b\x32\x34.google.cloud.functions.v1.CloudFunction.LabelsEntry\x12\x61\n\x15\x65nvironment_variables\x18\x11 \x03(\x0b\x32\x42.google.cloud.functions.v1.CloudFunction.EnvironmentVariablesEntry\x12\x0f\n\x07network\x18\x12 \x01(\t\x12\x15\n\rmax_instances\x18\x14 \x01(\x05\x12\x15\n\rvpc_connector\x18\x16 \x01(\t\x12j\n\x1dvpc_connector_egress_settings\x18\x17 \x01(\x0e\x32\x43.google.cloud.functions.v1.CloudFunction.VpcConnectorEgressSettings\x12R\n\x10ingress_settings\x18\x18 \x01(\x0e\x32\x38.google.cloud.functions.v1.CloudFunction.IngressSettings\x12\x15\n\x08\x62uild_id\x18\x1b \x01(\tB\x03\xe0\x41\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a;\n\x19\x45nvironmentVariablesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"u\n\x1aVpcConnectorEgressSettings\x12-\n)VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED\x10\x00\x12\x17\n\x13PRIVATE_RANGES_ONLY\x10\x01\x12\x0f\n\x0b\x41LL_TRAFFIC\x10\x02\"x\n\x0fIngressSettings\x12 \n\x1cINGRESS_SETTINGS_UNSPECIFIED\x10\x00\x12\r\n\tALLOW_ALL\x10\x01\x12\x17\n\x13\x41LLOW_INTERNAL_ONLY\x10\x02\x12\x1b\n\x17\x41LLOW_INTERNAL_AND_GCLB\x10\x03:n\xea\x41k\n+cloudfunctions.googleapis.com/CloudFunction\x12<projects/{project}/locations/{location}/functions/{function}B\r\n\x0bsource_codeB\t\n\x07trigger\":\n\x10SourceRepository\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x19\n\x0c\x64\x65ployed_url\x18\x02 \x01(\tB\x03\xe0\x41\x03\" \n\x0cHttpsTrigger\x12\x10\n\x03url\x18\x01 \x01(\tB\x03\xe0\x41\x03\"\x87\x01\n\x0c\x45ventTrigger\x12\x12\n\nevent_type\x18\x01 \x01(\t\x12\x10\n\x08resource\x18\x02 \x01(\t\x12\x0f\n\x07service\x18\x03 \x01(\t\x12@\n\x0e\x66\x61ilure_policy\x18\x05 \x01(\x0b\x32(.google.cloud.functions.v1.FailurePolicy\"c\n\rFailurePolicy\x12?\n\x05retry\x18\x01 \x01(\x0b\x32..google.cloud.functions.v1.FailurePolicy.RetryH\x00\x1a\x07\n\x05RetryB\x08\n\x06\x61\x63tion\"\x95\x01\n\x15\x43reateFunctionRequest\x12;\n\x08location\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12?\n\x08\x66unction\x18\x02 \x01(\x0b\x32(.google.cloud.functions.v1.CloudFunctionB\x03\xe0\x41\x02\"\x89\x01\n\x15UpdateFunctionRequest\x12?\n\x08\x66unction\x18\x01 \x01(\x0b\x32(.google.cloud.functions.v1.CloudFunctionB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"W\n\x12GetFunctionRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudfunctions.googleapis.com/CloudFunction\"u\n\x14ListFunctionsRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB&\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x82\x01\n\x15ListFunctionsResponse\x12;\n\tfunctions\x18\x01 \x03(\x0b\x32(.google.cloud.functions.v1.CloudFunction\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"Z\n\x15\x44\x65leteFunctionRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudfunctions.googleapis.com/CloudFunction\"k\n\x13\x43\x61llFunctionRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudfunctions.googleapis.com/CloudFunction\x12\x11\n\x04\x64\x61ta\x18\x02 \x01(\tB\x03\xe0\x41\x02\"K\n\x14\x43\x61llFunctionResponse\x12\x14\n\x0c\x65xecution_id\x18\x01 \x01(\t\x12\x0e\n\x06result\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\"*\n\x18GenerateUploadUrlRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\"/\n\x19GenerateUploadUrlResponse\x12\x12\n\nupload_url\x18\x01 \x01(\t\">\n\x1aGenerateDownloadUrlRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nversion_id\x18\x02 \x01(\x04\"3\n\x1bGenerateDownloadUrlResponse\x12\x14\n\x0c\x64ownload_url\x18\x01 \x01(\t*\x92\x01\n\x13\x43loudFunctionStatus\x12%\n!CLOUD_FUNCTION_STATUS_UNSPECIFIED\x10\x00\x12\n\n\x06\x41\x43TIVE\x10\x01\x12\x0b\n\x07OFFLINE\x10\x02\x12\x16\n\x12\x44\x45PLOY_IN_PROGRESS\x10\x03\x12\x16\n\x12\x44\x45LETE_IN_PROGRESS\x10\x04\x12\x0b\n\x07UNKNOWN\x10\x05\x32\x97\x11\n\x15\x43loudFunctionsService\x12\xa9\x01\n\rListFunctions\x12/.google.cloud.functions.v1.ListFunctionsRequest\x1a\x30.google.cloud.functions.v1.ListFunctionsResponse\"5\x82\xd3\xe4\x93\x02/\x12-/v1/{parent=projects/*/locations/*}/functions\x12\xa4\x01\n\x0bGetFunction\x12-.google.cloud.functions.v1.GetFunctionRequest\x1a(.google.cloud.functions.v1.CloudFunction\"<\x82\xd3\xe4\x93\x02/\x12-/v1/{name=projects/*/locations/*/functions/*}\xda\x41\x04name\x12\xdf\x01\n\x0e\x43reateFunction\x12\x30.google.cloud.functions.v1.CreateFunctionRequest\x1a\x1d.google.longrunning.Operation\"|\x82\xd3\xe4\x93\x02;\"//v1/{location=projects/*/locations/*}/functions:\x08\x66unction\xda\x41\x11location,function\xca\x41$\n\rCloudFunction\x12\x13OperationMetadataV1\x12\xdd\x01\n\x0eUpdateFunction\x12\x30.google.cloud.functions.v1.UpdateFunctionRequest\x1a\x1d.google.longrunning.Operation\"z\x82\xd3\xe4\x93\x02\x42\x32\x36/v1/{function.name=projects/*/locations/*/functions/*}:\x08\x66unction\xda\x41\x08\x66unction\xca\x41$\n\rCloudFunction\x12\x13OperationMetadataV1\x12\xce\x01\n\x0e\x44\x65leteFunction\x12\x30.google.cloud.functions.v1.DeleteFunctionRequest\x1a\x1d.google.longrunning.Operation\"k\x82\xd3\xe4\x93\x02/*-/v1/{name=projects/*/locations/*/functions/*}\xda\x41\x04name\xca\x41,\n\x15google.protobuf.Empty\x12\x13OperationMetadataV1\x12\xba\x01\n\x0c\x43\x61llFunction\x12..google.cloud.functions.v1.CallFunctionRequest\x1a/.google.cloud.functions.v1.CallFunctionResponse\"I\x82\xd3\xe4\x93\x02\x37\"2/v1/{name=projects/*/locations/*/functions/*}:call:\x01*\xda\x41\tname,data\x12\xca\x01\n\x11GenerateUploadUrl\x12\x33.google.cloud.functions.v1.GenerateUploadUrlRequest\x1a\x34.google.cloud.functions.v1.GenerateUploadUrlResponse\"J\x82\xd3\xe4\x93\x02\x44\"?/v1/{parent=projects/*/locations/*}/functions:generateUploadUrl:\x01*\x12\xd2\x01\n\x13GenerateDownloadUrl\x12\x35.google.cloud.functions.v1.GenerateDownloadUrlRequest\x1a\x36.google.cloud.functions.v1.GenerateDownloadUrlResponse\"L\x82\xd3\xe4\x93\x02\x46\"A/v1/{name=projects/*/locations/*/functions/*}:generateDownloadUrl:\x01*\x12\x94\x01\n\x0cSetIamPolicy\x12\".google.iam.v1.SetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"I\x82\xd3\xe4\x93\x02\x43\">/v1/{resource=projects/*/locations/*/functions/*}:setIamPolicy:\x01*\x12\x91\x01\n\x0cGetIamPolicy\x12\".google.iam.v1.GetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"F\x82\xd3\xe4\x93\x02@\x12>/v1/{resource=projects/*/locations/*/functions/*}:getIamPolicy\x12\xba\x01\n\x12TestIamPermissions\x12(.google.iam.v1.TestIamPermissionsRequest\x1a).google.iam.v1.TestIamPermissionsResponse\"O\x82\xd3\xe4\x93\x02I\"D/v1/{resource=projects/*/locations/*/functions/*}:testIamPermissions:\x01*\x1aQ\xca\x41\x1d\x63loudfunctions.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB{\n\x1d\x63om.google.cloud.functions.v1B\x0e\x46unctionsProtoP\x01ZBgoogle.golang.org/genproto/googleapis/cloud/functions/v1;functions\xa2\x02\x03GCFb\x06proto3'
+  serialized_pb=b'\n)google/cloud/functions/v1/functions.proto\x12\x19google.cloud.functions.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/iam/v1/iam_policy.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x83\x0c\n\rCloudFunction\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1c\n\x12source_archive_url\x18\x03 \x01(\tH\x00\x12H\n\x11source_repository\x18\x04 \x01(\x0b\x32+.google.cloud.functions.v1.SourceRepositoryH\x00\x12\x1b\n\x11source_upload_url\x18\x10 \x01(\tH\x00\x12@\n\rhttps_trigger\x18\x05 \x01(\x0b\x32\'.google.cloud.functions.v1.HttpsTriggerH\x01\x12@\n\revent_trigger\x18\x06 \x01(\x0b\x32\'.google.cloud.functions.v1.EventTriggerH\x01\x12\x43\n\x06status\x18\x07 \x01(\x0e\x32..google.cloud.functions.v1.CloudFunctionStatusB\x03\xe0\x41\x03\x12\x13\n\x0b\x65ntry_point\x18\x08 \x01(\t\x12\x0f\n\x07runtime\x18\x13 \x01(\t\x12*\n\x07timeout\x18\t \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x1b\n\x13\x61vailable_memory_mb\x18\n \x01(\x05\x12\x1d\n\x15service_account_email\x18\x0b \x01(\t\x12\x34\n\x0bupdate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x17\n\nversion_id\x18\x0e \x01(\x03\x42\x03\xe0\x41\x03\x12\x44\n\x06labels\x18\x0f \x03(\x0b\x32\x34.google.cloud.functions.v1.CloudFunction.LabelsEntry\x12\x61\n\x15\x65nvironment_variables\x18\x11 \x03(\x0b\x32\x42.google.cloud.functions.v1.CloudFunction.EnvironmentVariablesEntry\x12\x0f\n\x07network\x18\x12 \x01(\t\x12\x15\n\rmax_instances\x18\x14 \x01(\x05\x12\x15\n\rvpc_connector\x18\x16 \x01(\t\x12j\n\x1dvpc_connector_egress_settings\x18\x17 \x01(\x0e\x32\x43.google.cloud.functions.v1.CloudFunction.VpcConnectorEgressSettings\x12R\n\x10ingress_settings\x18\x18 \x01(\x0e\x32\x38.google.cloud.functions.v1.CloudFunction.IngressSettings\x12\x15\n\x08\x62uild_id\x18\x1b \x01(\tB\x03\xe0\x41\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a;\n\x19\x45nvironmentVariablesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"u\n\x1aVpcConnectorEgressSettings\x12-\n)VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED\x10\x00\x12\x17\n\x13PRIVATE_RANGES_ONLY\x10\x01\x12\x0f\n\x0b\x41LL_TRAFFIC\x10\x02\"x\n\x0fIngressSettings\x12 \n\x1cINGRESS_SETTINGS_UNSPECIFIED\x10\x00\x12\r\n\tALLOW_ALL\x10\x01\x12\x17\n\x13\x41LLOW_INTERNAL_ONLY\x10\x02\x12\x1b\n\x17\x41LLOW_INTERNAL_AND_GCLB\x10\x03:n\xea\x41k\n+cloudfunctions.googleapis.com/CloudFunction\x12<projects/{project}/locations/{location}/functions/{function}B\r\n\x0bsource_codeB\t\n\x07trigger\":\n\x10SourceRepository\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x19\n\x0c\x64\x65ployed_url\x18\x02 \x01(\tB\x03\xe0\x41\x03\"\xc8\x01\n\x0cHttpsTrigger\x12\x10\n\x03url\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12M\n\x0esecurity_level\x18\x02 \x01(\x0e\x32\x35.google.cloud.functions.v1.HttpsTrigger.SecurityLevel\"W\n\rSecurityLevel\x12\x1e\n\x1aSECURITY_LEVEL_UNSPECIFIED\x10\x00\x12\x11\n\rSECURE_ALWAYS\x10\x01\x12\x13\n\x0fSECURE_OPTIONAL\x10\x02\"\x87\x01\n\x0c\x45ventTrigger\x12\x12\n\nevent_type\x18\x01 \x01(\t\x12\x10\n\x08resource\x18\x02 \x01(\t\x12\x0f\n\x07service\x18\x03 \x01(\t\x12@\n\x0e\x66\x61ilure_policy\x18\x05 \x01(\x0b\x32(.google.cloud.functions.v1.FailurePolicy\"c\n\rFailurePolicy\x12?\n\x05retry\x18\x01 \x01(\x0b\x32..google.cloud.functions.v1.FailurePolicy.RetryH\x00\x1a\x07\n\x05RetryB\x08\n\x06\x61\x63tion\"\x95\x01\n\x15\x43reateFunctionRequest\x12;\n\x08location\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12?\n\x08\x66unction\x18\x02 \x01(\x0b\x32(.google.cloud.functions.v1.CloudFunctionB\x03\xe0\x41\x02\"\x89\x01\n\x15UpdateFunctionRequest\x12?\n\x08\x66unction\x18\x01 \x01(\x0b\x32(.google.cloud.functions.v1.CloudFunctionB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"W\n\x12GetFunctionRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudfunctions.googleapis.com/CloudFunction\"u\n\x14ListFunctionsRequest\x12\x36\n\x06parent\x18\x01 \x01(\tB&\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x82\x01\n\x15ListFunctionsResponse\x12;\n\tfunctions\x18\x01 \x03(\x0b\x32(.google.cloud.functions.v1.CloudFunction\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"Z\n\x15\x44\x65leteFunctionRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudfunctions.googleapis.com/CloudFunction\"k\n\x13\x43\x61llFunctionRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudfunctions.googleapis.com/CloudFunction\x12\x11\n\x04\x64\x61ta\x18\x02 \x01(\tB\x03\xe0\x41\x02\"K\n\x14\x43\x61llFunctionResponse\x12\x14\n\x0c\x65xecution_id\x18\x01 \x01(\t\x12\x0e\n\x06result\x18\x02 \x01(\t\x12\r\n\x05\x65rror\x18\x03 \x01(\t\"*\n\x18GenerateUploadUrlRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\"/\n\x19GenerateUploadUrlResponse\x12\x12\n\nupload_url\x18\x01 \x01(\t\">\n\x1aGenerateDownloadUrlRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nversion_id\x18\x02 \x01(\x04\"3\n\x1bGenerateDownloadUrlResponse\x12\x14\n\x0c\x64ownload_url\x18\x01 \x01(\t*\x92\x01\n\x13\x43loudFunctionStatus\x12%\n!CLOUD_FUNCTION_STATUS_UNSPECIFIED\x10\x00\x12\n\n\x06\x41\x43TIVE\x10\x01\x12\x0b\n\x07OFFLINE\x10\x02\x12\x16\n\x12\x44\x45PLOY_IN_PROGRESS\x10\x03\x12\x16\n\x12\x44\x45LETE_IN_PROGRESS\x10\x04\x12\x0b\n\x07UNKNOWN\x10\x05\x32\x97\x11\n\x15\x43loudFunctionsService\x12\xa9\x01\n\rListFunctions\x12/.google.cloud.functions.v1.ListFunctionsRequest\x1a\x30.google.cloud.functions.v1.ListFunctionsResponse\"5\x82\xd3\xe4\x93\x02/\x12-/v1/{parent=projects/*/locations/*}/functions\x12\xa4\x01\n\x0bGetFunction\x12-.google.cloud.functions.v1.GetFunctionRequest\x1a(.google.cloud.functions.v1.CloudFunction\"<\x82\xd3\xe4\x93\x02/\x12-/v1/{name=projects/*/locations/*/functions/*}\xda\x41\x04name\x12\xdf\x01\n\x0e\x43reateFunction\x12\x30.google.cloud.functions.v1.CreateFunctionRequest\x1a\x1d.google.longrunning.Operation\"|\x82\xd3\xe4\x93\x02;\"//v1/{location=projects/*/locations/*}/functions:\x08\x66unction\xda\x41\x11location,function\xca\x41$\n\rCloudFunction\x12\x13OperationMetadataV1\x12\xdd\x01\n\x0eUpdateFunction\x12\x30.google.cloud.functions.v1.UpdateFunctionRequest\x1a\x1d.google.longrunning.Operation\"z\x82\xd3\xe4\x93\x02\x42\x32\x36/v1/{function.name=projects/*/locations/*/functions/*}:\x08\x66unction\xda\x41\x08\x66unction\xca\x41$\n\rCloudFunction\x12\x13OperationMetadataV1\x12\xce\x01\n\x0e\x44\x65leteFunction\x12\x30.google.cloud.functions.v1.DeleteFunctionRequest\x1a\x1d.google.longrunning.Operation\"k\x82\xd3\xe4\x93\x02/*-/v1/{name=projects/*/locations/*/functions/*}\xda\x41\x04name\xca\x41,\n\x15google.protobuf.Empty\x12\x13OperationMetadataV1\x12\xba\x01\n\x0c\x43\x61llFunction\x12..google.cloud.functions.v1.CallFunctionRequest\x1a/.google.cloud.functions.v1.CallFunctionResponse\"I\x82\xd3\xe4\x93\x02\x37\"2/v1/{name=projects/*/locations/*/functions/*}:call:\x01*\xda\x41\tname,data\x12\xca\x01\n\x11GenerateUploadUrl\x12\x33.google.cloud.functions.v1.GenerateUploadUrlRequest\x1a\x34.google.cloud.functions.v1.GenerateUploadUrlResponse\"J\x82\xd3\xe4\x93\x02\x44\"?/v1/{parent=projects/*/locations/*}/functions:generateUploadUrl:\x01*\x12\xd2\x01\n\x13GenerateDownloadUrl\x12\x35.google.cloud.functions.v1.GenerateDownloadUrlRequest\x1a\x36.google.cloud.functions.v1.GenerateDownloadUrlResponse\"L\x82\xd3\xe4\x93\x02\x46\"A/v1/{name=projects/*/locations/*/functions/*}:generateDownloadUrl:\x01*\x12\x94\x01\n\x0cSetIamPolicy\x12\".google.iam.v1.SetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"I\x82\xd3\xe4\x93\x02\x43\">/v1/{resource=projects/*/locations/*/functions/*}:setIamPolicy:\x01*\x12\x91\x01\n\x0cGetIamPolicy\x12\".google.iam.v1.GetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"F\x82\xd3\xe4\x93\x02@\x12>/v1/{resource=projects/*/locations/*/functions/*}:getIamPolicy\x12\xba\x01\n\x12TestIamPermissions\x12(.google.iam.v1.TestIamPermissionsRequest\x1a).google.iam.v1.TestIamPermissionsResponse\"O\x82\xd3\xe4\x93\x02I\"D/v1/{resource=projects/*/locations/*/functions/*}:testIamPermissions:\x01*\x1aQ\xca\x41\x1d\x63loudfunctions.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB{\n\x1d\x63om.google.cloud.functions.v1B\x0e\x46unctionsProtoP\x01ZBgoogle.golang.org/genproto/googleapis/cloud/functions/v1;functions\xa2\x02\x03GCFb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_iam_dot_v1_dot_iam__policy__pb2.DESCRIPTOR,google_dot_iam_dot_v1_dot_policy__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -74,8 +74,8 @@ _CLOUDFUNCTIONSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3380,
-  serialized_end=3526,
+  serialized_start=3549,
+  serialized_end=3695,
 )
 _sym_db.RegisterEnumDescriptor(_CLOUDFUNCTIONSTATUS)
 
@@ -152,6 +152,36 @@ _CLOUDFUNCTION_INGRESSSETTINGS = _descriptor.EnumDescriptor(
   serialized_end=1785,
 )
 _sym_db.RegisterEnumDescriptor(_CLOUDFUNCTION_INGRESSSETTINGS)
+
+_HTTPSTRIGGER_SECURITYLEVEL = _descriptor.EnumDescriptor(
+  name='SecurityLevel',
+  full_name='google.cloud.functions.v1.HttpsTrigger.SecurityLevel',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SECURITY_LEVEL_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SECURE_ALWAYS', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SECURE_OPTIONAL', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2099,
+  serialized_end=2186,
+)
+_sym_db.RegisterEnumDescriptor(_HTTPSTRIGGER_SECURITYLEVEL)
 
 
 _CLOUDFUNCTION_LABELSENTRY = _descriptor.Descriptor(
@@ -482,11 +512,19 @@ _HTTPSTRIGGER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='security_level', full_name='google.cloud.functions.v1.HttpsTrigger.security_level', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
+    _HTTPSTRIGGER_SECURITYLEVEL,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -494,8 +532,8 @@ _HTTPSTRIGGER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1985,
-  serialized_end=2017,
+  serialized_start=1986,
+  serialized_end=2186,
 )
 
 
@@ -547,8 +585,8 @@ _EVENTTRIGGER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2020,
-  serialized_end=2155,
+  serialized_start=2189,
+  serialized_end=2324,
 )
 
 
@@ -572,8 +610,8 @@ _FAILUREPOLICY_RETRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2239,
-  serialized_end=2246,
+  serialized_start=2408,
+  serialized_end=2415,
 )
 
 _FAILUREPOLICY = _descriptor.Descriptor(
@@ -608,8 +646,8 @@ _FAILUREPOLICY = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2157,
-  serialized_end=2256,
+  serialized_start=2326,
+  serialized_end=2425,
 )
 
 
@@ -647,8 +685,8 @@ _CREATEFUNCTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2259,
-  serialized_end=2408,
+  serialized_start=2428,
+  serialized_end=2577,
 )
 
 
@@ -686,8 +724,8 @@ _UPDATEFUNCTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2411,
-  serialized_end=2548,
+  serialized_start=2580,
+  serialized_end=2717,
 )
 
 
@@ -718,8 +756,8 @@ _GETFUNCTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2550,
-  serialized_end=2637,
+  serialized_start=2719,
+  serialized_end=2806,
 )
 
 
@@ -764,8 +802,8 @@ _LISTFUNCTIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2639,
-  serialized_end=2756,
+  serialized_start=2808,
+  serialized_end=2925,
 )
 
 
@@ -810,8 +848,8 @@ _LISTFUNCTIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2759,
-  serialized_end=2889,
+  serialized_start=2928,
+  serialized_end=3058,
 )
 
 
@@ -842,8 +880,8 @@ _DELETEFUNCTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2891,
-  serialized_end=2981,
+  serialized_start=3060,
+  serialized_end=3150,
 )
 
 
@@ -881,8 +919,8 @@ _CALLFUNCTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2983,
-  serialized_end=3090,
+  serialized_start=3152,
+  serialized_end=3259,
 )
 
 
@@ -927,8 +965,8 @@ _CALLFUNCTIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3092,
-  serialized_end=3167,
+  serialized_start=3261,
+  serialized_end=3336,
 )
 
 
@@ -959,8 +997,8 @@ _GENERATEUPLOADURLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3169,
-  serialized_end=3211,
+  serialized_start=3338,
+  serialized_end=3380,
 )
 
 
@@ -991,8 +1029,8 @@ _GENERATEUPLOADURLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3213,
-  serialized_end=3260,
+  serialized_start=3382,
+  serialized_end=3429,
 )
 
 
@@ -1030,8 +1068,8 @@ _GENERATEDOWNLOADURLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3262,
-  serialized_end=3324,
+  serialized_start=3431,
+  serialized_end=3493,
 )
 
 
@@ -1062,8 +1100,8 @@ _GENERATEDOWNLOADURLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3326,
-  serialized_end=3377,
+  serialized_start=3495,
+  serialized_end=3546,
 )
 
 _CLOUDFUNCTION_LABELSENTRY.containing_type = _CLOUDFUNCTION
@@ -1095,6 +1133,8 @@ _CLOUDFUNCTION.fields_by_name['https_trigger'].containing_oneof = _CLOUDFUNCTION
 _CLOUDFUNCTION.oneofs_by_name['trigger'].fields.append(
   _CLOUDFUNCTION.fields_by_name['event_trigger'])
 _CLOUDFUNCTION.fields_by_name['event_trigger'].containing_oneof = _CLOUDFUNCTION.oneofs_by_name['trigger']
+_HTTPSTRIGGER.fields_by_name['security_level'].enum_type = _HTTPSTRIGGER_SECURITYLEVEL
+_HTTPSTRIGGER_SECURITYLEVEL.containing_type = _HTTPSTRIGGER
 _EVENTTRIGGER.fields_by_name['failure_policy'].message_type = _FAILUREPOLICY
 _FAILUREPOLICY_RETRY.containing_type = _FAILUREPOLICY
 _FAILUREPOLICY.fields_by_name['retry'].message_type = _FAILUREPOLICY_RETRY
@@ -1295,8 +1335,8 @@ _CLOUDFUNCTIONSSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\035cloudfunctions.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=3529,
-  serialized_end=5728,
+  serialized_start=3698,
+  serialized_end=5897,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListFunctions',

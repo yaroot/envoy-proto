@@ -26,7 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.recaptchaenterprise.v1B\030RecaptchaEnterpriseProtoP\001ZVgoogle.golang.org/genproto/googleapis/cloud/recaptchaenterprise/v1;recaptchaenterprise\242\002\004GCRE\252\002#Google.Cloud.RecaptchaEnterprise.V1\312\002#Google\\Cloud\\RecaptchaEnterprise\\V1\352\002&Google::Cloud::RecaptchaEnterprise::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n=google/cloud/recaptchaenterprise/v1/recaptchaenterprise.proto\x12#google.cloud.recaptchaenterprise.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa8\x01\n\x17\x43reateAssessmentRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12H\n\nassessment\x18\x02 \x01(\x0b\x32/.google.cloud.recaptchaenterprise.v1.AssessmentB\x03\xe0\x41\x02\"\xbc\x02\n\x19\x41nnotateAssessmentRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-recaptchaenterprise.googleapis.com/Assessment\x12\x62\n\nannotation\x18\x02 \x01(\x0e\x32I.google.cloud.recaptchaenterprise.v1.AnnotateAssessmentRequest.AnnotationB\x03\xe0\x41\x02\"v\n\nAnnotation\x12\x1a\n\x16\x41NNOTATION_UNSPECIFIED\x10\x00\x12\x0e\n\nLEGITIMATE\x10\x01\x12\x0e\n\nFRAUDULENT\x10\x02\x12\x14\n\x10PASSWORD_CORRECT\x10\x03\x12\x16\n\x12PASSWORD_INCORRECT\x10\x04\"\x1c\n\x1a\x41nnotateAssessmentResponse\"\xdf\x02\n\nAssessment\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x39\n\x05\x65vent\x18\x02 \x01(\x0b\x32*.google.cloud.recaptchaenterprise.v1.Event\x12M\n\rrisk_analysis\x18\x03 \x01(\x0b\x32\x31.google.cloud.recaptchaenterprise.v1.RiskAnalysisB\x03\xe0\x41\x03\x12S\n\x10token_properties\x18\x04 \x01(\x0b\x32\x34.google.cloud.recaptchaenterprise.v1.TokenPropertiesB\x03\xe0\x41\x03:_\xea\x41\\\n-recaptchaenterprise.googleapis.com/Assessment\x12+projects/{project}/assessments/{assessment}\"\x87\x01\n\x05\x45vent\x12\x12\n\x05token\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08site_key\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x17\n\nuser_agent\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x1c\n\x0fuser_ip_address\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x1c\n\x0f\x65xpected_action\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xb1\x02\n\x0cRiskAnalysis\x12\r\n\x05score\x18\x01 \x01(\x02\x12W\n\x07reasons\x18\x02 \x03(\x0e\x32\x46.google.cloud.recaptchaenterprise.v1.RiskAnalysis.ClassificationReason\"\xb8\x01\n\x14\x43lassificationReason\x12%\n!CLASSIFICATION_REASON_UNSPECIFIED\x10\x00\x12\x0e\n\nAUTOMATION\x10\x01\x12\x1a\n\x16UNEXPECTED_ENVIRONMENT\x10\x02\x12\x14\n\x10TOO_MUCH_TRAFFIC\x10\x03\x12\x1d\n\x19UNEXPECTED_USAGE_PATTERNS\x10\x04\x12\x18\n\x14LOW_CONFIDENCE_SCORE\x10\x05\"\xcf\x02\n\x0fTokenProperties\x12\r\n\x05valid\x18\x01 \x01(\x08\x12Z\n\x0einvalid_reason\x18\x02 \x01(\x0e\x32\x42.google.cloud.recaptchaenterprise.v1.TokenProperties.InvalidReason\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x10\n\x08hostname\x18\x04 \x01(\t\x12\x0e\n\x06\x61\x63tion\x18\x05 \x01(\t\"~\n\rInvalidReason\x12\x1e\n\x1aINVALID_REASON_UNSPECIFIED\x10\x00\x12\x1a\n\x16UNKNOWN_INVALID_REASON\x10\x01\x12\r\n\tMALFORMED\x10\x02\x12\x0b\n\x07\x45XPIRED\x10\x03\x12\x08\n\x04\x44UPE\x10\x04\x12\x0b\n\x07MISSING\x10\x05\"\x93\x01\n\x10\x43reateKeyRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12:\n\x03key\x18\x02 \x01(\x0b\x32(.google.cloud.recaptchaenterprise.v1.KeyB\x03\xe0\x41\x02\"\x87\x01\n\x0fListKeysRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"c\n\x10ListKeysResponse\x12\x36\n\x04keys\x18\x01 \x03(\x0b\x32(.google.cloud.recaptchaenterprise.v1.Key\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"M\n\rGetKeyRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&recaptchaenterprise.googleapis.com/Key\"\x84\x01\n\x10UpdateKeyRequest\x12:\n\x03key\x18\x01 \x01(\x0b\x32(.google.cloud.recaptchaenterprise.v1.KeyB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\"P\n\x10\x44\x65leteKeyRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&recaptchaenterprise.googleapis.com/Key\"\xa4\x04\n\x03Key\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12K\n\x0cweb_settings\x18\x03 \x01(\x0b\x32\x33.google.cloud.recaptchaenterprise.v1.WebKeySettingsH\x00\x12S\n\x10\x61ndroid_settings\x18\x04 \x01(\x0b\x32\x37.google.cloud.recaptchaenterprise.v1.AndroidKeySettingsH\x00\x12K\n\x0cios_settings\x18\x05 \x01(\x0b\x32\x33.google.cloud.recaptchaenterprise.v1.IOSKeySettingsH\x00\x12I\n\x06labels\x18\x06 \x03(\x0b\x32\x34.google.cloud.recaptchaenterprise.v1.Key.LabelsEntryB\x03\xe0\x41\x01\x12/\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:J\xea\x41G\n&recaptchaenterprise.googleapis.com/Key\x12\x1dprojects/{project}/keys/{key}B\x13\n\x11platform_settings\"\x95\x04\n\x0eWebKeySettings\x12\x19\n\x11\x61llow_all_domains\x18\x03 \x01(\x08\x12\x17\n\x0f\x61llowed_domains\x18\x01 \x03(\t\x12\x1e\n\x11\x61llow_amp_traffic\x18\x02 \x01(\x08\x42\x03\xe0\x41\x02\x12\x62\n\x10integration_type\x18\x04 \x01(\x0e\x32\x43.google.cloud.recaptchaenterprise.v1.WebKeySettings.IntegrationTypeB\x03\xe0\x41\x02\x12v\n\x1d\x63hallenge_security_preference\x18\x05 \x01(\x0e\x32O.google.cloud.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference\"[\n\x0fIntegrationType\x12 \n\x1cINTEGRATION_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05SCORE\x10\x01\x12\x0c\n\x08\x43HECKBOX\x10\x02\x12\r\n\tINVISIBLE\x10\x03\"v\n\x1b\x43hallengeSecurityPreference\x12-\n)CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED\x10\x00\x12\r\n\tUSABILITY\x10\x01\x12\x0b\n\x07\x42\x41LANCE\x10\x02\x12\x0c\n\x08SECURITY\x10\x03\"3\n\x12\x41ndroidKeySettings\x12\x1d\n\x15\x61llowed_package_names\x18\x01 \x03(\t\",\n\x0eIOSKeySettings\x12\x1a\n\x12\x61llowed_bundle_ids\x18\x01 \x03(\t2\x92\n\n\x1aRecaptchaEnterpriseService\x12\xce\x01\n\x10\x43reateAssessment\x12<.google.cloud.recaptchaenterprise.v1.CreateAssessmentRequest\x1a/.google.cloud.recaptchaenterprise.v1.Assessment\"K\x82\xd3\xe4\x93\x02\x31\"#/v1/{parent=projects/*}/assessments:\nassessment\xda\x41\x11parent,assessment\x12\xe0\x01\n\x12\x41nnotateAssessment\x12>.google.cloud.recaptchaenterprise.v1.AnnotateAssessmentRequest\x1a?.google.cloud.recaptchaenterprise.v1.AnnotateAssessmentResponse\"I\x82\xd3\xe4\x93\x02\x31\",/v1/{name=projects/*/assessments/*}:annotate:\x01*\xda\x41\x0fname,annotation\x12\x97\x01\n\tCreateKey\x12\x35.google.cloud.recaptchaenterprise.v1.CreateKeyRequest\x1a(.google.cloud.recaptchaenterprise.v1.Key\")\x82\xd3\xe4\x93\x02#\"\x1c/v1/{parent=projects/*}/keys:\x03key\x12\x9d\x01\n\x08ListKeys\x12\x34.google.cloud.recaptchaenterprise.v1.ListKeysRequest\x1a\x35.google.cloud.recaptchaenterprise.v1.ListKeysResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1/{parent=projects/*}/keys\x12\x8c\x01\n\x06GetKey\x12\x32.google.cloud.recaptchaenterprise.v1.GetKeyRequest\x1a(.google.cloud.recaptchaenterprise.v1.Key\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1/{name=projects/*/keys/*}\x12\x9b\x01\n\tUpdateKey\x12\x35.google.cloud.recaptchaenterprise.v1.UpdateKeyRequest\x1a(.google.cloud.recaptchaenterprise.v1.Key\"-\x82\xd3\xe4\x93\x02\'2 /v1/{key.name=projects/*/keys/*}:\x03key\x12\x80\x01\n\tDeleteKey\x12\x35.google.cloud.recaptchaenterprise.v1.DeleteKeyRequest\x1a\x16.google.protobuf.Empty\"$\x82\xd3\xe4\x93\x02\x1e*\x1c/v1/{name=projects/*/keys/*}\x1aV\xca\x41\"recaptchaenterprise.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x93\x02\n!com.google.recaptchaenterprise.v1B\x18RecaptchaEnterpriseProtoP\x01ZVgoogle.golang.org/genproto/googleapis/cloud/recaptchaenterprise/v1;recaptchaenterprise\xa2\x02\x04GCRE\xaa\x02#Google.Cloud.RecaptchaEnterprise.V1\xca\x02#Google\\Cloud\\RecaptchaEnterprise\\V1\xea\x02&Google::Cloud::RecaptchaEnterprise::V1b\x06proto3'
+  serialized_pb=b'\n=google/cloud/recaptchaenterprise/v1/recaptchaenterprise.proto\x12#google.cloud.recaptchaenterprise.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa8\x01\n\x17\x43reateAssessmentRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12H\n\nassessment\x18\x02 \x01(\x0b\x32/.google.cloud.recaptchaenterprise.v1.AssessmentB\x03\xe0\x41\x02\"\xe2\x04\n\x19\x41nnotateAssessmentRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-recaptchaenterprise.googleapis.com/Assessment\x12\x62\n\nannotation\x18\x02 \x01(\x0e\x32I.google.cloud.recaptchaenterprise.v1.AnnotateAssessmentRequest.AnnotationB\x03\xe0\x41\x01\x12[\n\x07reasons\x18\x03 \x03(\x0e\x32\x45.google.cloud.recaptchaenterprise.v1.AnnotateAssessmentRequest.ReasonB\x03\xe0\x41\x01\"~\n\nAnnotation\x12\x1a\n\x16\x41NNOTATION_UNSPECIFIED\x10\x00\x12\x0e\n\nLEGITIMATE\x10\x01\x12\x0e\n\nFRAUDULENT\x10\x02\x12\x18\n\x10PASSWORD_CORRECT\x10\x03\x1a\x02\x08\x01\x12\x1a\n\x12PASSWORD_INCORRECT\x10\x04\x1a\x02\x08\x01\"\xbe\x01\n\x06Reason\x12\x16\n\x12REASON_UNSPECIFIED\x10\x00\x12\x0e\n\nCHARGEBACK\x10\x01\x12\x16\n\x12PAYMENT_HEURISTICS\x10\x02\x12\x18\n\x14INITIATED_TWO_FACTOR\x10\x07\x12\x15\n\x11PASSED_TWO_FACTOR\x10\x03\x12\x15\n\x11\x46\x41ILED_TWO_FACTOR\x10\x04\x12\x14\n\x10\x43ORRECT_PASSWORD\x10\x05\x12\x16\n\x12INCORRECT_PASSWORD\x10\x06\"\x1c\n\x1a\x41nnotateAssessmentResponse\"\xdf\x02\n\nAssessment\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x39\n\x05\x65vent\x18\x02 \x01(\x0b\x32*.google.cloud.recaptchaenterprise.v1.Event\x12M\n\rrisk_analysis\x18\x03 \x01(\x0b\x32\x31.google.cloud.recaptchaenterprise.v1.RiskAnalysisB\x03\xe0\x41\x03\x12S\n\x10token_properties\x18\x04 \x01(\x0b\x32\x34.google.cloud.recaptchaenterprise.v1.TokenPropertiesB\x03\xe0\x41\x03:_\xea\x41\\\n-recaptchaenterprise.googleapis.com/Assessment\x12+projects/{project}/assessments/{assessment}\"\x87\x01\n\x05\x45vent\x12\x12\n\x05token\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08site_key\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x17\n\nuser_agent\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x1c\n\x0fuser_ip_address\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x1c\n\x0f\x65xpected_action\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xb1\x02\n\x0cRiskAnalysis\x12\r\n\x05score\x18\x01 \x01(\x02\x12W\n\x07reasons\x18\x02 \x03(\x0e\x32\x46.google.cloud.recaptchaenterprise.v1.RiskAnalysis.ClassificationReason\"\xb8\x01\n\x14\x43lassificationReason\x12%\n!CLASSIFICATION_REASON_UNSPECIFIED\x10\x00\x12\x0e\n\nAUTOMATION\x10\x01\x12\x1a\n\x16UNEXPECTED_ENVIRONMENT\x10\x02\x12\x14\n\x10TOO_MUCH_TRAFFIC\x10\x03\x12\x1d\n\x19UNEXPECTED_USAGE_PATTERNS\x10\x04\x12\x18\n\x14LOW_CONFIDENCE_SCORE\x10\x05\"\xe3\x02\n\x0fTokenProperties\x12\r\n\x05valid\x18\x01 \x01(\x08\x12Z\n\x0einvalid_reason\x18\x02 \x01(\x0e\x32\x42.google.cloud.recaptchaenterprise.v1.TokenProperties.InvalidReason\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x10\n\x08hostname\x18\x04 \x01(\t\x12\x0e\n\x06\x61\x63tion\x18\x05 \x01(\t\"\x91\x01\n\rInvalidReason\x12\x1e\n\x1aINVALID_REASON_UNSPECIFIED\x10\x00\x12\x1a\n\x16UNKNOWN_INVALID_REASON\x10\x01\x12\r\n\tMALFORMED\x10\x02\x12\x0b\n\x07\x45XPIRED\x10\x03\x12\x08\n\x04\x44UPE\x10\x04\x12\x0b\n\x07MISSING\x10\x05\x12\x11\n\rBROWSER_ERROR\x10\x06\"\x93\x01\n\x10\x43reateKeyRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12:\n\x03key\x18\x02 \x01(\x0b\x32(.google.cloud.recaptchaenterprise.v1.KeyB\x03\xe0\x41\x02\"\x87\x01\n\x0fListKeysRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"c\n\x10ListKeysResponse\x12\x36\n\x04keys\x18\x01 \x03(\x0b\x32(.google.cloud.recaptchaenterprise.v1.Key\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"M\n\rGetKeyRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&recaptchaenterprise.googleapis.com/Key\"\x84\x01\n\x10UpdateKeyRequest\x12:\n\x03key\x18\x01 \x01(\x0b\x32(.google.cloud.recaptchaenterprise.v1.KeyB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\"P\n\x10\x44\x65leteKeyRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&recaptchaenterprise.googleapis.com/Key\"Q\n\x11MigrateKeyRequest\x12<\n\x04name\x18\x01 \x01(\tB.\xe0\x41\x02\xfa\x41(\n&recaptchaenterprise.googleapis.com/Key\"U\n\x11GetMetricsRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*recaptchaenterprise.googleapis.com/Metrics\"\xc0\x02\n\x07Metrics\x12\x11\n\x04name\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12H\n\rscore_metrics\x18\x02 \x03(\x0b\x32\x31.google.cloud.recaptchaenterprise.v1.ScoreMetrics\x12P\n\x11\x63hallenge_metrics\x18\x03 \x03(\x0b\x32\x35.google.cloud.recaptchaenterprise.v1.ChallengeMetrics:V\xea\x41S\n*recaptchaenterprise.googleapis.com/Metrics\x12%projects/{project}/keys/{key}/metrics\"\xed\x04\n\x03Key\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12K\n\x0cweb_settings\x18\x03 \x01(\x0b\x32\x33.google.cloud.recaptchaenterprise.v1.WebKeySettingsH\x00\x12S\n\x10\x61ndroid_settings\x18\x04 \x01(\x0b\x32\x37.google.cloud.recaptchaenterprise.v1.AndroidKeySettingsH\x00\x12K\n\x0cios_settings\x18\x05 \x01(\x0b\x32\x33.google.cloud.recaptchaenterprise.v1.IOSKeySettingsH\x00\x12\x44\n\x06labels\x18\x06 \x03(\x0b\x32\x34.google.cloud.recaptchaenterprise.v1.Key.LabelsEntry\x12/\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12L\n\x0ftesting_options\x18\t \x01(\x0b\x32\x33.google.cloud.recaptchaenterprise.v1.TestingOptions\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:J\xea\x41G\n&recaptchaenterprise.googleapis.com/Key\x12\x1dprojects/{project}/keys/{key}B\x13\n\x11platform_settings\"\xe8\x01\n\x0eTestingOptions\x12\x15\n\rtesting_score\x18\x01 \x01(\x02\x12_\n\x11testing_challenge\x18\x02 \x01(\x0e\x32\x44.google.cloud.recaptchaenterprise.v1.TestingOptions.TestingChallenge\"^\n\x10TestingChallenge\x12!\n\x1dTESTING_CHALLENGE_UNSPECIFIED\x10\x00\x12\r\n\tNOCAPTCHA\x10\x01\x12\x18\n\x14UNSOLVABLE_CHALLENGE\x10\x02\"\x95\x04\n\x0eWebKeySettings\x12\x19\n\x11\x61llow_all_domains\x18\x03 \x01(\x08\x12\x17\n\x0f\x61llowed_domains\x18\x01 \x03(\t\x12\x1e\n\x11\x61llow_amp_traffic\x18\x02 \x01(\x08\x42\x03\xe0\x41\x02\x12\x62\n\x10integration_type\x18\x04 \x01(\x0e\x32\x43.google.cloud.recaptchaenterprise.v1.WebKeySettings.IntegrationTypeB\x03\xe0\x41\x02\x12v\n\x1d\x63hallenge_security_preference\x18\x05 \x01(\x0e\x32O.google.cloud.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference\"[\n\x0fIntegrationType\x12 \n\x1cINTEGRATION_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05SCORE\x10\x01\x12\x0c\n\x08\x43HECKBOX\x10\x02\x12\r\n\tINVISIBLE\x10\x03\"v\n\x1b\x43hallengeSecurityPreference\x12-\n)CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED\x10\x00\x12\r\n\tUSABILITY\x10\x01\x12\x0b\n\x07\x42\x41LANCE\x10\x02\x12\x0c\n\x08SECURITY\x10\x03\"T\n\x12\x41ndroidKeySettings\x12\x1f\n\x17\x61llow_all_package_names\x18\x02 \x01(\x08\x12\x1d\n\x15\x61llowed_package_names\x18\x01 \x03(\t\"J\n\x0eIOSKeySettings\x12\x1c\n\x14\x61llow_all_bundle_ids\x18\x02 \x01(\x08\x12\x1a\n\x12\x61llowed_bundle_ids\x18\x01 \x03(\t\"\xa9\x01\n\x11ScoreDistribution\x12_\n\rscore_buckets\x18\x01 \x03(\x0b\x32H.google.cloud.recaptchaenterprise.v1.ScoreDistribution.ScoreBucketsEntry\x1a\x33\n\x11ScoreBucketsEntry\x12\x0b\n\x03key\x18\x01 \x01(\x05\x12\r\n\x05value\x18\x02 \x01(\x03:\x02\x38\x01\"\xab\x02\n\x0cScoreMetrics\x12O\n\x0foverall_metrics\x18\x01 \x01(\x0b\x32\x36.google.cloud.recaptchaenterprise.v1.ScoreDistribution\x12\\\n\x0e\x61\x63tion_metrics\x18\x02 \x03(\x0b\x32\x44.google.cloud.recaptchaenterprise.v1.ScoreMetrics.ActionMetricsEntry\x1al\n\x12\x41\x63tionMetricsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x45\n\x05value\x18\x02 \x01(\x0b\x32\x36.google.cloud.recaptchaenterprise.v1.ScoreDistribution:\x02\x38\x01\"o\n\x10\x43hallengeMetrics\x12\x16\n\x0epageload_count\x18\x01 \x01(\x03\x12\x17\n\x0fnocaptcha_count\x18\x02 \x01(\x03\x12\x14\n\x0c\x66\x61iled_count\x18\x03 \x01(\x03\x12\x14\n\x0cpassed_count\x18\x04 \x01(\x03\x32\xde\x0c\n\x1aRecaptchaEnterpriseService\x12\xce\x01\n\x10\x43reateAssessment\x12<.google.cloud.recaptchaenterprise.v1.CreateAssessmentRequest\x1a/.google.cloud.recaptchaenterprise.v1.Assessment\"K\x82\xd3\xe4\x93\x02\x31\"#/v1/{parent=projects/*}/assessments:\nassessment\xda\x41\x11parent,assessment\x12\xe0\x01\n\x12\x41nnotateAssessment\x12>.google.cloud.recaptchaenterprise.v1.AnnotateAssessmentRequest\x1a?.google.cloud.recaptchaenterprise.v1.AnnotateAssessmentResponse\"I\x82\xd3\xe4\x93\x02\x31\",/v1/{name=projects/*/assessments/*}:annotate:\x01*\xda\x41\x0fname,annotation\x12\x97\x01\n\tCreateKey\x12\x35.google.cloud.recaptchaenterprise.v1.CreateKeyRequest\x1a(.google.cloud.recaptchaenterprise.v1.Key\")\x82\xd3\xe4\x93\x02#\"\x1c/v1/{parent=projects/*}/keys:\x03key\x12\x9d\x01\n\x08ListKeys\x12\x34.google.cloud.recaptchaenterprise.v1.ListKeysRequest\x1a\x35.google.cloud.recaptchaenterprise.v1.ListKeysResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1/{parent=projects/*}/keys\x12\x8c\x01\n\x06GetKey\x12\x32.google.cloud.recaptchaenterprise.v1.GetKeyRequest\x1a(.google.cloud.recaptchaenterprise.v1.Key\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1/{name=projects/*/keys/*}\x12\x9b\x01\n\tUpdateKey\x12\x35.google.cloud.recaptchaenterprise.v1.UpdateKeyRequest\x1a(.google.cloud.recaptchaenterprise.v1.Key\"-\x82\xd3\xe4\x93\x02\'2 /v1/{key.name=projects/*/keys/*}:\x03key\x12\x80\x01\n\tDeleteKey\x12\x35.google.cloud.recaptchaenterprise.v1.DeleteKeyRequest\x1a\x16.google.protobuf.Empty\"$\x82\xd3\xe4\x93\x02\x1e*\x1c/v1/{name=projects/*/keys/*}\x12\x9f\x01\n\nMigrateKey\x12\x36.google.cloud.recaptchaenterprise.v1.MigrateKeyRequest\x1a(.google.cloud.recaptchaenterprise.v1.Key\"/\x82\xd3\xe4\x93\x02)\"$/v1/{name=projects/*/keys/*}:migrate:\x01*\x12\xa7\x01\n\nGetMetrics\x12\x36.google.cloud.recaptchaenterprise.v1.GetMetricsRequest\x1a,.google.cloud.recaptchaenterprise.v1.Metrics\"3\x82\xd3\xe4\x93\x02&\x12$/v1/{name=projects/*/keys/*/metrics}\xda\x41\x04name\x1aV\xca\x41\"recaptchaenterprise.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x93\x02\n!com.google.recaptchaenterprise.v1B\x18RecaptchaEnterpriseProtoP\x01ZVgoogle.golang.org/genproto/googleapis/cloud/recaptchaenterprise/v1;recaptchaenterprise\xa2\x02\x04GCRE\xaa\x02#Google.Cloud.RecaptchaEnterprise.V1\xca\x02#Google\\Cloud\\RecaptchaEnterprise\\V1\xea\x02&Google::Cloud::RecaptchaEnterprise::V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -56,21 +56,76 @@ _ANNOTATEASSESSMENTREQUEST_ANNOTATION = _descriptor.EnumDescriptor(
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='PASSWORD_CORRECT', index=3, number=3,
-      serialized_options=None,
+      serialized_options=b'\010\001',
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
       name='PASSWORD_INCORRECT', index=4, number=4,
+      serialized_options=b'\010\001',
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=776,
+  serialized_end=902,
+)
+_sym_db.RegisterEnumDescriptor(_ANNOTATEASSESSMENTREQUEST_ANNOTATION)
+
+_ANNOTATEASSESSMENTREQUEST_REASON = _descriptor.EnumDescriptor(
+  name='Reason',
+  full_name='google.cloud.recaptchaenterprise.v1.AnnotateAssessmentRequest.Reason',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='REASON_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CHARGEBACK', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PAYMENT_HEURISTICS', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='INITIATED_TWO_FACTOR', index=3, number=7,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PASSED_TWO_FACTOR', index=4, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FAILED_TWO_FACTOR', index=5, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CORRECT_PASSWORD', index=6, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='INCORRECT_PASSWORD', index=7, number=6,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=683,
-  serialized_end=801,
+  serialized_start=905,
+  serialized_end=1095,
 )
-_sym_db.RegisterEnumDescriptor(_ANNOTATEASSESSMENTREQUEST_ANNOTATION)
+_sym_db.RegisterEnumDescriptor(_ANNOTATEASSESSMENTREQUEST_REASON)
 
 _RISKANALYSIS_CLASSIFICATIONREASON = _descriptor.EnumDescriptor(
   name='ClassificationReason',
@@ -112,8 +167,8 @@ _RISKANALYSIS_CLASSIFICATIONREASON = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1447,
-  serialized_end=1631,
+  serialized_start=1741,
+  serialized_end=1925,
 )
 _sym_db.RegisterEnumDescriptor(_RISKANALYSIS_CLASSIFICATIONREASON)
 
@@ -154,13 +209,48 @@ _TOKENPROPERTIES_INVALIDREASON = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='BROWSER_ERROR', index=6, number=6,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1843,
-  serialized_end=1969,
+  serialized_start=2138,
+  serialized_end=2283,
 )
 _sym_db.RegisterEnumDescriptor(_TOKENPROPERTIES_INVALIDREASON)
+
+_TESTINGOPTIONS_TESTINGCHALLENGE = _descriptor.EnumDescriptor(
+  name='TestingChallenge',
+  full_name='google.cloud.recaptchaenterprise.v1.TestingOptions.TestingChallenge',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='TESTING_CHALLENGE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='NOCAPTCHA', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='UNSOLVABLE_CHALLENGE', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=4226,
+  serialized_end=4320,
+)
+_sym_db.RegisterEnumDescriptor(_TESTINGOPTIONS_TESTINGCHALLENGE)
 
 _WEBKEYSETTINGS_INTEGRATIONTYPE = _descriptor.EnumDescriptor(
   name='IntegrationType',
@@ -192,8 +282,8 @@ _WEBKEYSETTINGS_INTEGRATIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3530,
-  serialized_end=3621,
+  serialized_start=4645,
+  serialized_end=4736,
 )
 _sym_db.RegisterEnumDescriptor(_WEBKEYSETTINGS_INTEGRATIONTYPE)
 
@@ -227,8 +317,8 @@ _WEBKEYSETTINGS_CHALLENGESECURITYPREFERENCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3623,
-  serialized_end=3741,
+  serialized_start=4738,
+  serialized_end=4856,
 )
 _sym_db.RegisterEnumDescriptor(_WEBKEYSETTINGS_CHALLENGESECURITYPREFERENCE)
 
@@ -293,13 +383,21 @@ _ANNOTATEASSESSMENTREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='reasons', full_name='google.cloud.recaptchaenterprise.v1.AnnotateAssessmentRequest.reasons', index=2,
+      number=3, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
   nested_types=[],
   enum_types=[
     _ANNOTATEASSESSMENTREQUEST_ANNOTATION,
+    _ANNOTATEASSESSMENTREQUEST_REASON,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -308,7 +406,7 @@ _ANNOTATEASSESSMENTREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=485,
-  serialized_end=801,
+  serialized_end=1095,
 )
 
 
@@ -332,8 +430,8 @@ _ANNOTATEASSESSMENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=803,
-  serialized_end=831,
+  serialized_start=1097,
+  serialized_end=1125,
 )
 
 
@@ -385,8 +483,8 @@ _ASSESSMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=834,
-  serialized_end=1185,
+  serialized_start=1128,
+  serialized_end=1479,
 )
 
 
@@ -445,8 +543,8 @@ _EVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1188,
-  serialized_end=1323,
+  serialized_start=1482,
+  serialized_end=1617,
 )
 
 
@@ -485,8 +583,8 @@ _RISKANALYSIS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1326,
-  serialized_end=1631,
+  serialized_start=1620,
+  serialized_end=1925,
 )
 
 
@@ -546,8 +644,8 @@ _TOKENPROPERTIES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1634,
-  serialized_end=1969,
+  serialized_start=1928,
+  serialized_end=2283,
 )
 
 
@@ -585,8 +683,8 @@ _CREATEKEYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1972,
-  serialized_end=2119,
+  serialized_start=2286,
+  serialized_end=2433,
 )
 
 
@@ -631,8 +729,8 @@ _LISTKEYSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2122,
-  serialized_end=2257,
+  serialized_start=2436,
+  serialized_end=2571,
 )
 
 
@@ -670,8 +768,8 @@ _LISTKEYSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2259,
-  serialized_end=2358,
+  serialized_start=2573,
+  serialized_end=2672,
 )
 
 
@@ -702,8 +800,8 @@ _GETKEYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2360,
-  serialized_end=2437,
+  serialized_start=2674,
+  serialized_end=2751,
 )
 
 
@@ -741,8 +839,8 @@ _UPDATEKEYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2440,
-  serialized_end=2572,
+  serialized_start=2754,
+  serialized_end=2886,
 )
 
 
@@ -773,8 +871,125 @@ _DELETEKEYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2574,
-  serialized_end=2654,
+  serialized_start=2888,
+  serialized_end=2968,
+)
+
+
+_MIGRATEKEYREQUEST = _descriptor.Descriptor(
+  name='MigrateKeyRequest',
+  full_name='google.cloud.recaptchaenterprise.v1.MigrateKeyRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.recaptchaenterprise.v1.MigrateKeyRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A(\n&recaptchaenterprise.googleapis.com/Key', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2970,
+  serialized_end=3051,
+)
+
+
+_GETMETRICSREQUEST = _descriptor.Descriptor(
+  name='GetMetricsRequest',
+  full_name='google.cloud.recaptchaenterprise.v1.GetMetricsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.recaptchaenterprise.v1.GetMetricsRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A,\n*recaptchaenterprise.googleapis.com/Metrics', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3053,
+  serialized_end=3138,
+)
+
+
+_METRICS = _descriptor.Descriptor(
+  name='Metrics',
+  full_name='google.cloud.recaptchaenterprise.v1.Metrics',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.recaptchaenterprise.v1.Metrics.name', index=0,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='google.cloud.recaptchaenterprise.v1.Metrics.start_time', index=1,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='score_metrics', full_name='google.cloud.recaptchaenterprise.v1.Metrics.score_metrics', index=2,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='challenge_metrics', full_name='google.cloud.recaptchaenterprise.v1.Metrics.challenge_metrics', index=3,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'\352AS\n*recaptchaenterprise.googleapis.com/Metrics\022%projects/{project}/keys/{key}/metrics',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3141,
+  serialized_end=3461,
 )
 
 
@@ -812,8 +1027,8 @@ _KEY_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3063,
-  serialized_end=3108,
+  serialized_start=3943,
+  serialized_end=3988,
 )
 
 _KEY = _descriptor.Descriptor(
@@ -865,10 +1080,17 @@ _KEY = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='create_time', full_name='google.cloud.recaptchaenterprise.v1.Key.create_time', index=6,
       number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='testing_options', full_name='google.cloud.recaptchaenterprise.v1.Key.testing_options', index=7,
+      number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -890,8 +1112,48 @@ _KEY = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2657,
-  serialized_end=3205,
+  serialized_start=3464,
+  serialized_end=4085,
+)
+
+
+_TESTINGOPTIONS = _descriptor.Descriptor(
+  name='TestingOptions',
+  full_name='google.cloud.recaptchaenterprise.v1.TestingOptions',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='testing_score', full_name='google.cloud.recaptchaenterprise.v1.TestingOptions.testing_score', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='testing_challenge', full_name='google.cloud.recaptchaenterprise.v1.TestingOptions.testing_challenge', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _TESTINGOPTIONS_TESTINGCHALLENGE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4088,
+  serialized_end=4320,
 )
 
 
@@ -952,8 +1214,8 @@ _WEBKEYSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3208,
-  serialized_end=3741,
+  serialized_start=4323,
+  serialized_end=4856,
 )
 
 
@@ -966,7 +1228,14 @@ _ANDROIDKEYSETTINGS = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='allowed_package_names', full_name='google.cloud.recaptchaenterprise.v1.AndroidKeySettings.allowed_package_names', index=0,
+      name='allow_all_package_names', full_name='google.cloud.recaptchaenterprise.v1.AndroidKeySettings.allow_all_package_names', index=0,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allowed_package_names', full_name='google.cloud.recaptchaenterprise.v1.AndroidKeySettings.allowed_package_names', index=1,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -984,8 +1253,8 @@ _ANDROIDKEYSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3743,
-  serialized_end=3794,
+  serialized_start=4858,
+  serialized_end=4942,
 )
 
 
@@ -998,7 +1267,14 @@ _IOSKEYSETTINGS = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='allowed_bundle_ids', full_name='google.cloud.recaptchaenterprise.v1.IOSKeySettings.allowed_bundle_ids', index=0,
+      name='allow_all_bundle_ids', full_name='google.cloud.recaptchaenterprise.v1.IOSKeySettings.allow_all_bundle_ids', index=0,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allowed_bundle_ids', full_name='google.cloud.recaptchaenterprise.v1.IOSKeySettings.allowed_bundle_ids', index=1,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1016,13 +1292,215 @@ _IOSKEYSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3796,
-  serialized_end=3840,
+  serialized_start=4944,
+  serialized_end=5018,
+)
+
+
+_SCOREDISTRIBUTION_SCOREBUCKETSENTRY = _descriptor.Descriptor(
+  name='ScoreBucketsEntry',
+  full_name='google.cloud.recaptchaenterprise.v1.ScoreDistribution.ScoreBucketsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.cloud.recaptchaenterprise.v1.ScoreDistribution.ScoreBucketsEntry.key', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.cloud.recaptchaenterprise.v1.ScoreDistribution.ScoreBucketsEntry.value', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5139,
+  serialized_end=5190,
+)
+
+_SCOREDISTRIBUTION = _descriptor.Descriptor(
+  name='ScoreDistribution',
+  full_name='google.cloud.recaptchaenterprise.v1.ScoreDistribution',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='score_buckets', full_name='google.cloud.recaptchaenterprise.v1.ScoreDistribution.score_buckets', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_SCOREDISTRIBUTION_SCOREBUCKETSENTRY, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5021,
+  serialized_end=5190,
+)
+
+
+_SCOREMETRICS_ACTIONMETRICSENTRY = _descriptor.Descriptor(
+  name='ActionMetricsEntry',
+  full_name='google.cloud.recaptchaenterprise.v1.ScoreMetrics.ActionMetricsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.cloud.recaptchaenterprise.v1.ScoreMetrics.ActionMetricsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.cloud.recaptchaenterprise.v1.ScoreMetrics.ActionMetricsEntry.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5384,
+  serialized_end=5492,
+)
+
+_SCOREMETRICS = _descriptor.Descriptor(
+  name='ScoreMetrics',
+  full_name='google.cloud.recaptchaenterprise.v1.ScoreMetrics',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='overall_metrics', full_name='google.cloud.recaptchaenterprise.v1.ScoreMetrics.overall_metrics', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='action_metrics', full_name='google.cloud.recaptchaenterprise.v1.ScoreMetrics.action_metrics', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_SCOREMETRICS_ACTIONMETRICSENTRY, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5193,
+  serialized_end=5492,
+)
+
+
+_CHALLENGEMETRICS = _descriptor.Descriptor(
+  name='ChallengeMetrics',
+  full_name='google.cloud.recaptchaenterprise.v1.ChallengeMetrics',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='pageload_count', full_name='google.cloud.recaptchaenterprise.v1.ChallengeMetrics.pageload_count', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='nocaptcha_count', full_name='google.cloud.recaptchaenterprise.v1.ChallengeMetrics.nocaptcha_count', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='failed_count', full_name='google.cloud.recaptchaenterprise.v1.ChallengeMetrics.failed_count', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='passed_count', full_name='google.cloud.recaptchaenterprise.v1.ChallengeMetrics.passed_count', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5494,
+  serialized_end=5605,
 )
 
 _CREATEASSESSMENTREQUEST.fields_by_name['assessment'].message_type = _ASSESSMENT
 _ANNOTATEASSESSMENTREQUEST.fields_by_name['annotation'].enum_type = _ANNOTATEASSESSMENTREQUEST_ANNOTATION
+_ANNOTATEASSESSMENTREQUEST.fields_by_name['reasons'].enum_type = _ANNOTATEASSESSMENTREQUEST_REASON
 _ANNOTATEASSESSMENTREQUEST_ANNOTATION.containing_type = _ANNOTATEASSESSMENTREQUEST
+_ANNOTATEASSESSMENTREQUEST_REASON.containing_type = _ANNOTATEASSESSMENTREQUEST
 _ASSESSMENT.fields_by_name['event'].message_type = _EVENT
 _ASSESSMENT.fields_by_name['risk_analysis'].message_type = _RISKANALYSIS
 _ASSESSMENT.fields_by_name['token_properties'].message_type = _TOKENPROPERTIES
@@ -1035,12 +1513,16 @@ _CREATEKEYREQUEST.fields_by_name['key'].message_type = _KEY
 _LISTKEYSRESPONSE.fields_by_name['keys'].message_type = _KEY
 _UPDATEKEYREQUEST.fields_by_name['key'].message_type = _KEY
 _UPDATEKEYREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_METRICS.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_METRICS.fields_by_name['score_metrics'].message_type = _SCOREMETRICS
+_METRICS.fields_by_name['challenge_metrics'].message_type = _CHALLENGEMETRICS
 _KEY_LABELSENTRY.containing_type = _KEY
 _KEY.fields_by_name['web_settings'].message_type = _WEBKEYSETTINGS
 _KEY.fields_by_name['android_settings'].message_type = _ANDROIDKEYSETTINGS
 _KEY.fields_by_name['ios_settings'].message_type = _IOSKEYSETTINGS
 _KEY.fields_by_name['labels'].message_type = _KEY_LABELSENTRY
 _KEY.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_KEY.fields_by_name['testing_options'].message_type = _TESTINGOPTIONS
 _KEY.oneofs_by_name['platform_settings'].fields.append(
   _KEY.fields_by_name['web_settings'])
 _KEY.fields_by_name['web_settings'].containing_oneof = _KEY.oneofs_by_name['platform_settings']
@@ -1050,10 +1532,18 @@ _KEY.fields_by_name['android_settings'].containing_oneof = _KEY.oneofs_by_name['
 _KEY.oneofs_by_name['platform_settings'].fields.append(
   _KEY.fields_by_name['ios_settings'])
 _KEY.fields_by_name['ios_settings'].containing_oneof = _KEY.oneofs_by_name['platform_settings']
+_TESTINGOPTIONS.fields_by_name['testing_challenge'].enum_type = _TESTINGOPTIONS_TESTINGCHALLENGE
+_TESTINGOPTIONS_TESTINGCHALLENGE.containing_type = _TESTINGOPTIONS
 _WEBKEYSETTINGS.fields_by_name['integration_type'].enum_type = _WEBKEYSETTINGS_INTEGRATIONTYPE
 _WEBKEYSETTINGS.fields_by_name['challenge_security_preference'].enum_type = _WEBKEYSETTINGS_CHALLENGESECURITYPREFERENCE
 _WEBKEYSETTINGS_INTEGRATIONTYPE.containing_type = _WEBKEYSETTINGS
 _WEBKEYSETTINGS_CHALLENGESECURITYPREFERENCE.containing_type = _WEBKEYSETTINGS
+_SCOREDISTRIBUTION_SCOREBUCKETSENTRY.containing_type = _SCOREDISTRIBUTION
+_SCOREDISTRIBUTION.fields_by_name['score_buckets'].message_type = _SCOREDISTRIBUTION_SCOREBUCKETSENTRY
+_SCOREMETRICS_ACTIONMETRICSENTRY.fields_by_name['value'].message_type = _SCOREDISTRIBUTION
+_SCOREMETRICS_ACTIONMETRICSENTRY.containing_type = _SCOREMETRICS
+_SCOREMETRICS.fields_by_name['overall_metrics'].message_type = _SCOREDISTRIBUTION
+_SCOREMETRICS.fields_by_name['action_metrics'].message_type = _SCOREMETRICS_ACTIONMETRICSENTRY
 DESCRIPTOR.message_types_by_name['CreateAssessmentRequest'] = _CREATEASSESSMENTREQUEST
 DESCRIPTOR.message_types_by_name['AnnotateAssessmentRequest'] = _ANNOTATEASSESSMENTREQUEST
 DESCRIPTOR.message_types_by_name['AnnotateAssessmentResponse'] = _ANNOTATEASSESSMENTRESPONSE
@@ -1067,10 +1557,17 @@ DESCRIPTOR.message_types_by_name['ListKeysResponse'] = _LISTKEYSRESPONSE
 DESCRIPTOR.message_types_by_name['GetKeyRequest'] = _GETKEYREQUEST
 DESCRIPTOR.message_types_by_name['UpdateKeyRequest'] = _UPDATEKEYREQUEST
 DESCRIPTOR.message_types_by_name['DeleteKeyRequest'] = _DELETEKEYREQUEST
+DESCRIPTOR.message_types_by_name['MigrateKeyRequest'] = _MIGRATEKEYREQUEST
+DESCRIPTOR.message_types_by_name['GetMetricsRequest'] = _GETMETRICSREQUEST
+DESCRIPTOR.message_types_by_name['Metrics'] = _METRICS
 DESCRIPTOR.message_types_by_name['Key'] = _KEY
+DESCRIPTOR.message_types_by_name['TestingOptions'] = _TESTINGOPTIONS
 DESCRIPTOR.message_types_by_name['WebKeySettings'] = _WEBKEYSETTINGS
 DESCRIPTOR.message_types_by_name['AndroidKeySettings'] = _ANDROIDKEYSETTINGS
 DESCRIPTOR.message_types_by_name['IOSKeySettings'] = _IOSKEYSETTINGS
+DESCRIPTOR.message_types_by_name['ScoreDistribution'] = _SCOREDISTRIBUTION
+DESCRIPTOR.message_types_by_name['ScoreMetrics'] = _SCOREMETRICS
+DESCRIPTOR.message_types_by_name['ChallengeMetrics'] = _CHALLENGEMETRICS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateAssessmentRequest = _reflection.GeneratedProtocolMessageType('CreateAssessmentRequest', (_message.Message,), {
@@ -1164,6 +1661,27 @@ DeleteKeyRequest = _reflection.GeneratedProtocolMessageType('DeleteKeyRequest', 
   })
 _sym_db.RegisterMessage(DeleteKeyRequest)
 
+MigrateKeyRequest = _reflection.GeneratedProtocolMessageType('MigrateKeyRequest', (_message.Message,), {
+  'DESCRIPTOR' : _MIGRATEKEYREQUEST,
+  '__module__' : 'google.cloud.recaptchaenterprise.v1.recaptchaenterprise_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.recaptchaenterprise.v1.MigrateKeyRequest)
+  })
+_sym_db.RegisterMessage(MigrateKeyRequest)
+
+GetMetricsRequest = _reflection.GeneratedProtocolMessageType('GetMetricsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETMETRICSREQUEST,
+  '__module__' : 'google.cloud.recaptchaenterprise.v1.recaptchaenterprise_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.recaptchaenterprise.v1.GetMetricsRequest)
+  })
+_sym_db.RegisterMessage(GetMetricsRequest)
+
+Metrics = _reflection.GeneratedProtocolMessageType('Metrics', (_message.Message,), {
+  'DESCRIPTOR' : _METRICS,
+  '__module__' : 'google.cloud.recaptchaenterprise.v1.recaptchaenterprise_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.recaptchaenterprise.v1.Metrics)
+  })
+_sym_db.RegisterMessage(Metrics)
+
 Key = _reflection.GeneratedProtocolMessageType('Key', (_message.Message,), {
 
   'LabelsEntry' : _reflection.GeneratedProtocolMessageType('LabelsEntry', (_message.Message,), {
@@ -1178,6 +1696,13 @@ Key = _reflection.GeneratedProtocolMessageType('Key', (_message.Message,), {
   })
 _sym_db.RegisterMessage(Key)
 _sym_db.RegisterMessage(Key.LabelsEntry)
+
+TestingOptions = _reflection.GeneratedProtocolMessageType('TestingOptions', (_message.Message,), {
+  'DESCRIPTOR' : _TESTINGOPTIONS,
+  '__module__' : 'google.cloud.recaptchaenterprise.v1.recaptchaenterprise_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.recaptchaenterprise.v1.TestingOptions)
+  })
+_sym_db.RegisterMessage(TestingOptions)
 
 WebKeySettings = _reflection.GeneratedProtocolMessageType('WebKeySettings', (_message.Message,), {
   'DESCRIPTOR' : _WEBKEYSETTINGS,
@@ -1200,12 +1725,52 @@ IOSKeySettings = _reflection.GeneratedProtocolMessageType('IOSKeySettings', (_me
   })
 _sym_db.RegisterMessage(IOSKeySettings)
 
+ScoreDistribution = _reflection.GeneratedProtocolMessageType('ScoreDistribution', (_message.Message,), {
+
+  'ScoreBucketsEntry' : _reflection.GeneratedProtocolMessageType('ScoreBucketsEntry', (_message.Message,), {
+    'DESCRIPTOR' : _SCOREDISTRIBUTION_SCOREBUCKETSENTRY,
+    '__module__' : 'google.cloud.recaptchaenterprise.v1.recaptchaenterprise_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.recaptchaenterprise.v1.ScoreDistribution.ScoreBucketsEntry)
+    })
+  ,
+  'DESCRIPTOR' : _SCOREDISTRIBUTION,
+  '__module__' : 'google.cloud.recaptchaenterprise.v1.recaptchaenterprise_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.recaptchaenterprise.v1.ScoreDistribution)
+  })
+_sym_db.RegisterMessage(ScoreDistribution)
+_sym_db.RegisterMessage(ScoreDistribution.ScoreBucketsEntry)
+
+ScoreMetrics = _reflection.GeneratedProtocolMessageType('ScoreMetrics', (_message.Message,), {
+
+  'ActionMetricsEntry' : _reflection.GeneratedProtocolMessageType('ActionMetricsEntry', (_message.Message,), {
+    'DESCRIPTOR' : _SCOREMETRICS_ACTIONMETRICSENTRY,
+    '__module__' : 'google.cloud.recaptchaenterprise.v1.recaptchaenterprise_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.recaptchaenterprise.v1.ScoreMetrics.ActionMetricsEntry)
+    })
+  ,
+  'DESCRIPTOR' : _SCOREMETRICS,
+  '__module__' : 'google.cloud.recaptchaenterprise.v1.recaptchaenterprise_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.recaptchaenterprise.v1.ScoreMetrics)
+  })
+_sym_db.RegisterMessage(ScoreMetrics)
+_sym_db.RegisterMessage(ScoreMetrics.ActionMetricsEntry)
+
+ChallengeMetrics = _reflection.GeneratedProtocolMessageType('ChallengeMetrics', (_message.Message,), {
+  'DESCRIPTOR' : _CHALLENGEMETRICS,
+  '__module__' : 'google.cloud.recaptchaenterprise.v1.recaptchaenterprise_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.recaptchaenterprise.v1.ChallengeMetrics)
+  })
+_sym_db.RegisterMessage(ChallengeMetrics)
+
 
 DESCRIPTOR._options = None
 _CREATEASSESSMENTREQUEST.fields_by_name['parent']._options = None
 _CREATEASSESSMENTREQUEST.fields_by_name['assessment']._options = None
+_ANNOTATEASSESSMENTREQUEST_ANNOTATION.values_by_name["PASSWORD_CORRECT"]._options = None
+_ANNOTATEASSESSMENTREQUEST_ANNOTATION.values_by_name["PASSWORD_INCORRECT"]._options = None
 _ANNOTATEASSESSMENTREQUEST.fields_by_name['name']._options = None
 _ANNOTATEASSESSMENTREQUEST.fields_by_name['annotation']._options = None
+_ANNOTATEASSESSMENTREQUEST.fields_by_name['reasons']._options = None
 _ASSESSMENT.fields_by_name['name']._options = None
 _ASSESSMENT.fields_by_name['risk_analysis']._options = None
 _ASSESSMENT.fields_by_name['token_properties']._options = None
@@ -1224,11 +1789,16 @@ _GETKEYREQUEST.fields_by_name['name']._options = None
 _UPDATEKEYREQUEST.fields_by_name['key']._options = None
 _UPDATEKEYREQUEST.fields_by_name['update_mask']._options = None
 _DELETEKEYREQUEST.fields_by_name['name']._options = None
+_MIGRATEKEYREQUEST.fields_by_name['name']._options = None
+_GETMETRICSREQUEST.fields_by_name['name']._options = None
+_METRICS.fields_by_name['name']._options = None
+_METRICS._options = None
 _KEY_LABELSENTRY._options = None
-_KEY.fields_by_name['labels']._options = None
 _KEY._options = None
 _WEBKEYSETTINGS.fields_by_name['allow_amp_traffic']._options = None
 _WEBKEYSETTINGS.fields_by_name['integration_type']._options = None
+_SCOREDISTRIBUTION_SCOREBUCKETSENTRY._options = None
+_SCOREMETRICS_ACTIONMETRICSENTRY._options = None
 
 _RECAPTCHAENTERPRISESERVICE = _descriptor.ServiceDescriptor(
   name='RecaptchaEnterpriseService',
@@ -1237,8 +1807,8 @@ _RECAPTCHAENTERPRISESERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\"recaptchaenterprise.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=3843,
-  serialized_end=5141,
+  serialized_start=5608,
+  serialized_end=7238,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateAssessment',
@@ -1308,6 +1878,26 @@ _RECAPTCHAENTERPRISESERVICE = _descriptor.ServiceDescriptor(
     input_type=_DELETEKEYREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=b'\202\323\344\223\002\036*\034/v1/{name=projects/*/keys/*}',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='MigrateKey',
+    full_name='google.cloud.recaptchaenterprise.v1.RecaptchaEnterpriseService.MigrateKey',
+    index=7,
+    containing_service=None,
+    input_type=_MIGRATEKEYREQUEST,
+    output_type=_KEY,
+    serialized_options=b'\202\323\344\223\002)\"$/v1/{name=projects/*/keys/*}:migrate:\001*',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetMetrics',
+    full_name='google.cloud.recaptchaenterprise.v1.RecaptchaEnterpriseService.GetMetrics',
+    index=8,
+    containing_service=None,
+    input_type=_GETMETRICSREQUEST,
+    output_type=_METRICS,
+    serialized_options=b'\202\323\344\223\002&\022$/v1/{name=projects/*/keys/*/metrics}\332A\004name',
     create_key=_descriptor._internal_create_key,
   ),
 ])

@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1beta1/user_action_reference.proto',
   package='google.cloud.aiplatform.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\030UserActionReferenceProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
+  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\030UserActionReferenceProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\252\002\037Google.Cloud.AIPlatform.V1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1\352\002\"Google::Cloud::AIPlatform::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n;google/cloud/aiplatform/v1beta1/user_action_reference.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1cgoogle/api/annotations.proto\"d\n\x13UserActionReference\x12\x13\n\toperation\x18\x01 \x01(\tH\x00\x12\x1b\n\x11\x64\x61ta_labeling_job\x18\x02 \x01(\tH\x00\x12\x0e\n\x06method\x18\x03 \x01(\tB\x0b\n\treferenceB\x8c\x01\n#com.google.cloud.aiplatform.v1beta1B\x18UserActionReferenceProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n;google/cloud/aiplatform/v1beta1/user_action_reference.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1cgoogle/api/annotations.proto\"d\n\x13UserActionReference\x12\x13\n\toperation\x18\x01 \x01(\tH\x00\x12\x1b\n\x11\x64\x61ta_labeling_job\x18\x02 \x01(\tH\x00\x12\x0e\n\x06method\x18\x03 \x01(\tB\x0b\n\treferenceB\xf5\x01\n#com.google.cloud.aiplatform.v1beta1B\x18UserActionReferenceProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 

@@ -26,7 +26,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.cloud.speech.v1p1beta1B\025SpeechAdaptationProtoP\001ZCgoogle.golang.org/genproto/googleapis/cloud/speech/v1p1beta1;speech\370\001\001\242\002\003GCS',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n;google/cloud/speech/v1p1beta1/cloud_speech_adaptation.proto\x12\x1dgoogle.cloud.speech.v1p1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a,google/cloud/speech/v1p1beta1/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\xab\x01\n\x16\x43reatePhraseSetRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1fspeech.googleapis.com/PhraseSet\x12\x15\n\rphrase_set_id\x18\x02 \x01(\t\x12\x41\n\nphrase_set\x18\x03 \x01(\x0b\x32(.google.cloud.speech.v1p1beta1.PhraseSetB\x03\xe0\x41\x02\"\x8c\x01\n\x16UpdatePhraseSetRequest\x12\x41\n\nphrase_set\x18\x01 \x01(\x0b\x32(.google.cloud.speech.v1p1beta1.PhraseSetB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"L\n\x13GetPhraseSetRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspeech.googleapis.com/PhraseSet\"v\n\x14ListPhraseSetRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1fspeech.googleapis.com/PhraseSet\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"o\n\x15ListPhraseSetResponse\x12=\n\x0bphrase_sets\x18\x01 \x03(\x0b\x32(.google.cloud.speech.v1p1beta1.PhraseSet\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"O\n\x16\x44\x65letePhraseSetRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspeech.googleapis.com/PhraseSet\"\xb5\x01\n\x18\x43reateCustomClassRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!speech.googleapis.com/CustomClass\x12\x17\n\x0f\x63ustom_class_id\x18\x02 \x01(\t\x12\x45\n\x0c\x63ustom_class\x18\x03 \x01(\x0b\x32*.google.cloud.speech.v1p1beta1.CustomClassB\x03\xe0\x41\x02\"\x92\x01\n\x18UpdateCustomClassRequest\x12\x45\n\x0c\x63ustom_class\x18\x01 \x01(\x0b\x32*.google.cloud.speech.v1p1beta1.CustomClassB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"P\n\x15GetCustomClassRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!speech.googleapis.com/CustomClass\"|\n\x18ListCustomClassesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!speech.googleapis.com/CustomClass\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"x\n\x19ListCustomClassesResponse\x12\x42\n\x0e\x63ustom_classes\x18\x01 \x03(\x0b\x32*.google.cloud.speech.v1p1beta1.CustomClass\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"S\n\x18\x44\x65leteCustomClassRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!speech.googleapis.com/CustomClass2\xd2\x10\n\nAdaptation\x12\xd6\x01\n\x0f\x43reatePhraseSet\x12\x35.google.cloud.speech.v1p1beta1.CreatePhraseSetRequest\x1a(.google.cloud.speech.v1p1beta1.PhraseSet\"b\x82\xd3\xe4\x93\x02:\"5/v1p1beta1/{parent=projects/*/locations/*}/phraseSets:\x01*\xda\x41\x1fparent,phrase_set,phrase_set_id\x12\xb2\x01\n\x0cGetPhraseSet\x12\x32.google.cloud.speech.v1p1beta1.GetPhraseSetRequest\x1a(.google.cloud.speech.v1p1beta1.PhraseSet\"D\x82\xd3\xe4\x93\x02\x37\x12\x35/v1p1beta1/{name=projects/*/locations/*/phraseSets/*}\xda\x41\x04name\x12\xc2\x01\n\rListPhraseSet\x12\x33.google.cloud.speech.v1p1beta1.ListPhraseSetRequest\x1a\x34.google.cloud.speech.v1p1beta1.ListPhraseSetResponse\"F\x82\xd3\xe4\x93\x02\x37\x12\x35/v1p1beta1/{parent=projects/*/locations/*}/phraseSets\xda\x41\x06parent\x12\xe1\x01\n\x0fUpdatePhraseSet\x12\x35.google.cloud.speech.v1p1beta1.UpdatePhraseSetRequest\x1a(.google.cloud.speech.v1p1beta1.PhraseSet\"m\x82\xd3\xe4\x93\x02N2@/v1p1beta1/{phrase_set.name=projects/*/locations/*/phraseSets/*}:\nphrase_set\xda\x41\x16phrase_set,update_mask\x12\xa6\x01\n\x0f\x44\x65letePhraseSet\x12\x35.google.cloud.speech.v1p1beta1.DeletePhraseSetRequest\x1a\x16.google.protobuf.Empty\"D\x82\xd3\xe4\x93\x02\x37*5/v1p1beta1/{name=projects/*/locations/*/phraseSets/*}\xda\x41\x04name\x12\xe3\x01\n\x11\x43reateCustomClass\x12\x37.google.cloud.speech.v1p1beta1.CreateCustomClassRequest\x1a*.google.cloud.speech.v1p1beta1.CustomClass\"i\x82\xd3\xe4\x93\x02=\"8/v1p1beta1/{parent=projects/*/locations/*}/customClasses:\x01*\xda\x41#parent,custom_class,custom_class_id\x12\xbb\x01\n\x0eGetCustomClass\x12\x34.google.cloud.speech.v1p1beta1.GetCustomClassRequest\x1a*.google.cloud.speech.v1p1beta1.CustomClass\"G\x82\xd3\xe4\x93\x02:\x12\x38/v1p1beta1/{name=projects/*/locations/*/customClasses/*}\xda\x41\x04name\x12\xd1\x01\n\x11ListCustomClasses\x12\x37.google.cloud.speech.v1p1beta1.ListCustomClassesRequest\x1a\x38.google.cloud.speech.v1p1beta1.ListCustomClassesResponse\"I\x82\xd3\xe4\x93\x02:\x12\x38/v1p1beta1/{parent=projects/*/locations/*}/customClasses\xda\x41\x06parent\x12\xf0\x01\n\x11UpdateCustomClass\x12\x37.google.cloud.speech.v1p1beta1.UpdateCustomClassRequest\x1a*.google.cloud.speech.v1p1beta1.CustomClass\"v\x82\xd3\xe4\x93\x02U2E/v1p1beta1/{custom_class.name=projects/*/locations/*/customClasses/*}:\x0c\x63ustom_class\xda\x41\x18\x63ustom_class,update_mask\x12\xad\x01\n\x11\x44\x65leteCustomClass\x12\x37.google.cloud.speech.v1p1beta1.DeleteCustomClassRequest\x1a\x16.google.protobuf.Empty\"G\x82\xd3\xe4\x93\x02:*8/v1p1beta1/{name=projects/*/locations/*/customClasses/*}\xda\x41\x04name\x1aI\xca\x41\x15speech.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x8a\x01\n!com.google.cloud.speech.v1p1beta1B\x15SpeechAdaptationProtoP\x01ZCgoogle.golang.org/genproto/googleapis/cloud/speech/v1p1beta1;speech\xf8\x01\x01\xa2\x02\x03GCSb\x06proto3'
+  serialized_pb=b'\n;google/cloud/speech/v1p1beta1/cloud_speech_adaptation.proto\x12\x1dgoogle.cloud.speech.v1p1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a,google/cloud/speech/v1p1beta1/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\xb0\x01\n\x16\x43reatePhraseSetRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1fspeech.googleapis.com/PhraseSet\x12\x1a\n\rphrase_set_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x41\n\nphrase_set\x18\x03 \x01(\x0b\x32(.google.cloud.speech.v1p1beta1.PhraseSetB\x03\xe0\x41\x02\"\x8c\x01\n\x16UpdatePhraseSetRequest\x12\x41\n\nphrase_set\x18\x01 \x01(\x0b\x32(.google.cloud.speech.v1p1beta1.PhraseSetB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"L\n\x13GetPhraseSetRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspeech.googleapis.com/PhraseSet\"v\n\x14ListPhraseSetRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1fspeech.googleapis.com/PhraseSet\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"o\n\x15ListPhraseSetResponse\x12=\n\x0bphrase_sets\x18\x01 \x03(\x0b\x32(.google.cloud.speech.v1p1beta1.PhraseSet\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"O\n\x16\x44\x65letePhraseSetRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspeech.googleapis.com/PhraseSet\"\xba\x01\n\x18\x43reateCustomClassRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!speech.googleapis.com/CustomClass\x12\x1c\n\x0f\x63ustom_class_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x45\n\x0c\x63ustom_class\x18\x03 \x01(\x0b\x32*.google.cloud.speech.v1p1beta1.CustomClassB\x03\xe0\x41\x02\"\x92\x01\n\x18UpdateCustomClassRequest\x12\x45\n\x0c\x63ustom_class\x18\x01 \x01(\x0b\x32*.google.cloud.speech.v1p1beta1.CustomClassB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"P\n\x15GetCustomClassRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!speech.googleapis.com/CustomClass\"|\n\x18ListCustomClassesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!speech.googleapis.com/CustomClass\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"x\n\x19ListCustomClassesResponse\x12\x42\n\x0e\x63ustom_classes\x18\x01 \x03(\x0b\x32*.google.cloud.speech.v1p1beta1.CustomClass\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"S\n\x18\x44\x65leteCustomClassRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!speech.googleapis.com/CustomClass2\xd2\x10\n\nAdaptation\x12\xd6\x01\n\x0f\x43reatePhraseSet\x12\x35.google.cloud.speech.v1p1beta1.CreatePhraseSetRequest\x1a(.google.cloud.speech.v1p1beta1.PhraseSet\"b\x82\xd3\xe4\x93\x02:\"5/v1p1beta1/{parent=projects/*/locations/*}/phraseSets:\x01*\xda\x41\x1fparent,phrase_set,phrase_set_id\x12\xb2\x01\n\x0cGetPhraseSet\x12\x32.google.cloud.speech.v1p1beta1.GetPhraseSetRequest\x1a(.google.cloud.speech.v1p1beta1.PhraseSet\"D\x82\xd3\xe4\x93\x02\x37\x12\x35/v1p1beta1/{name=projects/*/locations/*/phraseSets/*}\xda\x41\x04name\x12\xc2\x01\n\rListPhraseSet\x12\x33.google.cloud.speech.v1p1beta1.ListPhraseSetRequest\x1a\x34.google.cloud.speech.v1p1beta1.ListPhraseSetResponse\"F\x82\xd3\xe4\x93\x02\x37\x12\x35/v1p1beta1/{parent=projects/*/locations/*}/phraseSets\xda\x41\x06parent\x12\xe1\x01\n\x0fUpdatePhraseSet\x12\x35.google.cloud.speech.v1p1beta1.UpdatePhraseSetRequest\x1a(.google.cloud.speech.v1p1beta1.PhraseSet\"m\x82\xd3\xe4\x93\x02N2@/v1p1beta1/{phrase_set.name=projects/*/locations/*/phraseSets/*}:\nphrase_set\xda\x41\x16phrase_set,update_mask\x12\xa6\x01\n\x0f\x44\x65letePhraseSet\x12\x35.google.cloud.speech.v1p1beta1.DeletePhraseSetRequest\x1a\x16.google.protobuf.Empty\"D\x82\xd3\xe4\x93\x02\x37*5/v1p1beta1/{name=projects/*/locations/*/phraseSets/*}\xda\x41\x04name\x12\xe3\x01\n\x11\x43reateCustomClass\x12\x37.google.cloud.speech.v1p1beta1.CreateCustomClassRequest\x1a*.google.cloud.speech.v1p1beta1.CustomClass\"i\x82\xd3\xe4\x93\x02=\"8/v1p1beta1/{parent=projects/*/locations/*}/customClasses:\x01*\xda\x41#parent,custom_class,custom_class_id\x12\xbb\x01\n\x0eGetCustomClass\x12\x34.google.cloud.speech.v1p1beta1.GetCustomClassRequest\x1a*.google.cloud.speech.v1p1beta1.CustomClass\"G\x82\xd3\xe4\x93\x02:\x12\x38/v1p1beta1/{name=projects/*/locations/*/customClasses/*}\xda\x41\x04name\x12\xd1\x01\n\x11ListCustomClasses\x12\x37.google.cloud.speech.v1p1beta1.ListCustomClassesRequest\x1a\x38.google.cloud.speech.v1p1beta1.ListCustomClassesResponse\"I\x82\xd3\xe4\x93\x02:\x12\x38/v1p1beta1/{parent=projects/*/locations/*}/customClasses\xda\x41\x06parent\x12\xf0\x01\n\x11UpdateCustomClass\x12\x37.google.cloud.speech.v1p1beta1.UpdateCustomClassRequest\x1a*.google.cloud.speech.v1p1beta1.CustomClass\"v\x82\xd3\xe4\x93\x02U2E/v1p1beta1/{custom_class.name=projects/*/locations/*/customClasses/*}:\x0c\x63ustom_class\xda\x41\x18\x63ustom_class,update_mask\x12\xad\x01\n\x11\x44\x65leteCustomClass\x12\x37.google.cloud.speech.v1p1beta1.DeleteCustomClassRequest\x1a\x16.google.protobuf.Empty\"G\x82\xd3\xe4\x93\x02:*8/v1p1beta1/{name=projects/*/locations/*/customClasses/*}\xda\x41\x04name\x1aI\xca\x41\x15speech.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x8a\x01\n!com.google.cloud.speech.v1p1beta1B\x15SpeechAdaptationProtoP\x01ZCgoogle.golang.org/genproto/googleapis/cloud/speech/v1p1beta1;speech\xf8\x01\x01\xa2\x02\x03GCSb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_speech_dot_v1p1beta1_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
 
@@ -54,7 +54,7 @@ _CREATEPHRASESETREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='phrase_set', full_name='google.cloud.speech.v1p1beta1.CreatePhraseSetRequest.phrase_set', index=2,
       number=3, type=11, cpp_type=10, label=1,
@@ -75,7 +75,7 @@ _CREATEPHRASESETREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=319,
-  serialized_end=490,
+  serialized_end=495,
 )
 
 
@@ -113,8 +113,8 @@ _UPDATEPHRASESETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=493,
-  serialized_end=633,
+  serialized_start=498,
+  serialized_end=638,
 )
 
 
@@ -145,8 +145,8 @@ _GETPHRASESETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=635,
-  serialized_end=711,
+  serialized_start=640,
+  serialized_end=716,
 )
 
 
@@ -191,8 +191,8 @@ _LISTPHRASESETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=713,
-  serialized_end=831,
+  serialized_start=718,
+  serialized_end=836,
 )
 
 
@@ -230,8 +230,8 @@ _LISTPHRASESETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=833,
-  serialized_end=944,
+  serialized_start=838,
+  serialized_end=949,
 )
 
 
@@ -262,8 +262,8 @@ _DELETEPHRASESETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=946,
-  serialized_end=1025,
+  serialized_start=951,
+  serialized_end=1030,
 )
 
 
@@ -288,7 +288,7 @@ _CREATECUSTOMCLASSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='custom_class', full_name='google.cloud.speech.v1p1beta1.CreateCustomClassRequest.custom_class', index=2,
       number=3, type=11, cpp_type=10, label=1,
@@ -308,8 +308,8 @@ _CREATECUSTOMCLASSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1028,
-  serialized_end=1209,
+  serialized_start=1033,
+  serialized_end=1219,
 )
 
 
@@ -347,8 +347,8 @@ _UPDATECUSTOMCLASSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1212,
-  serialized_end=1358,
+  serialized_start=1222,
+  serialized_end=1368,
 )
 
 
@@ -379,8 +379,8 @@ _GETCUSTOMCLASSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1360,
-  serialized_end=1440,
+  serialized_start=1370,
+  serialized_end=1450,
 )
 
 
@@ -425,8 +425,8 @@ _LISTCUSTOMCLASSESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1442,
-  serialized_end=1566,
+  serialized_start=1452,
+  serialized_end=1576,
 )
 
 
@@ -464,8 +464,8 @@ _LISTCUSTOMCLASSESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1568,
-  serialized_end=1688,
+  serialized_start=1578,
+  serialized_end=1698,
 )
 
 
@@ -496,8 +496,8 @@ _DELETECUSTOMCLASSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1690,
-  serialized_end=1773,
+  serialized_start=1700,
+  serialized_end=1783,
 )
 
 _CREATEPHRASESETREQUEST.fields_by_name['phrase_set'].message_type = google_dot_cloud_dot_speech_dot_v1p1beta1_dot_resource__pb2._PHRASESET
@@ -609,12 +609,14 @@ _sym_db.RegisterMessage(DeleteCustomClassRequest)
 
 DESCRIPTOR._options = None
 _CREATEPHRASESETREQUEST.fields_by_name['parent']._options = None
+_CREATEPHRASESETREQUEST.fields_by_name['phrase_set_id']._options = None
 _CREATEPHRASESETREQUEST.fields_by_name['phrase_set']._options = None
 _UPDATEPHRASESETREQUEST.fields_by_name['phrase_set']._options = None
 _GETPHRASESETREQUEST.fields_by_name['name']._options = None
 _LISTPHRASESETREQUEST.fields_by_name['parent']._options = None
 _DELETEPHRASESETREQUEST.fields_by_name['name']._options = None
 _CREATECUSTOMCLASSREQUEST.fields_by_name['parent']._options = None
+_CREATECUSTOMCLASSREQUEST.fields_by_name['custom_class_id']._options = None
 _CREATECUSTOMCLASSREQUEST.fields_by_name['custom_class']._options = None
 _UPDATECUSTOMCLASSREQUEST.fields_by_name['custom_class']._options = None
 _GETCUSTOMCLASSREQUEST.fields_by_name['name']._options = None
@@ -628,8 +630,8 @@ _ADAPTATION = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\025speech.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1776,
-  serialized_end=3906,
+  serialized_start=1786,
+  serialized_end=3916,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreatePhraseSet',

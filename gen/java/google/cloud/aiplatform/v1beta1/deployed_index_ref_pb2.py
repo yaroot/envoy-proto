@@ -20,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1beta1/deployed_index_ref.proto',
   package='google.cloud.aiplatform.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\025DeployedIndexRefProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
+  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\025DeployedIndexRefProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\252\002\037Google.Cloud.AIPlatform.V1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1\352\002\"Google::Cloud::AIPlatform::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n8google/cloud/aiplatform/v1beta1/deployed_index_ref.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"{\n\x10\x44\x65ployedIndexRef\x12G\n\x0eindex_endpoint\x18\x01 \x01(\tB/\xe0\x41\x05\xfa\x41)\n\'aiplatform.googleapis.com/IndexEndpoint\x12\x1e\n\x11\x64\x65ployed_index_id\x18\x02 \x01(\tB\x03\xe0\x41\x05\x42\x89\x01\n#com.google.cloud.aiplatform.v1beta1B\x15\x44\x65ployedIndexRefProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n8google/cloud/aiplatform/v1beta1/deployed_index_ref.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"{\n\x10\x44\x65ployedIndexRef\x12G\n\x0eindex_endpoint\x18\x01 \x01(\tB/\xe0\x41\x05\xfa\x41)\n\'aiplatform.googleapis.com/IndexEndpoint\x12\x1e\n\x11\x64\x65ployed_index_id\x18\x02 \x01(\tB\x03\xe0\x41\x05\x42\xf2\x01\n#com.google.cloud.aiplatform.v1beta1B\x15\x44\x65ployedIndexRefProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 

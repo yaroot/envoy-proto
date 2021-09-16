@@ -31,7 +31,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.spanner.admin.database.v1B\031SpannerDatabaseAdminProtoP\001ZHgoogle.golang.org/genproto/googleapis/spanner/admin/database/v1;database\252\002&Google.Cloud.Spanner.Admin.Database.V1\312\002&Google\\Cloud\\Spanner\\Admin\\Database\\V1\352\002+Google::Cloud::Spanner::Admin::Database::V1\352AJ\n\037spanner.googleapis.com/Instance\022\'projects/{project}/instances/{instance}',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n=google/spanner/admin/database/v1/spanner_database_admin.proto\x12 google.spanner.admin.database.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/iam/v1/iam_policy.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a-google/spanner/admin/database/v1/backup.proto\x1a-google/spanner/admin/database/v1/common.proto\"\xab\x01\n\x0bRestoreInfo\x12H\n\x0bsource_type\x18\x01 \x01(\x0e\x32\x33.google.spanner.admin.database.v1.RestoreSourceType\x12\x43\n\x0b\x62\x61\x63kup_info\x18\x02 \x01(\x0b\x32,.google.spanner.admin.database.v1.BackupInfoH\x00\x42\r\n\x0bsource_info\"\xa1\x05\n\x08\x44\x61tabase\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x44\n\x05state\x18\x02 \x01(\x0e\x32\x30.google.spanner.admin.database.v1.Database.StateB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12H\n\x0crestore_info\x18\x04 \x01(\x0b\x32-.google.spanner.admin.database.v1.RestoreInfoB\x03\xe0\x41\x03\x12R\n\x11\x65ncryption_config\x18\x05 \x01(\x0b\x32\x32.google.spanner.admin.database.v1.EncryptionConfigB\x03\xe0\x41\x03\x12N\n\x0f\x65ncryption_info\x18\x08 \x03(\x0b\x32\x30.google.spanner.admin.database.v1.EncryptionInfoB\x03\xe0\x41\x03\x12%\n\x18version_retention_period\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12>\n\x15\x65\x61rliest_version_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\"M\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\t\n\x05READY\x10\x02\x12\x14\n\x10READY_OPTIMIZING\x10\x03:b\xea\x41_\n\x1fspanner.googleapis.com/Database\x12<projects/{project}/instances/{instance}/databases/{database}\"v\n\x14ListDatabasesRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Instance\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"o\n\x15ListDatabasesResponse\x12=\n\tdatabases\x18\x01 \x03(\x0b\x32*.google.spanner.admin.database.v1.Database\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xe2\x01\n\x15\x43reateDatabaseRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Instance\x12\x1d\n\x10\x63reate_statement\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x1d\n\x10\x65xtra_statements\x18\x03 \x03(\tB\x03\xe0\x41\x01\x12R\n\x11\x65ncryption_config\x18\x04 \x01(\x0b\x32\x32.google.spanner.admin.database.v1.EncryptionConfigB\x03\xe0\x41\x01\"P\n\x16\x43reateDatabaseMetadata\x12\x36\n\x08\x64\x61tabase\x18\x01 \x01(\tB$\xfa\x41!\n\x1fspanner.googleapis.com/Database\"K\n\x12GetDatabaseRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Database\"\x84\x01\n\x18UpdateDatabaseDdlRequest\x12\x39\n\x08\x64\x61tabase\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Database\x12\x17\n\nstatements\x18\x02 \x03(\tB\x03\xe0\x41\x02\x12\x14\n\x0coperation_id\x18\x03 \x01(\t\"\xfd\x01\n\x19UpdateDatabaseDdlMetadata\x12\x36\n\x08\x64\x61tabase\x18\x01 \x01(\tB$\xfa\x41!\n\x1fspanner.googleapis.com/Database\x12\x12\n\nstatements\x18\x02 \x03(\t\x12\x35\n\x11\x63ommit_timestamps\x18\x03 \x03(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\tthrottled\x18\x04 \x01(\x08\x42\x03\xe0\x41\x03\x12\x45\n\x08progress\x18\x05 \x03(\x0b\x32\x33.google.spanner.admin.database.v1.OperationProgress\"P\n\x13\x44ropDatabaseRequest\x12\x39\n\x08\x64\x61tabase\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Database\"R\n\x15GetDatabaseDdlRequest\x12\x39\n\x08\x64\x61tabase\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Database\",\n\x16GetDatabaseDdlResponse\x12\x12\n\nstatements\x18\x01 \x03(\t\"\x8f\x01\n\x1dListDatabaseOperationsRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Instance\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"l\n\x1eListDatabaseOperationsResponse\x12\x31\n\noperations\x18\x01 \x03(\x0b\x32\x1d.google.longrunning.Operation\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x8e\x02\n\x16RestoreDatabaseRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Instance\x12\x18\n\x0b\x64\x61tabase_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x34\n\x06\x62\x61\x63kup\x18\x03 \x01(\tB\"\xfa\x41\x1f\n\x1dspanner.googleapis.com/BackupH\x00\x12\x61\n\x11\x65ncryption_config\x18\x04 \x01(\x0b\x32\x41.google.spanner.admin.database.v1.RestoreDatabaseEncryptionConfigB\x03\xe0\x41\x01\x42\x08\n\x06source\"\xf3\x02\n\x1fRestoreDatabaseEncryptionConfig\x12n\n\x0f\x65ncryption_type\x18\x01 \x01(\x0e\x32P.google.spanner.admin.database.v1.RestoreDatabaseEncryptionConfig.EncryptionTypeB\x03\xe0\x41\x02\x12?\n\x0ckms_key_name\x18\x02 \x01(\tB)\xe0\x41\x01\xfa\x41#\n!cloudkms.googleapis.com/CryptoKey\"\x9e\x01\n\x0e\x45ncryptionType\x12\x1f\n\x1b\x45NCRYPTION_TYPE_UNSPECIFIED\x10\x00\x12+\n\'USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION\x10\x01\x12\x1d\n\x19GOOGLE_DEFAULT_ENCRYPTION\x10\x02\x12\x1f\n\x1b\x43USTOMER_MANAGED_ENCRYPTION\x10\x03\"\x8d\x03\n\x17RestoreDatabaseMetadata\x12\x32\n\x04name\x18\x01 \x01(\tB$\xfa\x41!\n\x1fspanner.googleapis.com/Database\x12H\n\x0bsource_type\x18\x02 \x01(\x0e\x32\x33.google.spanner.admin.database.v1.RestoreSourceType\x12\x43\n\x0b\x62\x61\x63kup_info\x18\x03 \x01(\x0b\x32,.google.spanner.admin.database.v1.BackupInfoH\x00\x12\x45\n\x08progress\x18\x04 \x01(\x0b\x32\x33.google.spanner.admin.database.v1.OperationProgress\x12/\n\x0b\x63\x61ncel_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12(\n optimize_database_operation_name\x18\x06 \x01(\tB\r\n\x0bsource_info\"\x9d\x01\n OptimizeRestoredDatabaseMetadata\x12\x32\n\x04name\x18\x01 \x01(\tB$\xfa\x41!\n\x1fspanner.googleapis.com/Database\x12\x45\n\x08progress\x18\x02 \x01(\x0b\x32\x33.google.spanner.admin.database.v1.OperationProgress*5\n\x11RestoreSourceType\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06\x42\x41\x43KUP\x10\x01\x32\x93\x1f\n\rDatabaseAdmin\x12\xc0\x01\n\rListDatabases\x12\x36.google.spanner.admin.database.v1.ListDatabasesRequest\x1a\x37.google.spanner.admin.database.v1.ListDatabasesResponse\">\x82\xd3\xe4\x93\x02/\x12-/v1/{parent=projects/*/instances/*}/databases\xda\x41\x06parent\x12\xa4\x02\n\x0e\x43reateDatabase\x12\x37.google.spanner.admin.database.v1.CreateDatabaseRequest\x1a\x1d.google.longrunning.Operation\"\xb9\x01\x82\xd3\xe4\x93\x02\x32\"-/v1/{parent=projects/*/instances/*}/databases:\x01*\xda\x41\x17parent,create_statement\xca\x41\x64\n)google.spanner.admin.database.v1.Database\x12\x37google.spanner.admin.database.v1.CreateDatabaseMetadata\x12\xad\x01\n\x0bGetDatabase\x12\x34.google.spanner.admin.database.v1.GetDatabaseRequest\x1a*.google.spanner.admin.database.v1.Database\"<\x82\xd3\xe4\x93\x02/\x12-/v1/{name=projects/*/instances/*/databases/*}\xda\x41\x04name\x12\x9d\x02\n\x11UpdateDatabaseDdl\x12:.google.spanner.admin.database.v1.UpdateDatabaseDdlRequest\x1a\x1d.google.longrunning.Operation\"\xac\x01\x82\xd3\xe4\x93\x02:25/v1/{database=projects/*/instances/*/databases/*}/ddl:\x01*\xda\x41\x13\x64\x61tabase,statements\xca\x41S\n\x15google.protobuf.Empty\x12:google.spanner.admin.database.v1.UpdateDatabaseDdlMetadata\x12\xa3\x01\n\x0c\x44ropDatabase\x12\x35.google.spanner.admin.database.v1.DropDatabaseRequest\x1a\x16.google.protobuf.Empty\"D\x82\xd3\xe4\x93\x02\x33*1/v1/{database=projects/*/instances/*/databases/*}\xda\x41\x08\x64\x61tabase\x12\xcd\x01\n\x0eGetDatabaseDdl\x12\x37.google.spanner.admin.database.v1.GetDatabaseDdlRequest\x1a\x38.google.spanner.admin.database.v1.GetDatabaseDdlResponse\"H\x82\xd3\xe4\x93\x02\x37\x12\x35/v1/{database=projects/*/instances/*/databases/*}/ddl\xda\x41\x08\x64\x61tabase\x12\xeb\x01\n\x0cSetIamPolicy\x12\".google.iam.v1.SetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"\x9f\x01\x82\xd3\xe4\x93\x02\x86\x01\">/v1/{resource=projects/*/instances/*/databases/*}:setIamPolicy:\x01*ZA\"</v1/{resource=projects/*/instances/*/backups/*}:setIamPolicy:\x01*\xda\x41\x0fresource,policy\x12\xe4\x01\n\x0cGetIamPolicy\x12\".google.iam.v1.GetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"\x98\x01\x82\xd3\xe4\x93\x02\x86\x01\">/v1/{resource=projects/*/instances/*/databases/*}:getIamPolicy:\x01*ZA\"</v1/{resource=projects/*/instances/*/backups/*}:getIamPolicy:\x01*\xda\x41\x08resource\x12\x9c\x02\n\x12TestIamPermissions\x12(.google.iam.v1.TestIamPermissionsRequest\x1a).google.iam.v1.TestIamPermissionsResponse\"\xb0\x01\x82\xd3\xe4\x93\x02\x92\x01\"D/v1/{resource=projects/*/instances/*/databases/*}:testIamPermissions:\x01*ZG\"B/v1/{resource=projects/*/instances/*/backups/*}:testIamPermissions:\x01*\xda\x41\x14resource,permissions\x12\x9f\x02\n\x0c\x43reateBackup\x12\x35.google.spanner.admin.database.v1.CreateBackupRequest\x1a\x1d.google.longrunning.Operation\"\xb8\x01\x82\xd3\xe4\x93\x02\x35\"+/v1/{parent=projects/*/instances/*}/backups:\x06\x62\x61\x63kup\xda\x41\x17parent,backup,backup_id\xca\x41`\n\'google.spanner.admin.database.v1.Backup\x12\x35google.spanner.admin.database.v1.CreateBackupMetadata\x12\xa5\x01\n\tGetBackup\x12\x32.google.spanner.admin.database.v1.GetBackupRequest\x1a(.google.spanner.admin.database.v1.Backup\":\x82\xd3\xe4\x93\x02-\x12+/v1/{name=projects/*/instances/*/backups/*}\xda\x41\x04name\x12\xc8\x01\n\x0cUpdateBackup\x12\x35.google.spanner.admin.database.v1.UpdateBackupRequest\x1a(.google.spanner.admin.database.v1.Backup\"W\x82\xd3\xe4\x93\x02<22/v1/{backup.name=projects/*/instances/*/backups/*}:\x06\x62\x61\x63kup\xda\x41\x12\x62\x61\x63kup,update_mask\x12\x99\x01\n\x0c\x44\x65leteBackup\x12\x35.google.spanner.admin.database.v1.DeleteBackupRequest\x1a\x16.google.protobuf.Empty\":\x82\xd3\xe4\x93\x02-*+/v1/{name=projects/*/instances/*/backups/*}\xda\x41\x04name\x12\xb8\x01\n\x0bListBackups\x12\x34.google.spanner.admin.database.v1.ListBackupsRequest\x1a\x35.google.spanner.admin.database.v1.ListBackupsResponse\"<\x82\xd3\xe4\x93\x02-\x12+/v1/{parent=projects/*/instances/*}/backups\xda\x41\x06parent\x12\xb1\x02\n\x0fRestoreDatabase\x12\x38.google.spanner.admin.database.v1.RestoreDatabaseRequest\x1a\x1d.google.longrunning.Operation\"\xc4\x01\x82\xd3\xe4\x93\x02:\"5/v1/{parent=projects/*/instances/*}/databases:restore:\x01*\xda\x41\x19parent,database_id,backup\xca\x41\x65\n)google.spanner.admin.database.v1.Database\x12\x38google.spanner.admin.database.v1.RestoreDatabaseMetadata\x12\xe4\x01\n\x16ListDatabaseOperations\x12?.google.spanner.admin.database.v1.ListDatabaseOperationsRequest\x1a@.google.spanner.admin.database.v1.ListDatabaseOperationsResponse\"G\x82\xd3\xe4\x93\x02\x38\x12\x36/v1/{parent=projects/*/instances/*}/databaseOperations\xda\x41\x06parent\x12\xdc\x01\n\x14ListBackupOperations\x12=.google.spanner.admin.database.v1.ListBackupOperationsRequest\x1a>.google.spanner.admin.database.v1.ListBackupOperationsResponse\"E\x82\xd3\xe4\x93\x02\x36\x12\x34/v1/{parent=projects/*/instances/*}/backupOperations\xda\x41\x06parent\x1ax\xca\x41\x16spanner.googleapis.com\xd2\x41\\https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/spanner.adminB\xda\x02\n$com.google.spanner.admin.database.v1B\x19SpannerDatabaseAdminProtoP\x01ZHgoogle.golang.org/genproto/googleapis/spanner/admin/database/v1;database\xaa\x02&Google.Cloud.Spanner.Admin.Database.V1\xca\x02&Google\\Cloud\\Spanner\\Admin\\Database\\V1\xea\x02+Google::Cloud::Spanner::Admin::Database::V1\xea\x41J\n\x1fspanner.googleapis.com/Instance\x12\'projects/{project}/instances/{instance}b\x06proto3'
+  serialized_pb=b'\n=google/spanner/admin/database/v1/spanner_database_admin.proto\x12 google.spanner.admin.database.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/iam/v1/iam_policy.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a-google/spanner/admin/database/v1/backup.proto\x1a-google/spanner/admin/database/v1/common.proto\"\xab\x01\n\x0bRestoreInfo\x12H\n\x0bsource_type\x18\x01 \x01(\x0e\x32\x33.google.spanner.admin.database.v1.RestoreSourceType\x12\x43\n\x0b\x62\x61\x63kup_info\x18\x02 \x01(\x0b\x32,.google.spanner.admin.database.v1.BackupInfoH\x00\x42\r\n\x0bsource_info\"\xbe\x05\n\x08\x44\x61tabase\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x44\n\x05state\x18\x02 \x01(\x0e\x32\x30.google.spanner.admin.database.v1.Database.StateB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12H\n\x0crestore_info\x18\x04 \x01(\x0b\x32-.google.spanner.admin.database.v1.RestoreInfoB\x03\xe0\x41\x03\x12R\n\x11\x65ncryption_config\x18\x05 \x01(\x0b\x32\x32.google.spanner.admin.database.v1.EncryptionConfigB\x03\xe0\x41\x03\x12N\n\x0f\x65ncryption_info\x18\x08 \x03(\x0b\x32\x30.google.spanner.admin.database.v1.EncryptionInfoB\x03\xe0\x41\x03\x12%\n\x18version_retention_period\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12>\n\x15\x65\x61rliest_version_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x1b\n\x0e\x64\x65\x66\x61ult_leader\x18\t \x01(\tB\x03\xe0\x41\x03\"M\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\t\n\x05READY\x10\x02\x12\x14\n\x10READY_OPTIMIZING\x10\x03:b\xea\x41_\n\x1fspanner.googleapis.com/Database\x12<projects/{project}/instances/{instance}/databases/{database}\"v\n\x14ListDatabasesRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Instance\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"o\n\x15ListDatabasesResponse\x12=\n\tdatabases\x18\x01 \x03(\x0b\x32*.google.spanner.admin.database.v1.Database\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xe2\x01\n\x15\x43reateDatabaseRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Instance\x12\x1d\n\x10\x63reate_statement\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x1d\n\x10\x65xtra_statements\x18\x03 \x03(\tB\x03\xe0\x41\x01\x12R\n\x11\x65ncryption_config\x18\x04 \x01(\x0b\x32\x32.google.spanner.admin.database.v1.EncryptionConfigB\x03\xe0\x41\x01\"P\n\x16\x43reateDatabaseMetadata\x12\x36\n\x08\x64\x61tabase\x18\x01 \x01(\tB$\xfa\x41!\n\x1fspanner.googleapis.com/Database\"K\n\x12GetDatabaseRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Database\"\x84\x01\n\x18UpdateDatabaseDdlRequest\x12\x39\n\x08\x64\x61tabase\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Database\x12\x17\n\nstatements\x18\x02 \x03(\tB\x03\xe0\x41\x02\x12\x14\n\x0coperation_id\x18\x03 \x01(\t\"\xfd\x01\n\x19UpdateDatabaseDdlMetadata\x12\x36\n\x08\x64\x61tabase\x18\x01 \x01(\tB$\xfa\x41!\n\x1fspanner.googleapis.com/Database\x12\x12\n\nstatements\x18\x02 \x03(\t\x12\x35\n\x11\x63ommit_timestamps\x18\x03 \x03(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\tthrottled\x18\x04 \x01(\x08\x42\x03\xe0\x41\x03\x12\x45\n\x08progress\x18\x05 \x03(\x0b\x32\x33.google.spanner.admin.database.v1.OperationProgress\"P\n\x13\x44ropDatabaseRequest\x12\x39\n\x08\x64\x61tabase\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Database\"R\n\x15GetDatabaseDdlRequest\x12\x39\n\x08\x64\x61tabase\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Database\",\n\x16GetDatabaseDdlResponse\x12\x12\n\nstatements\x18\x01 \x03(\t\"\x8f\x01\n\x1dListDatabaseOperationsRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Instance\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"l\n\x1eListDatabaseOperationsResponse\x12\x31\n\noperations\x18\x01 \x03(\x0b\x32\x1d.google.longrunning.Operation\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x8e\x02\n\x16RestoreDatabaseRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1fspanner.googleapis.com/Instance\x12\x18\n\x0b\x64\x61tabase_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x34\n\x06\x62\x61\x63kup\x18\x03 \x01(\tB\"\xfa\x41\x1f\n\x1dspanner.googleapis.com/BackupH\x00\x12\x61\n\x11\x65ncryption_config\x18\x04 \x01(\x0b\x32\x41.google.spanner.admin.database.v1.RestoreDatabaseEncryptionConfigB\x03\xe0\x41\x01\x42\x08\n\x06source\"\xf3\x02\n\x1fRestoreDatabaseEncryptionConfig\x12n\n\x0f\x65ncryption_type\x18\x01 \x01(\x0e\x32P.google.spanner.admin.database.v1.RestoreDatabaseEncryptionConfig.EncryptionTypeB\x03\xe0\x41\x02\x12?\n\x0ckms_key_name\x18\x02 \x01(\tB)\xe0\x41\x01\xfa\x41#\n!cloudkms.googleapis.com/CryptoKey\"\x9e\x01\n\x0e\x45ncryptionType\x12\x1f\n\x1b\x45NCRYPTION_TYPE_UNSPECIFIED\x10\x00\x12+\n\'USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION\x10\x01\x12\x1d\n\x19GOOGLE_DEFAULT_ENCRYPTION\x10\x02\x12\x1f\n\x1b\x43USTOMER_MANAGED_ENCRYPTION\x10\x03\"\x8d\x03\n\x17RestoreDatabaseMetadata\x12\x32\n\x04name\x18\x01 \x01(\tB$\xfa\x41!\n\x1fspanner.googleapis.com/Database\x12H\n\x0bsource_type\x18\x02 \x01(\x0e\x32\x33.google.spanner.admin.database.v1.RestoreSourceType\x12\x43\n\x0b\x62\x61\x63kup_info\x18\x03 \x01(\x0b\x32,.google.spanner.admin.database.v1.BackupInfoH\x00\x12\x45\n\x08progress\x18\x04 \x01(\x0b\x32\x33.google.spanner.admin.database.v1.OperationProgress\x12/\n\x0b\x63\x61ncel_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12(\n optimize_database_operation_name\x18\x06 \x01(\tB\r\n\x0bsource_info\"\x9d\x01\n OptimizeRestoredDatabaseMetadata\x12\x32\n\x04name\x18\x01 \x01(\tB$\xfa\x41!\n\x1fspanner.googleapis.com/Database\x12\x45\n\x08progress\x18\x02 \x01(\x0b\x32\x33.google.spanner.admin.database.v1.OperationProgress*5\n\x11RestoreSourceType\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06\x42\x41\x43KUP\x10\x01\x32\x93\x1f\n\rDatabaseAdmin\x12\xc0\x01\n\rListDatabases\x12\x36.google.spanner.admin.database.v1.ListDatabasesRequest\x1a\x37.google.spanner.admin.database.v1.ListDatabasesResponse\">\x82\xd3\xe4\x93\x02/\x12-/v1/{parent=projects/*/instances/*}/databases\xda\x41\x06parent\x12\xa4\x02\n\x0e\x43reateDatabase\x12\x37.google.spanner.admin.database.v1.CreateDatabaseRequest\x1a\x1d.google.longrunning.Operation\"\xb9\x01\x82\xd3\xe4\x93\x02\x32\"-/v1/{parent=projects/*/instances/*}/databases:\x01*\xda\x41\x17parent,create_statement\xca\x41\x64\n)google.spanner.admin.database.v1.Database\x12\x37google.spanner.admin.database.v1.CreateDatabaseMetadata\x12\xad\x01\n\x0bGetDatabase\x12\x34.google.spanner.admin.database.v1.GetDatabaseRequest\x1a*.google.spanner.admin.database.v1.Database\"<\x82\xd3\xe4\x93\x02/\x12-/v1/{name=projects/*/instances/*/databases/*}\xda\x41\x04name\x12\x9d\x02\n\x11UpdateDatabaseDdl\x12:.google.spanner.admin.database.v1.UpdateDatabaseDdlRequest\x1a\x1d.google.longrunning.Operation\"\xac\x01\x82\xd3\xe4\x93\x02:25/v1/{database=projects/*/instances/*/databases/*}/ddl:\x01*\xda\x41\x13\x64\x61tabase,statements\xca\x41S\n\x15google.protobuf.Empty\x12:google.spanner.admin.database.v1.UpdateDatabaseDdlMetadata\x12\xa3\x01\n\x0c\x44ropDatabase\x12\x35.google.spanner.admin.database.v1.DropDatabaseRequest\x1a\x16.google.protobuf.Empty\"D\x82\xd3\xe4\x93\x02\x33*1/v1/{database=projects/*/instances/*/databases/*}\xda\x41\x08\x64\x61tabase\x12\xcd\x01\n\x0eGetDatabaseDdl\x12\x37.google.spanner.admin.database.v1.GetDatabaseDdlRequest\x1a\x38.google.spanner.admin.database.v1.GetDatabaseDdlResponse\"H\x82\xd3\xe4\x93\x02\x37\x12\x35/v1/{database=projects/*/instances/*/databases/*}/ddl\xda\x41\x08\x64\x61tabase\x12\xeb\x01\n\x0cSetIamPolicy\x12\".google.iam.v1.SetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"\x9f\x01\x82\xd3\xe4\x93\x02\x86\x01\">/v1/{resource=projects/*/instances/*/databases/*}:setIamPolicy:\x01*ZA\"</v1/{resource=projects/*/instances/*/backups/*}:setIamPolicy:\x01*\xda\x41\x0fresource,policy\x12\xe4\x01\n\x0cGetIamPolicy\x12\".google.iam.v1.GetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"\x98\x01\x82\xd3\xe4\x93\x02\x86\x01\">/v1/{resource=projects/*/instances/*/databases/*}:getIamPolicy:\x01*ZA\"</v1/{resource=projects/*/instances/*/backups/*}:getIamPolicy:\x01*\xda\x41\x08resource\x12\x9c\x02\n\x12TestIamPermissions\x12(.google.iam.v1.TestIamPermissionsRequest\x1a).google.iam.v1.TestIamPermissionsResponse\"\xb0\x01\x82\xd3\xe4\x93\x02\x92\x01\"D/v1/{resource=projects/*/instances/*/databases/*}:testIamPermissions:\x01*ZG\"B/v1/{resource=projects/*/instances/*/backups/*}:testIamPermissions:\x01*\xda\x41\x14resource,permissions\x12\x9f\x02\n\x0c\x43reateBackup\x12\x35.google.spanner.admin.database.v1.CreateBackupRequest\x1a\x1d.google.longrunning.Operation\"\xb8\x01\x82\xd3\xe4\x93\x02\x35\"+/v1/{parent=projects/*/instances/*}/backups:\x06\x62\x61\x63kup\xda\x41\x17parent,backup,backup_id\xca\x41`\n\'google.spanner.admin.database.v1.Backup\x12\x35google.spanner.admin.database.v1.CreateBackupMetadata\x12\xa5\x01\n\tGetBackup\x12\x32.google.spanner.admin.database.v1.GetBackupRequest\x1a(.google.spanner.admin.database.v1.Backup\":\x82\xd3\xe4\x93\x02-\x12+/v1/{name=projects/*/instances/*/backups/*}\xda\x41\x04name\x12\xc8\x01\n\x0cUpdateBackup\x12\x35.google.spanner.admin.database.v1.UpdateBackupRequest\x1a(.google.spanner.admin.database.v1.Backup\"W\x82\xd3\xe4\x93\x02<22/v1/{backup.name=projects/*/instances/*/backups/*}:\x06\x62\x61\x63kup\xda\x41\x12\x62\x61\x63kup,update_mask\x12\x99\x01\n\x0c\x44\x65leteBackup\x12\x35.google.spanner.admin.database.v1.DeleteBackupRequest\x1a\x16.google.protobuf.Empty\":\x82\xd3\xe4\x93\x02-*+/v1/{name=projects/*/instances/*/backups/*}\xda\x41\x04name\x12\xb8\x01\n\x0bListBackups\x12\x34.google.spanner.admin.database.v1.ListBackupsRequest\x1a\x35.google.spanner.admin.database.v1.ListBackupsResponse\"<\x82\xd3\xe4\x93\x02-\x12+/v1/{parent=projects/*/instances/*}/backups\xda\x41\x06parent\x12\xb1\x02\n\x0fRestoreDatabase\x12\x38.google.spanner.admin.database.v1.RestoreDatabaseRequest\x1a\x1d.google.longrunning.Operation\"\xc4\x01\x82\xd3\xe4\x93\x02:\"5/v1/{parent=projects/*/instances/*}/databases:restore:\x01*\xda\x41\x19parent,database_id,backup\xca\x41\x65\n)google.spanner.admin.database.v1.Database\x12\x38google.spanner.admin.database.v1.RestoreDatabaseMetadata\x12\xe4\x01\n\x16ListDatabaseOperations\x12?.google.spanner.admin.database.v1.ListDatabaseOperationsRequest\x1a@.google.spanner.admin.database.v1.ListDatabaseOperationsResponse\"G\x82\xd3\xe4\x93\x02\x38\x12\x36/v1/{parent=projects/*/instances/*}/databaseOperations\xda\x41\x06parent\x12\xdc\x01\n\x14ListBackupOperations\x12=.google.spanner.admin.database.v1.ListBackupOperationsRequest\x1a>.google.spanner.admin.database.v1.ListBackupOperationsResponse\"E\x82\xd3\xe4\x93\x02\x36\x12\x34/v1/{parent=projects/*/instances/*}/backupOperations\xda\x41\x06parent\x1ax\xca\x41\x16spanner.googleapis.com\xd2\x41\\https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/spanner.adminB\xda\x02\n$com.google.spanner.admin.database.v1B\x19SpannerDatabaseAdminProtoP\x01ZHgoogle.golang.org/genproto/googleapis/spanner/admin/database/v1;database\xaa\x02&Google.Cloud.Spanner.Admin.Database.V1\xca\x02&Google\\Cloud\\Spanner\\Admin\\Database\\V1\xea\x02+Google::Cloud::Spanner::Admin::Database::V1\xea\x41J\n\x1fspanner.googleapis.com/Instance\x12\'projects/{project}/instances/{instance}b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_iam_dot_v1_dot_iam__policy__pb2.DESCRIPTOR,google_dot_iam_dot_v1_dot_policy__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_spanner_dot_admin_dot_database_dot_v1_dot_backup__pb2.DESCRIPTOR,google_dot_spanner_dot_admin_dot_database_dot_v1_dot_common__pb2.DESCRIPTOR,])
 
@@ -55,8 +55,8 @@ _RESTORESOURCETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4004,
-  serialized_end=4057,
+  serialized_start=4033,
+  serialized_end=4086,
 )
 _sym_db.RegisterEnumDescriptor(_RESTORESOURCETYPE)
 
@@ -95,8 +95,8 @@ _DATABASE_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1138,
-  serialized_end=1215,
+  serialized_start=1167,
+  serialized_end=1244,
 )
 _sym_db.RegisterEnumDescriptor(_DATABASE_STATE)
 
@@ -130,8 +130,8 @@ _RESTOREDATABASEENCRYPTIONCONFIG_ENCRYPTIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3284,
-  serialized_end=3442,
+  serialized_start=3313,
+  serialized_end=3471,
 )
 _sym_db.RegisterEnumDescriptor(_RESTOREDATABASEENCRYPTIONCONFIG_ENCRYPTIONTYPE)
 
@@ -244,6 +244,13 @@ _DATABASE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='default_leader', full_name='google.spanner.admin.database.v1.Database.default_leader', index=8,
+      number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -258,7 +265,7 @@ _DATABASE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=642,
-  serialized_end=1315,
+  serialized_end=1344,
 )
 
 
@@ -303,8 +310,8 @@ _LISTDATABASESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1317,
-  serialized_end=1435,
+  serialized_start=1346,
+  serialized_end=1464,
 )
 
 
@@ -342,8 +349,8 @@ _LISTDATABASESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1437,
-  serialized_end=1548,
+  serialized_start=1466,
+  serialized_end=1577,
 )
 
 
@@ -395,8 +402,8 @@ _CREATEDATABASEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1551,
-  serialized_end=1777,
+  serialized_start=1580,
+  serialized_end=1806,
 )
 
 
@@ -427,8 +434,8 @@ _CREATEDATABASEMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1779,
-  serialized_end=1859,
+  serialized_start=1808,
+  serialized_end=1888,
 )
 
 
@@ -459,8 +466,8 @@ _GETDATABASEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1861,
-  serialized_end=1936,
+  serialized_start=1890,
+  serialized_end=1965,
 )
 
 
@@ -505,8 +512,8 @@ _UPDATEDATABASEDDLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1939,
-  serialized_end=2071,
+  serialized_start=1968,
+  serialized_end=2100,
 )
 
 
@@ -565,8 +572,8 @@ _UPDATEDATABASEDDLMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2074,
-  serialized_end=2327,
+  serialized_start=2103,
+  serialized_end=2356,
 )
 
 
@@ -597,8 +604,8 @@ _DROPDATABASEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2329,
-  serialized_end=2409,
+  serialized_start=2358,
+  serialized_end=2438,
 )
 
 
@@ -629,8 +636,8 @@ _GETDATABASEDDLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2411,
-  serialized_end=2493,
+  serialized_start=2440,
+  serialized_end=2522,
 )
 
 
@@ -661,8 +668,8 @@ _GETDATABASEDDLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2495,
-  serialized_end=2539,
+  serialized_start=2524,
+  serialized_end=2568,
 )
 
 
@@ -714,8 +721,8 @@ _LISTDATABASEOPERATIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2542,
-  serialized_end=2685,
+  serialized_start=2571,
+  serialized_end=2714,
 )
 
 
@@ -753,8 +760,8 @@ _LISTDATABASEOPERATIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2687,
-  serialized_end=2795,
+  serialized_start=2716,
+  serialized_end=2824,
 )
 
 
@@ -811,8 +818,8 @@ _RESTOREDATABASEREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2798,
-  serialized_end=3068,
+  serialized_start=2827,
+  serialized_end=3097,
 )
 
 
@@ -851,8 +858,8 @@ _RESTOREDATABASEENCRYPTIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3071,
-  serialized_end=3442,
+  serialized_start=3100,
+  serialized_end=3471,
 )
 
 
@@ -923,8 +930,8 @@ _RESTOREDATABASEMETADATA = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3445,
-  serialized_end=3842,
+  serialized_start=3474,
+  serialized_end=3871,
 )
 
 
@@ -962,8 +969,8 @@ _OPTIMIZERESTOREDDATABASEMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3845,
-  serialized_end=4002,
+  serialized_start=3874,
+  serialized_end=4031,
 )
 
 _RESTOREINFO.fields_by_name['source_type'].enum_type = _RESTORESOURCETYPE
@@ -1154,6 +1161,7 @@ _DATABASE.fields_by_name['encryption_config']._options = None
 _DATABASE.fields_by_name['encryption_info']._options = None
 _DATABASE.fields_by_name['version_retention_period']._options = None
 _DATABASE.fields_by_name['earliest_version_time']._options = None
+_DATABASE.fields_by_name['default_leader']._options = None
 _DATABASE._options = None
 _LISTDATABASESREQUEST.fields_by_name['parent']._options = None
 _CREATEDATABASEREQUEST.fields_by_name['parent']._options = None
@@ -1185,8 +1193,8 @@ _DATABASEADMIN = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\026spanner.googleapis.com\322A\\https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/spanner.admin',
   create_key=_descriptor._internal_create_key,
-  serialized_start=4060,
-  serialized_end=8047,
+  serialized_start=4089,
+  serialized_end=8076,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListDatabases',

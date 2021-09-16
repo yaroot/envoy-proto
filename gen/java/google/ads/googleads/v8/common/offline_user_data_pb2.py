@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"com.google.ads.googleads.v8.commonB\024OfflineUserDataProtoP\001ZDgoogle.golang.org/genproto/googleapis/ads/googleads/v8/common;common\242\002\003GAA\252\002\036Google.Ads.GoogleAds.V8.Common\312\002\036Google\\Ads\\GoogleAds\\V8\\Common\352\002\"Google::Ads::GoogleAds::V8::Common',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n6google/ads/googleads/v8/common/offline_user_data.proto\x12\x1egoogle.ads.googleads.v8.common\x1a:google/ads/googleads/v8/enums/user_identifier_source.proto\x1a\x1cgoogle/api/annotations.proto\"\x92\x02\n\x16OfflineUserAddressInfo\x12\x1e\n\x11hashed_first_name\x18\x07 \x01(\tH\x00\x88\x01\x01\x12\x1d\n\x10hashed_last_name\x18\x08 \x01(\tH\x01\x88\x01\x01\x12\x11\n\x04\x63ity\x18\t \x01(\tH\x02\x88\x01\x01\x12\x12\n\x05state\x18\n \x01(\tH\x03\x88\x01\x01\x12\x19\n\x0c\x63ountry_code\x18\x0b \x01(\tH\x04\x88\x01\x01\x12\x18\n\x0bpostal_code\x18\x0c \x01(\tH\x05\x88\x01\x01\x42\x14\n\x12_hashed_first_nameB\x13\n\x11_hashed_last_nameB\x07\n\x05_cityB\x08\n\x06_stateB\x0f\n\r_country_codeB\x0e\n\x0c_postal_code\"\xc7\x02\n\x0eUserIdentifier\x12l\n\x16user_identifier_source\x18\x06 \x01(\x0e\x32L.google.ads.googleads.v8.enums.UserIdentifierSourceEnum.UserIdentifierSource\x12\x16\n\x0chashed_email\x18\x07 \x01(\tH\x00\x12\x1d\n\x13hashed_phone_number\x18\x08 \x01(\tH\x00\x12\x13\n\tmobile_id\x18\t \x01(\tH\x00\x12\x1d\n\x13third_party_user_id\x18\n \x01(\tH\x00\x12N\n\x0c\x61\x64\x64ress_info\x18\x05 \x01(\x0b\x32\x36.google.ads.googleads.v8.common.OfflineUserAddressInfoH\x00\x42\x0c\n\nidentifier\"\xde\x03\n\x14TransactionAttribute\x12\"\n\x15transaction_date_time\x18\x08 \x01(\tH\x00\x88\x01\x01\x12&\n\x19transaction_amount_micros\x18\t \x01(\x01H\x01\x88\x01\x01\x12\x1a\n\rcurrency_code\x18\n \x01(\tH\x02\x88\x01\x01\x12\x1e\n\x11\x63onversion_action\x18\x0b \x01(\tH\x03\x88\x01\x01\x12\x15\n\x08order_id\x18\x0c \x01(\tH\x04\x88\x01\x01\x12G\n\x0fstore_attribute\x18\x06 \x01(\x0b\x32..google.ads.googleads.v8.common.StoreAttribute\x12\x19\n\x0c\x63ustom_value\x18\r \x01(\tH\x05\x88\x01\x01\x12\x45\n\x0eitem_attribute\x18\x0e \x01(\x0b\x32-.google.ads.googleads.v8.common.ItemAttributeB\x18\n\x16_transaction_date_timeB\x1c\n\x1a_transaction_amount_microsB\x10\n\x0e_currency_codeB\x14\n\x12_conversion_actionB\x0b\n\t_order_idB\x0f\n\r_custom_value\"8\n\x0eStoreAttribute\x12\x17\n\nstore_code\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\r\n\x0b_store_code\"\x89\x01\n\rItemAttribute\x12\x0f\n\x07item_id\x18\x01 \x01(\t\x12\x18\n\x0bmerchant_id\x18\x02 \x01(\x03H\x00\x88\x01\x01\x12\x14\n\x0c\x63ountry_code\x18\x03 \x01(\t\x12\x15\n\rlanguage_code\x18\x04 \x01(\t\x12\x10\n\x08quantity\x18\x05 \x01(\x03\x42\x0e\n\x0c_merchant_id\"\xf0\x01\n\x08UserData\x12H\n\x10user_identifiers\x18\x01 \x03(\x0b\x32..google.ads.googleads.v8.common.UserIdentifier\x12S\n\x15transaction_attribute\x18\x02 \x01(\x0b\x32\x34.google.ads.googleads.v8.common.TransactionAttribute\x12\x45\n\x0euser_attribute\x18\x03 \x01(\x0b\x32-.google.ads.googleads.v8.common.UserAttribute\"\x92\x02\n\rUserAttribute\x12\"\n\x15lifetime_value_micros\x18\x01 \x01(\x03H\x00\x88\x01\x01\x12\"\n\x15lifetime_value_bucket\x18\x02 \x01(\x05H\x01\x88\x01\x01\x12\x1f\n\x17last_purchase_date_time\x18\x03 \x01(\t\x12\x1e\n\x16\x61verage_purchase_count\x18\x04 \x01(\x05\x12%\n\x1d\x61verage_purchase_value_micros\x18\x05 \x01(\x03\x12\x1d\n\x15\x61\x63quisition_date_time\x18\x06 \x01(\tB\x18\n\x16_lifetime_value_microsB\x18\n\x16_lifetime_value_bucket\"E\n\x1d\x43ustomerMatchUserListMetadata\x12\x16\n\tuser_list\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x0c\n\n_user_list\"\x96\x02\n\x12StoreSalesMetadata\x12\x1d\n\x10loyalty_fraction\x18\x05 \x01(\x01H\x00\x88\x01\x01\x12(\n\x1btransaction_upload_fraction\x18\x06 \x01(\x01H\x01\x88\x01\x01\x12\x17\n\ncustom_key\x18\x07 \x01(\tH\x02\x88\x01\x01\x12Z\n\x14third_party_metadata\x18\x03 \x01(\x0b\x32<.google.ads.googleads.v8.common.StoreSalesThirdPartyMetadataB\x13\n\x11_loyalty_fractionB\x1e\n\x1c_transaction_upload_fractionB\r\n\x0b_custom_key\"\x98\x03\n\x1cStoreSalesThirdPartyMetadata\x12(\n\x1b\x61\x64vertiser_upload_date_time\x18\x07 \x01(\tH\x00\x88\x01\x01\x12\'\n\x1avalid_transaction_fraction\x18\x08 \x01(\x01H\x01\x88\x01\x01\x12#\n\x16partner_match_fraction\x18\t \x01(\x01H\x02\x88\x01\x01\x12$\n\x17partner_upload_fraction\x18\n \x01(\x01H\x03\x88\x01\x01\x12\"\n\x15\x62ridge_map_version_id\x18\x0b \x01(\tH\x04\x88\x01\x01\x12\x17\n\npartner_id\x18\x0c \x01(\x03H\x05\x88\x01\x01\x42\x1e\n\x1c_advertiser_upload_date_timeB\x1d\n\x1b_valid_transaction_fractionB\x19\n\x17_partner_match_fractionB\x1a\n\x18_partner_upload_fractionB\x18\n\x16_bridge_map_version_idB\r\n\x0b_partner_idB\xef\x01\n\"com.google.ads.googleads.v8.commonB\x14OfflineUserDataProtoP\x01ZDgoogle.golang.org/genproto/googleapis/ads/googleads/v8/common;common\xa2\x02\x03GAA\xaa\x02\x1eGoogle.Ads.GoogleAds.V8.Common\xca\x02\x1eGoogle\\Ads\\GoogleAds\\V8\\Common\xea\x02\"Google::Ads::GoogleAds::V8::Commonb\x06proto3'
+  serialized_pb=b'\n6google/ads/googleads/v8/common/offline_user_data.proto\x12\x1egoogle.ads.googleads.v8.common\x1a:google/ads/googleads/v8/enums/user_identifier_source.proto\x1a\x1cgoogle/api/annotations.proto\"\xd0\x02\n\x16OfflineUserAddressInfo\x12\x1e\n\x11hashed_first_name\x18\x07 \x01(\tH\x00\x88\x01\x01\x12\x1d\n\x10hashed_last_name\x18\x08 \x01(\tH\x01\x88\x01\x01\x12\x11\n\x04\x63ity\x18\t \x01(\tH\x02\x88\x01\x01\x12\x12\n\x05state\x18\n \x01(\tH\x03\x88\x01\x01\x12\x19\n\x0c\x63ountry_code\x18\x0b \x01(\tH\x04\x88\x01\x01\x12\x18\n\x0bpostal_code\x18\x0c \x01(\tH\x05\x88\x01\x01\x12\"\n\x15hashed_street_address\x18\r \x01(\tH\x06\x88\x01\x01\x42\x14\n\x12_hashed_first_nameB\x13\n\x11_hashed_last_nameB\x07\n\x05_cityB\x08\n\x06_stateB\x0f\n\r_country_codeB\x0e\n\x0c_postal_codeB\x18\n\x16_hashed_street_address\"\xc7\x02\n\x0eUserIdentifier\x12l\n\x16user_identifier_source\x18\x06 \x01(\x0e\x32L.google.ads.googleads.v8.enums.UserIdentifierSourceEnum.UserIdentifierSource\x12\x16\n\x0chashed_email\x18\x07 \x01(\tH\x00\x12\x1d\n\x13hashed_phone_number\x18\x08 \x01(\tH\x00\x12\x13\n\tmobile_id\x18\t \x01(\tH\x00\x12\x1d\n\x13third_party_user_id\x18\n \x01(\tH\x00\x12N\n\x0c\x61\x64\x64ress_info\x18\x05 \x01(\x0b\x32\x36.google.ads.googleads.v8.common.OfflineUserAddressInfoH\x00\x42\x0c\n\nidentifier\"\xde\x03\n\x14TransactionAttribute\x12\"\n\x15transaction_date_time\x18\x08 \x01(\tH\x00\x88\x01\x01\x12&\n\x19transaction_amount_micros\x18\t \x01(\x01H\x01\x88\x01\x01\x12\x1a\n\rcurrency_code\x18\n \x01(\tH\x02\x88\x01\x01\x12\x1e\n\x11\x63onversion_action\x18\x0b \x01(\tH\x03\x88\x01\x01\x12\x15\n\x08order_id\x18\x0c \x01(\tH\x04\x88\x01\x01\x12G\n\x0fstore_attribute\x18\x06 \x01(\x0b\x32..google.ads.googleads.v8.common.StoreAttribute\x12\x19\n\x0c\x63ustom_value\x18\r \x01(\tH\x05\x88\x01\x01\x12\x45\n\x0eitem_attribute\x18\x0e \x01(\x0b\x32-.google.ads.googleads.v8.common.ItemAttributeB\x18\n\x16_transaction_date_timeB\x1c\n\x1a_transaction_amount_microsB\x10\n\x0e_currency_codeB\x14\n\x12_conversion_actionB\x0b\n\t_order_idB\x0f\n\r_custom_value\"8\n\x0eStoreAttribute\x12\x17\n\nstore_code\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\r\n\x0b_store_code\"\x89\x01\n\rItemAttribute\x12\x0f\n\x07item_id\x18\x01 \x01(\t\x12\x18\n\x0bmerchant_id\x18\x02 \x01(\x03H\x00\x88\x01\x01\x12\x14\n\x0c\x63ountry_code\x18\x03 \x01(\t\x12\x15\n\rlanguage_code\x18\x04 \x01(\t\x12\x10\n\x08quantity\x18\x05 \x01(\x03\x42\x0e\n\x0c_merchant_id\"\xf0\x01\n\x08UserData\x12H\n\x10user_identifiers\x18\x01 \x03(\x0b\x32..google.ads.googleads.v8.common.UserIdentifier\x12S\n\x15transaction_attribute\x18\x02 \x01(\x0b\x32\x34.google.ads.googleads.v8.common.TransactionAttribute\x12\x45\n\x0euser_attribute\x18\x03 \x01(\x0b\x32-.google.ads.googleads.v8.common.UserAttribute\"\x92\x02\n\rUserAttribute\x12\"\n\x15lifetime_value_micros\x18\x01 \x01(\x03H\x00\x88\x01\x01\x12\"\n\x15lifetime_value_bucket\x18\x02 \x01(\x05H\x01\x88\x01\x01\x12\x1f\n\x17last_purchase_date_time\x18\x03 \x01(\t\x12\x1e\n\x16\x61verage_purchase_count\x18\x04 \x01(\x05\x12%\n\x1d\x61verage_purchase_value_micros\x18\x05 \x01(\x03\x12\x1d\n\x15\x61\x63quisition_date_time\x18\x06 \x01(\tB\x18\n\x16_lifetime_value_microsB\x18\n\x16_lifetime_value_bucket\"E\n\x1d\x43ustomerMatchUserListMetadata\x12\x16\n\tuser_list\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x0c\n\n_user_list\"\x96\x02\n\x12StoreSalesMetadata\x12\x1d\n\x10loyalty_fraction\x18\x05 \x01(\x01H\x00\x88\x01\x01\x12(\n\x1btransaction_upload_fraction\x18\x06 \x01(\x01H\x01\x88\x01\x01\x12\x17\n\ncustom_key\x18\x07 \x01(\tH\x02\x88\x01\x01\x12Z\n\x14third_party_metadata\x18\x03 \x01(\x0b\x32<.google.ads.googleads.v8.common.StoreSalesThirdPartyMetadataB\x13\n\x11_loyalty_fractionB\x1e\n\x1c_transaction_upload_fractionB\r\n\x0b_custom_key\"\x98\x03\n\x1cStoreSalesThirdPartyMetadata\x12(\n\x1b\x61\x64vertiser_upload_date_time\x18\x07 \x01(\tH\x00\x88\x01\x01\x12\'\n\x1avalid_transaction_fraction\x18\x08 \x01(\x01H\x01\x88\x01\x01\x12#\n\x16partner_match_fraction\x18\t \x01(\x01H\x02\x88\x01\x01\x12$\n\x17partner_upload_fraction\x18\n \x01(\x01H\x03\x88\x01\x01\x12\"\n\x15\x62ridge_map_version_id\x18\x0b \x01(\tH\x04\x88\x01\x01\x12\x17\n\npartner_id\x18\x0c \x01(\x03H\x05\x88\x01\x01\x42\x1e\n\x1c_advertiser_upload_date_timeB\x1d\n\x1b_valid_transaction_fractionB\x19\n\x17_partner_match_fractionB\x1a\n\x18_partner_upload_fractionB\x18\n\x16_bridge_map_version_idB\r\n\x0b_partner_idB\xef\x01\n\"com.google.ads.googleads.v8.commonB\x14OfflineUserDataProtoP\x01ZDgoogle.golang.org/genproto/googleapis/ads/googleads/v8/common;common\xa2\x02\x03GAA\xaa\x02\x1eGoogle.Ads.GoogleAds.V8.Common\xca\x02\x1eGoogle\\Ads\\GoogleAds\\V8\\Common\xea\x02\"Google::Ads::GoogleAds::V8::Commonb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_user__identifier__source__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -78,6 +78,13 @@ _OFFLINEUSERADDRESSINFO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='hashed_street_address', full_name='google.ads.googleads.v8.common.OfflineUserAddressInfo.hashed_street_address', index=6,
+      number=13, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -119,9 +126,14 @@ _OFFLINEUSERADDRESSINFO = _descriptor.Descriptor(
       index=5, containing_type=None,
       create_key=_descriptor._internal_create_key,
     fields=[]),
+    _descriptor.OneofDescriptor(
+      name='_hashed_street_address', full_name='google.ads.googleads.v8.common.OfflineUserAddressInfo._hashed_street_address',
+      index=6, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
   serialized_start=181,
-  serialized_end=455,
+  serialized_end=517,
 )
 
 
@@ -192,8 +204,8 @@ _USERIDENTIFIER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=458,
-  serialized_end=785,
+  serialized_start=520,
+  serialized_end=847,
 )
 
 
@@ -303,8 +315,8 @@ _TRANSACTIONATTRIBUTE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=788,
-  serialized_end=1266,
+  serialized_start=850,
+  serialized_end=1328,
 )
 
 
@@ -340,8 +352,8 @@ _STOREATTRIBUTE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1268,
-  serialized_end=1324,
+  serialized_start=1330,
+  serialized_end=1386,
 )
 
 
@@ -405,8 +417,8 @@ _ITEMATTRIBUTE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1327,
-  serialized_end=1464,
+  serialized_start=1389,
+  serialized_end=1526,
 )
 
 
@@ -451,8 +463,8 @@ _USERDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1467,
-  serialized_end=1707,
+  serialized_start=1529,
+  serialized_end=1769,
 )
 
 
@@ -528,8 +540,8 @@ _USERATTRIBUTE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1710,
-  serialized_end=1984,
+  serialized_start=1772,
+  serialized_end=2046,
 )
 
 
@@ -565,8 +577,8 @@ _CUSTOMERMATCHUSERLISTMETADATA = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1986,
-  serialized_end=2055,
+  serialized_start=2048,
+  serialized_end=2117,
 )
 
 
@@ -633,8 +645,8 @@ _STORESALESMETADATA = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2058,
-  serialized_end=2336,
+  serialized_start=2120,
+  serialized_end=2398,
 )
 
 
@@ -730,8 +742,8 @@ _STORESALESTHIRDPARTYMETADATA = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2339,
-  serialized_end=2747,
+  serialized_start=2401,
+  serialized_end=2809,
 )
 
 _OFFLINEUSERADDRESSINFO.oneofs_by_name['_hashed_first_name'].fields.append(
@@ -752,6 +764,9 @@ _OFFLINEUSERADDRESSINFO.fields_by_name['country_code'].containing_oneof = _OFFLI
 _OFFLINEUSERADDRESSINFO.oneofs_by_name['_postal_code'].fields.append(
   _OFFLINEUSERADDRESSINFO.fields_by_name['postal_code'])
 _OFFLINEUSERADDRESSINFO.fields_by_name['postal_code'].containing_oneof = _OFFLINEUSERADDRESSINFO.oneofs_by_name['_postal_code']
+_OFFLINEUSERADDRESSINFO.oneofs_by_name['_hashed_street_address'].fields.append(
+  _OFFLINEUSERADDRESSINFO.fields_by_name['hashed_street_address'])
+_OFFLINEUSERADDRESSINFO.fields_by_name['hashed_street_address'].containing_oneof = _OFFLINEUSERADDRESSINFO.oneofs_by_name['_hashed_street_address']
 _USERIDENTIFIER.fields_by_name['user_identifier_source'].enum_type = google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_user__identifier__source__pb2._USERIDENTIFIERSOURCEENUM_USERIDENTIFIERSOURCE
 _USERIDENTIFIER.fields_by_name['address_info'].message_type = _OFFLINEUSERADDRESSINFO
 _USERIDENTIFIER.oneofs_by_name['identifier'].fields.append(

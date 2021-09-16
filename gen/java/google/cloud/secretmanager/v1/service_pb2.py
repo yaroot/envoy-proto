@@ -28,7 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.cloud.secretmanager.v1B\014ServiceProtoP\001ZJgoogle.golang.org/genproto/googleapis/cloud/secretmanager/v1;secretmanager\370\001\001\242\002\003GSM\252\002\035Google.Cloud.SecretManager.V1\312\002\035Google\\Cloud\\SecretManager\\V1\352\002 Google::Cloud::SecretManager::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n+google/cloud/secretmanager/v1/service.proto\x12\x1dgoogle.cloud.secretmanager.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/secretmanager/v1/resources.proto\x1a\x1egoogle/iam/v1/iam_policy.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\x8a\x01\n\x12ListSecretsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"z\n\x13ListSecretsResponse\x12\x36\n\x07secrets\x18\x01 \x03(\x0b\x32%.google.cloud.secretmanager.v1.Secret\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x12\n\ntotal_size\x18\x03 \x01(\x05\"\xae\x01\n\x13\x43reateSecretRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x16\n\tsecret_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12:\n\x06secret\x18\x03 \x01(\x0b\x32%.google.cloud.secretmanager.v1.SecretB\x03\xe0\x41\x02\"\x9a\x01\n\x17\x41\x64\x64SecretVersionRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#secretmanager.googleapis.com/Secret\x12\x42\n\x07payload\x18\x02 \x01(\x0b\x32,.google.cloud.secretmanager.v1.SecretPayloadB\x03\xe0\x41\x02\"M\n\x10GetSecretRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#secretmanager.googleapis.com/Secret\"\x89\x01\n\x19ListSecretVersionsRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#secretmanager.googleapis.com/Secret\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\x89\x01\n\x1aListSecretVersionsResponse\x12>\n\x08versions\x18\x01 \x03(\x0b\x32,.google.cloud.secretmanager.v1.SecretVersion\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x12\n\ntotal_size\x18\x03 \x01(\x05\"[\n\x17GetSecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\"\x87\x01\n\x13UpdateSecretRequest\x12:\n\x06secret\x18\x01 \x01(\x0b\x32%.google.cloud.secretmanager.v1.SecretB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"^\n\x1a\x41\x63\x63\x65ssSecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\"\x9b\x01\n\x1b\x41\x63\x63\x65ssSecretVersionResponse\x12=\n\x04name\x18\x01 \x01(\tB/\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\x12=\n\x07payload\x18\x02 \x01(\x0b\x32,.google.cloud.secretmanager.v1.SecretPayload\"c\n\x13\x44\x65leteSecretRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#secretmanager.googleapis.com/Secret\x12\x11\n\x04\x65tag\x18\x02 \x01(\tB\x03\xe0\x41\x01\"r\n\x1b\x44isableSecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\x12\x11\n\x04\x65tag\x18\x02 \x01(\tB\x03\xe0\x41\x01\"q\n\x1a\x45nableSecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\x12\x11\n\x04\x65tag\x18\x02 \x01(\tB\x03\xe0\x41\x01\"r\n\x1b\x44\x65stroySecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\x12\x11\n\x04\x65tag\x18\x02 \x01(\tB\x03\xe0\x41\x01\x32\xcf\x15\n\x14SecretManagerService\x12\xa6\x01\n\x0bListSecrets\x12\x31.google.cloud.secretmanager.v1.ListSecretsRequest\x1a\x32.google.cloud.secretmanager.v1.ListSecretsResponse\"0\x82\xd3\xe4\x93\x02!\x12\x1f/v1/{parent=projects/*}/secrets\xda\x41\x06parent\x12\xb4\x01\n\x0c\x43reateSecret\x12\x32.google.cloud.secretmanager.v1.CreateSecretRequest\x1a%.google.cloud.secretmanager.v1.Secret\"I\x82\xd3\xe4\x93\x02)\"\x1f/v1/{parent=projects/*}/secrets:\x06secret\xda\x41\x17parent,secret_id,secret\x12\xc2\x01\n\x10\x41\x64\x64SecretVersion\x12\x36.google.cloud.secretmanager.v1.AddSecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion\"H\x82\xd3\xe4\x93\x02\x31\",/v1/{parent=projects/*/secrets/*}:addVersion:\x01*\xda\x41\x0eparent,payload\x12\x93\x01\n\tGetSecret\x12/.google.cloud.secretmanager.v1.GetSecretRequest\x1a%.google.cloud.secretmanager.v1.Secret\".\x82\xd3\xe4\x93\x02!\x12\x1f/v1/{name=projects/*/secrets/*}\xda\x41\x04name\x12\xb6\x01\n\x0cUpdateSecret\x12\x32.google.cloud.secretmanager.v1.UpdateSecretRequest\x1a%.google.cloud.secretmanager.v1.Secret\"K\x82\xd3\xe4\x93\x02\x30\x32&/v1/{secret.name=projects/*/secrets/*}:\x06secret\xda\x41\x12secret,update_mask\x12\x8a\x01\n\x0c\x44\x65leteSecret\x12\x32.google.cloud.secretmanager.v1.DeleteSecretRequest\x1a\x16.google.protobuf.Empty\".\x82\xd3\xe4\x93\x02!*\x1f/v1/{name=projects/*/secrets/*}\xda\x41\x04name\x12\xc6\x01\n\x12ListSecretVersions\x12\x38.google.cloud.secretmanager.v1.ListSecretVersionsRequest\x1a\x39.google.cloud.secretmanager.v1.ListSecretVersionsResponse\";\x82\xd3\xe4\x93\x02,\x12*/v1/{parent=projects/*/secrets/*}/versions\xda\x41\x06parent\x12\xb3\x01\n\x10GetSecretVersion\x12\x36.google.cloud.secretmanager.v1.GetSecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion\"9\x82\xd3\xe4\x93\x02,\x12*/v1/{name=projects/*/secrets/*/versions/*}\xda\x41\x04name\x12\xce\x01\n\x13\x41\x63\x63\x65ssSecretVersion\x12\x39.google.cloud.secretmanager.v1.AccessSecretVersionRequest\x1a:.google.cloud.secretmanager.v1.AccessSecretVersionResponse\"@\x82\xd3\xe4\x93\x02\x33\x12\x31/v1/{name=projects/*/secrets/*/versions/*}:access\xda\x41\x04name\x12\xc6\x01\n\x14\x44isableSecretVersion\x12:.google.cloud.secretmanager.v1.DisableSecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion\"D\x82\xd3\xe4\x93\x02\x37\"2/v1/{name=projects/*/secrets/*/versions/*}:disable:\x01*\xda\x41\x04name\x12\xc3\x01\n\x13\x45nableSecretVersion\x12\x39.google.cloud.secretmanager.v1.EnableSecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion\"C\x82\xd3\xe4\x93\x02\x36\"1/v1/{name=projects/*/secrets/*/versions/*}:enable:\x01*\xda\x41\x04name\x12\xc6\x01\n\x14\x44\x65stroySecretVersion\x12:.google.cloud.secretmanager.v1.DestroySecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion\"D\x82\xd3\xe4\x93\x02\x37\"2/v1/{name=projects/*/secrets/*/versions/*}:destroy:\x01*\xda\x41\x04name\x12\x86\x01\n\x0cSetIamPolicy\x12\".google.iam.v1.SetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\";\x82\xd3\xe4\x93\x02\x35\"0/v1/{resource=projects/*/secrets/*}:setIamPolicy:\x01*\x12\x83\x01\n\x0cGetIamPolicy\x12\".google.iam.v1.GetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"8\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{resource=projects/*/secrets/*}:getIamPolicy\x12\xac\x01\n\x12TestIamPermissions\x12(.google.iam.v1.TestIamPermissionsRequest\x1a).google.iam.v1.TestIamPermissionsResponse\"A\x82\xd3\xe4\x93\x02;\"6/v1/{resource=projects/*/secrets/*}:testIamPermissions:\x01*\x1aP\xca\x41\x1csecretmanager.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xeb\x01\n!com.google.cloud.secretmanager.v1B\x0cServiceProtoP\x01ZJgoogle.golang.org/genproto/googleapis/cloud/secretmanager/v1;secretmanager\xf8\x01\x01\xa2\x02\x03GSM\xaa\x02\x1dGoogle.Cloud.SecretManager.V1\xca\x02\x1dGoogle\\Cloud\\SecretManager\\V1\xea\x02 Google::Cloud::SecretManager::V1b\x06proto3'
+  serialized_pb=b'\n+google/cloud/secretmanager/v1/service.proto\x12\x1dgoogle.cloud.secretmanager.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/secretmanager/v1/resources.proto\x1a\x1egoogle/iam/v1/iam_policy.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\x9f\x01\n\x12ListSecretsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\"z\n\x13ListSecretsResponse\x12\x36\n\x07secrets\x18\x01 \x03(\x0b\x32%.google.cloud.secretmanager.v1.Secret\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x12\n\ntotal_size\x18\x03 \x01(\x05\"\xae\x01\n\x13\x43reateSecretRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x16\n\tsecret_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12:\n\x06secret\x18\x03 \x01(\x0b\x32%.google.cloud.secretmanager.v1.SecretB\x03\xe0\x41\x02\"\x9a\x01\n\x17\x41\x64\x64SecretVersionRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#secretmanager.googleapis.com/Secret\x12\x42\n\x07payload\x18\x02 \x01(\x0b\x32,.google.cloud.secretmanager.v1.SecretPayloadB\x03\xe0\x41\x02\"M\n\x10GetSecretRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#secretmanager.googleapis.com/Secret\"\x9e\x01\n\x19ListSecretVersionsRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#secretmanager.googleapis.com/Secret\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\x89\x01\n\x1aListSecretVersionsResponse\x12>\n\x08versions\x18\x01 \x03(\x0b\x32,.google.cloud.secretmanager.v1.SecretVersion\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x12\n\ntotal_size\x18\x03 \x01(\x05\"[\n\x17GetSecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\"\x87\x01\n\x13UpdateSecretRequest\x12:\n\x06secret\x18\x01 \x01(\x0b\x32%.google.cloud.secretmanager.v1.SecretB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"^\n\x1a\x41\x63\x63\x65ssSecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\"\x9b\x01\n\x1b\x41\x63\x63\x65ssSecretVersionResponse\x12=\n\x04name\x18\x01 \x01(\tB/\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\x12=\n\x07payload\x18\x02 \x01(\x0b\x32,.google.cloud.secretmanager.v1.SecretPayload\"c\n\x13\x44\x65leteSecretRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#secretmanager.googleapis.com/Secret\x12\x11\n\x04\x65tag\x18\x02 \x01(\tB\x03\xe0\x41\x01\"r\n\x1b\x44isableSecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\x12\x11\n\x04\x65tag\x18\x02 \x01(\tB\x03\xe0\x41\x01\"q\n\x1a\x45nableSecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\x12\x11\n\x04\x65tag\x18\x02 \x01(\tB\x03\xe0\x41\x01\"r\n\x1b\x44\x65stroySecretVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*secretmanager.googleapis.com/SecretVersion\x12\x11\n\x04\x65tag\x18\x02 \x01(\tB\x03\xe0\x41\x01\x32\xcf\x15\n\x14SecretManagerService\x12\xa6\x01\n\x0bListSecrets\x12\x31.google.cloud.secretmanager.v1.ListSecretsRequest\x1a\x32.google.cloud.secretmanager.v1.ListSecretsResponse\"0\x82\xd3\xe4\x93\x02!\x12\x1f/v1/{parent=projects/*}/secrets\xda\x41\x06parent\x12\xb4\x01\n\x0c\x43reateSecret\x12\x32.google.cloud.secretmanager.v1.CreateSecretRequest\x1a%.google.cloud.secretmanager.v1.Secret\"I\x82\xd3\xe4\x93\x02)\"\x1f/v1/{parent=projects/*}/secrets:\x06secret\xda\x41\x17parent,secret_id,secret\x12\xc2\x01\n\x10\x41\x64\x64SecretVersion\x12\x36.google.cloud.secretmanager.v1.AddSecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion\"H\x82\xd3\xe4\x93\x02\x31\",/v1/{parent=projects/*/secrets/*}:addVersion:\x01*\xda\x41\x0eparent,payload\x12\x93\x01\n\tGetSecret\x12/.google.cloud.secretmanager.v1.GetSecretRequest\x1a%.google.cloud.secretmanager.v1.Secret\".\x82\xd3\xe4\x93\x02!\x12\x1f/v1/{name=projects/*/secrets/*}\xda\x41\x04name\x12\xb6\x01\n\x0cUpdateSecret\x12\x32.google.cloud.secretmanager.v1.UpdateSecretRequest\x1a%.google.cloud.secretmanager.v1.Secret\"K\x82\xd3\xe4\x93\x02\x30\x32&/v1/{secret.name=projects/*/secrets/*}:\x06secret\xda\x41\x12secret,update_mask\x12\x8a\x01\n\x0c\x44\x65leteSecret\x12\x32.google.cloud.secretmanager.v1.DeleteSecretRequest\x1a\x16.google.protobuf.Empty\".\x82\xd3\xe4\x93\x02!*\x1f/v1/{name=projects/*/secrets/*}\xda\x41\x04name\x12\xc6\x01\n\x12ListSecretVersions\x12\x38.google.cloud.secretmanager.v1.ListSecretVersionsRequest\x1a\x39.google.cloud.secretmanager.v1.ListSecretVersionsResponse\";\x82\xd3\xe4\x93\x02,\x12*/v1/{parent=projects/*/secrets/*}/versions\xda\x41\x06parent\x12\xb3\x01\n\x10GetSecretVersion\x12\x36.google.cloud.secretmanager.v1.GetSecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion\"9\x82\xd3\xe4\x93\x02,\x12*/v1/{name=projects/*/secrets/*/versions/*}\xda\x41\x04name\x12\xce\x01\n\x13\x41\x63\x63\x65ssSecretVersion\x12\x39.google.cloud.secretmanager.v1.AccessSecretVersionRequest\x1a:.google.cloud.secretmanager.v1.AccessSecretVersionResponse\"@\x82\xd3\xe4\x93\x02\x33\x12\x31/v1/{name=projects/*/secrets/*/versions/*}:access\xda\x41\x04name\x12\xc6\x01\n\x14\x44isableSecretVersion\x12:.google.cloud.secretmanager.v1.DisableSecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion\"D\x82\xd3\xe4\x93\x02\x37\"2/v1/{name=projects/*/secrets/*/versions/*}:disable:\x01*\xda\x41\x04name\x12\xc3\x01\n\x13\x45nableSecretVersion\x12\x39.google.cloud.secretmanager.v1.EnableSecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion\"C\x82\xd3\xe4\x93\x02\x36\"1/v1/{name=projects/*/secrets/*/versions/*}:enable:\x01*\xda\x41\x04name\x12\xc6\x01\n\x14\x44\x65stroySecretVersion\x12:.google.cloud.secretmanager.v1.DestroySecretVersionRequest\x1a,.google.cloud.secretmanager.v1.SecretVersion\"D\x82\xd3\xe4\x93\x02\x37\"2/v1/{name=projects/*/secrets/*/versions/*}:destroy:\x01*\xda\x41\x04name\x12\x86\x01\n\x0cSetIamPolicy\x12\".google.iam.v1.SetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\";\x82\xd3\xe4\x93\x02\x35\"0/v1/{resource=projects/*/secrets/*}:setIamPolicy:\x01*\x12\x83\x01\n\x0cGetIamPolicy\x12\".google.iam.v1.GetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"8\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{resource=projects/*/secrets/*}:getIamPolicy\x12\xac\x01\n\x12TestIamPermissions\x12(.google.iam.v1.TestIamPermissionsRequest\x1a).google.iam.v1.TestIamPermissionsResponse\"A\x82\xd3\xe4\x93\x02;\"6/v1/{resource=projects/*/secrets/*}:testIamPermissions:\x01*\x1aP\xca\x41\x1csecretmanager.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xeb\x01\n!com.google.cloud.secretmanager.v1B\x0cServiceProtoP\x01ZJgoogle.golang.org/genproto/googleapis/cloud/secretmanager/v1;secretmanager\xf8\x01\x01\xa2\x02\x03GSM\xaa\x02\x1dGoogle.Cloud.SecretManager.V1\xca\x02\x1dGoogle\\Cloud\\SecretManager\\V1\xea\x02 Google::Cloud::SecretManager::V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_secretmanager_dot_v1_dot_resources__pb2.DESCRIPTOR,google_dot_iam_dot_v1_dot_iam__policy__pb2.DESCRIPTOR,google_dot_iam_dot_v1_dot_policy__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
 
@@ -64,6 +64,13 @@ _LISTSECRETSREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filter', full_name='google.cloud.secretmanager.v1.ListSecretsRequest.filter', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -77,7 +84,7 @@ _LISTSECRETSREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=364,
-  serialized_end=502,
+  serialized_end=523,
 )
 
 
@@ -122,8 +129,8 @@ _LISTSECRETSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=504,
-  serialized_end=626,
+  serialized_start=525,
+  serialized_end=647,
 )
 
 
@@ -168,8 +175,8 @@ _CREATESECRETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=629,
-  serialized_end=803,
+  serialized_start=650,
+  serialized_end=824,
 )
 
 
@@ -207,8 +214,8 @@ _ADDSECRETVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=806,
-  serialized_end=960,
+  serialized_start=827,
+  serialized_end=981,
 )
 
 
@@ -239,8 +246,8 @@ _GETSECRETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=962,
-  serialized_end=1039,
+  serialized_start=983,
+  serialized_end=1060,
 )
 
 
@@ -273,6 +280,13 @@ _LISTSECRETVERSIONSREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filter', full_name='google.cloud.secretmanager.v1.ListSecretVersionsRequest.filter', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -285,8 +299,8 @@ _LISTSECRETVERSIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1042,
-  serialized_end=1179,
+  serialized_start=1063,
+  serialized_end=1221,
 )
 
 
@@ -331,8 +345,8 @@ _LISTSECRETVERSIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1182,
-  serialized_end=1319,
+  serialized_start=1224,
+  serialized_end=1361,
 )
 
 
@@ -363,8 +377,8 @@ _GETSECRETVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1321,
-  serialized_end=1412,
+  serialized_start=1363,
+  serialized_end=1454,
 )
 
 
@@ -402,8 +416,8 @@ _UPDATESECRETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1415,
-  serialized_end=1550,
+  serialized_start=1457,
+  serialized_end=1592,
 )
 
 
@@ -434,8 +448,8 @@ _ACCESSSECRETVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1552,
-  serialized_end=1646,
+  serialized_start=1594,
+  serialized_end=1688,
 )
 
 
@@ -473,8 +487,8 @@ _ACCESSSECRETVERSIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1649,
-  serialized_end=1804,
+  serialized_start=1691,
+  serialized_end=1846,
 )
 
 
@@ -512,8 +526,8 @@ _DELETESECRETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1806,
-  serialized_end=1905,
+  serialized_start=1848,
+  serialized_end=1947,
 )
 
 
@@ -551,8 +565,8 @@ _DISABLESECRETVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1907,
-  serialized_end=2021,
+  serialized_start=1949,
+  serialized_end=2063,
 )
 
 
@@ -590,8 +604,8 @@ _ENABLESECRETVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2023,
-  serialized_end=2136,
+  serialized_start=2065,
+  serialized_end=2178,
 )
 
 
@@ -629,8 +643,8 @@ _DESTROYSECRETVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2138,
-  serialized_end=2252,
+  serialized_start=2180,
+  serialized_end=2294,
 )
 
 _LISTSECRETSRESPONSE.fields_by_name['secrets'].message_type = google_dot_cloud_dot_secretmanager_dot_v1_dot_resources__pb2._SECRET
@@ -767,6 +781,7 @@ DESCRIPTOR._options = None
 _LISTSECRETSREQUEST.fields_by_name['parent']._options = None
 _LISTSECRETSREQUEST.fields_by_name['page_size']._options = None
 _LISTSECRETSREQUEST.fields_by_name['page_token']._options = None
+_LISTSECRETSREQUEST.fields_by_name['filter']._options = None
 _CREATESECRETREQUEST.fields_by_name['parent']._options = None
 _CREATESECRETREQUEST.fields_by_name['secret_id']._options = None
 _CREATESECRETREQUEST.fields_by_name['secret']._options = None
@@ -776,6 +791,7 @@ _GETSECRETREQUEST.fields_by_name['name']._options = None
 _LISTSECRETVERSIONSREQUEST.fields_by_name['parent']._options = None
 _LISTSECRETVERSIONSREQUEST.fields_by_name['page_size']._options = None
 _LISTSECRETVERSIONSREQUEST.fields_by_name['page_token']._options = None
+_LISTSECRETVERSIONSREQUEST.fields_by_name['filter']._options = None
 _GETSECRETVERSIONREQUEST.fields_by_name['name']._options = None
 _UPDATESECRETREQUEST.fields_by_name['secret']._options = None
 _UPDATESECRETREQUEST.fields_by_name['update_mask']._options = None
@@ -797,8 +813,8 @@ _SECRETMANAGERSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\034secretmanager.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=2255,
-  serialized_end=5022,
+  serialized_start=2297,
+  serialized_end=5064,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListSecrets',

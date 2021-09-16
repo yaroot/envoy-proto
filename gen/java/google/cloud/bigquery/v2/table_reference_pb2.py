@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\034com.google.cloud.bigquery.v2B\023TableReferenceProtoZ@google.golang.org/genproto/googleapis/cloud/bigquery/v2;bigquery',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.google/cloud/bigquery/v2/table_reference.proto\x12\x18google.cloud.bigquery.v2\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/api/annotations.proto\"Y\n\x0eTableReference\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ndataset_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08table_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x42u\n\x1c\x63om.google.cloud.bigquery.v2B\x13TableReferenceProtoZ@google.golang.org/genproto/googleapis/cloud/bigquery/v2;bigqueryb\x06proto3'
+  serialized_pb=b'\n.google/cloud/bigquery/v2/table_reference.proto\x12\x18google.cloud.bigquery.v2\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1cgoogle/api/annotations.proto\"\xb7\x01\n\x0eTableReference\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ndataset_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08table_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x1e\n\x16project_id_alternative\x18\x04 \x03(\t\x12\x1e\n\x16\x64\x61taset_id_alternative\x18\x05 \x03(\t\x12\x1c\n\x14table_id_alternative\x18\x06 \x03(\tBu\n\x1c\x63om.google.cloud.bigquery.v2B\x13TableReferenceProtoZ@google.golang.org/genproto/googleapis/cloud/bigquery/v2;bigqueryb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -57,6 +57,27 @@ _TABLEREFERENCE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='project_id_alternative', full_name='google.cloud.bigquery.v2.TableReference.project_id_alternative', index=3,
+      number=4, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dataset_id_alternative', full_name='google.cloud.bigquery.v2.TableReference.dataset_id_alternative', index=4,
+      number=5, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='table_id_alternative', full_name='google.cloud.bigquery.v2.TableReference.table_id_alternative', index=5,
+      number=6, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -69,8 +90,8 @@ _TABLEREFERENCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=139,
-  serialized_end=228,
+  serialized_start=140,
+  serialized_end=323,
 )
 
 DESCRIPTOR.message_types_by_name['TableReference'] = _TABLEREFERENCE

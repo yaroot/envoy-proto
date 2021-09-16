@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\037com.google.cloud.datacatalog.v1B\"PolicyTagManagerSerializationProtoP\001ZFgoogle.golang.org/genproto/googleapis/cloud/datacatalog/v1;datacatalog\370\001\001\252\002\033Google.Cloud.DataCatalog.V1\312\002\033Google\\Cloud\\DataCatalog\\V1\352\002\036Google::Cloud::DataCatalog::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n?google/cloud/datacatalog/v1/policytagmanagerserialization.proto\x12\x1bgoogle.cloud.datacatalog.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x32google/cloud/datacatalog/v1/policytagmanager.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a\x17google/api/client.proto\"\xdd\x01\n\x12SerializedTaxonomy\x12\x19\n\x0c\x64isplay_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x45\n\x0bpolicy_tags\x18\x03 \x03(\x0b\x32\x30.google.cloud.datacatalog.v1.SerializedPolicyTag\x12P\n\x16\x61\x63tivated_policy_types\x18\x04 \x03(\x0e\x32\x30.google.cloud.datacatalog.v1.Taxonomy.PolicyType\"\xa6\x01\n\x13SerializedPolicyTag\x12\x12\n\npolicy_tag\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12K\n\x11\x63hild_policy_tags\x18\x04 \x03(\x0b\x32\x30.google.cloud.datacatalog.v1.SerializedPolicyTag\"\xf7\x01\n\x17ImportTaxonomiesRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#datacatalog.googleapis.com/Taxonomy\x12\x42\n\rinline_source\x18\x02 \x01(\x0b\x32).google.cloud.datacatalog.v1.InlineSourceH\x00\x12Q\n\x15\x63ross_regional_source\x18\x03 \x01(\x0b\x32\x30.google.cloud.datacatalog.v1.CrossRegionalSourceH\x00\x42\x08\n\x06source\"X\n\x0cInlineSource\x12H\n\ntaxonomies\x18\x01 \x03(\x0b\x32/.google.cloud.datacatalog.v1.SerializedTaxonomyB\x03\xe0\x41\x02\"T\n\x13\x43rossRegionalSource\x12=\n\x08taxonomy\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#datacatalog.googleapis.com/Taxonomy\"U\n\x18ImportTaxonomiesResponse\x12\x39\n\ntaxonomies\x18\x01 \x03(\x0b\x32%.google.cloud.datacatalog.v1.Taxonomy\"\xc7\x01\n\x17\x45xportTaxonomiesRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#datacatalog.googleapis.com/Taxonomy\x12?\n\ntaxonomies\x18\x02 \x03(\tB+\xe0\x41\x02\xfa\x41%\n#datacatalog.googleapis.com/Taxonomy\x12\x1f\n\x15serialized_taxonomies\x18\x03 \x01(\x08H\x00\x42\r\n\x0b\x64\x65stination\"_\n\x18\x45xportTaxonomiesResponse\x12\x43\n\ntaxonomies\x18\x01 \x03(\x0b\x32/.google.cloud.datacatalog.v1.SerializedTaxonomy2\xf4\x03\n\x1dPolicyTagManagerSerialization\x12\xc1\x01\n\x10ImportTaxonomies\x12\x34.google.cloud.datacatalog.v1.ImportTaxonomiesRequest\x1a\x35.google.cloud.datacatalog.v1.ImportTaxonomiesResponse\"@\x82\xd3\xe4\x93\x02:\"5/v1/{parent=projects/*/locations/*}/taxonomies:import:\x01*\x12\xbe\x01\n\x10\x45xportTaxonomies\x12\x34.google.cloud.datacatalog.v1.ExportTaxonomiesRequest\x1a\x35.google.cloud.datacatalog.v1.ExportTaxonomiesResponse\"=\x82\xd3\xe4\x93\x02\x37\x12\x35/v1/{parent=projects/*/locations/*}/taxonomies:export\x1aN\xca\x41\x1a\x64\x61tacatalog.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xef\x01\n\x1f\x63om.google.cloud.datacatalog.v1B\"PolicyTagManagerSerializationProtoP\x01ZFgoogle.golang.org/genproto/googleapis/cloud/datacatalog/v1;datacatalog\xf8\x01\x01\xaa\x02\x1bGoogle.Cloud.DataCatalog.V1\xca\x02\x1bGoogle\\Cloud\\DataCatalog\\V1\xea\x02\x1eGoogle::Cloud::DataCatalog::V1b\x06proto3'
+  serialized_pb=b'\n?google/cloud/datacatalog/v1/policytagmanagerserialization.proto\x12\x1bgoogle.cloud.datacatalog.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x32google/cloud/datacatalog/v1/policytagmanager.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a\x17google/api/client.proto\"\xdd\x01\n\x12SerializedTaxonomy\x12\x19\n\x0c\x64isplay_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x45\n\x0bpolicy_tags\x18\x03 \x03(\x0b\x32\x30.google.cloud.datacatalog.v1.SerializedPolicyTag\x12P\n\x16\x61\x63tivated_policy_types\x18\x04 \x03(\x0e\x32\x30.google.cloud.datacatalog.v1.Taxonomy.PolicyType\"\xa6\x01\n\x13SerializedPolicyTag\x12\x12\n\npolicy_tag\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12K\n\x11\x63hild_policy_tags\x18\x04 \x03(\x0b\x32\x30.google.cloud.datacatalog.v1.SerializedPolicyTag\"\xa6\x01\n\x16ReplaceTaxonomyRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#datacatalog.googleapis.com/Taxonomy\x12Q\n\x13serialized_taxonomy\x18\x02 \x01(\x0b\x32/.google.cloud.datacatalog.v1.SerializedTaxonomyB\x03\xe0\x41\x02\"\xf7\x01\n\x17ImportTaxonomiesRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#datacatalog.googleapis.com/Taxonomy\x12\x42\n\rinline_source\x18\x02 \x01(\x0b\x32).google.cloud.datacatalog.v1.InlineSourceH\x00\x12Q\n\x15\x63ross_regional_source\x18\x03 \x01(\x0b\x32\x30.google.cloud.datacatalog.v1.CrossRegionalSourceH\x00\x42\x08\n\x06source\"X\n\x0cInlineSource\x12H\n\ntaxonomies\x18\x01 \x03(\x0b\x32/.google.cloud.datacatalog.v1.SerializedTaxonomyB\x03\xe0\x41\x02\"T\n\x13\x43rossRegionalSource\x12=\n\x08taxonomy\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#datacatalog.googleapis.com/Taxonomy\"U\n\x18ImportTaxonomiesResponse\x12\x39\n\ntaxonomies\x18\x01 \x03(\x0b\x32%.google.cloud.datacatalog.v1.Taxonomy\"\xc7\x01\n\x17\x45xportTaxonomiesRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#datacatalog.googleapis.com/Taxonomy\x12?\n\ntaxonomies\x18\x02 \x03(\tB+\xe0\x41\x02\xfa\x41%\n#datacatalog.googleapis.com/Taxonomy\x12\x1f\n\x15serialized_taxonomies\x18\x03 \x01(\x08H\x00\x42\r\n\x0b\x64\x65stination\"_\n\x18\x45xportTaxonomiesResponse\x12\x43\n\ntaxonomies\x18\x01 \x03(\x0b\x32/.google.cloud.datacatalog.v1.SerializedTaxonomy2\xa7\x05\n\x1dPolicyTagManagerSerialization\x12\xb0\x01\n\x0fReplaceTaxonomy\x12\x33.google.cloud.datacatalog.v1.ReplaceTaxonomyRequest\x1a%.google.cloud.datacatalog.v1.Taxonomy\"A\x82\xd3\xe4\x93\x02;\"6/v1/{name=projects/*/locations/*/taxonomies/*}:replace:\x01*\x12\xc1\x01\n\x10ImportTaxonomies\x12\x34.google.cloud.datacatalog.v1.ImportTaxonomiesRequest\x1a\x35.google.cloud.datacatalog.v1.ImportTaxonomiesResponse\"@\x82\xd3\xe4\x93\x02:\"5/v1/{parent=projects/*/locations/*}/taxonomies:import:\x01*\x12\xbe\x01\n\x10\x45xportTaxonomies\x12\x34.google.cloud.datacatalog.v1.ExportTaxonomiesRequest\x1a\x35.google.cloud.datacatalog.v1.ExportTaxonomiesResponse\"=\x82\xd3\xe4\x93\x02\x37\x12\x35/v1/{parent=projects/*/locations/*}/taxonomies:export\x1aN\xca\x41\x1a\x64\x61tacatalog.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xef\x01\n\x1f\x63om.google.cloud.datacatalog.v1B\"PolicyTagManagerSerializationProtoP\x01ZFgoogle.golang.org/genproto/googleapis/cloud/datacatalog/v1;datacatalog\xf8\x01\x01\xaa\x02\x1bGoogle.Cloud.DataCatalog.V1\xca\x02\x1bGoogle\\Cloud\\DataCatalog\\V1\xea\x02\x1eGoogle::Cloud::DataCatalog::V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_datacatalog_dot_v1_dot_policytagmanager__pb2.DESCRIPTOR,google_dot_iam_dot_v1_dot_policy__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,])
 
@@ -138,6 +138,45 @@ _SERIALIZEDPOLICYTAG = _descriptor.Descriptor(
 )
 
 
+_REPLACETAXONOMYREQUEST = _descriptor.Descriptor(
+  name='ReplaceTaxonomyRequest',
+  full_name='google.cloud.datacatalog.v1.ReplaceTaxonomyRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.datacatalog.v1.ReplaceTaxonomyRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A%\n#datacatalog.googleapis.com/Taxonomy', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='serialized_taxonomy', full_name='google.cloud.datacatalog.v1.ReplaceTaxonomyRequest.serialized_taxonomy', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=685,
+  serialized_end=851,
+)
+
+
 _IMPORTTAXONOMIESREQUEST = _descriptor.Descriptor(
   name='ImportTaxonomiesRequest',
   full_name='google.cloud.datacatalog.v1.ImportTaxonomiesRequest',
@@ -184,8 +223,8 @@ _IMPORTTAXONOMIESREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=685,
-  serialized_end=932,
+  serialized_start=854,
+  serialized_end=1101,
 )
 
 
@@ -216,8 +255,8 @@ _INLINESOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=934,
-  serialized_end=1022,
+  serialized_start=1103,
+  serialized_end=1191,
 )
 
 
@@ -248,8 +287,8 @@ _CROSSREGIONALSOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1024,
-  serialized_end=1108,
+  serialized_start=1193,
+  serialized_end=1277,
 )
 
 
@@ -280,8 +319,8 @@ _IMPORTTAXONOMIESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1110,
-  serialized_end=1195,
+  serialized_start=1279,
+  serialized_end=1364,
 )
 
 
@@ -331,8 +370,8 @@ _EXPORTTAXONOMIESREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1198,
-  serialized_end=1397,
+  serialized_start=1367,
+  serialized_end=1566,
 )
 
 
@@ -363,13 +402,14 @@ _EXPORTTAXONOMIESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1399,
-  serialized_end=1494,
+  serialized_start=1568,
+  serialized_end=1663,
 )
 
 _SERIALIZEDTAXONOMY.fields_by_name['policy_tags'].message_type = _SERIALIZEDPOLICYTAG
 _SERIALIZEDTAXONOMY.fields_by_name['activated_policy_types'].enum_type = google_dot_cloud_dot_datacatalog_dot_v1_dot_policytagmanager__pb2._TAXONOMY_POLICYTYPE
 _SERIALIZEDPOLICYTAG.fields_by_name['child_policy_tags'].message_type = _SERIALIZEDPOLICYTAG
+_REPLACETAXONOMYREQUEST.fields_by_name['serialized_taxonomy'].message_type = _SERIALIZEDTAXONOMY
 _IMPORTTAXONOMIESREQUEST.fields_by_name['inline_source'].message_type = _INLINESOURCE
 _IMPORTTAXONOMIESREQUEST.fields_by_name['cross_regional_source'].message_type = _CROSSREGIONALSOURCE
 _IMPORTTAXONOMIESREQUEST.oneofs_by_name['source'].fields.append(
@@ -386,6 +426,7 @@ _EXPORTTAXONOMIESREQUEST.fields_by_name['serialized_taxonomies'].containing_oneo
 _EXPORTTAXONOMIESRESPONSE.fields_by_name['taxonomies'].message_type = _SERIALIZEDTAXONOMY
 DESCRIPTOR.message_types_by_name['SerializedTaxonomy'] = _SERIALIZEDTAXONOMY
 DESCRIPTOR.message_types_by_name['SerializedPolicyTag'] = _SERIALIZEDPOLICYTAG
+DESCRIPTOR.message_types_by_name['ReplaceTaxonomyRequest'] = _REPLACETAXONOMYREQUEST
 DESCRIPTOR.message_types_by_name['ImportTaxonomiesRequest'] = _IMPORTTAXONOMIESREQUEST
 DESCRIPTOR.message_types_by_name['InlineSource'] = _INLINESOURCE
 DESCRIPTOR.message_types_by_name['CrossRegionalSource'] = _CROSSREGIONALSOURCE
@@ -407,6 +448,13 @@ SerializedPolicyTag = _reflection.GeneratedProtocolMessageType('SerializedPolicy
   # @@protoc_insertion_point(class_scope:google.cloud.datacatalog.v1.SerializedPolicyTag)
   })
 _sym_db.RegisterMessage(SerializedPolicyTag)
+
+ReplaceTaxonomyRequest = _reflection.GeneratedProtocolMessageType('ReplaceTaxonomyRequest', (_message.Message,), {
+  'DESCRIPTOR' : _REPLACETAXONOMYREQUEST,
+  '__module__' : 'google.cloud.datacatalog.v1.policytagmanagerserialization_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.datacatalog.v1.ReplaceTaxonomyRequest)
+  })
+_sym_db.RegisterMessage(ReplaceTaxonomyRequest)
 
 ImportTaxonomiesRequest = _reflection.GeneratedProtocolMessageType('ImportTaxonomiesRequest', (_message.Message,), {
   'DESCRIPTOR' : _IMPORTTAXONOMIESREQUEST,
@@ -454,6 +502,8 @@ _sym_db.RegisterMessage(ExportTaxonomiesResponse)
 DESCRIPTOR._options = None
 _SERIALIZEDTAXONOMY.fields_by_name['display_name']._options = None
 _SERIALIZEDPOLICYTAG.fields_by_name['display_name']._options = None
+_REPLACETAXONOMYREQUEST.fields_by_name['name']._options = None
+_REPLACETAXONOMYREQUEST.fields_by_name['serialized_taxonomy']._options = None
 _IMPORTTAXONOMIESREQUEST.fields_by_name['parent']._options = None
 _INLINESOURCE.fields_by_name['taxonomies']._options = None
 _CROSSREGIONALSOURCE.fields_by_name['taxonomy']._options = None
@@ -467,13 +517,23 @@ _POLICYTAGMANAGERSERIALIZATION = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\032datacatalog.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1497,
-  serialized_end=1997,
+  serialized_start=1666,
+  serialized_end=2345,
   methods=[
+  _descriptor.MethodDescriptor(
+    name='ReplaceTaxonomy',
+    full_name='google.cloud.datacatalog.v1.PolicyTagManagerSerialization.ReplaceTaxonomy',
+    index=0,
+    containing_service=None,
+    input_type=_REPLACETAXONOMYREQUEST,
+    output_type=google_dot_cloud_dot_datacatalog_dot_v1_dot_policytagmanager__pb2._TAXONOMY,
+    serialized_options=b'\202\323\344\223\002;\"6/v1/{name=projects/*/locations/*/taxonomies/*}:replace:\001*',
+    create_key=_descriptor._internal_create_key,
+  ),
   _descriptor.MethodDescriptor(
     name='ImportTaxonomies',
     full_name='google.cloud.datacatalog.v1.PolicyTagManagerSerialization.ImportTaxonomies',
-    index=0,
+    index=1,
     containing_service=None,
     input_type=_IMPORTTAXONOMIESREQUEST,
     output_type=_IMPORTTAXONOMIESRESPONSE,
@@ -483,7 +543,7 @@ _POLICYTAGMANAGERSERIALIZATION = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ExportTaxonomies',
     full_name='google.cloud.datacatalog.v1.PolicyTagManagerSerialization.ExportTaxonomies',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_EXPORTTAXONOMIESREQUEST,
     output_type=_EXPORTTAXONOMIESRESPONSE,

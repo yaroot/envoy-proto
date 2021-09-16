@@ -28,7 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n#io.envoyproxy.envoy.service.auth.v3B\021ExternalAuthProtoP\001\210\001\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)envoy/service/auth/v3/external_auth.proto\x12\x15\x65nvoy.service.auth.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a-envoy/service/auth/v3/attribute_context.proto\x1a\x1f\x65nvoy/type/v3/http_status.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x17google/rpc/status.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"v\n\x0c\x43heckRequest\x12;\n\nattributes\x18\x01 \x01(\x0b\x32\'.envoy.service.auth.v3.AttributeContext:)\x9a\xc5\x88\x1e$\n\"envoy.service.auth.v2.CheckRequest\"\xc2\x01\n\x12\x44\x65niedHttpResponse\x12\x33\n\x06status\x18\x01 \x01(\x0b\x32\x19.envoy.type.v3.HttpStatusB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x38\n\x07headers\x18\x02 \x03(\x0b\x32\'.envoy.config.core.v3.HeaderValueOption\x12\x0c\n\x04\x62ody\x18\x03 \x01(\t:/\x9a\xc5\x88\x1e*\n(envoy.service.auth.v2.DeniedHttpResponse\"\x9c\x02\n\x0eOkHttpResponse\x12\x38\n\x07headers\x18\x02 \x03(\x0b\x32\'.envoy.config.core.v3.HeaderValueOption\x12\x19\n\x11headers_to_remove\x18\x05 \x03(\t\x12>\n\x10\x64ynamic_metadata\x18\x03 \x01(\x0b\x32\x17.google.protobuf.StructB\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12H\n\x17response_headers_to_add\x18\x06 \x03(\x0b\x32\'.envoy.config.core.v3.HeaderValueOption:+\x9a\xc5\x88\x1e&\n$envoy.service.auth.v2.OkHttpResponse\"\xa7\x02\n\rCheckResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x44\n\x0f\x64\x65nied_response\x18\x02 \x01(\x0b\x32).envoy.service.auth.v3.DeniedHttpResponseH\x00\x12<\n\x0bok_response\x18\x03 \x01(\x0b\x32%.envoy.service.auth.v3.OkHttpResponseH\x00\x12\x31\n\x10\x64ynamic_metadata\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct:*\x9a\xc5\x88\x1e%\n#envoy.service.auth.v2.CheckResponseB\x0f\n\rhttp_response2e\n\rAuthorization\x12T\n\x05\x43heck\x12#.envoy.service.auth.v3.CheckRequest\x1a$.envoy.service.auth.v3.CheckResponse\"\x00\x42\x45\n#io.envoyproxy.envoy.service.auth.v3B\x11\x45xternalAuthProtoP\x01\x88\x01\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n)envoy/service/auth/v3/external_auth.proto\x12\x15\x65nvoy.service.auth.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a-envoy/service/auth/v3/attribute_context.proto\x1a\x1f\x65nvoy/type/v3/http_status.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x17google/rpc/status.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"v\n\x0c\x43heckRequest\x12;\n\nattributes\x18\x01 \x01(\x0b\x32\'.envoy.service.auth.v3.AttributeContext:)\x9a\xc5\x88\x1e$\n\"envoy.service.auth.v2.CheckRequest\"\xb8\x01\n\x12\x44\x65niedHttpResponse\x12)\n\x06status\x18\x01 \x01(\x0b\x32\x19.envoy.type.v3.HttpStatus\x12\x38\n\x07headers\x18\x02 \x03(\x0b\x32\'.envoy.config.core.v3.HeaderValueOption\x12\x0c\n\x04\x62ody\x18\x03 \x01(\t:/\x9a\xc5\x88\x1e*\n(envoy.service.auth.v2.DeniedHttpResponse\"\x9c\x02\n\x0eOkHttpResponse\x12\x38\n\x07headers\x18\x02 \x03(\x0b\x32\'.envoy.config.core.v3.HeaderValueOption\x12\x19\n\x11headers_to_remove\x18\x05 \x03(\t\x12>\n\x10\x64ynamic_metadata\x18\x03 \x01(\x0b\x32\x17.google.protobuf.StructB\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12H\n\x17response_headers_to_add\x18\x06 \x03(\x0b\x32\'.envoy.config.core.v3.HeaderValueOption:+\x9a\xc5\x88\x1e&\n$envoy.service.auth.v2.OkHttpResponse\"\xa7\x02\n\rCheckResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12\x44\n\x0f\x64\x65nied_response\x18\x02 \x01(\x0b\x32).envoy.service.auth.v3.DeniedHttpResponseH\x00\x12<\n\x0bok_response\x18\x03 \x01(\x0b\x32%.envoy.service.auth.v3.OkHttpResponseH\x00\x12\x31\n\x10\x64ynamic_metadata\x18\x04 \x01(\x0b\x32\x17.google.protobuf.Struct:*\x9a\xc5\x88\x1e%\n#envoy.service.auth.v2.CheckResponseB\x0f\n\rhttp_response2e\n\rAuthorization\x12T\n\x05\x43heck\x12#.envoy.service.auth.v3.CheckRequest\x1a$.envoy.service.auth.v3.CheckResponse\"\x00\x42\x45\n#io.envoyproxy.envoy.service.auth.v3B\x11\x45xternalAuthProtoP\x01\x88\x01\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_service_dot_auth_dot_v3_dot_attribute__context__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_http__status__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -81,7 +81,7 @@ _DENIEDHTTPRESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\005\212\001\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='headers', full_name='envoy.service.auth.v3.DeniedHttpResponse.headers', index=1,
       number=2, type=11, cpp_type=10, label=3,
@@ -109,7 +109,7 @@ _DENIEDHTTPRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=485,
-  serialized_end=679,
+  serialized_end=669,
 )
 
 
@@ -161,8 +161,8 @@ _OKHTTPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=682,
-  serialized_end=966,
+  serialized_start=672,
+  serialized_end=956,
 )
 
 
@@ -219,8 +219,8 @@ _CHECKRESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=969,
-  serialized_end=1264,
+  serialized_start=959,
+  serialized_end=1254,
 )
 
 _CHECKREQUEST.fields_by_name['attributes'].message_type = envoy_dot_service_dot_auth_dot_v3_dot_attribute__context__pb2._ATTRIBUTECONTEXT
@@ -276,7 +276,6 @@ _sym_db.RegisterMessage(CheckResponse)
 
 DESCRIPTOR._options = None
 _CHECKREQUEST._options = None
-_DENIEDHTTPRESPONSE.fields_by_name['status']._options = None
 _DENIEDHTTPRESPONSE._options = None
 _OKHTTPRESPONSE.fields_by_name['dynamic_metadata']._options = None
 _OKHTTPRESPONSE._options = None
@@ -289,8 +288,8 @@ _AUTHORIZATION = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1266,
-  serialized_end=1367,
+  serialized_start=1256,
+  serialized_end=1357,
   methods=[
   _descriptor.MethodDescriptor(
     name='Check',

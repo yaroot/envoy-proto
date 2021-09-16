@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\036com.google.cloud.aiplatform.v1B\025MachineResourcesProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\252\002\032Google.Cloud.AIPlatform.V1\312\002\032Google\\Cloud\\AIPlatform\\V1\352\002\035Google::Cloud::AIPlatform::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n2google/cloud/aiplatform/v1/machine_resources.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x31google/cloud/aiplatform/v1/accelerator_type.proto\x1a\x1cgoogle/api/annotations.proto\"\x8f\x01\n\x0bMachineSpec\x12\x19\n\x0cmachine_type\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12J\n\x10\x61\x63\x63\x65lerator_type\x18\x02 \x01(\x0e\x32+.google.cloud.aiplatform.v1.AcceleratorTypeB\x03\xe0\x41\x05\x12\x19\n\x11\x61\x63\x63\x65lerator_count\x18\x03 \x01(\x05\"\x9e\x01\n\x12\x44\x65\x64icatedResources\x12\x45\n\x0cmachine_spec\x18\x01 \x01(\x0b\x32\'.google.cloud.aiplatform.v1.MachineSpecB\x06\xe0\x41\x02\xe0\x41\x05\x12!\n\x11min_replica_count\x18\x02 \x01(\x05\x42\x06\xe0\x41\x02\xe0\x41\x05\x12\x1e\n\x11max_replica_count\x18\x03 \x01(\x05\x42\x03\xe0\x41\x05\"T\n\x12\x41utomaticResources\x12\x1e\n\x11min_replica_count\x18\x01 \x01(\x05\x42\x03\xe0\x41\x05\x12\x1e\n\x11max_replica_count\x18\x02 \x01(\x05\x42\x03\xe0\x41\x05\"\xa5\x01\n\x17\x42\x61tchDedicatedResources\x12\x45\n\x0cmachine_spec\x18\x01 \x01(\x0b\x32\'.google.cloud.aiplatform.v1.MachineSpecB\x06\xe0\x41\x02\xe0\x41\x05\x12#\n\x16starting_replica_count\x18\x02 \x01(\x05\x42\x03\xe0\x41\x05\x12\x1e\n\x11max_replica_count\x18\x03 \x01(\x05\x42\x03\xe0\x41\x05\"/\n\x11ResourcesConsumed\x12\x1a\n\rreplica_hours\x18\x01 \x01(\x01\x42\x03\xe0\x41\x03\"=\n\x08\x44iskSpec\x12\x16\n\x0e\x62oot_disk_type\x18\x01 \x01(\t\x12\x19\n\x11\x62oot_disk_size_gb\x18\x02 \x01(\x05\x42\xd9\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x15MachineResourcesProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
+  serialized_pb=b'\n2google/cloud/aiplatform/v1/machine_resources.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x31google/cloud/aiplatform/v1/accelerator_type.proto\x1a\x1cgoogle/api/annotations.proto\"\x8f\x01\n\x0bMachineSpec\x12\x19\n\x0cmachine_type\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12J\n\x10\x61\x63\x63\x65lerator_type\x18\x02 \x01(\x0e\x32+.google.cloud.aiplatform.v1.AcceleratorTypeB\x03\xe0\x41\x05\x12\x19\n\x11\x61\x63\x63\x65lerator_count\x18\x03 \x01(\x05\"\xf8\x01\n\x12\x44\x65\x64icatedResources\x12\x45\n\x0cmachine_spec\x18\x01 \x01(\x0b\x32\'.google.cloud.aiplatform.v1.MachineSpecB\x06\xe0\x41\x02\xe0\x41\x05\x12!\n\x11min_replica_count\x18\x02 \x01(\x05\x42\x06\xe0\x41\x02\xe0\x41\x05\x12\x1e\n\x11max_replica_count\x18\x03 \x01(\x05\x42\x03\xe0\x41\x05\x12X\n\x18\x61utoscaling_metric_specs\x18\x04 \x03(\x0b\x32\x31.google.cloud.aiplatform.v1.AutoscalingMetricSpecB\x03\xe0\x41\x05\"T\n\x12\x41utomaticResources\x12\x1e\n\x11min_replica_count\x18\x01 \x01(\x05\x42\x03\xe0\x41\x05\x12\x1e\n\x11max_replica_count\x18\x02 \x01(\x05\x42\x03\xe0\x41\x05\"\xa5\x01\n\x17\x42\x61tchDedicatedResources\x12\x45\n\x0cmachine_spec\x18\x01 \x01(\x0b\x32\'.google.cloud.aiplatform.v1.MachineSpecB\x06\xe0\x41\x02\xe0\x41\x05\x12#\n\x16starting_replica_count\x18\x02 \x01(\x05\x42\x03\xe0\x41\x05\x12\x1e\n\x11max_replica_count\x18\x03 \x01(\x05\x42\x03\xe0\x41\x05\"/\n\x11ResourcesConsumed\x12\x1a\n\rreplica_hours\x18\x01 \x01(\x01\x42\x03\xe0\x41\x03\"=\n\x08\x44iskSpec\x12\x16\n\x0e\x62oot_disk_type\x18\x01 \x01(\t\x12\x19\n\x11\x62oot_disk_size_gb\x18\x02 \x01(\x05\"A\n\x15\x41utoscalingMetricSpec\x12\x18\n\x0bmetric_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0e\n\x06target\x18\x02 \x01(\x05\x42\xd9\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x15MachineResourcesProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_accelerator__type__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -104,6 +104,13 @@ _DEDICATEDRESOURCES = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='autoscaling_metric_specs', full_name='google.cloud.aiplatform.v1.DedicatedResources.autoscaling_metric_specs', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -117,7 +124,7 @@ _DEDICATEDRESOURCES = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=343,
-  serialized_end=501,
+  serialized_end=591,
 )
 
 
@@ -155,8 +162,8 @@ _AUTOMATICRESOURCES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=503,
-  serialized_end=587,
+  serialized_start=593,
+  serialized_end=677,
 )
 
 
@@ -201,8 +208,8 @@ _BATCHDEDICATEDRESOURCES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=590,
-  serialized_end=755,
+  serialized_start=680,
+  serialized_end=845,
 )
 
 
@@ -233,8 +240,8 @@ _RESOURCESCONSUMED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=757,
-  serialized_end=804,
+  serialized_start=847,
+  serialized_end=894,
 )
 
 
@@ -272,12 +279,52 @@ _DISKSPEC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=806,
-  serialized_end=867,
+  serialized_start=896,
+  serialized_end=957,
+)
+
+
+_AUTOSCALINGMETRICSPEC = _descriptor.Descriptor(
+  name='AutoscalingMetricSpec',
+  full_name='google.cloud.aiplatform.v1.AutoscalingMetricSpec',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='metric_name', full_name='google.cloud.aiplatform.v1.AutoscalingMetricSpec.metric_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='target', full_name='google.cloud.aiplatform.v1.AutoscalingMetricSpec.target', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=959,
+  serialized_end=1024,
 )
 
 _MACHINESPEC.fields_by_name['accelerator_type'].enum_type = google_dot_cloud_dot_aiplatform_dot_v1_dot_accelerator__type__pb2._ACCELERATORTYPE
 _DEDICATEDRESOURCES.fields_by_name['machine_spec'].message_type = _MACHINESPEC
+_DEDICATEDRESOURCES.fields_by_name['autoscaling_metric_specs'].message_type = _AUTOSCALINGMETRICSPEC
 _BATCHDEDICATEDRESOURCES.fields_by_name['machine_spec'].message_type = _MACHINESPEC
 DESCRIPTOR.message_types_by_name['MachineSpec'] = _MACHINESPEC
 DESCRIPTOR.message_types_by_name['DedicatedResources'] = _DEDICATEDRESOURCES
@@ -285,6 +332,7 @@ DESCRIPTOR.message_types_by_name['AutomaticResources'] = _AUTOMATICRESOURCES
 DESCRIPTOR.message_types_by_name['BatchDedicatedResources'] = _BATCHDEDICATEDRESOURCES
 DESCRIPTOR.message_types_by_name['ResourcesConsumed'] = _RESOURCESCONSUMED
 DESCRIPTOR.message_types_by_name['DiskSpec'] = _DISKSPEC
+DESCRIPTOR.message_types_by_name['AutoscalingMetricSpec'] = _AUTOSCALINGMETRICSPEC
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 MachineSpec = _reflection.GeneratedProtocolMessageType('MachineSpec', (_message.Message,), {
@@ -329,6 +377,13 @@ DiskSpec = _reflection.GeneratedProtocolMessageType('DiskSpec', (_message.Messag
   })
 _sym_db.RegisterMessage(DiskSpec)
 
+AutoscalingMetricSpec = _reflection.GeneratedProtocolMessageType('AutoscalingMetricSpec', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOSCALINGMETRICSPEC,
+  '__module__' : 'google.cloud.aiplatform.v1.machine_resources_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.AutoscalingMetricSpec)
+  })
+_sym_db.RegisterMessage(AutoscalingMetricSpec)
+
 
 DESCRIPTOR._options = None
 _MACHINESPEC.fields_by_name['machine_type']._options = None
@@ -336,10 +391,12 @@ _MACHINESPEC.fields_by_name['accelerator_type']._options = None
 _DEDICATEDRESOURCES.fields_by_name['machine_spec']._options = None
 _DEDICATEDRESOURCES.fields_by_name['min_replica_count']._options = None
 _DEDICATEDRESOURCES.fields_by_name['max_replica_count']._options = None
+_DEDICATEDRESOURCES.fields_by_name['autoscaling_metric_specs']._options = None
 _AUTOMATICRESOURCES.fields_by_name['min_replica_count']._options = None
 _AUTOMATICRESOURCES.fields_by_name['max_replica_count']._options = None
 _BATCHDEDICATEDRESOURCES.fields_by_name['machine_spec']._options = None
 _BATCHDEDICATEDRESOURCES.fields_by_name['starting_replica_count']._options = None
 _BATCHDEDICATEDRESOURCES.fields_by_name['max_replica_count']._options = None
 _RESOURCESCONSUMED.fields_by_name['replica_hours']._options = None
+_AUTOSCALINGMETRICSPEC.fields_by_name['metric_name']._options = None
 # @@protoc_insertion_point(module_scope)

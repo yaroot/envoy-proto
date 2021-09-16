@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\034com.google.bigtable.admin.v2B\rInstanceProtoP\001Z=google.golang.org/genproto/googleapis/bigtable/admin/v2;admin\252\002\036Google.Cloud.Bigtable.Admin.V2\312\002\036Google\\Cloud\\Bigtable\\Admin\\V2\352\002\"Google::Cloud::Bigtable::Admin::V2\352Ax\n!cloudkms.googleapis.com/CryptoKey\022Sprojects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'google/bigtable/admin/v2/instance.proto\x12\x18google.bigtable.admin.v2\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a%google/bigtable/admin/v2/common.proto\"\xdd\x03\n\x08Instance\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x37\n\x05state\x18\x03 \x01(\x0e\x32(.google.bigtable.admin.v2.Instance.State\x12\x35\n\x04type\x18\x04 \x01(\x0e\x32\'.google.bigtable.admin.v2.Instance.Type\x12>\n\x06labels\x18\x05 \x03(\x0b\x32..google.bigtable.admin.v2.Instance.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"5\n\x05State\x12\x13\n\x0fSTATE_NOT_KNOWN\x10\x00\x12\t\n\x05READY\x10\x01\x12\x0c\n\x08\x43REATING\x10\x02\"=\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x0e\n\nPRODUCTION\x10\x01\x12\x0f\n\x0b\x44\x45VELOPMENT\x10\x02:N\xea\x41K\n bigtable.googleapis.com/Instance\x12\'projects/{project}/instances/{instance}\"\xcd\x04\n\x07\x43luster\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x38\n\x08location\x18\x02 \x01(\tB&\xfa\x41#\n!locations.googleapis.com/Location\x12;\n\x05state\x18\x03 \x01(\x0e\x32\'.google.bigtable.admin.v2.Cluster.StateB\x03\xe0\x41\x03\x12\x18\n\x0bserve_nodes\x18\x04 \x01(\x05\x42\x03\xe0\x41\x02\x12\x43\n\x14\x64\x65\x66\x61ult_storage_type\x18\x05 \x01(\x0e\x32%.google.bigtable.admin.v2.StorageType\x12R\n\x11\x65ncryption_config\x18\x06 \x01(\x0b\x32\x32.google.bigtable.admin.v2.Cluster.EncryptionConfigB\x03\xe0\x41\x05\x1aP\n\x10\x45ncryptionConfig\x12<\n\x0ckms_key_name\x18\x01 \x01(\tB&\xfa\x41#\n!cloudkms.googleapis.com/CryptoKey\"Q\n\x05State\x12\x13\n\x0fSTATE_NOT_KNOWN\x10\x00\x12\t\n\x05READY\x10\x01\x12\x0c\n\x08\x43REATING\x10\x02\x12\x0c\n\x08RESIZING\x10\x03\x12\x0c\n\x08\x44ISABLED\x10\x04:`\xea\x41]\n\x1f\x62igtable.googleapis.com/Cluster\x12:projects/{project}/instances/{instance}/clusters/{cluster}\"\xee\x03\n\nAppProfile\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x65tag\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12g\n\x1dmulti_cluster_routing_use_any\x18\x05 \x01(\x0b\x32>.google.bigtable.admin.v2.AppProfile.MultiClusterRoutingUseAnyH\x00\x12[\n\x16single_cluster_routing\x18\x06 \x01(\x0b\x32\x39.google.bigtable.admin.v2.AppProfile.SingleClusterRoutingH\x00\x1a\x1b\n\x19MultiClusterRoutingUseAny\x1aN\n\x14SingleClusterRouting\x12\x12\n\ncluster_id\x18\x01 \x01(\t\x12\"\n\x1a\x61llow_transactional_writes\x18\x02 \x01(\x08:j\xea\x41g\n\"bigtable.googleapis.com/AppProfile\x12\x41projects/{project}/instances/{instance}/appProfiles/{app_profile}B\x10\n\x0erouting_policyB\xd0\x02\n\x1c\x63om.google.bigtable.admin.v2B\rInstanceProtoP\x01Z=google.golang.org/genproto/googleapis/bigtable/admin/v2;admin\xaa\x02\x1eGoogle.Cloud.Bigtable.Admin.V2\xca\x02\x1eGoogle\\Cloud\\Bigtable\\Admin\\V2\xea\x02\"Google::Cloud::Bigtable::Admin::V2\xea\x41x\n!cloudkms.googleapis.com/CryptoKey\x12Sprojects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}b\x06proto3'
+  serialized_pb=b'\n\'google/bigtable/admin/v2/instance.proto\x12\x18google.bigtable.admin.v2\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a%google/bigtable/admin/v2/common.proto\"\xdd\x03\n\x08Instance\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x37\n\x05state\x18\x03 \x01(\x0e\x32(.google.bigtable.admin.v2.Instance.State\x12\x35\n\x04type\x18\x04 \x01(\x0e\x32\'.google.bigtable.admin.v2.Instance.Type\x12>\n\x06labels\x18\x05 \x03(\x0b\x32..google.bigtable.admin.v2.Instance.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"5\n\x05State\x12\x13\n\x0fSTATE_NOT_KNOWN\x10\x00\x12\t\n\x05READY\x10\x01\x12\x0c\n\x08\x43REATING\x10\x02\"=\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x0e\n\nPRODUCTION\x10\x01\x12\x0f\n\x0b\x44\x45VELOPMENT\x10\x02:N\xea\x41K\n bigtable.googleapis.com/Instance\x12\'projects/{project}/instances/{instance}\"\xcd\x04\n\x07\x43luster\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x38\n\x08location\x18\x02 \x01(\tB&\xfa\x41#\n!locations.googleapis.com/Location\x12;\n\x05state\x18\x03 \x01(\x0e\x32\'.google.bigtable.admin.v2.Cluster.StateB\x03\xe0\x41\x03\x12\x18\n\x0bserve_nodes\x18\x04 \x01(\x05\x42\x03\xe0\x41\x02\x12\x43\n\x14\x64\x65\x66\x61ult_storage_type\x18\x05 \x01(\x0e\x32%.google.bigtable.admin.v2.StorageType\x12R\n\x11\x65ncryption_config\x18\x06 \x01(\x0b\x32\x32.google.bigtable.admin.v2.Cluster.EncryptionConfigB\x03\xe0\x41\x05\x1aP\n\x10\x45ncryptionConfig\x12<\n\x0ckms_key_name\x18\x01 \x01(\tB&\xfa\x41#\n!cloudkms.googleapis.com/CryptoKey\"Q\n\x05State\x12\x13\n\x0fSTATE_NOT_KNOWN\x10\x00\x12\t\n\x05READY\x10\x01\x12\x0c\n\x08\x43REATING\x10\x02\x12\x0c\n\x08RESIZING\x10\x03\x12\x0c\n\x08\x44ISABLED\x10\x04:`\xea\x41]\n\x1f\x62igtable.googleapis.com/Cluster\x12:projects/{project}/instances/{instance}/clusters/{cluster}\"\x83\x04\n\nAppProfile\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04\x65tag\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12g\n\x1dmulti_cluster_routing_use_any\x18\x05 \x01(\x0b\x32>.google.bigtable.admin.v2.AppProfile.MultiClusterRoutingUseAnyH\x00\x12[\n\x16single_cluster_routing\x18\x06 \x01(\x0b\x32\x39.google.bigtable.admin.v2.AppProfile.SingleClusterRoutingH\x00\x1a\x30\n\x19MultiClusterRoutingUseAny\x12\x13\n\x0b\x63luster_ids\x18\x01 \x03(\t\x1aN\n\x14SingleClusterRouting\x12\x12\n\ncluster_id\x18\x01 \x01(\t\x12\"\n\x1a\x61llow_transactional_writes\x18\x02 \x01(\x08:j\xea\x41g\n\"bigtable.googleapis.com/AppProfile\x12\x41projects/{project}/instances/{instance}/appProfiles/{app_profile}B\x10\n\x0erouting_policyB\xd0\x02\n\x1c\x63om.google.bigtable.admin.v2B\rInstanceProtoP\x01Z=google.golang.org/genproto/googleapis/bigtable/admin/v2;admin\xaa\x02\x1eGoogle.Cloud.Bigtable.Admin.V2\xca\x02\x1eGoogle\\Cloud\\Bigtable\\Admin\\V2\xea\x02\"Google::Cloud::Bigtable::Admin::V2\xea\x41x\n!cloudkms.googleapis.com/CryptoKey\x12Sprojects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_bigtable_dot_admin_dot_v2_dot_common__pb2.DESCRIPTOR,])
 
@@ -336,6 +336,13 @@ _APPPROFILE_MULTICLUSTERROUTINGUSEANY = _descriptor.Descriptor(
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='cluster_ids', full_name='google.bigtable.admin.v2.AppProfile.MultiClusterRoutingUseAny.cluster_ids', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -349,7 +356,7 @@ _APPPROFILE_MULTICLUSTERROUTINGUSEANY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1502,
-  serialized_end=1529,
+  serialized_end=1550,
 )
 
 _APPPROFILE_SINGLECLUSTERROUTING = _descriptor.Descriptor(
@@ -386,8 +393,8 @@ _APPPROFILE_SINGLECLUSTERROUTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1531,
-  serialized_end=1609,
+  serialized_start=1552,
+  serialized_end=1630,
 )
 
 _APPPROFILE = _descriptor.Descriptor(
@@ -451,7 +458,7 @@ _APPPROFILE = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=1241,
-  serialized_end=1735,
+  serialized_end=1756,
 )
 
 _INSTANCE_LABELSENTRY.containing_type = _INSTANCE

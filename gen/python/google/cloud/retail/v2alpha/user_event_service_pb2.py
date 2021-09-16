@@ -15,6 +15,7 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import httpbody_pb2 as google_dot_api_dot_httpbody__pb2
+from google.cloud.retail.v2alpha import export_config_pb2 as google_dot_cloud_dot_retail_dot_v2alpha_dot_export__config__pb2
 from google.cloud.retail.v2alpha import import_config_pb2 as google_dot_cloud_dot_retail_dot_v2alpha_dot_import__config__pb2
 from google.cloud.retail.v2alpha import purge_config_pb2 as google_dot_cloud_dot_retail_dot_v2alpha_dot_purge__config__pb2
 from google.cloud.retail.v2alpha import user_event_pb2 as google_dot_cloud_dot_retail_dot_v2alpha_dot_user__event__pb2
@@ -27,9 +28,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\037com.google.cloud.retail.v2alphaB\025UserEventServiceProtoP\001ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\242\002\006RETAIL\252\002\033Google.Cloud.Retail.V2Alpha\312\002\033Google\\Cloud\\Retail\\V2alpha\352\002\036Google::Cloud::Retail::V2alpha',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n4google/cloud/retail/v2alpha/user_event_service.proto\x12\x1bgoogle.cloud.retail.v2alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/httpbody.proto\x1a/google/cloud/retail/v2alpha/import_config.proto\x1a.google/cloud/retail/v2alpha/purge_config.proto\x1a,google/cloud/retail/v2alpha/user_event.proto\x1a#google/longrunning/operations.proto\"m\n\x15WriteUserEventRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12?\n\nuser_event\x18\x02 \x01(\x0b\x32&.google.cloud.retail.v2alpha.UserEventB\x03\xe0\x41\x02\"a\n\x17\x43ollectUserEventRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nuser_event\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x0b\n\x03uri\x18\x03 \x01(\t\x12\x0b\n\x03\x65ts\x18\x04 \x01(\x03\"\x83\x02\n\x17RejoinUserEventsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12j\n\x17user_event_rejoin_scope\x18\x02 \x01(\x0e\x32I.google.cloud.retail.v2alpha.RejoinUserEventsRequest.UserEventRejoinScope\"g\n\x14UserEventRejoinScope\x12\'\n#USER_EVENT_REJOIN_SCOPE_UNSPECIFIED\x10\x00\x12\x11\n\rJOINED_EVENTS\x10\x01\x12\x13\n\x0fUNJOINED_EVENTS\x10\x02\">\n\x18RejoinUserEventsResponse\x12\"\n\x1arejoined_user_events_count\x18\x01 \x01(\x03\"\x1a\n\x18RejoinUserEventsMetadata2\x8a\n\n\x10UserEventService\x12\xc6\x01\n\x0eWriteUserEvent\x12\x32.google.cloud.retail.v2alpha.WriteUserEventRequest\x1a&.google.cloud.retail.v2alpha.UserEvent\"X\x82\xd3\xe4\x93\x02R\"D/v2alpha/{parent=projects/*/locations/*/catalogs/*}/userEvents:write:\nuser_event\x12\xae\x01\n\x10\x43ollectUserEvent\x12\x34.google.cloud.retail.v2alpha.CollectUserEventRequest\x1a\x14.google.api.HttpBody\"N\x82\xd3\xe4\x93\x02H\x12\x46/v2alpha/{parent=projects/*/locations/*/catalogs/*}/userEvents:collect\x12\x9a\x02\n\x0fPurgeUserEvents\x12\x33.google.cloud.retail.v2alpha.PurgeUserEventsRequest\x1a\x1d.google.longrunning.Operation\"\xb2\x01\x82\xd3\xe4\x93\x02I\"D/v2alpha/{parent=projects/*/locations/*/catalogs/*}/userEvents:purge:\x01*\xca\x41`\n3google.cloud.retail.v2alpha.PurgeUserEventsResponse\x12)google.cloud.retail.v2alpha.PurgeMetadata\x12\x9f\x02\n\x10ImportUserEvents\x12\x34.google.cloud.retail.v2alpha.ImportUserEventsRequest\x1a\x1d.google.longrunning.Operation\"\xb5\x01\x82\xd3\xe4\x93\x02J\"E/v2alpha/{parent=projects/*/locations/*/catalogs/*}/userEvents:import:\x01*\xca\x41\x62\n4google.cloud.retail.v2alpha.ImportUserEventsResponse\x12*google.cloud.retail.v2alpha.ImportMetadata\x12\xf1\x01\n\x10RejoinUserEvents\x12\x34.google.cloud.retail.v2alpha.RejoinUserEventsRequest\x1a\x1d.google.longrunning.Operation\"\x87\x01\x82\xd3\xe4\x93\x02J\"E/v2alpha/{parent=projects/*/locations/*/catalogs/*}/userEvents:rejoin:\x01*\xca\x41\x34\n\x18RejoinUserEventsResponse\x12\x18RejoinUserEventsMetadata\x1aI\xca\x41\x15retail.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xe3\x01\n\x1f\x63om.google.cloud.retail.v2alphaB\x15UserEventServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\xa2\x02\x06RETAIL\xaa\x02\x1bGoogle.Cloud.Retail.V2Alpha\xca\x02\x1bGoogle\\Cloud\\Retail\\V2alpha\xea\x02\x1eGoogle::Cloud::Retail::V2alphab\x06proto3'
+  serialized_pb=b'\n4google/cloud/retail/v2alpha/user_event_service.proto\x12\x1bgoogle.cloud.retail.v2alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/httpbody.proto\x1a/google/cloud/retail/v2alpha/export_config.proto\x1a/google/cloud/retail/v2alpha/import_config.proto\x1a.google/cloud/retail/v2alpha/purge_config.proto\x1a,google/cloud/retail/v2alpha/user_event.proto\x1a#google/longrunning/operations.proto\"m\n\x15WriteUserEventRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12?\n\nuser_event\x18\x02 \x01(\x0b\x32&.google.cloud.retail.v2alpha.UserEventB\x03\xe0\x41\x02\"a\n\x17\x43ollectUserEventRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nuser_event\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x0b\n\x03uri\x18\x03 \x01(\t\x12\x0b\n\x03\x65ts\x18\x04 \x01(\x03\"\x83\x02\n\x17RejoinUserEventsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12j\n\x17user_event_rejoin_scope\x18\x02 \x01(\x0e\x32I.google.cloud.retail.v2alpha.RejoinUserEventsRequest.UserEventRejoinScope\"g\n\x14UserEventRejoinScope\x12\'\n#USER_EVENT_REJOIN_SCOPE_UNSPECIFIED\x10\x00\x12\x11\n\rJOINED_EVENTS\x10\x01\x12\x13\n\x0fUNJOINED_EVENTS\x10\x02\">\n\x18RejoinUserEventsResponse\x12\"\n\x1arejoined_user_events_count\x18\x01 \x01(\x03\"\x1a\n\x18RejoinUserEventsMetadata2\x8a\n\n\x10UserEventService\x12\xc6\x01\n\x0eWriteUserEvent\x12\x32.google.cloud.retail.v2alpha.WriteUserEventRequest\x1a&.google.cloud.retail.v2alpha.UserEvent\"X\x82\xd3\xe4\x93\x02R\"D/v2alpha/{parent=projects/*/locations/*/catalogs/*}/userEvents:write:\nuser_event\x12\xae\x01\n\x10\x43ollectUserEvent\x12\x34.google.cloud.retail.v2alpha.CollectUserEventRequest\x1a\x14.google.api.HttpBody\"N\x82\xd3\xe4\x93\x02H\x12\x46/v2alpha/{parent=projects/*/locations/*/catalogs/*}/userEvents:collect\x12\x9a\x02\n\x0fPurgeUserEvents\x12\x33.google.cloud.retail.v2alpha.PurgeUserEventsRequest\x1a\x1d.google.longrunning.Operation\"\xb2\x01\x82\xd3\xe4\x93\x02I\"D/v2alpha/{parent=projects/*/locations/*/catalogs/*}/userEvents:purge:\x01*\xca\x41`\n3google.cloud.retail.v2alpha.PurgeUserEventsResponse\x12)google.cloud.retail.v2alpha.PurgeMetadata\x12\x9f\x02\n\x10ImportUserEvents\x12\x34.google.cloud.retail.v2alpha.ImportUserEventsRequest\x1a\x1d.google.longrunning.Operation\"\xb5\x01\x82\xd3\xe4\x93\x02J\"E/v2alpha/{parent=projects/*/locations/*/catalogs/*}/userEvents:import:\x01*\xca\x41\x62\n4google.cloud.retail.v2alpha.ImportUserEventsResponse\x12*google.cloud.retail.v2alpha.ImportMetadata\x12\xf1\x01\n\x10RejoinUserEvents\x12\x34.google.cloud.retail.v2alpha.RejoinUserEventsRequest\x1a\x1d.google.longrunning.Operation\"\x87\x01\x82\xd3\xe4\x93\x02J\"E/v2alpha/{parent=projects/*/locations/*/catalogs/*}/userEvents:rejoin:\x01*\xca\x41\x34\n\x18RejoinUserEventsResponse\x12\x18RejoinUserEventsMetadata\x1aI\xca\x41\x15retail.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xe3\x01\n\x1f\x63om.google.cloud.retail.v2alphaB\x15UserEventServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\xa2\x02\x06RETAIL\xaa\x02\x1bGoogle.Cloud.Retail.V2Alpha\xca\x02\x1bGoogle\\Cloud\\Retail\\V2alpha\xea\x02\x1eGoogle::Cloud::Retail::V2alphab\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_httpbody__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2alpha_dot_import__config__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2alpha_dot_purge__config__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2alpha_dot_user__event__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_httpbody__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2alpha_dot_export__config__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2alpha_dot_import__config__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2alpha_dot_purge__config__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2alpha_dot_user__event__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,])
 
 
 
@@ -58,8 +59,8 @@ _REJOINUSEREVENTSREQUEST_USEREVENTREJOINSCOPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=747,
-  serialized_end=850,
+  serialized_start=796,
+  serialized_end=899,
 )
 _sym_db.RegisterEnumDescriptor(_REJOINUSEREVENTSREQUEST_USEREVENTREJOINSCOPE)
 
@@ -98,8 +99,8 @@ _WRITEUSEREVENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=380,
-  serialized_end=489,
+  serialized_start=429,
+  serialized_end=538,
 )
 
 
@@ -151,8 +152,8 @@ _COLLECTUSEREVENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=491,
-  serialized_end=588,
+  serialized_start=540,
+  serialized_end=637,
 )
 
 
@@ -191,8 +192,8 @@ _REJOINUSEREVENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=591,
-  serialized_end=850,
+  serialized_start=640,
+  serialized_end=899,
 )
 
 
@@ -223,8 +224,8 @@ _REJOINUSEREVENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=852,
-  serialized_end=914,
+  serialized_start=901,
+  serialized_end=963,
 )
 
 
@@ -248,8 +249,8 @@ _REJOINUSEREVENTSMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=916,
-  serialized_end=942,
+  serialized_start=965,
+  serialized_end=991,
 )
 
 _WRITEUSEREVENTREQUEST.fields_by_name['user_event'].message_type = google_dot_cloud_dot_retail_dot_v2alpha_dot_user__event__pb2._USEREVENT
@@ -312,8 +313,8 @@ _USEREVENTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\025retail.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=945,
-  serialized_end=2235,
+  serialized_start=994,
+  serialized_end=2284,
   methods=[
   _descriptor.MethodDescriptor(
     name='WriteUserEvent',

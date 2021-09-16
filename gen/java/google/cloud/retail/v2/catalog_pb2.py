@@ -14,6 +14,8 @@ _sym_db = _symbol_database.Default()
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.retail.v2 import common_pb2 as google_dot_cloud_dot_retail_dot_v2_dot_common__pb2
+from google.cloud.retail.v2 import import_config_pb2 as google_dot_cloud_dot_retail_dot_v2_dot_import__config__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032com.google.cloud.retail.v2B\014CatalogProtoP\001Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\242\002\006RETAIL\252\002\026Google.Cloud.Retail.V2\312\002\026Google\\Cloud\\Retail\\V2\352\002\031Google::Cloud::Retail::V2',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n$google/cloud/retail/v2/catalog.proto\x12\x16google.cloud.retail.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"^\n\x12ProductLevelConfig\x12\x1e\n\x16ingestion_product_type\x18\x01 \x01(\t\x12(\n merchant_center_product_id_field\x18\x02 \x01(\t\"\xec\x01\n\x07\x43\x61talog\x12\x14\n\x04name\x18\x01 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12\x1c\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12M\n\x14product_level_config\x18\x04 \x01(\x0b\x32*.google.cloud.retail.v2.ProductLevelConfigB\x03\xe0\x41\x02:^\xea\x41[\n\x1dretail.googleapis.com/Catalog\x12:projects/{project}/locations/{location}/catalogs/{catalog}B\xc1\x01\n\x1a\x63om.google.cloud.retail.v2B\x0c\x43\x61talogProtoP\x01Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\xa2\x02\x06RETAIL\xaa\x02\x16Google.Cloud.Retail.V2\xca\x02\x16Google\\Cloud\\Retail\\V2\xea\x02\x19Google::Cloud::Retail::V2b\x06proto3'
+  serialized_pb=b'\n$google/cloud/retail/v2/catalog.proto\x12\x16google.cloud.retail.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/cloud/retail/v2/common.proto\x1a*google/cloud/retail/v2/import_config.proto\"^\n\x12ProductLevelConfig\x12\x1e\n\x16ingestion_product_type\x18\x01 \x01(\t\x12(\n merchant_center_product_id_field\x18\x02 \x01(\t\"\xec\x01\n\x07\x43\x61talog\x12\x14\n\x04name\x18\x01 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12\x1c\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12M\n\x14product_level_config\x18\x04 \x01(\x0b\x32*.google.cloud.retail.v2.ProductLevelConfigB\x03\xe0\x41\x02:^\xea\x41[\n\x1dretail.googleapis.com/Catalog\x12:projects/{project}/locations/{location}/catalogs/{catalog}B\xc1\x01\n\x1a\x63om.google.cloud.retail.v2B\x0c\x43\x61talogProtoP\x01Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\xa2\x02\x06RETAIL\xaa\x02\x16Google.Cloud.Retail.V2\xca\x02\x16Google\\Cloud\\Retail\\V2\xea\x02\x19Google::Cloud::Retail::V2b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2_dot_common__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2_dot_import__config__pb2.DESCRIPTOR,])
 
 
 
@@ -63,8 +65,8 @@ _PRODUCTLEVELCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=154,
-  serialized_end=248,
+  serialized_start=235,
+  serialized_end=329,
 )
 
 
@@ -109,8 +111,8 @@ _CATALOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=251,
-  serialized_end=487,
+  serialized_start=332,
+  serialized_end=568,
 )
 
 _CATALOG.fields_by_name['product_level_config'].message_type = _PRODUCTLEVELCONFIG

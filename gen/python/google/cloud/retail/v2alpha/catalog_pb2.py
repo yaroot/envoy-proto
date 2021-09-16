@@ -14,6 +14,8 @@ _sym_db = _symbol_database.Default()
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.retail.v2alpha import common_pb2 as google_dot_cloud_dot_retail_dot_v2alpha_dot_common__pb2
+from google.cloud.retail.v2alpha import import_config_pb2 as google_dot_cloud_dot_retail_dot_v2alpha_dot_import__config__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\037com.google.cloud.retail.v2alphaB\014CatalogProtoP\001ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\242\002\006RETAIL\252\002\033Google.Cloud.Retail.V2Alpha\312\002\033Google\\Cloud\\Retail\\V2alpha\352\002\036Google::Cloud::Retail::V2alpha',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)google/cloud/retail/v2alpha/catalog.proto\x12\x1bgoogle.cloud.retail.v2alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"^\n\x12ProductLevelConfig\x12\x1e\n\x16ingestion_product_type\x18\x01 \x01(\t\x12(\n merchant_center_product_id_field\x18\x02 \x01(\t\"\xf1\x01\n\x07\x43\x61talog\x12\x14\n\x04name\x18\x01 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12\x1c\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12R\n\x14product_level_config\x18\x04 \x01(\x0b\x32/.google.cloud.retail.v2alpha.ProductLevelConfigB\x03\xe0\x41\x02:^\xea\x41[\n\x1dretail.googleapis.com/Catalog\x12:projects/{project}/locations/{location}/catalogs/{catalog}B\xda\x01\n\x1f\x63om.google.cloud.retail.v2alphaB\x0c\x43\x61talogProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\xa2\x02\x06RETAIL\xaa\x02\x1bGoogle.Cloud.Retail.V2Alpha\xca\x02\x1bGoogle\\Cloud\\Retail\\V2alpha\xea\x02\x1eGoogle::Cloud::Retail::V2alphab\x06proto3'
+  serialized_pb=b'\n)google/cloud/retail/v2alpha/catalog.proto\x12\x1bgoogle.cloud.retail.v2alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a(google/cloud/retail/v2alpha/common.proto\x1a/google/cloud/retail/v2alpha/import_config.proto\"^\n\x12ProductLevelConfig\x12\x1e\n\x16ingestion_product_type\x18\x01 \x01(\t\x12(\n merchant_center_product_id_field\x18\x02 \x01(\t\"f\n\x12MerchantCenterLink\x12\'\n\x1amerchant_center_account_id\x18\x01 \x01(\x03\x42\x03\xe0\x41\x02\x12\x11\n\tbranch_id\x18\x02 \x01(\t\x12\x14\n\x0c\x64\x65stinations\x18\x03 \x03(\t\"]\n\x1bMerchantCenterLinkingConfig\x12>\n\x05links\x18\x01 \x03(\x0b\x32/.google.cloud.retail.v2alpha.MerchantCenterLink\"\xd3\x02\n\x07\x43\x61talog\x12\x14\n\x04name\x18\x01 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12\x1c\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12R\n\x14product_level_config\x18\x04 \x01(\x0b\x32/.google.cloud.retail.v2alpha.ProductLevelConfigB\x03\xe0\x41\x02\x12`\n\x1emerchant_center_linking_config\x18\x06 \x01(\x0b\x32\x38.google.cloud.retail.v2alpha.MerchantCenterLinkingConfig:^\xea\x41[\n\x1dretail.googleapis.com/Catalog\x12:projects/{project}/locations/{location}/catalogs/{catalog}B\xda\x01\n\x1f\x63om.google.cloud.retail.v2alphaB\x0c\x43\x61talogProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\xa2\x02\x06RETAIL\xaa\x02\x1bGoogle.Cloud.Retail.V2Alpha\xca\x02\x1bGoogle\\Cloud\\Retail\\V2alpha\xea\x02\x1eGoogle::Cloud::Retail::V2alphab\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2alpha_dot_common__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2alpha_dot_import__config__pb2.DESCRIPTOR,])
 
 
 
@@ -63,8 +65,86 @@ _PRODUCTLEVELCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=164,
-  serialized_end=258,
+  serialized_start=255,
+  serialized_end=349,
+)
+
+
+_MERCHANTCENTERLINK = _descriptor.Descriptor(
+  name='MerchantCenterLink',
+  full_name='google.cloud.retail.v2alpha.MerchantCenterLink',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='merchant_center_account_id', full_name='google.cloud.retail.v2alpha.MerchantCenterLink.merchant_center_account_id', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='branch_id', full_name='google.cloud.retail.v2alpha.MerchantCenterLink.branch_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='destinations', full_name='google.cloud.retail.v2alpha.MerchantCenterLink.destinations', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=351,
+  serialized_end=453,
+)
+
+
+_MERCHANTCENTERLINKINGCONFIG = _descriptor.Descriptor(
+  name='MerchantCenterLinkingConfig',
+  full_name='google.cloud.retail.v2alpha.MerchantCenterLinkingConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='links', full_name='google.cloud.retail.v2alpha.MerchantCenterLinkingConfig.links', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=455,
+  serialized_end=548,
 )
 
 
@@ -97,6 +177,13 @@ _CATALOG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='merchant_center_linking_config', full_name='google.cloud.retail.v2alpha.Catalog.merchant_center_linking_config', index=3,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -109,12 +196,16 @@ _CATALOG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=261,
-  serialized_end=502,
+  serialized_start=551,
+  serialized_end=890,
 )
 
+_MERCHANTCENTERLINKINGCONFIG.fields_by_name['links'].message_type = _MERCHANTCENTERLINK
 _CATALOG.fields_by_name['product_level_config'].message_type = _PRODUCTLEVELCONFIG
+_CATALOG.fields_by_name['merchant_center_linking_config'].message_type = _MERCHANTCENTERLINKINGCONFIG
 DESCRIPTOR.message_types_by_name['ProductLevelConfig'] = _PRODUCTLEVELCONFIG
+DESCRIPTOR.message_types_by_name['MerchantCenterLink'] = _MERCHANTCENTERLINK
+DESCRIPTOR.message_types_by_name['MerchantCenterLinkingConfig'] = _MERCHANTCENTERLINKINGCONFIG
 DESCRIPTOR.message_types_by_name['Catalog'] = _CATALOG
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -125,6 +216,20 @@ ProductLevelConfig = _reflection.GeneratedProtocolMessageType('ProductLevelConfi
   })
 _sym_db.RegisterMessage(ProductLevelConfig)
 
+MerchantCenterLink = _reflection.GeneratedProtocolMessageType('MerchantCenterLink', (_message.Message,), {
+  'DESCRIPTOR' : _MERCHANTCENTERLINK,
+  '__module__' : 'google.cloud.retail.v2alpha.catalog_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2alpha.MerchantCenterLink)
+  })
+_sym_db.RegisterMessage(MerchantCenterLink)
+
+MerchantCenterLinkingConfig = _reflection.GeneratedProtocolMessageType('MerchantCenterLinkingConfig', (_message.Message,), {
+  'DESCRIPTOR' : _MERCHANTCENTERLINKINGCONFIG,
+  '__module__' : 'google.cloud.retail.v2alpha.catalog_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2alpha.MerchantCenterLinkingConfig)
+  })
+_sym_db.RegisterMessage(MerchantCenterLinkingConfig)
+
 Catalog = _reflection.GeneratedProtocolMessageType('Catalog', (_message.Message,), {
   'DESCRIPTOR' : _CATALOG,
   '__module__' : 'google.cloud.retail.v2alpha.catalog_pb2'
@@ -134,6 +239,7 @@ _sym_db.RegisterMessage(Catalog)
 
 
 DESCRIPTOR._options = None
+_MERCHANTCENTERLINK.fields_by_name['merchant_center_account_id']._options = None
 _CATALOG.fields_by_name['name']._options = None
 _CATALOG.fields_by_name['display_name']._options = None
 _CATALOG.fields_by_name['product_level_config']._options = None

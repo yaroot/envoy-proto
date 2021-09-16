@@ -12,6 +12,10 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
+from google.api import client_pb2 as google_dot_api_dot_client__pb2
+from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
+from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.storagetransfer.v1 import transfer_types_pb2 as google_dot_storagetransfer_dot_v1_dot_transfer__types__pb2
@@ -21,11 +25,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/storagetransfer/v1/transfer.proto',
   package='google.storagetransfer.v1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.storagetransfer.v1.protoB\rTransferProtoZHgoogle.golang.org/genproto/googleapis/storagetransfer/v1;storagetransfer\370\001\001\252\002\037Google.Cloud.StorageTransfer.V1\312\002\037Google\\Cloud\\StorageTransfer\\V1',
+  serialized_options=b'\n#com.google.storagetransfer.v1.protoB\rTransferProtoZHgoogle.golang.org/genproto/googleapis/storagetransfer/v1;storagetransfer\370\001\001\252\002\037Google.Cloud.StorageTransfer.V1\312\002\037Google\\Cloud\\StorageTransfer\\V1\352\002\"Google::Cloud::StorageTransfer::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n(google/storagetransfer/v1/transfer.proto\x12\x19google.storagetransfer.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a.google/storagetransfer/v1/transfer_types.proto\"4\n\x1eGetGoogleServiceAccountRequest\x12\x12\n\nproject_id\x18\x01 \x01(\t\"X\n\x18\x43reateTransferJobRequest\x12<\n\x0ctransfer_job\x18\x01 \x01(\x0b\x32&.google.storagetransfer.v1.TransferJob\"\xc2\x01\n\x18UpdateTransferJobRequest\x12\x10\n\x08job_name\x18\x01 \x01(\t\x12\x12\n\nproject_id\x18\x02 \x01(\t\x12<\n\x0ctransfer_job\x18\x03 \x01(\x0b\x32&.google.storagetransfer.v1.TransferJob\x12\x42\n\x1eupdate_transfer_job_field_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"=\n\x15GetTransferJobRequest\x12\x10\n\x08job_name\x18\x01 \x01(\t\x12\x12\n\nproject_id\x18\x02 \x01(\t\"P\n\x17ListTransferJobsRequest\x12\x0e\n\x06\x66ilter\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x04 \x01(\x05\x12\x12\n\npage_token\x18\x05 \x01(\t\"r\n\x18ListTransferJobsResponse\x12=\n\rtransfer_jobs\x18\x01 \x03(\x0b\x32&.google.storagetransfer.v1.TransferJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"-\n\x1dPauseTransferOperationRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\".\n\x1eResumeTransferOperationRequest\x12\x0c\n\x04name\x18\x01 \x01(\t2\xf9\x08\n\x16StorageTransferService\x12\xb5\x01\n\x17GetGoogleServiceAccount\x12\x39.google.storagetransfer.v1.GetGoogleServiceAccountRequest\x1a/.google.storagetransfer.v1.GoogleServiceAccount\".\x82\xd3\xe4\x93\x02(\x12&/v1/googleServiceAccounts/{project_id}\x12\x98\x01\n\x11\x43reateTransferJob\x12\x33.google.storagetransfer.v1.CreateTransferJobRequest\x1a&.google.storagetransfer.v1.TransferJob\"&\x82\xd3\xe4\x93\x02 \"\x10/v1/transferJobs:\x0ctransfer_job\x12\x9b\x01\n\x11UpdateTransferJob\x12\x33.google.storagetransfer.v1.UpdateTransferJobRequest\x1a&.google.storagetransfer.v1.TransferJob\")\x82\xd3\xe4\x93\x02#2\x1e/v1/{job_name=transferJobs/**}:\x01*\x12\x92\x01\n\x0eGetTransferJob\x12\x30.google.storagetransfer.v1.GetTransferJobRequest\x1a&.google.storagetransfer.v1.TransferJob\"&\x82\xd3\xe4\x93\x02 \x12\x1e/v1/{job_name=transferJobs/**}\x12\x95\x01\n\x10ListTransferJobs\x12\x32.google.storagetransfer.v1.ListTransferJobsRequest\x1a\x33.google.storagetransfer.v1.ListTransferJobsResponse\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1/transferJobs\x12\x9d\x01\n\x16PauseTransferOperation\x12\x38.google.storagetransfer.v1.PauseTransferOperationRequest\x1a\x16.google.protobuf.Empty\"1\x82\xd3\xe4\x93\x02+\"&/v1/{name=transferOperations/**}:pause:\x01*\x12\xa0\x01\n\x17ResumeTransferOperation\x12\x39.google.storagetransfer.v1.ResumeTransferOperationRequest\x1a\x16.google.protobuf.Empty\"2\x82\xd3\xe4\x93\x02,\"\'/v1/{name=transferOperations/**}:resume:\x01*B\xc5\x01\n#com.google.storagetransfer.v1.protoB\rTransferProtoZHgoogle.golang.org/genproto/googleapis/storagetransfer/v1;storagetransfer\xf8\x01\x01\xaa\x02\x1fGoogle.Cloud.StorageTransfer.V1\xca\x02\x1fGoogle\\Cloud\\StorageTransfer\\V1b\x06proto3'
+  serialized_pb=b'\n(google/storagetransfer/v1/transfer.proto\x12\x19google.storagetransfer.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a.google/storagetransfer/v1/transfer_types.proto\"9\n\x1eGetGoogleServiceAccountRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\"]\n\x18\x43reateTransferJobRequest\x12\x41\n\x0ctransfer_job\x18\x01 \x01(\x0b\x32&.google.storagetransfer.v1.TransferJobB\x03\xe0\x41\x02\"\xd1\x01\n\x18UpdateTransferJobRequest\x12\x15\n\x08job_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nproject_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x41\n\x0ctransfer_job\x18\x03 \x01(\x0b\x32&.google.storagetransfer.v1.TransferJobB\x03\xe0\x41\x02\x12\x42\n\x1eupdate_transfer_job_field_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"G\n\x15GetTransferJobRequest\x12\x15\n\x08job_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nproject_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"U\n\x17ListTransferJobsRequest\x12\x13\n\x06\x66ilter\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x04 \x01(\x05\x12\x12\n\npage_token\x18\x05 \x01(\t\"r\n\x18ListTransferJobsResponse\x12=\n\rtransfer_jobs\x18\x01 \x03(\x0b\x32&.google.storagetransfer.v1.TransferJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"2\n\x1dPauseTransferOperationRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"3\n\x1eResumeTransferOperationRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"G\n\x15RunTransferJobRequest\x12\x15\n\x08job_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nproject_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x32\x8d\x0b\n\x16StorageTransferService\x12\xb5\x01\n\x17GetGoogleServiceAccount\x12\x39.google.storagetransfer.v1.GetGoogleServiceAccountRequest\x1a/.google.storagetransfer.v1.GoogleServiceAccount\".\x82\xd3\xe4\x93\x02(\x12&/v1/googleServiceAccounts/{project_id}\x12\x98\x01\n\x11\x43reateTransferJob\x12\x33.google.storagetransfer.v1.CreateTransferJobRequest\x1a&.google.storagetransfer.v1.TransferJob\"&\x82\xd3\xe4\x93\x02 \"\x10/v1/transferJobs:\x0ctransfer_job\x12\x9b\x01\n\x11UpdateTransferJob\x12\x33.google.storagetransfer.v1.UpdateTransferJobRequest\x1a&.google.storagetransfer.v1.TransferJob\")\x82\xd3\xe4\x93\x02#2\x1e/v1/{job_name=transferJobs/**}:\x01*\x12\x92\x01\n\x0eGetTransferJob\x12\x30.google.storagetransfer.v1.GetTransferJobRequest\x1a&.google.storagetransfer.v1.TransferJob\"&\x82\xd3\xe4\x93\x02 \x12\x1e/v1/{job_name=transferJobs/**}\x12\x95\x01\n\x10ListTransferJobs\x12\x32.google.storagetransfer.v1.ListTransferJobsRequest\x1a\x33.google.storagetransfer.v1.ListTransferJobsResponse\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1/transferJobs\x12\x9d\x01\n\x16PauseTransferOperation\x12\x38.google.storagetransfer.v1.PauseTransferOperationRequest\x1a\x16.google.protobuf.Empty\"1\x82\xd3\xe4\x93\x02+\"&/v1/{name=transferOperations/**}:pause:\x01*\x12\xa0\x01\n\x17ResumeTransferOperation\x12\x39.google.storagetransfer.v1.ResumeTransferOperationRequest\x1a\x16.google.protobuf.Empty\"2\x82\xd3\xe4\x93\x02,\"\'/v1/{name=transferOperations/**}:resume:\x01*\x12\xbd\x01\n\x0eRunTransferJob\x12\x30.google.storagetransfer.v1.RunTransferJobRequest\x1a\x1d.google.longrunning.Operation\"Z\x82\xd3\xe4\x93\x02\'\"\"/v1/{job_name=transferJobs/**}:run:\x01*\xca\x41*\n\x15google.protobuf.Empty\x12\x11TransferOperation\x1aR\xca\x41\x1estoragetransfer.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xea\x01\n#com.google.storagetransfer.v1.protoB\rTransferProtoZHgoogle.golang.org/genproto/googleapis/storagetransfer/v1;storagetransfer\xf8\x01\x01\xaa\x02\x1fGoogle.Cloud.StorageTransfer.V1\xca\x02\x1fGoogle\\Cloud\\StorageTransfer\\V1\xea\x02\"Google::Cloud::StorageTransfer::V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_storagetransfer_dot_v1_dot_transfer__types__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_storagetransfer_dot_v1_dot_transfer__types__pb2.DESCRIPTOR,])
 
 
 
@@ -44,7 +48,7 @@ _GETGOOGLESERVICEACCOUNTREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -57,8 +61,8 @@ _GETGOOGLESERVICEACCOUNTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=212,
-  serialized_end=264,
+  serialized_start=339,
+  serialized_end=396,
 )
 
 
@@ -76,7 +80,7 @@ _CREATETRANSFERJOBREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -89,8 +93,8 @@ _CREATETRANSFERJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=266,
-  serialized_end=354,
+  serialized_start=398,
+  serialized_end=491,
 )
 
 
@@ -108,21 +112,21 @@ _UPDATETRANSFERJOBREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='project_id', full_name='google.storagetransfer.v1.UpdateTransferJobRequest.project_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='transfer_job', full_name='google.storagetransfer.v1.UpdateTransferJobRequest.transfer_job', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='update_transfer_job_field_mask', full_name='google.storagetransfer.v1.UpdateTransferJobRequest.update_transfer_job_field_mask', index=3,
       number=4, type=11, cpp_type=10, label=1,
@@ -142,8 +146,8 @@ _UPDATETRANSFERJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=357,
-  serialized_end=551,
+  serialized_start=494,
+  serialized_end=703,
 )
 
 
@@ -161,14 +165,14 @@ _GETTRANSFERJOBREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='project_id', full_name='google.storagetransfer.v1.GetTransferJobRequest.project_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -181,8 +185,8 @@ _GETTRANSFERJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=553,
-  serialized_end=614,
+  serialized_start=705,
+  serialized_end=776,
 )
 
 
@@ -200,7 +204,7 @@ _LISTTRANSFERJOBSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='page_size', full_name='google.storagetransfer.v1.ListTransferJobsRequest.page_size', index=1,
       number=4, type=5, cpp_type=1, label=1,
@@ -227,8 +231,8 @@ _LISTTRANSFERJOBSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=616,
-  serialized_end=696,
+  serialized_start=778,
+  serialized_end=863,
 )
 
 
@@ -266,8 +270,8 @@ _LISTTRANSFERJOBSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=698,
-  serialized_end=812,
+  serialized_start=865,
+  serialized_end=979,
 )
 
 
@@ -285,7 +289,7 @@ _PAUSETRANSFEROPERATIONREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -298,8 +302,8 @@ _PAUSETRANSFEROPERATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=814,
-  serialized_end=859,
+  serialized_start=981,
+  serialized_end=1031,
 )
 
 
@@ -317,7 +321,7 @@ _RESUMETRANSFEROPERATIONREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -330,8 +334,47 @@ _RESUMETRANSFEROPERATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=861,
-  serialized_end=907,
+  serialized_start=1033,
+  serialized_end=1084,
+)
+
+
+_RUNTRANSFERJOBREQUEST = _descriptor.Descriptor(
+  name='RunTransferJobRequest',
+  full_name='google.storagetransfer.v1.RunTransferJobRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='job_name', full_name='google.storagetransfer.v1.RunTransferJobRequest.job_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='project_id', full_name='google.storagetransfer.v1.RunTransferJobRequest.project_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1086,
+  serialized_end=1157,
 )
 
 _CREATETRANSFERJOBREQUEST.fields_by_name['transfer_job'].message_type = google_dot_storagetransfer_dot_v1_dot_transfer__types__pb2._TRANSFERJOB
@@ -346,6 +389,7 @@ DESCRIPTOR.message_types_by_name['ListTransferJobsRequest'] = _LISTTRANSFERJOBSR
 DESCRIPTOR.message_types_by_name['ListTransferJobsResponse'] = _LISTTRANSFERJOBSRESPONSE
 DESCRIPTOR.message_types_by_name['PauseTransferOperationRequest'] = _PAUSETRANSFEROPERATIONREQUEST
 DESCRIPTOR.message_types_by_name['ResumeTransferOperationRequest'] = _RESUMETRANSFEROPERATIONREQUEST
+DESCRIPTOR.message_types_by_name['RunTransferJobRequest'] = _RUNTRANSFERJOBREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 GetGoogleServiceAccountRequest = _reflection.GeneratedProtocolMessageType('GetGoogleServiceAccountRequest', (_message.Message,), {
@@ -404,18 +448,37 @@ ResumeTransferOperationRequest = _reflection.GeneratedProtocolMessageType('Resum
   })
 _sym_db.RegisterMessage(ResumeTransferOperationRequest)
 
+RunTransferJobRequest = _reflection.GeneratedProtocolMessageType('RunTransferJobRequest', (_message.Message,), {
+  'DESCRIPTOR' : _RUNTRANSFERJOBREQUEST,
+  '__module__' : 'google.storagetransfer.v1.transfer_pb2'
+  # @@protoc_insertion_point(class_scope:google.storagetransfer.v1.RunTransferJobRequest)
+  })
+_sym_db.RegisterMessage(RunTransferJobRequest)
+
 
 DESCRIPTOR._options = None
+_GETGOOGLESERVICEACCOUNTREQUEST.fields_by_name['project_id']._options = None
+_CREATETRANSFERJOBREQUEST.fields_by_name['transfer_job']._options = None
+_UPDATETRANSFERJOBREQUEST.fields_by_name['job_name']._options = None
+_UPDATETRANSFERJOBREQUEST.fields_by_name['project_id']._options = None
+_UPDATETRANSFERJOBREQUEST.fields_by_name['transfer_job']._options = None
+_GETTRANSFERJOBREQUEST.fields_by_name['job_name']._options = None
+_GETTRANSFERJOBREQUEST.fields_by_name['project_id']._options = None
+_LISTTRANSFERJOBSREQUEST.fields_by_name['filter']._options = None
+_PAUSETRANSFEROPERATIONREQUEST.fields_by_name['name']._options = None
+_RESUMETRANSFEROPERATIONREQUEST.fields_by_name['name']._options = None
+_RUNTRANSFERJOBREQUEST.fields_by_name['job_name']._options = None
+_RUNTRANSFERJOBREQUEST.fields_by_name['project_id']._options = None
 
 _STORAGETRANSFERSERVICE = _descriptor.ServiceDescriptor(
   name='StorageTransferService',
   full_name='google.storagetransfer.v1.StorageTransferService',
   file=DESCRIPTOR,
   index=0,
-  serialized_options=None,
+  serialized_options=b'\312A\036storagetransfer.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=910,
-  serialized_end=2055,
+  serialized_start=1160,
+  serialized_end=2581,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetGoogleServiceAccount',
@@ -485,6 +548,16 @@ _STORAGETRANSFERSERVICE = _descriptor.ServiceDescriptor(
     input_type=_RESUMETRANSFEROPERATIONREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=b'\202\323\344\223\002,\"\'/v1/{name=transferOperations/**}:resume:\001*',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='RunTransferJob',
+    full_name='google.storagetransfer.v1.StorageTransferService.RunTransferJob',
+    index=7,
+    containing_service=None,
+    input_type=_RUNTRANSFERJOBREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002\'\"\"/v1/{job_name=transferJobs/**}:run:\001*\312A*\n\025google.protobuf.Empty\022\021TransferOperation',
     create_key=_descriptor._internal_create_key,
   ),
 ])

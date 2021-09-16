@@ -12,7 +12,9 @@ _sym_db = _symbol_database.Default()
 
 
 from envoy.config.cluster.v3 import cluster_pb2 as envoy_dot_config_dot_cluster_dot_v3_dot_cluster__pb2
+from envoy.config.common.key_value.v3 import config_pb2 as envoy_dot_config_dot_common_dot_key__value_dot_v3_dot_config__pb2
 from envoy.config.core.v3 import address_pb2 as envoy_dot_config_dot_core_dot_v3_dot_address__pb2
+from envoy.config.core.v3 import extension_pb2 as envoy_dot_config_dot_core_dot_v3_dot_extension__pb2
 from envoy.config.core.v3 import resolver_pb2 as envoy_dot_config_dot_core_dot_v3_dot_resolver__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
@@ -28,9 +30,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n>io.envoyproxy.envoy.extensions.common.dynamic_forward_proxy.v3B\rDnsCacheProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n@envoy/extensions/common/dynamic_forward_proxy/v3/dns_cache.proto\x12\x30\x65nvoy.extensions.common.dynamic_forward_proxy.v3\x1a%envoy/config/cluster/v3/cluster.proto\x1a\"envoy/config/core/v3/address.proto\x1a#envoy/config/core/v3/resolver.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"U\n\x17\x44nsCacheCircuitBreakers\x12:\n\x14max_pending_requests\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"\xf4\x05\n\x0e\x44nsCacheConfig\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12U\n\x11\x64ns_lookup_family\x18\x02 \x01(\x0e\x32\x30.envoy.config.cluster.v3.Cluster.DnsLookupFamilyB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x41\n\x10\x64ns_refresh_rate\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0c\xfa\x42\t\xaa\x01\x06\x32\x04\x10\xc0\x84=\x12\x35\n\x08host_ttl\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02*\x00\x12\x38\n\tmax_hosts\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02 \x00\x12N\n\x18\x64ns_failure_refresh_rate\x18\x06 \x01(\x0b\x32,.envoy.config.cluster.v3.Cluster.RefreshRate\x12l\n\x19\x64ns_cache_circuit_breaker\x18\x07 \x01(\x0b\x32I.envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheCircuitBreakers\x12,\n\x17use_tcp_for_dns_lookups\x18\x08 \x01(\x08\x42\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12H\n\x15\x64ns_resolution_config\x18\t \x01(\x0b\x32).envoy.config.core.v3.DnsResolutionConfig\x12\x41\n\x14preresolve_hostnames\x18\n \x03(\x0b\x32#.envoy.config.core.v3.SocketAddress:G\x9a\xc5\x88\x1e\x42\n@envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfigBY\n>io.envoyproxy.envoy.extensions.common.dynamic_forward_proxy.v3B\rDnsCacheProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n@envoy/extensions/common/dynamic_forward_proxy/v3/dns_cache.proto\x12\x30\x65nvoy.extensions.common.dynamic_forward_proxy.v3\x1a%envoy/config/cluster/v3/cluster.proto\x1a-envoy/config/common/key_value/v3/config.proto\x1a\"envoy/config/core/v3/address.proto\x1a$envoy/config/core/v3/extension.proto\x1a#envoy/config/core/v3/resolver.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"U\n\x17\x44nsCacheCircuitBreakers\x12:\n\x14max_pending_requests\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\"\xd4\x07\n\x0e\x44nsCacheConfig\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12U\n\x11\x64ns_lookup_family\x18\x02 \x01(\x0e\x32\x30.envoy.config.cluster.v3.Cluster.DnsLookupFamilyB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12\x41\n\x10\x64ns_refresh_rate\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0c\xfa\x42\t\xaa\x01\x06\x32\x04\x10\xc0\x84=\x12\x35\n\x08host_ttl\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02*\x00\x12\x38\n\tmax_hosts\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02 \x00\x12N\n\x18\x64ns_failure_refresh_rate\x18\x06 \x01(\x0b\x32,.envoy.config.cluster.v3.Cluster.RefreshRate\x12l\n\x19\x64ns_cache_circuit_breaker\x18\x07 \x01(\x0b\x32I.envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheCircuitBreakers\x12,\n\x17use_tcp_for_dns_lookups\x18\x08 \x01(\x08\x42\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12H\n\x15\x64ns_resolution_config\x18\t \x01(\x0b\x32).envoy.config.core.v3.DnsResolutionConfig\x12M\n\x19typed_dns_resolver_config\x18\x0c \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfig\x12\x41\n\x14preresolve_hostnames\x18\n \x03(\x0b\x32#.envoy.config.core.v3.SocketAddress\x12>\n\x11\x64ns_query_timeout\x18\x0b \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\xfa\x42\x05\xaa\x01\x02*\x00\x12O\n\x10key_value_config\x18\r \x01(\x0b\x32\x35.envoy.config.common.key_value.v3.KeyValueStoreConfig:G\x9a\xc5\x88\x1e\x42\n@envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfigBY\n>io.envoyproxy.envoy.extensions.common.dynamic_forward_proxy.v3B\rDnsCacheProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_cluster_dot_v3_dot_cluster__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_resolver__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_cluster_dot_v3_dot_cluster__pb2.DESCRIPTOR,envoy_dot_config_dot_common_dot_key__value_dot_v3_dot_config__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_extension__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_resolver__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -62,8 +64,8 @@ _DNSCACHECIRCUITBREAKERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=422,
-  serialized_end=507,
+  serialized_start=507,
+  serialized_end=592,
 )
 
 
@@ -139,9 +141,30 @@ _DNSCACHECONFIG = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='preresolve_hostnames', full_name='envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheConfig.preresolve_hostnames', index=9,
+      name='typed_dns_resolver_config', full_name='envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheConfig.typed_dns_resolver_config', index=9,
+      number=12, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='preresolve_hostnames', full_name='envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheConfig.preresolve_hostnames', index=10,
       number=10, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dns_query_timeout', full_name='envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheConfig.dns_query_timeout', index=11,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\005\252\001\002*\000', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='key_value_config', full_name='envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheConfig.key_value_config', index=12,
+      number=13, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -157,8 +180,8 @@ _DNSCACHECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=510,
-  serialized_end=1266,
+  serialized_start=595,
+  serialized_end=1575,
 )
 
 _DNSCACHECIRCUITBREAKERS.fields_by_name['max_pending_requests'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
@@ -169,7 +192,10 @@ _DNSCACHECONFIG.fields_by_name['max_hosts'].message_type = google_dot_protobuf_d
 _DNSCACHECONFIG.fields_by_name['dns_failure_refresh_rate'].message_type = envoy_dot_config_dot_cluster_dot_v3_dot_cluster__pb2._CLUSTER_REFRESHRATE
 _DNSCACHECONFIG.fields_by_name['dns_cache_circuit_breaker'].message_type = _DNSCACHECIRCUITBREAKERS
 _DNSCACHECONFIG.fields_by_name['dns_resolution_config'].message_type = envoy_dot_config_dot_core_dot_v3_dot_resolver__pb2._DNSRESOLUTIONCONFIG
+_DNSCACHECONFIG.fields_by_name['typed_dns_resolver_config'].message_type = envoy_dot_config_dot_core_dot_v3_dot_extension__pb2._TYPEDEXTENSIONCONFIG
 _DNSCACHECONFIG.fields_by_name['preresolve_hostnames'].message_type = envoy_dot_config_dot_core_dot_v3_dot_address__pb2._SOCKETADDRESS
+_DNSCACHECONFIG.fields_by_name['dns_query_timeout'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
+_DNSCACHECONFIG.fields_by_name['key_value_config'].message_type = envoy_dot_config_dot_common_dot_key__value_dot_v3_dot_config__pb2._KEYVALUESTORECONFIG
 DESCRIPTOR.message_types_by_name['DnsCacheCircuitBreakers'] = _DNSCACHECIRCUITBREAKERS
 DESCRIPTOR.message_types_by_name['DnsCacheConfig'] = _DNSCACHECONFIG
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -196,5 +222,6 @@ _DNSCACHECONFIG.fields_by_name['dns_refresh_rate']._options = None
 _DNSCACHECONFIG.fields_by_name['host_ttl']._options = None
 _DNSCACHECONFIG.fields_by_name['max_hosts']._options = None
 _DNSCACHECONFIG.fields_by_name['use_tcp_for_dns_lookups']._options = None
+_DNSCACHECONFIG.fields_by_name['dns_query_timeout']._options = None
 _DNSCACHECONFIG._options = None
 # @@protoc_insertion_point(module_scope)

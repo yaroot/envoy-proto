@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\030com.google.monitoring.v3B\026ServiceMonitoringProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\"google/monitoring/v3/service.proto\x12\x14google.monitoring.v3\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a!google/type/calendar_period.proto\"\xd2\x08\n\x07Service\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x36\n\x06\x63ustom\x18\x06 \x01(\x0b\x32$.google.monitoring.v3.Service.CustomH\x00\x12=\n\napp_engine\x18\x07 \x01(\x0b\x32\'.google.monitoring.v3.Service.AppEngineH\x00\x12G\n\x0f\x63loud_endpoints\x18\x08 \x01(\x0b\x32,.google.monitoring.v3.Service.CloudEndpointsH\x00\x12\x43\n\rcluster_istio\x18\t \x01(\x0b\x32*.google.monitoring.v3.Service.ClusterIstioH\x00\x12=\n\nmesh_istio\x18\n \x01(\x0b\x32\'.google.monitoring.v3.Service.MeshIstioH\x00\x12V\n\x17istio_canonical_service\x18\x0b \x01(\x0b\x32\x33.google.monitoring.v3.Service.IstioCanonicalServiceH\x00\x12:\n\ttelemetry\x18\r \x01(\x0b\x32\'.google.monitoring.v3.Service.Telemetry\x1a\x08\n\x06\x43ustom\x1a\x1e\n\tAppEngine\x12\x11\n\tmodule_id\x18\x01 \x01(\t\x1a!\n\x0e\x43loudEndpoints\x12\x0f\n\x07service\x18\x01 \x01(\t\x1ag\n\x0c\x43lusterIstio\x12\x10\n\x08location\x18\x01 \x01(\t\x12\x14\n\x0c\x63luster_name\x18\x02 \x01(\t\x12\x19\n\x11service_namespace\x18\x03 \x01(\t\x12\x14\n\x0cservice_name\x18\x04 \x01(\t\x1aN\n\tMeshIstio\x12\x10\n\x08mesh_uid\x18\x01 \x01(\t\x12\x19\n\x11service_namespace\x18\x03 \x01(\t\x12\x14\n\x0cservice_name\x18\x04 \x01(\t\x1ai\n\x15IstioCanonicalService\x12\x10\n\x08mesh_uid\x18\x01 \x01(\t\x12#\n\x1b\x63\x61nonical_service_namespace\x18\x03 \x01(\t\x12\x19\n\x11\x63\x61nonical_service\x18\x04 \x01(\t\x1a\"\n\tTelemetry\x12\x15\n\rresource_name\x18\x01 \x01(\t:\xa7\x01\xea\x41\xa3\x01\n!monitoring.googleapis.com/Service\x12%projects/{project}/services/{service}\x12/organizations/{organization}/services/{service}\x12#folders/{folder}/services/{service}\x12\x01*B\x0c\n\nidentifier\"\x91\x05\n\x15ServiceLevelObjective\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x0b \x01(\t\x12L\n\x17service_level_indicator\x18\x03 \x01(\x0b\x32+.google.monitoring.v3.ServiceLevelIndicator\x12\x0c\n\x04goal\x18\x04 \x01(\x01\x12\x33\n\x0erolling_period\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12\x36\n\x0f\x63\x61lendar_period\x18\x06 \x01(\x0e\x32\x1b.google.type.CalendarPeriodH\x00\"4\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x08\n\x04\x46ULL\x10\x02\x12\x0c\n\x08\x45XPLICIT\x10\x01:\xca\x02\xea\x41\xc6\x02\n/monitoring.googleapis.com/ServiceLevelObjective\x12Vprojects/{project}/services/{service}/serviceLevelObjectives/{service_level_objective}\x12`organizations/{organization}/services/{service}/serviceLevelObjectives/{service_level_objective}\x12Tfolders/{folder}/services/{service}/serviceLevelObjectives/{service_level_objective}\x12\x01* \x01\x42\x08\n\x06period\"\xd4\x01\n\x15ServiceLevelIndicator\x12\x33\n\tbasic_sli\x18\x04 \x01(\x0b\x32\x1e.google.monitoring.v3.BasicSliH\x00\x12>\n\rrequest_based\x18\x01 \x01(\x0b\x32%.google.monitoring.v3.RequestBasedSliH\x00\x12>\n\rwindows_based\x18\x02 \x01(\x0b\x32%.google.monitoring.v3.WindowsBasedSliH\x00\x42\x06\n\x04type\"\xb6\x02\n\x08\x42\x61sicSli\x12\x0e\n\x06method\x18\x07 \x03(\t\x12\x10\n\x08location\x18\x08 \x03(\t\x12\x0f\n\x07version\x18\t \x03(\t\x12K\n\x0c\x61vailability\x18\x02 \x01(\x0b\x32\x33.google.monitoring.v3.BasicSli.AvailabilityCriteriaH\x00\x12\x41\n\x07latency\x18\x03 \x01(\x0b\x32..google.monitoring.v3.BasicSli.LatencyCriteriaH\x00\x1a\x16\n\x14\x41vailabilityCriteria\x1a?\n\x0fLatencyCriteria\x12,\n\tthreshold\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0e\n\x0csli_criteria\"!\n\x05Range\x12\x0b\n\x03min\x18\x01 \x01(\x01\x12\x0b\n\x03max\x18\x02 \x01(\x01\"\xa1\x01\n\x0fRequestBasedSli\x12\x41\n\x10good_total_ratio\x18\x01 \x01(\x0b\x32%.google.monitoring.v3.TimeSeriesRatioH\x00\x12\x41\n\x10\x64istribution_cut\x18\x03 \x01(\x0b\x32%.google.monitoring.v3.DistributionCutH\x00\x42\x08\n\x06method\"h\n\x0fTimeSeriesRatio\x12\x1b\n\x13good_service_filter\x18\x04 \x01(\t\x12\x1a\n\x12\x62\x61\x64_service_filter\x18\x05 \x01(\t\x12\x1c\n\x14total_service_filter\x18\x06 \x01(\t\"Z\n\x0f\x44istributionCut\x12\x1b\n\x13\x64istribution_filter\x18\x04 \x01(\t\x12*\n\x05range\x18\x05 \x01(\x0b\x32\x1b.google.monitoring.v3.Range\"\x83\x05\n\x0fWindowsBasedSli\x12 \n\x16good_bad_metric_filter\x18\x05 \x01(\tH\x00\x12`\n\x1agood_total_ratio_threshold\x18\x02 \x01(\x0b\x32:.google.monitoring.v3.WindowsBasedSli.PerformanceThresholdH\x00\x12Q\n\x14metric_mean_in_range\x18\x06 \x01(\x0b\x32\x31.google.monitoring.v3.WindowsBasedSli.MetricRangeH\x00\x12P\n\x13metric_sum_in_range\x18\x07 \x01(\x0b\x32\x31.google.monitoring.v3.WindowsBasedSli.MetricRangeH\x00\x12\x30\n\rwindow_period\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x1a\xb0\x01\n\x14PerformanceThreshold\x12<\n\x0bperformance\x18\x01 \x01(\x0b\x32%.google.monitoring.v3.RequestBasedSliH\x00\x12?\n\x15\x62\x61sic_sli_performance\x18\x03 \x01(\x0b\x32\x1e.google.monitoring.v3.BasicSliH\x00\x12\x11\n\tthreshold\x18\x02 \x01(\x01\x42\x06\n\x04type\x1aN\n\x0bMetricRange\x12\x13\n\x0btime_series\x18\x01 \x01(\t\x12*\n\x05range\x18\x04 \x01(\x0b\x32\x1b.google.monitoring.v3.RangeB\x12\n\x10window_criterionB\xce\x01\n\x18\x63om.google.monitoring.v3B\x16ServiceMonitoringProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3'
+  serialized_pb=b'\n\"google/monitoring/v3/service.proto\x12\x14google.monitoring.v3\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a!google/type/calendar_period.proto\"\xc9\t\n\x07Service\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x36\n\x06\x63ustom\x18\x06 \x01(\x0b\x32$.google.monitoring.v3.Service.CustomH\x00\x12=\n\napp_engine\x18\x07 \x01(\x0b\x32\'.google.monitoring.v3.Service.AppEngineH\x00\x12G\n\x0f\x63loud_endpoints\x18\x08 \x01(\x0b\x32,.google.monitoring.v3.Service.CloudEndpointsH\x00\x12\x43\n\rcluster_istio\x18\t \x01(\x0b\x32*.google.monitoring.v3.Service.ClusterIstioH\x00\x12=\n\nmesh_istio\x18\n \x01(\x0b\x32\'.google.monitoring.v3.Service.MeshIstioH\x00\x12V\n\x17istio_canonical_service\x18\x0b \x01(\x0b\x32\x33.google.monitoring.v3.Service.IstioCanonicalServiceH\x00\x12:\n\ttelemetry\x18\r \x01(\x0b\x32\'.google.monitoring.v3.Service.Telemetry\x12\x42\n\x0buser_labels\x18\x0e \x03(\x0b\x32-.google.monitoring.v3.Service.UserLabelsEntry\x1a\x08\n\x06\x43ustom\x1a\x1e\n\tAppEngine\x12\x11\n\tmodule_id\x18\x01 \x01(\t\x1a!\n\x0e\x43loudEndpoints\x12\x0f\n\x07service\x18\x01 \x01(\t\x1ag\n\x0c\x43lusterIstio\x12\x10\n\x08location\x18\x01 \x01(\t\x12\x14\n\x0c\x63luster_name\x18\x02 \x01(\t\x12\x19\n\x11service_namespace\x18\x03 \x01(\t\x12\x14\n\x0cservice_name\x18\x04 \x01(\t\x1aN\n\tMeshIstio\x12\x10\n\x08mesh_uid\x18\x01 \x01(\t\x12\x19\n\x11service_namespace\x18\x03 \x01(\t\x12\x14\n\x0cservice_name\x18\x04 \x01(\t\x1ai\n\x15IstioCanonicalService\x12\x10\n\x08mesh_uid\x18\x01 \x01(\t\x12#\n\x1b\x63\x61nonical_service_namespace\x18\x03 \x01(\t\x12\x19\n\x11\x63\x61nonical_service\x18\x04 \x01(\t\x1a\"\n\tTelemetry\x12\x15\n\rresource_name\x18\x01 \x01(\t\x1a\x31\n\x0fUserLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\xa7\x01\xea\x41\xa3\x01\n!monitoring.googleapis.com/Service\x12%projects/{project}/services/{service}\x12/organizations/{organization}/services/{service}\x12#folders/{folder}/services/{service}\x12\x01*B\x0c\n\nidentifier\"\x96\x06\n\x15ServiceLevelObjective\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x0b \x01(\t\x12L\n\x17service_level_indicator\x18\x03 \x01(\x0b\x32+.google.monitoring.v3.ServiceLevelIndicator\x12\x0c\n\x04goal\x18\x04 \x01(\x01\x12\x33\n\x0erolling_period\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12\x36\n\x0f\x63\x61lendar_period\x18\x06 \x01(\x0e\x32\x1b.google.type.CalendarPeriodH\x00\x12P\n\x0buser_labels\x18\x0c \x03(\x0b\x32;.google.monitoring.v3.ServiceLevelObjective.UserLabelsEntry\x1a\x31\n\x0fUserLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"4\n\x04View\x12\x14\n\x10VIEW_UNSPECIFIED\x10\x00\x12\x08\n\x04\x46ULL\x10\x02\x12\x0c\n\x08\x45XPLICIT\x10\x01:\xca\x02\xea\x41\xc6\x02\n/monitoring.googleapis.com/ServiceLevelObjective\x12Vprojects/{project}/services/{service}/serviceLevelObjectives/{service_level_objective}\x12`organizations/{organization}/services/{service}/serviceLevelObjectives/{service_level_objective}\x12Tfolders/{folder}/services/{service}/serviceLevelObjectives/{service_level_objective}\x12\x01* \x01\x42\x08\n\x06period\"\xd4\x01\n\x15ServiceLevelIndicator\x12\x33\n\tbasic_sli\x18\x04 \x01(\x0b\x32\x1e.google.monitoring.v3.BasicSliH\x00\x12>\n\rrequest_based\x18\x01 \x01(\x0b\x32%.google.monitoring.v3.RequestBasedSliH\x00\x12>\n\rwindows_based\x18\x02 \x01(\x0b\x32%.google.monitoring.v3.WindowsBasedSliH\x00\x42\x06\n\x04type\"\xb6\x02\n\x08\x42\x61sicSli\x12\x0e\n\x06method\x18\x07 \x03(\t\x12\x10\n\x08location\x18\x08 \x03(\t\x12\x0f\n\x07version\x18\t \x03(\t\x12K\n\x0c\x61vailability\x18\x02 \x01(\x0b\x32\x33.google.monitoring.v3.BasicSli.AvailabilityCriteriaH\x00\x12\x41\n\x07latency\x18\x03 \x01(\x0b\x32..google.monitoring.v3.BasicSli.LatencyCriteriaH\x00\x1a\x16\n\x14\x41vailabilityCriteria\x1a?\n\x0fLatencyCriteria\x12,\n\tthreshold\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0e\n\x0csli_criteria\"!\n\x05Range\x12\x0b\n\x03min\x18\x01 \x01(\x01\x12\x0b\n\x03max\x18\x02 \x01(\x01\"\xa1\x01\n\x0fRequestBasedSli\x12\x41\n\x10good_total_ratio\x18\x01 \x01(\x0b\x32%.google.monitoring.v3.TimeSeriesRatioH\x00\x12\x41\n\x10\x64istribution_cut\x18\x03 \x01(\x0b\x32%.google.monitoring.v3.DistributionCutH\x00\x42\x08\n\x06method\"h\n\x0fTimeSeriesRatio\x12\x1b\n\x13good_service_filter\x18\x04 \x01(\t\x12\x1a\n\x12\x62\x61\x64_service_filter\x18\x05 \x01(\t\x12\x1c\n\x14total_service_filter\x18\x06 \x01(\t\"Z\n\x0f\x44istributionCut\x12\x1b\n\x13\x64istribution_filter\x18\x04 \x01(\t\x12*\n\x05range\x18\x05 \x01(\x0b\x32\x1b.google.monitoring.v3.Range\"\x83\x05\n\x0fWindowsBasedSli\x12 \n\x16good_bad_metric_filter\x18\x05 \x01(\tH\x00\x12`\n\x1agood_total_ratio_threshold\x18\x02 \x01(\x0b\x32:.google.monitoring.v3.WindowsBasedSli.PerformanceThresholdH\x00\x12Q\n\x14metric_mean_in_range\x18\x06 \x01(\x0b\x32\x31.google.monitoring.v3.WindowsBasedSli.MetricRangeH\x00\x12P\n\x13metric_sum_in_range\x18\x07 \x01(\x0b\x32\x31.google.monitoring.v3.WindowsBasedSli.MetricRangeH\x00\x12\x30\n\rwindow_period\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x1a\xb0\x01\n\x14PerformanceThreshold\x12<\n\x0bperformance\x18\x01 \x01(\x0b\x32%.google.monitoring.v3.RequestBasedSliH\x00\x12?\n\x15\x62\x61sic_sli_performance\x18\x03 \x01(\x0b\x32\x1e.google.monitoring.v3.BasicSliH\x00\x12\x11\n\tthreshold\x18\x02 \x01(\x01\x42\x06\n\x04type\x1aN\n\x0bMetricRange\x12\x13\n\x0btime_series\x18\x01 \x01(\t\x12*\n\x05range\x18\x04 \x01(\x0b\x32\x1b.google.monitoring.v3.RangeB\x12\n\x10window_criterionB\xce\x01\n\x18\x63om.google.monitoring.v3B\x16ServiceMonitoringProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_type_dot_calendar__period__pb2.DESCRIPTOR,])
 
@@ -54,8 +54,8 @@ _SERVICELEVELOBJECTIVE_VIEW = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1559,
-  serialized_end=1611,
+  serialized_start=1811,
+  serialized_end=1863,
 )
 _sym_db.RegisterEnumDescriptor(_SERVICELEVELOBJECTIVE_VIEW)
 
@@ -80,8 +80,8 @@ _SERVICE_CUSTOM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=707,
-  serialized_end=715,
+  serialized_start=775,
+  serialized_end=783,
 )
 
 _SERVICE_APPENGINE = _descriptor.Descriptor(
@@ -111,8 +111,8 @@ _SERVICE_APPENGINE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=717,
-  serialized_end=747,
+  serialized_start=785,
+  serialized_end=815,
 )
 
 _SERVICE_CLOUDENDPOINTS = _descriptor.Descriptor(
@@ -142,8 +142,8 @@ _SERVICE_CLOUDENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=749,
-  serialized_end=782,
+  serialized_start=817,
+  serialized_end=850,
 )
 
 _SERVICE_CLUSTERISTIO = _descriptor.Descriptor(
@@ -194,8 +194,8 @@ _SERVICE_CLUSTERISTIO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=784,
-  serialized_end=887,
+  serialized_start=852,
+  serialized_end=955,
 )
 
 _SERVICE_MESHISTIO = _descriptor.Descriptor(
@@ -239,8 +239,8 @@ _SERVICE_MESHISTIO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=889,
-  serialized_end=967,
+  serialized_start=957,
+  serialized_end=1035,
 )
 
 _SERVICE_ISTIOCANONICALSERVICE = _descriptor.Descriptor(
@@ -284,8 +284,8 @@ _SERVICE_ISTIOCANONICALSERVICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=969,
-  serialized_end=1074,
+  serialized_start=1037,
+  serialized_end=1142,
 )
 
 _SERVICE_TELEMETRY = _descriptor.Descriptor(
@@ -315,8 +315,46 @@ _SERVICE_TELEMETRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1076,
-  serialized_end=1110,
+  serialized_start=1144,
+  serialized_end=1178,
+)
+
+_SERVICE_USERLABELSENTRY = _descriptor.Descriptor(
+  name='UserLabelsEntry',
+  full_name='google.monitoring.v3.Service.UserLabelsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.monitoring.v3.Service.UserLabelsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.monitoring.v3.Service.UserLabelsEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1180,
+  serialized_end=1229,
 )
 
 _SERVICE = _descriptor.Descriptor(
@@ -390,10 +428,17 @@ _SERVICE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='user_labels', full_name='google.monitoring.v3.Service.user_labels', index=9,
+      number=14, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_SERVICE_CUSTOM, _SERVICE_APPENGINE, _SERVICE_CLOUDENDPOINTS, _SERVICE_CLUSTERISTIO, _SERVICE_MESHISTIO, _SERVICE_ISTIOCANONICALSERVICE, _SERVICE_TELEMETRY, ],
+  nested_types=[_SERVICE_CUSTOM, _SERVICE_APPENGINE, _SERVICE_CLOUDENDPOINTS, _SERVICE_CLUSTERISTIO, _SERVICE_MESHISTIO, _SERVICE_ISTIOCANONICALSERVICE, _SERVICE_TELEMETRY, _SERVICE_USERLABELSENTRY, ],
   enum_types=[
   ],
   serialized_options=b'\352A\243\001\n!monitoring.googleapis.com/Service\022%projects/{project}/services/{service}\022/organizations/{organization}/services/{service}\022#folders/{folder}/services/{service}\022\001*',
@@ -408,9 +453,47 @@ _SERVICE = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=188,
-  serialized_end=1294,
+  serialized_end=1413,
 )
 
+
+_SERVICELEVELOBJECTIVE_USERLABELSENTRY = _descriptor.Descriptor(
+  name='UserLabelsEntry',
+  full_name='google.monitoring.v3.ServiceLevelObjective.UserLabelsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.monitoring.v3.ServiceLevelObjective.UserLabelsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.monitoring.v3.ServiceLevelObjective.UserLabelsEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1180,
+  serialized_end=1229,
+)
 
 _SERVICELEVELOBJECTIVE = _descriptor.Descriptor(
   name='ServiceLevelObjective',
@@ -462,10 +545,17 @@ _SERVICELEVELOBJECTIVE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='user_labels', full_name='google.monitoring.v3.ServiceLevelObjective.user_labels', index=6,
+      number=12, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_SERVICELEVELOBJECTIVE_USERLABELSENTRY, ],
   enum_types=[
     _SERVICELEVELOBJECTIVE_VIEW,
   ],
@@ -480,8 +570,8 @@ _SERVICELEVELOBJECTIVE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1297,
-  serialized_end=1954,
+  serialized_start=1416,
+  serialized_end=2206,
 )
 
 
@@ -531,8 +621,8 @@ _SERVICELEVELINDICATOR = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1957,
-  serialized_end=2169,
+  serialized_start=2209,
+  serialized_end=2421,
 )
 
 
@@ -556,8 +646,8 @@ _BASICSLI_AVAILABILITYCRITERIA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2379,
-  serialized_end=2401,
+  serialized_start=2631,
+  serialized_end=2653,
 )
 
 _BASICSLI_LATENCYCRITERIA = _descriptor.Descriptor(
@@ -587,8 +677,8 @@ _BASICSLI_LATENCYCRITERIA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2403,
-  serialized_end=2466,
+  serialized_start=2655,
+  serialized_end=2718,
 )
 
 _BASICSLI = _descriptor.Descriptor(
@@ -651,8 +741,8 @@ _BASICSLI = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2172,
-  serialized_end=2482,
+  serialized_start=2424,
+  serialized_end=2734,
 )
 
 
@@ -690,8 +780,8 @@ _RANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2484,
-  serialized_end=2517,
+  serialized_start=2736,
+  serialized_end=2769,
 )
 
 
@@ -734,8 +824,8 @@ _REQUESTBASEDSLI = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2520,
-  serialized_end=2681,
+  serialized_start=2772,
+  serialized_end=2933,
 )
 
 
@@ -780,8 +870,8 @@ _TIMESERIESRATIO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2683,
-  serialized_end=2787,
+  serialized_start=2935,
+  serialized_end=3039,
 )
 
 
@@ -819,8 +909,8 @@ _DISTRIBUTIONCUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2789,
-  serialized_end=2879,
+  serialized_start=3041,
+  serialized_end=3131,
 )
 
 
@@ -870,8 +960,8 @@ _WINDOWSBASEDSLI_PERFORMANCETHRESHOLD = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3249,
-  serialized_end=3425,
+  serialized_start=3501,
+  serialized_end=3677,
 )
 
 _WINDOWSBASEDSLI_METRICRANGE = _descriptor.Descriptor(
@@ -908,8 +998,8 @@ _WINDOWSBASEDSLI_METRICRANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3427,
-  serialized_end=3505,
+  serialized_start=3679,
+  serialized_end=3757,
 )
 
 _WINDOWSBASEDSLI = _descriptor.Descriptor(
@@ -972,8 +1062,8 @@ _WINDOWSBASEDSLI = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2882,
-  serialized_end=3525,
+  serialized_start=3134,
+  serialized_end=3777,
 )
 
 _SERVICE_CUSTOM.containing_type = _SERVICE
@@ -983,6 +1073,7 @@ _SERVICE_CLUSTERISTIO.containing_type = _SERVICE
 _SERVICE_MESHISTIO.containing_type = _SERVICE
 _SERVICE_ISTIOCANONICALSERVICE.containing_type = _SERVICE
 _SERVICE_TELEMETRY.containing_type = _SERVICE
+_SERVICE_USERLABELSENTRY.containing_type = _SERVICE
 _SERVICE.fields_by_name['custom'].message_type = _SERVICE_CUSTOM
 _SERVICE.fields_by_name['app_engine'].message_type = _SERVICE_APPENGINE
 _SERVICE.fields_by_name['cloud_endpoints'].message_type = _SERVICE_CLOUDENDPOINTS
@@ -990,6 +1081,7 @@ _SERVICE.fields_by_name['cluster_istio'].message_type = _SERVICE_CLUSTERISTIO
 _SERVICE.fields_by_name['mesh_istio'].message_type = _SERVICE_MESHISTIO
 _SERVICE.fields_by_name['istio_canonical_service'].message_type = _SERVICE_ISTIOCANONICALSERVICE
 _SERVICE.fields_by_name['telemetry'].message_type = _SERVICE_TELEMETRY
+_SERVICE.fields_by_name['user_labels'].message_type = _SERVICE_USERLABELSENTRY
 _SERVICE.oneofs_by_name['identifier'].fields.append(
   _SERVICE.fields_by_name['custom'])
 _SERVICE.fields_by_name['custom'].containing_oneof = _SERVICE.oneofs_by_name['identifier']
@@ -1008,9 +1100,11 @@ _SERVICE.fields_by_name['mesh_istio'].containing_oneof = _SERVICE.oneofs_by_name
 _SERVICE.oneofs_by_name['identifier'].fields.append(
   _SERVICE.fields_by_name['istio_canonical_service'])
 _SERVICE.fields_by_name['istio_canonical_service'].containing_oneof = _SERVICE.oneofs_by_name['identifier']
+_SERVICELEVELOBJECTIVE_USERLABELSENTRY.containing_type = _SERVICELEVELOBJECTIVE
 _SERVICELEVELOBJECTIVE.fields_by_name['service_level_indicator'].message_type = _SERVICELEVELINDICATOR
 _SERVICELEVELOBJECTIVE.fields_by_name['rolling_period'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _SERVICELEVELOBJECTIVE.fields_by_name['calendar_period'].enum_type = google_dot_type_dot_calendar__period__pb2._CALENDARPERIOD
+_SERVICELEVELOBJECTIVE.fields_by_name['user_labels'].message_type = _SERVICELEVELOBJECTIVE_USERLABELSENTRY
 _SERVICELEVELOBJECTIVE_VIEW.containing_type = _SERVICELEVELOBJECTIVE
 _SERVICELEVELOBJECTIVE.oneofs_by_name['period'].fields.append(
   _SERVICELEVELOBJECTIVE.fields_by_name['rolling_period'])
@@ -1138,6 +1232,13 @@ Service = _reflection.GeneratedProtocolMessageType('Service', (_message.Message,
     # @@protoc_insertion_point(class_scope:google.monitoring.v3.Service.Telemetry)
     })
   ,
+
+  'UserLabelsEntry' : _reflection.GeneratedProtocolMessageType('UserLabelsEntry', (_message.Message,), {
+    'DESCRIPTOR' : _SERVICE_USERLABELSENTRY,
+    '__module__' : 'google.monitoring.v3.service_pb2'
+    # @@protoc_insertion_point(class_scope:google.monitoring.v3.Service.UserLabelsEntry)
+    })
+  ,
   'DESCRIPTOR' : _SERVICE,
   '__module__' : 'google.monitoring.v3.service_pb2'
   # @@protoc_insertion_point(class_scope:google.monitoring.v3.Service)
@@ -1150,13 +1251,22 @@ _sym_db.RegisterMessage(Service.ClusterIstio)
 _sym_db.RegisterMessage(Service.MeshIstio)
 _sym_db.RegisterMessage(Service.IstioCanonicalService)
 _sym_db.RegisterMessage(Service.Telemetry)
+_sym_db.RegisterMessage(Service.UserLabelsEntry)
 
 ServiceLevelObjective = _reflection.GeneratedProtocolMessageType('ServiceLevelObjective', (_message.Message,), {
+
+  'UserLabelsEntry' : _reflection.GeneratedProtocolMessageType('UserLabelsEntry', (_message.Message,), {
+    'DESCRIPTOR' : _SERVICELEVELOBJECTIVE_USERLABELSENTRY,
+    '__module__' : 'google.monitoring.v3.service_pb2'
+    # @@protoc_insertion_point(class_scope:google.monitoring.v3.ServiceLevelObjective.UserLabelsEntry)
+    })
+  ,
   'DESCRIPTOR' : _SERVICELEVELOBJECTIVE,
   '__module__' : 'google.monitoring.v3.service_pb2'
   # @@protoc_insertion_point(class_scope:google.monitoring.v3.ServiceLevelObjective)
   })
 _sym_db.RegisterMessage(ServiceLevelObjective)
+_sym_db.RegisterMessage(ServiceLevelObjective.UserLabelsEntry)
 
 ServiceLevelIndicator = _reflection.GeneratedProtocolMessageType('ServiceLevelIndicator', (_message.Message,), {
   'DESCRIPTOR' : _SERVICELEVELINDICATOR,
@@ -1241,6 +1351,8 @@ _sym_db.RegisterMessage(WindowsBasedSli.MetricRange)
 
 
 DESCRIPTOR._options = None
+_SERVICE_USERLABELSENTRY._options = None
 _SERVICE._options = None
+_SERVICELEVELOBJECTIVE_USERLABELSENTRY._options = None
 _SERVICELEVELOBJECTIVE._options = None
 # @@protoc_insertion_point(module_scope)

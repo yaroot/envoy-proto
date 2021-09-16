@@ -22,11 +22,89 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032com.google.cloud.retail.v2B\013CommonProtoP\001Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\242\002\006RETAIL\252\002\026Google.Cloud.Retail.V2\312\002\026Google\\Cloud\\Retail\\V2\352\002\031Google::Cloud::Retail::V2',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n#google/cloud/retail/v2/common.proto\x12\x16google.cloud.retail.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"0\n\x0f\x43ustomAttribute\x12\x0c\n\x04text\x18\x01 \x03(\t\x12\x0f\n\x07numbers\x18\x02 \x03(\x01\"8\n\x05Image\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0e\n\x06height\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\"W\n\tPriceInfo\x12\x15\n\rcurrency_code\x18\x01 \x01(\t\x12\r\n\x05price\x18\x02 \x01(\x02\x12\x16\n\x0eoriginal_price\x18\x03 \x01(\x02\x12\x0c\n\x04\x63ost\x18\x04 \x01(\x02\"`\n\x08UserInfo\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x12\n\nip_address\x18\x02 \x01(\t\x12\x12\n\nuser_agent\x18\x03 \x01(\t\x12\x1b\n\x13\x64irect_user_request\x18\x04 \x01(\x08\x42\xc0\x01\n\x1a\x63om.google.cloud.retail.v2B\x0b\x43ommonProtoP\x01Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\xa2\x02\x06RETAIL\xaa\x02\x16Google.Cloud.Retail.V2\xca\x02\x16Google\\Cloud\\Retail\\V2\xea\x02\x19Google::Cloud::Retail::V2b\x06proto3'
+  serialized_pb=b'\n#google/cloud/retail/v2/common.proto\x12\x16google.cloud.retail.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"/\n\x08\x41udience\x12\x0f\n\x07genders\x18\x01 \x03(\t\x12\x12\n\nage_groups\x18\x02 \x03(\t\"3\n\tColorInfo\x12\x16\n\x0e\x63olor_families\x18\x01 \x03(\t\x12\x0e\n\x06\x63olors\x18\x02 \x03(\t\"~\n\x0f\x43ustomAttribute\x12\x0c\n\x04text\x18\x01 \x03(\t\x12\x0f\n\x07numbers\x18\x02 \x03(\x01\x12\x17\n\nsearchable\x18\x03 \x01(\x08H\x00\x88\x01\x01\x12\x16\n\tindexable\x18\x04 \x01(\x08H\x01\x88\x01\x01\x42\r\n\x0b_searchableB\x0c\n\n_indexable\"2\n\x0f\x46ulfillmentInfo\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x11\n\tplace_ids\x18\x02 \x03(\t\"8\n\x05Image\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0e\n\x06height\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\"x\n\x08Interval\x12\x11\n\x07minimum\x18\x01 \x01(\x01H\x00\x12\x1b\n\x11\x65xclusive_minimum\x18\x02 \x01(\x01H\x00\x12\x11\n\x07maximum\x18\x03 \x01(\x01H\x01\x12\x1b\n\x11\x65xclusive_maximum\x18\x04 \x01(\x01H\x01\x42\x05\n\x03minB\x05\n\x03max\"\x89\x03\n\tPriceInfo\x12\x15\n\rcurrency_code\x18\x01 \x01(\t\x12\r\n\x05price\x18\x02 \x01(\x02\x12\x16\n\x0eoriginal_price\x18\x03 \x01(\x02\x12\x0c\n\x04\x63ost\x18\x04 \x01(\x02\x12\x38\n\x14price_effective_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x35\n\x11price_expire_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x46\n\x0bprice_range\x18\x07 \x01(\x0b\x32,.google.cloud.retail.v2.PriceInfo.PriceRangeB\x03\xe0\x41\x03\x1aw\n\nPriceRange\x12/\n\x05price\x18\x01 \x01(\x0b\x32 .google.cloud.retail.v2.Interval\x12\x38\n\x0eoriginal_price\x18\x02 \x01(\x0b\x32 .google.cloud.retail.v2.Interval\"P\n\x06Rating\x12\x14\n\x0crating_count\x18\x01 \x01(\x05\x12\x16\n\x0e\x61verage_rating\x18\x02 \x01(\x02\x12\x18\n\x10rating_histogram\x18\x03 \x03(\x05\"`\n\x08UserInfo\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x12\n\nip_address\x18\x02 \x01(\t\x12\x12\n\nuser_agent\x18\x03 \x01(\t\x12\x1b\n\x13\x64irect_user_request\x18\x04 \x01(\x08\"!\n\tPromotion\x12\x14\n\x0cpromotion_id\x18\x01 \x01(\tB\xc0\x01\n\x1a\x63om.google.cloud.retail.v2B\x0b\x43ommonProtoP\x01Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\xa2\x02\x06RETAIL\xaa\x02\x16Google.Cloud.Retail.V2\xca\x02\x16Google\\Cloud\\Retail\\V2\xea\x02\x19Google::Cloud::Retail::V2b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
+
+
+_AUDIENCE = _descriptor.Descriptor(
+  name='Audience',
+  full_name='google.cloud.retail.v2.Audience',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='genders', full_name='google.cloud.retail.v2.Audience.genders', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='age_groups', full_name='google.cloud.retail.v2.Audience.age_groups', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=159,
+  serialized_end=206,
+)
+
+
+_COLORINFO = _descriptor.Descriptor(
+  name='ColorInfo',
+  full_name='google.cloud.retail.v2.ColorInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='color_families', full_name='google.cloud.retail.v2.ColorInfo.color_families', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='colors', full_name='google.cloud.retail.v2.ColorInfo.colors', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=208,
+  serialized_end=259,
+)
 
 
 _CUSTOMATTRIBUTE = _descriptor.Descriptor(
@@ -51,6 +129,69 @@ _CUSTOMATTRIBUTE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='searchable', full_name='google.cloud.retail.v2.CustomAttribute.searchable', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='indexable', full_name='google.cloud.retail.v2.CustomAttribute.indexable', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='_searchable', full_name='google.cloud.retail.v2.CustomAttribute._searchable',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+    _descriptor.OneofDescriptor(
+      name='_indexable', full_name='google.cloud.retail.v2.CustomAttribute._indexable',
+      index=1, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=261,
+  serialized_end=387,
+)
+
+
+_FULFILLMENTINFO = _descriptor.Descriptor(
+  name='FulfillmentInfo',
+  full_name='google.cloud.retail.v2.FulfillmentInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='google.cloud.retail.v2.FulfillmentInfo.type', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='place_ids', full_name='google.cloud.retail.v2.FulfillmentInfo.place_ids', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -63,8 +204,8 @@ _CUSTOMATTRIBUTE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=159,
-  serialized_end=207,
+  serialized_start=389,
+  serialized_end=439,
 )
 
 
@@ -109,10 +250,111 @@ _IMAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=209,
-  serialized_end=265,
+  serialized_start=441,
+  serialized_end=497,
 )
 
+
+_INTERVAL = _descriptor.Descriptor(
+  name='Interval',
+  full_name='google.cloud.retail.v2.Interval',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='minimum', full_name='google.cloud.retail.v2.Interval.minimum', index=0,
+      number=1, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='exclusive_minimum', full_name='google.cloud.retail.v2.Interval.exclusive_minimum', index=1,
+      number=2, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='maximum', full_name='google.cloud.retail.v2.Interval.maximum', index=2,
+      number=3, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='exclusive_maximum', full_name='google.cloud.retail.v2.Interval.exclusive_maximum', index=3,
+      number=4, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='min', full_name='google.cloud.retail.v2.Interval.min',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+    _descriptor.OneofDescriptor(
+      name='max', full_name='google.cloud.retail.v2.Interval.max',
+      index=1, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=499,
+  serialized_end=619,
+)
+
+
+_PRICEINFO_PRICERANGE = _descriptor.Descriptor(
+  name='PriceRange',
+  full_name='google.cloud.retail.v2.PriceInfo.PriceRange',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='price', full_name='google.cloud.retail.v2.PriceInfo.PriceRange.price', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='original_price', full_name='google.cloud.retail.v2.PriceInfo.PriceRange.original_price', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=896,
+  serialized_end=1015,
+)
 
 _PRICEINFO = _descriptor.Descriptor(
   name='PriceInfo',
@@ -150,6 +392,73 @@ _PRICEINFO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='price_effective_time', full_name='google.cloud.retail.v2.PriceInfo.price_effective_time', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='price_expire_time', full_name='google.cloud.retail.v2.PriceInfo.price_expire_time', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='price_range', full_name='google.cloud.retail.v2.PriceInfo.price_range', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_PRICEINFO_PRICERANGE, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=622,
+  serialized_end=1015,
+)
+
+
+_RATING = _descriptor.Descriptor(
+  name='Rating',
+  full_name='google.cloud.retail.v2.Rating',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='rating_count', full_name='google.cloud.retail.v2.Rating.rating_count', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='average_rating', full_name='google.cloud.retail.v2.Rating.average_rating', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rating_histogram', full_name='google.cloud.retail.v2.Rating.rating_histogram', index=2,
+      number=3, type=5, cpp_type=1, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -162,8 +471,8 @@ _PRICEINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=267,
-  serialized_end=354,
+  serialized_start=1017,
+  serialized_end=1097,
 )
 
 
@@ -215,15 +524,91 @@ _USERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=356,
-  serialized_end=452,
+  serialized_start=1099,
+  serialized_end=1195,
 )
 
+
+_PROMOTION = _descriptor.Descriptor(
+  name='Promotion',
+  full_name='google.cloud.retail.v2.Promotion',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='promotion_id', full_name='google.cloud.retail.v2.Promotion.promotion_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1197,
+  serialized_end=1230,
+)
+
+_CUSTOMATTRIBUTE.oneofs_by_name['_searchable'].fields.append(
+  _CUSTOMATTRIBUTE.fields_by_name['searchable'])
+_CUSTOMATTRIBUTE.fields_by_name['searchable'].containing_oneof = _CUSTOMATTRIBUTE.oneofs_by_name['_searchable']
+_CUSTOMATTRIBUTE.oneofs_by_name['_indexable'].fields.append(
+  _CUSTOMATTRIBUTE.fields_by_name['indexable'])
+_CUSTOMATTRIBUTE.fields_by_name['indexable'].containing_oneof = _CUSTOMATTRIBUTE.oneofs_by_name['_indexable']
+_INTERVAL.oneofs_by_name['min'].fields.append(
+  _INTERVAL.fields_by_name['minimum'])
+_INTERVAL.fields_by_name['minimum'].containing_oneof = _INTERVAL.oneofs_by_name['min']
+_INTERVAL.oneofs_by_name['min'].fields.append(
+  _INTERVAL.fields_by_name['exclusive_minimum'])
+_INTERVAL.fields_by_name['exclusive_minimum'].containing_oneof = _INTERVAL.oneofs_by_name['min']
+_INTERVAL.oneofs_by_name['max'].fields.append(
+  _INTERVAL.fields_by_name['maximum'])
+_INTERVAL.fields_by_name['maximum'].containing_oneof = _INTERVAL.oneofs_by_name['max']
+_INTERVAL.oneofs_by_name['max'].fields.append(
+  _INTERVAL.fields_by_name['exclusive_maximum'])
+_INTERVAL.fields_by_name['exclusive_maximum'].containing_oneof = _INTERVAL.oneofs_by_name['max']
+_PRICEINFO_PRICERANGE.fields_by_name['price'].message_type = _INTERVAL
+_PRICEINFO_PRICERANGE.fields_by_name['original_price'].message_type = _INTERVAL
+_PRICEINFO_PRICERANGE.containing_type = _PRICEINFO
+_PRICEINFO.fields_by_name['price_effective_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_PRICEINFO.fields_by_name['price_expire_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_PRICEINFO.fields_by_name['price_range'].message_type = _PRICEINFO_PRICERANGE
+DESCRIPTOR.message_types_by_name['Audience'] = _AUDIENCE
+DESCRIPTOR.message_types_by_name['ColorInfo'] = _COLORINFO
 DESCRIPTOR.message_types_by_name['CustomAttribute'] = _CUSTOMATTRIBUTE
+DESCRIPTOR.message_types_by_name['FulfillmentInfo'] = _FULFILLMENTINFO
 DESCRIPTOR.message_types_by_name['Image'] = _IMAGE
+DESCRIPTOR.message_types_by_name['Interval'] = _INTERVAL
 DESCRIPTOR.message_types_by_name['PriceInfo'] = _PRICEINFO
+DESCRIPTOR.message_types_by_name['Rating'] = _RATING
 DESCRIPTOR.message_types_by_name['UserInfo'] = _USERINFO
+DESCRIPTOR.message_types_by_name['Promotion'] = _PROMOTION
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+Audience = _reflection.GeneratedProtocolMessageType('Audience', (_message.Message,), {
+  'DESCRIPTOR' : _AUDIENCE,
+  '__module__' : 'google.cloud.retail.v2.common_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.Audience)
+  })
+_sym_db.RegisterMessage(Audience)
+
+ColorInfo = _reflection.GeneratedProtocolMessageType('ColorInfo', (_message.Message,), {
+  'DESCRIPTOR' : _COLORINFO,
+  '__module__' : 'google.cloud.retail.v2.common_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.ColorInfo)
+  })
+_sym_db.RegisterMessage(ColorInfo)
 
 CustomAttribute = _reflection.GeneratedProtocolMessageType('CustomAttribute', (_message.Message,), {
   'DESCRIPTOR' : _CUSTOMATTRIBUTE,
@@ -232,6 +617,13 @@ CustomAttribute = _reflection.GeneratedProtocolMessageType('CustomAttribute', (_
   })
 _sym_db.RegisterMessage(CustomAttribute)
 
+FulfillmentInfo = _reflection.GeneratedProtocolMessageType('FulfillmentInfo', (_message.Message,), {
+  'DESCRIPTOR' : _FULFILLMENTINFO,
+  '__module__' : 'google.cloud.retail.v2.common_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.FulfillmentInfo)
+  })
+_sym_db.RegisterMessage(FulfillmentInfo)
+
 Image = _reflection.GeneratedProtocolMessageType('Image', (_message.Message,), {
   'DESCRIPTOR' : _IMAGE,
   '__module__' : 'google.cloud.retail.v2.common_pb2'
@@ -239,12 +631,34 @@ Image = _reflection.GeneratedProtocolMessageType('Image', (_message.Message,), {
   })
 _sym_db.RegisterMessage(Image)
 
+Interval = _reflection.GeneratedProtocolMessageType('Interval', (_message.Message,), {
+  'DESCRIPTOR' : _INTERVAL,
+  '__module__' : 'google.cloud.retail.v2.common_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.Interval)
+  })
+_sym_db.RegisterMessage(Interval)
+
 PriceInfo = _reflection.GeneratedProtocolMessageType('PriceInfo', (_message.Message,), {
+
+  'PriceRange' : _reflection.GeneratedProtocolMessageType('PriceRange', (_message.Message,), {
+    'DESCRIPTOR' : _PRICEINFO_PRICERANGE,
+    '__module__' : 'google.cloud.retail.v2.common_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.PriceInfo.PriceRange)
+    })
+  ,
   'DESCRIPTOR' : _PRICEINFO,
   '__module__' : 'google.cloud.retail.v2.common_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.PriceInfo)
   })
 _sym_db.RegisterMessage(PriceInfo)
+_sym_db.RegisterMessage(PriceInfo.PriceRange)
+
+Rating = _reflection.GeneratedProtocolMessageType('Rating', (_message.Message,), {
+  'DESCRIPTOR' : _RATING,
+  '__module__' : 'google.cloud.retail.v2.common_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.Rating)
+  })
+_sym_db.RegisterMessage(Rating)
 
 UserInfo = _reflection.GeneratedProtocolMessageType('UserInfo', (_message.Message,), {
   'DESCRIPTOR' : _USERINFO,
@@ -253,7 +667,15 @@ UserInfo = _reflection.GeneratedProtocolMessageType('UserInfo', (_message.Messag
   })
 _sym_db.RegisterMessage(UserInfo)
 
+Promotion = _reflection.GeneratedProtocolMessageType('Promotion', (_message.Message,), {
+  'DESCRIPTOR' : _PROMOTION,
+  '__module__' : 'google.cloud.retail.v2.common_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.Promotion)
+  })
+_sym_db.RegisterMessage(Promotion)
+
 
 DESCRIPTOR._options = None
 _IMAGE.fields_by_name['uri']._options = None
+_PRICEINFO.fields_by_name['price_range']._options = None
 # @@protoc_insertion_point(module_scope)

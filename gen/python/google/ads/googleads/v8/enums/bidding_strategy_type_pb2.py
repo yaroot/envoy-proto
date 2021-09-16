@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.ads.googleads.v8.enumsB\030BiddingStrategyTypeProtoP\001ZBgoogle.golang.org/genproto/googleapis/ads/googleads/v8/enums;enums\242\002\003GAA\252\002\035Google.Ads.GoogleAds.V8.Enums\312\002\035Google\\Ads\\GoogleAds\\V8\\Enums\352\002!Google::Ads::GoogleAds::V8::Enums',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n9google/ads/googleads/v8/enums/bidding_strategy_type.proto\x12\x1dgoogle.ads.googleads.v8.enums\x1a\x1cgoogle/api/annotations.proto\"\xfc\x02\n\x17\x42iddingStrategyTypeEnum\"\xe0\x02\n\x13\x42iddingStrategyType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07UNKNOWN\x10\x01\x12\x0e\n\nCOMMISSION\x10\x10\x12\x10\n\x0c\x45NHANCED_CPC\x10\x02\x12\x0e\n\nMANUAL_CPC\x10\x03\x12\x0e\n\nMANUAL_CPM\x10\x04\x12\x0e\n\nMANUAL_CPV\x10\r\x12\x18\n\x14MAXIMIZE_CONVERSIONS\x10\n\x12\x1d\n\x19MAXIMIZE_CONVERSION_VALUE\x10\x0b\x12\x15\n\x11PAGE_ONE_PROMOTED\x10\x05\x12\x0f\n\x0bPERCENT_CPC\x10\x0c\x12\x0e\n\nTARGET_CPA\x10\x06\x12\x0e\n\nTARGET_CPM\x10\x0e\x12\x1b\n\x17TARGET_IMPRESSION_SHARE\x10\x0f\x12\x18\n\x14TARGET_OUTRANK_SHARE\x10\x07\x12\x0f\n\x0bTARGET_ROAS\x10\x08\x12\x10\n\x0cTARGET_SPEND\x10\tB\xed\x01\n!com.google.ads.googleads.v8.enumsB\x18\x42iddingStrategyTypeProtoP\x01ZBgoogle.golang.org/genproto/googleapis/ads/googleads/v8/enums;enums\xa2\x02\x03GAA\xaa\x02\x1dGoogle.Ads.GoogleAds.V8.Enums\xca\x02\x1dGoogle\\Ads\\GoogleAds\\V8\\Enums\xea\x02!Google::Ads::GoogleAds::V8::Enumsb\x06proto3'
+  serialized_pb=b'\n9google/ads/googleads/v8/enums/bidding_strategy_type.proto\x12\x1dgoogle.ads.googleads.v8.enums\x1a\x1cgoogle/api/annotations.proto\"\x89\x03\n\x17\x42iddingStrategyTypeEnum\"\xed\x02\n\x13\x42iddingStrategyType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07UNKNOWN\x10\x01\x12\x0e\n\nCOMMISSION\x10\x10\x12\x10\n\x0c\x45NHANCED_CPC\x10\x02\x12\x0b\n\x07INVALID\x10\x11\x12\x0e\n\nMANUAL_CPC\x10\x03\x12\x0e\n\nMANUAL_CPM\x10\x04\x12\x0e\n\nMANUAL_CPV\x10\r\x12\x18\n\x14MAXIMIZE_CONVERSIONS\x10\n\x12\x1d\n\x19MAXIMIZE_CONVERSION_VALUE\x10\x0b\x12\x15\n\x11PAGE_ONE_PROMOTED\x10\x05\x12\x0f\n\x0bPERCENT_CPC\x10\x0c\x12\x0e\n\nTARGET_CPA\x10\x06\x12\x0e\n\nTARGET_CPM\x10\x0e\x12\x1b\n\x17TARGET_IMPRESSION_SHARE\x10\x0f\x12\x18\n\x14TARGET_OUTRANK_SHARE\x10\x07\x12\x0f\n\x0bTARGET_ROAS\x10\x08\x12\x10\n\x0cTARGET_SPEND\x10\tB\xed\x01\n!com.google.ads.googleads.v8.enumsB\x18\x42iddingStrategyTypeProtoP\x01ZBgoogle.golang.org/genproto/googleapis/ads/googleads/v8/enums;enums\xa2\x02\x03GAA\xaa\x02\x1dGoogle.Ads.GoogleAds.V8.Enums\xca\x02\x1dGoogle\\Ads\\GoogleAds\\V8\\Enums\xea\x02!Google::Ads::GoogleAds::V8::Enumsb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -54,67 +54,72 @@ _BIDDINGSTRATEGYTYPEENUM_BIDDINGSTRATEGYTYPE = _descriptor.EnumDescriptor(
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='MANUAL_CPC', index=4, number=3,
+      name='INVALID', index=4, number=17,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='MANUAL_CPM', index=5, number=4,
+      name='MANUAL_CPC', index=5, number=3,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='MANUAL_CPV', index=6, number=13,
+      name='MANUAL_CPM', index=6, number=4,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='MAXIMIZE_CONVERSIONS', index=7, number=10,
+      name='MANUAL_CPV', index=7, number=13,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='MAXIMIZE_CONVERSION_VALUE', index=8, number=11,
+      name='MAXIMIZE_CONVERSIONS', index=8, number=10,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='PAGE_ONE_PROMOTED', index=9, number=5,
+      name='MAXIMIZE_CONVERSION_VALUE', index=9, number=11,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='PERCENT_CPC', index=10, number=12,
+      name='PAGE_ONE_PROMOTED', index=10, number=5,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TARGET_CPA', index=11, number=6,
+      name='PERCENT_CPC', index=11, number=12,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TARGET_CPM', index=12, number=14,
+      name='TARGET_CPA', index=12, number=6,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TARGET_IMPRESSION_SHARE', index=13, number=15,
+      name='TARGET_CPM', index=13, number=14,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TARGET_OUTRANK_SHARE', index=14, number=7,
+      name='TARGET_IMPRESSION_SHARE', index=14, number=15,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TARGET_ROAS', index=15, number=8,
+      name='TARGET_OUTRANK_SHARE', index=15, number=7,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TARGET_SPEND', index=16, number=9,
+      name='TARGET_ROAS', index=16, number=8,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TARGET_SPEND', index=17, number=9,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
@@ -122,7 +127,7 @@ _BIDDINGSTRATEGYTYPEENUM_BIDDINGSTRATEGYTYPE = _descriptor.EnumDescriptor(
   containing_type=None,
   serialized_options=None,
   serialized_start=151,
-  serialized_end=503,
+  serialized_end=516,
 )
 _sym_db.RegisterEnumDescriptor(_BIDDINGSTRATEGYTYPEENUM_BIDDINGSTRATEGYTYPE)
 
@@ -149,7 +154,7 @@ _BIDDINGSTRATEGYTYPEENUM = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=123,
-  serialized_end=503,
+  serialized_end=516,
 )
 
 _BIDDINGSTRATEGYTYPEENUM_BIDDINGSTRATEGYTYPE.containing_type = _BIDDINGSTRATEGYTYPEENUM

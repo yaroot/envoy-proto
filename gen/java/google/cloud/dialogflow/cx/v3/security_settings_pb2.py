@@ -24,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/dialogflow/cx/v3/security_settings.proto',
   package='google.cloud.dialogflow.cx.v3',
   syntax='proto3',
-  serialized_options=b'\n!com.google.cloud.dialogflow.cx.v3B\025SecuritySettingsProtoP\001Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\370\001\001\242\002\002DF\252\002\035Google.Cloud.Dialogflow.Cx.V3',
+  serialized_options=b'\n!com.google.cloud.dialogflow.cx.v3B\025SecuritySettingsProtoP\001Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\370\001\001\242\002\002DF\252\002\035Google.Cloud.Dialogflow.Cx.V3\352\002!Google::Cloud::Dialogflow::CX::V3\352A\310\001\n\"dlp.googleapis.com/InspectTemplate\022Uorganizations/{organization}/locations/{location}/inspectTemplates/{inspect_template}\022Kprojects/{project}/locations/{location}/inspectTemplates/{inspect_template}\352A\327\001\n%dlp.googleapis.com/DeidentifyTemplate\022[organizations/{organization}/locations/{location}/deidentifyTemplates/{deidentify_template}\022Qprojects/{project}/locations/{location}/deidentifyTemplates/{deidentify_template}',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n5google/cloud/dialogflow/cx/v3/security_settings.proto\x12\x1dgoogle.cloud.dialogflow.cx.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"^\n\x1aGetSecuritySettingsRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*dialogflow.googleapis.com/SecuritySettings\"\xa6\x01\n\x1dUpdateSecuritySettingsRequest\x12O\n\x11security_settings\x18\x01 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3.SecuritySettingsB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\x88\x01\n\x1bListSecuritySettingsRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*dialogflow.googleapis.com/SecuritySettings\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x83\x01\n\x1cListSecuritySettingsResponse\x12J\n\x11security_settings\x18\x01 \x03(\x0b\x32/.google.cloud.dialogflow.cx.v3.SecuritySettings\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb4\x01\n\x1d\x43reateSecuritySettingsRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*dialogflow.googleapis.com/SecuritySettings\x12O\n\x11security_settings\x18\x02 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3.SecuritySettingsB\x03\xe0\x41\x02\"a\n\x1d\x44\x65leteSecuritySettingsRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*dialogflow.googleapis.com/SecuritySettings\"\x85\x06\n\x10SecuritySettings\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12]\n\x12redaction_strategy\x18\x03 \x01(\x0e\x32\x41.google.cloud.dialogflow.cx.v3.SecuritySettings.RedactionStrategy\x12W\n\x0fredaction_scope\x18\x04 \x01(\x0e\x32>.google.cloud.dialogflow.cx.v3.SecuritySettings.RedactionScope\x12\x18\n\x10inspect_template\x18\t \x01(\t\x12\x1f\n\x15retention_window_days\x18\x06 \x01(\x05H\x00\x12W\n\x10purge_data_types\x18\x08 \x03(\x0e\x32=.google.cloud.dialogflow.cx.v3.SecuritySettings.PurgeDataType\"P\n\x11RedactionStrategy\x12\"\n\x1eREDACTION_STRATEGY_UNSPECIFIED\x10\x00\x12\x17\n\x13REDACT_WITH_SERVICE\x10\x01\"J\n\x0eRedactionScope\x12\x1f\n\x1bREDACTION_SCOPE_UNSPECIFIED\x10\x00\x12\x17\n\x13REDACT_DISK_STORAGE\x10\x02\"H\n\rPurgeDataType\x12\x1f\n\x1bPURGE_DATA_TYPE_UNSPECIFIED\x10\x00\x12\x16\n\x12\x44IALOGFLOW_HISTORY\x10\x01:}\xea\x41z\n*dialogflow.googleapis.com/SecuritySettings\x12Lprojects/{project}/locations/{location}/securitySettings/{security_settings}B\x10\n\x0e\x64\x61ta_retention2\xef\t\n\x17SecuritySettingsService\x12\xf3\x01\n\x16\x43reateSecuritySettings\x12<.google.cloud.dialogflow.cx.v3.CreateSecuritySettingsRequest\x1a/.google.cloud.dialogflow.cx.v3.SecuritySettings\"j\x82\xd3\xe4\x93\x02I\"4/v3/{parent=projects/*/locations/*}/securitySettings:\x11security_settings\xda\x41\x18parent,security_settings\x12\xc6\x01\n\x13GetSecuritySettings\x12\x39.google.cloud.dialogflow.cx.v3.GetSecuritySettingsRequest\x1a/.google.cloud.dialogflow.cx.v3.SecuritySettings\"C\x82\xd3\xe4\x93\x02\x36\x12\x34/v3/{name=projects/*/locations/*/securitySettings/*}\xda\x41\x04name\x12\x8b\x02\n\x16UpdateSecuritySettings\x12<.google.cloud.dialogflow.cx.v3.UpdateSecuritySettingsRequest\x1a/.google.cloud.dialogflow.cx.v3.SecuritySettings\"\x81\x01\x82\xd3\xe4\x93\x02[2F/v3/{security_settings.name=projects/*/locations/*/securitySettings/*}:\x11security_settings\xda\x41\x1dsecurity_settings,update_mask\x12\xd6\x01\n\x14ListSecuritySettings\x12:.google.cloud.dialogflow.cx.v3.ListSecuritySettingsRequest\x1a;.google.cloud.dialogflow.cx.v3.ListSecuritySettingsResponse\"E\x82\xd3\xe4\x93\x02\x36\x12\x34/v3/{parent=projects/*/locations/*}/securitySettings\xda\x41\x06parent\x12\xb3\x01\n\x16\x44\x65leteSecuritySettings\x12<.google.cloud.dialogflow.cx.v3.DeleteSecuritySettingsRequest\x1a\x16.google.protobuf.Empty\"C\x82\xd3\xe4\x93\x02\x36*4/v3/{name=projects/*/locations/*/securitySettings/*}\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xa5\x01\n!com.google.cloud.dialogflow.cx.v3B\x15SecuritySettingsProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1dGoogle.Cloud.Dialogflow.Cx.V3b\x06proto3'
+  serialized_pb=b'\n5google/cloud/dialogflow/cx/v3/security_settings.proto\x12\x1dgoogle.cloud.dialogflow.cx.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"^\n\x1aGetSecuritySettingsRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*dialogflow.googleapis.com/SecuritySettings\"\xa6\x01\n\x1dUpdateSecuritySettingsRequest\x12O\n\x11security_settings\x18\x01 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3.SecuritySettingsB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\x88\x01\n\x1bListSecuritySettingsRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*dialogflow.googleapis.com/SecuritySettings\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x83\x01\n\x1cListSecuritySettingsResponse\x12J\n\x11security_settings\x18\x01 \x03(\x0b\x32/.google.cloud.dialogflow.cx.v3.SecuritySettings\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb4\x01\n\x1d\x43reateSecuritySettingsRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*dialogflow.googleapis.com/SecuritySettings\x12O\n\x11security_settings\x18\x02 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3.SecuritySettingsB\x03\xe0\x41\x02\"a\n\x1d\x44\x65leteSecuritySettingsRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*dialogflow.googleapis.com/SecuritySettings\"\x9b\x08\n\x10SecuritySettings\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12]\n\x12redaction_strategy\x18\x03 \x01(\x0e\x32\x41.google.cloud.dialogflow.cx.v3.SecuritySettings.RedactionStrategy\x12W\n\x0fredaction_scope\x18\x04 \x01(\x0e\x32>.google.cloud.dialogflow.cx.v3.SecuritySettings.RedactionScope\x12\x41\n\x10inspect_template\x18\t \x01(\tB\'\xfa\x41$\n\"dlp.googleapis.com/InspectTemplate\x12G\n\x13\x64\x65identify_template\x18\x11 \x01(\tB*\xfa\x41\'\n%dlp.googleapis.com/DeidentifyTemplate\x12\x1f\n\x15retention_window_days\x18\x06 \x01(\x05H\x00\x12W\n\x10purge_data_types\x18\x08 \x03(\x0e\x32=.google.cloud.dialogflow.cx.v3.SecuritySettings.PurgeDataType\x12h\n\x18insights_export_settings\x18\r \x01(\x0b\x32\x46.google.cloud.dialogflow.cx.v3.SecuritySettings.InsightsExportSettings\x1a\x38\n\x16InsightsExportSettings\x12\x1e\n\x16\x65nable_insights_export\x18\x01 \x01(\x08\"P\n\x11RedactionStrategy\x12\"\n\x1eREDACTION_STRATEGY_UNSPECIFIED\x10\x00\x12\x17\n\x13REDACT_WITH_SERVICE\x10\x01\"J\n\x0eRedactionScope\x12\x1f\n\x1bREDACTION_SCOPE_UNSPECIFIED\x10\x00\x12\x17\n\x13REDACT_DISK_STORAGE\x10\x02\"H\n\rPurgeDataType\x12\x1f\n\x1bPURGE_DATA_TYPE_UNSPECIFIED\x10\x00\x12\x16\n\x12\x44IALOGFLOW_HISTORY\x10\x01:}\xea\x41z\n*dialogflow.googleapis.com/SecuritySettings\x12Lprojects/{project}/locations/{location}/securitySettings/{security_settings}B\x10\n\x0e\x64\x61ta_retention2\xef\t\n\x17SecuritySettingsService\x12\xf3\x01\n\x16\x43reateSecuritySettings\x12<.google.cloud.dialogflow.cx.v3.CreateSecuritySettingsRequest\x1a/.google.cloud.dialogflow.cx.v3.SecuritySettings\"j\x82\xd3\xe4\x93\x02I\"4/v3/{parent=projects/*/locations/*}/securitySettings:\x11security_settings\xda\x41\x18parent,security_settings\x12\xc6\x01\n\x13GetSecuritySettings\x12\x39.google.cloud.dialogflow.cx.v3.GetSecuritySettingsRequest\x1a/.google.cloud.dialogflow.cx.v3.SecuritySettings\"C\x82\xd3\xe4\x93\x02\x36\x12\x34/v3/{name=projects/*/locations/*/securitySettings/*}\xda\x41\x04name\x12\x8b\x02\n\x16UpdateSecuritySettings\x12<.google.cloud.dialogflow.cx.v3.UpdateSecuritySettingsRequest\x1a/.google.cloud.dialogflow.cx.v3.SecuritySettings\"\x81\x01\x82\xd3\xe4\x93\x02[2F/v3/{security_settings.name=projects/*/locations/*/securitySettings/*}:\x11security_settings\xda\x41\x1dsecurity_settings,update_mask\x12\xd6\x01\n\x14ListSecuritySettings\x12:.google.cloud.dialogflow.cx.v3.ListSecuritySettingsRequest\x1a;.google.cloud.dialogflow.cx.v3.ListSecuritySettingsResponse\"E\x82\xd3\xe4\x93\x02\x36\x12\x34/v3/{parent=projects/*/locations/*}/securitySettings\xda\x41\x06parent\x12\xb3\x01\n\x16\x44\x65leteSecuritySettings\x12<.google.cloud.dialogflow.cx.v3.DeleteSecuritySettingsRequest\x1a\x16.google.protobuf.Empty\"C\x82\xd3\xe4\x93\x02\x36*4/v3/{name=projects/*/locations/*/securitySettings/*}\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xf0\x04\n!com.google.cloud.dialogflow.cx.v3B\x15SecuritySettingsProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1dGoogle.Cloud.Dialogflow.Cx.V3\xea\x02!Google::Cloud::Dialogflow::CX::V3\xea\x41\xc8\x01\n\"dlp.googleapis.com/InspectTemplate\x12Uorganizations/{organization}/locations/{location}/inspectTemplates/{inspect_template}\x12Kprojects/{project}/locations/{location}/inspectTemplates/{inspect_template}\xea\x41\xd7\x01\n%dlp.googleapis.com/DeidentifyTemplate\x12[organizations/{organization}/locations/{location}/deidentifyTemplates/{deidentify_template}\x12Qprojects/{project}/locations/{location}/deidentifyTemplates/{deidentify_template}b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
 
@@ -52,8 +52,8 @@ _SECURITYSETTINGS_REDACTIONSTRATEGY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1522,
-  serialized_end=1602,
+  serialized_start=1800,
+  serialized_end=1880,
 )
 _sym_db.RegisterEnumDescriptor(_SECURITYSETTINGS_REDACTIONSTRATEGY)
 
@@ -77,8 +77,8 @@ _SECURITYSETTINGS_REDACTIONSCOPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1604,
-  serialized_end=1678,
+  serialized_start=1882,
+  serialized_end=1956,
 )
 _sym_db.RegisterEnumDescriptor(_SECURITYSETTINGS_REDACTIONSCOPE)
 
@@ -102,8 +102,8 @@ _SECURITYSETTINGS_PURGEDATATYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1680,
-  serialized_end=1752,
+  serialized_start=1958,
+  serialized_end=2030,
 )
 _sym_db.RegisterEnumDescriptor(_SECURITYSETTINGS_PURGEDATATYPE)
 
@@ -335,6 +335,37 @@ _DELETESECURITYSETTINGSREQUEST = _descriptor.Descriptor(
 )
 
 
+_SECURITYSETTINGS_INSIGHTSEXPORTSETTINGS = _descriptor.Descriptor(
+  name='InsightsExportSettings',
+  full_name='google.cloud.dialogflow.cx.v3.SecuritySettings.InsightsExportSettings',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='enable_insights_export', full_name='google.cloud.dialogflow.cx.v3.SecuritySettings.InsightsExportSettings.enable_insights_export', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1742,
+  serialized_end=1798,
+)
+
 _SECURITYSETTINGS = _descriptor.Descriptor(
   name='SecuritySettings',
   full_name='google.cloud.dialogflow.cx.v3.SecuritySettings',
@@ -377,25 +408,39 @@ _SECURITYSETTINGS = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\372A$\n\"dlp.googleapis.com/InspectTemplate', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='retention_window_days', full_name='google.cloud.dialogflow.cx.v3.SecuritySettings.retention_window_days', index=5,
+      name='deidentify_template', full_name='google.cloud.dialogflow.cx.v3.SecuritySettings.deidentify_template', index=5,
+      number=17, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A\'\n%dlp.googleapis.com/DeidentifyTemplate', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='retention_window_days', full_name='google.cloud.dialogflow.cx.v3.SecuritySettings.retention_window_days', index=6,
       number=6, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='purge_data_types', full_name='google.cloud.dialogflow.cx.v3.SecuritySettings.purge_data_types', index=6,
+      name='purge_data_types', full_name='google.cloud.dialogflow.cx.v3.SecuritySettings.purge_data_types', index=7,
       number=8, type=14, cpp_type=8, label=3,
       has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='insights_export_settings', full_name='google.cloud.dialogflow.cx.v3.SecuritySettings.insights_export_settings', index=8,
+      number=13, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_SECURITYSETTINGS_INSIGHTSEXPORTSETTINGS, ],
   enum_types=[
     _SECURITYSETTINGS_REDACTIONSTRATEGY,
     _SECURITYSETTINGS_REDACTIONSCOPE,
@@ -413,16 +458,18 @@ _SECURITYSETTINGS = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=1124,
-  serialized_end=1897,
+  serialized_end=2175,
 )
 
 _UPDATESECURITYSETTINGSREQUEST.fields_by_name['security_settings'].message_type = _SECURITYSETTINGS
 _UPDATESECURITYSETTINGSREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 _LISTSECURITYSETTINGSRESPONSE.fields_by_name['security_settings'].message_type = _SECURITYSETTINGS
 _CREATESECURITYSETTINGSREQUEST.fields_by_name['security_settings'].message_type = _SECURITYSETTINGS
+_SECURITYSETTINGS_INSIGHTSEXPORTSETTINGS.containing_type = _SECURITYSETTINGS
 _SECURITYSETTINGS.fields_by_name['redaction_strategy'].enum_type = _SECURITYSETTINGS_REDACTIONSTRATEGY
 _SECURITYSETTINGS.fields_by_name['redaction_scope'].enum_type = _SECURITYSETTINGS_REDACTIONSCOPE
 _SECURITYSETTINGS.fields_by_name['purge_data_types'].enum_type = _SECURITYSETTINGS_PURGEDATATYPE
+_SECURITYSETTINGS.fields_by_name['insights_export_settings'].message_type = _SECURITYSETTINGS_INSIGHTSEXPORTSETTINGS
 _SECURITYSETTINGS_REDACTIONSTRATEGY.containing_type = _SECURITYSETTINGS
 _SECURITYSETTINGS_REDACTIONSCOPE.containing_type = _SECURITYSETTINGS
 _SECURITYSETTINGS_PURGEDATATYPE.containing_type = _SECURITYSETTINGS
@@ -481,11 +528,19 @@ DeleteSecuritySettingsRequest = _reflection.GeneratedProtocolMessageType('Delete
 _sym_db.RegisterMessage(DeleteSecuritySettingsRequest)
 
 SecuritySettings = _reflection.GeneratedProtocolMessageType('SecuritySettings', (_message.Message,), {
+
+  'InsightsExportSettings' : _reflection.GeneratedProtocolMessageType('InsightsExportSettings', (_message.Message,), {
+    'DESCRIPTOR' : _SECURITYSETTINGS_INSIGHTSEXPORTSETTINGS,
+    '__module__' : 'google.cloud.dialogflow.cx.v3.security_settings_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3.SecuritySettings.InsightsExportSettings)
+    })
+  ,
   'DESCRIPTOR' : _SECURITYSETTINGS,
   '__module__' : 'google.cloud.dialogflow.cx.v3.security_settings_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3.SecuritySettings)
   })
 _sym_db.RegisterMessage(SecuritySettings)
+_sym_db.RegisterMessage(SecuritySettings.InsightsExportSettings)
 
 
 DESCRIPTOR._options = None
@@ -498,6 +553,8 @@ _CREATESECURITYSETTINGSREQUEST.fields_by_name['security_settings']._options = No
 _DELETESECURITYSETTINGSREQUEST.fields_by_name['name']._options = None
 _SECURITYSETTINGS.fields_by_name['name']._options = None
 _SECURITYSETTINGS.fields_by_name['display_name']._options = None
+_SECURITYSETTINGS.fields_by_name['inspect_template']._options = None
+_SECURITYSETTINGS.fields_by_name['deidentify_template']._options = None
 _SECURITYSETTINGS._options = None
 
 _SECURITYSETTINGSSERVICE = _descriptor.ServiceDescriptor(
@@ -507,8 +564,8 @@ _SECURITYSETTINGSSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1900,
-  serialized_end=3163,
+  serialized_start=2178,
+  serialized_end=3441,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateSecuritySettings',

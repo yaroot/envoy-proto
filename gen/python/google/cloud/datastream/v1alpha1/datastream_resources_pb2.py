@@ -23,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/datastream/v1alpha1/datastream_resources.proto',
   package='google.cloud.datastream.v1alpha1',
   syntax='proto3',
-  serialized_options=b'\n$com.google.cloud.datastream.v1alpha1B\035CloudDatastreamResourcesProtoP\001ZJgoogle.golang.org/genproto/googleapis/cloud/datastream/v1alpha1;datastream',
+  serialized_options=b'\n$com.google.cloud.datastream.v1alpha1B\035CloudDatastreamResourcesProtoP\001ZJgoogle.golang.org/genproto/googleapis/cloud/datastream/v1alpha1;datastream\252\002 Google.Cloud.Datastream.V1Alpha1\312\002 Google\\Cloud\\Datastream\\V1alpha1\352\002#Google::Cloud::Datastream::V1alpha1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n;google/cloud/datastream/v1alpha1/datastream_resources.proto\x12 google.cloud.datastream.v1alpha1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xa8\x02\n\rOracleProfile\x12\x15\n\x08hostname\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04port\x18\x02 \x01(\x05\x12\x15\n\x08username\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08password\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x1d\n\x10\x64\x61tabase_service\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12h\n\x15\x63onnection_attributes\x18\x06 \x03(\x0b\x32I.google.cloud.datastream.v1alpha1.OracleProfile.ConnectionAttributesEntry\x1a;\n\x19\x43onnectionAttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xaa\x01\n\x0cMysqlProfile\x12\x15\n\x08hostname\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04port\x18\x02 \x01(\x05\x12\x15\n\x08username\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x08password\x18\x04 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x04\x12\x44\n\nssl_config\x18\x05 \x01(\x0b\x32\x30.google.cloud.datastream.v1alpha1.MysqlSslConfig\"9\n\nGcsProfile\x12\x18\n\x0b\x62ucket_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\troot_path\x18\x02 \x01(\t\"\x18\n\x16NoConnectivitySettings\"\x1d\n\x1bStaticServiceIpConnectivity\"\xa8\x01\n\x1c\x46orwardSshTunnelConnectivity\x12\x15\n\x08hostname\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08username\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04port\x18\x03 \x01(\x05\x12\x17\n\x08password\x18\x64 \x01(\tB\x03\xe0\x41\x04H\x00\x12\x1a\n\x0bprivate_key\x18\x65 \x01(\tB\x03\xe0\x41\x04H\x00\x42\x17\n\x15\x61uthentication_method\">\n\x10VpcPeeringConfig\x12\x15\n\x08vpc_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x06subnet\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\xd3\x05\n\x11PrivateConnection\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12O\n\x06labels\x18\x04 \x03(\x0b\x32?.google.cloud.datastream.v1alpha1.PrivateConnection.LabelsEntry\x12\x19\n\x0c\x64isplay_name\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12M\n\x05state\x18\x06 \x01(\x0e\x32\x39.google.cloud.datastream.v1alpha1.PrivateConnection.StateB\x03\xe0\x41\x03\x12;\n\x05\x65rror\x18\x07 \x01(\x0b\x32\'.google.cloud.datastream.v1alpha1.ErrorB\x03\xe0\x41\x03\x12N\n\x12vpc_peering_config\x18\x64 \x01(\x0b\x32\x32.google.cloud.datastream.v1alpha1.VpcPeeringConfig\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"E\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\x0b\n\x07\x43REATED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03:\x80\x01\xea\x41}\n+datastream.googleapis.com/PrivateConnection\x12Nprojects/{project}/locations/{location}/privateConnections/{privateConnection}\";\n\x13PrivateConnectivity\x12$\n\x17private_connection_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\xd8\x03\n\x05Route\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x43\n\x06labels\x18\x04 \x03(\x0b\x32\x33.google.cloud.datastream.v1alpha1.Route.LabelsEntry\x12\x19\n\x0c\x64isplay_name\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12 \n\x13\x64\x65stination_address\x18\x06 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x10\x64\x65stination_port\x18\x07 \x01(\x05\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x84\x01\xea\x41\x80\x01\n\x1f\x64\x61tastream.googleapis.com/Route\x12]projects/{project}/locations/{location}/privateConnections/{privateConnection}/routes/{route}\"\xca\x01\n\x0eMysqlSslConfig\x12\x17\n\nclient_key\x18\x0b \x01(\tB\x03\xe0\x41\x04\x12\x1b\n\x0e\x63lient_key_set\x18\x0c \x01(\x08\x42\x03\xe0\x41\x03\x12\x1f\n\x12\x63lient_certificate\x18\r \x01(\tB\x03\xe0\x41\x04\x12#\n\x16\x63lient_certificate_set\x18\x0e \x01(\x08\x42\x03\xe0\x41\x03\x12\x1b\n\x0e\x63\x61_certificate\x18\x0f \x01(\tB\x03\xe0\x41\x04\x12\x1f\n\x12\x63\x61_certificate_set\x18\x10 \x01(\x08\x42\x03\xe0\x41\x03\"\xa1\x08\n\x11\x43onnectionProfile\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12O\n\x06labels\x18\x04 \x03(\x0b\x32?.google.cloud.datastream.v1alpha1.ConnectionProfile.LabelsEntry\x12\x19\n\x0c\x64isplay_name\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12I\n\x0eoracle_profile\x18\x64 \x01(\x0b\x32/.google.cloud.datastream.v1alpha1.OracleProfileH\x00\x12\x43\n\x0bgcs_profile\x18\x65 \x01(\x0b\x32,.google.cloud.datastream.v1alpha1.GcsProfileH\x00\x12G\n\rmysql_profile\x18\x66 \x01(\x0b\x32..google.cloud.datastream.v1alpha1.MysqlProfileH\x00\x12T\n\x0fno_connectivity\x18\xc8\x01 \x01(\x0b\x32\x38.google.cloud.datastream.v1alpha1.NoConnectivitySettingsH\x01\x12h\n\x1estatic_service_ip_connectivity\x18\xc9\x01 \x01(\x0b\x32=.google.cloud.datastream.v1alpha1.StaticServiceIpConnectivityH\x01\x12\x63\n\x18\x66orward_ssh_connectivity\x18\xca\x01 \x01(\x0b\x32>.google.cloud.datastream.v1alpha1.ForwardSshTunnelConnectivityH\x01\x12V\n\x14private_connectivity\x18\xcb\x01 \x01(\x0b\x32\x35.google.cloud.datastream.v1alpha1.PrivateConnectivityH\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x80\x01\xea\x41}\n+datastream.googleapis.com/ConnectionProfile\x12Nprojects/{project}/locations/{location}/connectionProfiles/{connectionProfile}B\t\n\x07profileB\x0e\n\x0c\x63onnectivity\"\xbb\x01\n\x0cOracleColumn\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x12\x11\n\tdata_type\x18\x02 \x01(\t\x12\x0e\n\x06length\x18\x03 \x01(\x05\x12\x11\n\tprecision\x18\x04 \x01(\x05\x12\r\n\x05scale\x18\x05 \x01(\x05\x12\x10\n\x08\x65ncoding\x18\x06 \x01(\t\x12\x13\n\x0bprimary_key\x18\x07 \x01(\x08\x12\x10\n\x08nullable\x18\x08 \x01(\x08\x12\x18\n\x10ordinal_position\x18\t \x01(\x05\"i\n\x0bOracleTable\x12\x12\n\ntable_name\x18\x01 \x01(\t\x12\x46\n\x0eoracle_columns\x18\x02 \x03(\x0b\x32..google.cloud.datastream.v1alpha1.OracleColumn\"i\n\x0cOracleSchema\x12\x13\n\x0bschema_name\x18\x01 \x01(\t\x12\x44\n\roracle_tables\x18\x02 \x03(\x0b\x32-.google.cloud.datastream.v1alpha1.OracleTable\"U\n\x0bOracleRdbms\x12\x46\n\x0eoracle_schemas\x18\x01 \x03(\x0b\x32..google.cloud.datastream.v1alpha1.OracleSchema\"\x99\x01\n\x12OracleSourceConfig\x12@\n\tallowlist\x18\x01 \x01(\x0b\x32-.google.cloud.datastream.v1alpha1.OracleRdbms\x12\x41\n\nrejectlist\x18\x02 \x01(\x0b\x32-.google.cloud.datastream.v1alpha1.OracleRdbms\"\x99\x01\n\x0bMysqlColumn\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x12\x11\n\tdata_type\x18\x02 \x01(\t\x12\x0e\n\x06length\x18\x03 \x01(\x05\x12\x11\n\tcollation\x18\x04 \x01(\t\x12\x13\n\x0bprimary_key\x18\x05 \x01(\x08\x12\x10\n\x08nullable\x18\x06 \x01(\x08\x12\x18\n\x10ordinal_position\x18\x07 \x01(\x05\"f\n\nMysqlTable\x12\x12\n\ntable_name\x18\x01 \x01(\t\x12\x44\n\rmysql_columns\x18\x02 \x03(\x0b\x32-.google.cloud.datastream.v1alpha1.MysqlColumn\"j\n\rMysqlDatabase\x12\x15\n\rdatabase_name\x18\x01 \x01(\t\x12\x42\n\x0cmysql_tables\x18\x02 \x03(\x0b\x32,.google.cloud.datastream.v1alpha1.MysqlTable\"V\n\nMysqlRdbms\x12H\n\x0fmysql_databases\x18\x01 \x03(\x0b\x32/.google.cloud.datastream.v1alpha1.MysqlDatabase\"\x96\x01\n\x11MysqlSourceConfig\x12?\n\tallowlist\x18\x01 \x01(\x0b\x32,.google.cloud.datastream.v1alpha1.MysqlRdbms\x12@\n\nrejectlist\x18\x02 \x01(\x0b\x32,.google.cloud.datastream.v1alpha1.MysqlRdbms\"\xfd\x01\n\x0cSourceConfig\x12+\n\x1esource_connection_profile_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12T\n\x14oracle_source_config\x18\x64 \x01(\x0b\x32\x34.google.cloud.datastream.v1alpha1.OracleSourceConfigH\x00\x12R\n\x13mysql_source_config\x18\x65 \x01(\x0b\x32\x33.google.cloud.datastream.v1alpha1.MysqlSourceConfigH\x00\x42\x16\n\x14source_stream_config\"\x10\n\x0e\x41vroFileFormat\"\x8a\x02\n\x0eJsonFileFormat\x12N\n\x12schema_file_format\x18\x01 \x01(\x0e\x32\x32.google.cloud.datastream.v1alpha1.SchemaFileFormat\x12U\n\x0b\x63ompression\x18\x02 \x01(\x0e\x32@.google.cloud.datastream.v1alpha1.JsonFileFormat.JsonCompression\"Q\n\x0fJsonCompression\x12 \n\x1cJSON_COMPRESSION_UNSPECIFIED\x10\x00\x12\x12\n\x0eNO_COMPRESSION\x10\x01\x12\x08\n\x04GZIP\x10\x02\"\xf2\x02\n\x14GcsDestinationConfig\x12\x0c\n\x04path\x18\x01 \x01(\t\x12L\n\x0fgcs_file_format\x18\x02 \x01(\x0e\x32/.google.cloud.datastream.v1alpha1.GcsFileFormatB\x02\x18\x01\x12\x18\n\x10\x66ile_rotation_mb\x18\x03 \x01(\x05\x12\x39\n\x16\x66ile_rotation_interval\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12L\n\x10\x61vro_file_format\x18\x64 \x01(\x0b\x32\x30.google.cloud.datastream.v1alpha1.AvroFileFormatH\x00\x12L\n\x10json_file_format\x18\x65 \x01(\x0b\x32\x30.google.cloud.datastream.v1alpha1.JsonFileFormatH\x00\x42\r\n\x0b\x66ile_format\"\xbc\x01\n\x11\x44\x65stinationConfig\x12\x30\n#destination_connection_profile_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12X\n\x16gcs_destination_config\x18\x64 \x01(\x0b\x32\x36.google.cloud.datastream.v1alpha1.GcsDestinationConfigH\x00\x42\x1b\n\x19\x64\x65stination_stream_config\"\xd8\t\n\x06Stream\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x44\n\x06labels\x18\x04 \x03(\x0b\x32\x34.google.cloud.datastream.v1alpha1.Stream.LabelsEntry\x12\x19\n\x0c\x64isplay_name\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12J\n\rsource_config\x18\x06 \x01(\x0b\x32..google.cloud.datastream.v1alpha1.SourceConfigB\x03\xe0\x41\x02\x12T\n\x12\x64\x65stination_config\x18\x07 \x01(\x0b\x32\x33.google.cloud.datastream.v1alpha1.DestinationConfigB\x03\xe0\x41\x02\x12=\n\x05state\x18\x08 \x01(\x0e\x32..google.cloud.datastream.v1alpha1.Stream.State\x12T\n\x0c\x62\x61\x63kfill_all\x18\x65 \x01(\x0b\x32<.google.cloud.datastream.v1alpha1.Stream.BackfillAllStrategyH\x00\x12V\n\rbackfill_none\x18\x66 \x01(\x0b\x32=.google.cloud.datastream.v1alpha1.Stream.BackfillNoneStrategyH\x00\x12<\n\x06\x65rrors\x18\t \x03(\x0b\x32\'.google.cloud.datastream.v1alpha1.ErrorB\x03\xe0\x41\x03\x1a\xcb\x01\n\x13\x42\x61\x63kfillAllStrategy\x12P\n\x17oracle_excluded_objects\x18\x01 \x01(\x0b\x32-.google.cloud.datastream.v1alpha1.OracleRdbmsH\x00\x12N\n\x16mysql_excluded_objects\x18\x02 \x01(\x0b\x32,.google.cloud.datastream.v1alpha1.MysqlRdbmsH\x00\x42\x12\n\x10\x65xcluded_objects\x1a\x16\n\x14\x42\x61\x63kfillNoneStrategy\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x95\x01\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x43REATED\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\n\n\x06PAUSED\x10\x03\x12\x0f\n\x0bMAINTENANCE\x10\x04\x12\n\n\x06\x46\x41ILED\x10\x05\x12\x16\n\x12\x46\x41ILED_PERMANENTLY\x10\x06\x12\x0c\n\x08STARTING\x10\x07\x12\x0c\n\x08\x44RAINING\x10\x08:_\xea\x41\\\n datastream.googleapis.com/Stream\x12\x38projects/{project}/locations/{location}/streams/{stream}B\x13\n\x11\x62\x61\x63kfill_strategy\"\xe3\x01\n\x05\x45rror\x12\x0e\n\x06reason\x18\x01 \x01(\t\x12\x12\n\nerror_uuid\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\x12.\n\nerror_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x45\n\x07\x64\x65tails\x18\x05 \x03(\x0b\x32\x34.google.cloud.datastream.v1alpha1.Error.DetailsEntry\x1a.\n\x0c\x44\x65tailsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"U\n\x10ValidationResult\x12\x41\n\x0bvalidations\x18\x01 \x03(\x0b\x32,.google.cloud.datastream.v1alpha1.Validation\"\x86\x02\n\nValidation\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12\x43\n\x06status\x18\x02 \x01(\x0e\x32\x33.google.cloud.datastream.v1alpha1.Validation.Status\x12\x44\n\x07message\x18\x03 \x03(\x0b\x32\x33.google.cloud.datastream.v1alpha1.ValidationMessage\x12\x0c\n\x04\x63ode\x18\x04 \x01(\t\"J\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x10\n\x0cNOT_EXECUTED\x10\x01\x12\n\n\x06\x46\x41ILED\x10\x02\x12\n\n\x06PASSED\x10\x03\"\xba\x02\n\x11ValidationMessage\x12\x0f\n\x07message\x18\x01 \x01(\t\x12H\n\x05level\x18\x02 \x01(\x0e\x32\x39.google.cloud.datastream.v1alpha1.ValidationMessage.Level\x12S\n\x08metadata\x18\x03 \x03(\x0b\x32\x41.google.cloud.datastream.v1alpha1.ValidationMessage.MetadataEntry\x12\x0c\n\x04\x63ode\x18\x04 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"6\n\x05Level\x12\x15\n\x11LEVEL_UNSPECIFIED\x10\x00\x12\x0b\n\x07WARNING\x10\x01\x12\t\n\x05\x45RROR\x10\x02*>\n\rGcsFileFormat\x12\x1f\n\x1bGCS_FILE_FORMAT_UNSPECIFIED\x10\x00\x12\x08\n\x04\x41VRO\x10\x01\x1a\x02\x18\x01*`\n\x10SchemaFileFormat\x12\"\n\x1eSCHEMA_FILE_FORMAT_UNSPECIFIED\x10\x00\x12\x12\n\x0eNO_SCHEMA_FILE\x10\x01\x12\x14\n\x10\x41VRO_SCHEMA_FILE\x10\x02\x42\x93\x01\n$com.google.cloud.datastream.v1alpha1B\x1d\x43loudDatastreamResourcesProtoP\x01ZJgoogle.golang.org/genproto/googleapis/cloud/datastream/v1alpha1;datastreamb\x06proto3'
+  serialized_pb=b'\n;google/cloud/datastream/v1alpha1/datastream_resources.proto\x12 google.cloud.datastream.v1alpha1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xa8\x02\n\rOracleProfile\x12\x15\n\x08hostname\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04port\x18\x02 \x01(\x05\x12\x15\n\x08username\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08password\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x1d\n\x10\x64\x61tabase_service\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12h\n\x15\x63onnection_attributes\x18\x06 \x03(\x0b\x32I.google.cloud.datastream.v1alpha1.OracleProfile.ConnectionAttributesEntry\x1a;\n\x19\x43onnectionAttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xaa\x01\n\x0cMysqlProfile\x12\x15\n\x08hostname\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04port\x18\x02 \x01(\x05\x12\x15\n\x08username\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x08password\x18\x04 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x04\x12\x44\n\nssl_config\x18\x05 \x01(\x0b\x32\x30.google.cloud.datastream.v1alpha1.MysqlSslConfig\"9\n\nGcsProfile\x12\x18\n\x0b\x62ucket_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\troot_path\x18\x02 \x01(\t\"\x18\n\x16NoConnectivitySettings\"\x1d\n\x1bStaticServiceIpConnectivity\"\xa8\x01\n\x1c\x46orwardSshTunnelConnectivity\x12\x15\n\x08hostname\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08username\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04port\x18\x03 \x01(\x05\x12\x17\n\x08password\x18\x64 \x01(\tB\x03\xe0\x41\x04H\x00\x12\x1a\n\x0bprivate_key\x18\x65 \x01(\tB\x03\xe0\x41\x04H\x00\x42\x17\n\x15\x61uthentication_method\">\n\x10VpcPeeringConfig\x12\x15\n\x08vpc_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x06subnet\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\xd4\x05\n\x11PrivateConnection\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12O\n\x06labels\x18\x04 \x03(\x0b\x32?.google.cloud.datastream.v1alpha1.PrivateConnection.LabelsEntry\x12\x19\n\x0c\x64isplay_name\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12M\n\x05state\x18\x06 \x01(\x0e\x32\x39.google.cloud.datastream.v1alpha1.PrivateConnection.StateB\x03\xe0\x41\x03\x12;\n\x05\x65rror\x18\x07 \x01(\x0b\x32\'.google.cloud.datastream.v1alpha1.ErrorB\x03\xe0\x41\x03\x12N\n\x12vpc_peering_config\x18\x64 \x01(\x0b\x32\x32.google.cloud.datastream.v1alpha1.VpcPeeringConfig\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"E\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\x0b\n\x07\x43REATED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03:\x81\x01\xea\x41~\n+datastream.googleapis.com/PrivateConnection\x12Oprojects/{project}/locations/{location}/privateConnections/{private_connection}\";\n\x13PrivateConnectivity\x12$\n\x17private_connection_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\xd9\x03\n\x05Route\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x43\n\x06labels\x18\x04 \x03(\x0b\x32\x33.google.cloud.datastream.v1alpha1.Route.LabelsEntry\x12\x19\n\x0c\x64isplay_name\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12 \n\x13\x64\x65stination_address\x18\x06 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x10\x64\x65stination_port\x18\x07 \x01(\x05\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x85\x01\xea\x41\x81\x01\n\x1f\x64\x61tastream.googleapis.com/Route\x12^projects/{project}/locations/{location}/privateConnections/{private_connection}/routes/{route}\"\xca\x01\n\x0eMysqlSslConfig\x12\x17\n\nclient_key\x18\x0b \x01(\tB\x03\xe0\x41\x04\x12\x1b\n\x0e\x63lient_key_set\x18\x0c \x01(\x08\x42\x03\xe0\x41\x03\x12\x1f\n\x12\x63lient_certificate\x18\r \x01(\tB\x03\xe0\x41\x04\x12#\n\x16\x63lient_certificate_set\x18\x0e \x01(\x08\x42\x03\xe0\x41\x03\x12\x1b\n\x0e\x63\x61_certificate\x18\x0f \x01(\tB\x03\xe0\x41\x04\x12\x1f\n\x12\x63\x61_certificate_set\x18\x10 \x01(\x08\x42\x03\xe0\x41\x03\"\xa2\x08\n\x11\x43onnectionProfile\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12O\n\x06labels\x18\x04 \x03(\x0b\x32?.google.cloud.datastream.v1alpha1.ConnectionProfile.LabelsEntry\x12\x19\n\x0c\x64isplay_name\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12I\n\x0eoracle_profile\x18\x64 \x01(\x0b\x32/.google.cloud.datastream.v1alpha1.OracleProfileH\x00\x12\x43\n\x0bgcs_profile\x18\x65 \x01(\x0b\x32,.google.cloud.datastream.v1alpha1.GcsProfileH\x00\x12G\n\rmysql_profile\x18\x66 \x01(\x0b\x32..google.cloud.datastream.v1alpha1.MysqlProfileH\x00\x12T\n\x0fno_connectivity\x18\xc8\x01 \x01(\x0b\x32\x38.google.cloud.datastream.v1alpha1.NoConnectivitySettingsH\x01\x12h\n\x1estatic_service_ip_connectivity\x18\xc9\x01 \x01(\x0b\x32=.google.cloud.datastream.v1alpha1.StaticServiceIpConnectivityH\x01\x12\x63\n\x18\x66orward_ssh_connectivity\x18\xca\x01 \x01(\x0b\x32>.google.cloud.datastream.v1alpha1.ForwardSshTunnelConnectivityH\x01\x12V\n\x14private_connectivity\x18\xcb\x01 \x01(\x0b\x32\x35.google.cloud.datastream.v1alpha1.PrivateConnectivityH\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x81\x01\xea\x41~\n+datastream.googleapis.com/ConnectionProfile\x12Oprojects/{project}/locations/{location}/connectionProfiles/{connection_profile}B\t\n\x07profileB\x0e\n\x0c\x63onnectivity\"\xbb\x01\n\x0cOracleColumn\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x12\x11\n\tdata_type\x18\x02 \x01(\t\x12\x0e\n\x06length\x18\x03 \x01(\x05\x12\x11\n\tprecision\x18\x04 \x01(\x05\x12\r\n\x05scale\x18\x05 \x01(\x05\x12\x10\n\x08\x65ncoding\x18\x06 \x01(\t\x12\x13\n\x0bprimary_key\x18\x07 \x01(\x08\x12\x10\n\x08nullable\x18\x08 \x01(\x08\x12\x18\n\x10ordinal_position\x18\t \x01(\x05\"i\n\x0bOracleTable\x12\x12\n\ntable_name\x18\x01 \x01(\t\x12\x46\n\x0eoracle_columns\x18\x02 \x03(\x0b\x32..google.cloud.datastream.v1alpha1.OracleColumn\"i\n\x0cOracleSchema\x12\x13\n\x0bschema_name\x18\x01 \x01(\t\x12\x44\n\roracle_tables\x18\x02 \x03(\x0b\x32-.google.cloud.datastream.v1alpha1.OracleTable\"U\n\x0bOracleRdbms\x12\x46\n\x0eoracle_schemas\x18\x01 \x03(\x0b\x32..google.cloud.datastream.v1alpha1.OracleSchema\"\x99\x01\n\x12OracleSourceConfig\x12@\n\tallowlist\x18\x01 \x01(\x0b\x32-.google.cloud.datastream.v1alpha1.OracleRdbms\x12\x41\n\nrejectlist\x18\x02 \x01(\x0b\x32-.google.cloud.datastream.v1alpha1.OracleRdbms\"\x99\x01\n\x0bMysqlColumn\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x12\x11\n\tdata_type\x18\x02 \x01(\t\x12\x0e\n\x06length\x18\x03 \x01(\x05\x12\x11\n\tcollation\x18\x04 \x01(\t\x12\x13\n\x0bprimary_key\x18\x05 \x01(\x08\x12\x10\n\x08nullable\x18\x06 \x01(\x08\x12\x18\n\x10ordinal_position\x18\x07 \x01(\x05\"f\n\nMysqlTable\x12\x12\n\ntable_name\x18\x01 \x01(\t\x12\x44\n\rmysql_columns\x18\x02 \x03(\x0b\x32-.google.cloud.datastream.v1alpha1.MysqlColumn\"j\n\rMysqlDatabase\x12\x15\n\rdatabase_name\x18\x01 \x01(\t\x12\x42\n\x0cmysql_tables\x18\x02 \x03(\x0b\x32,.google.cloud.datastream.v1alpha1.MysqlTable\"V\n\nMysqlRdbms\x12H\n\x0fmysql_databases\x18\x01 \x03(\x0b\x32/.google.cloud.datastream.v1alpha1.MysqlDatabase\"\x96\x01\n\x11MysqlSourceConfig\x12?\n\tallowlist\x18\x01 \x01(\x0b\x32,.google.cloud.datastream.v1alpha1.MysqlRdbms\x12@\n\nrejectlist\x18\x02 \x01(\x0b\x32,.google.cloud.datastream.v1alpha1.MysqlRdbms\"\xfd\x01\n\x0cSourceConfig\x12+\n\x1esource_connection_profile_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12T\n\x14oracle_source_config\x18\x64 \x01(\x0b\x32\x34.google.cloud.datastream.v1alpha1.OracleSourceConfigH\x00\x12R\n\x13mysql_source_config\x18\x65 \x01(\x0b\x32\x33.google.cloud.datastream.v1alpha1.MysqlSourceConfigH\x00\x42\x16\n\x14source_stream_config\"\x10\n\x0e\x41vroFileFormat\"\x8a\x02\n\x0eJsonFileFormat\x12N\n\x12schema_file_format\x18\x01 \x01(\x0e\x32\x32.google.cloud.datastream.v1alpha1.SchemaFileFormat\x12U\n\x0b\x63ompression\x18\x02 \x01(\x0e\x32@.google.cloud.datastream.v1alpha1.JsonFileFormat.JsonCompression\"Q\n\x0fJsonCompression\x12 \n\x1cJSON_COMPRESSION_UNSPECIFIED\x10\x00\x12\x12\n\x0eNO_COMPRESSION\x10\x01\x12\x08\n\x04GZIP\x10\x02\"\xf2\x02\n\x14GcsDestinationConfig\x12\x0c\n\x04path\x18\x01 \x01(\t\x12L\n\x0fgcs_file_format\x18\x02 \x01(\x0e\x32/.google.cloud.datastream.v1alpha1.GcsFileFormatB\x02\x18\x01\x12\x18\n\x10\x66ile_rotation_mb\x18\x03 \x01(\x05\x12\x39\n\x16\x66ile_rotation_interval\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12L\n\x10\x61vro_file_format\x18\x64 \x01(\x0b\x32\x30.google.cloud.datastream.v1alpha1.AvroFileFormatH\x00\x12L\n\x10json_file_format\x18\x65 \x01(\x0b\x32\x30.google.cloud.datastream.v1alpha1.JsonFileFormatH\x00\x42\r\n\x0b\x66ile_format\"\xbc\x01\n\x11\x44\x65stinationConfig\x12\x30\n#destination_connection_profile_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12X\n\x16gcs_destination_config\x18\x64 \x01(\x0b\x32\x36.google.cloud.datastream.v1alpha1.GcsDestinationConfigH\x00\x42\x1b\n\x19\x64\x65stination_stream_config\"\xd8\t\n\x06Stream\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x44\n\x06labels\x18\x04 \x03(\x0b\x32\x34.google.cloud.datastream.v1alpha1.Stream.LabelsEntry\x12\x19\n\x0c\x64isplay_name\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12J\n\rsource_config\x18\x06 \x01(\x0b\x32..google.cloud.datastream.v1alpha1.SourceConfigB\x03\xe0\x41\x02\x12T\n\x12\x64\x65stination_config\x18\x07 \x01(\x0b\x32\x33.google.cloud.datastream.v1alpha1.DestinationConfigB\x03\xe0\x41\x02\x12=\n\x05state\x18\x08 \x01(\x0e\x32..google.cloud.datastream.v1alpha1.Stream.State\x12T\n\x0c\x62\x61\x63kfill_all\x18\x65 \x01(\x0b\x32<.google.cloud.datastream.v1alpha1.Stream.BackfillAllStrategyH\x00\x12V\n\rbackfill_none\x18\x66 \x01(\x0b\x32=.google.cloud.datastream.v1alpha1.Stream.BackfillNoneStrategyH\x00\x12<\n\x06\x65rrors\x18\t \x03(\x0b\x32\'.google.cloud.datastream.v1alpha1.ErrorB\x03\xe0\x41\x03\x1a\xcb\x01\n\x13\x42\x61\x63kfillAllStrategy\x12P\n\x17oracle_excluded_objects\x18\x01 \x01(\x0b\x32-.google.cloud.datastream.v1alpha1.OracleRdbmsH\x00\x12N\n\x16mysql_excluded_objects\x18\x02 \x01(\x0b\x32,.google.cloud.datastream.v1alpha1.MysqlRdbmsH\x00\x42\x12\n\x10\x65xcluded_objects\x1a\x16\n\x14\x42\x61\x63kfillNoneStrategy\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x95\x01\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x43REATED\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\n\n\x06PAUSED\x10\x03\x12\x0f\n\x0bMAINTENANCE\x10\x04\x12\n\n\x06\x46\x41ILED\x10\x05\x12\x16\n\x12\x46\x41ILED_PERMANENTLY\x10\x06\x12\x0c\n\x08STARTING\x10\x07\x12\x0c\n\x08\x44RAINING\x10\x08:_\xea\x41\\\n datastream.googleapis.com/Stream\x12\x38projects/{project}/locations/{location}/streams/{stream}B\x13\n\x11\x62\x61\x63kfill_strategy\"\xe3\x01\n\x05\x45rror\x12\x0e\n\x06reason\x18\x01 \x01(\t\x12\x12\n\nerror_uuid\x18\x02 \x01(\t\x12\x0f\n\x07message\x18\x03 \x01(\t\x12.\n\nerror_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x45\n\x07\x64\x65tails\x18\x05 \x03(\x0b\x32\x34.google.cloud.datastream.v1alpha1.Error.DetailsEntry\x1a.\n\x0c\x44\x65tailsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"U\n\x10ValidationResult\x12\x41\n\x0bvalidations\x18\x01 \x03(\x0b\x32,.google.cloud.datastream.v1alpha1.Validation\"\x86\x02\n\nValidation\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12\x43\n\x06status\x18\x02 \x01(\x0e\x32\x33.google.cloud.datastream.v1alpha1.Validation.Status\x12\x44\n\x07message\x18\x03 \x03(\x0b\x32\x33.google.cloud.datastream.v1alpha1.ValidationMessage\x12\x0c\n\x04\x63ode\x18\x04 \x01(\t\"J\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x10\n\x0cNOT_EXECUTED\x10\x01\x12\n\n\x06\x46\x41ILED\x10\x02\x12\n\n\x06PASSED\x10\x03\"\xba\x02\n\x11ValidationMessage\x12\x0f\n\x07message\x18\x01 \x01(\t\x12H\n\x05level\x18\x02 \x01(\x0e\x32\x39.google.cloud.datastream.v1alpha1.ValidationMessage.Level\x12S\n\x08metadata\x18\x03 \x03(\x0b\x32\x41.google.cloud.datastream.v1alpha1.ValidationMessage.MetadataEntry\x12\x0c\n\x04\x63ode\x18\x04 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"6\n\x05Level\x12\x15\n\x11LEVEL_UNSPECIFIED\x10\x00\x12\x0b\n\x07WARNING\x10\x01\x12\t\n\x05\x45RROR\x10\x02*>\n\rGcsFileFormat\x12\x1f\n\x1bGCS_FILE_FORMAT_UNSPECIFIED\x10\x00\x12\x08\n\x04\x41VRO\x10\x01\x1a\x02\x18\x01*`\n\x10SchemaFileFormat\x12\"\n\x1eSCHEMA_FILE_FORMAT_UNSPECIFIED\x10\x00\x12\x12\n\x0eNO_SCHEMA_FILE\x10\x01\x12\x14\n\x10\x41VRO_SCHEMA_FILE\x10\x02\x42\xff\x01\n$com.google.cloud.datastream.v1alpha1B\x1d\x43loudDatastreamResourcesProtoP\x01ZJgoogle.golang.org/genproto/googleapis/cloud/datastream/v1alpha1;datastream\xaa\x02 Google.Cloud.Datastream.V1Alpha1\xca\x02 Google\\Cloud\\Datastream\\V1alpha1\xea\x02#Google::Cloud::Datastream::V1alpha1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -49,8 +49,8 @@ _GCSFILEFORMAT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=b'\030\001',
-  serialized_start=8107,
-  serialized_end=8169,
+  serialized_start=8110,
+  serialized_end=8172,
 )
 _sym_db.RegisterEnumDescriptor(_GCSFILEFORMAT)
 
@@ -80,8 +80,8 @@ _SCHEMAFILEFORMAT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=8171,
-  serialized_end=8267,
+  serialized_start=8174,
+  serialized_end=8270,
 )
 _sym_db.RegisterEnumDescriptor(_SCHEMAFILEFORMAT)
 
@@ -153,8 +153,8 @@ _JSONFILEFORMAT_JSONCOMPRESSION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5318,
-  serialized_end=5399,
+  serialized_start=5321,
+  serialized_end=5402,
 )
 _sym_db.RegisterEnumDescriptor(_JSONFILEFORMAT_JSONCOMPRESSION)
 
@@ -213,8 +213,8 @@ _STREAM_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6939,
-  serialized_end=7088,
+  serialized_start=6942,
+  serialized_end=7091,
 )
 _sym_db.RegisterEnumDescriptor(_STREAM_STATE)
 
@@ -248,8 +248,8 @@ _VALIDATION_STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7714,
-  serialized_end=7788,
+  serialized_start=7717,
+  serialized_end=7791,
 )
 _sym_db.RegisterEnumDescriptor(_VALIDATION_STATUS)
 
@@ -278,8 +278,8 @@ _VALIDATIONMESSAGE_LEVEL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=8051,
-  serialized_end=8105,
+  serialized_start=8054,
+  serialized_end=8108,
 )
 _sym_db.RegisterEnumDescriptor(_VALIDATIONMESSAGE_LEVEL)
 
@@ -751,14 +751,14 @@ _PRIVATECONNECTION = _descriptor.Descriptor(
   enum_types=[
     _PRIVATECONNECTION_STATE,
   ],
-  serialized_options=b'\352A}\n+datastream.googleapis.com/PrivateConnection\022Nprojects/{project}/locations/{location}/privateConnections/{privateConnection}',
+  serialized_options=b'\352A~\n+datastream.googleapis.com/PrivateConnection\022Oprojects/{project}/locations/{location}/privateConnections/{private_connection}',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=1076,
-  serialized_end=1799,
+  serialized_end=1800,
 )
 
 
@@ -789,8 +789,8 @@ _PRIVATECONNECTIVITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1801,
-  serialized_end=1860,
+  serialized_start=1802,
+  serialized_end=1861,
 )
 
 
@@ -895,14 +895,14 @@ _ROUTE = _descriptor.Descriptor(
   nested_types=[_ROUTE_LABELSENTRY, ],
   enum_types=[
   ],
-  serialized_options=b'\352A\200\001\n\037datastream.googleapis.com/Route\022]projects/{project}/locations/{location}/privateConnections/{privateConnection}/routes/{route}',
+  serialized_options=b'\352A\201\001\n\037datastream.googleapis.com/Route\022^projects/{project}/locations/{location}/privateConnections/{private_connection}/routes/{route}',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1863,
-  serialized_end=2335,
+  serialized_start=1864,
+  serialized_end=2337,
 )
 
 
@@ -968,8 +968,8 @@ _MYSQLSSLCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2338,
-  serialized_end=2540,
+  serialized_start=2340,
+  serialized_end=2542,
 )
 
 
@@ -1109,7 +1109,7 @@ _CONNECTIONPROFILE = _descriptor.Descriptor(
   nested_types=[_CONNECTIONPROFILE_LABELSENTRY, ],
   enum_types=[
   ],
-  serialized_options=b'\352A}\n+datastream.googleapis.com/ConnectionProfile\022Nprojects/{project}/locations/{location}/connectionProfiles/{connectionProfile}',
+  serialized_options=b'\352A~\n+datastream.googleapis.com/ConnectionProfile\022Oprojects/{project}/locations/{location}/connectionProfiles/{connection_profile}',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
@@ -1125,8 +1125,8 @@ _CONNECTIONPROFILE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2543,
-  serialized_end=3600,
+  serialized_start=2545,
+  serialized_end=3603,
 )
 
 
@@ -1213,8 +1213,8 @@ _ORACLECOLUMN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3603,
-  serialized_end=3790,
+  serialized_start=3606,
+  serialized_end=3793,
 )
 
 
@@ -1252,8 +1252,8 @@ _ORACLETABLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3792,
-  serialized_end=3897,
+  serialized_start=3795,
+  serialized_end=3900,
 )
 
 
@@ -1291,8 +1291,8 @@ _ORACLESCHEMA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3899,
-  serialized_end=4004,
+  serialized_start=3902,
+  serialized_end=4007,
 )
 
 
@@ -1323,8 +1323,8 @@ _ORACLERDBMS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4006,
-  serialized_end=4091,
+  serialized_start=4009,
+  serialized_end=4094,
 )
 
 
@@ -1362,8 +1362,8 @@ _ORACLESOURCECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4094,
-  serialized_end=4247,
+  serialized_start=4097,
+  serialized_end=4250,
 )
 
 
@@ -1436,8 +1436,8 @@ _MYSQLCOLUMN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4250,
-  serialized_end=4403,
+  serialized_start=4253,
+  serialized_end=4406,
 )
 
 
@@ -1475,8 +1475,8 @@ _MYSQLTABLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4405,
-  serialized_end=4507,
+  serialized_start=4408,
+  serialized_end=4510,
 )
 
 
@@ -1514,8 +1514,8 @@ _MYSQLDATABASE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4509,
-  serialized_end=4615,
+  serialized_start=4512,
+  serialized_end=4618,
 )
 
 
@@ -1546,8 +1546,8 @@ _MYSQLRDBMS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4617,
-  serialized_end=4703,
+  serialized_start=4620,
+  serialized_end=4706,
 )
 
 
@@ -1585,8 +1585,8 @@ _MYSQLSOURCECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4706,
-  serialized_end=4856,
+  serialized_start=4709,
+  serialized_end=4859,
 )
 
 
@@ -1636,8 +1636,8 @@ _SOURCECONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4859,
-  serialized_end=5112,
+  serialized_start=4862,
+  serialized_end=5115,
 )
 
 
@@ -1661,8 +1661,8 @@ _AVROFILEFORMAT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5114,
-  serialized_end=5130,
+  serialized_start=5117,
+  serialized_end=5133,
 )
 
 
@@ -1701,8 +1701,8 @@ _JSONFILEFORMAT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5133,
-  serialized_end=5399,
+  serialized_start=5136,
+  serialized_end=5402,
 )
 
 
@@ -1773,8 +1773,8 @@ _GCSDESTINATIONCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=5402,
-  serialized_end=5772,
+  serialized_start=5405,
+  serialized_end=5775,
 )
 
 
@@ -1817,8 +1817,8 @@ _DESTINATIONCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=5775,
-  serialized_end=5963,
+  serialized_start=5778,
+  serialized_end=5966,
 )
 
 
@@ -1861,8 +1861,8 @@ _STREAM_BACKFILLALLSTRATEGY = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=6662,
-  serialized_end=6865,
+  serialized_start=6665,
+  serialized_end=6868,
 )
 
 _STREAM_BACKFILLNONESTRATEGY = _descriptor.Descriptor(
@@ -1885,8 +1885,8 @@ _STREAM_BACKFILLNONESTRATEGY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6867,
-  serialized_end=6889,
+  serialized_start=6870,
+  serialized_end=6892,
 )
 
 _STREAM_LABELSENTRY = _descriptor.Descriptor(
@@ -2030,8 +2030,8 @@ _STREAM = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=5966,
-  serialized_end=7206,
+  serialized_start=5969,
+  serialized_end=7209,
 )
 
 
@@ -2069,8 +2069,8 @@ _ERROR_DETAILSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7390,
-  serialized_end=7436,
+  serialized_start=7393,
+  serialized_end=7439,
 )
 
 _ERROR = _descriptor.Descriptor(
@@ -2128,8 +2128,8 @@ _ERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7209,
-  serialized_end=7436,
+  serialized_start=7212,
+  serialized_end=7439,
 )
 
 
@@ -2160,8 +2160,8 @@ _VALIDATIONRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7438,
-  serialized_end=7523,
+  serialized_start=7441,
+  serialized_end=7526,
 )
 
 
@@ -2214,8 +2214,8 @@ _VALIDATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7526,
-  serialized_end=7788,
+  serialized_start=7529,
+  serialized_end=7791,
 )
 
 
@@ -2253,8 +2253,8 @@ _VALIDATIONMESSAGE_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8002,
-  serialized_end=8049,
+  serialized_start=8005,
+  serialized_end=8052,
 )
 
 _VALIDATIONMESSAGE = _descriptor.Descriptor(
@@ -2306,8 +2306,8 @@ _VALIDATIONMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7791,
-  serialized_end=8105,
+  serialized_start=7794,
+  serialized_end=8108,
 )
 
 _ORACLEPROFILE_CONNECTIONATTRIBUTESENTRY.containing_type = _ORACLEPROFILE

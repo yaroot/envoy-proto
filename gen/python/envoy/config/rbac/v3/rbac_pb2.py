@@ -16,6 +16,7 @@ from envoy.config.route.v3 import route_components_pb2 as envoy_dot_config_dot_r
 from envoy.type.matcher.v3 import metadata_pb2 as envoy_dot_type_dot_matcher_dot_v3_dot_metadata__pb2
 from envoy.type.matcher.v3 import path_pb2 as envoy_dot_type_dot_matcher_dot_v3_dot_path__pb2
 from envoy.type.matcher.v3 import string_pb2 as envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2
+from envoy.type.v3 import range_pb2 as envoy_dot_type_dot_v3_dot_range__pb2
 from google.api.expr.v1alpha1 import checked_pb2 as google_dot_api_dot_expr_dot_v1alpha1_dot_checked__pb2
 from google.api.expr.v1alpha1 import syntax_pb2 as google_dot_api_dot_expr_dot_v1alpha1_dot_syntax__pb2
 from envoy.annotations import deprecation_pb2 as envoy_dot_annotations_dot_deprecation__pb2
@@ -31,9 +32,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"io.envoyproxy.envoy.config.rbac.v3B\tRbacProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1f\x65nvoy/config/rbac/v3/rbac.proto\x12\x14\x65nvoy.config.rbac.v3\x1a\"envoy/config/core/v3/address.proto\x1a,envoy/config/route/v3/route_components.proto\x1a$envoy/type/matcher/v3/metadata.proto\x1a envoy/type/matcher/v3/path.proto\x1a\"envoy/type/matcher/v3/string.proto\x1a&google/api/expr/v1alpha1/checked.proto\x1a%google/api/expr/v1alpha1/syntax.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x98\x02\n\x04RBAC\x12;\n\x06\x61\x63tion\x18\x01 \x01(\x0e\x32!.envoy.config.rbac.v3.RBAC.ActionB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12:\n\x08policies\x18\x02 \x03(\x0b\x32(.envoy.config.rbac.v3.RBAC.PoliciesEntry\x1aM\n\rPoliciesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12+\n\x05value\x18\x02 \x01(\x0b\x32\x1c.envoy.config.rbac.v3.Policy:\x02\x38\x01\"&\n\x06\x41\x63tion\x12\t\n\x05\x41LLOW\x10\x00\x12\x08\n\x04\x44\x45NY\x10\x01\x12\x07\n\x03LOG\x10\x02: \x9a\xc5\x88\x1e\x1b\n\x19\x65nvoy.config.rbac.v2.RBAC\"\xdd\x02\n\x06Policy\x12?\n\x0bpermissions\x18\x01 \x03(\x0b\x32 .envoy.config.rbac.v3.PermissionB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12=\n\nprincipals\x18\x02 \x03(\x0b\x32\x1f.envoy.config.rbac.v3.PrincipalB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12O\n\tcondition\x18\x03 \x01(\x0b\x32\x1e.google.api.expr.v1alpha1.ExprB\x1c\xf2\x98\xfe\x8f\x05\x16\x12\x14\x65xpression_specifier\x12^\n\x11\x63hecked_condition\x18\x04 \x01(\x0b\x32%.google.api.expr.v1alpha1.CheckedExprB\x1c\xf2\x98\xfe\x8f\x05\x16\x12\x14\x65xpression_specifier:\"\x9a\xc5\x88\x1e\x1d\n\x1b\x65nvoy.config.rbac.v2.Policy\"\xc7\x05\n\nPermission\x12\x39\n\tand_rules\x18\x01 \x01(\x0b\x32$.envoy.config.rbac.v3.Permission.SetH\x00\x12\x38\n\x08or_rules\x18\x02 \x01(\x0b\x32$.envoy.config.rbac.v3.Permission.SetH\x00\x12\x16\n\x03\x61ny\x18\x03 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12\x36\n\x06header\x18\x04 \x01(\x0b\x32$.envoy.config.route.v3.HeaderMatcherH\x00\x12\x36\n\x08url_path\x18\n \x01(\x0b\x32\".envoy.type.matcher.v3.PathMatcherH\x00\x12\x39\n\x0e\x64\x65stination_ip\x18\x05 \x01(\x0b\x32\x1f.envoy.config.core.v3.CidrRangeH\x00\x12%\n\x10\x64\x65stination_port\x18\x06 \x01(\rB\t\xfa\x42\x06*\x04\x18\xff\xff\x03H\x00\x12:\n\x08metadata\x18\x07 \x01(\x0b\x32&.envoy.type.matcher.v3.MetadataMatcherH\x00\x12\x34\n\x08not_rule\x18\x08 \x01(\x0b\x32 .envoy.config.rbac.v3.PermissionH\x00\x12\x45\n\x15requested_server_name\x18\t \x01(\x0b\x32$.envoy.type.matcher.v3.StringMatcherH\x00\x1al\n\x03Set\x12\x39\n\x05rules\x18\x01 \x03(\x0b\x32 .envoy.config.rbac.v3.PermissionB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:*\x9a\xc5\x88\x1e%\n#envoy.config.rbac.v2.Permission.Set:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.rbac.v2.PermissionB\x0b\n\x04rule\x12\x03\xf8\x42\x01\"\x9e\x07\n\tPrincipal\x12\x36\n\x07\x61nd_ids\x18\x01 \x01(\x0b\x32#.envoy.config.rbac.v3.Principal.SetH\x00\x12\x35\n\x06or_ids\x18\x02 \x01(\x0b\x32#.envoy.config.rbac.v3.Principal.SetH\x00\x12\x16\n\x03\x61ny\x18\x03 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12\x46\n\rauthenticated\x18\x04 \x01(\x0b\x32-.envoy.config.rbac.v3.Principal.AuthenticatedH\x00\x12\x41\n\tsource_ip\x18\x05 \x01(\x0b\x32\x1f.envoy.config.core.v3.CidrRangeB\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0H\x00\x12;\n\x10\x64irect_remote_ip\x18\n \x01(\x0b\x32\x1f.envoy.config.core.v3.CidrRangeH\x00\x12\x34\n\tremote_ip\x18\x0b \x01(\x0b\x32\x1f.envoy.config.core.v3.CidrRangeH\x00\x12\x36\n\x06header\x18\x06 \x01(\x0b\x32$.envoy.config.route.v3.HeaderMatcherH\x00\x12\x36\n\x08url_path\x18\t \x01(\x0b\x32\".envoy.type.matcher.v3.PathMatcherH\x00\x12:\n\x08metadata\x18\x07 \x01(\x0b\x32&.envoy.type.matcher.v3.MetadataMatcherH\x00\x12\x31\n\x06not_id\x18\x08 \x01(\x0b\x32\x1f.envoy.config.rbac.v3.PrincipalH\x00\x1ah\n\x03Set\x12\x36\n\x03ids\x18\x01 \x03(\x0b\x32\x1f.envoy.config.rbac.v3.PrincipalB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:)\x9a\xc5\x88\x1e$\n\"envoy.config.rbac.v2.Principal.Set\x1a\x88\x01\n\rAuthenticated\x12<\n\x0eprincipal_name\x18\x02 \x01(\x0b\x32$.envoy.type.matcher.v3.StringMatcher:3\x9a\xc5\x88\x1e.\n,envoy.config.rbac.v2.Principal.AuthenticatedJ\x04\x08\x01\x10\x02:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.config.rbac.v2.PrincipalB\x11\n\nidentifier\x12\x03\xf8\x42\x01\x42\x39\n\"io.envoyproxy.envoy.config.rbac.v3B\tRbacProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n\x1f\x65nvoy/config/rbac/v3/rbac.proto\x12\x14\x65nvoy.config.rbac.v3\x1a\"envoy/config/core/v3/address.proto\x1a,envoy/config/route/v3/route_components.proto\x1a$envoy/type/matcher/v3/metadata.proto\x1a envoy/type/matcher/v3/path.proto\x1a\"envoy/type/matcher/v3/string.proto\x1a\x19\x65nvoy/type/v3/range.proto\x1a&google/api/expr/v1alpha1/checked.proto\x1a%google/api/expr/v1alpha1/syntax.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x98\x02\n\x04RBAC\x12;\n\x06\x61\x63tion\x18\x01 \x01(\x0e\x32!.envoy.config.rbac.v3.RBAC.ActionB\x08\xfa\x42\x05\x82\x01\x02\x10\x01\x12:\n\x08policies\x18\x02 \x03(\x0b\x32(.envoy.config.rbac.v3.RBAC.PoliciesEntry\x1aM\n\rPoliciesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12+\n\x05value\x18\x02 \x01(\x0b\x32\x1c.envoy.config.rbac.v3.Policy:\x02\x38\x01\"&\n\x06\x41\x63tion\x12\t\n\x05\x41LLOW\x10\x00\x12\x08\n\x04\x44\x45NY\x10\x01\x12\x07\n\x03LOG\x10\x02: \x9a\xc5\x88\x1e\x1b\n\x19\x65nvoy.config.rbac.v2.RBAC\"\xdd\x02\n\x06Policy\x12?\n\x0bpermissions\x18\x01 \x03(\x0b\x32 .envoy.config.rbac.v3.PermissionB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12=\n\nprincipals\x18\x02 \x03(\x0b\x32\x1f.envoy.config.rbac.v3.PrincipalB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12O\n\tcondition\x18\x03 \x01(\x0b\x32\x1e.google.api.expr.v1alpha1.ExprB\x1c\xf2\x98\xfe\x8f\x05\x16\x12\x14\x65xpression_specifier\x12^\n\x11\x63hecked_condition\x18\x04 \x01(\x0b\x32%.google.api.expr.v1alpha1.CheckedExprB\x1c\xf2\x98\xfe\x8f\x05\x16\x12\x14\x65xpression_specifier:\"\x9a\xc5\x88\x1e\x1d\n\x1b\x65nvoy.config.rbac.v2.Policy\"\x84\x06\n\nPermission\x12\x39\n\tand_rules\x18\x01 \x01(\x0b\x32$.envoy.config.rbac.v3.Permission.SetH\x00\x12\x38\n\x08or_rules\x18\x02 \x01(\x0b\x32$.envoy.config.rbac.v3.Permission.SetH\x00\x12\x16\n\x03\x61ny\x18\x03 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12\x36\n\x06header\x18\x04 \x01(\x0b\x32$.envoy.config.route.v3.HeaderMatcherH\x00\x12\x36\n\x08url_path\x18\n \x01(\x0b\x32\".envoy.type.matcher.v3.PathMatcherH\x00\x12\x39\n\x0e\x64\x65stination_ip\x18\x05 \x01(\x0b\x32\x1f.envoy.config.core.v3.CidrRangeH\x00\x12%\n\x10\x64\x65stination_port\x18\x06 \x01(\rB\t\xfa\x42\x06*\x04\x18\xff\xff\x03H\x00\x12;\n\x16\x64\x65stination_port_range\x18\x0b \x01(\x0b\x32\x19.envoy.type.v3.Int32RangeH\x00\x12:\n\x08metadata\x18\x07 \x01(\x0b\x32&.envoy.type.matcher.v3.MetadataMatcherH\x00\x12\x34\n\x08not_rule\x18\x08 \x01(\x0b\x32 .envoy.config.rbac.v3.PermissionH\x00\x12\x45\n\x15requested_server_name\x18\t \x01(\x0b\x32$.envoy.type.matcher.v3.StringMatcherH\x00\x1al\n\x03Set\x12\x39\n\x05rules\x18\x01 \x03(\x0b\x32 .envoy.config.rbac.v3.PermissionB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:*\x9a\xc5\x88\x1e%\n#envoy.config.rbac.v2.Permission.Set:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.config.rbac.v2.PermissionB\x0b\n\x04rule\x12\x03\xf8\x42\x01\"\x9e\x07\n\tPrincipal\x12\x36\n\x07\x61nd_ids\x18\x01 \x01(\x0b\x32#.envoy.config.rbac.v3.Principal.SetH\x00\x12\x35\n\x06or_ids\x18\x02 \x01(\x0b\x32#.envoy.config.rbac.v3.Principal.SetH\x00\x12\x16\n\x03\x61ny\x18\x03 \x01(\x08\x42\x07\xfa\x42\x04j\x02\x08\x01H\x00\x12\x46\n\rauthenticated\x18\x04 \x01(\x0b\x32-.envoy.config.rbac.v3.Principal.AuthenticatedH\x00\x12\x41\n\tsource_ip\x18\x05 \x01(\x0b\x32\x1f.envoy.config.core.v3.CidrRangeB\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0H\x00\x12;\n\x10\x64irect_remote_ip\x18\n \x01(\x0b\x32\x1f.envoy.config.core.v3.CidrRangeH\x00\x12\x34\n\tremote_ip\x18\x0b \x01(\x0b\x32\x1f.envoy.config.core.v3.CidrRangeH\x00\x12\x36\n\x06header\x18\x06 \x01(\x0b\x32$.envoy.config.route.v3.HeaderMatcherH\x00\x12\x36\n\x08url_path\x18\t \x01(\x0b\x32\".envoy.type.matcher.v3.PathMatcherH\x00\x12:\n\x08metadata\x18\x07 \x01(\x0b\x32&.envoy.type.matcher.v3.MetadataMatcherH\x00\x12\x31\n\x06not_id\x18\x08 \x01(\x0b\x32\x1f.envoy.config.rbac.v3.PrincipalH\x00\x1ah\n\x03Set\x12\x36\n\x03ids\x18\x01 \x03(\x0b\x32\x1f.envoy.config.rbac.v3.PrincipalB\x08\xfa\x42\x05\x92\x01\x02\x08\x01:)\x9a\xc5\x88\x1e$\n\"envoy.config.rbac.v2.Principal.Set\x1a\x88\x01\n\rAuthenticated\x12<\n\x0eprincipal_name\x18\x02 \x01(\x0b\x32$.envoy.type.matcher.v3.StringMatcher:3\x9a\xc5\x88\x1e.\n,envoy.config.rbac.v2.Principal.AuthenticatedJ\x04\x08\x01\x10\x02:%\x9a\xc5\x88\x1e \n\x1e\x65nvoy.config.rbac.v2.PrincipalB\x11\n\nidentifier\x12\x03\xf8\x42\x01\x42\x39\n\"io.envoyproxy.envoy.config.rbac.v3B\tRbacProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v3_dot_metadata__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v3_dot_path__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2.DESCRIPTOR,google_dot_api_dot_expr_dot_v1alpha1_dot_checked__pb2.DESCRIPTOR,google_dot_api_dot_expr_dot_v1alpha1_dot_syntax__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_migrate__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v3_dot_metadata__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v3_dot_path__pb2.DESCRIPTOR,envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2.DESCRIPTOR,envoy_dot_type_dot_v3_dot_range__pb2.DESCRIPTOR,google_dot_api_dot_expr_dot_v1alpha1_dot_checked__pb2.DESCRIPTOR,google_dot_api_dot_expr_dot_v1alpha1_dot_syntax__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_migrate__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -62,8 +63,8 @@ _RBAC_ACTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=695,
-  serialized_end=733,
+  serialized_start=722,
+  serialized_end=760,
 )
 _sym_db.RegisterEnumDescriptor(_RBAC_ACTION)
 
@@ -102,8 +103,8 @@ _RBAC_POLICIESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=616,
-  serialized_end=693,
+  serialized_start=643,
+  serialized_end=720,
 )
 
 _RBAC = _descriptor.Descriptor(
@@ -141,8 +142,8 @@ _RBAC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=487,
-  serialized_end=767,
+  serialized_start=514,
+  serialized_end=794,
 )
 
 
@@ -194,8 +195,8 @@ _POLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=770,
-  serialized_end=1119,
+  serialized_start=797,
+  serialized_end=1146,
 )
 
 
@@ -226,8 +227,8 @@ _PERMISSION_SET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1672,
-  serialized_end=1780,
+  serialized_start=1760,
+  serialized_end=1868,
 )
 
 _PERMISSION = _descriptor.Descriptor(
@@ -288,21 +289,28 @@ _PERMISSION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\372B\006*\004\030\377\377\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='metadata', full_name='envoy.config.rbac.v3.Permission.metadata', index=7,
+      name='destination_port_range', full_name='envoy.config.rbac.v3.Permission.destination_port_range', index=7,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='metadata', full_name='envoy.config.rbac.v3.Permission.metadata', index=8,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='not_rule', full_name='envoy.config.rbac.v3.Permission.not_rule', index=8,
+      name='not_rule', full_name='envoy.config.rbac.v3.Permission.not_rule', index=9,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='requested_server_name', full_name='envoy.config.rbac.v3.Permission.requested_server_name', index=9,
+      name='requested_server_name', full_name='envoy.config.rbac.v3.Permission.requested_server_name', index=10,
       number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -325,8 +333,8 @@ _PERMISSION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=1122,
-  serialized_end=1833,
+  serialized_start=1149,
+  serialized_end=1921,
 )
 
 
@@ -357,8 +365,8 @@ _PRINCIPAL_SET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2461,
-  serialized_end=2565,
+  serialized_start=2549,
+  serialized_end=2653,
 )
 
 _PRINCIPAL_AUTHENTICATED = _descriptor.Descriptor(
@@ -388,8 +396,8 @@ _PRINCIPAL_AUTHENTICATED = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2568,
-  serialized_end=2704,
+  serialized_start=2656,
+  serialized_end=2792,
 )
 
 _PRINCIPAL = _descriptor.Descriptor(
@@ -494,8 +502,8 @@ _PRINCIPAL = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=1836,
-  serialized_end=2762,
+  serialized_start=1924,
+  serialized_end=2850,
 )
 
 _RBAC_POLICIESENTRY.fields_by_name['value'].message_type = _POLICY
@@ -514,6 +522,7 @@ _PERMISSION.fields_by_name['or_rules'].message_type = _PERMISSION_SET
 _PERMISSION.fields_by_name['header'].message_type = envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2._HEADERMATCHER
 _PERMISSION.fields_by_name['url_path'].message_type = envoy_dot_type_dot_matcher_dot_v3_dot_path__pb2._PATHMATCHER
 _PERMISSION.fields_by_name['destination_ip'].message_type = envoy_dot_config_dot_core_dot_v3_dot_address__pb2._CIDRRANGE
+_PERMISSION.fields_by_name['destination_port_range'].message_type = envoy_dot_type_dot_v3_dot_range__pb2._INT32RANGE
 _PERMISSION.fields_by_name['metadata'].message_type = envoy_dot_type_dot_matcher_dot_v3_dot_metadata__pb2._METADATAMATCHER
 _PERMISSION.fields_by_name['not_rule'].message_type = _PERMISSION
 _PERMISSION.fields_by_name['requested_server_name'].message_type = envoy_dot_type_dot_matcher_dot_v3_dot_string__pb2._STRINGMATCHER
@@ -538,6 +547,9 @@ _PERMISSION.fields_by_name['destination_ip'].containing_oneof = _PERMISSION.oneo
 _PERMISSION.oneofs_by_name['rule'].fields.append(
   _PERMISSION.fields_by_name['destination_port'])
 _PERMISSION.fields_by_name['destination_port'].containing_oneof = _PERMISSION.oneofs_by_name['rule']
+_PERMISSION.oneofs_by_name['rule'].fields.append(
+  _PERMISSION.fields_by_name['destination_port_range'])
+_PERMISSION.fields_by_name['destination_port_range'].containing_oneof = _PERMISSION.oneofs_by_name['rule']
 _PERMISSION.oneofs_by_name['rule'].fields.append(
   _PERMISSION.fields_by_name['metadata'])
 _PERMISSION.fields_by_name['metadata'].containing_oneof = _PERMISSION.oneofs_by_name['rule']

@@ -31,7 +31,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n)com.google.cloud.contactcenterinsights.v1B\032ContactCenterInsightsProtoP\001ZZgoogle.golang.org/genproto/googleapis/cloud/contactcenterinsights/v1;contactcenterinsights\252\002%Google.Cloud.ContactCenterInsights.V1\312\002%Google\\Cloud\\ContactCenterInsights\\V1\352\002(Google::Cloud::ContactCenterInsights::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nCgoogle/cloud/contactcenterinsights/v1/contact_center_insights.proto\x12%google.cloud.contactcenterinsights.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x35google/cloud/contactcenterinsights/v1/resources.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"d\n\x15\x43\x61lculateStatsRequest\x12;\n\x08location\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\"\xa3\x05\n\x16\x43\x61lculateStatsResponse\x12\x33\n\x10\x61verage_duration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x1a\n\x12\x61verage_turn_count\x18\x02 \x01(\x05\x12\x1a\n\x12\x63onversation_count\x18\x03 \x01(\x05\x12}\n\x19smart_highlighter_matches\x18\x04 \x03(\x0b\x32Z.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.SmartHighlighterMatchesEntry\x12\x7f\n\x1a\x63ustom_highlighter_matches\x18\x05 \x03(\x0b\x32[.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.CustomHighlighterMatchesEntry\x12\x66\n\rissue_matches\x18\x06 \x03(\x0b\x32O.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.IssueMatchesEntry\x1a>\n\x1cSmartHighlighterMatchesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a?\n\x1d\x43ustomHighlighterMatchesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a\x33\n\x11IssueMatchesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\"\xdb\x01\n\x1f\x43reateAnalysisOperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12O\n\x0c\x63onversation\x18\x03 \x01(\tB9\xe0\x41\x03\xfa\x41\x33\n1contactcenterinsights.googleapis.com/Conversation\"\xbf\x01\n\x19\x43reateConversationRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12N\n\x0c\x63onversation\x18\x02 \x01(\x0b\x32\x33.google.cloud.contactcenterinsights.v1.ConversationB\x03\xe0\x41\x02\x12\x17\n\x0f\x63onversation_id\x18\x03 \x01(\t\"\xd3\x01\n\x18ListConversationsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x45\n\x04view\x18\x05 \x01(\x0e\x32\x37.google.cloud.contactcenterinsights.v1.ConversationView\"\x80\x01\n\x19ListConversationsResponse\x12J\n\rconversations\x18\x01 \x03(\x0b\x32\x33.google.cloud.contactcenterinsights.v1.Conversation\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xa8\x01\n\x16GetConversationRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1contactcenterinsights.googleapis.com/Conversation\x12\x45\n\x04view\x18\x02 \x01(\x0e\x32\x37.google.cloud.contactcenterinsights.v1.ConversationView\"\x9c\x01\n\x19UpdateConversationRequest\x12N\n\x0c\x63onversation\x18\x01 \x01(\x0b\x32\x33.google.cloud.contactcenterinsights.v1.ConversationB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"s\n\x19\x44\x65leteConversationRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1contactcenterinsights.googleapis.com/Conversation\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\"\xaa\x01\n\x15\x43reateAnalysisRequest\x12I\n\x06parent\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1contactcenterinsights.googleapis.com/Conversation\x12\x46\n\x08\x61nalysis\x18\x02 \x01(\x0b\x32/.google.cloud.contactcenterinsights.v1.AnalysisB\x03\xe0\x41\x02\"\x97\x01\n\x13ListAnalysesRequest\x12I\n\x06parent\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1contactcenterinsights.googleapis.com/Conversation\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"r\n\x14ListAnalysesResponse\x12\x41\n\x08\x61nalyses\x18\x01 \x03(\x0b\x32/.google.cloud.contactcenterinsights.v1.Analysis\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"Y\n\x12GetAnalysisRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-contactcenterinsights.googleapis.com/Analysis\"\\\n\x15\x44\x65leteAnalysisRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-contactcenterinsights.googleapis.com/Analysis\"\xb9\x02\n\x19\x45xportInsightsDataRequest\x12u\n\x15\x62ig_query_destination\x18\x02 \x01(\x0b\x32T.google.cloud.contactcenterinsights.v1.ExportInsightsDataRequest.BigQueryDestinationH\x00\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x03 \x01(\t\x12\x0f\n\x07kms_key\x18\x04 \x01(\t\x1a:\n\x13\x42igQueryDestination\x12\x14\n\x07\x64\x61taset\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\r\n\x05table\x18\x02 \x01(\tB\r\n\x0b\x64\x65stination\"\x84\x02\n\x1a\x45xportInsightsDataMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12Q\n\x07request\x18\x03 \x01(\x0b\x32@.google.cloud.contactcenterinsights.v1.ExportInsightsDataRequest\x12*\n\x0epartial_errors\x18\x04 \x03(\x0b\x32\x12.google.rpc.Status\"\x1c\n\x1a\x45xportInsightsDataResponse\"S\n\x16ListIssueModelsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\"b\n\x17ListIssueModelsResponse\x12G\n\x0cissue_models\x18\x01 \x03(\x0b\x32\x31.google.cloud.contactcenterinsights.v1.IssueModel\"]\n\x14GetIssueModelRequest\x12\x45\n\x04name\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/contactcenterinsights.googleapis.com/IssueModel\"S\n\x0fGetIssueRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*contactcenterinsights.googleapis.com/Issue\"\\\n\x11ListIssuesRequest\x12G\n\x06parent\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/contactcenterinsights.googleapis.com/IssueModel\"R\n\x12ListIssuesResponse\x12<\n\x06issues\x18\x01 \x03(\x0b\x32,.google.cloud.contactcenterinsights.v1.Issue\"o\n\x1f\x43\x61lculateIssueModelStatsRequest\x12L\n\x0bissue_model\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/contactcenterinsights.googleapis.com/IssueModel\"v\n CalculateIssueModelStatsResponse\x12R\n\rcurrent_stats\x18\x04 \x01(\x0b\x32;.google.cloud.contactcenterinsights.v1.IssueModelLabelStats\"\xaa\x01\n\x1a\x43reatePhraseMatcherRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12Q\n\x0ephrase_matcher\x18\x02 \x01(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.PhraseMatcherB\x03\xe0\x41\x02\"\x8d\x01\n\x19ListPhraseMatchersRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"\x84\x01\n\x1aListPhraseMatchersResponse\x12M\n\x0fphrase_matchers\x18\x01 \x03(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.PhraseMatcher\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"c\n\x17GetPhraseMatcherRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2contactcenterinsights.googleapis.com/PhraseMatcher\"f\n\x1a\x44\x65letePhraseMatcherRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2contactcenterinsights.googleapis.com/PhraseMatcher\"Y\n\x12GetSettingsRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-contactcenterinsights.googleapis.com/Settings\"\x95\x01\n\x15UpdateSettingsRequest\x12\x46\n\x08settings\x18\x01 \x01(\x0b\x32/.google.cloud.contactcenterinsights.v1.SettingsB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02*J\n\x10\x43onversationView\x12!\n\x1d\x43ONVERSATION_VIEW_UNSPECIFIED\x10\x00\x12\t\n\x05\x42\x41SIC\x10\x01\x12\x08\n\x04\x46ULL\x10\x02\x32\xb0&\n\x15\x43ontactCenterInsights\x12\xfa\x01\n\x12\x43reateConversation\x12@.google.cloud.contactcenterinsights.v1.CreateConversationRequest\x1a\x33.google.cloud.contactcenterinsights.v1.Conversation\"m\x82\xd3\xe4\x93\x02\x41\"1/v1/{parent=projects/*/locations/*}/conversations:\x0c\x63onversation\xda\x41#parent,conversation,conversation_id\x12\xfc\x01\n\x12UpdateConversation\x12@.google.cloud.contactcenterinsights.v1.UpdateConversationRequest\x1a\x33.google.cloud.contactcenterinsights.v1.Conversation\"o\x82\xd3\xe4\x93\x02N2>/v1/{conversation.name=projects/*/locations/*/conversations/*}:\x0c\x63onversation\xda\x41\x18\x63onversation,update_mask\x12\xc7\x01\n\x0fGetConversation\x12=.google.cloud.contactcenterinsights.v1.GetConversationRequest\x1a\x33.google.cloud.contactcenterinsights.v1.Conversation\"@\x82\xd3\xe4\x93\x02\x33\x12\x31/v1/{name=projects/*/locations/*/conversations/*}\xda\x41\x04name\x12\xda\x01\n\x11ListConversations\x12?.google.cloud.contactcenterinsights.v1.ListConversationsRequest\x1a@.google.cloud.contactcenterinsights.v1.ListConversationsResponse\"B\x82\xd3\xe4\x93\x02\x33\x12\x31/v1/{parent=projects/*/locations/*}/conversations\xda\x41\x06parent\x12\xb0\x01\n\x12\x44\x65leteConversation\x12@.google.cloud.contactcenterinsights.v1.DeleteConversationRequest\x1a\x16.google.protobuf.Empty\"@\x82\xd3\xe4\x93\x02\x33*1/v1/{name=projects/*/locations/*/conversations/*}\xda\x41\x04name\x12\xfe\x01\n\x0e\x43reateAnalysis\x12<.google.cloud.contactcenterinsights.v1.CreateAnalysisRequest\x1a\x1d.google.longrunning.Operation\"\x8e\x01\x82\xd3\xe4\x93\x02H\"</v1/{parent=projects/*/locations/*/conversations/*}/analyses:\x08\x61nalysis\xda\x41\x0fparent,analysis\xca\x41+\n\x08\x41nalysis\x12\x1f\x43reateAnalysisOperationMetadata\x12\xc6\x01\n\x0bGetAnalysis\x12\x39.google.cloud.contactcenterinsights.v1.GetAnalysisRequest\x1a/.google.cloud.contactcenterinsights.v1.Analysis\"K\x82\xd3\xe4\x93\x02>\x12</v1/{name=projects/*/locations/*/conversations/*/analyses/*}\xda\x41\x04name\x12\xd6\x01\n\x0cListAnalyses\x12:.google.cloud.contactcenterinsights.v1.ListAnalysesRequest\x1a;.google.cloud.contactcenterinsights.v1.ListAnalysesResponse\"M\x82\xd3\xe4\x93\x02>\x12</v1/{parent=projects/*/locations/*/conversations/*}/analyses\xda\x41\x06parent\x12\xb3\x01\n\x0e\x44\x65leteAnalysis\x12<.google.cloud.contactcenterinsights.v1.DeleteAnalysisRequest\x1a\x16.google.protobuf.Empty\"K\x82\xd3\xe4\x93\x02>*</v1/{name=projects/*/locations/*/conversations/*/analyses/*}\xda\x41\x04name\x12\xfe\x01\n\x12\x45xportInsightsData\x12@.google.cloud.contactcenterinsights.v1.ExportInsightsDataRequest\x1a\x1d.google.longrunning.Operation\"\x86\x01\x82\xd3\xe4\x93\x02<\"7/v1/{parent=projects/*/locations/*}/insightsdata:export:\x01*\xda\x41\x06parent\xca\x41\x38\n\x1a\x45xportInsightsDataResponse\x12\x1a\x45xportInsightsDataMetadata\x12\xbf\x01\n\rGetIssueModel\x12;.google.cloud.contactcenterinsights.v1.GetIssueModelRequest\x1a\x31.google.cloud.contactcenterinsights.v1.IssueModel\">\x82\xd3\xe4\x93\x02\x31\x12//v1/{name=projects/*/locations/*/issueModels/*}\xda\x41\x04name\x12\xd2\x01\n\x0fListIssueModels\x12=.google.cloud.contactcenterinsights.v1.ListIssueModelsRequest\x1a>.google.cloud.contactcenterinsights.v1.ListIssueModelsResponse\"@\x82\xd3\xe4\x93\x02\x31\x12//v1/{parent=projects/*/locations/*}/issueModels\xda\x41\x06parent\x12\xb9\x01\n\x08GetIssue\x12\x36.google.cloud.contactcenterinsights.v1.GetIssueRequest\x1a,.google.cloud.contactcenterinsights.v1.Issue\"G\x82\xd3\xe4\x93\x02:\x12\x38/v1/{name=projects/*/locations/*/issueModels/*/issues/*}\xda\x41\x04name\x12\xcc\x01\n\nListIssues\x12\x38.google.cloud.contactcenterinsights.v1.ListIssuesRequest\x1a\x39.google.cloud.contactcenterinsights.v1.ListIssuesResponse\"I\x82\xd3\xe4\x93\x02:\x12\x38/v1/{parent=projects/*/locations/*/issueModels/*}/issues\xda\x41\x06parent\x12\x92\x02\n\x18\x43\x61lculateIssueModelStats\x12\x46.google.cloud.contactcenterinsights.v1.CalculateIssueModelStatsRequest\x1aG.google.cloud.contactcenterinsights.v1.CalculateIssueModelStatsResponse\"e\x82\xd3\xe4\x93\x02Q\x12O/v1/{issue_model=projects/*/locations/*/issueModels/*}:calculateIssueModelStats\xda\x41\x0bissue_model\x12\xf2\x01\n\x13\x43reatePhraseMatcher\x12\x41.google.cloud.contactcenterinsights.v1.CreatePhraseMatcherRequest\x1a\x34.google.cloud.contactcenterinsights.v1.PhraseMatcher\"b\x82\xd3\xe4\x93\x02\x44\"2/v1/{parent=projects/*/locations/*}/phraseMatchers:\x0ephrase_matcher\xda\x41\x15parent,phrase_matcher\x12\xcb\x01\n\x10GetPhraseMatcher\x12>.google.cloud.contactcenterinsights.v1.GetPhraseMatcherRequest\x1a\x34.google.cloud.contactcenterinsights.v1.PhraseMatcher\"A\x82\xd3\xe4\x93\x02\x34\x12\x32/v1/{name=projects/*/locations/*/phraseMatchers/*}\xda\x41\x04name\x12\xde\x01\n\x12ListPhraseMatchers\x12@.google.cloud.contactcenterinsights.v1.ListPhraseMatchersRequest\x1a\x41.google.cloud.contactcenterinsights.v1.ListPhraseMatchersResponse\"C\x82\xd3\xe4\x93\x02\x34\x12\x32/v1/{parent=projects/*/locations/*}/phraseMatchers\xda\x41\x06parent\x12\xb3\x01\n\x13\x44\x65letePhraseMatcher\x12\x41.google.cloud.contactcenterinsights.v1.DeletePhraseMatcherRequest\x1a\x16.google.protobuf.Empty\"A\x82\xd3\xe4\x93\x02\x34*2/v1/{name=projects/*/locations/*/phraseMatchers/*}\xda\x41\x04name\x12\xe4\x01\n\x0e\x43\x61lculateStats\x12<.google.cloud.contactcenterinsights.v1.CalculateStatsRequest\x1a=.google.cloud.contactcenterinsights.v1.CalculateStatsResponse\"U\x82\xd3\xe4\x93\x02\x44\x12\x42/v1/{location=projects/*/locations/*}/conversations:calculateStats\xda\x41\x08location\x12\xb4\x01\n\x0bGetSettings\x12\x39.google.cloud.contactcenterinsights.v1.GetSettingsRequest\x1a/.google.cloud.contactcenterinsights.v1.Settings\"9\x82\xd3\xe4\x93\x02,\x12*/v1/{name=projects/*/locations/*/settings}\xda\x41\x04name\x12\xdd\x01\n\x0eUpdateSettings\x12<.google.cloud.contactcenterinsights.v1.UpdateSettingsRequest\x1a/.google.cloud.contactcenterinsights.v1.Settings\"\\\x82\xd3\xe4\x93\x02?23/v1/{settings.name=projects/*/locations/*/settings}:\x08settings\xda\x41\x14settings,update_mask\x1aX\xca\x41$contactcenterinsights.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xa0\x02\n)com.google.cloud.contactcenterinsights.v1B\x1a\x43ontactCenterInsightsProtoP\x01ZZgoogle.golang.org/genproto/googleapis/cloud/contactcenterinsights/v1;contactcenterinsights\xaa\x02%Google.Cloud.ContactCenterInsights.V1\xca\x02%Google\\Cloud\\ContactCenterInsights\\V1\xea\x02(Google::Cloud::ContactCenterInsights::V1b\x06proto3'
+  serialized_pb=b'\nCgoogle/cloud/contactcenterinsights/v1/contact_center_insights.proto\x12%google.cloud.contactcenterinsights.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x35google/cloud/contactcenterinsights/v1/resources.proto\x1a#google/longrunning/operations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"d\n\x15\x43\x61lculateStatsRequest\x12;\n\x08location\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\"\x95\x08\n\x16\x43\x61lculateStatsResponse\x12\x33\n\x10\x61verage_duration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x1a\n\x12\x61verage_turn_count\x18\x02 \x01(\x05\x12\x1a\n\x12\x63onversation_count\x18\x03 \x01(\x05\x12}\n\x19smart_highlighter_matches\x18\x04 \x03(\x0b\x32Z.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.SmartHighlighterMatchesEntry\x12\x7f\n\x1a\x63ustom_highlighter_matches\x18\x05 \x03(\x0b\x32[.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.CustomHighlighterMatchesEntry\x12\x66\n\rissue_matches\x18\x06 \x03(\x0b\x32O.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.IssueMatchesEntry\x12p\n\x1e\x63onversation_count_time_series\x18\x07 \x01(\x0b\x32H.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries\x1a\xfd\x01\n\nTimeSeries\x12\x34\n\x11interval_duration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x61\n\x06points\x18\x02 \x03(\x0b\x32Q.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval\x1aV\n\x08Interval\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x1a\n\x12\x63onversation_count\x18\x02 \x01(\x05\x1a>\n\x1cSmartHighlighterMatchesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a?\n\x1d\x43ustomHighlighterMatchesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a\x33\n\x11IssueMatchesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\"\xdb\x01\n\x1f\x43reateAnalysisOperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12O\n\x0c\x63onversation\x18\x03 \x01(\tB9\xe0\x41\x03\xfa\x41\x33\n1contactcenterinsights.googleapis.com/Conversation\"\xbf\x01\n\x19\x43reateConversationRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12N\n\x0c\x63onversation\x18\x02 \x01(\x0b\x32\x33.google.cloud.contactcenterinsights.v1.ConversationB\x03\xe0\x41\x02\x12\x17\n\x0f\x63onversation_id\x18\x03 \x01(\t\"\xd3\x01\n\x18ListConversationsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x45\n\x04view\x18\x05 \x01(\x0e\x32\x37.google.cloud.contactcenterinsights.v1.ConversationView\"\x80\x01\n\x19ListConversationsResponse\x12J\n\rconversations\x18\x01 \x03(\x0b\x32\x33.google.cloud.contactcenterinsights.v1.Conversation\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xa8\x01\n\x16GetConversationRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1contactcenterinsights.googleapis.com/Conversation\x12\x45\n\x04view\x18\x02 \x01(\x0e\x32\x37.google.cloud.contactcenterinsights.v1.ConversationView\"\x9c\x01\n\x19UpdateConversationRequest\x12N\n\x0c\x63onversation\x18\x01 \x01(\x0b\x32\x33.google.cloud.contactcenterinsights.v1.ConversationB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"s\n\x19\x44\x65leteConversationRequest\x12G\n\x04name\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1contactcenterinsights.googleapis.com/Conversation\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\"\xaa\x01\n\x15\x43reateAnalysisRequest\x12I\n\x06parent\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1contactcenterinsights.googleapis.com/Conversation\x12\x46\n\x08\x61nalysis\x18\x02 \x01(\x0b\x32/.google.cloud.contactcenterinsights.v1.AnalysisB\x03\xe0\x41\x02\"\x97\x01\n\x13ListAnalysesRequest\x12I\n\x06parent\x18\x01 \x01(\tB9\xe0\x41\x02\xfa\x41\x33\n1contactcenterinsights.googleapis.com/Conversation\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"r\n\x14ListAnalysesResponse\x12\x41\n\x08\x61nalyses\x18\x01 \x03(\x0b\x32/.google.cloud.contactcenterinsights.v1.Analysis\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"Y\n\x12GetAnalysisRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-contactcenterinsights.googleapis.com/Analysis\"\\\n\x15\x44\x65leteAnalysisRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-contactcenterinsights.googleapis.com/Analysis\"\xcd\x02\n\x19\x45xportInsightsDataRequest\x12u\n\x15\x62ig_query_destination\x18\x02 \x01(\x0b\x32T.google.cloud.contactcenterinsights.v1.ExportInsightsDataRequest.BigQueryDestinationH\x00\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x03 \x01(\t\x12\x0f\n\x07kms_key\x18\x04 \x01(\t\x1aN\n\x13\x42igQueryDestination\x12\x12\n\nproject_id\x18\x03 \x01(\t\x12\x14\n\x07\x64\x61taset\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\r\n\x05table\x18\x02 \x01(\tB\r\n\x0b\x64\x65stination\"\x84\x02\n\x1a\x45xportInsightsDataMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12Q\n\x07request\x18\x03 \x01(\x0b\x32@.google.cloud.contactcenterinsights.v1.ExportInsightsDataRequest\x12*\n\x0epartial_errors\x18\x04 \x03(\x0b\x32\x12.google.rpc.Status\"\x1c\n\x1a\x45xportInsightsDataResponse\"\xa1\x01\n\x17\x43reateIssueModelRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12K\n\x0bissue_model\x18\x02 \x01(\x0b\x32\x31.google.cloud.contactcenterinsights.v1.IssueModelB\x03\xe0\x41\x02\"\xd4\x01\n\x18\x43reateIssueModelMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12O\n\x07request\x18\x03 \x01(\x0b\x32>.google.cloud.contactcenterinsights.v1.CreateIssueModelRequest\"\x97\x01\n\x17UpdateIssueModelRequest\x12K\n\x0bissue_model\x18\x01 \x01(\x0b\x32\x31.google.cloud.contactcenterinsights.v1.IssueModelB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"S\n\x16ListIssueModelsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\"b\n\x17ListIssueModelsResponse\x12G\n\x0cissue_models\x18\x01 \x03(\x0b\x32\x31.google.cloud.contactcenterinsights.v1.IssueModel\"]\n\x14GetIssueModelRequest\x12\x45\n\x04name\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/contactcenterinsights.googleapis.com/IssueModel\"`\n\x17\x44\x65leteIssueModelRequest\x12\x45\n\x04name\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/contactcenterinsights.googleapis.com/IssueModel\"\xd4\x01\n\x18\x44\x65leteIssueModelMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12O\n\x07request\x18\x03 \x01(\x0b\x32>.google.cloud.contactcenterinsights.v1.DeleteIssueModelRequest\"`\n\x17\x44\x65ployIssueModelRequest\x12\x45\n\x04name\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/contactcenterinsights.googleapis.com/IssueModel\"\x1a\n\x18\x44\x65ployIssueModelResponse\"\xd4\x01\n\x18\x44\x65ployIssueModelMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12O\n\x07request\x18\x03 \x01(\x0b\x32>.google.cloud.contactcenterinsights.v1.DeployIssueModelRequest\"b\n\x19UndeployIssueModelRequest\x12\x45\n\x04name\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/contactcenterinsights.googleapis.com/IssueModel\"\x1c\n\x1aUndeployIssueModelResponse\"\xd8\x01\n\x1aUndeployIssueModelMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12Q\n\x07request\x18\x03 \x01(\x0b\x32@.google.cloud.contactcenterinsights.v1.UndeployIssueModelRequest\"S\n\x0fGetIssueRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*contactcenterinsights.googleapis.com/Issue\"\\\n\x11ListIssuesRequest\x12G\n\x06parent\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/contactcenterinsights.googleapis.com/IssueModel\"R\n\x12ListIssuesResponse\x12<\n\x06issues\x18\x01 \x03(\x0b\x32,.google.cloud.contactcenterinsights.v1.Issue\"\x87\x01\n\x12UpdateIssueRequest\x12@\n\x05issue\x18\x01 \x01(\x0b\x32,.google.cloud.contactcenterinsights.v1.IssueB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"o\n\x1f\x43\x61lculateIssueModelStatsRequest\x12L\n\x0bissue_model\x18\x01 \x01(\tB7\xe0\x41\x02\xfa\x41\x31\n/contactcenterinsights.googleapis.com/IssueModel\"v\n CalculateIssueModelStatsResponse\x12R\n\rcurrent_stats\x18\x04 \x01(\x0b\x32;.google.cloud.contactcenterinsights.v1.IssueModelLabelStats\"\xaa\x01\n\x1a\x43reatePhraseMatcherRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12Q\n\x0ephrase_matcher\x18\x02 \x01(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.PhraseMatcherB\x03\xe0\x41\x02\"\x8d\x01\n\x19ListPhraseMatchersRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"\x84\x01\n\x1aListPhraseMatchersResponse\x12M\n\x0fphrase_matchers\x18\x01 \x03(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.PhraseMatcher\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"c\n\x17GetPhraseMatcherRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2contactcenterinsights.googleapis.com/PhraseMatcher\"f\n\x1a\x44\x65letePhraseMatcherRequest\x12H\n\x04name\x18\x01 \x01(\tB:\xe0\x41\x02\xfa\x41\x34\n2contactcenterinsights.googleapis.com/PhraseMatcher\"Y\n\x12GetSettingsRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-contactcenterinsights.googleapis.com/Settings\"\x95\x01\n\x15UpdateSettingsRequest\x12\x46\n\x08settings\x18\x01 \x01(\x0b\x32/.google.cloud.contactcenterinsights.v1.SettingsB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02*J\n\x10\x43onversationView\x12!\n\x1d\x43ONVERSATION_VIEW_UNSPECIFIED\x10\x00\x12\t\n\x05\x42\x41SIC\x10\x01\x12\x08\n\x04\x46ULL\x10\x02\x32\xd6\x31\n\x15\x43ontactCenterInsights\x12\xfa\x01\n\x12\x43reateConversation\x12@.google.cloud.contactcenterinsights.v1.CreateConversationRequest\x1a\x33.google.cloud.contactcenterinsights.v1.Conversation\"m\x82\xd3\xe4\x93\x02\x41\"1/v1/{parent=projects/*/locations/*}/conversations:\x0c\x63onversation\xda\x41#parent,conversation,conversation_id\x12\xfc\x01\n\x12UpdateConversation\x12@.google.cloud.contactcenterinsights.v1.UpdateConversationRequest\x1a\x33.google.cloud.contactcenterinsights.v1.Conversation\"o\x82\xd3\xe4\x93\x02N2>/v1/{conversation.name=projects/*/locations/*/conversations/*}:\x0c\x63onversation\xda\x41\x18\x63onversation,update_mask\x12\xc7\x01\n\x0fGetConversation\x12=.google.cloud.contactcenterinsights.v1.GetConversationRequest\x1a\x33.google.cloud.contactcenterinsights.v1.Conversation\"@\x82\xd3\xe4\x93\x02\x33\x12\x31/v1/{name=projects/*/locations/*/conversations/*}\xda\x41\x04name\x12\xda\x01\n\x11ListConversations\x12?.google.cloud.contactcenterinsights.v1.ListConversationsRequest\x1a@.google.cloud.contactcenterinsights.v1.ListConversationsResponse\"B\x82\xd3\xe4\x93\x02\x33\x12\x31/v1/{parent=projects/*/locations/*}/conversations\xda\x41\x06parent\x12\xb0\x01\n\x12\x44\x65leteConversation\x12@.google.cloud.contactcenterinsights.v1.DeleteConversationRequest\x1a\x16.google.protobuf.Empty\"@\x82\xd3\xe4\x93\x02\x33*1/v1/{name=projects/*/locations/*/conversations/*}\xda\x41\x04name\x12\xfe\x01\n\x0e\x43reateAnalysis\x12<.google.cloud.contactcenterinsights.v1.CreateAnalysisRequest\x1a\x1d.google.longrunning.Operation\"\x8e\x01\x82\xd3\xe4\x93\x02H\"</v1/{parent=projects/*/locations/*/conversations/*}/analyses:\x08\x61nalysis\xda\x41\x0fparent,analysis\xca\x41+\n\x08\x41nalysis\x12\x1f\x43reateAnalysisOperationMetadata\x12\xc6\x01\n\x0bGetAnalysis\x12\x39.google.cloud.contactcenterinsights.v1.GetAnalysisRequest\x1a/.google.cloud.contactcenterinsights.v1.Analysis\"K\x82\xd3\xe4\x93\x02>\x12</v1/{name=projects/*/locations/*/conversations/*/analyses/*}\xda\x41\x04name\x12\xd6\x01\n\x0cListAnalyses\x12:.google.cloud.contactcenterinsights.v1.ListAnalysesRequest\x1a;.google.cloud.contactcenterinsights.v1.ListAnalysesResponse\"M\x82\xd3\xe4\x93\x02>\x12</v1/{parent=projects/*/locations/*/conversations/*}/analyses\xda\x41\x06parent\x12\xb3\x01\n\x0e\x44\x65leteAnalysis\x12<.google.cloud.contactcenterinsights.v1.DeleteAnalysisRequest\x1a\x16.google.protobuf.Empty\"K\x82\xd3\xe4\x93\x02>*</v1/{name=projects/*/locations/*/conversations/*/analyses/*}\xda\x41\x04name\x12\xfe\x01\n\x12\x45xportInsightsData\x12@.google.cloud.contactcenterinsights.v1.ExportInsightsDataRequest\x1a\x1d.google.longrunning.Operation\"\x86\x01\x82\xd3\xe4\x93\x02<\"7/v1/{parent=projects/*/locations/*}/insightsdata:export:\x01*\xda\x41\x06parent\xca\x41\x38\n\x1a\x45xportInsightsDataResponse\x12\x1a\x45xportInsightsDataMetadata\x12\xf6\x01\n\x10\x43reateIssueModel\x12>.google.cloud.contactcenterinsights.v1.CreateIssueModelRequest\x1a\x1d.google.longrunning.Operation\"\x82\x01\x82\xd3\xe4\x93\x02>\"//v1/{parent=projects/*/locations/*}/issueModels:\x0bissue_model\xda\x41\x12parent,issue_model\xca\x41&\n\nIssueModel\x12\x18\x43reateIssueModelMetadata\x12\xf1\x01\n\x10UpdateIssueModel\x12>.google.cloud.contactcenterinsights.v1.UpdateIssueModelRequest\x1a\x31.google.cloud.contactcenterinsights.v1.IssueModel\"j\x82\xd3\xe4\x93\x02J2;/v1/{issue_model.name=projects/*/locations/*/issueModels/*}:\x0bissue_model\xda\x41\x17issue_model,update_mask\x12\xbf\x01\n\rGetIssueModel\x12;.google.cloud.contactcenterinsights.v1.GetIssueModelRequest\x1a\x31.google.cloud.contactcenterinsights.v1.IssueModel\">\x82\xd3\xe4\x93\x02\x31\x12//v1/{name=projects/*/locations/*/issueModels/*}\xda\x41\x04name\x12\xd2\x01\n\x0fListIssueModels\x12=.google.cloud.contactcenterinsights.v1.ListIssueModelsRequest\x1a>.google.cloud.contactcenterinsights.v1.ListIssueModelsResponse\"@\x82\xd3\xe4\x93\x02\x31\x12//v1/{parent=projects/*/locations/*}/issueModels\xda\x41\x06parent\x12\xe5\x01\n\x10\x44\x65leteIssueModel\x12>.google.cloud.contactcenterinsights.v1.DeleteIssueModelRequest\x1a\x1d.google.longrunning.Operation\"r\x82\xd3\xe4\x93\x02\x31*//v1/{name=projects/*/locations/*/issueModels/*}\xda\x41\x04name\xca\x41\x31\n\x15google.protobuf.Empty\x12\x18\x44\x65leteIssueModelMetadata\x12\xf2\x01\n\x10\x44\x65ployIssueModel\x12>.google.cloud.contactcenterinsights.v1.DeployIssueModelRequest\x1a\x1d.google.longrunning.Operation\"\x7f\x82\xd3\xe4\x93\x02;\"6/v1/{name=projects/*/locations/*/issueModels/*}:deploy:\x01*\xda\x41\x04name\xca\x41\x34\n\x18\x44\x65ployIssueModelResponse\x12\x18\x44\x65ployIssueModelMetadata\x12\xfd\x01\n\x12UndeployIssueModel\x12@.google.cloud.contactcenterinsights.v1.UndeployIssueModelRequest\x1a\x1d.google.longrunning.Operation\"\x85\x01\x82\xd3\xe4\x93\x02=\"8/v1/{name=projects/*/locations/*/issueModels/*}:undeploy:\x01*\xda\x41\x04name\xca\x41\x38\n\x1aUndeployIssueModelResponse\x12\x1aUndeployIssueModelMetadata\x12\xb9\x01\n\x08GetIssue\x12\x36.google.cloud.contactcenterinsights.v1.GetIssueRequest\x1a,.google.cloud.contactcenterinsights.v1.Issue\"G\x82\xd3\xe4\x93\x02:\x12\x38/v1/{name=projects/*/locations/*/issueModels/*/issues/*}\xda\x41\x04name\x12\xcc\x01\n\nListIssues\x12\x38.google.cloud.contactcenterinsights.v1.ListIssuesRequest\x1a\x39.google.cloud.contactcenterinsights.v1.ListIssuesResponse\"I\x82\xd3\xe4\x93\x02:\x12\x38/v1/{parent=projects/*/locations/*/issueModels/*}/issues\xda\x41\x06parent\x12\xd9\x01\n\x0bUpdateIssue\x12\x39.google.cloud.contactcenterinsights.v1.UpdateIssueRequest\x1a,.google.cloud.contactcenterinsights.v1.Issue\"a\x82\xd3\xe4\x93\x02G2>/v1/{issue.name=projects/*/locations/*/issueModels/*/issues/*}:\x05issue\xda\x41\x11issue,update_mask\x12\x92\x02\n\x18\x43\x61lculateIssueModelStats\x12\x46.google.cloud.contactcenterinsights.v1.CalculateIssueModelStatsRequest\x1aG.google.cloud.contactcenterinsights.v1.CalculateIssueModelStatsResponse\"e\x82\xd3\xe4\x93\x02Q\x12O/v1/{issue_model=projects/*/locations/*/issueModels/*}:calculateIssueModelStats\xda\x41\x0bissue_model\x12\xf2\x01\n\x13\x43reatePhraseMatcher\x12\x41.google.cloud.contactcenterinsights.v1.CreatePhraseMatcherRequest\x1a\x34.google.cloud.contactcenterinsights.v1.PhraseMatcher\"b\x82\xd3\xe4\x93\x02\x44\"2/v1/{parent=projects/*/locations/*}/phraseMatchers:\x0ephrase_matcher\xda\x41\x15parent,phrase_matcher\x12\xcb\x01\n\x10GetPhraseMatcher\x12>.google.cloud.contactcenterinsights.v1.GetPhraseMatcherRequest\x1a\x34.google.cloud.contactcenterinsights.v1.PhraseMatcher\"A\x82\xd3\xe4\x93\x02\x34\x12\x32/v1/{name=projects/*/locations/*/phraseMatchers/*}\xda\x41\x04name\x12\xde\x01\n\x12ListPhraseMatchers\x12@.google.cloud.contactcenterinsights.v1.ListPhraseMatchersRequest\x1a\x41.google.cloud.contactcenterinsights.v1.ListPhraseMatchersResponse\"C\x82\xd3\xe4\x93\x02\x34\x12\x32/v1/{parent=projects/*/locations/*}/phraseMatchers\xda\x41\x06parent\x12\xb3\x01\n\x13\x44\x65letePhraseMatcher\x12\x41.google.cloud.contactcenterinsights.v1.DeletePhraseMatcherRequest\x1a\x16.google.protobuf.Empty\"A\x82\xd3\xe4\x93\x02\x34*2/v1/{name=projects/*/locations/*/phraseMatchers/*}\xda\x41\x04name\x12\xe4\x01\n\x0e\x43\x61lculateStats\x12<.google.cloud.contactcenterinsights.v1.CalculateStatsRequest\x1a=.google.cloud.contactcenterinsights.v1.CalculateStatsResponse\"U\x82\xd3\xe4\x93\x02\x44\x12\x42/v1/{location=projects/*/locations/*}/conversations:calculateStats\xda\x41\x08location\x12\xb4\x01\n\x0bGetSettings\x12\x39.google.cloud.contactcenterinsights.v1.GetSettingsRequest\x1a/.google.cloud.contactcenterinsights.v1.Settings\"9\x82\xd3\xe4\x93\x02,\x12*/v1/{name=projects/*/locations/*/settings}\xda\x41\x04name\x12\xdd\x01\n\x0eUpdateSettings\x12<.google.cloud.contactcenterinsights.v1.UpdateSettingsRequest\x1a/.google.cloud.contactcenterinsights.v1.Settings\"\\\x82\xd3\xe4\x93\x02?23/v1/{settings.name=projects/*/locations/*/settings}:\x08settings\xda\x41\x14settings,update_mask\x1aX\xca\x41$contactcenterinsights.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xa0\x02\n)com.google.cloud.contactcenterinsights.v1B\x1a\x43ontactCenterInsightsProtoP\x01ZZgoogle.golang.org/genproto/googleapis/cloud/contactcenterinsights/v1;contactcenterinsights\xaa\x02%Google.Cloud.ContactCenterInsights.V1\xca\x02%Google\\Cloud\\ContactCenterInsights\\V1\xea\x02(Google::Cloud::ContactCenterInsights::V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
@@ -60,8 +60,8 @@ _CONVERSATIONVIEW = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5371,
-  serialized_end=5445,
+  serialized_start=7435,
+  serialized_end=7509,
 )
 _sym_db.RegisterEnumDescriptor(_CONVERSATIONVIEW)
 
@@ -111,6 +111,82 @@ _CALCULATESTATSREQUEST = _descriptor.Descriptor(
 )
 
 
+_CALCULATESTATSRESPONSE_TIMESERIES_INTERVAL = _descriptor.Descriptor(
+  name='Interval',
+  full_name='google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval.start_time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='conversation_count', full_name='google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval.conversation_count', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1350,
+  serialized_end=1436,
+)
+
+_CALCULATESTATSRESPONSE_TIMESERIES = _descriptor.Descriptor(
+  name='TimeSeries',
+  full_name='google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='interval_duration', full_name='google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.interval_duration', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='points', full_name='google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.points', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_CALCULATESTATSRESPONSE_TIMESERIES_INTERVAL, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1183,
+  serialized_end=1436,
+)
+
 _CALCULATESTATSRESPONSE_SMARTHIGHLIGHTERMATCHESENTRY = _descriptor.Descriptor(
   name='SmartHighlighterMatchesEntry',
   full_name='google.cloud.contactcenterinsights.v1.CalculateStatsResponse.SmartHighlighterMatchesEntry',
@@ -145,8 +221,8 @@ _CALCULATESTATSRESPONSE_SMARTHIGHLIGHTERMATCHESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1068,
-  serialized_end=1130,
+  serialized_start=1438,
+  serialized_end=1500,
 )
 
 _CALCULATESTATSRESPONSE_CUSTOMHIGHLIGHTERMATCHESENTRY = _descriptor.Descriptor(
@@ -183,8 +259,8 @@ _CALCULATESTATSRESPONSE_CUSTOMHIGHLIGHTERMATCHESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1132,
-  serialized_end=1195,
+  serialized_start=1502,
+  serialized_end=1565,
 )
 
 _CALCULATESTATSRESPONSE_ISSUEMATCHESENTRY = _descriptor.Descriptor(
@@ -221,8 +297,8 @@ _CALCULATESTATSRESPONSE_ISSUEMATCHESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1197,
-  serialized_end=1248,
+  serialized_start=1567,
+  serialized_end=1618,
 )
 
 _CALCULATESTATSRESPONSE = _descriptor.Descriptor(
@@ -275,10 +351,17 @@ _CALCULATESTATSRESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='conversation_count_time_series', full_name='google.cloud.contactcenterinsights.v1.CalculateStatsResponse.conversation_count_time_series', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_CALCULATESTATSRESPONSE_SMARTHIGHLIGHTERMATCHESENTRY, _CALCULATESTATSRESPONSE_CUSTOMHIGHLIGHTERMATCHESENTRY, _CALCULATESTATSRESPONSE_ISSUEMATCHESENTRY, ],
+  nested_types=[_CALCULATESTATSRESPONSE_TIMESERIES, _CALCULATESTATSRESPONSE_SMARTHIGHLIGHTERMATCHESENTRY, _CALCULATESTATSRESPONSE_CUSTOMHIGHLIGHTERMATCHESENTRY, _CALCULATESTATSRESPONSE_ISSUEMATCHESENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -288,7 +371,7 @@ _CALCULATESTATSRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=573,
-  serialized_end=1248,
+  serialized_end=1618,
 )
 
 
@@ -333,8 +416,8 @@ _CREATEANALYSISOPERATIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1251,
-  serialized_end=1470,
+  serialized_start=1621,
+  serialized_end=1840,
 )
 
 
@@ -379,8 +462,8 @@ _CREATECONVERSATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1473,
-  serialized_end=1664,
+  serialized_start=1843,
+  serialized_end=2034,
 )
 
 
@@ -439,8 +522,8 @@ _LISTCONVERSATIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1667,
-  serialized_end=1878,
+  serialized_start=2037,
+  serialized_end=2248,
 )
 
 
@@ -478,8 +561,8 @@ _LISTCONVERSATIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1881,
-  serialized_end=2009,
+  serialized_start=2251,
+  serialized_end=2379,
 )
 
 
@@ -517,8 +600,8 @@ _GETCONVERSATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2012,
-  serialized_end=2180,
+  serialized_start=2382,
+  serialized_end=2550,
 )
 
 
@@ -556,8 +639,8 @@ _UPDATECONVERSATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2183,
-  serialized_end=2339,
+  serialized_start=2553,
+  serialized_end=2709,
 )
 
 
@@ -595,8 +678,8 @@ _DELETECONVERSATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2341,
-  serialized_end=2456,
+  serialized_start=2711,
+  serialized_end=2826,
 )
 
 
@@ -634,8 +717,8 @@ _CREATEANALYSISREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2459,
-  serialized_end=2629,
+  serialized_start=2829,
+  serialized_end=2999,
 )
 
 
@@ -687,8 +770,8 @@ _LISTANALYSESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2632,
-  serialized_end=2783,
+  serialized_start=3002,
+  serialized_end=3153,
 )
 
 
@@ -726,8 +809,8 @@ _LISTANALYSESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2785,
-  serialized_end=2899,
+  serialized_start=3155,
+  serialized_end=3269,
 )
 
 
@@ -758,8 +841,8 @@ _GETANALYSISREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2901,
-  serialized_end=2990,
+  serialized_start=3271,
+  serialized_end=3360,
 )
 
 
@@ -790,8 +873,8 @@ _DELETEANALYSISREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2992,
-  serialized_end=3084,
+  serialized_start=3362,
+  serialized_end=3454,
 )
 
 
@@ -804,14 +887,21 @@ _EXPORTINSIGHTSDATAREQUEST_BIGQUERYDESTINATION = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='dataset', full_name='google.cloud.contactcenterinsights.v1.ExportInsightsDataRequest.BigQueryDestination.dataset', index=0,
+      name='project_id', full_name='google.cloud.contactcenterinsights.v1.ExportInsightsDataRequest.BigQueryDestination.project_id', index=0,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dataset', full_name='google.cloud.contactcenterinsights.v1.ExportInsightsDataRequest.BigQueryDestination.dataset', index=1,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='table', full_name='google.cloud.contactcenterinsights.v1.ExportInsightsDataRequest.BigQueryDestination.table', index=1,
+      name='table', full_name='google.cloud.contactcenterinsights.v1.ExportInsightsDataRequest.BigQueryDestination.table', index=2,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -829,8 +919,8 @@ _EXPORTINSIGHTSDATAREQUEST_BIGQUERYDESTINATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3327,
-  serialized_end=3385,
+  serialized_start=3697,
+  serialized_end=3775,
 )
 
 _EXPORTINSIGHTSDATAREQUEST = _descriptor.Descriptor(
@@ -886,8 +976,8 @@ _EXPORTINSIGHTSDATAREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3087,
-  serialized_end=3400,
+  serialized_start=3457,
+  serialized_end=3790,
 )
 
 
@@ -939,8 +1029,8 @@ _EXPORTINSIGHTSDATAMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3403,
-  serialized_end=3663,
+  serialized_start=3793,
+  serialized_end=4053,
 )
 
 
@@ -964,8 +1054,132 @@ _EXPORTINSIGHTSDATARESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3665,
-  serialized_end=3693,
+  serialized_start=4055,
+  serialized_end=4083,
+)
+
+
+_CREATEISSUEMODELREQUEST = _descriptor.Descriptor(
+  name='CreateIssueModelRequest',
+  full_name='google.cloud.contactcenterinsights.v1.CreateIssueModelRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.contactcenterinsights.v1.CreateIssueModelRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='issue_model', full_name='google.cloud.contactcenterinsights.v1.CreateIssueModelRequest.issue_model', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4086,
+  serialized_end=4247,
+)
+
+
+_CREATEISSUEMODELMETADATA = _descriptor.Descriptor(
+  name='CreateIssueModelMetadata',
+  full_name='google.cloud.contactcenterinsights.v1.CreateIssueModelMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='create_time', full_name='google.cloud.contactcenterinsights.v1.CreateIssueModelMetadata.create_time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_time', full_name='google.cloud.contactcenterinsights.v1.CreateIssueModelMetadata.end_time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request', full_name='google.cloud.contactcenterinsights.v1.CreateIssueModelMetadata.request', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4250,
+  serialized_end=4462,
+)
+
+
+_UPDATEISSUEMODELREQUEST = _descriptor.Descriptor(
+  name='UpdateIssueModelRequest',
+  full_name='google.cloud.contactcenterinsights.v1.UpdateIssueModelRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='issue_model', full_name='google.cloud.contactcenterinsights.v1.UpdateIssueModelRequest.issue_model', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_mask', full_name='google.cloud.contactcenterinsights.v1.UpdateIssueModelRequest.update_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4465,
+  serialized_end=4616,
 )
 
 
@@ -996,8 +1210,8 @@ _LISTISSUEMODELSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3695,
-  serialized_end=3778,
+  serialized_start=4618,
+  serialized_end=4701,
 )
 
 
@@ -1028,8 +1242,8 @@ _LISTISSUEMODELSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3780,
-  serialized_end=3878,
+  serialized_start=4703,
+  serialized_end=4801,
 )
 
 
@@ -1060,8 +1274,292 @@ _GETISSUEMODELREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3880,
-  serialized_end=3973,
+  serialized_start=4803,
+  serialized_end=4896,
+)
+
+
+_DELETEISSUEMODELREQUEST = _descriptor.Descriptor(
+  name='DeleteIssueModelRequest',
+  full_name='google.cloud.contactcenterinsights.v1.DeleteIssueModelRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.contactcenterinsights.v1.DeleteIssueModelRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A1\n/contactcenterinsights.googleapis.com/IssueModel', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4898,
+  serialized_end=4994,
+)
+
+
+_DELETEISSUEMODELMETADATA = _descriptor.Descriptor(
+  name='DeleteIssueModelMetadata',
+  full_name='google.cloud.contactcenterinsights.v1.DeleteIssueModelMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='create_time', full_name='google.cloud.contactcenterinsights.v1.DeleteIssueModelMetadata.create_time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_time', full_name='google.cloud.contactcenterinsights.v1.DeleteIssueModelMetadata.end_time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request', full_name='google.cloud.contactcenterinsights.v1.DeleteIssueModelMetadata.request', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4997,
+  serialized_end=5209,
+)
+
+
+_DEPLOYISSUEMODELREQUEST = _descriptor.Descriptor(
+  name='DeployIssueModelRequest',
+  full_name='google.cloud.contactcenterinsights.v1.DeployIssueModelRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.contactcenterinsights.v1.DeployIssueModelRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A1\n/contactcenterinsights.googleapis.com/IssueModel', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5211,
+  serialized_end=5307,
+)
+
+
+_DEPLOYISSUEMODELRESPONSE = _descriptor.Descriptor(
+  name='DeployIssueModelResponse',
+  full_name='google.cloud.contactcenterinsights.v1.DeployIssueModelResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5309,
+  serialized_end=5335,
+)
+
+
+_DEPLOYISSUEMODELMETADATA = _descriptor.Descriptor(
+  name='DeployIssueModelMetadata',
+  full_name='google.cloud.contactcenterinsights.v1.DeployIssueModelMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='create_time', full_name='google.cloud.contactcenterinsights.v1.DeployIssueModelMetadata.create_time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_time', full_name='google.cloud.contactcenterinsights.v1.DeployIssueModelMetadata.end_time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request', full_name='google.cloud.contactcenterinsights.v1.DeployIssueModelMetadata.request', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5338,
+  serialized_end=5550,
+)
+
+
+_UNDEPLOYISSUEMODELREQUEST = _descriptor.Descriptor(
+  name='UndeployIssueModelRequest',
+  full_name='google.cloud.contactcenterinsights.v1.UndeployIssueModelRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.contactcenterinsights.v1.UndeployIssueModelRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A1\n/contactcenterinsights.googleapis.com/IssueModel', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5552,
+  serialized_end=5650,
+)
+
+
+_UNDEPLOYISSUEMODELRESPONSE = _descriptor.Descriptor(
+  name='UndeployIssueModelResponse',
+  full_name='google.cloud.contactcenterinsights.v1.UndeployIssueModelResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5652,
+  serialized_end=5680,
+)
+
+
+_UNDEPLOYISSUEMODELMETADATA = _descriptor.Descriptor(
+  name='UndeployIssueModelMetadata',
+  full_name='google.cloud.contactcenterinsights.v1.UndeployIssueModelMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='create_time', full_name='google.cloud.contactcenterinsights.v1.UndeployIssueModelMetadata.create_time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_time', full_name='google.cloud.contactcenterinsights.v1.UndeployIssueModelMetadata.end_time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request', full_name='google.cloud.contactcenterinsights.v1.UndeployIssueModelMetadata.request', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5683,
+  serialized_end=5899,
 )
 
 
@@ -1092,8 +1590,8 @@ _GETISSUEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3975,
-  serialized_end=4058,
+  serialized_start=5901,
+  serialized_end=5984,
 )
 
 
@@ -1124,8 +1622,8 @@ _LISTISSUESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4060,
-  serialized_end=4152,
+  serialized_start=5986,
+  serialized_end=6078,
 )
 
 
@@ -1156,8 +1654,47 @@ _LISTISSUESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4154,
-  serialized_end=4236,
+  serialized_start=6080,
+  serialized_end=6162,
+)
+
+
+_UPDATEISSUEREQUEST = _descriptor.Descriptor(
+  name='UpdateIssueRequest',
+  full_name='google.cloud.contactcenterinsights.v1.UpdateIssueRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='issue', full_name='google.cloud.contactcenterinsights.v1.UpdateIssueRequest.issue', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_mask', full_name='google.cloud.contactcenterinsights.v1.UpdateIssueRequest.update_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6165,
+  serialized_end=6300,
 )
 
 
@@ -1188,8 +1725,8 @@ _CALCULATEISSUEMODELSTATSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4238,
-  serialized_end=4349,
+  serialized_start=6302,
+  serialized_end=6413,
 )
 
 
@@ -1220,8 +1757,8 @@ _CALCULATEISSUEMODELSTATSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4351,
-  serialized_end=4469,
+  serialized_start=6415,
+  serialized_end=6533,
 )
 
 
@@ -1259,8 +1796,8 @@ _CREATEPHRASEMATCHERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4472,
-  serialized_end=4642,
+  serialized_start=6536,
+  serialized_end=6706,
 )
 
 
@@ -1312,8 +1849,8 @@ _LISTPHRASEMATCHERSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4645,
-  serialized_end=4786,
+  serialized_start=6709,
+  serialized_end=6850,
 )
 
 
@@ -1351,8 +1888,8 @@ _LISTPHRASEMATCHERSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4789,
-  serialized_end=4921,
+  serialized_start=6853,
+  serialized_end=6985,
 )
 
 
@@ -1383,8 +1920,8 @@ _GETPHRASEMATCHERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4923,
-  serialized_end=5022,
+  serialized_start=6987,
+  serialized_end=7086,
 )
 
 
@@ -1415,8 +1952,8 @@ _DELETEPHRASEMATCHERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5024,
-  serialized_end=5126,
+  serialized_start=7088,
+  serialized_end=7190,
 )
 
 
@@ -1447,8 +1984,8 @@ _GETSETTINGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5128,
-  serialized_end=5217,
+  serialized_start=7192,
+  serialized_end=7281,
 )
 
 
@@ -1486,10 +2023,15 @@ _UPDATESETTINGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5220,
-  serialized_end=5369,
+  serialized_start=7284,
+  serialized_end=7433,
 )
 
+_CALCULATESTATSRESPONSE_TIMESERIES_INTERVAL.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CALCULATESTATSRESPONSE_TIMESERIES_INTERVAL.containing_type = _CALCULATESTATSRESPONSE_TIMESERIES
+_CALCULATESTATSRESPONSE_TIMESERIES.fields_by_name['interval_duration'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
+_CALCULATESTATSRESPONSE_TIMESERIES.fields_by_name['points'].message_type = _CALCULATESTATSRESPONSE_TIMESERIES_INTERVAL
+_CALCULATESTATSRESPONSE_TIMESERIES.containing_type = _CALCULATESTATSRESPONSE
 _CALCULATESTATSRESPONSE_SMARTHIGHLIGHTERMATCHESENTRY.containing_type = _CALCULATESTATSRESPONSE
 _CALCULATESTATSRESPONSE_CUSTOMHIGHLIGHTERMATCHESENTRY.containing_type = _CALCULATESTATSRESPONSE
 _CALCULATESTATSRESPONSE_ISSUEMATCHESENTRY.containing_type = _CALCULATESTATSRESPONSE
@@ -1497,6 +2039,7 @@ _CALCULATESTATSRESPONSE.fields_by_name['average_duration'].message_type = google
 _CALCULATESTATSRESPONSE.fields_by_name['smart_highlighter_matches'].message_type = _CALCULATESTATSRESPONSE_SMARTHIGHLIGHTERMATCHESENTRY
 _CALCULATESTATSRESPONSE.fields_by_name['custom_highlighter_matches'].message_type = _CALCULATESTATSRESPONSE_CUSTOMHIGHLIGHTERMATCHESENTRY
 _CALCULATESTATSRESPONSE.fields_by_name['issue_matches'].message_type = _CALCULATESTATSRESPONSE_ISSUEMATCHESENTRY
+_CALCULATESTATSRESPONSE.fields_by_name['conversation_count_time_series'].message_type = _CALCULATESTATSRESPONSE_TIMESERIES
 _CREATEANALYSISOPERATIONMETADATA.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CREATEANALYSISOPERATIONMETADATA.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CREATECONVERSATIONREQUEST.fields_by_name['conversation'].message_type = google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._CONVERSATION
@@ -1516,8 +2059,25 @@ _EXPORTINSIGHTSDATAMETADATA.fields_by_name['create_time'].message_type = google_
 _EXPORTINSIGHTSDATAMETADATA.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _EXPORTINSIGHTSDATAMETADATA.fields_by_name['request'].message_type = _EXPORTINSIGHTSDATAREQUEST
 _EXPORTINSIGHTSDATAMETADATA.fields_by_name['partial_errors'].message_type = google_dot_rpc_dot_status__pb2._STATUS
+_CREATEISSUEMODELREQUEST.fields_by_name['issue_model'].message_type = google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._ISSUEMODEL
+_CREATEISSUEMODELMETADATA.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CREATEISSUEMODELMETADATA.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CREATEISSUEMODELMETADATA.fields_by_name['request'].message_type = _CREATEISSUEMODELREQUEST
+_UPDATEISSUEMODELREQUEST.fields_by_name['issue_model'].message_type = google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._ISSUEMODEL
+_UPDATEISSUEMODELREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 _LISTISSUEMODELSRESPONSE.fields_by_name['issue_models'].message_type = google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._ISSUEMODEL
+_DELETEISSUEMODELMETADATA.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_DELETEISSUEMODELMETADATA.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_DELETEISSUEMODELMETADATA.fields_by_name['request'].message_type = _DELETEISSUEMODELREQUEST
+_DEPLOYISSUEMODELMETADATA.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_DEPLOYISSUEMODELMETADATA.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_DEPLOYISSUEMODELMETADATA.fields_by_name['request'].message_type = _DEPLOYISSUEMODELREQUEST
+_UNDEPLOYISSUEMODELMETADATA.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_UNDEPLOYISSUEMODELMETADATA.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_UNDEPLOYISSUEMODELMETADATA.fields_by_name['request'].message_type = _UNDEPLOYISSUEMODELREQUEST
 _LISTISSUESRESPONSE.fields_by_name['issues'].message_type = google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._ISSUE
+_UPDATEISSUEREQUEST.fields_by_name['issue'].message_type = google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._ISSUE
+_UPDATEISSUEREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 _CALCULATEISSUEMODELSTATSRESPONSE.fields_by_name['current_stats'].message_type = google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._ISSUEMODELLABELSTATS
 _CREATEPHRASEMATCHERREQUEST.fields_by_name['phrase_matcher'].message_type = google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._PHRASEMATCHER
 _LISTPHRASEMATCHERSRESPONSE.fields_by_name['phrase_matchers'].message_type = google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._PHRASEMATCHER
@@ -1540,12 +2100,24 @@ DESCRIPTOR.message_types_by_name['DeleteAnalysisRequest'] = _DELETEANALYSISREQUE
 DESCRIPTOR.message_types_by_name['ExportInsightsDataRequest'] = _EXPORTINSIGHTSDATAREQUEST
 DESCRIPTOR.message_types_by_name['ExportInsightsDataMetadata'] = _EXPORTINSIGHTSDATAMETADATA
 DESCRIPTOR.message_types_by_name['ExportInsightsDataResponse'] = _EXPORTINSIGHTSDATARESPONSE
+DESCRIPTOR.message_types_by_name['CreateIssueModelRequest'] = _CREATEISSUEMODELREQUEST
+DESCRIPTOR.message_types_by_name['CreateIssueModelMetadata'] = _CREATEISSUEMODELMETADATA
+DESCRIPTOR.message_types_by_name['UpdateIssueModelRequest'] = _UPDATEISSUEMODELREQUEST
 DESCRIPTOR.message_types_by_name['ListIssueModelsRequest'] = _LISTISSUEMODELSREQUEST
 DESCRIPTOR.message_types_by_name['ListIssueModelsResponse'] = _LISTISSUEMODELSRESPONSE
 DESCRIPTOR.message_types_by_name['GetIssueModelRequest'] = _GETISSUEMODELREQUEST
+DESCRIPTOR.message_types_by_name['DeleteIssueModelRequest'] = _DELETEISSUEMODELREQUEST
+DESCRIPTOR.message_types_by_name['DeleteIssueModelMetadata'] = _DELETEISSUEMODELMETADATA
+DESCRIPTOR.message_types_by_name['DeployIssueModelRequest'] = _DEPLOYISSUEMODELREQUEST
+DESCRIPTOR.message_types_by_name['DeployIssueModelResponse'] = _DEPLOYISSUEMODELRESPONSE
+DESCRIPTOR.message_types_by_name['DeployIssueModelMetadata'] = _DEPLOYISSUEMODELMETADATA
+DESCRIPTOR.message_types_by_name['UndeployIssueModelRequest'] = _UNDEPLOYISSUEMODELREQUEST
+DESCRIPTOR.message_types_by_name['UndeployIssueModelResponse'] = _UNDEPLOYISSUEMODELRESPONSE
+DESCRIPTOR.message_types_by_name['UndeployIssueModelMetadata'] = _UNDEPLOYISSUEMODELMETADATA
 DESCRIPTOR.message_types_by_name['GetIssueRequest'] = _GETISSUEREQUEST
 DESCRIPTOR.message_types_by_name['ListIssuesRequest'] = _LISTISSUESREQUEST
 DESCRIPTOR.message_types_by_name['ListIssuesResponse'] = _LISTISSUESRESPONSE
+DESCRIPTOR.message_types_by_name['UpdateIssueRequest'] = _UPDATEISSUEREQUEST
 DESCRIPTOR.message_types_by_name['CalculateIssueModelStatsRequest'] = _CALCULATEISSUEMODELSTATSREQUEST
 DESCRIPTOR.message_types_by_name['CalculateIssueModelStatsResponse'] = _CALCULATEISSUEMODELSTATSRESPONSE
 DESCRIPTOR.message_types_by_name['CreatePhraseMatcherRequest'] = _CREATEPHRASEMATCHERREQUEST
@@ -1566,6 +2138,20 @@ CalculateStatsRequest = _reflection.GeneratedProtocolMessageType('CalculateStats
 _sym_db.RegisterMessage(CalculateStatsRequest)
 
 CalculateStatsResponse = _reflection.GeneratedProtocolMessageType('CalculateStatsResponse', (_message.Message,), {
+
+  'TimeSeries' : _reflection.GeneratedProtocolMessageType('TimeSeries', (_message.Message,), {
+
+    'Interval' : _reflection.GeneratedProtocolMessageType('Interval', (_message.Message,), {
+      'DESCRIPTOR' : _CALCULATESTATSRESPONSE_TIMESERIES_INTERVAL,
+      '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+      # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval)
+      })
+    ,
+    'DESCRIPTOR' : _CALCULATESTATSRESPONSE_TIMESERIES,
+    '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries)
+    })
+  ,
 
   'SmartHighlighterMatchesEntry' : _reflection.GeneratedProtocolMessageType('SmartHighlighterMatchesEntry', (_message.Message,), {
     'DESCRIPTOR' : _CALCULATESTATSRESPONSE_SMARTHIGHLIGHTERMATCHESENTRY,
@@ -1592,6 +2178,8 @@ CalculateStatsResponse = _reflection.GeneratedProtocolMessageType('CalculateStat
   # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.CalculateStatsResponse)
   })
 _sym_db.RegisterMessage(CalculateStatsResponse)
+_sym_db.RegisterMessage(CalculateStatsResponse.TimeSeries)
+_sym_db.RegisterMessage(CalculateStatsResponse.TimeSeries.Interval)
 _sym_db.RegisterMessage(CalculateStatsResponse.SmartHighlighterMatchesEntry)
 _sym_db.RegisterMessage(CalculateStatsResponse.CustomHighlighterMatchesEntry)
 _sym_db.RegisterMessage(CalculateStatsResponse.IssueMatchesEntry)
@@ -1709,6 +2297,27 @@ ExportInsightsDataResponse = _reflection.GeneratedProtocolMessageType('ExportIns
   })
 _sym_db.RegisterMessage(ExportInsightsDataResponse)
 
+CreateIssueModelRequest = _reflection.GeneratedProtocolMessageType('CreateIssueModelRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEISSUEMODELREQUEST,
+  '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.CreateIssueModelRequest)
+  })
+_sym_db.RegisterMessage(CreateIssueModelRequest)
+
+CreateIssueModelMetadata = _reflection.GeneratedProtocolMessageType('CreateIssueModelMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEISSUEMODELMETADATA,
+  '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.CreateIssueModelMetadata)
+  })
+_sym_db.RegisterMessage(CreateIssueModelMetadata)
+
+UpdateIssueModelRequest = _reflection.GeneratedProtocolMessageType('UpdateIssueModelRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEISSUEMODELREQUEST,
+  '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.UpdateIssueModelRequest)
+  })
+_sym_db.RegisterMessage(UpdateIssueModelRequest)
+
 ListIssueModelsRequest = _reflection.GeneratedProtocolMessageType('ListIssueModelsRequest', (_message.Message,), {
   'DESCRIPTOR' : _LISTISSUEMODELSREQUEST,
   '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
@@ -1730,6 +2339,62 @@ GetIssueModelRequest = _reflection.GeneratedProtocolMessageType('GetIssueModelRe
   })
 _sym_db.RegisterMessage(GetIssueModelRequest)
 
+DeleteIssueModelRequest = _reflection.GeneratedProtocolMessageType('DeleteIssueModelRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEISSUEMODELREQUEST,
+  '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.DeleteIssueModelRequest)
+  })
+_sym_db.RegisterMessage(DeleteIssueModelRequest)
+
+DeleteIssueModelMetadata = _reflection.GeneratedProtocolMessageType('DeleteIssueModelMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEISSUEMODELMETADATA,
+  '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.DeleteIssueModelMetadata)
+  })
+_sym_db.RegisterMessage(DeleteIssueModelMetadata)
+
+DeployIssueModelRequest = _reflection.GeneratedProtocolMessageType('DeployIssueModelRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DEPLOYISSUEMODELREQUEST,
+  '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.DeployIssueModelRequest)
+  })
+_sym_db.RegisterMessage(DeployIssueModelRequest)
+
+DeployIssueModelResponse = _reflection.GeneratedProtocolMessageType('DeployIssueModelResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DEPLOYISSUEMODELRESPONSE,
+  '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.DeployIssueModelResponse)
+  })
+_sym_db.RegisterMessage(DeployIssueModelResponse)
+
+DeployIssueModelMetadata = _reflection.GeneratedProtocolMessageType('DeployIssueModelMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _DEPLOYISSUEMODELMETADATA,
+  '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.DeployIssueModelMetadata)
+  })
+_sym_db.RegisterMessage(DeployIssueModelMetadata)
+
+UndeployIssueModelRequest = _reflection.GeneratedProtocolMessageType('UndeployIssueModelRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UNDEPLOYISSUEMODELREQUEST,
+  '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.UndeployIssueModelRequest)
+  })
+_sym_db.RegisterMessage(UndeployIssueModelRequest)
+
+UndeployIssueModelResponse = _reflection.GeneratedProtocolMessageType('UndeployIssueModelResponse', (_message.Message,), {
+  'DESCRIPTOR' : _UNDEPLOYISSUEMODELRESPONSE,
+  '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.UndeployIssueModelResponse)
+  })
+_sym_db.RegisterMessage(UndeployIssueModelResponse)
+
+UndeployIssueModelMetadata = _reflection.GeneratedProtocolMessageType('UndeployIssueModelMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _UNDEPLOYISSUEMODELMETADATA,
+  '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.UndeployIssueModelMetadata)
+  })
+_sym_db.RegisterMessage(UndeployIssueModelMetadata)
+
 GetIssueRequest = _reflection.GeneratedProtocolMessageType('GetIssueRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETISSUEREQUEST,
   '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
@@ -1750,6 +2415,13 @@ ListIssuesResponse = _reflection.GeneratedProtocolMessageType('ListIssuesRespons
   # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.ListIssuesResponse)
   })
 _sym_db.RegisterMessage(ListIssuesResponse)
+
+UpdateIssueRequest = _reflection.GeneratedProtocolMessageType('UpdateIssueRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEISSUEREQUEST,
+  '__module__' : 'google.cloud.contactcenterinsights.v1.contact_center_insights_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.UpdateIssueRequest)
+  })
+_sym_db.RegisterMessage(UpdateIssueRequest)
 
 CalculateIssueModelStatsRequest = _reflection.GeneratedProtocolMessageType('CalculateIssueModelStatsRequest', (_message.Message,), {
   'DESCRIPTOR' : _CALCULATEISSUEMODELSTATSREQUEST,
@@ -1838,10 +2510,25 @@ _EXPORTINSIGHTSDATAREQUEST_BIGQUERYDESTINATION.fields_by_name['dataset']._option
 _EXPORTINSIGHTSDATAREQUEST.fields_by_name['parent']._options = None
 _EXPORTINSIGHTSDATAMETADATA.fields_by_name['create_time']._options = None
 _EXPORTINSIGHTSDATAMETADATA.fields_by_name['end_time']._options = None
+_CREATEISSUEMODELREQUEST.fields_by_name['parent']._options = None
+_CREATEISSUEMODELREQUEST.fields_by_name['issue_model']._options = None
+_CREATEISSUEMODELMETADATA.fields_by_name['create_time']._options = None
+_CREATEISSUEMODELMETADATA.fields_by_name['end_time']._options = None
+_UPDATEISSUEMODELREQUEST.fields_by_name['issue_model']._options = None
 _LISTISSUEMODELSREQUEST.fields_by_name['parent']._options = None
 _GETISSUEMODELREQUEST.fields_by_name['name']._options = None
+_DELETEISSUEMODELREQUEST.fields_by_name['name']._options = None
+_DELETEISSUEMODELMETADATA.fields_by_name['create_time']._options = None
+_DELETEISSUEMODELMETADATA.fields_by_name['end_time']._options = None
+_DEPLOYISSUEMODELREQUEST.fields_by_name['name']._options = None
+_DEPLOYISSUEMODELMETADATA.fields_by_name['create_time']._options = None
+_DEPLOYISSUEMODELMETADATA.fields_by_name['end_time']._options = None
+_UNDEPLOYISSUEMODELREQUEST.fields_by_name['name']._options = None
+_UNDEPLOYISSUEMODELMETADATA.fields_by_name['create_time']._options = None
+_UNDEPLOYISSUEMODELMETADATA.fields_by_name['end_time']._options = None
 _GETISSUEREQUEST.fields_by_name['name']._options = None
 _LISTISSUESREQUEST.fields_by_name['parent']._options = None
+_UPDATEISSUEREQUEST.fields_by_name['issue']._options = None
 _CALCULATEISSUEMODELSTATSREQUEST.fields_by_name['issue_model']._options = None
 _CREATEPHRASEMATCHERREQUEST.fields_by_name['parent']._options = None
 _CREATEPHRASEMATCHERREQUEST.fields_by_name['phrase_matcher']._options = None
@@ -1859,8 +2546,8 @@ _CONTACTCENTERINSIGHTS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A$contactcenterinsights.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=5448,
-  serialized_end=10360,
+  serialized_start=7512,
+  serialized_end=13870,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateConversation',
@@ -1963,9 +2650,29 @@ _CONTACTCENTERINSIGHTS = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='CreateIssueModel',
+    full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.CreateIssueModel',
+    index=10,
+    containing_service=None,
+    input_type=_CREATEISSUEMODELREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002>\"//v1/{parent=projects/*/locations/*}/issueModels:\013issue_model\332A\022parent,issue_model\312A&\n\nIssueModel\022\030CreateIssueModelMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UpdateIssueModel',
+    full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.UpdateIssueModel',
+    index=11,
+    containing_service=None,
+    input_type=_UPDATEISSUEMODELREQUEST,
+    output_type=google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._ISSUEMODEL,
+    serialized_options=b'\202\323\344\223\002J2;/v1/{issue_model.name=projects/*/locations/*/issueModels/*}:\013issue_model\332A\027issue_model,update_mask',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetIssueModel',
     full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.GetIssueModel',
-    index=10,
+    index=12,
     containing_service=None,
     input_type=_GETISSUEMODELREQUEST,
     output_type=google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._ISSUEMODEL,
@@ -1975,7 +2682,7 @@ _CONTACTCENTERINSIGHTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListIssueModels',
     full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListIssueModels',
-    index=11,
+    index=13,
     containing_service=None,
     input_type=_LISTISSUEMODELSREQUEST,
     output_type=_LISTISSUEMODELSRESPONSE,
@@ -1983,9 +2690,39 @@ _CONTACTCENTERINSIGHTS = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='DeleteIssueModel',
+    full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.DeleteIssueModel',
+    index=14,
+    containing_service=None,
+    input_type=_DELETEISSUEMODELREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\0021*//v1/{name=projects/*/locations/*/issueModels/*}\332A\004name\312A1\n\025google.protobuf.Empty\022\030DeleteIssueModelMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeployIssueModel',
+    full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.DeployIssueModel',
+    index=15,
+    containing_service=None,
+    input_type=_DEPLOYISSUEMODELREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002;\"6/v1/{name=projects/*/locations/*/issueModels/*}:deploy:\001*\332A\004name\312A4\n\030DeployIssueModelResponse\022\030DeployIssueModelMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UndeployIssueModel',
+    full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.UndeployIssueModel',
+    index=16,
+    containing_service=None,
+    input_type=_UNDEPLOYISSUEMODELREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002=\"8/v1/{name=projects/*/locations/*/issueModels/*}:undeploy:\001*\332A\004name\312A8\n\032UndeployIssueModelResponse\022\032UndeployIssueModelMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetIssue',
     full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.GetIssue',
-    index=12,
+    index=17,
     containing_service=None,
     input_type=_GETISSUEREQUEST,
     output_type=google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._ISSUE,
@@ -1995,7 +2732,7 @@ _CONTACTCENTERINSIGHTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListIssues',
     full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListIssues',
-    index=13,
+    index=18,
     containing_service=None,
     input_type=_LISTISSUESREQUEST,
     output_type=_LISTISSUESRESPONSE,
@@ -2003,9 +2740,19 @@ _CONTACTCENTERINSIGHTS = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='UpdateIssue',
+    full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.UpdateIssue',
+    index=19,
+    containing_service=None,
+    input_type=_UPDATEISSUEREQUEST,
+    output_type=google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._ISSUE,
+    serialized_options=b'\202\323\344\223\002G2>/v1/{issue.name=projects/*/locations/*/issueModels/*/issues/*}:\005issue\332A\021issue,update_mask',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='CalculateIssueModelStats',
     full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.CalculateIssueModelStats',
-    index=14,
+    index=20,
     containing_service=None,
     input_type=_CALCULATEISSUEMODELSTATSREQUEST,
     output_type=_CALCULATEISSUEMODELSTATSRESPONSE,
@@ -2015,7 +2762,7 @@ _CONTACTCENTERINSIGHTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreatePhraseMatcher',
     full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.CreatePhraseMatcher',
-    index=15,
+    index=21,
     containing_service=None,
     input_type=_CREATEPHRASEMATCHERREQUEST,
     output_type=google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._PHRASEMATCHER,
@@ -2025,7 +2772,7 @@ _CONTACTCENTERINSIGHTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetPhraseMatcher',
     full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.GetPhraseMatcher',
-    index=16,
+    index=22,
     containing_service=None,
     input_type=_GETPHRASEMATCHERREQUEST,
     output_type=google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._PHRASEMATCHER,
@@ -2035,7 +2782,7 @@ _CONTACTCENTERINSIGHTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListPhraseMatchers',
     full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListPhraseMatchers',
-    index=17,
+    index=23,
     containing_service=None,
     input_type=_LISTPHRASEMATCHERSREQUEST,
     output_type=_LISTPHRASEMATCHERSRESPONSE,
@@ -2045,7 +2792,7 @@ _CONTACTCENTERINSIGHTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeletePhraseMatcher',
     full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.DeletePhraseMatcher',
-    index=18,
+    index=24,
     containing_service=None,
     input_type=_DELETEPHRASEMATCHERREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -2055,7 +2802,7 @@ _CONTACTCENTERINSIGHTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CalculateStats',
     full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.CalculateStats',
-    index=19,
+    index=25,
     containing_service=None,
     input_type=_CALCULATESTATSREQUEST,
     output_type=_CALCULATESTATSRESPONSE,
@@ -2065,7 +2812,7 @@ _CONTACTCENTERINSIGHTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetSettings',
     full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.GetSettings',
-    index=20,
+    index=26,
     containing_service=None,
     input_type=_GETSETTINGSREQUEST,
     output_type=google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._SETTINGS,
@@ -2075,7 +2822,7 @@ _CONTACTCENTERINSIGHTS = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateSettings',
     full_name='google.cloud.contactcenterinsights.v1.ContactCenterInsights.UpdateSettings',
-    index=21,
+    index=27,
     containing_service=None,
     input_type=_UPDATESETTINGSREQUEST,
     output_type=google_dot_cloud_dot_contactcenterinsights_dot_v1_dot_resources__pb2._SETTINGS,

@@ -21,9 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='xds/core/v3/collection_entry.proto',
   package='xds.core.v3',
   syntax='proto3',
-  serialized_options=b'\n\033com.github.udpa.xds.core.v3B\024CollectionEntryProtoP\001\272\200\310\321\006\002\010\001',
+  serialized_options=b'\n\026com.github.xds.core.v3B\024CollectionEntryProtoP\001\272\200\310\321\006\002\010\001',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\"xds/core/v3/collection_entry.proto\x12\x0bxds.core.v3\x1a\x19google/protobuf/any.proto\x1a\x1dudpa/annotations/status.proto\x1a\"xds/core/v3/resource_locator.proto\x1a\x17validate/validate.proto\"\x93\x02\n\x0f\x43ollectionEntry\x12/\n\x07locator\x18\x01 \x01(\x0b\x32\x1c.xds.core.v3.ResourceLocatorH\x00\x12@\n\x0cinline_entry\x18\x02 \x01(\x0b\x32(.xds.core.v3.CollectionEntry.InlineEntryH\x00\x1ar\n\x0bInlineEntry\x12*\n\x04name\x18\x01 \x01(\tB\x1c\xfa\x42\x19r\x17\x32\x15^[0-9a-zA-Z_\\-\\.~:]+$\x12\x0f\n\x07version\x18\x02 \x01(\t\x12&\n\x08resource\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyB\x19\n\x12resource_specifier\x12\x03\xf8\x42\x01\x42=\n\x1b\x63om.github.udpa.xds.core.v3B\x14\x43ollectionEntryProtoP\x01\xba\x80\xc8\xd1\x06\x02\x08\x01\x62\x06proto3'
+  serialized_pb=b'\n\"xds/core/v3/collection_entry.proto\x12\x0bxds.core.v3\x1a\x19google/protobuf/any.proto\x1a\x1dudpa/annotations/status.proto\x1a\"xds/core/v3/resource_locator.proto\x1a\x17validate/validate.proto\"\x93\x02\n\x0f\x43ollectionEntry\x12/\n\x07locator\x18\x01 \x01(\x0b\x32\x1c.xds.core.v3.ResourceLocatorH\x00\x12@\n\x0cinline_entry\x18\x02 \x01(\x0b\x32(.xds.core.v3.CollectionEntry.InlineEntryH\x00\x1ar\n\x0bInlineEntry\x12*\n\x04name\x18\x01 \x01(\tB\x1c\xfa\x42\x19r\x17\x32\x15^[0-9a-zA-Z_\\-\\.~:]+$\x12\x0f\n\x07version\x18\x02 \x01(\t\x12&\n\x08resource\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyB\x19\n\x12resource_specifier\x12\x03\xf8\x42\x01\x42\x38\n\x16\x63om.github.xds.core.v3B\x14\x43ollectionEntryProtoP\x01\xba\x80\xc8\xd1\x06\x02\x08\x01\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,xds_dot_core_dot_v3_dot_resource__locator__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 

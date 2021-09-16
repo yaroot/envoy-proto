@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.securitycenter.v1 import indicator_pb2 as google_dot_cloud_dot_securitycenter_dot_v1_dot_indicator__pb2
 from google.cloud.securitycenter.v1 import security_marks_pb2 as google_dot_cloud_dot_securitycenter_dot_v1_dot_security__marks__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
@@ -25,9 +26,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"com.google.cloud.securitycenter.v1P\001ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\252\002\036Google.Cloud.SecurityCenter.V1\312\002\036Google\\Cloud\\SecurityCenter\\V1\352\002!Google::Cloud::SecurityCenter::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,google/cloud/securitycenter/v1/finding.proto\x12\x1egoogle.cloud.securitycenter.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x33google/cloud/securitycenter/v1/security_marks.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xc3\x07\n\x07\x46inding\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06parent\x18\x02 \x01(\t\x12\x15\n\rresource_name\x18\x03 \x01(\t\x12<\n\x05state\x18\x04 \x01(\x0e\x32-.google.cloud.securitycenter.v1.Finding.State\x12\x10\n\x08\x63\x61tegory\x18\x05 \x01(\t\x12\x14\n\x0c\x65xternal_uri\x18\x06 \x01(\t\x12X\n\x11source_properties\x18\x07 \x03(\x0b\x32=.google.cloud.securitycenter.v1.Finding.SourcePropertiesEntry\x12J\n\x0esecurity_marks\x18\x08 \x01(\x0b\x32-.google.cloud.securitycenter.v1.SecurityMarksB\x03\xe0\x41\x03\x12.\n\nevent_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x63reate_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x42\n\x08severity\x18\x0c \x01(\x0e\x32\x30.google.cloud.securitycenter.v1.Finding.Severity\x12\x16\n\x0e\x63\x61nonical_name\x18\x0e \x01(\t\x1aO\n\x15SourcePropertiesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value:\x02\x38\x01\"8\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\n\n\x06\x41\x43TIVE\x10\x01\x12\x0c\n\x08INACTIVE\x10\x02\"Q\n\x08Severity\x12\x18\n\x14SEVERITY_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43RITICAL\x10\x01\x12\x08\n\x04HIGH\x10\x02\x12\n\n\x06MEDIUM\x10\x03\x12\x07\n\x03LOW\x10\x04:\xdb\x01\xea\x41\xd7\x01\n%securitycenter.googleapis.com/Finding\x12@organizations/{organization}/sources/{source}/findings/{finding}\x12\x34\x66olders/{folder}/sources/{source}/findings/{finding}\x12\x36projects/{project}/sources/{source}/findings/{finding}B\xda\x01\n\"com.google.cloud.securitycenter.v1P\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1b\x06proto3'
+  serialized_pb=b'\n,google/cloud/securitycenter/v1/finding.proto\x12\x1egoogle.cloud.securitycenter.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.google/cloud/securitycenter/v1/indicator.proto\x1a\x33google/cloud/securitycenter/v1/security_marks.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xc3\t\n\x07\x46inding\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06parent\x18\x02 \x01(\t\x12\x15\n\rresource_name\x18\x03 \x01(\t\x12<\n\x05state\x18\x04 \x01(\x0e\x32-.google.cloud.securitycenter.v1.Finding.State\x12\x10\n\x08\x63\x61tegory\x18\x05 \x01(\t\x12\x14\n\x0c\x65xternal_uri\x18\x06 \x01(\t\x12X\n\x11source_properties\x18\x07 \x03(\x0b\x32=.google.cloud.securitycenter.v1.Finding.SourcePropertiesEntry\x12J\n\x0esecurity_marks\x18\x08 \x01(\x0b\x32-.google.cloud.securitycenter.v1.SecurityMarksB\x03\xe0\x41\x03\x12.\n\nevent_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x63reate_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x42\n\x08severity\x18\x0c \x01(\x0e\x32\x30.google.cloud.securitycenter.v1.Finding.Severity\x12\x16\n\x0e\x63\x61nonical_name\x18\x0e \x01(\t\x12K\n\rfinding_class\x18\x11 \x01(\x0e\x32\x34.google.cloud.securitycenter.v1.Finding.FindingClass\x12<\n\tindicator\x18\x12 \x01(\x0b\x32).google.cloud.securitycenter.v1.Indicator\x1aO\n\x15SourcePropertiesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12%\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.Value:\x02\x38\x01\"8\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\n\n\x06\x41\x43TIVE\x10\x01\x12\x0c\n\x08INACTIVE\x10\x02\"Q\n\x08Severity\x12\x18\n\x14SEVERITY_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43RITICAL\x10\x01\x12\x08\n\x04HIGH\x10\x02\x12\n\n\x06MEDIUM\x10\x03\x12\x07\n\x03LOW\x10\x04\"s\n\x0c\x46indingClass\x12\x1d\n\x19\x46INDING_CLASS_UNSPECIFIED\x10\x00\x12\n\n\x06THREAT\x10\x01\x12\x11\n\rVULNERABILITY\x10\x02\x12\x14\n\x10MISCONFIGURATION\x10\x03\x12\x0f\n\x0bOBSERVATION\x10\x04:\xdb\x01\xea\x41\xd7\x01\n%securitycenter.googleapis.com/Finding\x12@organizations/{organization}/sources/{source}/findings/{finding}\x12\x34\x66olders/{folder}/sources/{source}/findings/{finding}\x12\x36projects/{project}/sources/{source}/findings/{finding}B\xda\x01\n\"com.google.cloud.securitycenter.v1P\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_securitycenter_dot_v1_dot_security__marks__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_securitycenter_dot_v1_dot_indicator__pb2.DESCRIPTOR,google_dot_cloud_dot_securitycenter_dot_v1_dot_security__marks__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -56,8 +57,8 @@ _FINDING_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=889,
-  serialized_end=945,
+  serialized_start=1076,
+  serialized_end=1132,
 )
 _sym_db.RegisterEnumDescriptor(_FINDING_STATE)
 
@@ -96,10 +97,50 @@ _FINDING_SEVERITY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=947,
-  serialized_end=1028,
+  serialized_start=1134,
+  serialized_end=1215,
 )
 _sym_db.RegisterEnumDescriptor(_FINDING_SEVERITY)
+
+_FINDING_FINDINGCLASS = _descriptor.EnumDescriptor(
+  name='FindingClass',
+  full_name='google.cloud.securitycenter.v1.Finding.FindingClass',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='FINDING_CLASS_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='THREAT', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='VULNERABILITY', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='MISCONFIGURATION', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='OBSERVATION', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1217,
+  serialized_end=1332,
+)
+_sym_db.RegisterEnumDescriptor(_FINDING_FINDINGCLASS)
 
 
 _FINDING_SOURCEPROPERTIESENTRY = _descriptor.Descriptor(
@@ -136,8 +177,8 @@ _FINDING_SOURCEPROPERTIESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=808,
-  serialized_end=887,
+  serialized_start=995,
+  serialized_end=1074,
 )
 
 _FINDING = _descriptor.Descriptor(
@@ -232,6 +273,20 @@ _FINDING = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='finding_class', full_name='google.cloud.securitycenter.v1.Finding.finding_class', index=12,
+      number=17, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='indicator', full_name='google.cloud.securitycenter.v1.Finding.indicator', index=13,
+      number=18, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -239,6 +294,7 @@ _FINDING = _descriptor.Descriptor(
   enum_types=[
     _FINDING_STATE,
     _FINDING_SEVERITY,
+    _FINDING_FINDINGCLASS,
   ],
   serialized_options=b'\352A\327\001\n%securitycenter.googleapis.com/Finding\022@organizations/{organization}/sources/{source}/findings/{finding}\0224folders/{folder}/sources/{source}/findings/{finding}\0226projects/{project}/sources/{source}/findings/{finding}',
   is_extendable=False,
@@ -246,8 +302,8 @@ _FINDING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=287,
-  serialized_end=1250,
+  serialized_start=335,
+  serialized_end=1554,
 )
 
 _FINDING_SOURCEPROPERTIESENTRY.fields_by_name['value'].message_type = google_dot_protobuf_dot_struct__pb2._VALUE
@@ -258,8 +314,11 @@ _FINDING.fields_by_name['security_marks'].message_type = google_dot_cloud_dot_se
 _FINDING.fields_by_name['event_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _FINDING.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _FINDING.fields_by_name['severity'].enum_type = _FINDING_SEVERITY
+_FINDING.fields_by_name['finding_class'].enum_type = _FINDING_FINDINGCLASS
+_FINDING.fields_by_name['indicator'].message_type = google_dot_cloud_dot_securitycenter_dot_v1_dot_indicator__pb2._INDICATOR
 _FINDING_STATE.containing_type = _FINDING
 _FINDING_SEVERITY.containing_type = _FINDING
+_FINDING_FINDINGCLASS.containing_type = _FINDING
 DESCRIPTOR.message_types_by_name['Finding'] = _FINDING
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

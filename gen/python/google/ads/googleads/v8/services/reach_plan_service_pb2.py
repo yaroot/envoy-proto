@@ -27,7 +27,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v8.servicesB\025ReachPlanServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v8/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V8.Services\312\002 Google\\Ads\\GoogleAds\\V8\\Services\352\002$Google::Ads::GoogleAds::V8::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n9google/ads/googleads/v8/services/reach_plan_service.proto\x12 google.ads.googleads.v8.services\x1a-google/ads/googleads/v8/common/criteria.proto\x1a;google/ads/googleads/v8/enums/frequency_cap_time_unit.proto\x1a\x38google/ads/googleads/v8/enums/reach_plan_ad_length.proto\x1a\x38google/ads/googleads/v8/enums/reach_plan_age_range.proto\x1a\x36google/ads/googleads/v8/enums/reach_plan_network.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\"\x1f\n\x1dListPlannableLocationsRequest\"r\n\x1eListPlannableLocationsResponse\x12P\n\x13plannable_locations\x18\x01 \x03(\x0b\x32\x33.google.ads.googleads.v8.services.PlannableLocation\"}\n\x11PlannableLocation\x12\x0f\n\x02id\x18\x04 \x01(\tH\x00\x88\x01\x01\x12\x11\n\x04name\x18\x05 \x01(\tH\x01\x88\x01\x01\x12\x1e\n\x11parent_country_id\x18\x06 \x01(\x03H\x02\x88\x01\x01\x42\x05\n\x03_idB\x07\n\x05_nameB\x14\n\x12_parent_country_id\"B\n\x1cListPlannableProductsRequest\x12\"\n\x15plannable_location_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"l\n\x1dListPlannableProductsResponse\x12K\n\x10product_metadata\x18\x01 \x03(\x0b\x32\x31.google.ads.googleads.v8.services.ProductMetadata\"\xc4\x01\n\x0fProductMetadata\x12#\n\x16plannable_product_code\x18\x04 \x01(\tH\x00\x88\x01\x01\x12\x1e\n\x16plannable_product_name\x18\x03 \x01(\t\x12Q\n\x13plannable_targeting\x18\x02 \x01(\x0b\x32\x34.google.ads.googleads.v8.services.PlannableTargetingB\x19\n\x17_plannable_product_code\"\xc2\x02\n\x12PlannableTargeting\x12Z\n\nage_ranges\x18\x01 \x03(\x0e\x32\x46.google.ads.googleads.v8.enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange\x12;\n\x07genders\x18\x02 \x03(\x0b\x32*.google.ads.googleads.v8.common.GenderInfo\x12;\n\x07\x64\x65vices\x18\x03 \x03(\x0b\x32*.google.ads.googleads.v8.common.DeviceInfo\x12V\n\x08networks\x18\x04 \x03(\x0e\x32\x44.google.ads.googleads.v8.enums.ReachPlanNetworkEnum.ReachPlanNetwork\"\xda\x01\n\x1eGenerateProductMixIdeasRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\"\n\x15plannable_location_id\x18\x06 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rcurrency_code\x18\x07 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rbudget_micros\x18\x08 \x01(\x03\x42\x03\xe0\x41\x02\x12\x42\n\x0bpreferences\x18\x05 \x01(\x0b\x32-.google.ads.googleads.v8.services.Preferences\"\xba\x02\n\x0bPreferences\x12\x19\n\x0cis_skippable\x18\x06 \x01(\x08H\x00\x88\x01\x01\x12\x1e\n\x11starts_with_sound\x18\x07 \x01(\x08H\x01\x88\x01\x01\x12Y\n\tad_length\x18\x03 \x01(\x0e\x32\x46.google.ads.googleads.v8.enums.ReachPlanAdLengthEnum.ReachPlanAdLength\x12\x1d\n\x10top_content_only\x18\x08 \x01(\x08H\x02\x88\x01\x01\x12!\n\x14has_guaranteed_price\x18\t \x01(\x08H\x03\x88\x01\x01\x42\x0f\n\r_is_skippableB\x14\n\x12_starts_with_soundB\x13\n\x11_top_content_onlyB\x17\n\x15_has_guaranteed_price\"r\n\x1fGenerateProductMixIdeasResponse\x12O\n\x12product_allocation\x18\x01 \x03(\x0b\x32\x33.google.ads.googleads.v8.services.ProductAllocation\"\x81\x01\n\x11ProductAllocation\x12#\n\x16plannable_product_code\x18\x03 \x01(\tH\x00\x88\x01\x01\x12\x1a\n\rbudget_micros\x18\x04 \x01(\x03H\x01\x88\x01\x01\x42\x19\n\x17_plannable_product_codeB\x10\n\x0e_budget_micros\"\x9f\x04\n\x1cGenerateReachForecastRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rcurrency_code\x18\t \x01(\tH\x00\x88\x01\x01\x12R\n\x11\x63\x61mpaign_duration\x18\x03 \x01(\x0b\x32\x32.google.ads.googleads.v8.services.CampaignDurationB\x03\xe0\x41\x02\x12!\n\x14\x63ookie_frequency_cap\x18\n \x01(\x05H\x01\x88\x01\x01\x12T\n\x1c\x63ookie_frequency_cap_setting\x18\x08 \x01(\x0b\x32..google.ads.googleads.v8.services.FrequencyCap\x12$\n\x17min_effective_frequency\x18\x0b \x01(\x05H\x02\x88\x01\x01\x12>\n\ttargeting\x18\x06 \x01(\x0b\x32+.google.ads.googleads.v8.services.Targeting\x12O\n\x10planned_products\x18\x07 \x03(\x0b\x32\x30.google.ads.googleads.v8.services.PlannedProductB\x03\xe0\x41\x02\x42\x10\n\x0e_currency_codeB\x17\n\x15_cookie_frequency_capB\x1a\n\x18_min_effective_frequency\"\x8e\x01\n\x0c\x46requencyCap\x12\x18\n\x0bimpressions\x18\x03 \x01(\x05\x42\x03\xe0\x41\x02\x12\x64\n\ttime_unit\x18\x02 \x01(\x0e\x32L.google.ads.googleads.v8.enums.FrequencyCapTimeUnitEnum.FrequencyCapTimeUnitB\x03\xe0\x41\x02\"\xf5\x02\n\tTargeting\x12\"\n\x15plannable_location_id\x18\x06 \x01(\tH\x00\x88\x01\x01\x12Y\n\tage_range\x18\x02 \x01(\x0e\x32\x46.google.ads.googleads.v8.enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange\x12;\n\x07genders\x18\x03 \x03(\x0b\x32*.google.ads.googleads.v8.common.GenderInfo\x12;\n\x07\x64\x65vices\x18\x04 \x03(\x0b\x32*.google.ads.googleads.v8.common.DeviceInfo\x12U\n\x07network\x18\x05 \x01(\x0e\x32\x44.google.ads.googleads.v8.enums.ReachPlanNetworkEnum.ReachPlanNetworkB\x18\n\x16_plannable_location_id\"F\n\x10\x43\x61mpaignDuration\x12\x1d\n\x10\x64uration_in_days\x18\x02 \x01(\x05H\x00\x88\x01\x01\x42\x13\n\x11_duration_in_days\"~\n\x0ePlannedProduct\x12#\n\x16plannable_product_code\x18\x03 \x01(\tH\x00\x88\x01\x01\x12\x1a\n\rbudget_micros\x18\x04 \x01(\x03H\x01\x88\x01\x01\x42\x19\n\x17_plannable_product_codeB\x10\n\x0e_budget_micros\"\xc1\x01\n\x1dGenerateReachForecastResponse\x12]\n\x1aon_target_audience_metrics\x18\x01 \x01(\x0b\x32\x39.google.ads.googleads.v8.services.OnTargetAudienceMetrics\x12\x41\n\x0breach_curve\x18\x02 \x01(\x0b\x32,.google.ads.googleads.v8.services.ReachCurve\"V\n\nReachCurve\x12H\n\x0freach_forecasts\x18\x01 \x03(\x0b\x32/.google.ads.googleads.v8.services.ReachForecast\"\xca\x01\n\rReachForecast\x12\x13\n\x0b\x63ost_micros\x18\x05 \x01(\x03\x12<\n\x08\x66orecast\x18\x02 \x01(\x0b\x32*.google.ads.googleads.v8.services.Forecast\x12\x66\n\x1fplanned_product_reach_forecasts\x18\x04 \x03(\x0b\x32=.google.ads.googleads.v8.services.PlannedProductReachForecast\"\x96\x02\n\x08\x46orecast\x12\x1c\n\x0fon_target_reach\x18\x05 \x01(\x03H\x00\x88\x01\x01\x12\x18\n\x0btotal_reach\x18\x06 \x01(\x03H\x01\x88\x01\x01\x12\"\n\x15on_target_impressions\x18\x07 \x01(\x03H\x02\x88\x01\x01\x12\x1e\n\x11total_impressions\x18\x08 \x01(\x03H\x03\x88\x01\x01\x12!\n\x14viewable_impressions\x18\t \x01(\x03H\x04\x88\x01\x01\x42\x12\n\x10_on_target_reachB\x0e\n\x0c_total_reachB\x18\n\x16_on_target_impressionsB\x14\n\x12_total_impressionsB\x17\n\x15_viewable_impressions\"\xae\x01\n\x1bPlannedProductReachForecast\x12\x1e\n\x16plannable_product_code\x18\x01 \x01(\t\x12\x13\n\x0b\x63ost_micros\x18\x02 \x01(\x03\x12Z\n\x18planned_product_forecast\x18\x03 \x01(\x0b\x32\x38.google.ads.googleads.v8.services.PlannedProductForecast\"\xbc\x01\n\x16PlannedProductForecast\x12\x17\n\x0fon_target_reach\x18\x01 \x01(\x03\x12\x13\n\x0btotal_reach\x18\x02 \x01(\x03\x12\x1d\n\x15on_target_impressions\x18\x03 \x01(\x03\x12\x19\n\x11total_impressions\x18\x04 \x01(\x03\x12!\n\x14viewable_impressions\x18\x05 \x01(\x03H\x00\x88\x01\x01\x42\x17\n\x15_viewable_impressions\"\x93\x01\n\x17OnTargetAudienceMetrics\x12\"\n\x15youtube_audience_size\x18\x03 \x01(\x03H\x00\x88\x01\x01\x12!\n\x14\x63\x65nsus_audience_size\x18\x04 \x01(\x03H\x01\x88\x01\x01\x42\x18\n\x16_youtube_audience_sizeB\x17\n\x15_census_audience_size2\xa7\x08\n\x10ReachPlanService\x12\xc2\x01\n\x16ListPlannableLocations\x12?.google.ads.googleads.v8.services.ListPlannableLocationsRequest\x1a@.google.ads.googleads.v8.services.ListPlannableLocationsResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1a/v8:listPlannableLocations:\x01*\x12\xd6\x01\n\x15ListPlannableProducts\x12>.google.ads.googleads.v8.services.ListPlannableProductsRequest\x1a?.google.ads.googleads.v8.services.ListPlannableProductsResponse\"<\x82\xd3\xe4\x93\x02\x1e\"\x19/v8:listPlannableProducts:\x01*\xda\x41\x15plannable_location_id\x12\xa1\x02\n\x17GenerateProductMixIdeas\x12@.google.ads.googleads.v8.services.GenerateProductMixIdeasRequest\x1a\x41.google.ads.googleads.v8.services.GenerateProductMixIdeasResponse\"\x80\x01\x82\xd3\xe4\x93\x02:\"5/v8/customers/{customer_id=*}:generateProductMixIdeas:\x01*\xda\x41=customer_id,plannable_location_id,currency_code,budget_micros\x12\x89\x02\n\x15GenerateReachForecast\x12>.google.ads.googleads.v8.services.GenerateReachForecastRequest\x1a?.google.ads.googleads.v8.services.GenerateReachForecastResponse\"o\x82\xd3\xe4\x93\x02\x38\"3/v8/customers/{customer_id=*}:generateReachForecast:\x01*\xda\x41.customer_id,campaign_duration,planned_products\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\xfc\x01\n$com.google.ads.googleads.v8.servicesB\x15ReachPlanServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v8/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V8.Services\xca\x02 Google\\Ads\\GoogleAds\\V8\\Services\xea\x02$Google::Ads::GoogleAds::V8::Servicesb\x06proto3'
+  serialized_pb=b'\n9google/ads/googleads/v8/services/reach_plan_service.proto\x12 google.ads.googleads.v8.services\x1a-google/ads/googleads/v8/common/criteria.proto\x1a;google/ads/googleads/v8/enums/frequency_cap_time_unit.proto\x1a\x38google/ads/googleads/v8/enums/reach_plan_ad_length.proto\x1a\x38google/ads/googleads/v8/enums/reach_plan_age_range.proto\x1a\x36google/ads/googleads/v8/enums/reach_plan_network.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\"\x1f\n\x1dListPlannableLocationsRequest\"r\n\x1eListPlannableLocationsResponse\x12P\n\x13plannable_locations\x18\x01 \x03(\x0b\x32\x33.google.ads.googleads.v8.services.PlannableLocation\"}\n\x11PlannableLocation\x12\x0f\n\x02id\x18\x04 \x01(\tH\x00\x88\x01\x01\x12\x11\n\x04name\x18\x05 \x01(\tH\x01\x88\x01\x01\x12\x1e\n\x11parent_country_id\x18\x06 \x01(\x03H\x02\x88\x01\x01\x42\x05\n\x03_idB\x07\n\x05_nameB\x14\n\x12_parent_country_id\"B\n\x1cListPlannableProductsRequest\x12\"\n\x15plannable_location_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"l\n\x1dListPlannableProductsResponse\x12K\n\x10product_metadata\x18\x01 \x03(\x0b\x32\x31.google.ads.googleads.v8.services.ProductMetadata\"\xc4\x01\n\x0fProductMetadata\x12#\n\x16plannable_product_code\x18\x04 \x01(\tH\x00\x88\x01\x01\x12\x1e\n\x16plannable_product_name\x18\x03 \x01(\t\x12Q\n\x13plannable_targeting\x18\x02 \x01(\x0b\x32\x34.google.ads.googleads.v8.services.PlannableTargetingB\x19\n\x17_plannable_product_code\"\xc2\x02\n\x12PlannableTargeting\x12Z\n\nage_ranges\x18\x01 \x03(\x0e\x32\x46.google.ads.googleads.v8.enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange\x12;\n\x07genders\x18\x02 \x03(\x0b\x32*.google.ads.googleads.v8.common.GenderInfo\x12;\n\x07\x64\x65vices\x18\x03 \x03(\x0b\x32*.google.ads.googleads.v8.common.DeviceInfo\x12V\n\x08networks\x18\x04 \x03(\x0e\x32\x44.google.ads.googleads.v8.enums.ReachPlanNetworkEnum.ReachPlanNetwork\"\xda\x01\n\x1eGenerateProductMixIdeasRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\"\n\x15plannable_location_id\x18\x06 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rcurrency_code\x18\x07 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rbudget_micros\x18\x08 \x01(\x03\x42\x03\xe0\x41\x02\x12\x42\n\x0bpreferences\x18\x05 \x01(\x0b\x32-.google.ads.googleads.v8.services.Preferences\"\xba\x02\n\x0bPreferences\x12\x19\n\x0cis_skippable\x18\x06 \x01(\x08H\x00\x88\x01\x01\x12\x1e\n\x11starts_with_sound\x18\x07 \x01(\x08H\x01\x88\x01\x01\x12Y\n\tad_length\x18\x03 \x01(\x0e\x32\x46.google.ads.googleads.v8.enums.ReachPlanAdLengthEnum.ReachPlanAdLength\x12\x1d\n\x10top_content_only\x18\x08 \x01(\x08H\x02\x88\x01\x01\x12!\n\x14has_guaranteed_price\x18\t \x01(\x08H\x03\x88\x01\x01\x42\x0f\n\r_is_skippableB\x14\n\x12_starts_with_soundB\x13\n\x11_top_content_onlyB\x17\n\x15_has_guaranteed_price\"r\n\x1fGenerateProductMixIdeasResponse\x12O\n\x12product_allocation\x18\x01 \x03(\x0b\x32\x33.google.ads.googleads.v8.services.ProductAllocation\"\x81\x01\n\x11ProductAllocation\x12#\n\x16plannable_product_code\x18\x03 \x01(\tH\x00\x88\x01\x01\x12\x1a\n\rbudget_micros\x18\x04 \x01(\x03H\x01\x88\x01\x01\x42\x19\n\x17_plannable_product_codeB\x10\n\x0e_budget_micros\"\xa0\x05\n\x1cGenerateReachForecastRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rcurrency_code\x18\t \x01(\tH\x00\x88\x01\x01\x12R\n\x11\x63\x61mpaign_duration\x18\x03 \x01(\x0b\x32\x32.google.ads.googleads.v8.services.CampaignDurationB\x03\xe0\x41\x02\x12!\n\x14\x63ookie_frequency_cap\x18\n \x01(\x05H\x01\x88\x01\x01\x12T\n\x1c\x63ookie_frequency_cap_setting\x18\x08 \x01(\x0b\x32..google.ads.googleads.v8.services.FrequencyCap\x12$\n\x17min_effective_frequency\x18\x0b \x01(\x05H\x02\x88\x01\x01\x12\x61\n\x19\x65\x66\x66\x65\x63tive_frequency_limit\x18\x0c \x01(\x0b\x32\x39.google.ads.googleads.v8.services.EffectiveFrequencyLimitH\x03\x88\x01\x01\x12>\n\ttargeting\x18\x06 \x01(\x0b\x32+.google.ads.googleads.v8.services.Targeting\x12O\n\x10planned_products\x18\x07 \x03(\x0b\x32\x30.google.ads.googleads.v8.services.PlannedProductB\x03\xe0\x41\x02\x42\x10\n\x0e_currency_codeB\x17\n\x15_cookie_frequency_capB\x1a\n\x18_min_effective_frequencyB\x1c\n\x1a_effective_frequency_limit\"F\n\x17\x45\x66\x66\x65\x63tiveFrequencyLimit\x12+\n#effective_frequency_breakdown_limit\x18\x01 \x01(\x05\"\x8e\x01\n\x0c\x46requencyCap\x12\x18\n\x0bimpressions\x18\x03 \x01(\x05\x42\x03\xe0\x41\x02\x12\x64\n\ttime_unit\x18\x02 \x01(\x0e\x32L.google.ads.googleads.v8.enums.FrequencyCapTimeUnitEnum.FrequencyCapTimeUnitB\x03\xe0\x41\x02\"\xf5\x02\n\tTargeting\x12\"\n\x15plannable_location_id\x18\x06 \x01(\tH\x00\x88\x01\x01\x12Y\n\tage_range\x18\x02 \x01(\x0e\x32\x46.google.ads.googleads.v8.enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange\x12;\n\x07genders\x18\x03 \x03(\x0b\x32*.google.ads.googleads.v8.common.GenderInfo\x12;\n\x07\x64\x65vices\x18\x04 \x03(\x0b\x32*.google.ads.googleads.v8.common.DeviceInfo\x12U\n\x07network\x18\x05 \x01(\x0e\x32\x44.google.ads.googleads.v8.enums.ReachPlanNetworkEnum.ReachPlanNetworkB\x18\n\x16_plannable_location_id\"F\n\x10\x43\x61mpaignDuration\x12\x1d\n\x10\x64uration_in_days\x18\x02 \x01(\x05H\x00\x88\x01\x01\x42\x13\n\x11_duration_in_days\"~\n\x0ePlannedProduct\x12#\n\x16plannable_product_code\x18\x03 \x01(\tH\x00\x88\x01\x01\x12\x1a\n\rbudget_micros\x18\x04 \x01(\x03H\x01\x88\x01\x01\x42\x19\n\x17_plannable_product_codeB\x10\n\x0e_budget_micros\"\xc1\x01\n\x1dGenerateReachForecastResponse\x12]\n\x1aon_target_audience_metrics\x18\x01 \x01(\x0b\x32\x39.google.ads.googleads.v8.services.OnTargetAudienceMetrics\x12\x41\n\x0breach_curve\x18\x02 \x01(\x0b\x32,.google.ads.googleads.v8.services.ReachCurve\"V\n\nReachCurve\x12H\n\x0freach_forecasts\x18\x01 \x03(\x0b\x32/.google.ads.googleads.v8.services.ReachForecast\"\xca\x01\n\rReachForecast\x12\x13\n\x0b\x63ost_micros\x18\x05 \x01(\x03\x12<\n\x08\x66orecast\x18\x02 \x01(\x0b\x32*.google.ads.googleads.v8.services.Forecast\x12\x66\n\x1fplanned_product_reach_forecasts\x18\x04 \x03(\x0b\x32=.google.ads.googleads.v8.services.PlannedProductReachForecast\"\xfd\x02\n\x08\x46orecast\x12\x1c\n\x0fon_target_reach\x18\x05 \x01(\x03H\x00\x88\x01\x01\x12\x18\n\x0btotal_reach\x18\x06 \x01(\x03H\x01\x88\x01\x01\x12\"\n\x15on_target_impressions\x18\x07 \x01(\x03H\x02\x88\x01\x01\x12\x1e\n\x11total_impressions\x18\x08 \x01(\x03H\x03\x88\x01\x01\x12!\n\x14viewable_impressions\x18\t \x01(\x03H\x04\x88\x01\x01\x12\x65\n\x1e\x65\x66\x66\x65\x63tive_frequency_breakdowns\x18\n \x03(\x0b\x32=.google.ads.googleads.v8.services.EffectiveFrequencyBreakdownB\x12\n\x10_on_target_reachB\x0e\n\x0c_total_reachB\x18\n\x16_on_target_impressionsB\x14\n\x12_total_impressionsB\x17\n\x15_viewable_impressions\"\xae\x01\n\x1bPlannedProductReachForecast\x12\x1e\n\x16plannable_product_code\x18\x01 \x01(\t\x12\x13\n\x0b\x63ost_micros\x18\x02 \x01(\x03\x12Z\n\x18planned_product_forecast\x18\x03 \x01(\x0b\x32\x38.google.ads.googleads.v8.services.PlannedProductForecast\"\xbc\x01\n\x16PlannedProductForecast\x12\x17\n\x0fon_target_reach\x18\x01 \x01(\x03\x12\x13\n\x0btotal_reach\x18\x02 \x01(\x03\x12\x1d\n\x15on_target_impressions\x18\x03 \x01(\x03\x12\x19\n\x11total_impressions\x18\x04 \x01(\x03\x12!\n\x14viewable_impressions\x18\x05 \x01(\x03H\x00\x88\x01\x01\x42\x17\n\x15_viewable_impressions\"\x93\x01\n\x17OnTargetAudienceMetrics\x12\"\n\x15youtube_audience_size\x18\x03 \x01(\x03H\x00\x88\x01\x01\x12!\n\x14\x63\x65nsus_audience_size\x18\x04 \x01(\x03H\x01\x88\x01\x01\x42\x18\n\x16_youtube_audience_sizeB\x17\n\x15_census_audience_size\"h\n\x1b\x45\x66\x66\x65\x63tiveFrequencyBreakdown\x12\x1b\n\x13\x65\x66\x66\x65\x63tive_frequency\x18\x01 \x01(\x05\x12\x17\n\x0fon_target_reach\x18\x02 \x01(\x03\x12\x13\n\x0btotal_reach\x18\x03 \x01(\x03\x32\xa7\x08\n\x10ReachPlanService\x12\xc2\x01\n\x16ListPlannableLocations\x12?.google.ads.googleads.v8.services.ListPlannableLocationsRequest\x1a@.google.ads.googleads.v8.services.ListPlannableLocationsResponse\"%\x82\xd3\xe4\x93\x02\x1f\"\x1a/v8:listPlannableLocations:\x01*\x12\xd6\x01\n\x15ListPlannableProducts\x12>.google.ads.googleads.v8.services.ListPlannableProductsRequest\x1a?.google.ads.googleads.v8.services.ListPlannableProductsResponse\"<\x82\xd3\xe4\x93\x02\x1e\"\x19/v8:listPlannableProducts:\x01*\xda\x41\x15plannable_location_id\x12\xa1\x02\n\x17GenerateProductMixIdeas\x12@.google.ads.googleads.v8.services.GenerateProductMixIdeasRequest\x1a\x41.google.ads.googleads.v8.services.GenerateProductMixIdeasResponse\"\x80\x01\x82\xd3\xe4\x93\x02:\"5/v8/customers/{customer_id=*}:generateProductMixIdeas:\x01*\xda\x41=customer_id,plannable_location_id,currency_code,budget_micros\x12\x89\x02\n\x15GenerateReachForecast\x12>.google.ads.googleads.v8.services.GenerateReachForecastRequest\x1a?.google.ads.googleads.v8.services.GenerateReachForecastResponse\"o\x82\xd3\xe4\x93\x02\x38\"3/v8/customers/{customer_id=*}:generateReachForecast:\x01*\xda\x41.customer_id,campaign_duration,planned_products\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\xfc\x01\n$com.google.ads.googleads.v8.servicesB\x15ReachPlanServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v8/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V8.Services\xca\x02 Google\\Ads\\GoogleAds\\V8\\Services\xea\x02$Google::Ads::GoogleAds::V8::Servicesb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v8_dot_common_dot_criteria__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_frequency__cap__time__unit__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_reach__plan__ad__length__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_reach__plan__age__range__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_reach__plan__network__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,])
 
@@ -592,14 +592,21 @@ _GENERATEREACHFORECASTREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='targeting', full_name='google.ads.googleads.v8.services.GenerateReachForecastRequest.targeting', index=6,
+      name='effective_frequency_limit', full_name='google.ads.googleads.v8.services.GenerateReachForecastRequest.effective_frequency_limit', index=6,
+      number=12, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='targeting', full_name='google.ads.googleads.v8.services.GenerateReachForecastRequest.targeting', index=7,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='planned_products', full_name='google.ads.googleads.v8.services.GenerateReachForecastRequest.planned_products', index=7,
+      name='planned_products', full_name='google.ads.googleads.v8.services.GenerateReachForecastRequest.planned_products', index=8,
       number=7, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -631,9 +638,46 @@ _GENERATEREACHFORECASTREQUEST = _descriptor.Descriptor(
       index=2, containing_type=None,
       create_key=_descriptor._internal_create_key,
     fields=[]),
+    _descriptor.OneofDescriptor(
+      name='_effective_frequency_limit', full_name='google.ads.googleads.v8.services.GenerateReachForecastRequest._effective_frequency_limit',
+      index=3, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
   serialized_start=2228,
-  serialized_end=2771,
+  serialized_end=2900,
+)
+
+
+_EFFECTIVEFREQUENCYLIMIT = _descriptor.Descriptor(
+  name='EffectiveFrequencyLimit',
+  full_name='google.ads.googleads.v8.services.EffectiveFrequencyLimit',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='effective_frequency_breakdown_limit', full_name='google.ads.googleads.v8.services.EffectiveFrequencyLimit.effective_frequency_breakdown_limit', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2902,
+  serialized_end=2972,
 )
 
 
@@ -671,8 +715,8 @@ _FREQUENCYCAP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2774,
-  serialized_end=2916,
+  serialized_start=2975,
+  serialized_end=3117,
 )
 
 
@@ -736,8 +780,8 @@ _TARGETING = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2919,
-  serialized_end=3292,
+  serialized_start=3120,
+  serialized_end=3493,
 )
 
 
@@ -773,8 +817,8 @@ _CAMPAIGNDURATION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3294,
-  serialized_end=3364,
+  serialized_start=3495,
+  serialized_end=3565,
 )
 
 
@@ -822,8 +866,8 @@ _PLANNEDPRODUCT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3366,
-  serialized_end=3492,
+  serialized_start=3567,
+  serialized_end=3693,
 )
 
 
@@ -861,8 +905,8 @@ _GENERATEREACHFORECASTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3495,
-  serialized_end=3688,
+  serialized_start=3696,
+  serialized_end=3889,
 )
 
 
@@ -893,8 +937,8 @@ _REACHCURVE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3690,
-  serialized_end=3776,
+  serialized_start=3891,
+  serialized_end=3977,
 )
 
 
@@ -939,8 +983,8 @@ _REACHFORECAST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3779,
-  serialized_end=3981,
+  serialized_start=3980,
+  serialized_end=4182,
 )
 
 
@@ -987,6 +1031,13 @@ _FORECAST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='effective_frequency_breakdowns', full_name='google.ads.googleads.v8.services.Forecast.effective_frequency_breakdowns', index=5,
+      number=10, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1024,8 +1075,8 @@ _FORECAST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3984,
-  serialized_end=4262,
+  serialized_start=4185,
+  serialized_end=4566,
 )
 
 
@@ -1070,8 +1121,8 @@ _PLANNEDPRODUCTREACHFORECAST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4265,
-  serialized_end=4439,
+  serialized_start=4569,
+  serialized_end=4743,
 )
 
 
@@ -1135,8 +1186,8 @@ _PLANNEDPRODUCTFORECAST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4442,
-  serialized_end=4630,
+  serialized_start=4746,
+  serialized_end=4934,
 )
 
 
@@ -1184,8 +1235,54 @@ _ONTARGETAUDIENCEMETRICS = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4633,
-  serialized_end=4780,
+  serialized_start=4937,
+  serialized_end=5084,
+)
+
+
+_EFFECTIVEFREQUENCYBREAKDOWN = _descriptor.Descriptor(
+  name='EffectiveFrequencyBreakdown',
+  full_name='google.ads.googleads.v8.services.EffectiveFrequencyBreakdown',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='effective_frequency', full_name='google.ads.googleads.v8.services.EffectiveFrequencyBreakdown.effective_frequency', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='on_target_reach', full_name='google.ads.googleads.v8.services.EffectiveFrequencyBreakdown.on_target_reach', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_reach', full_name='google.ads.googleads.v8.services.EffectiveFrequencyBreakdown.total_reach', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5086,
+  serialized_end=5190,
 )
 
 _LISTPLANNABLELOCATIONSRESPONSE.fields_by_name['plannable_locations'].message_type = _PLANNABLELOCATION
@@ -1230,6 +1327,7 @@ _PRODUCTALLOCATION.oneofs_by_name['_budget_micros'].fields.append(
 _PRODUCTALLOCATION.fields_by_name['budget_micros'].containing_oneof = _PRODUCTALLOCATION.oneofs_by_name['_budget_micros']
 _GENERATEREACHFORECASTREQUEST.fields_by_name['campaign_duration'].message_type = _CAMPAIGNDURATION
 _GENERATEREACHFORECASTREQUEST.fields_by_name['cookie_frequency_cap_setting'].message_type = _FREQUENCYCAP
+_GENERATEREACHFORECASTREQUEST.fields_by_name['effective_frequency_limit'].message_type = _EFFECTIVEFREQUENCYLIMIT
 _GENERATEREACHFORECASTREQUEST.fields_by_name['targeting'].message_type = _TARGETING
 _GENERATEREACHFORECASTREQUEST.fields_by_name['planned_products'].message_type = _PLANNEDPRODUCT
 _GENERATEREACHFORECASTREQUEST.oneofs_by_name['_currency_code'].fields.append(
@@ -1241,6 +1339,9 @@ _GENERATEREACHFORECASTREQUEST.fields_by_name['cookie_frequency_cap'].containing_
 _GENERATEREACHFORECASTREQUEST.oneofs_by_name['_min_effective_frequency'].fields.append(
   _GENERATEREACHFORECASTREQUEST.fields_by_name['min_effective_frequency'])
 _GENERATEREACHFORECASTREQUEST.fields_by_name['min_effective_frequency'].containing_oneof = _GENERATEREACHFORECASTREQUEST.oneofs_by_name['_min_effective_frequency']
+_GENERATEREACHFORECASTREQUEST.oneofs_by_name['_effective_frequency_limit'].fields.append(
+  _GENERATEREACHFORECASTREQUEST.fields_by_name['effective_frequency_limit'])
+_GENERATEREACHFORECASTREQUEST.fields_by_name['effective_frequency_limit'].containing_oneof = _GENERATEREACHFORECASTREQUEST.oneofs_by_name['_effective_frequency_limit']
 _FREQUENCYCAP.fields_by_name['time_unit'].enum_type = google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_frequency__cap__time__unit__pb2._FREQUENCYCAPTIMEUNITENUM_FREQUENCYCAPTIMEUNIT
 _TARGETING.fields_by_name['age_range'].enum_type = google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_reach__plan__age__range__pb2._REACHPLANAGERANGEENUM_REACHPLANAGERANGE
 _TARGETING.fields_by_name['genders'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_common_dot_criteria__pb2._GENDERINFO
@@ -1263,6 +1364,7 @@ _GENERATEREACHFORECASTRESPONSE.fields_by_name['reach_curve'].message_type = _REA
 _REACHCURVE.fields_by_name['reach_forecasts'].message_type = _REACHFORECAST
 _REACHFORECAST.fields_by_name['forecast'].message_type = _FORECAST
 _REACHFORECAST.fields_by_name['planned_product_reach_forecasts'].message_type = _PLANNEDPRODUCTREACHFORECAST
+_FORECAST.fields_by_name['effective_frequency_breakdowns'].message_type = _EFFECTIVEFREQUENCYBREAKDOWN
 _FORECAST.oneofs_by_name['_on_target_reach'].fields.append(
   _FORECAST.fields_by_name['on_target_reach'])
 _FORECAST.fields_by_name['on_target_reach'].containing_oneof = _FORECAST.oneofs_by_name['_on_target_reach']
@@ -1300,6 +1402,7 @@ DESCRIPTOR.message_types_by_name['Preferences'] = _PREFERENCES
 DESCRIPTOR.message_types_by_name['GenerateProductMixIdeasResponse'] = _GENERATEPRODUCTMIXIDEASRESPONSE
 DESCRIPTOR.message_types_by_name['ProductAllocation'] = _PRODUCTALLOCATION
 DESCRIPTOR.message_types_by_name['GenerateReachForecastRequest'] = _GENERATEREACHFORECASTREQUEST
+DESCRIPTOR.message_types_by_name['EffectiveFrequencyLimit'] = _EFFECTIVEFREQUENCYLIMIT
 DESCRIPTOR.message_types_by_name['FrequencyCap'] = _FREQUENCYCAP
 DESCRIPTOR.message_types_by_name['Targeting'] = _TARGETING
 DESCRIPTOR.message_types_by_name['CampaignDuration'] = _CAMPAIGNDURATION
@@ -1311,6 +1414,7 @@ DESCRIPTOR.message_types_by_name['Forecast'] = _FORECAST
 DESCRIPTOR.message_types_by_name['PlannedProductReachForecast'] = _PLANNEDPRODUCTREACHFORECAST
 DESCRIPTOR.message_types_by_name['PlannedProductForecast'] = _PLANNEDPRODUCTFORECAST
 DESCRIPTOR.message_types_by_name['OnTargetAudienceMetrics'] = _ONTARGETAUDIENCEMETRICS
+DESCRIPTOR.message_types_by_name['EffectiveFrequencyBreakdown'] = _EFFECTIVEFREQUENCYBREAKDOWN
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ListPlannableLocationsRequest = _reflection.GeneratedProtocolMessageType('ListPlannableLocationsRequest', (_message.Message,), {
@@ -1397,6 +1501,13 @@ GenerateReachForecastRequest = _reflection.GeneratedProtocolMessageType('Generat
   })
 _sym_db.RegisterMessage(GenerateReachForecastRequest)
 
+EffectiveFrequencyLimit = _reflection.GeneratedProtocolMessageType('EffectiveFrequencyLimit', (_message.Message,), {
+  'DESCRIPTOR' : _EFFECTIVEFREQUENCYLIMIT,
+  '__module__' : 'google.ads.googleads.v8.services.reach_plan_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.ads.googleads.v8.services.EffectiveFrequencyLimit)
+  })
+_sym_db.RegisterMessage(EffectiveFrequencyLimit)
+
 FrequencyCap = _reflection.GeneratedProtocolMessageType('FrequencyCap', (_message.Message,), {
   'DESCRIPTOR' : _FREQUENCYCAP,
   '__module__' : 'google.ads.googleads.v8.services.reach_plan_service_pb2'
@@ -1474,6 +1585,13 @@ OnTargetAudienceMetrics = _reflection.GeneratedProtocolMessageType('OnTargetAudi
   })
 _sym_db.RegisterMessage(OnTargetAudienceMetrics)
 
+EffectiveFrequencyBreakdown = _reflection.GeneratedProtocolMessageType('EffectiveFrequencyBreakdown', (_message.Message,), {
+  'DESCRIPTOR' : _EFFECTIVEFREQUENCYBREAKDOWN,
+  '__module__' : 'google.ads.googleads.v8.services.reach_plan_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.ads.googleads.v8.services.EffectiveFrequencyBreakdown)
+  })
+_sym_db.RegisterMessage(EffectiveFrequencyBreakdown)
+
 
 DESCRIPTOR._options = None
 _LISTPLANNABLEPRODUCTSREQUEST.fields_by_name['plannable_location_id']._options = None
@@ -1494,8 +1612,8 @@ _REACHPLANSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
-  serialized_start=4783,
-  serialized_end=5846,
+  serialized_start=5193,
+  serialized_end=6256,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListPlannableLocations',

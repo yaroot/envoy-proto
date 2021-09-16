@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n com.google.analytics.data.v1betaB\021ReportingApiProtoP\001Z@google.golang.org/genproto/googleapis/analytics/data/v1beta;data',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'google/analytics/data/v1beta/data.proto\x12\x1cgoogle.analytics.data.v1beta\"?\n\tDateRange\x12\x12\n\nstart_date\x18\x01 \x01(\t\x12\x10\n\x08\x65nd_date\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\"j\n\tDimension\x12\x0c\n\x04name\x18\x01 \x01(\t\x12O\n\x14\x64imension_expression\x18\x02 \x01(\x0b\x32\x31.google.analytics.data.v1beta.DimensionExpression\"\xa6\x03\n\x13\x44imensionExpression\x12V\n\nlower_case\x18\x04 \x01(\x0b\x32@.google.analytics.data.v1beta.DimensionExpression.CaseExpressionH\x00\x12V\n\nupper_case\x18\x05 \x01(\x0b\x32@.google.analytics.data.v1beta.DimensionExpression.CaseExpressionH\x00\x12^\n\x0b\x63oncatenate\x18\x06 \x01(\x0b\x32G.google.analytics.data.v1beta.DimensionExpression.ConcatenateExpressionH\x00\x1a(\n\x0e\x43\x61seExpression\x12\x16\n\x0e\x64imension_name\x18\x01 \x01(\t\x1a\x43\n\x15\x43oncatenateExpression\x12\x17\n\x0f\x64imension_names\x18\x01 \x03(\t\x12\x11\n\tdelimiter\x18\x02 \x01(\tB\x10\n\x0eone_expression\"=\n\x06Metric\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nexpression\x18\x02 \x01(\t\x12\x11\n\tinvisible\x18\x03 \x01(\x08\"\xad\x02\n\x10\x46ilterExpression\x12G\n\tand_group\x18\x01 \x01(\x0b\x32\x32.google.analytics.data.v1beta.FilterExpressionListH\x00\x12\x46\n\x08or_group\x18\x02 \x01(\x0b\x32\x32.google.analytics.data.v1beta.FilterExpressionListH\x00\x12H\n\x0enot_expression\x18\x03 \x01(\x0b\x32..google.analytics.data.v1beta.FilterExpressionH\x00\x12\x36\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.google.analytics.data.v1beta.FilterH\x00\x42\x06\n\x04\x65xpr\"[\n\x14\x46ilterExpressionList\x12\x43\n\x0b\x65xpressions\x18\x01 \x03(\x0b\x32..google.analytics.data.v1beta.FilterExpression\"\xde\x08\n\x06\x46ilter\x12\x12\n\nfield_name\x18\x01 \x01(\t\x12J\n\rstring_filter\x18\x03 \x01(\x0b\x32\x31.google.analytics.data.v1beta.Filter.StringFilterH\x00\x12K\n\x0ein_list_filter\x18\x04 \x01(\x0b\x32\x31.google.analytics.data.v1beta.Filter.InListFilterH\x00\x12L\n\x0enumeric_filter\x18\x05 \x01(\x0b\x32\x32.google.analytics.data.v1beta.Filter.NumericFilterH\x00\x12L\n\x0e\x62\x65tween_filter\x18\x06 \x01(\x0b\x32\x32.google.analytics.data.v1beta.Filter.BetweenFilterH\x00\x1a\x8e\x02\n\x0cStringFilter\x12O\n\nmatch_type\x18\x01 \x01(\x0e\x32;.google.analytics.data.v1beta.Filter.StringFilter.MatchType\x12\r\n\x05value\x18\x02 \x01(\t\x12\x16\n\x0e\x63\x61se_sensitive\x18\x03 \x01(\x08\"\x85\x01\n\tMatchType\x12\x1a\n\x16MATCH_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05\x45XACT\x10\x01\x12\x0f\n\x0b\x42\x45GINS_WITH\x10\x02\x12\r\n\tENDS_WITH\x10\x03\x12\x0c\n\x08\x43ONTAINS\x10\x04\x12\x0f\n\x0b\x46ULL_REGEXP\x10\x05\x12\x12\n\x0ePARTIAL_REGEXP\x10\x06\x1a\x36\n\x0cInListFilter\x12\x0e\n\x06values\x18\x01 \x03(\t\x12\x16\n\x0e\x63\x61se_sensitive\x18\x02 \x01(\x08\x1a\xa3\x02\n\rNumericFilter\x12O\n\toperation\x18\x01 \x01(\x0e\x32<.google.analytics.data.v1beta.Filter.NumericFilter.Operation\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.google.analytics.data.v1beta.NumericValue\"\x85\x01\n\tOperation\x12\x19\n\x15OPERATION_UNSPECIFIED\x10\x00\x12\t\n\x05\x45QUAL\x10\x01\x12\r\n\tLESS_THAN\x10\x02\x12\x16\n\x12LESS_THAN_OR_EQUAL\x10\x03\x12\x10\n\x0cGREATER_THAN\x10\x04\x12\x19\n\x15GREATER_THAN_OR_EQUAL\x10\x05\x1a\x8d\x01\n\rBetweenFilter\x12>\n\nfrom_value\x18\x01 \x01(\x0b\x32*.google.analytics.data.v1beta.NumericValue\x12<\n\x08to_value\x18\x02 \x01(\x0b\x32*.google.analytics.data.v1beta.NumericValueB\x0c\n\none_filter\"\xda\x05\n\x07OrderBy\x12\x45\n\x06metric\x18\x01 \x01(\x0b\x32\x33.google.analytics.data.v1beta.OrderBy.MetricOrderByH\x00\x12K\n\tdimension\x18\x02 \x01(\x0b\x32\x36.google.analytics.data.v1beta.OrderBy.DimensionOrderByH\x00\x12\x43\n\x05pivot\x18\x03 \x01(\x0b\x32\x32.google.analytics.data.v1beta.OrderBy.PivotOrderByH\x00\x12\x0c\n\x04\x64\x65sc\x18\x04 \x01(\x08\x1a$\n\rMetricOrderBy\x12\x13\n\x0bmetric_name\x18\x01 \x01(\t\x1a\xeb\x01\n\x10\x44imensionOrderBy\x12\x16\n\x0e\x64imension_name\x18\x01 \x01(\t\x12T\n\norder_type\x18\x02 \x01(\x0e\x32@.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType\"i\n\tOrderType\x12\x1a\n\x16ORDER_TYPE_UNSPECIFIED\x10\x00\x12\x10\n\x0c\x41LPHANUMERIC\x10\x01\x12!\n\x1d\x43\x41SE_INSENSITIVE_ALPHANUMERIC\x10\x02\x12\x0b\n\x07NUMERIC\x10\x03\x1a\xc3\x01\n\x0cPivotOrderBy\x12\x13\n\x0bmetric_name\x18\x01 \x01(\t\x12[\n\x10pivot_selections\x18\x02 \x03(\x0b\x32\x41.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection\x1a\x41\n\x0ePivotSelection\x12\x16\n\x0e\x64imension_name\x18\x01 \x01(\t\x12\x17\n\x0f\x64imension_value\x18\x02 \x01(\tB\x0e\n\x0cone_order_by\"\xc3\x01\n\x05Pivot\x12\x13\n\x0b\x66ield_names\x18\x01 \x03(\t\x12\x38\n\torder_bys\x18\x02 \x03(\x0b\x32%.google.analytics.data.v1beta.OrderBy\x12\x0e\n\x06offset\x18\x03 \x01(\x03\x12\r\n\x05limit\x18\x04 \x01(\x03\x12L\n\x13metric_aggregations\x18\x05 \x03(\x0e\x32/.google.analytics.data.v1beta.MetricAggregation\"\xda\x01\n\nCohortSpec\x12\x35\n\x07\x63ohorts\x18\x01 \x03(\x0b\x32$.google.analytics.data.v1beta.Cohort\x12\x41\n\rcohorts_range\x18\x02 \x01(\x0b\x32*.google.analytics.data.v1beta.CohortsRange\x12R\n\x16\x63ohort_report_settings\x18\x03 \x01(\x0b\x32\x32.google.analytics.data.v1beta.CohortReportSettings\"f\n\x06\x43ohort\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tdimension\x18\x02 \x01(\t\x12;\n\ndate_range\x18\x03 \x01(\x0b\x32\'.google.analytics.data.v1beta.DateRange\"\xd5\x01\n\x0c\x43ohortsRange\x12K\n\x0bgranularity\x18\x01 \x01(\x0e\x32\x36.google.analytics.data.v1beta.CohortsRange.Granularity\x12\x14\n\x0cstart_offset\x18\x02 \x01(\x05\x12\x12\n\nend_offset\x18\x03 \x01(\x05\"N\n\x0bGranularity\x12\x1b\n\x17GRANULARITY_UNSPECIFIED\x10\x00\x12\t\n\x05\x44\x41ILY\x10\x01\x12\n\n\x06WEEKLY\x10\x02\x12\x0b\n\x07MONTHLY\x10\x03\"*\n\x14\x43ohortReportSettings\x12\x12\n\naccumulate\x18\x01 \x01(\x08\"4\n\x10ResponseMetaData\x12 \n\x18\x64\x61ta_loss_from_other_row\x18\x03 \x01(\x08\"\x1f\n\x0f\x44imensionHeader\x12\x0c\n\x04name\x18\x01 \x01(\t\"T\n\x0cMetricHeader\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x36\n\x04type\x18\x02 \x01(\x0e\x32(.google.analytics.data.v1beta.MetricType\"u\n\x0bPivotHeader\x12S\n\x17pivot_dimension_headers\x18\x01 \x03(\x0b\x32\x32.google.analytics.data.v1beta.PivotDimensionHeader\x12\x11\n\trow_count\x18\x02 \x01(\x05\"^\n\x14PivotDimensionHeader\x12\x46\n\x10\x64imension_values\x18\x01 \x03(\x0b\x32,.google.analytics.data.v1beta.DimensionValue\"\x8f\x01\n\x03Row\x12\x46\n\x10\x64imension_values\x18\x01 \x03(\x0b\x32,.google.analytics.data.v1beta.DimensionValue\x12@\n\rmetric_values\x18\x02 \x03(\x0b\x32).google.analytics.data.v1beta.MetricValue\".\n\x0e\x44imensionValue\x12\x0f\n\x05value\x18\x01 \x01(\tH\x00\x42\x0b\n\tone_value\"+\n\x0bMetricValue\x12\x0f\n\x05value\x18\x04 \x01(\tH\x00\x42\x0b\n\tone_value\"J\n\x0cNumericValue\x12\x15\n\x0bint64_value\x18\x01 \x01(\x03H\x00\x12\x16\n\x0c\x64ouble_value\x18\x02 \x01(\x01H\x00\x42\x0b\n\tone_value\"\x93\x03\n\rPropertyQuota\x12\x41\n\x0etokens_per_day\x18\x01 \x01(\x0b\x32).google.analytics.data.v1beta.QuotaStatus\x12\x42\n\x0ftokens_per_hour\x18\x02 \x01(\x0b\x32).google.analytics.data.v1beta.QuotaStatus\x12\x46\n\x13\x63oncurrent_requests\x18\x03 \x01(\x0b\x32).google.analytics.data.v1beta.QuotaStatus\x12U\n\"server_errors_per_project_per_hour\x18\x04 \x01(\x0b\x32).google.analytics.data.v1beta.QuotaStatus\x12\\\n)potentially_thresholded_requests_per_hour\x18\x05 \x01(\x0b\x32).google.analytics.data.v1beta.QuotaStatus\"2\n\x0bQuotaStatus\x12\x10\n\x08\x63onsumed\x18\x01 \x01(\x05\x12\x11\n\tremaining\x18\x02 \x01(\x05\"\x84\x01\n\x11\x44imensionMetadata\x12\x10\n\x08\x61pi_name\x18\x01 \x01(\t\x12\x0f\n\x07ui_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x1c\n\x14\x64\x65precated_api_names\x18\x04 \x03(\t\x12\x19\n\x11\x63ustom_definition\x18\x05 \x01(\x08\"\xcd\x01\n\x0eMetricMetadata\x12\x10\n\x08\x61pi_name\x18\x01 \x01(\t\x12\x0f\n\x07ui_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x1c\n\x14\x64\x65precated_api_names\x18\x04 \x03(\t\x12\x36\n\x04type\x18\x05 \x01(\x0e\x32(.google.analytics.data.v1beta.MetricType\x12\x12\n\nexpression\x18\x06 \x01(\t\x12\x19\n\x11\x63ustom_definition\x18\x07 \x01(\x08*g\n\x11MetricAggregation\x12\"\n\x1eMETRIC_AGGREGATION_UNSPECIFIED\x10\x00\x12\t\n\x05TOTAL\x10\x01\x12\x0b\n\x07MINIMUM\x10\x05\x12\x0b\n\x07MAXIMUM\x10\x06\x12\t\n\x05\x43OUNT\x10\x04*\x81\x02\n\nMetricType\x12\x1b\n\x17METRIC_TYPE_UNSPECIFIED\x10\x00\x12\x10\n\x0cTYPE_INTEGER\x10\x01\x12\x0e\n\nTYPE_FLOAT\x10\x02\x12\x10\n\x0cTYPE_SECONDS\x10\x04\x12\x15\n\x11TYPE_MILLISECONDS\x10\x05\x12\x10\n\x0cTYPE_MINUTES\x10\x06\x12\x0e\n\nTYPE_HOURS\x10\x07\x12\x11\n\rTYPE_STANDARD\x10\x08\x12\x11\n\rTYPE_CURRENCY\x10\t\x12\r\n\tTYPE_FEET\x10\n\x12\x0e\n\nTYPE_MILES\x10\x0b\x12\x0f\n\x0bTYPE_METERS\x10\x0c\x12\x13\n\x0fTYPE_KILOMETERS\x10\rBy\n com.google.analytics.data.v1betaB\x11ReportingApiProtoP\x01Z@google.golang.org/genproto/googleapis/analytics/data/v1beta;datab\x06proto3'
+  serialized_pb=b'\n\'google/analytics/data/v1beta/data.proto\x12\x1cgoogle.analytics.data.v1beta\"?\n\tDateRange\x12\x12\n\nstart_date\x18\x01 \x01(\t\x12\x10\n\x08\x65nd_date\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\"\x83\x01\n\x0bMinuteRange\x12\x1e\n\x11start_minutes_ago\x18\x01 \x01(\x05H\x00\x88\x01\x01\x12\x1c\n\x0f\x65nd_minutes_ago\x18\x02 \x01(\x05H\x01\x88\x01\x01\x12\x0c\n\x04name\x18\x03 \x01(\tB\x14\n\x12_start_minutes_agoB\x12\n\x10_end_minutes_ago\"j\n\tDimension\x12\x0c\n\x04name\x18\x01 \x01(\t\x12O\n\x14\x64imension_expression\x18\x02 \x01(\x0b\x32\x31.google.analytics.data.v1beta.DimensionExpression\"\xa6\x03\n\x13\x44imensionExpression\x12V\n\nlower_case\x18\x04 \x01(\x0b\x32@.google.analytics.data.v1beta.DimensionExpression.CaseExpressionH\x00\x12V\n\nupper_case\x18\x05 \x01(\x0b\x32@.google.analytics.data.v1beta.DimensionExpression.CaseExpressionH\x00\x12^\n\x0b\x63oncatenate\x18\x06 \x01(\x0b\x32G.google.analytics.data.v1beta.DimensionExpression.ConcatenateExpressionH\x00\x1a(\n\x0e\x43\x61seExpression\x12\x16\n\x0e\x64imension_name\x18\x01 \x01(\t\x1a\x43\n\x15\x43oncatenateExpression\x12\x17\n\x0f\x64imension_names\x18\x01 \x03(\t\x12\x11\n\tdelimiter\x18\x02 \x01(\tB\x10\n\x0eone_expression\"=\n\x06Metric\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nexpression\x18\x02 \x01(\t\x12\x11\n\tinvisible\x18\x03 \x01(\x08\"\xad\x02\n\x10\x46ilterExpression\x12G\n\tand_group\x18\x01 \x01(\x0b\x32\x32.google.analytics.data.v1beta.FilterExpressionListH\x00\x12\x46\n\x08or_group\x18\x02 \x01(\x0b\x32\x32.google.analytics.data.v1beta.FilterExpressionListH\x00\x12H\n\x0enot_expression\x18\x03 \x01(\x0b\x32..google.analytics.data.v1beta.FilterExpressionH\x00\x12\x36\n\x06\x66ilter\x18\x04 \x01(\x0b\x32$.google.analytics.data.v1beta.FilterH\x00\x42\x06\n\x04\x65xpr\"[\n\x14\x46ilterExpressionList\x12\x43\n\x0b\x65xpressions\x18\x01 \x03(\x0b\x32..google.analytics.data.v1beta.FilterExpression\"\xde\x08\n\x06\x46ilter\x12\x12\n\nfield_name\x18\x01 \x01(\t\x12J\n\rstring_filter\x18\x03 \x01(\x0b\x32\x31.google.analytics.data.v1beta.Filter.StringFilterH\x00\x12K\n\x0ein_list_filter\x18\x04 \x01(\x0b\x32\x31.google.analytics.data.v1beta.Filter.InListFilterH\x00\x12L\n\x0enumeric_filter\x18\x05 \x01(\x0b\x32\x32.google.analytics.data.v1beta.Filter.NumericFilterH\x00\x12L\n\x0e\x62\x65tween_filter\x18\x06 \x01(\x0b\x32\x32.google.analytics.data.v1beta.Filter.BetweenFilterH\x00\x1a\x8e\x02\n\x0cStringFilter\x12O\n\nmatch_type\x18\x01 \x01(\x0e\x32;.google.analytics.data.v1beta.Filter.StringFilter.MatchType\x12\r\n\x05value\x18\x02 \x01(\t\x12\x16\n\x0e\x63\x61se_sensitive\x18\x03 \x01(\x08\"\x85\x01\n\tMatchType\x12\x1a\n\x16MATCH_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05\x45XACT\x10\x01\x12\x0f\n\x0b\x42\x45GINS_WITH\x10\x02\x12\r\n\tENDS_WITH\x10\x03\x12\x0c\n\x08\x43ONTAINS\x10\x04\x12\x0f\n\x0b\x46ULL_REGEXP\x10\x05\x12\x12\n\x0ePARTIAL_REGEXP\x10\x06\x1a\x36\n\x0cInListFilter\x12\x0e\n\x06values\x18\x01 \x03(\t\x12\x16\n\x0e\x63\x61se_sensitive\x18\x02 \x01(\x08\x1a\xa3\x02\n\rNumericFilter\x12O\n\toperation\x18\x01 \x01(\x0e\x32<.google.analytics.data.v1beta.Filter.NumericFilter.Operation\x12\x39\n\x05value\x18\x02 \x01(\x0b\x32*.google.analytics.data.v1beta.NumericValue\"\x85\x01\n\tOperation\x12\x19\n\x15OPERATION_UNSPECIFIED\x10\x00\x12\t\n\x05\x45QUAL\x10\x01\x12\r\n\tLESS_THAN\x10\x02\x12\x16\n\x12LESS_THAN_OR_EQUAL\x10\x03\x12\x10\n\x0cGREATER_THAN\x10\x04\x12\x19\n\x15GREATER_THAN_OR_EQUAL\x10\x05\x1a\x8d\x01\n\rBetweenFilter\x12>\n\nfrom_value\x18\x01 \x01(\x0b\x32*.google.analytics.data.v1beta.NumericValue\x12<\n\x08to_value\x18\x02 \x01(\x0b\x32*.google.analytics.data.v1beta.NumericValueB\x0c\n\none_filter\"\xda\x05\n\x07OrderBy\x12\x45\n\x06metric\x18\x01 \x01(\x0b\x32\x33.google.analytics.data.v1beta.OrderBy.MetricOrderByH\x00\x12K\n\tdimension\x18\x02 \x01(\x0b\x32\x36.google.analytics.data.v1beta.OrderBy.DimensionOrderByH\x00\x12\x43\n\x05pivot\x18\x03 \x01(\x0b\x32\x32.google.analytics.data.v1beta.OrderBy.PivotOrderByH\x00\x12\x0c\n\x04\x64\x65sc\x18\x04 \x01(\x08\x1a$\n\rMetricOrderBy\x12\x13\n\x0bmetric_name\x18\x01 \x01(\t\x1a\xeb\x01\n\x10\x44imensionOrderBy\x12\x16\n\x0e\x64imension_name\x18\x01 \x01(\t\x12T\n\norder_type\x18\x02 \x01(\x0e\x32@.google.analytics.data.v1beta.OrderBy.DimensionOrderBy.OrderType\"i\n\tOrderType\x12\x1a\n\x16ORDER_TYPE_UNSPECIFIED\x10\x00\x12\x10\n\x0c\x41LPHANUMERIC\x10\x01\x12!\n\x1d\x43\x41SE_INSENSITIVE_ALPHANUMERIC\x10\x02\x12\x0b\n\x07NUMERIC\x10\x03\x1a\xc3\x01\n\x0cPivotOrderBy\x12\x13\n\x0bmetric_name\x18\x01 \x01(\t\x12[\n\x10pivot_selections\x18\x02 \x03(\x0b\x32\x41.google.analytics.data.v1beta.OrderBy.PivotOrderBy.PivotSelection\x1a\x41\n\x0ePivotSelection\x12\x16\n\x0e\x64imension_name\x18\x01 \x01(\t\x12\x17\n\x0f\x64imension_value\x18\x02 \x01(\tB\x0e\n\x0cone_order_by\"\xc3\x01\n\x05Pivot\x12\x13\n\x0b\x66ield_names\x18\x01 \x03(\t\x12\x38\n\torder_bys\x18\x02 \x03(\x0b\x32%.google.analytics.data.v1beta.OrderBy\x12\x0e\n\x06offset\x18\x03 \x01(\x03\x12\r\n\x05limit\x18\x04 \x01(\x03\x12L\n\x13metric_aggregations\x18\x05 \x03(\x0e\x32/.google.analytics.data.v1beta.MetricAggregation\"\xda\x01\n\nCohortSpec\x12\x35\n\x07\x63ohorts\x18\x01 \x03(\x0b\x32$.google.analytics.data.v1beta.Cohort\x12\x41\n\rcohorts_range\x18\x02 \x01(\x0b\x32*.google.analytics.data.v1beta.CohortsRange\x12R\n\x16\x63ohort_report_settings\x18\x03 \x01(\x0b\x32\x32.google.analytics.data.v1beta.CohortReportSettings\"f\n\x06\x43ohort\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tdimension\x18\x02 \x01(\t\x12;\n\ndate_range\x18\x03 \x01(\x0b\x32\'.google.analytics.data.v1beta.DateRange\"\xd5\x01\n\x0c\x43ohortsRange\x12K\n\x0bgranularity\x18\x01 \x01(\x0e\x32\x36.google.analytics.data.v1beta.CohortsRange.Granularity\x12\x14\n\x0cstart_offset\x18\x02 \x01(\x05\x12\x12\n\nend_offset\x18\x03 \x01(\x05\"N\n\x0bGranularity\x12\x1b\n\x17GRANULARITY_UNSPECIFIED\x10\x00\x12\t\n\x05\x44\x41ILY\x10\x01\x12\n\n\x06WEEKLY\x10\x02\x12\x0b\n\x07MONTHLY\x10\x03\"*\n\x14\x43ohortReportSettings\x12\x12\n\naccumulate\x18\x01 \x01(\x08\"4\n\x10ResponseMetaData\x12 \n\x18\x64\x61ta_loss_from_other_row\x18\x03 \x01(\x08\"\x1f\n\x0f\x44imensionHeader\x12\x0c\n\x04name\x18\x01 \x01(\t\"T\n\x0cMetricHeader\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x36\n\x04type\x18\x02 \x01(\x0e\x32(.google.analytics.data.v1beta.MetricType\"u\n\x0bPivotHeader\x12S\n\x17pivot_dimension_headers\x18\x01 \x03(\x0b\x32\x32.google.analytics.data.v1beta.PivotDimensionHeader\x12\x11\n\trow_count\x18\x02 \x01(\x05\"^\n\x14PivotDimensionHeader\x12\x46\n\x10\x64imension_values\x18\x01 \x03(\x0b\x32,.google.analytics.data.v1beta.DimensionValue\"\x8f\x01\n\x03Row\x12\x46\n\x10\x64imension_values\x18\x01 \x03(\x0b\x32,.google.analytics.data.v1beta.DimensionValue\x12@\n\rmetric_values\x18\x02 \x03(\x0b\x32).google.analytics.data.v1beta.MetricValue\".\n\x0e\x44imensionValue\x12\x0f\n\x05value\x18\x01 \x01(\tH\x00\x42\x0b\n\tone_value\"+\n\x0bMetricValue\x12\x0f\n\x05value\x18\x04 \x01(\tH\x00\x42\x0b\n\tone_value\"J\n\x0cNumericValue\x12\x15\n\x0bint64_value\x18\x01 \x01(\x03H\x00\x12\x16\n\x0c\x64ouble_value\x18\x02 \x01(\x01H\x00\x42\x0b\n\tone_value\"\x93\x03\n\rPropertyQuota\x12\x41\n\x0etokens_per_day\x18\x01 \x01(\x0b\x32).google.analytics.data.v1beta.QuotaStatus\x12\x42\n\x0ftokens_per_hour\x18\x02 \x01(\x0b\x32).google.analytics.data.v1beta.QuotaStatus\x12\x46\n\x13\x63oncurrent_requests\x18\x03 \x01(\x0b\x32).google.analytics.data.v1beta.QuotaStatus\x12U\n\"server_errors_per_project_per_hour\x18\x04 \x01(\x0b\x32).google.analytics.data.v1beta.QuotaStatus\x12\\\n)potentially_thresholded_requests_per_hour\x18\x05 \x01(\x0b\x32).google.analytics.data.v1beta.QuotaStatus\"2\n\x0bQuotaStatus\x12\x10\n\x08\x63onsumed\x18\x01 \x01(\x05\x12\x11\n\tremaining\x18\x02 \x01(\x05\"\x96\x01\n\x11\x44imensionMetadata\x12\x10\n\x08\x61pi_name\x18\x01 \x01(\t\x12\x0f\n\x07ui_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x1c\n\x14\x64\x65precated_api_names\x18\x04 \x03(\t\x12\x19\n\x11\x63ustom_definition\x18\x05 \x01(\x08\x12\x10\n\x08\x63\x61tegory\x18\x07 \x01(\t\"\xdf\x01\n\x0eMetricMetadata\x12\x10\n\x08\x61pi_name\x18\x01 \x01(\t\x12\x0f\n\x07ui_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x1c\n\x14\x64\x65precated_api_names\x18\x04 \x03(\t\x12\x36\n\x04type\x18\x05 \x01(\x0e\x32(.google.analytics.data.v1beta.MetricType\x12\x12\n\nexpression\x18\x06 \x01(\t\x12\x19\n\x11\x63ustom_definition\x18\x07 \x01(\x08\x12\x10\n\x08\x63\x61tegory\x18\n \x01(\t\"\xdc\x01\n\x16\x44imensionCompatibility\x12P\n\x12\x64imension_metadata\x18\x01 \x01(\x0b\x32/.google.analytics.data.v1beta.DimensionMetadataH\x00\x88\x01\x01\x12G\n\rcompatibility\x18\x02 \x01(\x0e\x32+.google.analytics.data.v1beta.CompatibilityH\x01\x88\x01\x01\x42\x15\n\x13_dimension_metadataB\x10\n\x0e_compatibility\"\xd0\x01\n\x13MetricCompatibility\x12J\n\x0fmetric_metadata\x18\x01 \x01(\x0b\x32,.google.analytics.data.v1beta.MetricMetadataH\x00\x88\x01\x01\x12G\n\rcompatibility\x18\x02 \x01(\x0e\x32+.google.analytics.data.v1beta.CompatibilityH\x01\x88\x01\x01\x42\x12\n\x10_metric_metadataB\x10\n\x0e_compatibility*g\n\x11MetricAggregation\x12\"\n\x1eMETRIC_AGGREGATION_UNSPECIFIED\x10\x00\x12\t\n\x05TOTAL\x10\x01\x12\x0b\n\x07MINIMUM\x10\x05\x12\x0b\n\x07MAXIMUM\x10\x06\x12\t\n\x05\x43OUNT\x10\x04*\x81\x02\n\nMetricType\x12\x1b\n\x17METRIC_TYPE_UNSPECIFIED\x10\x00\x12\x10\n\x0cTYPE_INTEGER\x10\x01\x12\x0e\n\nTYPE_FLOAT\x10\x02\x12\x10\n\x0cTYPE_SECONDS\x10\x04\x12\x15\n\x11TYPE_MILLISECONDS\x10\x05\x12\x10\n\x0cTYPE_MINUTES\x10\x06\x12\x0e\n\nTYPE_HOURS\x10\x07\x12\x11\n\rTYPE_STANDARD\x10\x08\x12\x11\n\rTYPE_CURRENCY\x10\t\x12\r\n\tTYPE_FEET\x10\n\x12\x0e\n\nTYPE_MILES\x10\x0b\x12\x0f\n\x0bTYPE_METERS\x10\x0c\x12\x13\n\x0fTYPE_KILOMETERS\x10\r*P\n\rCompatibility\x12\x1d\n\x19\x43OMPATIBILITY_UNSPECIFIED\x10\x00\x12\x0e\n\nCOMPATIBLE\x10\x01\x12\x10\n\x0cINCOMPATIBLE\x10\x02\x42y\n com.google.analytics.data.v1betaB\x11ReportingApiProtoP\x01Z@google.golang.org/genproto/googleapis/analytics/data/v1beta;datab\x06proto3'
 )
 
 _METRICAGGREGATION = _descriptor.EnumDescriptor(
@@ -58,8 +58,8 @@ _METRICAGGREGATION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5272,
-  serialized_end=5375,
+  serialized_start=5876,
+  serialized_end=5979,
 )
 _sym_db.RegisterEnumDescriptor(_METRICAGGREGATION)
 
@@ -139,12 +139,43 @@ _METRICTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5378,
-  serialized_end=5635,
+  serialized_start=5982,
+  serialized_end=6239,
 )
 _sym_db.RegisterEnumDescriptor(_METRICTYPE)
 
 MetricType = enum_type_wrapper.EnumTypeWrapper(_METRICTYPE)
+_COMPATIBILITY = _descriptor.EnumDescriptor(
+  name='Compatibility',
+  full_name='google.analytics.data.v1beta.Compatibility',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='COMPATIBILITY_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='COMPATIBLE', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='INCOMPATIBLE', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=6241,
+  serialized_end=6321,
+)
+_sym_db.RegisterEnumDescriptor(_COMPATIBILITY)
+
+Compatibility = enum_type_wrapper.EnumTypeWrapper(_COMPATIBILITY)
 METRIC_AGGREGATION_UNSPECIFIED = 0
 TOTAL = 1
 MINIMUM = 5
@@ -163,6 +194,9 @@ TYPE_FEET = 10
 TYPE_MILES = 11
 TYPE_METERS = 12
 TYPE_KILOMETERS = 13
+COMPATIBILITY_UNSPECIFIED = 0
+COMPATIBLE = 1
+INCOMPATIBLE = 2
 
 
 _FILTER_STRINGFILTER_MATCHTYPE = _descriptor.EnumDescriptor(
@@ -210,8 +244,8 @@ _FILTER_STRINGFILTER_MATCHTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1609,
-  serialized_end=1742,
+  serialized_start=1743,
+  serialized_end=1876,
 )
 _sym_db.RegisterEnumDescriptor(_FILTER_STRINGFILTER_MATCHTYPE)
 
@@ -255,8 +289,8 @@ _FILTER_NUMERICFILTER_OPERATION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1959,
-  serialized_end=2092,
+  serialized_start=2093,
+  serialized_end=2226,
 )
 _sym_db.RegisterEnumDescriptor(_FILTER_NUMERICFILTER_OPERATION)
 
@@ -290,8 +324,8 @@ _ORDERBY_DIMENSIONORDERBY_ORDERTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2664,
-  serialized_end=2769,
+  serialized_start=2798,
+  serialized_end=2903,
 )
 _sym_db.RegisterEnumDescriptor(_ORDERBY_DIMENSIONORDERBY_ORDERTYPE)
 
@@ -325,8 +359,8 @@ _COHORTSRANGE_GRANULARITY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3644,
-  serialized_end=3722,
+  serialized_start=3778,
+  serialized_end=3856,
 )
 _sym_db.RegisterEnumDescriptor(_COHORTSRANGE_GRANULARITY)
 
@@ -377,6 +411,62 @@ _DATERANGE = _descriptor.Descriptor(
 )
 
 
+_MINUTERANGE = _descriptor.Descriptor(
+  name='MinuteRange',
+  full_name='google.analytics.data.v1beta.MinuteRange',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='start_minutes_ago', full_name='google.analytics.data.v1beta.MinuteRange.start_minutes_ago', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_minutes_ago', full_name='google.analytics.data.v1beta.MinuteRange.end_minutes_ago', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.analytics.data.v1beta.MinuteRange.name', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='_start_minutes_ago', full_name='google.analytics.data.v1beta.MinuteRange._start_minutes_ago',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+    _descriptor.OneofDescriptor(
+      name='_end_minutes_ago', full_name='google.analytics.data.v1beta.MinuteRange._end_minutes_ago',
+      index=1, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=139,
+  serialized_end=270,
+)
+
+
 _DIMENSION = _descriptor.Descriptor(
   name='Dimension',
   full_name='google.analytics.data.v1beta.Dimension',
@@ -411,8 +501,8 @@ _DIMENSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=138,
-  serialized_end=244,
+  serialized_start=272,
+  serialized_end=378,
 )
 
 
@@ -443,8 +533,8 @@ _DIMENSIONEXPRESSION_CASEEXPRESSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=542,
-  serialized_end=582,
+  serialized_start=676,
+  serialized_end=716,
 )
 
 _DIMENSIONEXPRESSION_CONCATENATEEXPRESSION = _descriptor.Descriptor(
@@ -481,8 +571,8 @@ _DIMENSIONEXPRESSION_CONCATENATEEXPRESSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=584,
-  serialized_end=651,
+  serialized_start=718,
+  serialized_end=785,
 )
 
 _DIMENSIONEXPRESSION = _descriptor.Descriptor(
@@ -531,8 +621,8 @@ _DIMENSIONEXPRESSION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=247,
-  serialized_end=669,
+  serialized_start=381,
+  serialized_end=803,
 )
 
 
@@ -577,8 +667,8 @@ _METRIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=671,
-  serialized_end=732,
+  serialized_start=805,
+  serialized_end=866,
 )
 
 
@@ -635,8 +725,8 @@ _FILTEREXPRESSION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=735,
-  serialized_end=1036,
+  serialized_start=869,
+  serialized_end=1170,
 )
 
 
@@ -667,8 +757,8 @@ _FILTEREXPRESSIONLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1038,
-  serialized_end=1129,
+  serialized_start=1172,
+  serialized_end=1263,
 )
 
 
@@ -714,8 +804,8 @@ _FILTER_STRINGFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1472,
-  serialized_end=1742,
+  serialized_start=1606,
+  serialized_end=1876,
 )
 
 _FILTER_INLISTFILTER = _descriptor.Descriptor(
@@ -752,8 +842,8 @@ _FILTER_INLISTFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1744,
-  serialized_end=1798,
+  serialized_start=1878,
+  serialized_end=1932,
 )
 
 _FILTER_NUMERICFILTER = _descriptor.Descriptor(
@@ -791,8 +881,8 @@ _FILTER_NUMERICFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1801,
-  serialized_end=2092,
+  serialized_start=1935,
+  serialized_end=2226,
 )
 
 _FILTER_BETWEENFILTER = _descriptor.Descriptor(
@@ -829,8 +919,8 @@ _FILTER_BETWEENFILTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2095,
-  serialized_end=2236,
+  serialized_start=2229,
+  serialized_end=2370,
 )
 
 _FILTER = _descriptor.Descriptor(
@@ -893,8 +983,8 @@ _FILTER = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1132,
-  serialized_end=2250,
+  serialized_start=1266,
+  serialized_end=2384,
 )
 
 
@@ -925,8 +1015,8 @@ _ORDERBY_METRICORDERBY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2495,
-  serialized_end=2531,
+  serialized_start=2629,
+  serialized_end=2665,
 )
 
 _ORDERBY_DIMENSIONORDERBY = _descriptor.Descriptor(
@@ -964,8 +1054,8 @@ _ORDERBY_DIMENSIONORDERBY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2534,
-  serialized_end=2769,
+  serialized_start=2668,
+  serialized_end=2903,
 )
 
 _ORDERBY_PIVOTORDERBY_PIVOTSELECTION = _descriptor.Descriptor(
@@ -1002,8 +1092,8 @@ _ORDERBY_PIVOTORDERBY_PIVOTSELECTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2902,
-  serialized_end=2967,
+  serialized_start=3036,
+  serialized_end=3101,
 )
 
 _ORDERBY_PIVOTORDERBY = _descriptor.Descriptor(
@@ -1040,8 +1130,8 @@ _ORDERBY_PIVOTORDERBY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2772,
-  serialized_end=2967,
+  serialized_start=2906,
+  serialized_end=3101,
 )
 
 _ORDERBY = _descriptor.Descriptor(
@@ -1097,8 +1187,8 @@ _ORDERBY = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2253,
-  serialized_end=2983,
+  serialized_start=2387,
+  serialized_end=3117,
 )
 
 
@@ -1157,8 +1247,8 @@ _PIVOT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2986,
-  serialized_end=3181,
+  serialized_start=3120,
+  serialized_end=3315,
 )
 
 
@@ -1203,8 +1293,8 @@ _COHORTSPEC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3184,
-  serialized_end=3402,
+  serialized_start=3318,
+  serialized_end=3536,
 )
 
 
@@ -1249,8 +1339,8 @@ _COHORT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3404,
-  serialized_end=3506,
+  serialized_start=3538,
+  serialized_end=3640,
 )
 
 
@@ -1296,8 +1386,8 @@ _COHORTSRANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3509,
-  serialized_end=3722,
+  serialized_start=3643,
+  serialized_end=3856,
 )
 
 
@@ -1328,8 +1418,8 @@ _COHORTREPORTSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3724,
-  serialized_end=3766,
+  serialized_start=3858,
+  serialized_end=3900,
 )
 
 
@@ -1360,8 +1450,8 @@ _RESPONSEMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3768,
-  serialized_end=3820,
+  serialized_start=3902,
+  serialized_end=3954,
 )
 
 
@@ -1392,8 +1482,8 @@ _DIMENSIONHEADER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3822,
-  serialized_end=3853,
+  serialized_start=3956,
+  serialized_end=3987,
 )
 
 
@@ -1431,8 +1521,8 @@ _METRICHEADER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3855,
-  serialized_end=3939,
+  serialized_start=3989,
+  serialized_end=4073,
 )
 
 
@@ -1470,8 +1560,8 @@ _PIVOTHEADER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3941,
-  serialized_end=4058,
+  serialized_start=4075,
+  serialized_end=4192,
 )
 
 
@@ -1502,8 +1592,8 @@ _PIVOTDIMENSIONHEADER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4060,
-  serialized_end=4154,
+  serialized_start=4194,
+  serialized_end=4288,
 )
 
 
@@ -1541,8 +1631,8 @@ _ROW = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4157,
-  serialized_end=4300,
+  serialized_start=4291,
+  serialized_end=4434,
 )
 
 
@@ -1578,8 +1668,8 @@ _DIMENSIONVALUE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4302,
-  serialized_end=4348,
+  serialized_start=4436,
+  serialized_end=4482,
 )
 
 
@@ -1615,8 +1705,8 @@ _METRICVALUE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4350,
-  serialized_end=4393,
+  serialized_start=4484,
+  serialized_end=4527,
 )
 
 
@@ -1659,8 +1749,8 @@ _NUMERICVALUE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4395,
-  serialized_end=4469,
+  serialized_start=4529,
+  serialized_end=4603,
 )
 
 
@@ -1719,8 +1809,8 @@ _PROPERTYQUOTA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4472,
-  serialized_end=4875,
+  serialized_start=4606,
+  serialized_end=5009,
 )
 
 
@@ -1758,8 +1848,8 @@ _QUOTASTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4877,
-  serialized_end=4927,
+  serialized_start=5011,
+  serialized_end=5061,
 )
 
 
@@ -1806,6 +1896,13 @@ _DIMENSIONMETADATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='category', full_name='google.analytics.data.v1beta.DimensionMetadata.category', index=5,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1818,8 +1915,8 @@ _DIMENSIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4930,
-  serialized_end=5062,
+  serialized_start=5064,
+  serialized_end=5214,
 )
 
 
@@ -1880,6 +1977,13 @@ _METRICMETADATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='category', full_name='google.analytics.data.v1beta.MetricMetadata.category', index=7,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1892,10 +1996,114 @@ _METRICMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5065,
-  serialized_end=5270,
+  serialized_start=5217,
+  serialized_end=5440,
 )
 
+
+_DIMENSIONCOMPATIBILITY = _descriptor.Descriptor(
+  name='DimensionCompatibility',
+  full_name='google.analytics.data.v1beta.DimensionCompatibility',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dimension_metadata', full_name='google.analytics.data.v1beta.DimensionCompatibility.dimension_metadata', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='compatibility', full_name='google.analytics.data.v1beta.DimensionCompatibility.compatibility', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='_dimension_metadata', full_name='google.analytics.data.v1beta.DimensionCompatibility._dimension_metadata',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+    _descriptor.OneofDescriptor(
+      name='_compatibility', full_name='google.analytics.data.v1beta.DimensionCompatibility._compatibility',
+      index=1, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=5443,
+  serialized_end=5663,
+)
+
+
+_METRICCOMPATIBILITY = _descriptor.Descriptor(
+  name='MetricCompatibility',
+  full_name='google.analytics.data.v1beta.MetricCompatibility',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='metric_metadata', full_name='google.analytics.data.v1beta.MetricCompatibility.metric_metadata', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='compatibility', full_name='google.analytics.data.v1beta.MetricCompatibility.compatibility', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='_metric_metadata', full_name='google.analytics.data.v1beta.MetricCompatibility._metric_metadata',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+    _descriptor.OneofDescriptor(
+      name='_compatibility', full_name='google.analytics.data.v1beta.MetricCompatibility._compatibility',
+      index=1, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=5666,
+  serialized_end=5874,
+)
+
+_MINUTERANGE.oneofs_by_name['_start_minutes_ago'].fields.append(
+  _MINUTERANGE.fields_by_name['start_minutes_ago'])
+_MINUTERANGE.fields_by_name['start_minutes_ago'].containing_oneof = _MINUTERANGE.oneofs_by_name['_start_minutes_ago']
+_MINUTERANGE.oneofs_by_name['_end_minutes_ago'].fields.append(
+  _MINUTERANGE.fields_by_name['end_minutes_ago'])
+_MINUTERANGE.fields_by_name['end_minutes_ago'].containing_oneof = _MINUTERANGE.oneofs_by_name['_end_minutes_ago']
 _DIMENSION.fields_by_name['dimension_expression'].message_type = _DIMENSIONEXPRESSION
 _DIMENSIONEXPRESSION_CASEEXPRESSION.containing_type = _DIMENSIONEXPRESSION
 _DIMENSIONEXPRESSION_CONCATENATEEXPRESSION.containing_type = _DIMENSIONEXPRESSION
@@ -2005,7 +2213,24 @@ _PROPERTYQUOTA.fields_by_name['concurrent_requests'].message_type = _QUOTASTATUS
 _PROPERTYQUOTA.fields_by_name['server_errors_per_project_per_hour'].message_type = _QUOTASTATUS
 _PROPERTYQUOTA.fields_by_name['potentially_thresholded_requests_per_hour'].message_type = _QUOTASTATUS
 _METRICMETADATA.fields_by_name['type'].enum_type = _METRICTYPE
+_DIMENSIONCOMPATIBILITY.fields_by_name['dimension_metadata'].message_type = _DIMENSIONMETADATA
+_DIMENSIONCOMPATIBILITY.fields_by_name['compatibility'].enum_type = _COMPATIBILITY
+_DIMENSIONCOMPATIBILITY.oneofs_by_name['_dimension_metadata'].fields.append(
+  _DIMENSIONCOMPATIBILITY.fields_by_name['dimension_metadata'])
+_DIMENSIONCOMPATIBILITY.fields_by_name['dimension_metadata'].containing_oneof = _DIMENSIONCOMPATIBILITY.oneofs_by_name['_dimension_metadata']
+_DIMENSIONCOMPATIBILITY.oneofs_by_name['_compatibility'].fields.append(
+  _DIMENSIONCOMPATIBILITY.fields_by_name['compatibility'])
+_DIMENSIONCOMPATIBILITY.fields_by_name['compatibility'].containing_oneof = _DIMENSIONCOMPATIBILITY.oneofs_by_name['_compatibility']
+_METRICCOMPATIBILITY.fields_by_name['metric_metadata'].message_type = _METRICMETADATA
+_METRICCOMPATIBILITY.fields_by_name['compatibility'].enum_type = _COMPATIBILITY
+_METRICCOMPATIBILITY.oneofs_by_name['_metric_metadata'].fields.append(
+  _METRICCOMPATIBILITY.fields_by_name['metric_metadata'])
+_METRICCOMPATIBILITY.fields_by_name['metric_metadata'].containing_oneof = _METRICCOMPATIBILITY.oneofs_by_name['_metric_metadata']
+_METRICCOMPATIBILITY.oneofs_by_name['_compatibility'].fields.append(
+  _METRICCOMPATIBILITY.fields_by_name['compatibility'])
+_METRICCOMPATIBILITY.fields_by_name['compatibility'].containing_oneof = _METRICCOMPATIBILITY.oneofs_by_name['_compatibility']
 DESCRIPTOR.message_types_by_name['DateRange'] = _DATERANGE
+DESCRIPTOR.message_types_by_name['MinuteRange'] = _MINUTERANGE
 DESCRIPTOR.message_types_by_name['Dimension'] = _DIMENSION
 DESCRIPTOR.message_types_by_name['DimensionExpression'] = _DIMENSIONEXPRESSION
 DESCRIPTOR.message_types_by_name['Metric'] = _METRIC
@@ -2031,8 +2256,11 @@ DESCRIPTOR.message_types_by_name['PropertyQuota'] = _PROPERTYQUOTA
 DESCRIPTOR.message_types_by_name['QuotaStatus'] = _QUOTASTATUS
 DESCRIPTOR.message_types_by_name['DimensionMetadata'] = _DIMENSIONMETADATA
 DESCRIPTOR.message_types_by_name['MetricMetadata'] = _METRICMETADATA
+DESCRIPTOR.message_types_by_name['DimensionCompatibility'] = _DIMENSIONCOMPATIBILITY
+DESCRIPTOR.message_types_by_name['MetricCompatibility'] = _METRICCOMPATIBILITY
 DESCRIPTOR.enum_types_by_name['MetricAggregation'] = _METRICAGGREGATION
 DESCRIPTOR.enum_types_by_name['MetricType'] = _METRICTYPE
+DESCRIPTOR.enum_types_by_name['Compatibility'] = _COMPATIBILITY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 DateRange = _reflection.GeneratedProtocolMessageType('DateRange', (_message.Message,), {
@@ -2041,6 +2269,13 @@ DateRange = _reflection.GeneratedProtocolMessageType('DateRange', (_message.Mess
   # @@protoc_insertion_point(class_scope:google.analytics.data.v1beta.DateRange)
   })
 _sym_db.RegisterMessage(DateRange)
+
+MinuteRange = _reflection.GeneratedProtocolMessageType('MinuteRange', (_message.Message,), {
+  'DESCRIPTOR' : _MINUTERANGE,
+  '__module__' : 'google.analytics.data.v1beta.data_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.data.v1beta.MinuteRange)
+  })
+_sym_db.RegisterMessage(MinuteRange)
 
 Dimension = _reflection.GeneratedProtocolMessageType('Dimension', (_message.Message,), {
   'DESCRIPTOR' : _DIMENSION,
@@ -2296,6 +2531,20 @@ MetricMetadata = _reflection.GeneratedProtocolMessageType('MetricMetadata', (_me
   # @@protoc_insertion_point(class_scope:google.analytics.data.v1beta.MetricMetadata)
   })
 _sym_db.RegisterMessage(MetricMetadata)
+
+DimensionCompatibility = _reflection.GeneratedProtocolMessageType('DimensionCompatibility', (_message.Message,), {
+  'DESCRIPTOR' : _DIMENSIONCOMPATIBILITY,
+  '__module__' : 'google.analytics.data.v1beta.data_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.data.v1beta.DimensionCompatibility)
+  })
+_sym_db.RegisterMessage(DimensionCompatibility)
+
+MetricCompatibility = _reflection.GeneratedProtocolMessageType('MetricCompatibility', (_message.Message,), {
+  'DESCRIPTOR' : _METRICCOMPATIBILITY,
+  '__module__' : 'google.analytics.data.v1beta.data_pb2'
+  # @@protoc_insertion_point(class_scope:google.analytics.data.v1beta.MetricCompatibility)
+  })
+_sym_db.RegisterMessage(MetricCompatibility)
 
 
 DESCRIPTOR._options = None

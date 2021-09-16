@@ -13,11 +13,13 @@ _sym_db = _symbol_database.Default()
 
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.retail.v2beta import product_pb2 as google_dot_cloud_dot_retail_dot_v2beta_dot_product__pb2
 from google.cloud.retail.v2beta import user_event_pb2 as google_dot_cloud_dot_retail_dot_v2beta_dot_user__event__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
+from google.type import date_pb2 as google_dot_type_dot_date__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -26,11 +28,41 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\036com.google.cloud.retail.v2betaB\021ImportConfigProtoP\001Z@google.golang.org/genproto/googleapis/cloud/retail/v2beta;retail\242\002\006RETAIL\252\002\032Google.Cloud.Retail.V2Beta\312\002\032Google\\Cloud\\Retail\\V2beta\352\002\035Google::Cloud::Retail::V2beta',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.google/cloud/retail/v2beta/import_config.proto\x12\x1agoogle.cloud.retail.v2beta\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a(google/cloud/retail/v2beta/product.proto\x1a+google/cloud/retail/v2beta/user_event.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"9\n\tGcsSource\x12\x17\n\ninput_uris\x18\x01 \x03(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x61ta_schema\x18\x02 \x01(\t\"\x82\x01\n\x0e\x42igQuerySource\x12\x12\n\nproject_id\x18\x05 \x01(\t\x12\x17\n\ndataset_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08table_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\x0fgcs_staging_dir\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x61ta_schema\x18\x04 \x01(\t\"Q\n\x13ProductInlineSource\x12:\n\x08products\x18\x01 \x03(\x0b\x32#.google.cloud.retail.v2beta.ProductB\x03\xe0\x41\x02\"X\n\x15UserEventInlineSource\x12?\n\x0buser_events\x18\x01 \x03(\x0b\x32%.google.cloud.retail.v2beta.UserEventB\x03\xe0\x41\x02\"9\n\x12ImportErrorsConfig\x12\x14\n\ngcs_prefix\x18\x01 \x01(\tH\x00\x42\r\n\x0b\x64\x65stination\"\xef\x01\n\x15ImportProductsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12I\n\x0cinput_config\x18\x02 \x01(\x0b\x32..google.cloud.retail.v2beta.ProductInputConfigB\x03\xe0\x41\x02\x12\x45\n\rerrors_config\x18\x03 \x01(\x0b\x32..google.cloud.retail.v2beta.ImportErrorsConfig\x12/\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xc2\x01\n\x17ImportUserEventsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12K\n\x0cinput_config\x18\x02 \x01(\x0b\x32\x30.google.cloud.retail.v2beta.UserEventInputConfigB\x03\xe0\x41\x02\x12\x45\n\rerrors_config\x18\x03 \x01(\x0b\x32..google.cloud.retail.v2beta.ImportErrorsConfig\"\xf5\x01\n\x12ProductInputConfig\x12P\n\x15product_inline_source\x18\x01 \x01(\x0b\x32/.google.cloud.retail.v2beta.ProductInlineSourceH\x00\x12;\n\ngcs_source\x18\x02 \x01(\x0b\x32%.google.cloud.retail.v2beta.GcsSourceH\x00\x12\x46\n\x10\x62ig_query_source\x18\x03 \x01(\x0b\x32*.google.cloud.retail.v2beta.BigQuerySourceH\x00\x42\x08\n\x06source\"\x8b\x02\n\x14UserEventInputConfig\x12Z\n\x18user_event_inline_source\x18\x01 \x01(\x0b\x32\x31.google.cloud.retail.v2beta.UserEventInlineSourceB\x03\xe0\x41\x02H\x00\x12@\n\ngcs_source\x18\x02 \x01(\x0b\x32%.google.cloud.retail.v2beta.GcsSourceB\x03\xe0\x41\x02H\x00\x12K\n\x10\x62ig_query_source\x18\x03 \x01(\x0b\x32*.google.cloud.retail.v2beta.BigQuerySourceB\x03\xe0\x41\x02H\x00\x42\x08\n\x06source\"\xa0\x01\n\x0eImportMetadata\x12/\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x15\n\rsuccess_count\x18\x03 \x01(\x03\x12\x15\n\rfailure_count\x18\x04 \x01(\x03\"\x8a\x01\n\x16ImportProductsResponse\x12)\n\rerror_samples\x18\x01 \x03(\x0b\x32\x12.google.rpc.Status\x12\x45\n\rerrors_config\x18\x02 \x01(\x0b\x32..google.cloud.retail.v2beta.ImportErrorsConfig\"\xd8\x01\n\x18ImportUserEventsResponse\x12)\n\rerror_samples\x18\x01 \x03(\x0b\x32\x12.google.rpc.Status\x12\x45\n\rerrors_config\x18\x02 \x01(\x0b\x32..google.cloud.retail.v2beta.ImportErrorsConfig\x12J\n\x0eimport_summary\x18\x03 \x01(\x0b\x32\x32.google.cloud.retail.v2beta.UserEventImportSummary\"T\n\x16UserEventImportSummary\x12\x1b\n\x13joined_events_count\x18\x01 \x01(\x03\x12\x1d\n\x15unjoined_events_count\x18\x02 \x01(\x03\x42\xda\x01\n\x1e\x63om.google.cloud.retail.v2betaB\x11ImportConfigProtoP\x01Z@google.golang.org/genproto/googleapis/cloud/retail/v2beta;retail\xa2\x02\x06RETAIL\xaa\x02\x1aGoogle.Cloud.Retail.V2Beta\xca\x02\x1aGoogle\\Cloud\\Retail\\V2beta\xea\x02\x1dGoogle::Cloud::Retail::V2betab\x06proto3'
+  serialized_pb=b'\n.google/cloud/retail/v2beta/import_config.proto\x12\x1agoogle.cloud.retail.v2beta\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a(google/cloud/retail/v2beta/product.proto\x1a+google/cloud/retail/v2beta/user_event.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\x1a\x16google/type/date.proto\"9\n\tGcsSource\x12\x17\n\ninput_uris\x18\x01 \x03(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x61ta_schema\x18\x02 \x01(\t\"\xbc\x01\n\x0e\x42igQuerySource\x12+\n\x0epartition_date\x18\x06 \x01(\x0b\x32\x11.google.type.DateH\x00\x12\x12\n\nproject_id\x18\x05 \x01(\t\x12\x17\n\ndataset_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08table_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\x0fgcs_staging_dir\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x61ta_schema\x18\x04 \x01(\tB\x0b\n\tpartition\"Q\n\x13ProductInlineSource\x12:\n\x08products\x18\x01 \x03(\x0b\x32#.google.cloud.retail.v2beta.ProductB\x03\xe0\x41\x02\"X\n\x15UserEventInlineSource\x12?\n\x0buser_events\x18\x01 \x03(\x0b\x32%.google.cloud.retail.v2beta.UserEventB\x03\xe0\x41\x02\"9\n\x12ImportErrorsConfig\x12\x14\n\ngcs_prefix\x18\x01 \x01(\tH\x00\x42\r\n\x0b\x64\x65stination\"\x80\x04\n\x15ImportProductsRequest\x12\x34\n\x06parent\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1cretail.googleapis.com/Branch\x12\x12\n\nrequest_id\x18\x06 \x01(\t\x12I\n\x0cinput_config\x18\x02 \x01(\x0b\x32..google.cloud.retail.v2beta.ProductInputConfigB\x03\xe0\x41\x02\x12\x45\n\rerrors_config\x18\x03 \x01(\x0b\x32..google.cloud.retail.v2beta.ImportErrorsConfig\x12/\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12\x61\n\x13reconciliation_mode\x18\x05 \x01(\x0e\x32\x44.google.cloud.retail.v2beta.ImportProductsRequest.ReconciliationMode\x12!\n\x19notification_pubsub_topic\x18\x07 \x01(\t\"T\n\x12ReconciliationMode\x12#\n\x1fRECONCILIATION_MODE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bINCREMENTAL\x10\x01\x12\x08\n\x04\x46ULL\x10\x02\"\xe4\x01\n\x17ImportUserEventsRequest\x12\x35\n\x06parent\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1dretail.googleapis.com/Catalog\x12K\n\x0cinput_config\x18\x02 \x01(\x0b\x32\x30.google.cloud.retail.v2beta.UserEventInputConfigB\x03\xe0\x41\x02\x12\x45\n\rerrors_config\x18\x03 \x01(\x0b\x32..google.cloud.retail.v2beta.ImportErrorsConfig\"\xc9\x01\n\x1bImportCompletionDataRequest\x12\x35\n\x06parent\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1dretail.googleapis.com/Catalog\x12P\n\x0cinput_config\x18\x02 \x01(\x0b\x32\x35.google.cloud.retail.v2beta.CompletionDataInputConfigB\x03\xe0\x41\x02\x12!\n\x19notification_pubsub_topic\x18\x03 \x01(\t\"\xf5\x01\n\x12ProductInputConfig\x12P\n\x15product_inline_source\x18\x01 \x01(\x0b\x32/.google.cloud.retail.v2beta.ProductInlineSourceH\x00\x12;\n\ngcs_source\x18\x02 \x01(\x0b\x32%.google.cloud.retail.v2beta.GcsSourceH\x00\x12\x46\n\x10\x62ig_query_source\x18\x03 \x01(\x0b\x32*.google.cloud.retail.v2beta.BigQuerySourceH\x00\x42\x08\n\x06source\"\x8b\x02\n\x14UserEventInputConfig\x12Z\n\x18user_event_inline_source\x18\x01 \x01(\x0b\x32\x31.google.cloud.retail.v2beta.UserEventInlineSourceB\x03\xe0\x41\x02H\x00\x12@\n\ngcs_source\x18\x02 \x01(\x0b\x32%.google.cloud.retail.v2beta.GcsSourceB\x03\xe0\x41\x02H\x00\x12K\n\x10\x62ig_query_source\x18\x03 \x01(\x0b\x32*.google.cloud.retail.v2beta.BigQuerySourceB\x03\xe0\x41\x02H\x00\x42\x08\n\x06source\"r\n\x19\x43ompletionDataInputConfig\x12K\n\x10\x62ig_query_source\x18\x01 \x01(\x0b\x32*.google.cloud.retail.v2beta.BigQuerySourceB\x03\xe0\x41\x02H\x00\x42\x08\n\x06source\"\xd7\x01\n\x0eImportMetadata\x12/\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x15\n\rsuccess_count\x18\x03 \x01(\x03\x12\x15\n\rfailure_count\x18\x04 \x01(\x03\x12\x12\n\nrequest_id\x18\x05 \x01(\t\x12!\n\x19notification_pubsub_topic\x18\x06 \x01(\t\"\x8a\x01\n\x16ImportProductsResponse\x12)\n\rerror_samples\x18\x01 \x03(\x0b\x32\x12.google.rpc.Status\x12\x45\n\rerrors_config\x18\x02 \x01(\x0b\x32..google.cloud.retail.v2beta.ImportErrorsConfig\"\xd8\x01\n\x18ImportUserEventsResponse\x12)\n\rerror_samples\x18\x01 \x03(\x0b\x32\x12.google.rpc.Status\x12\x45\n\rerrors_config\x18\x02 \x01(\x0b\x32..google.cloud.retail.v2beta.ImportErrorsConfig\x12J\n\x0eimport_summary\x18\x03 \x01(\x0b\x32\x32.google.cloud.retail.v2beta.UserEventImportSummary\"T\n\x16UserEventImportSummary\x12\x1b\n\x13joined_events_count\x18\x01 \x01(\x03\x12\x1d\n\x15unjoined_events_count\x18\x02 \x01(\x03\"I\n\x1cImportCompletionDataResponse\x12)\n\rerror_samples\x18\x01 \x03(\x0b\x32\x12.google.rpc.StatusB\xda\x01\n\x1e\x63om.google.cloud.retail.v2betaB\x11ImportConfigProtoP\x01Z@google.golang.org/genproto/googleapis/cloud/retail/v2beta;retail\xa2\x02\x06RETAIL\xaa\x02\x1aGoogle.Cloud.Retail.V2Beta\xca\x02\x1aGoogle\\Cloud\\Retail\\V2beta\xea\x02\x1dGoogle::Cloud::Retail::V2betab\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2beta_dot_product__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2beta_dot_user__event__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2beta_dot_product__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2beta_dot_user__event__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,google_dot_type_dot_date__pb2.DESCRIPTOR,])
 
 
+
+_IMPORTPRODUCTSREQUEST_RECONCILIATIONMODE = _descriptor.EnumDescriptor(
+  name='ReconciliationMode',
+  full_name='google.cloud.retail.v2beta.ImportProductsRequest.ReconciliationMode',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='RECONCILIATION_MODE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='INCREMENTAL', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FULL', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1282,
+  serialized_end=1366,
+)
+_sym_db.RegisterEnumDescriptor(_IMPORTPRODUCTSREQUEST_RECONCILIATIONMODE)
 
 
 _GCSSOURCE = _descriptor.Descriptor(
@@ -67,8 +99,8 @@ _GCSSOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=320,
-  serialized_end=377,
+  serialized_start=371,
+  serialized_end=428,
 )
 
 
@@ -81,35 +113,42 @@ _BIGQUERYSOURCE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='google.cloud.retail.v2beta.BigQuerySource.project_id', index=0,
+      name='partition_date', full_name='google.cloud.retail.v2beta.BigQuerySource.partition_date', index=0,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='project_id', full_name='google.cloud.retail.v2beta.BigQuerySource.project_id', index=1,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='dataset_id', full_name='google.cloud.retail.v2beta.BigQuerySource.dataset_id', index=1,
+      name='dataset_id', full_name='google.cloud.retail.v2beta.BigQuerySource.dataset_id', index=2,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='table_id', full_name='google.cloud.retail.v2beta.BigQuerySource.table_id', index=2,
+      name='table_id', full_name='google.cloud.retail.v2beta.BigQuerySource.table_id', index=3,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='gcs_staging_dir', full_name='google.cloud.retail.v2beta.BigQuerySource.gcs_staging_dir', index=3,
+      name='gcs_staging_dir', full_name='google.cloud.retail.v2beta.BigQuerySource.gcs_staging_dir', index=4,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='data_schema', full_name='google.cloud.retail.v2beta.BigQuerySource.data_schema', index=4,
+      name='data_schema', full_name='google.cloud.retail.v2beta.BigQuerySource.data_schema', index=5,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -126,9 +165,14 @@ _BIGQUERYSOURCE = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='partition', full_name='google.cloud.retail.v2beta.BigQuerySource.partition',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=380,
-  serialized_end=510,
+  serialized_start=431,
+  serialized_end=619,
 )
 
 
@@ -159,8 +203,8 @@ _PRODUCTINLINESOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=512,
-  serialized_end=593,
+  serialized_start=621,
+  serialized_end=702,
 )
 
 
@@ -191,8 +235,8 @@ _USEREVENTINLINESOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=595,
-  serialized_end=683,
+  serialized_start=704,
+  serialized_end=792,
 )
 
 
@@ -228,8 +272,8 @@ _IMPORTERRORSCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=685,
-  serialized_end=742,
+  serialized_start=794,
+  serialized_end=851,
 )
 
 
@@ -247,25 +291,46 @@ _IMPORTPRODUCTSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A\036\n\034retail.googleapis.com/Branch', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='input_config', full_name='google.cloud.retail.v2beta.ImportProductsRequest.input_config', index=1,
+      name='request_id', full_name='google.cloud.retail.v2beta.ImportProductsRequest.request_id', index=1,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='input_config', full_name='google.cloud.retail.v2beta.ImportProductsRequest.input_config', index=2,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='errors_config', full_name='google.cloud.retail.v2beta.ImportProductsRequest.errors_config', index=2,
+      name='errors_config', full_name='google.cloud.retail.v2beta.ImportProductsRequest.errors_config', index=3,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='update_mask', full_name='google.cloud.retail.v2beta.ImportProductsRequest.update_mask', index=3,
+      name='update_mask', full_name='google.cloud.retail.v2beta.ImportProductsRequest.update_mask', index=4,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='reconciliation_mode', full_name='google.cloud.retail.v2beta.ImportProductsRequest.reconciliation_mode', index=5,
+      number=5, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='notification_pubsub_topic', full_name='google.cloud.retail.v2beta.ImportProductsRequest.notification_pubsub_topic', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -274,6 +339,7 @@ _IMPORTPRODUCTSREQUEST = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
+    _IMPORTPRODUCTSREQUEST_RECONCILIATIONMODE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -281,8 +347,8 @@ _IMPORTPRODUCTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=745,
-  serialized_end=984,
+  serialized_start=854,
+  serialized_end=1366,
 )
 
 
@@ -300,7 +366,7 @@ _IMPORTUSEREVENTSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A\037\n\035retail.googleapis.com/Catalog', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='input_config', full_name='google.cloud.retail.v2beta.ImportUserEventsRequest.input_config', index=1,
       number=2, type=11, cpp_type=10, label=1,
@@ -327,8 +393,54 @@ _IMPORTUSEREVENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=987,
-  serialized_end=1181,
+  serialized_start=1369,
+  serialized_end=1597,
+)
+
+
+_IMPORTCOMPLETIONDATAREQUEST = _descriptor.Descriptor(
+  name='ImportCompletionDataRequest',
+  full_name='google.cloud.retail.v2beta.ImportCompletionDataRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.retail.v2beta.ImportCompletionDataRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\037\n\035retail.googleapis.com/Catalog', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='input_config', full_name='google.cloud.retail.v2beta.ImportCompletionDataRequest.input_config', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='notification_pubsub_topic', full_name='google.cloud.retail.v2beta.ImportCompletionDataRequest.notification_pubsub_topic', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1600,
+  serialized_end=1801,
 )
 
 
@@ -378,8 +490,8 @@ _PRODUCTINPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1184,
-  serialized_end=1429,
+  serialized_start=1804,
+  serialized_end=2049,
 )
 
 
@@ -429,8 +541,45 @@ _USEREVENTINPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1432,
-  serialized_end=1699,
+  serialized_start=2052,
+  serialized_end=2319,
+)
+
+
+_COMPLETIONDATAINPUTCONFIG = _descriptor.Descriptor(
+  name='CompletionDataInputConfig',
+  full_name='google.cloud.retail.v2beta.CompletionDataInputConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='big_query_source', full_name='google.cloud.retail.v2beta.CompletionDataInputConfig.big_query_source', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='source', full_name='google.cloud.retail.v2beta.CompletionDataInputConfig.source',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2321,
+  serialized_end=2435,
 )
 
 
@@ -470,6 +619,20 @@ _IMPORTMETADATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.retail.v2beta.ImportMetadata.request_id', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='notification_pubsub_topic', full_name='google.cloud.retail.v2beta.ImportMetadata.notification_pubsub_topic', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -482,8 +645,8 @@ _IMPORTMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1702,
-  serialized_end=1862,
+  serialized_start=2438,
+  serialized_end=2653,
 )
 
 
@@ -521,8 +684,8 @@ _IMPORTPRODUCTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1865,
-  serialized_end=2003,
+  serialized_start=2656,
+  serialized_end=2794,
 )
 
 
@@ -567,8 +730,8 @@ _IMPORTUSEREVENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2006,
-  serialized_end=2222,
+  serialized_start=2797,
+  serialized_end=3013,
 )
 
 
@@ -606,10 +769,46 @@ _USEREVENTIMPORTSUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2224,
-  serialized_end=2308,
+  serialized_start=3015,
+  serialized_end=3099,
 )
 
+
+_IMPORTCOMPLETIONDATARESPONSE = _descriptor.Descriptor(
+  name='ImportCompletionDataResponse',
+  full_name='google.cloud.retail.v2beta.ImportCompletionDataResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='error_samples', full_name='google.cloud.retail.v2beta.ImportCompletionDataResponse.error_samples', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3101,
+  serialized_end=3174,
+)
+
+_BIGQUERYSOURCE.fields_by_name['partition_date'].message_type = google_dot_type_dot_date__pb2._DATE
+_BIGQUERYSOURCE.oneofs_by_name['partition'].fields.append(
+  _BIGQUERYSOURCE.fields_by_name['partition_date'])
+_BIGQUERYSOURCE.fields_by_name['partition_date'].containing_oneof = _BIGQUERYSOURCE.oneofs_by_name['partition']
 _PRODUCTINLINESOURCE.fields_by_name['products'].message_type = google_dot_cloud_dot_retail_dot_v2beta_dot_product__pb2._PRODUCT
 _USEREVENTINLINESOURCE.fields_by_name['user_events'].message_type = google_dot_cloud_dot_retail_dot_v2beta_dot_user__event__pb2._USEREVENT
 _IMPORTERRORSCONFIG.oneofs_by_name['destination'].fields.append(
@@ -618,8 +817,11 @@ _IMPORTERRORSCONFIG.fields_by_name['gcs_prefix'].containing_oneof = _IMPORTERROR
 _IMPORTPRODUCTSREQUEST.fields_by_name['input_config'].message_type = _PRODUCTINPUTCONFIG
 _IMPORTPRODUCTSREQUEST.fields_by_name['errors_config'].message_type = _IMPORTERRORSCONFIG
 _IMPORTPRODUCTSREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_IMPORTPRODUCTSREQUEST.fields_by_name['reconciliation_mode'].enum_type = _IMPORTPRODUCTSREQUEST_RECONCILIATIONMODE
+_IMPORTPRODUCTSREQUEST_RECONCILIATIONMODE.containing_type = _IMPORTPRODUCTSREQUEST
 _IMPORTUSEREVENTSREQUEST.fields_by_name['input_config'].message_type = _USEREVENTINPUTCONFIG
 _IMPORTUSEREVENTSREQUEST.fields_by_name['errors_config'].message_type = _IMPORTERRORSCONFIG
+_IMPORTCOMPLETIONDATAREQUEST.fields_by_name['input_config'].message_type = _COMPLETIONDATAINPUTCONFIG
 _PRODUCTINPUTCONFIG.fields_by_name['product_inline_source'].message_type = _PRODUCTINLINESOURCE
 _PRODUCTINPUTCONFIG.fields_by_name['gcs_source'].message_type = _GCSSOURCE
 _PRODUCTINPUTCONFIG.fields_by_name['big_query_source'].message_type = _BIGQUERYSOURCE
@@ -644,6 +846,10 @@ _USEREVENTINPUTCONFIG.fields_by_name['gcs_source'].containing_oneof = _USEREVENT
 _USEREVENTINPUTCONFIG.oneofs_by_name['source'].fields.append(
   _USEREVENTINPUTCONFIG.fields_by_name['big_query_source'])
 _USEREVENTINPUTCONFIG.fields_by_name['big_query_source'].containing_oneof = _USEREVENTINPUTCONFIG.oneofs_by_name['source']
+_COMPLETIONDATAINPUTCONFIG.fields_by_name['big_query_source'].message_type = _BIGQUERYSOURCE
+_COMPLETIONDATAINPUTCONFIG.oneofs_by_name['source'].fields.append(
+  _COMPLETIONDATAINPUTCONFIG.fields_by_name['big_query_source'])
+_COMPLETIONDATAINPUTCONFIG.fields_by_name['big_query_source'].containing_oneof = _COMPLETIONDATAINPUTCONFIG.oneofs_by_name['source']
 _IMPORTMETADATA.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _IMPORTMETADATA.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _IMPORTPRODUCTSRESPONSE.fields_by_name['error_samples'].message_type = google_dot_rpc_dot_status__pb2._STATUS
@@ -651,6 +857,7 @@ _IMPORTPRODUCTSRESPONSE.fields_by_name['errors_config'].message_type = _IMPORTER
 _IMPORTUSEREVENTSRESPONSE.fields_by_name['error_samples'].message_type = google_dot_rpc_dot_status__pb2._STATUS
 _IMPORTUSEREVENTSRESPONSE.fields_by_name['errors_config'].message_type = _IMPORTERRORSCONFIG
 _IMPORTUSEREVENTSRESPONSE.fields_by_name['import_summary'].message_type = _USEREVENTIMPORTSUMMARY
+_IMPORTCOMPLETIONDATARESPONSE.fields_by_name['error_samples'].message_type = google_dot_rpc_dot_status__pb2._STATUS
 DESCRIPTOR.message_types_by_name['GcsSource'] = _GCSSOURCE
 DESCRIPTOR.message_types_by_name['BigQuerySource'] = _BIGQUERYSOURCE
 DESCRIPTOR.message_types_by_name['ProductInlineSource'] = _PRODUCTINLINESOURCE
@@ -658,12 +865,15 @@ DESCRIPTOR.message_types_by_name['UserEventInlineSource'] = _USEREVENTINLINESOUR
 DESCRIPTOR.message_types_by_name['ImportErrorsConfig'] = _IMPORTERRORSCONFIG
 DESCRIPTOR.message_types_by_name['ImportProductsRequest'] = _IMPORTPRODUCTSREQUEST
 DESCRIPTOR.message_types_by_name['ImportUserEventsRequest'] = _IMPORTUSEREVENTSREQUEST
+DESCRIPTOR.message_types_by_name['ImportCompletionDataRequest'] = _IMPORTCOMPLETIONDATAREQUEST
 DESCRIPTOR.message_types_by_name['ProductInputConfig'] = _PRODUCTINPUTCONFIG
 DESCRIPTOR.message_types_by_name['UserEventInputConfig'] = _USEREVENTINPUTCONFIG
+DESCRIPTOR.message_types_by_name['CompletionDataInputConfig'] = _COMPLETIONDATAINPUTCONFIG
 DESCRIPTOR.message_types_by_name['ImportMetadata'] = _IMPORTMETADATA
 DESCRIPTOR.message_types_by_name['ImportProductsResponse'] = _IMPORTPRODUCTSRESPONSE
 DESCRIPTOR.message_types_by_name['ImportUserEventsResponse'] = _IMPORTUSEREVENTSRESPONSE
 DESCRIPTOR.message_types_by_name['UserEventImportSummary'] = _USEREVENTIMPORTSUMMARY
+DESCRIPTOR.message_types_by_name['ImportCompletionDataResponse'] = _IMPORTCOMPLETIONDATARESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 GcsSource = _reflection.GeneratedProtocolMessageType('GcsSource', (_message.Message,), {
@@ -715,6 +925,13 @@ ImportUserEventsRequest = _reflection.GeneratedProtocolMessageType('ImportUserEv
   })
 _sym_db.RegisterMessage(ImportUserEventsRequest)
 
+ImportCompletionDataRequest = _reflection.GeneratedProtocolMessageType('ImportCompletionDataRequest', (_message.Message,), {
+  'DESCRIPTOR' : _IMPORTCOMPLETIONDATAREQUEST,
+  '__module__' : 'google.cloud.retail.v2beta.import_config_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2beta.ImportCompletionDataRequest)
+  })
+_sym_db.RegisterMessage(ImportCompletionDataRequest)
+
 ProductInputConfig = _reflection.GeneratedProtocolMessageType('ProductInputConfig', (_message.Message,), {
   'DESCRIPTOR' : _PRODUCTINPUTCONFIG,
   '__module__' : 'google.cloud.retail.v2beta.import_config_pb2'
@@ -728,6 +945,13 @@ UserEventInputConfig = _reflection.GeneratedProtocolMessageType('UserEventInputC
   # @@protoc_insertion_point(class_scope:google.cloud.retail.v2beta.UserEventInputConfig)
   })
 _sym_db.RegisterMessage(UserEventInputConfig)
+
+CompletionDataInputConfig = _reflection.GeneratedProtocolMessageType('CompletionDataInputConfig', (_message.Message,), {
+  'DESCRIPTOR' : _COMPLETIONDATAINPUTCONFIG,
+  '__module__' : 'google.cloud.retail.v2beta.import_config_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2beta.CompletionDataInputConfig)
+  })
+_sym_db.RegisterMessage(CompletionDataInputConfig)
 
 ImportMetadata = _reflection.GeneratedProtocolMessageType('ImportMetadata', (_message.Message,), {
   'DESCRIPTOR' : _IMPORTMETADATA,
@@ -757,6 +981,13 @@ UserEventImportSummary = _reflection.GeneratedProtocolMessageType('UserEventImpo
   })
 _sym_db.RegisterMessage(UserEventImportSummary)
 
+ImportCompletionDataResponse = _reflection.GeneratedProtocolMessageType('ImportCompletionDataResponse', (_message.Message,), {
+  'DESCRIPTOR' : _IMPORTCOMPLETIONDATARESPONSE,
+  '__module__' : 'google.cloud.retail.v2beta.import_config_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2beta.ImportCompletionDataResponse)
+  })
+_sym_db.RegisterMessage(ImportCompletionDataResponse)
+
 
 DESCRIPTOR._options = None
 _GCSSOURCE.fields_by_name['input_uris']._options = None
@@ -768,7 +999,10 @@ _IMPORTPRODUCTSREQUEST.fields_by_name['parent']._options = None
 _IMPORTPRODUCTSREQUEST.fields_by_name['input_config']._options = None
 _IMPORTUSEREVENTSREQUEST.fields_by_name['parent']._options = None
 _IMPORTUSEREVENTSREQUEST.fields_by_name['input_config']._options = None
+_IMPORTCOMPLETIONDATAREQUEST.fields_by_name['parent']._options = None
+_IMPORTCOMPLETIONDATAREQUEST.fields_by_name['input_config']._options = None
 _USEREVENTINPUTCONFIG.fields_by_name['user_event_inline_source']._options = None
 _USEREVENTINPUTCONFIG.fields_by_name['gcs_source']._options = None
 _USEREVENTINPUTCONFIG.fields_by_name['big_query_source']._options = None
+_COMPLETIONDATAINPUTCONFIG.fields_by_name['big_query_source']._options = None
 # @@protoc_insertion_point(module_scope)

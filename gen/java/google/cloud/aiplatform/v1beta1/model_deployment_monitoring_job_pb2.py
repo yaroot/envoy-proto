@@ -14,6 +14,7 @@ _sym_db = _symbol_database.Default()
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.aiplatform.v1beta1 import encryption_spec_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_encryption__spec__pb2
 from google.cloud.aiplatform.v1beta1 import feature_monitoring_stats_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_feature__monitoring__stats__pb2
 from google.cloud.aiplatform.v1beta1 import io_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_io__pb2
 from google.cloud.aiplatform.v1beta1 import job_state_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_job__state__pb2
@@ -21,6 +22,7 @@ from google.cloud.aiplatform.v1beta1 import model_monitoring_pb2 as google_dot_c
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
@@ -28,11 +30,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1beta1/model_deployment_monitoring_job.proto',
   package='google.cloud.aiplatform.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B!ModelDeploymentMonitoringJobProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
+  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B!ModelDeploymentMonitoringJobProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\252\002\037Google.Cloud.AIPlatform.V1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1\352\002\"Google::Cloud::AIPlatform::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nEgoogle/cloud/aiplatform/v1beta1/model_deployment_monitoring_job.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a>google/cloud/aiplatform/v1beta1/feature_monitoring_stats.proto\x1a(google/cloud/aiplatform/v1beta1/io.proto\x1a/google/cloud/aiplatform/v1beta1/job_state.proto\x1a\x36google/cloud/aiplatform/v1beta1/model_monitoring.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xc1\r\n\x1cModelDeploymentMonitoringJob\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12<\n\x08\x65ndpoint\x18\x03 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"aiplatform.googleapis.com/Endpoint\x12=\n\x05state\x18\x04 \x01(\x0e\x32).google.cloud.aiplatform.v1beta1.JobStateB\x03\xe0\x41\x03\x12r\n\x0eschedule_state\x18\x05 \x01(\x0e\x32U.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringJob.MonitoringScheduleStateB\x03\xe0\x41\x03\x12\x85\x01\n-model_deployment_monitoring_objective_configs\x18\x06 \x03(\x0b\x32I.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringObjectiveConfigB\x03\xe0\x41\x02\x12\x82\x01\n+model_deployment_monitoring_schedule_config\x18\x07 \x01(\x0b\x32H.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringScheduleConfigB\x03\xe0\x41\x02\x12Y\n\x19logging_sampling_strategy\x18\x08 \x01(\x0b\x32\x31.google.cloud.aiplatform.v1beta1.SamplingStrategyB\x03\xe0\x41\x02\x12\x62\n\x1dmodel_monitoring_alert_config\x18\x0f \x01(\x0b\x32;.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig\x12#\n\x1bpredict_instance_schema_uri\x18\t \x01(\t\x12\x37\n\x17sample_predict_instance\x18\x13 \x01(\x0b\x32\x16.google.protobuf.Value\x12$\n\x1c\x61nalysis_instance_schema_uri\x18\x10 \x01(\t\x12\x65\n\x0f\x62igquery_tables\x18\n \x03(\x0b\x32G.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringBigQueryTableB\x03\xe0\x41\x03\x12*\n\x07log_ttl\x18\x11 \x01(\x0b\x32\x19.google.protobuf.Duration\x12Y\n\x06labels\x18\x0b \x03(\x0b\x32I.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringJob.LabelsEntry\x12\x34\n\x0b\x63reate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12;\n\x12next_schedule_time\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12W\n\x1estats_anomalies_base_directory\x18\x14 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.GcsDestination\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"k\n\x17MonitoringScheduleState\x12)\n%MONITORING_SCHEDULE_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0b\n\x07OFFLINE\x10\x02\x12\x0b\n\x07RUNNING\x10\x03:\xa5\x01\xea\x41\xa1\x01\n6aiplatform.googleapis.com/ModelDeploymentMonitoringJob\x12gprojects/{project}/locations/{location}/modelDeploymentMonitoringJobs/{model_deployment_monitoring_job}\"\x92\x03\n&ModelDeploymentMonitoringBigQueryTable\x12\x65\n\nlog_source\x18\x01 \x01(\x0e\x32Q.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringBigQueryTable.LogSource\x12\x61\n\x08log_type\x18\x02 \x01(\x0e\x32O.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringBigQueryTable.LogType\x12\x1b\n\x13\x62igquery_table_path\x18\x03 \x01(\t\"B\n\tLogSource\x12\x1a\n\x16LOG_SOURCE_UNSPECIFIED\x10\x00\x12\x0c\n\x08TRAINING\x10\x01\x12\x0b\n\x07SERVING\x10\x02\"=\n\x07LogType\x12\x18\n\x14LOG_TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PREDICT\x10\x01\x12\x0b\n\x07\x45XPLAIN\x10\x02\"\xa0\x01\n(ModelDeploymentMonitoringObjectiveConfig\x12\x19\n\x11\x64\x65ployed_model_id\x18\x01 \x01(\t\x12Y\n\x10objective_config\x18\x02 \x01(\x0b\x32?.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig\"c\n\'ModelDeploymentMonitoringScheduleConfig\x12\x38\n\x10monitor_interval\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x02\"\xc5\x04\n\x1dModelMonitoringStatsAnomalies\x12Z\n\tobjective\x18\x01 \x01(\x0e\x32G.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringObjectiveType\x12\x19\n\x11\x64\x65ployed_model_id\x18\x02 \x01(\t\x12\x15\n\ranomaly_count\x18\x03 \x01(\x05\x12s\n\rfeature_stats\x18\x04 \x03(\x0b\x32\\.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies\x1a\xa0\x02\n\x1d\x46\x65\x61tureHistoricStatsAnomalies\x12\x1c\n\x14\x66\x65\x61ture_display_name\x18\x01 \x01(\t\x12\x43\n\tthreshold\x18\x03 \x01(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.ThresholdConfig\x12L\n\x0etraining_stats\x18\x04 \x01(\x0b\x32\x34.google.cloud.aiplatform.v1beta1.FeatureStatsAnomaly\x12N\n\x10prediction_stats\x18\x05 \x03(\x0b\x32\x34.google.cloud.aiplatform.v1beta1.FeatureStatsAnomaly*\xce\x01\n&ModelDeploymentMonitoringObjectiveType\x12:\n6MODEL_DEPLOYMENT_MONITORING_OBJECTIVE_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10RAW_FEATURE_SKEW\x10\x01\x12\x15\n\x11RAW_FEATURE_DRIFT\x10\x02\x12\x1c\n\x18\x46\x45\x41TURE_ATTRIBUTION_SKEW\x10\x03\x12\x1d\n\x19\x46\x45\x41TURE_ATTRIBUTION_DRIFT\x10\x04\x42\x95\x01\n#com.google.cloud.aiplatform.v1beta1B!ModelDeploymentMonitoringJobProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\nEgoogle/cloud/aiplatform/v1beta1/model_deployment_monitoring_job.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x35google/cloud/aiplatform/v1beta1/encryption_spec.proto\x1a>google/cloud/aiplatform/v1beta1/feature_monitoring_stats.proto\x1a(google/cloud/aiplatform/v1beta1/io.proto\x1a/google/cloud/aiplatform/v1beta1/job_state.proto\x1a\x36google/cloud/aiplatform/v1beta1/model_monitoring.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\x1a\x1cgoogle/api/annotations.proto\"\xb3\x0e\n\x1cModelDeploymentMonitoringJob\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12<\n\x08\x65ndpoint\x18\x03 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"aiplatform.googleapis.com/Endpoint\x12=\n\x05state\x18\x04 \x01(\x0e\x32).google.cloud.aiplatform.v1beta1.JobStateB\x03\xe0\x41\x03\x12r\n\x0eschedule_state\x18\x05 \x01(\x0e\x32U.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringJob.MonitoringScheduleStateB\x03\xe0\x41\x03\x12\x85\x01\n-model_deployment_monitoring_objective_configs\x18\x06 \x03(\x0b\x32I.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringObjectiveConfigB\x03\xe0\x41\x02\x12\x82\x01\n+model_deployment_monitoring_schedule_config\x18\x07 \x01(\x0b\x32H.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringScheduleConfigB\x03\xe0\x41\x02\x12Y\n\x19logging_sampling_strategy\x18\x08 \x01(\x0b\x32\x31.google.cloud.aiplatform.v1beta1.SamplingStrategyB\x03\xe0\x41\x02\x12\x62\n\x1dmodel_monitoring_alert_config\x18\x0f \x01(\x0b\x32;.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig\x12#\n\x1bpredict_instance_schema_uri\x18\t \x01(\t\x12\x37\n\x17sample_predict_instance\x18\x13 \x01(\x0b\x32\x16.google.protobuf.Value\x12$\n\x1c\x61nalysis_instance_schema_uri\x18\x10 \x01(\t\x12\x65\n\x0f\x62igquery_tables\x18\n \x03(\x0b\x32G.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringBigQueryTableB\x03\xe0\x41\x03\x12*\n\x07log_ttl\x18\x11 \x01(\x0b\x32\x19.google.protobuf.Duration\x12Y\n\x06labels\x18\x0b \x03(\x0b\x32I.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringJob.LabelsEntry\x12\x34\n\x0b\x63reate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12;\n\x12next_schedule_time\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12W\n\x1estats_anomalies_base_directory\x18\x14 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.GcsDestination\x12H\n\x0f\x65ncryption_spec\x18\x15 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.EncryptionSpec\x12&\n\x05\x65rror\x18\x17 \x01(\x0b\x32\x12.google.rpc.StatusB\x03\xe0\x41\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"k\n\x17MonitoringScheduleState\x12)\n%MONITORING_SCHEDULE_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0b\n\x07OFFLINE\x10\x02\x12\x0b\n\x07RUNNING\x10\x03:\xa5\x01\xea\x41\xa1\x01\n6aiplatform.googleapis.com/ModelDeploymentMonitoringJob\x12gprojects/{project}/locations/{location}/modelDeploymentMonitoringJobs/{model_deployment_monitoring_job}\"\x92\x03\n&ModelDeploymentMonitoringBigQueryTable\x12\x65\n\nlog_source\x18\x01 \x01(\x0e\x32Q.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringBigQueryTable.LogSource\x12\x61\n\x08log_type\x18\x02 \x01(\x0e\x32O.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringBigQueryTable.LogType\x12\x1b\n\x13\x62igquery_table_path\x18\x03 \x01(\t\"B\n\tLogSource\x12\x1a\n\x16LOG_SOURCE_UNSPECIFIED\x10\x00\x12\x0c\n\x08TRAINING\x10\x01\x12\x0b\n\x07SERVING\x10\x02\"=\n\x07LogType\x12\x18\n\x14LOG_TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PREDICT\x10\x01\x12\x0b\n\x07\x45XPLAIN\x10\x02\"\xa0\x01\n(ModelDeploymentMonitoringObjectiveConfig\x12\x19\n\x11\x64\x65ployed_model_id\x18\x01 \x01(\t\x12Y\n\x10objective_config\x18\x02 \x01(\x0b\x32?.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig\"c\n\'ModelDeploymentMonitoringScheduleConfig\x12\x38\n\x10monitor_interval\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x02\"\xc5\x04\n\x1dModelMonitoringStatsAnomalies\x12Z\n\tobjective\x18\x01 \x01(\x0e\x32G.google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringObjectiveType\x12\x19\n\x11\x64\x65ployed_model_id\x18\x02 \x01(\t\x12\x15\n\ranomaly_count\x18\x03 \x01(\x05\x12s\n\rfeature_stats\x18\x04 \x03(\x0b\x32\\.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies\x1a\xa0\x02\n\x1d\x46\x65\x61tureHistoricStatsAnomalies\x12\x1c\n\x14\x66\x65\x61ture_display_name\x18\x01 \x01(\t\x12\x43\n\tthreshold\x18\x03 \x01(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.ThresholdConfig\x12L\n\x0etraining_stats\x18\x04 \x01(\x0b\x32\x34.google.cloud.aiplatform.v1beta1.FeatureStatsAnomaly\x12N\n\x10prediction_stats\x18\x05 \x03(\x0b\x32\x34.google.cloud.aiplatform.v1beta1.FeatureStatsAnomaly*\xce\x01\n&ModelDeploymentMonitoringObjectiveType\x12:\n6MODEL_DEPLOYMENT_MONITORING_OBJECTIVE_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10RAW_FEATURE_SKEW\x10\x01\x12\x15\n\x11RAW_FEATURE_DRIFT\x10\x02\x12\x1c\n\x18\x46\x45\x41TURE_ATTRIBUTION_SKEW\x10\x03\x12\x1d\n\x19\x46\x45\x41TURE_ATTRIBUTION_DRIFT\x10\x04\x42\xfe\x01\n#com.google.cloud.aiplatform.v1beta1B!ModelDeploymentMonitoringJobProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_feature__monitoring__stats__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_io__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_job__state__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_model__monitoring__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_encryption__spec__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_feature__monitoring__stats__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_io__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_job__state__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_model__monitoring__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 _MODELDEPLOYMENTMONITORINGOBJECTIVETYPE = _descriptor.EnumDescriptor(
   name='ModelDeploymentMonitoringObjectiveType',
@@ -69,8 +71,8 @@ _MODELDEPLOYMENTMONITORINGOBJECTIVETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3488,
-  serialized_end=3694,
+  serialized_start=3682,
+  serialized_end=3888,
 )
 _sym_db.RegisterEnumDescriptor(_MODELDEPLOYMENTMONITORINGOBJECTIVETYPE)
 
@@ -112,8 +114,8 @@ _MODELDEPLOYMENTMONITORINGJOB_MONITORINGSCHEDULESTATE = _descriptor.EnumDescript
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1957,
-  serialized_end=2064,
+  serialized_start=2151,
+  serialized_end=2258,
 )
 _sym_db.RegisterEnumDescriptor(_MODELDEPLOYMENTMONITORINGJOB_MONITORINGSCHEDULESTATE)
 
@@ -142,8 +144,8 @@ _MODELDEPLOYMENTMONITORINGBIGQUERYTABLE_LOGSOURCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2508,
-  serialized_end=2574,
+  serialized_start=2702,
+  serialized_end=2768,
 )
 _sym_db.RegisterEnumDescriptor(_MODELDEPLOYMENTMONITORINGBIGQUERYTABLE_LOGSOURCE)
 
@@ -172,8 +174,8 @@ _MODELDEPLOYMENTMONITORINGBIGQUERYTABLE_LOGTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2576,
-  serialized_end=2637,
+  serialized_start=2770,
+  serialized_end=2831,
 )
 _sym_db.RegisterEnumDescriptor(_MODELDEPLOYMENTMONITORINGBIGQUERYTABLE_LOGTYPE)
 
@@ -212,8 +214,8 @@ _MODELDEPLOYMENTMONITORINGJOB_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1910,
-  serialized_end=1955,
+  serialized_start=2104,
+  serialized_end=2149,
 )
 
 _MODELDEPLOYMENTMONITORINGJOB = _descriptor.Descriptor(
@@ -357,6 +359,20 @@ _MODELDEPLOYMENTMONITORINGJOB = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='encryption_spec', full_name='google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringJob.encryption_spec', index=19,
+      number=21, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='google.cloud.aiplatform.v1beta1.ModelDeploymentMonitoringJob.error', index=20,
+      number=23, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -370,8 +386,8 @@ _MODELDEPLOYMENTMONITORINGJOB = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=503,
-  serialized_end=2232,
+  serialized_start=583,
+  serialized_end=2426,
 )
 
 
@@ -418,8 +434,8 @@ _MODELDEPLOYMENTMONITORINGBIGQUERYTABLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2235,
-  serialized_end=2637,
+  serialized_start=2429,
+  serialized_end=2831,
 )
 
 
@@ -457,8 +473,8 @@ _MODELDEPLOYMENTMONITORINGOBJECTIVECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2640,
-  serialized_end=2800,
+  serialized_start=2834,
+  serialized_end=2994,
 )
 
 
@@ -489,8 +505,8 @@ _MODELDEPLOYMENTMONITORINGSCHEDULECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2802,
-  serialized_end=2901,
+  serialized_start=2996,
+  serialized_end=3095,
 )
 
 
@@ -542,8 +558,8 @@ _MODELMONITORINGSTATSANOMALIES_FEATUREHISTORICSTATSANOMALIES = _descriptor.Descr
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3197,
-  serialized_end=3485,
+  serialized_start=3391,
+  serialized_end=3679,
 )
 
 _MODELMONITORINGSTATSANOMALIES = _descriptor.Descriptor(
@@ -594,8 +610,8 @@ _MODELMONITORINGSTATSANOMALIES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2904,
-  serialized_end=3485,
+  serialized_start=3098,
+  serialized_end=3679,
 )
 
 _MODELDEPLOYMENTMONITORINGJOB_LABELSENTRY.containing_type = _MODELDEPLOYMENTMONITORINGJOB
@@ -613,6 +629,8 @@ _MODELDEPLOYMENTMONITORINGJOB.fields_by_name['create_time'].message_type = googl
 _MODELDEPLOYMENTMONITORINGJOB.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _MODELDEPLOYMENTMONITORINGJOB.fields_by_name['next_schedule_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _MODELDEPLOYMENTMONITORINGJOB.fields_by_name['stats_anomalies_base_directory'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_io__pb2._GCSDESTINATION
+_MODELDEPLOYMENTMONITORINGJOB.fields_by_name['encryption_spec'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_encryption__spec__pb2._ENCRYPTIONSPEC
+_MODELDEPLOYMENTMONITORINGJOB.fields_by_name['error'].message_type = google_dot_rpc_dot_status__pb2._STATUS
 _MODELDEPLOYMENTMONITORINGJOB_MONITORINGSCHEDULESTATE.containing_type = _MODELDEPLOYMENTMONITORINGJOB
 _MODELDEPLOYMENTMONITORINGBIGQUERYTABLE.fields_by_name['log_source'].enum_type = _MODELDEPLOYMENTMONITORINGBIGQUERYTABLE_LOGSOURCE
 _MODELDEPLOYMENTMONITORINGBIGQUERYTABLE.fields_by_name['log_type'].enum_type = _MODELDEPLOYMENTMONITORINGBIGQUERYTABLE_LOGTYPE
@@ -700,6 +718,7 @@ _MODELDEPLOYMENTMONITORINGJOB.fields_by_name['bigquery_tables']._options = None
 _MODELDEPLOYMENTMONITORINGJOB.fields_by_name['create_time']._options = None
 _MODELDEPLOYMENTMONITORINGJOB.fields_by_name['update_time']._options = None
 _MODELDEPLOYMENTMONITORINGJOB.fields_by_name['next_schedule_time']._options = None
+_MODELDEPLOYMENTMONITORINGJOB.fields_by_name['error']._options = None
 _MODELDEPLOYMENTMONITORINGJOB._options = None
 _MODELDEPLOYMENTMONITORINGSCHEDULECONFIG.fields_by_name['monitor_interval']._options = None
 # @@protoc_insertion_point(module_scope)

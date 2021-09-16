@@ -21,6 +21,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from google.rpc import code_pb2 as google_dot_rpc_dot_code__pb2
 from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
+from google.type import date_pb2 as google_dot_type_dot_date__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -29,10 +30,46 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\034com.google.container.v1beta1B\023ClusterServiceProtoP\001ZAgoogle.golang.org/genproto/googleapis/container/v1beta1;container\252\002\036Google.Cloud.Container.V1Beta1\312\002\036Google\\Cloud\\Container\\V1beta1\352\002!Google::Cloud::Container::V1beta1\352A@\n\033pubsub.googleapis.com/Topic\022!projects/{project}/topics/{topic}',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.google/container/v1beta1/cluster_service.proto\x12\x18google.container.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x15google/rpc/code.proto\x1a\x17google/rpc/status.proto\"\x8a\x01\n\x0fLinuxNodeConfig\x12G\n\x07sysctls\x18\x01 \x03(\x0b\x32\x36.google.container.v1beta1.LinuxNodeConfig.SysctlsEntry\x1a.\n\x0cSysctlsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x80\x01\n\x11NodeKubeletConfig\x12\x1a\n\x12\x63pu_manager_policy\x18\x01 \x01(\t\x12\x31\n\rcpu_cfs_quota\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x1c\n\x14\x63pu_cfs_quota_period\x18\x03 \x01(\t\"\x88\t\n\nNodeConfig\x12\x14\n\x0cmachine_type\x18\x01 \x01(\t\x12\x14\n\x0c\x64isk_size_gb\x18\x02 \x01(\x05\x12\x14\n\x0coauth_scopes\x18\x03 \x03(\t\x12\x17\n\x0fservice_account\x18\t \x01(\t\x12\x44\n\x08metadata\x18\x04 \x03(\x0b\x32\x32.google.container.v1beta1.NodeConfig.MetadataEntry\x12\x12\n\nimage_type\x18\x05 \x01(\t\x12@\n\x06labels\x18\x06 \x03(\x0b\x32\x30.google.container.v1beta1.NodeConfig.LabelsEntry\x12\x17\n\x0flocal_ssd_count\x18\x07 \x01(\x05\x12\x0c\n\x04tags\x18\x08 \x03(\t\x12\x13\n\x0bpreemptible\x18\n \x01(\x08\x12\x41\n\x0c\x61\x63\x63\x65lerators\x18\x0b \x03(\x0b\x32+.google.container.v1beta1.AcceleratorConfig\x12?\n\x0esandbox_config\x18\x11 \x01(\x0b\x32\'.google.container.v1beta1.SandboxConfig\x12\x12\n\nnode_group\x18\x12 \x01(\t\x12K\n\x14reservation_affinity\x18\x13 \x01(\x0b\x32-.google.container.v1beta1.ReservationAffinity\x12\x11\n\tdisk_type\x18\x0c \x01(\t\x12\x18\n\x10min_cpu_platform\x18\r \x01(\t\x12R\n\x18workload_metadata_config\x18\x0e \x01(\x0b\x32\x30.google.container.v1beta1.WorkloadMetadataConfig\x12\x33\n\x06taints\x18\x0f \x03(\x0b\x32#.google.container.v1beta1.NodeTaint\x12\x19\n\x11\x62oot_disk_kms_key\x18\x17 \x01(\t\x12R\n\x18shielded_instance_config\x18\x14 \x01(\x0b\x32\x30.google.container.v1beta1.ShieldedInstanceConfig\x12\x44\n\x11linux_node_config\x18\x15 \x01(\x0b\x32).google.container.v1beta1.LinuxNodeConfig\x12\x43\n\x0ekubelet_config\x18\x16 \x01(\x0b\x32+.google.container.v1beta1.NodeKubeletConfig\x12R\n\x18\x65phemeral_storage_config\x18\x18 \x01(\x0b\x32\x30.google.container.v1beta1.EphemeralStorageConfig\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"Y\n\x16ShieldedInstanceConfig\x12\x1a\n\x12\x65nable_secure_boot\x18\x01 \x01(\x08\x12#\n\x1b\x65nable_integrity_monitoring\x18\x02 \x01(\x08\"\x8a\x01\n\rSandboxConfig\x12\x18\n\x0csandbox_type\x18\x01 \x01(\tB\x02\x18\x01\x12:\n\x04type\x18\x02 \x01(\x0e\x32,.google.container.v1beta1.SandboxConfig.Type\"#\n\x04Type\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06GVISOR\x10\x01\"1\n\x16\x45phemeralStorageConfig\x12\x17\n\x0flocal_ssd_count\x18\x01 \x01(\x05\"\xe4\x01\n\x13ReservationAffinity\x12T\n\x18\x63onsume_reservation_type\x18\x01 \x01(\x0e\x32\x32.google.container.v1beta1.ReservationAffinity.Type\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x0e\n\x06values\x18\x03 \x03(\t\"Z\n\x04Type\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x12\n\x0eNO_RESERVATION\x10\x01\x12\x13\n\x0f\x41NY_RESERVATION\x10\x02\x12\x18\n\x14SPECIFIC_RESERVATION\x10\x03\"\xbe\x01\n\tNodeTaint\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\x12:\n\x06\x65\x66\x66\x65\x63t\x18\x03 \x01(\x0e\x32*.google.container.v1beta1.NodeTaint.Effect\"Y\n\x06\x45\x66\x66\x65\x63t\x12\x16\n\x12\x45\x46\x46\x45\x43T_UNSPECIFIED\x10\x00\x12\x0f\n\x0bNO_SCHEDULE\x10\x01\x12\x16\n\x12PREFER_NO_SCHEDULE\x10\x02\x12\x0e\n\nNO_EXECUTE\x10\x03\"\xde\x01\n\nMasterAuth\x12\x14\n\x08username\x18\x01 \x01(\tB\x02\x18\x01\x12\x14\n\x08password\x18\x02 \x01(\tB\x02\x18\x01\x12T\n\x19\x63lient_certificate_config\x18\x03 \x01(\x0b\x32\x31.google.container.v1beta1.ClientCertificateConfig\x12\x1e\n\x16\x63luster_ca_certificate\x18\x64 \x01(\t\x12\x1a\n\x12\x63lient_certificate\x18\x65 \x01(\t\x12\x12\n\nclient_key\x18\x66 \x01(\t\";\n\x17\x43lientCertificateConfig\x12 \n\x18issue_client_certificate\x18\x01 \x01(\x08\"\x8c\x06\n\x0c\x41\x64\x64onsConfig\x12H\n\x13http_load_balancing\x18\x01 \x01(\x0b\x32+.google.container.v1beta1.HttpLoadBalancing\x12V\n\x1ahorizontal_pod_autoscaling\x18\x02 \x01(\x0b\x32\x32.google.container.v1beta1.HorizontalPodAutoscaling\x12O\n\x14kubernetes_dashboard\x18\x03 \x01(\x0b\x32-.google.container.v1beta1.KubernetesDashboardB\x02\x18\x01\x12L\n\x15network_policy_config\x18\x04 \x01(\x0b\x32-.google.container.v1beta1.NetworkPolicyConfig\x12;\n\x0cistio_config\x18\x05 \x01(\x0b\x32%.google.container.v1beta1.IstioConfig\x12\x42\n\x10\x63loud_run_config\x18\x07 \x01(\x0b\x32(.google.container.v1beta1.CloudRunConfig\x12\x42\n\x10\x64ns_cache_config\x18\x08 \x01(\x0b\x32(.google.container.v1beta1.DnsCacheConfig\x12P\n\x17\x63onfig_connector_config\x18\n \x01(\x0b\x32/.google.container.v1beta1.ConfigConnectorConfig\x12i\n%gce_persistent_disk_csi_driver_config\x18\x0b \x01(\x0b\x32:.google.container.v1beta1.GcePersistentDiskCsiDriverConfig\x12\x39\n\x0bkalm_config\x18\x0c \x01(\x0b\x32$.google.container.v1beta1.KalmConfig\"%\n\x11HttpLoadBalancing\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\",\n\x18HorizontalPodAutoscaling\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\"\'\n\x13KubernetesDashboard\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\"\'\n\x13NetworkPolicyConfig\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\"!\n\x0e\x44nsCacheConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\x1d\n\nKalmConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"(\n\x15\x43onfigConnectorConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"3\n GcePersistentDiskCsiDriverConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"9\n&PrivateClusterMasterGlobalAccessConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\xa5\x02\n\x14PrivateClusterConfig\x12\x1c\n\x14\x65nable_private_nodes\x18\x01 \x01(\x08\x12\x1f\n\x17\x65nable_private_endpoint\x18\x02 \x01(\x08\x12\x1e\n\x16master_ipv4_cidr_block\x18\x03 \x01(\t\x12\x18\n\x10private_endpoint\x18\x04 \x01(\t\x12\x17\n\x0fpublic_endpoint\x18\x05 \x01(\t\x12\x14\n\x0cpeering_name\x18\x07 \x01(\t\x12\x65\n\x1bmaster_global_access_config\x18\x08 \x01(\x0b\x32@.google.container.v1beta1.PrivateClusterMasterGlobalAccessConfig\"\x97\x01\n\x0bIstioConfig\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\x12\x41\n\x04\x61uth\x18\x02 \x01(\x0e\x32\x33.google.container.v1beta1.IstioConfig.IstioAuthMode\"3\n\rIstioAuthMode\x12\r\n\tAUTH_NONE\x10\x00\x12\x13\n\x0f\x41UTH_MUTUAL_TLS\x10\x01\"\xf3\x01\n\x0e\x43loudRunConfig\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\x12U\n\x12load_balancer_type\x18\x03 \x01(\x0e\x32\x39.google.container.v1beta1.CloudRunConfig.LoadBalancerType\"x\n\x10LoadBalancerType\x12\"\n\x1eLOAD_BALANCER_TYPE_UNSPECIFIED\x10\x00\x12\x1f\n\x1bLOAD_BALANCER_TYPE_EXTERNAL\x10\x01\x12\x1f\n\x1bLOAD_BALANCER_TYPE_INTERNAL\x10\x02\"\xc1\x01\n\x1eMasterAuthorizedNetworksConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12W\n\x0b\x63idr_blocks\x18\x02 \x03(\x0b\x32\x42.google.container.v1beta1.MasterAuthorizedNetworksConfig.CidrBlock\x1a\x35\n\tCidrBlock\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12\x12\n\ncidr_block\x18\x02 \x01(\t\"\x1d\n\nLegacyAbac\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\x96\x01\n\rNetworkPolicy\x12\x42\n\x08provider\x18\x01 \x01(\x0e\x32\x30.google.container.v1beta1.NetworkPolicy.Provider\x12\x0f\n\x07\x65nabled\x18\x02 \x01(\x08\"0\n\x08Provider\x12\x18\n\x14PROVIDER_UNSPECIFIED\x10\x00\x12\n\n\x06\x43\x41LICO\x10\x01\"\xb7\x03\n\x12IPAllocationPolicy\x12\x16\n\x0euse_ip_aliases\x18\x01 \x01(\x08\x12\x19\n\x11\x63reate_subnetwork\x18\x02 \x01(\x08\x12\x17\n\x0fsubnetwork_name\x18\x03 \x01(\t\x12\x1d\n\x11\x63luster_ipv4_cidr\x18\x04 \x01(\tB\x02\x18\x01\x12\x1a\n\x0enode_ipv4_cidr\x18\x05 \x01(\tB\x02\x18\x01\x12\x1e\n\x12services_ipv4_cidr\x18\x06 \x01(\tB\x02\x18\x01\x12$\n\x1c\x63luster_secondary_range_name\x18\x07 \x01(\t\x12%\n\x1dservices_secondary_range_name\x18\x08 \x01(\t\x12\x1f\n\x17\x63luster_ipv4_cidr_block\x18\t \x01(\t\x12\x1c\n\x14node_ipv4_cidr_block\x18\n \x01(\t\x12 \n\x18services_ipv4_cidr_block\x18\x0b \x01(\t\x12\x1b\n\x13\x61llow_route_overlap\x18\x0c \x01(\x08\x12\x1b\n\x13tpu_ipv4_cidr_block\x18\r \x01(\t\x12\x12\n\nuse_routes\x18\x0f \x01(\x08\"&\n\x13\x42inaryAuthorization\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"*\n\x17PodSecurityPolicyConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"D\n\x19\x41uthenticatorGroupsConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x16\n\x0esecurity_group\x18\x02 \x01(\t\"\x96\x01\n\x10\x43lusterTelemetry\x12=\n\x04type\x18\x01 \x01(\x0e\x32/.google.container.v1beta1.ClusterTelemetry.Type\"C\n\x04Type\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0c\n\x08\x44ISABLED\x10\x01\x12\x0b\n\x07\x45NABLED\x10\x02\x12\x0f\n\x0bSYSTEM_ONLY\x10\x03\"\x8a\x18\n\x07\x43luster\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1e\n\x12initial_node_count\x18\x03 \x01(\x05\x42\x02\x18\x01\x12=\n\x0bnode_config\x18\x04 \x01(\x0b\x32$.google.container.v1beta1.NodeConfigB\x02\x18\x01\x12\x39\n\x0bmaster_auth\x18\x05 \x01(\x0b\x32$.google.container.v1beta1.MasterAuth\x12\x17\n\x0flogging_service\x18\x06 \x01(\t\x12\x1a\n\x12monitoring_service\x18\x07 \x01(\t\x12\x0f\n\x07network\x18\x08 \x01(\t\x12\x19\n\x11\x63luster_ipv4_cidr\x18\t \x01(\t\x12=\n\raddons_config\x18\n \x01(\x0b\x32&.google.container.v1beta1.AddonsConfig\x12\x12\n\nsubnetwork\x18\x0b \x01(\t\x12\x36\n\nnode_pools\x18\x0c \x03(\x0b\x32\".google.container.v1beta1.NodePool\x12\x11\n\tlocations\x18\r \x03(\t\x12\x1f\n\x17\x65nable_kubernetes_alpha\x18\x0e \x01(\x08\x12N\n\x0fresource_labels\x18\x0f \x03(\x0b\x32\x35.google.container.v1beta1.Cluster.ResourceLabelsEntry\x12\x19\n\x11label_fingerprint\x18\x10 \x01(\t\x12\x39\n\x0blegacy_abac\x18\x12 \x01(\x0b\x32$.google.container.v1beta1.LegacyAbac\x12?\n\x0enetwork_policy\x18\x13 \x01(\x0b\x32\'.google.container.v1beta1.NetworkPolicy\x12J\n\x14ip_allocation_policy\x18\x14 \x01(\x0b\x32,.google.container.v1beta1.IPAllocationPolicy\x12\x63\n!master_authorized_networks_config\x18\x16 \x01(\x0b\x32\x38.google.container.v1beta1.MasterAuthorizedNetworksConfig\x12G\n\x12maintenance_policy\x18\x17 \x01(\x0b\x32+.google.container.v1beta1.MaintenancePolicy\x12K\n\x14\x62inary_authorization\x18\x18 \x01(\x0b\x32-.google.container.v1beta1.BinaryAuthorization\x12U\n\x1apod_security_policy_config\x18\x19 \x01(\x0b\x32\x31.google.container.v1beta1.PodSecurityPolicyConfig\x12\x41\n\x0b\x61utoscaling\x18\x1a \x01(\x0b\x32,.google.container.v1beta1.ClusterAutoscaling\x12?\n\x0enetwork_config\x18\x1b \x01(\x0b\x32\'.google.container.v1beta1.NetworkConfig\x12\x1b\n\x0fprivate_cluster\x18\x1c \x01(\x08\x42\x02\x18\x01\x12\"\n\x16master_ipv4_cidr_block\x18\x1d \x01(\tB\x02\x18\x01\x12P\n\x1b\x64\x65\x66\x61ult_max_pods_constraint\x18\x1e \x01(\x0b\x32+.google.container.v1beta1.MaxPodsConstraint\x12Y\n\x1cresource_usage_export_config\x18! \x01(\x0b\x32\x33.google.container.v1beta1.ResourceUsageExportConfig\x12X\n\x1b\x61uthenticator_groups_config\x18\" \x01(\x0b\x32\x33.google.container.v1beta1.AuthenticatorGroupsConfig\x12N\n\x16private_cluster_config\x18% \x01(\x0b\x32..google.container.v1beta1.PrivateClusterConfig\x12R\n\x18vertical_pod_autoscaling\x18\' \x01(\x0b\x32\x30.google.container.v1beta1.VerticalPodAutoscaling\x12?\n\x0eshielded_nodes\x18( \x01(\x0b\x32\'.google.container.v1beta1.ShieldedNodes\x12\x41\n\x0frelease_channel\x18) \x01(\x0b\x32(.google.container.v1beta1.ReleaseChannel\x12R\n\x18workload_identity_config\x18+ \x01(\x0b\x32\x30.google.container.v1beta1.WorkloadIdentityConfig\x12\x45\n\x11\x63luster_telemetry\x18. \x01(\x0b\x32*.google.container.v1beta1.ClusterTelemetry\x12\x37\n\ntpu_config\x18/ \x01(\x0b\x32#.google.container.v1beta1.TpuConfig\x12I\n\x13notification_config\x18\x31 \x01(\x0b\x32,.google.container.v1beta1.NotificationConfig\x12G\n\x12\x63onfidential_nodes\x18\x32 \x01(\x0b\x32+.google.container.v1beta1.ConfidentialNodes\x12\x11\n\tself_link\x18\x64 \x01(\t\x12\x10\n\x04zone\x18\x65 \x01(\tB\x02\x18\x01\x12\x10\n\x08\x65ndpoint\x18\x66 \x01(\t\x12\x1f\n\x17initial_cluster_version\x18g \x01(\t\x12\x1e\n\x16\x63urrent_master_version\x18h \x01(\t\x12 \n\x14\x63urrent_node_version\x18i \x01(\tB\x02\x18\x01\x12\x13\n\x0b\x63reate_time\x18j \x01(\t\x12\x38\n\x06status\x18k \x01(\x0e\x32(.google.container.v1beta1.Cluster.Status\x12\x1a\n\x0estatus_message\x18l \x01(\tB\x02\x18\x01\x12\x1b\n\x13node_ipv4_cidr_size\x18m \x01(\x05\x12\x1a\n\x12services_ipv4_cidr\x18n \x01(\t\x12\x1f\n\x13instance_group_urls\x18o \x03(\tB\x02\x18\x01\x12\x1e\n\x12\x63urrent_node_count\x18p \x01(\x05\x42\x02\x18\x01\x12\x13\n\x0b\x65xpire_time\x18q \x01(\t\x12\x10\n\x08location\x18r \x01(\t\x12\x12\n\nenable_tpu\x18s \x01(\x08\x12\x1b\n\x13tpu_ipv4_cidr_block\x18t \x01(\t\x12I\n\x13\x64\x61tabase_encryption\x18& \x01(\x0b\x32,.google.container.v1beta1.DatabaseEncryption\x12=\n\nconditions\x18v \x03(\x0b\x32).google.container.v1beta1.StatusCondition\x12\x30\n\x06master\x18| \x01(\x0b\x32 .google.container.v1beta1.Master\x1a\x35\n\x13ResourceLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"w\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x10\n\x0cPROVISIONING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x0f\n\x0bRECONCILING\x10\x03\x12\x0c\n\x08STOPPING\x10\x04\x12\t\n\x05\x45RROR\x10\x05\x12\x0c\n\x08\x44\x45GRADED\x10\x06\"\xf3\x0e\n\rClusterUpdate\x12\x1c\n\x14\x64\x65sired_node_version\x18\x04 \x01(\t\x12\"\n\x1a\x64\x65sired_monitoring_service\x18\x05 \x01(\t\x12\x45\n\x15\x64\x65sired_addons_config\x18\x06 \x01(\x0b\x32&.google.container.v1beta1.AddonsConfig\x12\x1c\n\x14\x64\x65sired_node_pool_id\x18\x07 \x01(\t\x12\x1a\n\x12\x64\x65sired_image_type\x18\x08 \x01(\t\x12T\n\x1d\x64\x65sired_node_pool_autoscaling\x18\t \x01(\x0b\x32-.google.container.v1beta1.NodePoolAutoscaling\x12\x19\n\x11\x64\x65sired_locations\x18\n \x03(\t\x12k\n)desired_master_authorized_networks_config\x18\x0c \x01(\x0b\x32\x38.google.container.v1beta1.MasterAuthorizedNetworksConfig\x12]\n\"desired_pod_security_policy_config\x18\x0e \x01(\x0b\x32\x31.google.container.v1beta1.PodSecurityPolicyConfig\x12Q\n\x1b\x64\x65sired_cluster_autoscaling\x18\x0f \x01(\x0b\x32,.google.container.v1beta1.ClusterAutoscaling\x12S\n\x1c\x64\x65sired_binary_authorization\x18\x10 \x01(\x0b\x32-.google.container.v1beta1.BinaryAuthorization\x12\x1f\n\x17\x64\x65sired_logging_service\x18\x13 \x01(\t\x12\x61\n$desired_resource_usage_export_config\x18\x15 \x01(\x0b\x32\x33.google.container.v1beta1.ResourceUsageExportConfig\x12Z\n desired_vertical_pod_autoscaling\x18\x16 \x01(\x0b\x32\x30.google.container.v1beta1.VerticalPodAutoscaling\x12V\n\x1e\x64\x65sired_private_cluster_config\x18\x19 \x01(\x0b\x32..google.container.v1beta1.PrivateClusterConfig\x12\x61\n$desired_intra_node_visibility_config\x18\x1a \x01(\x0b\x32\x33.google.container.v1beta1.IntraNodeVisibilityConfig\x12P\n\x1b\x64\x65sired_default_snat_status\x18\x1c \x01(\x0b\x32+.google.container.v1beta1.DefaultSnatStatus\x12M\n\x19\x64\x65sired_cluster_telemetry\x18\x1e \x01(\x0b\x32*.google.container.v1beta1.ClusterTelemetry\x12I\n\x17\x64\x65sired_release_channel\x18\x1f \x01(\x0b\x32(.google.container.v1beta1.ReleaseChannel\x12?\n\x12\x64\x65sired_tpu_config\x18& \x01(\x0b\x32#.google.container.v1beta1.TpuConfig\x12M\n\x19\x64\x65sired_datapath_provider\x18\x32 \x01(\x0e\x32*.google.container.v1beta1.DatapathProvider\x12Q\n\x1b\x64\x65sired_notification_config\x18\x37 \x01(\x0b\x32,.google.container.v1beta1.NotificationConfig\x12\x1e\n\x16\x64\x65sired_master_version\x18\x64 \x01(\t\x12Q\n\x1b\x64\x65sired_database_encryption\x18. \x01(\x0b\x32,.google.container.v1beta1.DatabaseEncryption\x12Z\n desired_workload_identity_config\x18/ \x01(\x0b\x32\x30.google.container.v1beta1.WorkloadIdentityConfig\x12G\n\x16\x64\x65sired_shielded_nodes\x18\x30 \x01(\x0b\x32\'.google.container.v1beta1.ShieldedNodes\x12\x38\n\x0e\x64\x65sired_master\x18\x34 \x01(\x0b\x32 .google.container.v1beta1.Master\"\x8a\x08\n\tOperation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x04zone\x18\x02 \x01(\tB\x02\x18\x01\x12@\n\x0eoperation_type\x18\x03 \x01(\x0e\x32(.google.container.v1beta1.Operation.Type\x12:\n\x06status\x18\x04 \x01(\x0e\x32*.google.container.v1beta1.Operation.Status\x12\x0e\n\x06\x64\x65tail\x18\x08 \x01(\t\x12\x1d\n\x0estatus_message\x18\x05 \x01(\tB\x05\x18\x01\xe0\x41\x03\x12\x11\n\tself_link\x18\x06 \x01(\t\x12\x13\n\x0btarget_link\x18\x07 \x01(\t\x12\x10\n\x08location\x18\t \x01(\t\x12\x12\n\nstart_time\x18\n \x01(\t\x12\x10\n\x08\x65nd_time\x18\x0b \x01(\t\x12\x42\n\x08progress\x18\x0c \x01(\x0b\x32+.google.container.v1beta1.OperationProgressB\x03\xe0\x41\x03\x12I\n\x12\x63luster_conditions\x18\r \x03(\x0b\x32).google.container.v1beta1.StatusConditionB\x02\x18\x01\x12J\n\x13nodepool_conditions\x18\x0e \x03(\x0b\x32).google.container.v1beta1.StatusConditionB\x02\x18\x01\x12!\n\x05\x65rror\x18\x0f \x01(\x0b\x32\x12.google.rpc.Status\"R\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x08\n\x04\x44ONE\x10\x03\x12\x0c\n\x08\x41\x42ORTING\x10\x04\"\xfd\x02\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x12\n\x0e\x43REATE_CLUSTER\x10\x01\x12\x12\n\x0e\x44\x45LETE_CLUSTER\x10\x02\x12\x12\n\x0eUPGRADE_MASTER\x10\x03\x12\x11\n\rUPGRADE_NODES\x10\x04\x12\x12\n\x0eREPAIR_CLUSTER\x10\x05\x12\x12\n\x0eUPDATE_CLUSTER\x10\x06\x12\x14\n\x10\x43REATE_NODE_POOL\x10\x07\x12\x14\n\x10\x44\x45LETE_NODE_POOL\x10\x08\x12\x1c\n\x18SET_NODE_POOL_MANAGEMENT\x10\t\x12\x15\n\x11\x41UTO_REPAIR_NODES\x10\n\x12\x16\n\x12\x41UTO_UPGRADE_NODES\x10\x0b\x12\x0e\n\nSET_LABELS\x10\x0c\x12\x13\n\x0fSET_MASTER_AUTH\x10\r\x12\x16\n\x12SET_NODE_POOL_SIZE\x10\x0e\x12\x16\n\x12SET_NETWORK_POLICY\x10\x0f\x12\x1a\n\x16SET_MAINTENANCE_POLICY\x10\x10\"\xca\x02\n\x11OperationProgress\x12\x0c\n\x04name\x18\x01 \x01(\t\x12:\n\x06status\x18\x02 \x01(\x0e\x32*.google.container.v1beta1.Operation.Status\x12\x43\n\x07metrics\x18\x03 \x03(\x0b\x32\x32.google.container.v1beta1.OperationProgress.Metric\x12;\n\x06stages\x18\x04 \x03(\x0b\x32+.google.container.v1beta1.OperationProgress\x1ai\n\x06Metric\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\tint_value\x18\x02 \x01(\x03H\x00\x12\x16\n\x0c\x64ouble_value\x18\x03 \x01(\x01H\x00\x12\x16\n\x0cstring_value\x18\x04 \x01(\tH\x00\x42\x07\n\x05value\"\x8f\x01\n\x14\x43reateClusterRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x37\n\x07\x63luster\x18\x03 \x01(\x0b\x32!.google.container.v1beta1.ClusterB\x03\xe0\x41\x02\x12\x0e\n\x06parent\x18\x05 \x01(\t\"l\n\x11GetClusterRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x05 \x01(\t\"\xad\x01\n\x14UpdateClusterRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12<\n\x06update\x18\x04 \x01(\x0b\x32\'.google.container.v1beta1.ClusterUpdateB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x05 \x01(\t\"\x81\x04\n\x15UpdateNodePoolRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\x0cnode_version\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nimage_type\x18\x06 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tlocations\x18\r \x03(\t\x12R\n\x18workload_metadata_config\x18\x0e \x01(\x0b\x32\x30.google.container.v1beta1.WorkloadMetadataConfig\x12\x0c\n\x04name\x18\x08 \x01(\t\x12L\n\x10upgrade_settings\x18\x0f \x01(\x0b\x32\x32.google.container.v1beta1.NodePool.UpgradeSettings\x12\x44\n\x11linux_node_config\x18\x13 \x01(\x0b\x32).google.container.v1beta1.LinuxNodeConfig\x12\x43\n\x0ekubelet_config\x18\x14 \x01(\x0b\x32+.google.container.v1beta1.NodeKubeletConfig\"\xde\x01\n\x1dSetNodePoolAutoscalingRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12G\n\x0b\x61utoscaling\x18\x05 \x01(\x0b\x32-.google.container.v1beta1.NodePoolAutoscalingB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\x91\x01\n\x18SetLoggingServiceRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1c\n\x0flogging_service\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x05 \x01(\t\"\x97\x01\n\x1bSetMonitoringServiceRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1f\n\x12monitoring_service\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\xb5\x01\n\x16SetAddonsConfigRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x42\n\raddons_config\x18\x04 \x01(\x0b\x32&.google.container.v1beta1.AddonsConfigB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\x86\x01\n\x13SetLocationsRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x16\n\tlocations\x18\x04 \x03(\tB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\x8b\x01\n\x13UpdateMasterRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0emaster_version\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x07 \x01(\t\"\xc8\x02\n\x14SetMasterAuthRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12J\n\x06\x61\x63tion\x18\x04 \x01(\x0e\x32\x35.google.container.v1beta1.SetMasterAuthRequest.ActionB\x03\xe0\x41\x02\x12\x39\n\x06update\x18\x05 \x01(\x0b\x32$.google.container.v1beta1.MasterAuthB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x07 \x01(\t\"P\n\x06\x41\x63tion\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x10\n\x0cSET_PASSWORD\x10\x01\x12\x15\n\x11GENERATE_PASSWORD\x10\x02\x12\x10\n\x0cSET_USERNAME\x10\x03\"o\n\x14\x44\x65leteClusterRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x04 \x01(\t\"U\n\x13ListClustersRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0e\n\x06parent\x18\x04 \x01(\t\"b\n\x14ListClustersResponse\x12\x33\n\x08\x63lusters\x18\x01 \x03(\x0b\x32!.google.container.v1beta1.Cluster\x12\x15\n\rmissing_zones\x18\x02 \x03(\t\"p\n\x13GetOperationRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0coperation_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x05 \x01(\t\"W\n\x15ListOperationsRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0e\n\x06parent\x18\x04 \x01(\t\"s\n\x16\x43\x61ncelOperationRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0coperation_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x04 \x01(\t\"h\n\x16ListOperationsResponse\x12\x37\n\noperations\x18\x01 \x03(\x0b\x32#.google.container.v1beta1.Operation\x12\x15\n\rmissing_zones\x18\x02 \x03(\t\"V\n\x16GetServerConfigRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x04 \x01(\t\"\xa5\x04\n\x0cServerConfig\x12\x1f\n\x17\x64\x65\x66\x61ult_cluster_version\x18\x01 \x01(\t\x12\x1b\n\x13valid_node_versions\x18\x03 \x03(\t\x12\x1a\n\x12\x64\x65\x66\x61ult_image_type\x18\x04 \x01(\t\x12\x19\n\x11valid_image_types\x18\x05 \x03(\t\x12\x1d\n\x15valid_master_versions\x18\x06 \x03(\t\x12M\n\x08\x63hannels\x18\t \x03(\x0b\x32;.google.container.v1beta1.ServerConfig.ReleaseChannelConfig\x1a\xb1\x02\n\x14ReleaseChannelConfig\x12\x41\n\x07\x63hannel\x18\x01 \x01(\x0e\x32\x30.google.container.v1beta1.ReleaseChannel.Channel\x12\x17\n\x0f\x64\x65\x66\x61ult_version\x18\x02 \x01(\t\x12l\n\x12\x61vailable_versions\x18\x03 \x03(\x0b\x32L.google.container.v1beta1.ServerConfig.ReleaseChannelConfig.AvailableVersionB\x02\x18\x01\x12\x16\n\x0evalid_versions\x18\x04 \x03(\t\x1a\x37\n\x10\x41vailableVersion\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x0e\n\x06reason\x18\x02 \x01(\t:\x02\x18\x01\"\xae\x01\n\x15\x43reateNodePoolRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12:\n\tnode_pool\x18\x04 \x01(\x0b\x32\".google.container.v1beta1.NodePoolB\x03\xe0\x41\x02\x12\x0e\n\x06parent\x18\x06 \x01(\t\"\x8d\x01\n\x15\x44\x65leteNodePoolRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"q\n\x14ListNodePoolsRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0e\n\x06parent\x18\x05 \x01(\t\"\x8a\x01\n\x12GetNodePoolRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\xcd\x06\n\x08NodePool\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x34\n\x06\x63onfig\x18\x02 \x01(\x0b\x32$.google.container.v1beta1.NodeConfig\x12\x1a\n\x12initial_node_count\x18\x03 \x01(\x05\x12\x11\n\tlocations\x18\r \x03(\t\x12\x11\n\tself_link\x18\x64 \x01(\t\x12\x0f\n\x07version\x18\x65 \x01(\t\x12\x1b\n\x13instance_group_urls\x18\x66 \x03(\t\x12\x39\n\x06status\x18g \x01(\x0e\x32).google.container.v1beta1.NodePool.Status\x12\x1a\n\x0estatus_message\x18h \x01(\tB\x02\x18\x01\x12\x42\n\x0b\x61utoscaling\x18\x04 \x01(\x0b\x32-.google.container.v1beta1.NodePoolAutoscaling\x12<\n\nmanagement\x18\x05 \x01(\x0b\x32(.google.container.v1beta1.NodeManagement\x12H\n\x13max_pods_constraint\x18\x06 \x01(\x0b\x32+.google.container.v1beta1.MaxPodsConstraint\x12=\n\nconditions\x18i \x03(\x0b\x32).google.container.v1beta1.StatusCondition\x12\x1a\n\x12pod_ipv4_cidr_size\x18\x07 \x01(\x05\x12L\n\x10upgrade_settings\x18k \x01(\x0b\x32\x32.google.container.v1beta1.NodePool.UpgradeSettings\x1a=\n\x0fUpgradeSettings\x12\x11\n\tmax_surge\x18\x01 \x01(\x05\x12\x17\n\x0fmax_unavailable\x18\x02 \x01(\x05\"\x81\x01\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x10\n\x0cPROVISIONING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x16\n\x12RUNNING_WITH_ERROR\x10\x03\x12\x0f\n\x0bRECONCILING\x10\x04\x12\x0c\n\x08STOPPING\x10\x05\x12\t\n\x05\x45RROR\x10\x06\"\x82\x01\n\x0eNodeManagement\x12\x14\n\x0c\x61uto_upgrade\x18\x01 \x01(\x08\x12\x13\n\x0b\x61uto_repair\x18\x02 \x01(\x08\x12\x45\n\x0fupgrade_options\x18\n \x01(\x0b\x32,.google.container.v1beta1.AutoUpgradeOptions\"J\n\x12\x41utoUpgradeOptions\x12\x1f\n\x17\x61uto_upgrade_start_time\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\"j\n\x11MaintenancePolicy\x12;\n\x06window\x18\x01 \x01(\x0b\x32+.google.container.v1beta1.MaintenanceWindow\x12\x18\n\x10resource_version\x18\x03 \x01(\t\"\x8a\x03\n\x11MaintenanceWindow\x12T\n\x18\x64\x61ily_maintenance_window\x18\x02 \x01(\x0b\x32\x30.google.container.v1beta1.DailyMaintenanceWindowH\x00\x12I\n\x10recurring_window\x18\x03 \x01(\x0b\x32-.google.container.v1beta1.RecurringTimeWindowH\x00\x12\x66\n\x16maintenance_exclusions\x18\x04 \x03(\x0b\x32\x46.google.container.v1beta1.MaintenanceWindow.MaintenanceExclusionsEntry\x1a\x62\n\x1aMaintenanceExclusionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x33\n\x05value\x18\x02 \x01(\x0b\x32$.google.container.v1beta1.TimeWindow:\x02\x38\x01\x42\x08\n\x06policy\"j\n\nTimeWindow\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"_\n\x13RecurringTimeWindow\x12\x34\n\x06window\x18\x01 \x01(\x0b\x32$.google.container.v1beta1.TimeWindow\x12\x12\n\nrecurrence\x18\x02 \x01(\t\">\n\x16\x44\x61ilyMaintenanceWindow\x12\x12\n\nstart_time\x18\x02 \x01(\t\x12\x10\n\x08\x64uration\x18\x03 \x01(\t\"\xd7\x01\n\x1cSetNodePoolManagementRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x41\n\nmanagement\x18\x05 \x01(\x0b\x32(.google.container.v1beta1.NodeManagementB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x07 \x01(\t\"\xa7\x01\n\x16SetNodePoolSizeRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x17\n\nnode_count\x18\x05 \x01(\x05\x42\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x07 \x01(\t\"\x96\x01\n\x1eRollbackNodePoolUpgradeRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"O\n\x15ListNodePoolsResponse\x12\x36\n\nnode_pools\x18\x01 \x03(\x0b\x32\".google.container.v1beta1.NodePool\"\xbe\x03\n\x12\x43lusterAutoscaling\x12$\n\x1c\x65nable_node_autoprovisioning\x18\x01 \x01(\x08\x12@\n\x0fresource_limits\x18\x02 \x03(\x0b\x32\'.google.container.v1beta1.ResourceLimit\x12\\\n\x13\x61utoscaling_profile\x18\x03 \x01(\x0e\x32?.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile\x12g\n#autoprovisioning_node_pool_defaults\x18\x04 \x01(\x0b\x32:.google.container.v1beta1.AutoprovisioningNodePoolDefaults\x12\"\n\x1a\x61utoprovisioning_locations\x18\x05 \x03(\t\"U\n\x12\x41utoscalingProfile\x12\x17\n\x13PROFILE_UNSPECIFIED\x10\x00\x12\x18\n\x14OPTIMIZE_UTILIZATION\x10\x01\x12\x0c\n\x08\x42\x41LANCED\x10\x02\"\xa3\x03\n AutoprovisioningNodePoolDefaults\x12\x14\n\x0coauth_scopes\x18\x01 \x03(\t\x12\x17\n\x0fservice_account\x18\x02 \x01(\t\x12L\n\x10upgrade_settings\x18\x03 \x01(\x0b\x32\x32.google.container.v1beta1.NodePool.UpgradeSettings\x12<\n\nmanagement\x18\x04 \x01(\x0b\x32(.google.container.v1beta1.NodeManagement\x12\x18\n\x10min_cpu_platform\x18\x05 \x01(\t\x12\x14\n\x0c\x64isk_size_gb\x18\x06 \x01(\x05\x12\x11\n\tdisk_type\x18\x07 \x01(\t\x12R\n\x18shielded_instance_config\x18\x08 \x01(\x0b\x32\x30.google.container.v1beta1.ShieldedInstanceConfig\x12\x19\n\x11\x62oot_disk_kms_key\x18\t \x01(\t\x12\x12\n\nimage_type\x18\n \x01(\t\"H\n\rResourceLimit\x12\x15\n\rresource_type\x18\x01 \x01(\t\x12\x0f\n\x07minimum\x18\x02 \x01(\x03\x12\x0f\n\x07maximum\x18\x03 \x01(\x03\"o\n\x13NodePoolAutoscaling\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x16\n\x0emin_node_count\x18\x02 \x01(\x05\x12\x16\n\x0emax_node_count\x18\x03 \x01(\x05\x12\x17\n\x0f\x61utoprovisioned\x18\x04 \x01(\x08\"\xa0\x02\n\x10SetLabelsRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\\\n\x0fresource_labels\x18\x04 \x03(\x0b\x32>.google.container.v1beta1.SetLabelsRequest.ResourceLabelsEntryB\x03\xe0\x41\x02\x12\x1e\n\x11label_fingerprint\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x07 \x01(\t\x1a\x35\n\x13ResourceLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x85\x01\n\x14SetLegacyAbacRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x14\n\x07\x65nabled\x18\x04 \x01(\x08\x42\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\x8d\x01\n\x16StartIPRotationRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\x1a\n\x12rotate_credentials\x18\x07 \x01(\x08\"t\n\x19\x43ompleteIPRotationRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x07 \x01(\t\"H\n\x11\x41\x63\x63\x65leratorConfig\x12\x19\n\x11\x61\x63\x63\x65lerator_count\x18\x01 \x01(\x03\x12\x18\n\x10\x61\x63\x63\x65lerator_type\x18\x02 \x01(\t\"\xcb\x02\n\x16WorkloadMetadataConfig\x12X\n\rnode_metadata\x18\x01 \x01(\x0e\x32=.google.container.v1beta1.WorkloadMetadataConfig.NodeMetadataB\x02\x18\x01\x12\x43\n\x04mode\x18\x02 \x01(\x0e\x32\x35.google.container.v1beta1.WorkloadMetadataConfig.Mode\"P\n\x0cNodeMetadata\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06SECURE\x10\x01\x12\n\n\x06\x45XPOSE\x10\x02\x12\x17\n\x13GKE_METADATA_SERVER\x10\x03\"@\n\x04Mode\x12\x14\n\x10MODE_UNSPECIFIED\x10\x00\x12\x10\n\x0cGCE_METADATA\x10\x01\x12\x10\n\x0cGKE_METADATA\x10\x02\"\xb8\x01\n\x17SetNetworkPolicyRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x44\n\x0enetwork_policy\x18\x04 \x01(\x0b\x32\'.google.container.v1beta1.NetworkPolicyB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\xbe\x01\n\x1bSetMaintenancePolicyRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\x04zone\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ncluster_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12L\n\x12maintenance_policy\x18\x04 \x01(\x0b\x32+.google.container.v1beta1.MaintenancePolicyB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x05 \x01(\t\"+\n\x14ListLocationsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\"g\n\x15ListLocationsResponse\x12\x35\n\tlocations\x18\x01 \x03(\x0b\x32\".google.container.v1beta1.Location\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb1\x01\n\x08Location\x12=\n\x04type\x18\x01 \x01(\x0e\x32/.google.container.v1beta1.Location.LocationType\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0brecommended\x18\x03 \x01(\x08\"C\n\x0cLocationType\x12\x1d\n\x19LOCATION_TYPE_UNSPECIFIED\x10\x00\x12\x08\n\x04ZONE\x10\x01\x12\n\n\x06REGION\x10\x02\"\x9d\x02\n\x0fStatusCondition\x12@\n\x04\x63ode\x18\x01 \x01(\x0e\x32..google.container.v1beta1.StatusCondition.CodeB\x02\x18\x01\x12\x0f\n\x07message\x18\x02 \x01(\t\x12(\n\x0e\x63\x61nonical_code\x18\x03 \x01(\x0e\x32\x10.google.rpc.Code\"\x8c\x01\n\x04\x43ode\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x10\n\x0cGCE_STOCKOUT\x10\x01\x12\x1f\n\x1bGKE_SERVICE_ACCOUNT_DELETED\x10\x02\x12\x16\n\x12GCE_QUOTA_EXCEEDED\x10\x03\x12\x13\n\x0fSET_BY_OPERATOR\x10\x04\x12\x17\n\x13\x43LOUD_KMS_KEY_ERROR\x10\x07\"\xeb\x01\n\rNetworkConfig\x12\x0f\n\x07network\x18\x01 \x01(\t\x12\x12\n\nsubnetwork\x18\x02 \x01(\t\x12$\n\x1c\x65nable_intra_node_visibility\x18\x05 \x01(\x08\x12H\n\x13\x64\x65\x66\x61ult_snat_status\x18\x07 \x01(\x0b\x32+.google.container.v1beta1.DefaultSnatStatus\x12\x45\n\x11\x64\x61tapath_provider\x18\x0b \x01(\x0e\x32*.google.container.v1beta1.DatapathProvider\"j\n\x1cListUsableSubnetworksRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"y\n\x1dListUsableSubnetworksResponse\x12?\n\x0bsubnetworks\x18\x01 \x03(\x0b\x32*.google.container.v1beta1.UsableSubnetwork\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x85\x02\n\x1eUsableSubnetworkSecondaryRange\x12\x12\n\nrange_name\x18\x01 \x01(\t\x12\x15\n\rip_cidr_range\x18\x02 \x01(\t\x12O\n\x06status\x18\x03 \x01(\x0e\x32?.google.container.v1beta1.UsableSubnetworkSecondaryRange.Status\"g\n\x06Status\x12\x0b\n\x07UNKNOWN\x10\x00\x12\n\n\x06UNUSED\x10\x01\x12\x12\n\x0eIN_USE_SERVICE\x10\x02\x12\x18\n\x14IN_USE_SHAREABLE_POD\x10\x03\x12\x16\n\x12IN_USE_MANAGED_POD\x10\x04\"\xbd\x01\n\x10UsableSubnetwork\x12\x12\n\nsubnetwork\x18\x01 \x01(\t\x12\x0f\n\x07network\x18\x02 \x01(\t\x12\x15\n\rip_cidr_range\x18\x03 \x01(\t\x12U\n\x13secondary_ip_ranges\x18\x04 \x03(\x0b\x32\x38.google.container.v1beta1.UsableSubnetworkSecondaryRange\x12\x16\n\x0estatus_message\x18\x05 \x01(\t\")\n\x16VerticalPodAutoscaling\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"%\n\x11\x44\x65\x66\x61ultSnatStatus\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\",\n\x19IntraNodeVisibilityConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\".\n\x11MaxPodsConstraint\x12\x19\n\x11max_pods_per_node\x18\x01 \x01(\x03\"j\n\x16WorkloadIdentityConfig\x12\x1e\n\x12identity_namespace\x18\x01 \x01(\tB\x02\x18\x01\x12\x15\n\rworkload_pool\x18\x02 \x01(\t\x12\x19\n\x11identity_provider\x18\x03 \x01(\t\"\x9d\x01\n\x12\x44\x61tabaseEncryption\x12\x41\n\x05state\x18\x02 \x01(\x0e\x32\x32.google.container.v1beta1.DatabaseEncryption.State\x12\x10\n\x08key_name\x18\x01 \x01(\t\"2\n\x05State\x12\x0b\n\x07UNKNOWN\x10\x00\x12\r\n\tENCRYPTED\x10\x01\x12\r\n\tDECRYPTED\x10\x02\"\xf7\x02\n\x19ResourceUsageExportConfig\x12\x65\n\x14\x62igquery_destination\x18\x01 \x01(\x0b\x32G.google.container.v1beta1.ResourceUsageExportConfig.BigQueryDestination\x12&\n\x1e\x65nable_network_egress_metering\x18\x02 \x01(\x08\x12r\n\x1b\x63onsumption_metering_config\x18\x03 \x01(\x0b\x32M.google.container.v1beta1.ResourceUsageExportConfig.ConsumptionMeteringConfig\x1a)\n\x13\x42igQueryDestination\x12\x12\n\ndataset_id\x18\x01 \x01(\t\x1a,\n\x19\x43onsumptionMeteringConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\" \n\rShieldedNodes\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"(\n\x16GetOpenIDConfigRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\"\xdc\x01\n\x17GetOpenIDConfigResponse\x12\x0e\n\x06issuer\x18\x01 \x01(\t\x12\x10\n\x08jwks_uri\x18\x02 \x01(\t\x12 \n\x18response_types_supported\x18\x03 \x03(\t\x12\x1f\n\x17subject_types_supported\x18\x04 \x03(\t\x12-\n%id_token_signing_alg_values_supported\x18\x05 \x03(\t\x12\x18\n\x10\x63laims_supported\x18\x06 \x03(\t\x12\x13\n\x0bgrant_types\x18\x07 \x03(\t\"\'\n\x15GetJSONWebKeysRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\"r\n\x03Jwk\x12\x0b\n\x03kty\x18\x01 \x01(\t\x12\x0b\n\x03\x61lg\x18\x02 \x01(\t\x12\x0b\n\x03use\x18\x03 \x01(\t\x12\x0b\n\x03kid\x18\x04 \x01(\t\x12\t\n\x01n\x18\x05 \x01(\t\x12\t\n\x01\x65\x18\x06 \x01(\t\x12\t\n\x01x\x18\x07 \x01(\t\x12\t\n\x01y\x18\x08 \x01(\t\x12\x0b\n\x03\x63rv\x18\t \x01(\t\"E\n\x16GetJSONWebKeysResponse\x12+\n\x04keys\x18\x01 \x03(\x0b\x32\x1d.google.container.v1beta1.Jwk\"\x93\x01\n\x0eReleaseChannel\x12\x41\n\x07\x63hannel\x18\x01 \x01(\x0e\x32\x30.google.container.v1beta1.ReleaseChannel.Channel\">\n\x07\x43hannel\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\t\n\x05RAPID\x10\x01\x12\x0b\n\x07REGULAR\x10\x02\x12\n\n\x06STABLE\x10\x03\"U\n\tTpuConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x1e\n\x16use_service_networking\x18\x02 \x01(\x08\x12\x17\n\x0fipv4_cidr_block\x18\x03 \x01(\t\"\x08\n\x06Master\"\xa5\x01\n\x12NotificationConfig\x12\x43\n\x06pubsub\x18\x01 \x01(\x0b\x32\x33.google.container.v1beta1.NotificationConfig.PubSub\x1aJ\n\x06PubSub\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12/\n\x05topic\x18\x02 \x01(\tB \xfa\x41\x1d\n\x1bpubsub.googleapis.com/Topic\"$\n\x11\x43onfidentialNodes\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\x82\x02\n\x0cUpgradeEvent\x12I\n\rresource_type\x18\x01 \x01(\x0e\x32-.google.container.v1beta1.UpgradeResourceTypeB\x03\xe0\x41\x02\x12\x16\n\toperation\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12=\n\x14operation_start_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02\x12\x1c\n\x0f\x63urrent_version\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x1b\n\x0etarget_version\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\x08resource\x18\x06 \x01(\tB\x03\xe0\x41\x01*a\n\x10\x44\x61tapathProvider\x12!\n\x1d\x44\x41TAPATH_PROVIDER_UNSPECIFIED\x10\x00\x12\x13\n\x0fLEGACY_DATAPATH\x10\x01\x12\x15\n\x11\x41\x44VANCED_DATAPATH\x10\x02*W\n\x13UpgradeResourceType\x12%\n!UPGRADE_RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06MASTER\x10\x01\x12\r\n\tNODE_POOL\x10\x02\x32\xeaJ\n\x0e\x43lusterManager\x12\xf3\x01\n\x0cListClusters\x12-.google.container.v1beta1.ListClustersRequest\x1a..google.container.v1beta1.ListClustersResponse\"\x83\x01\x82\xd3\xe4\x93\x02k\x12\x31/v1beta1/{parent=projects/*/locations/*}/clustersZ6\x12\x34/v1beta1/projects/{project_id}/zones/{zone}/clusters\xda\x41\x0fproject_id,zone\x12\xfa\x01\n\nGetCluster\x12+.google.container.v1beta1.GetClusterRequest\x1a!.google.container.v1beta1.Cluster\"\x9b\x01\x82\xd3\xe4\x93\x02x\x12\x31/v1beta1/{name=projects/*/locations/*/clusters/*}ZC\x12\x41/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}\xda\x41\x1aproject_id,zone,cluster_id\x12\xf8\x01\n\rCreateCluster\x12..google.container.v1beta1.CreateClusterRequest\x1a#.google.container.v1beta1.Operation\"\x91\x01\x82\xd3\xe4\x93\x02q\"1/v1beta1/{parent=projects/*/locations/*}/clusters:\x01*Z9\"4/v1beta1/projects/{project_id}/zones/{zone}/clusters:\x01*\xda\x41\x17project_id,zone,cluster\x12\x8f\x02\n\rUpdateCluster\x12..google.container.v1beta1.UpdateClusterRequest\x1a#.google.container.v1beta1.Operation\"\xa8\x01\x82\xd3\xe4\x93\x02~\x1a\x31/v1beta1/{name=projects/*/locations/*/clusters/*}:\x01*ZF\x1a\x41/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}:\x01*\xda\x41!project_id,zone,cluster_id,update\x12\x9a\x02\n\x0eUpdateNodePool\x12/.google.container.v1beta1.UpdateNodePoolRequest\x1a#.google.container.v1beta1.Operation\"\xb1\x01\x82\xd3\xe4\x93\x02\xaa\x01\x1a=/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}:\x01*Zf\"a/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}/update:\x01*\x12\xbe\x02\n\x16SetNodePoolAutoscaling\x12\x37.google.container.v1beta1.SetNodePoolAutoscalingRequest\x1a#.google.container.v1beta1.Operation\"\xc5\x01\x82\xd3\xe4\x93\x02\xbe\x01\"L/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}:setAutoscaling:\x01*Zk\"f/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}/autoscaling:\x01*\x12\xb4\x02\n\x11SetLoggingService\x12\x32.google.container.v1beta1.SetLoggingServiceRequest\x1a#.google.container.v1beta1.Operation\"\xc5\x01\x82\xd3\xe4\x93\x02\x91\x01\"</v1beta1/{name=projects/*/locations/*/clusters/*}:setLogging:\x01*ZN\"I/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/logging:\x01*\xda\x41*project_id,zone,cluster_id,logging_service\x12\xc3\x02\n\x14SetMonitoringService\x12\x35.google.container.v1beta1.SetMonitoringServiceRequest\x1a#.google.container.v1beta1.Operation\"\xce\x01\x82\xd3\xe4\x93\x02\x97\x01\"?/v1beta1/{name=projects/*/locations/*/clusters/*}:setMonitoring:\x01*ZQ\"L/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/monitoring:\x01*\xda\x41-project_id,zone,cluster_id,monitoring_service\x12\xac\x02\n\x0fSetAddonsConfig\x12\x30.google.container.v1beta1.SetAddonsConfigRequest\x1a#.google.container.v1beta1.Operation\"\xc1\x01\x82\xd3\xe4\x93\x02\x8f\x01\";/v1beta1/{name=projects/*/locations/*/clusters/*}:setAddons:\x01*ZM\"H/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/addons:\x01*\xda\x41(project_id,zone,cluster_id,addons_config\x12\xab\x02\n\x0cSetLocations\x12-.google.container.v1beta1.SetLocationsRequest\x1a#.google.container.v1beta1.Operation\"\xc6\x01\x88\x02\x01\x82\xd3\xe4\x93\x02\x95\x01\">/v1beta1/{name=projects/*/locations/*/clusters/*}:setLocations:\x01*ZP\"K/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/locations:\x01*\xda\x41$project_id,zone,cluster_id,locations\x12\xaa\x02\n\x0cUpdateMaster\x12-.google.container.v1beta1.UpdateMasterRequest\x1a#.google.container.v1beta1.Operation\"\xc5\x01\x82\xd3\xe4\x93\x02\x92\x01\">/v1beta1/{name=projects/*/locations/*/clusters/*}:updateMaster:\x01*ZM\"H/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/master:\x01*\xda\x41)project_id,zone,cluster_id,master_version\x12\x88\x02\n\rSetMasterAuth\x12..google.container.v1beta1.SetMasterAuthRequest\x1a#.google.container.v1beta1.Operation\"\xa1\x01\x82\xd3\xe4\x93\x02\x9a\x01\"?/v1beta1/{name=projects/*/locations/*/clusters/*}:setMasterAuth:\x01*ZT\"O/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}:setMasterAuth:\x01*\x12\x82\x02\n\rDeleteCluster\x12..google.container.v1beta1.DeleteClusterRequest\x1a#.google.container.v1beta1.Operation\"\x9b\x01\x82\xd3\xe4\x93\x02x*1/v1beta1/{name=projects/*/locations/*/clusters/*}ZC*A/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}\xda\x41\x1aproject_id,zone,cluster_id\x12\xfd\x01\n\x0eListOperations\x12/.google.container.v1beta1.ListOperationsRequest\x1a\x30.google.container.v1beta1.ListOperationsResponse\"\x87\x01\x82\xd3\xe4\x93\x02o\x12\x33/v1beta1/{parent=projects/*/locations/*}/operationsZ8\x12\x36/v1beta1/projects/{project_id}/zones/{zone}/operations\xda\x41\x0fproject_id,zone\x12\x88\x02\n\x0cGetOperation\x12-.google.container.v1beta1.GetOperationRequest\x1a#.google.container.v1beta1.Operation\"\xa3\x01\x82\xd3\xe4\x93\x02~\x12\x33/v1beta1/{name=projects/*/locations/*/operations/*}ZG\x12\x45/v1beta1/projects/{project_id}/zones/{zone}/operations/{operation_id}\xda\x41\x1cproject_id,zone,operation_id\x12\x96\x02\n\x0f\x43\x61ncelOperation\x12\x30.google.container.v1beta1.CancelOperationRequest\x1a\x16.google.protobuf.Empty\"\xb8\x01\x82\xd3\xe4\x93\x02\x92\x01\":/v1beta1/{name=projects/*/locations/*/operations/*}:cancel:\x01*ZQ\"L/v1beta1/projects/{project_id}/zones/{zone}/operations/{operation_id}:cancel:\x01*\xda\x41\x1cproject_id,zone,operation_id\x12\xf7\x01\n\x0fGetServerConfig\x12\x30.google.container.v1beta1.GetServerConfigRequest\x1a&.google.container.v1beta1.ServerConfig\"\x89\x01\x82\xd3\xe4\x93\x02q\x12\x33/v1beta1/{name=projects/*/locations/*}/serverConfigZ:\x12\x38/v1beta1/projects/{project_id}/zones/{zone}/serverconfig\xda\x41\x0fproject_id,zone\x12\xa5\x02\n\rListNodePools\x12..google.container.v1beta1.ListNodePoolsRequest\x1a/.google.container.v1beta1.ListNodePoolsResponse\"\xb2\x01\x82\xd3\xe4\x93\x02\x8e\x01\x12=/v1beta1/{parent=projects/*/locations/*/clusters/*}/nodePoolsZM\x12K/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools\xda\x41\x1aproject_id,zone,cluster_id\x12\xb5\x01\n\x0eGetJSONWebKeys\x12/.google.container.v1beta1.GetJSONWebKeysRequest\x1a\x30.google.container.v1beta1.GetJSONWebKeysResponse\"@\x82\xd3\xe4\x93\x02:\x12\x38/v1beta1/{parent=projects/*/locations/*/clusters/*}/jwks\x12\xb0\x02\n\x0bGetNodePool\x12,.google.container.v1beta1.GetNodePoolRequest\x1a\".google.container.v1beta1.NodePool\"\xce\x01\x82\xd3\xe4\x93\x02\x9d\x01\x12=/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}Z\\\x12Z/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}\xda\x41\'project_id,zone,cluster_id,node_pool_id\x12\xab\x02\n\x0e\x43reateNodePool\x12/.google.container.v1beta1.CreateNodePoolRequest\x1a#.google.container.v1beta1.Operation\"\xc2\x01\x82\xd3\xe4\x93\x02\x94\x01\"=/v1beta1/{parent=projects/*/locations/*/clusters/*}/nodePools:\x01*ZP\"K/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools:\x01*\xda\x41$project_id,zone,cluster_id,node_pool\x12\xb7\x02\n\x0e\x44\x65leteNodePool\x12/.google.container.v1beta1.DeleteNodePoolRequest\x1a#.google.container.v1beta1.Operation\"\xce\x01\x82\xd3\xe4\x93\x02\x9d\x01*=/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}Z\\*Z/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}\xda\x41\'project_id,zone,cluster_id,node_pool_id\x12\xe1\x02\n\x17RollbackNodePoolUpgrade\x12\x38.google.container.v1beta1.RollbackNodePoolUpgradeRequest\x1a#.google.container.v1beta1.Operation\"\xe6\x01\x82\xd3\xe4\x93\x02\xb5\x01\"F/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}:rollback:\x01*Zh\"c/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}:rollback:\x01*\xda\x41\'project_id,zone,cluster_id,node_pool_id\x12\xf2\x02\n\x15SetNodePoolManagement\x12\x36.google.container.v1beta1.SetNodePoolManagementRequest\x1a#.google.container.v1beta1.Operation\"\xfb\x01\x82\xd3\xe4\x93\x02\xbf\x01\"K/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}:setManagement:\x01*Zm\"h/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}/setManagement:\x01*\xda\x41\x32project_id,zone,cluster_id,node_pool_id,management\x12\xc4\x02\n\tSetLabels\x12*.google.container.v1beta1.SetLabelsRequest\x1a#.google.container.v1beta1.Operation\"\xe5\x01\x82\xd3\xe4\x93\x02\x9f\x01\"C/v1beta1/{name=projects/*/locations/*/clusters/*}:setResourceLabels:\x01*ZU\"P/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/resourceLabels:\x01*\xda\x41<project_id,zone,cluster_id,resource_labels,label_fingerprint\x12\xaa\x02\n\rSetLegacyAbac\x12..google.container.v1beta1.SetLegacyAbacRequest\x1a#.google.container.v1beta1.Operation\"\xc3\x01\x82\xd3\xe4\x93\x02\x97\x01\"?/v1beta1/{name=projects/*/locations/*/clusters/*}:setLegacyAbac:\x01*ZQ\"L/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/legacyAbac:\x01*\xda\x41\"project_id,zone,cluster_id,enabled\x12\xad\x02\n\x0fStartIPRotation\x12\x30.google.container.v1beta1.StartIPRotationRequest\x1a#.google.container.v1beta1.Operation\"\xc2\x01\x82\xd3\xe4\x93\x02\x9e\x01\"A/v1beta1/{name=projects/*/locations/*/clusters/*}:startIpRotation:\x01*ZV\"Q/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}:startIpRotation:\x01*\xda\x41\x1aproject_id,zone,cluster_id\x12\xb9\x02\n\x12\x43ompleteIPRotation\x12\x33.google.container.v1beta1.CompleteIPRotationRequest\x1a#.google.container.v1beta1.Operation\"\xc8\x01\x82\xd3\xe4\x93\x02\xa4\x01\"D/v1beta1/{name=projects/*/locations/*/clusters/*}:completeIpRotation:\x01*ZY\"T/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}:completeIpRotation:\x01*\xda\x41\x1aproject_id,zone,cluster_id\x12\xa5\x02\n\x0fSetNodePoolSize\x12\x30.google.container.v1beta1.SetNodePoolSizeRequest\x1a#.google.container.v1beta1.Operation\"\xba\x01\x82\xd3\xe4\x93\x02\xb3\x01\"E/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}:setSize:\x01*Zg\"b/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}/setSize:\x01*\x12\xc0\x02\n\x10SetNetworkPolicy\x12\x31.google.container.v1beta1.SetNetworkPolicyRequest\x1a#.google.container.v1beta1.Operation\"\xd3\x01\x82\xd3\xe4\x93\x02\xa0\x01\"B/v1beta1/{name=projects/*/locations/*/clusters/*}:setNetworkPolicy:\x01*ZW\"R/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}:setNetworkPolicy:\x01*\xda\x41)project_id,zone,cluster_id,network_policy\x12\xd4\x02\n\x14SetMaintenancePolicy\x12\x35.google.container.v1beta1.SetMaintenancePolicyRequest\x1a#.google.container.v1beta1.Operation\"\xdf\x01\x82\xd3\xe4\x93\x02\xa8\x01\"F/v1beta1/{name=projects/*/locations/*/clusters/*}:setMaintenancePolicy:\x01*Z[\"V/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}:setMaintenancePolicy:\x01*\xda\x41-project_id,zone,cluster_id,maintenance_policy\x12\xd4\x01\n\x15ListUsableSubnetworks\x12\x36.google.container.v1beta1.ListUsableSubnetworksRequest\x1a\x37.google.container.v1beta1.ListUsableSubnetworksResponse\"J\x82\xd3\xe4\x93\x02;\x12\x39/v1beta1/{parent=projects/*}/aggregated/usableSubnetworks\xda\x41\x06parent\x12\xa9\x01\n\rListLocations\x12..google.container.v1beta1.ListLocationsRequest\x1a/.google.container.v1beta1.ListLocationsResponse\"7\x82\xd3\xe4\x93\x02(\x12&/v1beta1/{parent=projects/*}/locations\xda\x41\x06parent\x1aL\xca\x41\x18\x63ontainer.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xa1\x02\n\x1c\x63om.google.container.v1beta1B\x13\x43lusterServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/container/v1beta1;container\xaa\x02\x1eGoogle.Cloud.Container.V1Beta1\xca\x02\x1eGoogle\\Cloud\\Container\\V1beta1\xea\x02!Google::Cloud::Container::V1beta1\xea\x41@\n\x1bpubsub.googleapis.com/Topic\x12!projects/{project}/topics/{topic}b\x06proto3'
+  serialized_pb=b'\n.google/container/v1beta1/cluster_service.proto\x12\x18google.container.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x15google/rpc/code.proto\x1a\x17google/rpc/status.proto\x1a\x16google/type/date.proto\"\x8a\x01\n\x0fLinuxNodeConfig\x12G\n\x07sysctls\x18\x01 \x03(\x0b\x32\x36.google.container.v1beta1.LinuxNodeConfig.SysctlsEntry\x1a.\n\x0cSysctlsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x80\x01\n\x11NodeKubeletConfig\x12\x1a\n\x12\x63pu_manager_policy\x18\x01 \x01(\t\x12\x31\n\rcpu_cfs_quota\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x1c\n\x14\x63pu_cfs_quota_period\x18\x03 \x01(\t\"\xbd\t\n\nNodeConfig\x12\x14\n\x0cmachine_type\x18\x01 \x01(\t\x12\x14\n\x0c\x64isk_size_gb\x18\x02 \x01(\x05\x12\x14\n\x0coauth_scopes\x18\x03 \x03(\t\x12\x17\n\x0fservice_account\x18\t \x01(\t\x12\x44\n\x08metadata\x18\x04 \x03(\x0b\x32\x32.google.container.v1beta1.NodeConfig.MetadataEntry\x12\x12\n\nimage_type\x18\x05 \x01(\t\x12@\n\x06labels\x18\x06 \x03(\x0b\x32\x30.google.container.v1beta1.NodeConfig.LabelsEntry\x12\x17\n\x0flocal_ssd_count\x18\x07 \x01(\x05\x12\x0c\n\x04tags\x18\x08 \x03(\t\x12\x13\n\x0bpreemptible\x18\n \x01(\x08\x12\x41\n\x0c\x61\x63\x63\x65lerators\x18\x0b \x03(\x0b\x32+.google.container.v1beta1.AcceleratorConfig\x12?\n\x0esandbox_config\x18\x11 \x01(\x0b\x32\'.google.container.v1beta1.SandboxConfig\x12\x12\n\nnode_group\x18\x12 \x01(\t\x12K\n\x14reservation_affinity\x18\x13 \x01(\x0b\x32-.google.container.v1beta1.ReservationAffinity\x12\x11\n\tdisk_type\x18\x0c \x01(\t\x12\x18\n\x10min_cpu_platform\x18\r \x01(\t\x12R\n\x18workload_metadata_config\x18\x0e \x01(\x0b\x32\x30.google.container.v1beta1.WorkloadMetadataConfig\x12\x33\n\x06taints\x18\x0f \x03(\x0b\x32#.google.container.v1beta1.NodeTaint\x12\x19\n\x11\x62oot_disk_kms_key\x18\x17 \x01(\t\x12R\n\x18shielded_instance_config\x18\x14 \x01(\x0b\x32\x30.google.container.v1beta1.ShieldedInstanceConfig\x12\x44\n\x11linux_node_config\x18\x15 \x01(\x0b\x32).google.container.v1beta1.LinuxNodeConfig\x12\x43\n\x0ekubelet_config\x18\x16 \x01(\x0b\x32+.google.container.v1beta1.NodeKubeletConfig\x12R\n\x18\x65phemeral_storage_config\x18\x18 \x01(\x0b\x32\x30.google.container.v1beta1.EphemeralStorageConfig\x12\x33\n\x05gvnic\x18\x1d \x01(\x0b\x32$.google.container.v1beta1.VirtualNIC\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"b\n\x11NodeNetworkConfig\x12\x1d\n\x10\x63reate_pod_range\x18\x04 \x01(\x08\x42\x03\xe0\x41\x04\x12\x11\n\tpod_range\x18\x05 \x01(\t\x12\x1b\n\x13pod_ipv4_cidr_block\x18\x06 \x01(\t\"Y\n\x16ShieldedInstanceConfig\x12\x1a\n\x12\x65nable_secure_boot\x18\x01 \x01(\x08\x12#\n\x1b\x65nable_integrity_monitoring\x18\x02 \x01(\x08\"\x8a\x01\n\rSandboxConfig\x12\x18\n\x0csandbox_type\x18\x01 \x01(\tB\x02\x18\x01\x12:\n\x04type\x18\x02 \x01(\x0e\x32,.google.container.v1beta1.SandboxConfig.Type\"#\n\x04Type\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06GVISOR\x10\x01\"1\n\x16\x45phemeralStorageConfig\x12\x17\n\x0flocal_ssd_count\x18\x01 \x01(\x05\"\xe4\x01\n\x13ReservationAffinity\x12T\n\x18\x63onsume_reservation_type\x18\x01 \x01(\x0e\x32\x32.google.container.v1beta1.ReservationAffinity.Type\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x0e\n\x06values\x18\x03 \x03(\t\"Z\n\x04Type\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x12\n\x0eNO_RESERVATION\x10\x01\x12\x13\n\x0f\x41NY_RESERVATION\x10\x02\x12\x18\n\x14SPECIFIC_RESERVATION\x10\x03\"\xbe\x01\n\tNodeTaint\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\x12:\n\x06\x65\x66\x66\x65\x63t\x18\x03 \x01(\x0e\x32*.google.container.v1beta1.NodeTaint.Effect\"Y\n\x06\x45\x66\x66\x65\x63t\x12\x16\n\x12\x45\x46\x46\x45\x43T_UNSPECIFIED\x10\x00\x12\x0f\n\x0bNO_SCHEDULE\x10\x01\x12\x16\n\x12PREFER_NO_SCHEDULE\x10\x02\x12\x0e\n\nNO_EXECUTE\x10\x03\"A\n\nNodeTaints\x12\x33\n\x06taints\x18\x01 \x03(\x0b\x32#.google.container.v1beta1.NodeTaint\"}\n\nNodeLabels\x12@\n\x06labels\x18\x01 \x03(\x0b\x32\x30.google.container.v1beta1.NodeLabels.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x1b\n\x0bNetworkTags\x12\x0c\n\x04tags\x18\x01 \x03(\t\"\xde\x01\n\nMasterAuth\x12\x14\n\x08username\x18\x01 \x01(\tB\x02\x18\x01\x12\x14\n\x08password\x18\x02 \x01(\tB\x02\x18\x01\x12T\n\x19\x63lient_certificate_config\x18\x03 \x01(\x0b\x32\x31.google.container.v1beta1.ClientCertificateConfig\x12\x1e\n\x16\x63luster_ca_certificate\x18\x64 \x01(\t\x12\x1a\n\x12\x63lient_certificate\x18\x65 \x01(\t\x12\x12\n\nclient_key\x18\x66 \x01(\t\";\n\x17\x43lientCertificateConfig\x12 \n\x18issue_client_certificate\x18\x01 \x01(\x08\"\x90\x06\n\x0c\x41\x64\x64onsConfig\x12H\n\x13http_load_balancing\x18\x01 \x01(\x0b\x32+.google.container.v1beta1.HttpLoadBalancing\x12V\n\x1ahorizontal_pod_autoscaling\x18\x02 \x01(\x0b\x32\x32.google.container.v1beta1.HorizontalPodAutoscaling\x12O\n\x14kubernetes_dashboard\x18\x03 \x01(\x0b\x32-.google.container.v1beta1.KubernetesDashboardB\x02\x18\x01\x12L\n\x15network_policy_config\x18\x04 \x01(\x0b\x32-.google.container.v1beta1.NetworkPolicyConfig\x12;\n\x0cistio_config\x18\x05 \x01(\x0b\x32%.google.container.v1beta1.IstioConfig\x12\x42\n\x10\x63loud_run_config\x18\x07 \x01(\x0b\x32(.google.container.v1beta1.CloudRunConfig\x12\x42\n\x10\x64ns_cache_config\x18\x08 \x01(\x0b\x32(.google.container.v1beta1.DnsCacheConfig\x12P\n\x17\x63onfig_connector_config\x18\n \x01(\x0b\x32/.google.container.v1beta1.ConfigConnectorConfig\x12i\n%gce_persistent_disk_csi_driver_config\x18\x0b \x01(\x0b\x32:.google.container.v1beta1.GcePersistentDiskCsiDriverConfig\x12=\n\x0bkalm_config\x18\x0c \x01(\x0b\x32$.google.container.v1beta1.KalmConfigB\x02\x18\x01\"%\n\x11HttpLoadBalancing\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\",\n\x18HorizontalPodAutoscaling\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\"\'\n\x13KubernetesDashboard\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\"\'\n\x13NetworkPolicyConfig\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\"!\n\x0e\x44nsCacheConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"!\n\nKalmConfig\x12\x13\n\x07\x65nabled\x18\x01 \x01(\x08\x42\x02\x18\x01\"(\n\x15\x43onfigConnectorConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"3\n GcePersistentDiskCsiDriverConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"9\n&PrivateClusterMasterGlobalAccessConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\xa5\x02\n\x14PrivateClusterConfig\x12\x1c\n\x14\x65nable_private_nodes\x18\x01 \x01(\x08\x12\x1f\n\x17\x65nable_private_endpoint\x18\x02 \x01(\x08\x12\x1e\n\x16master_ipv4_cidr_block\x18\x03 \x01(\t\x12\x18\n\x10private_endpoint\x18\x04 \x01(\t\x12\x17\n\x0fpublic_endpoint\x18\x05 \x01(\t\x12\x14\n\x0cpeering_name\x18\x07 \x01(\t\x12\x65\n\x1bmaster_global_access_config\x18\x08 \x01(\x0b\x32@.google.container.v1beta1.PrivateClusterMasterGlobalAccessConfig\"\x97\x01\n\x0bIstioConfig\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\x12\x41\n\x04\x61uth\x18\x02 \x01(\x0e\x32\x33.google.container.v1beta1.IstioConfig.IstioAuthMode\"3\n\rIstioAuthMode\x12\r\n\tAUTH_NONE\x10\x00\x12\x13\n\x0f\x41UTH_MUTUAL_TLS\x10\x01\"\xf3\x01\n\x0e\x43loudRunConfig\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\x12U\n\x12load_balancer_type\x18\x03 \x01(\x0e\x32\x39.google.container.v1beta1.CloudRunConfig.LoadBalancerType\"x\n\x10LoadBalancerType\x12\"\n\x1eLOAD_BALANCER_TYPE_UNSPECIFIED\x10\x00\x12\x1f\n\x1bLOAD_BALANCER_TYPE_EXTERNAL\x10\x01\x12\x1f\n\x1bLOAD_BALANCER_TYPE_INTERNAL\x10\x02\"\xc1\x01\n\x1eMasterAuthorizedNetworksConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12W\n\x0b\x63idr_blocks\x18\x02 \x03(\x0b\x32\x42.google.container.v1beta1.MasterAuthorizedNetworksConfig.CidrBlock\x1a\x35\n\tCidrBlock\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12\x12\n\ncidr_block\x18\x02 \x01(\t\"\x1d\n\nLegacyAbac\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\x96\x01\n\rNetworkPolicy\x12\x42\n\x08provider\x18\x01 \x01(\x0e\x32\x30.google.container.v1beta1.NetworkPolicy.Provider\x12\x0f\n\x07\x65nabled\x18\x02 \x01(\x08\"0\n\x08Provider\x12\x18\n\x14PROVIDER_UNSPECIFIED\x10\x00\x12\n\n\x06\x43\x41LICO\x10\x01\"\xb7\x03\n\x12IPAllocationPolicy\x12\x16\n\x0euse_ip_aliases\x18\x01 \x01(\x08\x12\x19\n\x11\x63reate_subnetwork\x18\x02 \x01(\x08\x12\x17\n\x0fsubnetwork_name\x18\x03 \x01(\t\x12\x1d\n\x11\x63luster_ipv4_cidr\x18\x04 \x01(\tB\x02\x18\x01\x12\x1a\n\x0enode_ipv4_cidr\x18\x05 \x01(\tB\x02\x18\x01\x12\x1e\n\x12services_ipv4_cidr\x18\x06 \x01(\tB\x02\x18\x01\x12$\n\x1c\x63luster_secondary_range_name\x18\x07 \x01(\t\x12%\n\x1dservices_secondary_range_name\x18\x08 \x01(\t\x12\x1f\n\x17\x63luster_ipv4_cidr_block\x18\t \x01(\t\x12\x1c\n\x14node_ipv4_cidr_block\x18\n \x01(\t\x12 \n\x18services_ipv4_cidr_block\x18\x0b \x01(\t\x12\x1b\n\x13\x61llow_route_overlap\x18\x0c \x01(\x08\x12\x1b\n\x13tpu_ipv4_cidr_block\x18\r \x01(\t\x12\x12\n\nuse_routes\x18\x0f \x01(\x08\"&\n\x13\x42inaryAuthorization\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"*\n\x17PodSecurityPolicyConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"D\n\x19\x41uthenticatorGroupsConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x16\n\x0esecurity_group\x18\x02 \x01(\t\"\x96\x01\n\x10\x43lusterTelemetry\x12=\n\x04type\x18\x01 \x01(\x0e\x32/.google.container.v1beta1.ClusterTelemetry.Type\"C\n\x04Type\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0c\n\x08\x44ISABLED\x10\x01\x12\x0b\n\x07\x45NABLED\x10\x02\x12\x0f\n\x0bSYSTEM_ONLY\x10\x03\"\xe5\x1b\n\x07\x43luster\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1e\n\x12initial_node_count\x18\x03 \x01(\x05\x42\x02\x18\x01\x12=\n\x0bnode_config\x18\x04 \x01(\x0b\x32$.google.container.v1beta1.NodeConfigB\x02\x18\x01\x12\x39\n\x0bmaster_auth\x18\x05 \x01(\x0b\x32$.google.container.v1beta1.MasterAuth\x12\x17\n\x0flogging_service\x18\x06 \x01(\t\x12\x1a\n\x12monitoring_service\x18\x07 \x01(\t\x12\x0f\n\x07network\x18\x08 \x01(\t\x12\x19\n\x11\x63luster_ipv4_cidr\x18\t \x01(\t\x12=\n\raddons_config\x18\n \x01(\x0b\x32&.google.container.v1beta1.AddonsConfig\x12\x12\n\nsubnetwork\x18\x0b \x01(\t\x12\x36\n\nnode_pools\x18\x0c \x03(\x0b\x32\".google.container.v1beta1.NodePool\x12\x11\n\tlocations\x18\r \x03(\t\x12\x1f\n\x17\x65nable_kubernetes_alpha\x18\x0e \x01(\x08\x12N\n\x0fresource_labels\x18\x0f \x03(\x0b\x32\x35.google.container.v1beta1.Cluster.ResourceLabelsEntry\x12\x19\n\x11label_fingerprint\x18\x10 \x01(\t\x12\x39\n\x0blegacy_abac\x18\x12 \x01(\x0b\x32$.google.container.v1beta1.LegacyAbac\x12?\n\x0enetwork_policy\x18\x13 \x01(\x0b\x32\'.google.container.v1beta1.NetworkPolicy\x12J\n\x14ip_allocation_policy\x18\x14 \x01(\x0b\x32,.google.container.v1beta1.IPAllocationPolicy\x12\x63\n!master_authorized_networks_config\x18\x16 \x01(\x0b\x32\x38.google.container.v1beta1.MasterAuthorizedNetworksConfig\x12G\n\x12maintenance_policy\x18\x17 \x01(\x0b\x32+.google.container.v1beta1.MaintenancePolicy\x12K\n\x14\x62inary_authorization\x18\x18 \x01(\x0b\x32-.google.container.v1beta1.BinaryAuthorization\x12U\n\x1apod_security_policy_config\x18\x19 \x01(\x0b\x32\x31.google.container.v1beta1.PodSecurityPolicyConfig\x12\x41\n\x0b\x61utoscaling\x18\x1a \x01(\x0b\x32,.google.container.v1beta1.ClusterAutoscaling\x12?\n\x0enetwork_config\x18\x1b \x01(\x0b\x32\'.google.container.v1beta1.NetworkConfig\x12\x1b\n\x0fprivate_cluster\x18\x1c \x01(\x08\x42\x02\x18\x01\x12\"\n\x16master_ipv4_cidr_block\x18\x1d \x01(\tB\x02\x18\x01\x12P\n\x1b\x64\x65\x66\x61ult_max_pods_constraint\x18\x1e \x01(\x0b\x32+.google.container.v1beta1.MaxPodsConstraint\x12Y\n\x1cresource_usage_export_config\x18! \x01(\x0b\x32\x33.google.container.v1beta1.ResourceUsageExportConfig\x12X\n\x1b\x61uthenticator_groups_config\x18\" \x01(\x0b\x32\x33.google.container.v1beta1.AuthenticatorGroupsConfig\x12N\n\x16private_cluster_config\x18% \x01(\x0b\x32..google.container.v1beta1.PrivateClusterConfig\x12R\n\x18vertical_pod_autoscaling\x18\' \x01(\x0b\x32\x30.google.container.v1beta1.VerticalPodAutoscaling\x12?\n\x0eshielded_nodes\x18( \x01(\x0b\x32\'.google.container.v1beta1.ShieldedNodes\x12\x41\n\x0frelease_channel\x18) \x01(\x0b\x32(.google.container.v1beta1.ReleaseChannel\x12R\n\x18workload_identity_config\x18+ \x01(\x0b\x32\x30.google.container.v1beta1.WorkloadIdentityConfig\x12M\n\x15workload_certificates\x18\x34 \x01(\x0b\x32..google.container.v1beta1.WorkloadCertificates\x12\x45\n\x11\x63luster_telemetry\x18. \x01(\x0b\x32*.google.container.v1beta1.ClusterTelemetry\x12\x37\n\ntpu_config\x18/ \x01(\x0b\x32#.google.container.v1beta1.TpuConfig\x12I\n\x13notification_config\x18\x31 \x01(\x0b\x32,.google.container.v1beta1.NotificationConfig\x12G\n\x12\x63onfidential_nodes\x18\x32 \x01(\x0b\x32+.google.container.v1beta1.ConfidentialNodes\x12P\n\x17identity_service_config\x18\x36 \x01(\x0b\x32/.google.container.v1beta1.IdentityServiceConfig\x12\x11\n\tself_link\x18\x64 \x01(\t\x12\x10\n\x04zone\x18\x65 \x01(\tB\x02\x18\x01\x12\x10\n\x08\x65ndpoint\x18\x66 \x01(\t\x12\x1f\n\x17initial_cluster_version\x18g \x01(\t\x12\x1e\n\x16\x63urrent_master_version\x18h \x01(\t\x12 \n\x14\x63urrent_node_version\x18i \x01(\tB\x02\x18\x01\x12\x13\n\x0b\x63reate_time\x18j \x01(\t\x12\x38\n\x06status\x18k \x01(\x0e\x32(.google.container.v1beta1.Cluster.Status\x12\x1a\n\x0estatus_message\x18l \x01(\tB\x02\x18\x01\x12\x1b\n\x13node_ipv4_cidr_size\x18m \x01(\x05\x12\x1a\n\x12services_ipv4_cidr\x18n \x01(\t\x12\x1f\n\x13instance_group_urls\x18o \x03(\tB\x02\x18\x01\x12\x1e\n\x12\x63urrent_node_count\x18p \x01(\x05\x42\x02\x18\x01\x12\x13\n\x0b\x65xpire_time\x18q \x01(\t\x12\x10\n\x08location\x18r \x01(\t\x12\x12\n\nenable_tpu\x18s \x01(\x08\x12\x1b\n\x13tpu_ipv4_cidr_block\x18t \x01(\t\x12I\n\x13\x64\x61tabase_encryption\x18& \x01(\x0b\x32,.google.container.v1beta1.DatabaseEncryption\x12=\n\nconditions\x18v \x03(\x0b\x32).google.container.v1beta1.StatusCondition\x12\x30\n\x06master\x18| \x01(\x0b\x32 .google.container.v1beta1.Master\x12\x37\n\tautopilot\x18\x80\x01 \x01(\x0b\x32#.google.container.v1beta1.Autopilot\x12\x10\n\x02id\x18\x81\x01 \x01(\tB\x03\xe0\x41\x03\x12L\n\x12node_pool_defaults\x18\x83\x01 \x01(\x0b\x32*.google.container.v1beta1.NodePoolDefaultsH\x00\x88\x01\x01\x12@\n\x0elogging_config\x18\x84\x01 \x01(\x0b\x32\'.google.container.v1beta1.LoggingConfig\x12\x46\n\x11monitoring_config\x18\x85\x01 \x01(\x0b\x32*.google.container.v1beta1.MonitoringConfig\x1a\x35\n\x13ResourceLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"w\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x10\n\x0cPROVISIONING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x0f\n\x0bRECONCILING\x10\x03\x12\x0c\n\x08STOPPING\x10\x04\x12\t\n\x05\x45RROR\x10\x05\x12\x0c\n\x08\x44\x45GRADED\x10\x06\x42\x15\n\x13_node_pool_defaults\"^\n\x10NodePoolDefaults\x12J\n\x14node_config_defaults\x18\x01 \x01(\x0b\x32,.google.container.v1beta1.NodeConfigDefaults\"\x14\n\x12NodeConfigDefaults\"\xf7\x14\n\rClusterUpdate\x12\x1c\n\x14\x64\x65sired_node_version\x18\x04 \x01(\t\x12\"\n\x1a\x64\x65sired_monitoring_service\x18\x05 \x01(\t\x12\x45\n\x15\x64\x65sired_addons_config\x18\x06 \x01(\x0b\x32&.google.container.v1beta1.AddonsConfig\x12\x1c\n\x14\x64\x65sired_node_pool_id\x18\x07 \x01(\t\x12\x1a\n\x12\x64\x65sired_image_type\x18\x08 \x01(\t\x12T\n\x1d\x64\x65sired_node_pool_autoscaling\x18\t \x01(\x0b\x32-.google.container.v1beta1.NodePoolAutoscaling\x12\x19\n\x11\x64\x65sired_locations\x18\n \x03(\t\x12k\n)desired_master_authorized_networks_config\x18\x0c \x01(\x0b\x32\x38.google.container.v1beta1.MasterAuthorizedNetworksConfig\x12]\n\"desired_pod_security_policy_config\x18\x0e \x01(\x0b\x32\x31.google.container.v1beta1.PodSecurityPolicyConfig\x12Q\n\x1b\x64\x65sired_cluster_autoscaling\x18\x0f \x01(\x0b\x32,.google.container.v1beta1.ClusterAutoscaling\x12S\n\x1c\x64\x65sired_binary_authorization\x18\x10 \x01(\x0b\x32-.google.container.v1beta1.BinaryAuthorization\x12\x1f\n\x17\x64\x65sired_logging_service\x18\x13 \x01(\t\x12\x61\n$desired_resource_usage_export_config\x18\x15 \x01(\x0b\x32\x33.google.container.v1beta1.ResourceUsageExportConfig\x12Z\n desired_vertical_pod_autoscaling\x18\x16 \x01(\x0b\x32\x30.google.container.v1beta1.VerticalPodAutoscaling\x12V\n\x1e\x64\x65sired_private_cluster_config\x18\x19 \x01(\x0b\x32..google.container.v1beta1.PrivateClusterConfig\x12\x61\n$desired_intra_node_visibility_config\x18\x1a \x01(\x0b\x32\x33.google.container.v1beta1.IntraNodeVisibilityConfig\x12P\n\x1b\x64\x65sired_default_snat_status\x18\x1c \x01(\x0b\x32+.google.container.v1beta1.DefaultSnatStatus\x12M\n\x19\x64\x65sired_cluster_telemetry\x18\x1e \x01(\x0b\x32*.google.container.v1beta1.ClusterTelemetry\x12I\n\x17\x64\x65sired_release_channel\x18\x1f \x01(\x0b\x32(.google.container.v1beta1.ReleaseChannel\x12?\n\x12\x64\x65sired_tpu_config\x18& \x01(\x0b\x32#.google.container.v1beta1.TpuConfig\x12V\n\x1f\x64\x65sired_l4ilb_subsetting_config\x18\' \x01(\x0b\x32-.google.container.v1beta1.ILBSubsettingConfig\x12M\n\x19\x64\x65sired_datapath_provider\x18\x32 \x01(\x0e\x32*.google.container.v1beta1.DatapathProvider\x12]\n\"desired_private_ipv6_google_access\x18\x33 \x01(\x0e\x32\x31.google.container.v1beta1.PrivateIPv6GoogleAccess\x12Q\n\x1b\x64\x65sired_notification_config\x18\x37 \x01(\x0b\x32,.google.container.v1beta1.NotificationConfig\x12\x1e\n\x16\x64\x65sired_master_version\x18\x64 \x01(\t\x12Q\n\x1b\x64\x65sired_database_encryption\x18. \x01(\x0b\x32,.google.container.v1beta1.DatabaseEncryption\x12Z\n desired_workload_identity_config\x18/ \x01(\x0b\x32\x30.google.container.v1beta1.WorkloadIdentityConfig\x12U\n\x1d\x64\x65sired_workload_certificates\x18= \x01(\x0b\x32..google.container.v1beta1.WorkloadCertificates\x12G\n\x16\x64\x65sired_shielded_nodes\x18\x30 \x01(\x0b\x32\'.google.container.v1beta1.ShieldedNodes\x12\x38\n\x0e\x64\x65sired_master\x18\x34 \x01(\x0b\x32 .google.container.v1beta1.Master\x12?\n\x12\x64\x65sired_dns_config\x18\x35 \x01(\x0b\x32#.google.container.v1beta1.DNSConfig\x12_\n#desired_service_external_ips_config\x18< \x01(\x0b\x32\x32.google.container.v1beta1.ServiceExternalIPsConfig\x12`\n#desired_authenticator_groups_config\x18? \x01(\x0b\x32\x33.google.container.v1beta1.AuthenticatorGroupsConfig\x12G\n\x16\x64\x65sired_logging_config\x18@ \x01(\x0b\x32\'.google.container.v1beta1.LoggingConfig\x12M\n\x19\x64\x65sired_monitoring_config\x18\x41 \x01(\x0b\x32*.google.container.v1beta1.MonitoringConfig\x12X\n\x1f\x64\x65sired_identity_service_config\x18\x42 \x01(\x0b\x32/.google.container.v1beta1.IdentityServiceConfig\"\x8a\x08\n\tOperation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x04zone\x18\x02 \x01(\tB\x02\x18\x01\x12@\n\x0eoperation_type\x18\x03 \x01(\x0e\x32(.google.container.v1beta1.Operation.Type\x12:\n\x06status\x18\x04 \x01(\x0e\x32*.google.container.v1beta1.Operation.Status\x12\x0e\n\x06\x64\x65tail\x18\x08 \x01(\t\x12\x1d\n\x0estatus_message\x18\x05 \x01(\tB\x05\x18\x01\xe0\x41\x03\x12\x11\n\tself_link\x18\x06 \x01(\t\x12\x13\n\x0btarget_link\x18\x07 \x01(\t\x12\x10\n\x08location\x18\t \x01(\t\x12\x12\n\nstart_time\x18\n \x01(\t\x12\x10\n\x08\x65nd_time\x18\x0b \x01(\t\x12\x42\n\x08progress\x18\x0c \x01(\x0b\x32+.google.container.v1beta1.OperationProgressB\x03\xe0\x41\x03\x12I\n\x12\x63luster_conditions\x18\r \x03(\x0b\x32).google.container.v1beta1.StatusConditionB\x02\x18\x01\x12J\n\x13nodepool_conditions\x18\x0e \x03(\x0b\x32).google.container.v1beta1.StatusConditionB\x02\x18\x01\x12!\n\x05\x65rror\x18\x0f \x01(\x0b\x32\x12.google.rpc.Status\"R\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x08\n\x04\x44ONE\x10\x03\x12\x0c\n\x08\x41\x42ORTING\x10\x04\"\xfd\x02\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x12\n\x0e\x43REATE_CLUSTER\x10\x01\x12\x12\n\x0e\x44\x45LETE_CLUSTER\x10\x02\x12\x12\n\x0eUPGRADE_MASTER\x10\x03\x12\x11\n\rUPGRADE_NODES\x10\x04\x12\x12\n\x0eREPAIR_CLUSTER\x10\x05\x12\x12\n\x0eUPDATE_CLUSTER\x10\x06\x12\x14\n\x10\x43REATE_NODE_POOL\x10\x07\x12\x14\n\x10\x44\x45LETE_NODE_POOL\x10\x08\x12\x1c\n\x18SET_NODE_POOL_MANAGEMENT\x10\t\x12\x15\n\x11\x41UTO_REPAIR_NODES\x10\n\x12\x16\n\x12\x41UTO_UPGRADE_NODES\x10\x0b\x12\x0e\n\nSET_LABELS\x10\x0c\x12\x13\n\x0fSET_MASTER_AUTH\x10\r\x12\x16\n\x12SET_NODE_POOL_SIZE\x10\x0e\x12\x16\n\x12SET_NETWORK_POLICY\x10\x0f\x12\x1a\n\x16SET_MAINTENANCE_POLICY\x10\x10\"\xca\x02\n\x11OperationProgress\x12\x0c\n\x04name\x18\x01 \x01(\t\x12:\n\x06status\x18\x02 \x01(\x0e\x32*.google.container.v1beta1.Operation.Status\x12\x43\n\x07metrics\x18\x03 \x03(\x0b\x32\x32.google.container.v1beta1.OperationProgress.Metric\x12;\n\x06stages\x18\x04 \x03(\x0b\x32+.google.container.v1beta1.OperationProgress\x1ai\n\x06Metric\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\tint_value\x18\x02 \x01(\x03H\x00\x12\x16\n\x0c\x64ouble_value\x18\x03 \x01(\x01H\x00\x12\x16\n\x0cstring_value\x18\x04 \x01(\tH\x00\x42\x07\n\x05value\"\x8f\x01\n\x14\x43reateClusterRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x37\n\x07\x63luster\x18\x03 \x01(\x0b\x32!.google.container.v1beta1.ClusterB\x03\xe0\x41\x02\x12\x0e\n\x06parent\x18\x05 \x01(\t\"l\n\x11GetClusterRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x05 \x01(\t\"\xad\x01\n\x14UpdateClusterRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12<\n\x06update\x18\x04 \x01(\x0b\x32\'.google.container.v1beta1.ClusterUpdateB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x05 \x01(\t\"\xd7\x05\n\x15UpdateNodePoolRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\x0cnode_version\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nimage_type\x18\x06 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tlocations\x18\r \x03(\t\x12R\n\x18workload_metadata_config\x18\x0e \x01(\x0b\x32\x30.google.container.v1beta1.WorkloadMetadataConfig\x12\x0c\n\x04name\x18\x08 \x01(\t\x12L\n\x10upgrade_settings\x18\x0f \x01(\x0b\x32\x32.google.container.v1beta1.NodePool.UpgradeSettings\x12\x33\n\x04tags\x18\x10 \x01(\x0b\x32%.google.container.v1beta1.NetworkTags\x12\x34\n\x06taints\x18\x11 \x01(\x0b\x32$.google.container.v1beta1.NodeTaints\x12\x34\n\x06labels\x18\x12 \x01(\x0b\x32$.google.container.v1beta1.NodeLabels\x12\x44\n\x11linux_node_config\x18\x13 \x01(\x0b\x32).google.container.v1beta1.LinuxNodeConfig\x12\x43\n\x0ekubelet_config\x18\x14 \x01(\x0b\x32+.google.container.v1beta1.NodeKubeletConfig\x12\x33\n\x05gvnic\x18\x1d \x01(\x0b\x32$.google.container.v1beta1.VirtualNIC\"\xde\x01\n\x1dSetNodePoolAutoscalingRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12G\n\x0b\x61utoscaling\x18\x05 \x01(\x0b\x32-.google.container.v1beta1.NodePoolAutoscalingB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\x91\x01\n\x18SetLoggingServiceRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1c\n\x0flogging_service\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x05 \x01(\t\"\x97\x01\n\x1bSetMonitoringServiceRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1f\n\x12monitoring_service\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\xb5\x01\n\x16SetAddonsConfigRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x42\n\raddons_config\x18\x04 \x01(\x0b\x32&.google.container.v1beta1.AddonsConfigB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\x86\x01\n\x13SetLocationsRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x16\n\tlocations\x18\x04 \x03(\tB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\x8b\x01\n\x13UpdateMasterRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0emaster_version\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x07 \x01(\t\"\xc8\x02\n\x14SetMasterAuthRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12J\n\x06\x61\x63tion\x18\x04 \x01(\x0e\x32\x35.google.container.v1beta1.SetMasterAuthRequest.ActionB\x03\xe0\x41\x02\x12\x39\n\x06update\x18\x05 \x01(\x0b\x32$.google.container.v1beta1.MasterAuthB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x07 \x01(\t\"P\n\x06\x41\x63tion\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x10\n\x0cSET_PASSWORD\x10\x01\x12\x15\n\x11GENERATE_PASSWORD\x10\x02\x12\x10\n\x0cSET_USERNAME\x10\x03\"o\n\x14\x44\x65leteClusterRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x04 \x01(\t\"U\n\x13ListClustersRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0e\n\x06parent\x18\x04 \x01(\t\"b\n\x14ListClustersResponse\x12\x33\n\x08\x63lusters\x18\x01 \x03(\x0b\x32!.google.container.v1beta1.Cluster\x12\x15\n\rmissing_zones\x18\x02 \x03(\t\"p\n\x13GetOperationRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0coperation_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x05 \x01(\t\"W\n\x15ListOperationsRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0e\n\x06parent\x18\x04 \x01(\t\"s\n\x16\x43\x61ncelOperationRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0coperation_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x04 \x01(\t\"h\n\x16ListOperationsResponse\x12\x37\n\noperations\x18\x01 \x03(\x0b\x32#.google.container.v1beta1.Operation\x12\x15\n\rmissing_zones\x18\x02 \x03(\t\"V\n\x16GetServerConfigRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x04 \x01(\t\"\xe9\x05\n\x0cServerConfig\x12\x1f\n\x17\x64\x65\x66\x61ult_cluster_version\x18\x01 \x01(\t\x12\x1b\n\x13valid_node_versions\x18\x03 \x03(\t\x12\x1a\n\x12\x64\x65\x66\x61ult_image_type\x18\x04 \x01(\t\x12\x19\n\x11valid_image_types\x18\x05 \x03(\t\x12\x1d\n\x15valid_master_versions\x18\x06 \x03(\t\x12M\n\x08\x63hannels\x18\t \x03(\x0b\x32;.google.container.v1beta1.ServerConfig.ReleaseChannelConfig\x12\\\n\x14windows_version_maps\x18\n \x03(\x0b\x32>.google.container.v1beta1.ServerConfig.WindowsVersionMapsEntry\x1a\xb1\x02\n\x14ReleaseChannelConfig\x12\x41\n\x07\x63hannel\x18\x01 \x01(\x0e\x32\x30.google.container.v1beta1.ReleaseChannel.Channel\x12\x17\n\x0f\x64\x65\x66\x61ult_version\x18\x02 \x01(\t\x12l\n\x12\x61vailable_versions\x18\x03 \x03(\x0b\x32L.google.container.v1beta1.ServerConfig.ReleaseChannelConfig.AvailableVersionB\x02\x18\x01\x12\x16\n\x0evalid_versions\x18\x04 \x03(\t\x1a\x37\n\x10\x41vailableVersion\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x0e\n\x06reason\x18\x02 \x01(\t:\x02\x18\x01\x1a\x64\n\x17WindowsVersionMapsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x38\n\x05value\x18\x02 \x01(\x0b\x32).google.container.v1beta1.WindowsVersions:\x02\x38\x01\"\xcc\x01\n\x0fWindowsVersions\x12R\n\x10windows_versions\x18\x01 \x03(\x0b\x32\x38.google.container.v1beta1.WindowsVersions.WindowsVersion\x1a\x65\n\x0eWindowsVersion\x12\x12\n\nimage_type\x18\x01 \x01(\t\x12\x12\n\nos_version\x18\x02 \x01(\t\x12+\n\x10support_end_date\x18\x03 \x01(\x0b\x32\x11.google.type.Date\"\xae\x01\n\x15\x43reateNodePoolRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12:\n\tnode_pool\x18\x04 \x01(\x0b\x32\".google.container.v1beta1.NodePoolB\x03\xe0\x41\x02\x12\x0e\n\x06parent\x18\x06 \x01(\t\"\x8d\x01\n\x15\x44\x65leteNodePoolRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"q\n\x14ListNodePoolsRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0e\n\x06parent\x18\x05 \x01(\t\"\x8a\x01\n\x12GetNodePoolRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\x92\x07\n\x08NodePool\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x34\n\x06\x63onfig\x18\x02 \x01(\x0b\x32$.google.container.v1beta1.NodeConfig\x12\x1a\n\x12initial_node_count\x18\x03 \x01(\x05\x12\x11\n\tlocations\x18\r \x03(\t\x12\x43\n\x0enetwork_config\x18\x0e \x01(\x0b\x32+.google.container.v1beta1.NodeNetworkConfig\x12\x11\n\tself_link\x18\x64 \x01(\t\x12\x0f\n\x07version\x18\x65 \x01(\t\x12\x1b\n\x13instance_group_urls\x18\x66 \x03(\t\x12\x39\n\x06status\x18g \x01(\x0e\x32).google.container.v1beta1.NodePool.Status\x12\x1a\n\x0estatus_message\x18h \x01(\tB\x02\x18\x01\x12\x42\n\x0b\x61utoscaling\x18\x04 \x01(\x0b\x32-.google.container.v1beta1.NodePoolAutoscaling\x12<\n\nmanagement\x18\x05 \x01(\x0b\x32(.google.container.v1beta1.NodeManagement\x12H\n\x13max_pods_constraint\x18\x06 \x01(\x0b\x32+.google.container.v1beta1.MaxPodsConstraint\x12=\n\nconditions\x18i \x03(\x0b\x32).google.container.v1beta1.StatusCondition\x12\x1a\n\x12pod_ipv4_cidr_size\x18\x07 \x01(\x05\x12L\n\x10upgrade_settings\x18k \x01(\x0b\x32\x32.google.container.v1beta1.NodePool.UpgradeSettings\x1a=\n\x0fUpgradeSettings\x12\x11\n\tmax_surge\x18\x01 \x01(\x05\x12\x17\n\x0fmax_unavailable\x18\x02 \x01(\x05\"\x81\x01\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x10\n\x0cPROVISIONING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x16\n\x12RUNNING_WITH_ERROR\x10\x03\x12\x0f\n\x0bRECONCILING\x10\x04\x12\x0c\n\x08STOPPING\x10\x05\x12\t\n\x05\x45RROR\x10\x06\"\x82\x01\n\x0eNodeManagement\x12\x14\n\x0c\x61uto_upgrade\x18\x01 \x01(\x08\x12\x13\n\x0b\x61uto_repair\x18\x02 \x01(\x08\x12\x45\n\x0fupgrade_options\x18\n \x01(\x0b\x32,.google.container.v1beta1.AutoUpgradeOptions\"J\n\x12\x41utoUpgradeOptions\x12\x1f\n\x17\x61uto_upgrade_start_time\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\"j\n\x11MaintenancePolicy\x12;\n\x06window\x18\x01 \x01(\x0b\x32+.google.container.v1beta1.MaintenanceWindow\x12\x18\n\x10resource_version\x18\x03 \x01(\t\"\x8a\x03\n\x11MaintenanceWindow\x12T\n\x18\x64\x61ily_maintenance_window\x18\x02 \x01(\x0b\x32\x30.google.container.v1beta1.DailyMaintenanceWindowH\x00\x12I\n\x10recurring_window\x18\x03 \x01(\x0b\x32-.google.container.v1beta1.RecurringTimeWindowH\x00\x12\x66\n\x16maintenance_exclusions\x18\x04 \x03(\x0b\x32\x46.google.container.v1beta1.MaintenanceWindow.MaintenanceExclusionsEntry\x1a\x62\n\x1aMaintenanceExclusionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x33\n\x05value\x18\x02 \x01(\x0b\x32$.google.container.v1beta1.TimeWindow:\x02\x38\x01\x42\x08\n\x06policy\"j\n\nTimeWindow\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"_\n\x13RecurringTimeWindow\x12\x34\n\x06window\x18\x01 \x01(\x0b\x32$.google.container.v1beta1.TimeWindow\x12\x12\n\nrecurrence\x18\x02 \x01(\t\">\n\x16\x44\x61ilyMaintenanceWindow\x12\x12\n\nstart_time\x18\x02 \x01(\t\x12\x10\n\x08\x64uration\x18\x03 \x01(\t\"\xd7\x01\n\x1cSetNodePoolManagementRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x41\n\nmanagement\x18\x05 \x01(\x0b\x32(.google.container.v1beta1.NodeManagementB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x07 \x01(\t\"\xa7\x01\n\x16SetNodePoolSizeRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x17\n\nnode_count\x18\x05 \x01(\x05\x42\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x07 \x01(\t\"\x96\x01\n\x1eRollbackNodePoolUpgradeRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x1b\n\x0cnode_pool_id\x18\x04 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"O\n\x15ListNodePoolsResponse\x12\x36\n\nnode_pools\x18\x01 \x03(\x0b\x32\".google.container.v1beta1.NodePool\"\xbe\x03\n\x12\x43lusterAutoscaling\x12$\n\x1c\x65nable_node_autoprovisioning\x18\x01 \x01(\x08\x12@\n\x0fresource_limits\x18\x02 \x03(\x0b\x32\'.google.container.v1beta1.ResourceLimit\x12\\\n\x13\x61utoscaling_profile\x18\x03 \x01(\x0e\x32?.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile\x12g\n#autoprovisioning_node_pool_defaults\x18\x04 \x01(\x0b\x32:.google.container.v1beta1.AutoprovisioningNodePoolDefaults\x12\"\n\x1a\x61utoprovisioning_locations\x18\x05 \x03(\t\"U\n\x12\x41utoscalingProfile\x12\x17\n\x13PROFILE_UNSPECIFIED\x10\x00\x12\x18\n\x14OPTIMIZE_UTILIZATION\x10\x01\x12\x0c\n\x08\x42\x41LANCED\x10\x02\"\xa3\x03\n AutoprovisioningNodePoolDefaults\x12\x14\n\x0coauth_scopes\x18\x01 \x03(\t\x12\x17\n\x0fservice_account\x18\x02 \x01(\t\x12L\n\x10upgrade_settings\x18\x03 \x01(\x0b\x32\x32.google.container.v1beta1.NodePool.UpgradeSettings\x12<\n\nmanagement\x18\x04 \x01(\x0b\x32(.google.container.v1beta1.NodeManagement\x12\x18\n\x10min_cpu_platform\x18\x05 \x01(\t\x12\x14\n\x0c\x64isk_size_gb\x18\x06 \x01(\x05\x12\x11\n\tdisk_type\x18\x07 \x01(\t\x12R\n\x18shielded_instance_config\x18\x08 \x01(\x0b\x32\x30.google.container.v1beta1.ShieldedInstanceConfig\x12\x19\n\x11\x62oot_disk_kms_key\x18\t \x01(\t\x12\x12\n\nimage_type\x18\n \x01(\t\"H\n\rResourceLimit\x12\x15\n\rresource_type\x18\x01 \x01(\t\x12\x0f\n\x07minimum\x18\x02 \x01(\x03\x12\x0f\n\x07maximum\x18\x03 \x01(\x03\"o\n\x13NodePoolAutoscaling\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x16\n\x0emin_node_count\x18\x02 \x01(\x05\x12\x16\n\x0emax_node_count\x18\x03 \x01(\x05\x12\x17\n\x0f\x61utoprovisioned\x18\x04 \x01(\x08\"\xa0\x02\n\x10SetLabelsRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\\\n\x0fresource_labels\x18\x04 \x03(\x0b\x32>.google.container.v1beta1.SetLabelsRequest.ResourceLabelsEntryB\x03\xe0\x41\x02\x12\x1e\n\x11label_fingerprint\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x07 \x01(\t\x1a\x35\n\x13ResourceLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x85\x01\n\x14SetLegacyAbacRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x14\n\x07\x65nabled\x18\x04 \x01(\x08\x42\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\x8d\x01\n\x16StartIPRotationRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\x1a\n\x12rotate_credentials\x18\x07 \x01(\x08\"t\n\x19\x43ompleteIPRotationRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x0c\n\x04name\x18\x07 \x01(\t\"d\n\x11\x41\x63\x63\x65leratorConfig\x12\x19\n\x11\x61\x63\x63\x65lerator_count\x18\x01 \x01(\x03\x12\x18\n\x10\x61\x63\x63\x65lerator_type\x18\x02 \x01(\t\x12\x1a\n\x12gpu_partition_size\x18\x03 \x01(\t\"\xcb\x02\n\x16WorkloadMetadataConfig\x12X\n\rnode_metadata\x18\x01 \x01(\x0e\x32=.google.container.v1beta1.WorkloadMetadataConfig.NodeMetadataB\x02\x18\x01\x12\x43\n\x04mode\x18\x02 \x01(\x0e\x32\x35.google.container.v1beta1.WorkloadMetadataConfig.Mode\"P\n\x0cNodeMetadata\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06SECURE\x10\x01\x12\n\n\x06\x45XPOSE\x10\x02\x12\x17\n\x13GKE_METADATA_SERVER\x10\x03\"@\n\x04Mode\x12\x14\n\x10MODE_UNSPECIFIED\x10\x00\x12\x10\n\x0cGCE_METADATA\x10\x01\x12\x10\n\x0cGKE_METADATA\x10\x02\"\xb8\x01\n\x17SetNetworkPolicyRequest\x12\x19\n\nproject_id\x18\x01 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x13\n\x04zone\x18\x02 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x19\n\ncluster_id\x18\x03 \x01(\tB\x05\x18\x01\xe0\x41\x02\x12\x44\n\x0enetwork_policy\x18\x04 \x01(\x0b\x32\'.google.container.v1beta1.NetworkPolicyB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x06 \x01(\t\"\xbe\x01\n\x1bSetMaintenancePolicyRequest\x12\x17\n\nproject_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\x04zone\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\ncluster_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12L\n\x12maintenance_policy\x18\x04 \x01(\x0b\x32+.google.container.v1beta1.MaintenancePolicyB\x03\xe0\x41\x02\x12\x0c\n\x04name\x18\x05 \x01(\t\"+\n\x14ListLocationsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\"g\n\x15ListLocationsResponse\x12\x35\n\tlocations\x18\x01 \x03(\x0b\x32\".google.container.v1beta1.Location\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb1\x01\n\x08Location\x12=\n\x04type\x18\x01 \x01(\x0e\x32/.google.container.v1beta1.Location.LocationType\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0brecommended\x18\x03 \x01(\x08\"C\n\x0cLocationType\x12\x1d\n\x19LOCATION_TYPE_UNSPECIFIED\x10\x00\x12\x08\n\x04ZONE\x10\x01\x12\n\n\x06REGION\x10\x02\"\xb2\x02\n\x0fStatusCondition\x12@\n\x04\x63ode\x18\x01 \x01(\x0e\x32..google.container.v1beta1.StatusCondition.CodeB\x02\x18\x01\x12\x0f\n\x07message\x18\x02 \x01(\t\x12(\n\x0e\x63\x61nonical_code\x18\x03 \x01(\x0e\x32\x10.google.rpc.Code\"\xa1\x01\n\x04\x43ode\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x10\n\x0cGCE_STOCKOUT\x10\x01\x12\x1f\n\x1bGKE_SERVICE_ACCOUNT_DELETED\x10\x02\x12\x16\n\x12GCE_QUOTA_EXCEEDED\x10\x03\x12\x13\n\x0fSET_BY_OPERATOR\x10\x04\x12\x17\n\x13\x43LOUD_KMS_KEY_ERROR\x10\x07\x12\x0f\n\x0b\x43\x41_EXPIRING\x10\t\x1a\x02\x18\x01\"\xf5\x03\n\rNetworkConfig\x12\x0f\n\x07network\x18\x01 \x01(\t\x12\x12\n\nsubnetwork\x18\x02 \x01(\t\x12$\n\x1c\x65nable_intra_node_visibility\x18\x05 \x01(\x08\x12H\n\x13\x64\x65\x66\x61ult_snat_status\x18\x07 \x01(\x0b\x32+.google.container.v1beta1.DefaultSnatStatus\x12\x1f\n\x17\x65nable_l4ilb_subsetting\x18\n \x01(\x08\x12\x45\n\x11\x64\x61tapath_provider\x18\x0b \x01(\x0e\x32*.google.container.v1beta1.DatapathProvider\x12U\n\x1aprivate_ipv6_google_access\x18\x0c \x01(\x0e\x32\x31.google.container.v1beta1.PrivateIPv6GoogleAccess\x12\x37\n\ndns_config\x18\r \x01(\x0b\x32#.google.container.v1beta1.DNSConfig\x12W\n\x1bservice_external_ips_config\x18\x0f \x01(\x0b\x32\x32.google.container.v1beta1.ServiceExternalIPsConfig\"+\n\x18ServiceExternalIPsConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"j\n\x1cListUsableSubnetworksRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"y\n\x1dListUsableSubnetworksResponse\x12?\n\x0bsubnetworks\x18\x01 \x03(\x0b\x32*.google.container.v1beta1.UsableSubnetwork\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x85\x02\n\x1eUsableSubnetworkSecondaryRange\x12\x12\n\nrange_name\x18\x01 \x01(\t\x12\x15\n\rip_cidr_range\x18\x02 \x01(\t\x12O\n\x06status\x18\x03 \x01(\x0e\x32?.google.container.v1beta1.UsableSubnetworkSecondaryRange.Status\"g\n\x06Status\x12\x0b\n\x07UNKNOWN\x10\x00\x12\n\n\x06UNUSED\x10\x01\x12\x12\n\x0eIN_USE_SERVICE\x10\x02\x12\x18\n\x14IN_USE_SHAREABLE_POD\x10\x03\x12\x16\n\x12IN_USE_MANAGED_POD\x10\x04\"\xbd\x01\n\x10UsableSubnetwork\x12\x12\n\nsubnetwork\x18\x01 \x01(\t\x12\x0f\n\x07network\x18\x02 \x01(\t\x12\x15\n\rip_cidr_range\x18\x03 \x01(\t\x12U\n\x13secondary_ip_ranges\x18\x04 \x03(\x0b\x32\x38.google.container.v1beta1.UsableSubnetworkSecondaryRange\x12\x16\n\x0estatus_message\x18\x05 \x01(\t\")\n\x16VerticalPodAutoscaling\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"%\n\x11\x44\x65\x66\x61ultSnatStatus\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\",\n\x19IntraNodeVisibilityConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"&\n\x13ILBSubsettingConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\xc7\x02\n\tDNSConfig\x12\x41\n\x0b\x63luster_dns\x18\x01 \x01(\x0e\x32,.google.container.v1beta1.DNSConfig.Provider\x12G\n\x11\x63luster_dns_scope\x18\x02 \x01(\x0e\x32,.google.container.v1beta1.DNSConfig.DNSScope\x12\x1a\n\x12\x63luster_dns_domain\x18\x03 \x01(\t\"I\n\x08Provider\x12\x18\n\x14PROVIDER_UNSPECIFIED\x10\x00\x12\x14\n\x10PLATFORM_DEFAULT\x10\x01\x12\r\n\tCLOUD_DNS\x10\x02\"G\n\x08\x44NSScope\x12\x19\n\x15\x44NS_SCOPE_UNSPECIFIED\x10\x00\x12\x11\n\rCLUSTER_SCOPE\x10\x01\x12\r\n\tVPC_SCOPE\x10\x02\".\n\x11MaxPodsConstraint\x12\x19\n\x11max_pods_per_node\x18\x01 \x01(\x03\"j\n\x16WorkloadIdentityConfig\x12\x1e\n\x12identity_namespace\x18\x01 \x01(\tB\x02\x18\x01\x12\x15\n\rworkload_pool\x18\x02 \x01(\t\x12\x19\n\x11identity_provider\x18\x03 \x01(\t\"O\n\x14WorkloadCertificates\x12\x37\n\x13\x65nable_certificates\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\"\x9d\x01\n\x12\x44\x61tabaseEncryption\x12\x41\n\x05state\x18\x02 \x01(\x0e\x32\x32.google.container.v1beta1.DatabaseEncryption.State\x12\x10\n\x08key_name\x18\x01 \x01(\t\"2\n\x05State\x12\x0b\n\x07UNKNOWN\x10\x00\x12\r\n\tENCRYPTED\x10\x01\x12\r\n\tDECRYPTED\x10\x02\"\xf7\x02\n\x19ResourceUsageExportConfig\x12\x65\n\x14\x62igquery_destination\x18\x01 \x01(\x0b\x32G.google.container.v1beta1.ResourceUsageExportConfig.BigQueryDestination\x12&\n\x1e\x65nable_network_egress_metering\x18\x02 \x01(\x08\x12r\n\x1b\x63onsumption_metering_config\x18\x03 \x01(\x0b\x32M.google.container.v1beta1.ResourceUsageExportConfig.ConsumptionMeteringConfig\x1a)\n\x13\x42igQueryDestination\x12\x12\n\ndataset_id\x18\x01 \x01(\t\x1a,\n\x19\x43onsumptionMeteringConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\" \n\rShieldedNodes\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\x1d\n\nVirtualNIC\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"(\n\x16GetOpenIDConfigRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\"\xdc\x01\n\x17GetOpenIDConfigResponse\x12\x0e\n\x06issuer\x18\x01 \x01(\t\x12\x10\n\x08jwks_uri\x18\x02 \x01(\t\x12 \n\x18response_types_supported\x18\x03 \x03(\t\x12\x1f\n\x17subject_types_supported\x18\x04 \x03(\t\x12-\n%id_token_signing_alg_values_supported\x18\x05 \x03(\t\x12\x18\n\x10\x63laims_supported\x18\x06 \x03(\t\x12\x13\n\x0bgrant_types\x18\x07 \x03(\t\"\'\n\x15GetJSONWebKeysRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\"r\n\x03Jwk\x12\x0b\n\x03kty\x18\x01 \x01(\t\x12\x0b\n\x03\x61lg\x18\x02 \x01(\t\x12\x0b\n\x03use\x18\x03 \x01(\t\x12\x0b\n\x03kid\x18\x04 \x01(\t\x12\t\n\x01n\x18\x05 \x01(\t\x12\t\n\x01\x65\x18\x06 \x01(\t\x12\t\n\x01x\x18\x07 \x01(\t\x12\t\n\x01y\x18\x08 \x01(\t\x12\x0b\n\x03\x63rv\x18\t \x01(\t\"E\n\x16GetJSONWebKeysResponse\x12+\n\x04keys\x18\x01 \x03(\x0b\x32\x1d.google.container.v1beta1.Jwk\"\x93\x01\n\x0eReleaseChannel\x12\x41\n\x07\x63hannel\x18\x01 \x01(\x0e\x32\x30.google.container.v1beta1.ReleaseChannel.Channel\">\n\x07\x43hannel\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\t\n\x05RAPID\x10\x01\x12\x0b\n\x07REGULAR\x10\x02\x12\n\n\x06STABLE\x10\x03\"U\n\tTpuConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x1e\n\x16use_service_networking\x18\x02 \x01(\x08\x12\x17\n\x0fipv4_cidr_block\x18\x03 \x01(\t\"\x08\n\x06Master\"\x1c\n\tAutopilot\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\xa5\x01\n\x12NotificationConfig\x12\x43\n\x06pubsub\x18\x01 \x01(\x0b\x32\x33.google.container.v1beta1.NotificationConfig.PubSub\x1aJ\n\x06PubSub\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12/\n\x05topic\x18\x02 \x01(\tB \xfa\x41\x1d\n\x1bpubsub.googleapis.com/Topic\"$\n\x11\x43onfidentialNodes\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\xe4\x01\n\x0cUpgradeEvent\x12\x44\n\rresource_type\x18\x01 \x01(\x0e\x32-.google.container.v1beta1.UpgradeResourceType\x12\x11\n\toperation\x18\x02 \x01(\t\x12\x38\n\x14operation_start_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x17\n\x0f\x63urrent_version\x18\x04 \x01(\t\x12\x16\n\x0etarget_version\x18\x05 \x01(\t\x12\x10\n\x08resource\x18\x06 \x01(\t\"\x88\x02\n\x15UpgradeAvailableEvent\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x44\n\rresource_type\x18\x02 \x01(\x0e\x32-.google.container.v1beta1.UpgradeResourceType\x12\x41\n\x0frelease_channel\x18\x03 \x01(\x0b\x32(.google.container.v1beta1.ReleaseChannel\x12\x10\n\x08resource\x18\x04 \x01(\t\x12\x43\n\x10windows_versions\x18\x05 \x01(\x0b\x32).google.container.v1beta1.WindowsVersions\"(\n\x15IdentityServiceConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"[\n\rLoggingConfig\x12J\n\x10\x63omponent_config\x18\x01 \x01(\x0b\x32\x30.google.container.v1beta1.LoggingComponentConfig\"\xbd\x01\n\x16LoggingComponentConfig\x12U\n\x11\x65nable_components\x18\x01 \x03(\x0e\x32:.google.container.v1beta1.LoggingComponentConfig.Component\"L\n\tComponent\x12\x19\n\x15\x43OMPONENT_UNSPECIFIED\x10\x00\x12\x15\n\x11SYSTEM_COMPONENTS\x10\x01\x12\r\n\tWORKLOADS\x10\x02\"a\n\x10MonitoringConfig\x12M\n\x10\x63omponent_config\x18\x01 \x01(\x0b\x32\x33.google.container.v1beta1.MonitoringComponentConfig\"\xc3\x01\n\x19MonitoringComponentConfig\x12X\n\x11\x65nable_components\x18\x01 \x03(\x0e\x32=.google.container.v1beta1.MonitoringComponentConfig.Component\"L\n\tComponent\x12\x19\n\x15\x43OMPONENT_UNSPECIFIED\x10\x00\x12\x15\n\x11SYSTEM_COMPONENTS\x10\x01\x12\r\n\tWORKLOADS\x10\x02*\xc6\x01\n\x17PrivateIPv6GoogleAccess\x12*\n&PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED\x10\x00\x12\'\n#PRIVATE_IPV6_GOOGLE_ACCESS_DISABLED\x10\x01\x12(\n$PRIVATE_IPV6_GOOGLE_ACCESS_TO_GOOGLE\x10\x02\x12,\n(PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL\x10\x03*a\n\x10\x44\x61tapathProvider\x12!\n\x1d\x44\x41TAPATH_PROVIDER_UNSPECIFIED\x10\x00\x12\x13\n\x0fLEGACY_DATAPATH\x10\x01\x12\x15\n\x11\x41\x44VANCED_DATAPATH\x10\x02*W\n\x13UpgradeResourceType\x12%\n!UPGRADE_RESOURCE_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06MASTER\x10\x01\x12\r\n\tNODE_POOL\x10\x02\x32\xeaJ\n\x0e\x43lusterManager\x12\xf3\x01\n\x0cListClusters\x12-.google.container.v1beta1.ListClustersRequest\x1a..google.container.v1beta1.ListClustersResponse\"\x83\x01\x82\xd3\xe4\x93\x02k\x12\x31/v1beta1/{parent=projects/*/locations/*}/clustersZ6\x12\x34/v1beta1/projects/{project_id}/zones/{zone}/clusters\xda\x41\x0fproject_id,zone\x12\xfa\x01\n\nGetCluster\x12+.google.container.v1beta1.GetClusterRequest\x1a!.google.container.v1beta1.Cluster\"\x9b\x01\x82\xd3\xe4\x93\x02x\x12\x31/v1beta1/{name=projects/*/locations/*/clusters/*}ZC\x12\x41/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}\xda\x41\x1aproject_id,zone,cluster_id\x12\xf8\x01\n\rCreateCluster\x12..google.container.v1beta1.CreateClusterRequest\x1a#.google.container.v1beta1.Operation\"\x91\x01\x82\xd3\xe4\x93\x02q\"1/v1beta1/{parent=projects/*/locations/*}/clusters:\x01*Z9\"4/v1beta1/projects/{project_id}/zones/{zone}/clusters:\x01*\xda\x41\x17project_id,zone,cluster\x12\x8f\x02\n\rUpdateCluster\x12..google.container.v1beta1.UpdateClusterRequest\x1a#.google.container.v1beta1.Operation\"\xa8\x01\x82\xd3\xe4\x93\x02~\x1a\x31/v1beta1/{name=projects/*/locations/*/clusters/*}:\x01*ZF\x1a\x41/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}:\x01*\xda\x41!project_id,zone,cluster_id,update\x12\x9a\x02\n\x0eUpdateNodePool\x12/.google.container.v1beta1.UpdateNodePoolRequest\x1a#.google.container.v1beta1.Operation\"\xb1\x01\x82\xd3\xe4\x93\x02\xaa\x01\x1a=/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}:\x01*Zf\"a/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}/update:\x01*\x12\xbe\x02\n\x16SetNodePoolAutoscaling\x12\x37.google.container.v1beta1.SetNodePoolAutoscalingRequest\x1a#.google.container.v1beta1.Operation\"\xc5\x01\x82\xd3\xe4\x93\x02\xbe\x01\"L/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}:setAutoscaling:\x01*Zk\"f/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}/autoscaling:\x01*\x12\xb4\x02\n\x11SetLoggingService\x12\x32.google.container.v1beta1.SetLoggingServiceRequest\x1a#.google.container.v1beta1.Operation\"\xc5\x01\x82\xd3\xe4\x93\x02\x91\x01\"</v1beta1/{name=projects/*/locations/*/clusters/*}:setLogging:\x01*ZN\"I/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/logging:\x01*\xda\x41*project_id,zone,cluster_id,logging_service\x12\xc3\x02\n\x14SetMonitoringService\x12\x35.google.container.v1beta1.SetMonitoringServiceRequest\x1a#.google.container.v1beta1.Operation\"\xce\x01\x82\xd3\xe4\x93\x02\x97\x01\"?/v1beta1/{name=projects/*/locations/*/clusters/*}:setMonitoring:\x01*ZQ\"L/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/monitoring:\x01*\xda\x41-project_id,zone,cluster_id,monitoring_service\x12\xac\x02\n\x0fSetAddonsConfig\x12\x30.google.container.v1beta1.SetAddonsConfigRequest\x1a#.google.container.v1beta1.Operation\"\xc1\x01\x82\xd3\xe4\x93\x02\x8f\x01\";/v1beta1/{name=projects/*/locations/*/clusters/*}:setAddons:\x01*ZM\"H/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/addons:\x01*\xda\x41(project_id,zone,cluster_id,addons_config\x12\xab\x02\n\x0cSetLocations\x12-.google.container.v1beta1.SetLocationsRequest\x1a#.google.container.v1beta1.Operation\"\xc6\x01\x88\x02\x01\x82\xd3\xe4\x93\x02\x95\x01\">/v1beta1/{name=projects/*/locations/*/clusters/*}:setLocations:\x01*ZP\"K/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/locations:\x01*\xda\x41$project_id,zone,cluster_id,locations\x12\xaa\x02\n\x0cUpdateMaster\x12-.google.container.v1beta1.UpdateMasterRequest\x1a#.google.container.v1beta1.Operation\"\xc5\x01\x82\xd3\xe4\x93\x02\x92\x01\">/v1beta1/{name=projects/*/locations/*/clusters/*}:updateMaster:\x01*ZM\"H/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/master:\x01*\xda\x41)project_id,zone,cluster_id,master_version\x12\x88\x02\n\rSetMasterAuth\x12..google.container.v1beta1.SetMasterAuthRequest\x1a#.google.container.v1beta1.Operation\"\xa1\x01\x82\xd3\xe4\x93\x02\x9a\x01\"?/v1beta1/{name=projects/*/locations/*/clusters/*}:setMasterAuth:\x01*ZT\"O/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}:setMasterAuth:\x01*\x12\x82\x02\n\rDeleteCluster\x12..google.container.v1beta1.DeleteClusterRequest\x1a#.google.container.v1beta1.Operation\"\x9b\x01\x82\xd3\xe4\x93\x02x*1/v1beta1/{name=projects/*/locations/*/clusters/*}ZC*A/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}\xda\x41\x1aproject_id,zone,cluster_id\x12\xfd\x01\n\x0eListOperations\x12/.google.container.v1beta1.ListOperationsRequest\x1a\x30.google.container.v1beta1.ListOperationsResponse\"\x87\x01\x82\xd3\xe4\x93\x02o\x12\x33/v1beta1/{parent=projects/*/locations/*}/operationsZ8\x12\x36/v1beta1/projects/{project_id}/zones/{zone}/operations\xda\x41\x0fproject_id,zone\x12\x88\x02\n\x0cGetOperation\x12-.google.container.v1beta1.GetOperationRequest\x1a#.google.container.v1beta1.Operation\"\xa3\x01\x82\xd3\xe4\x93\x02~\x12\x33/v1beta1/{name=projects/*/locations/*/operations/*}ZG\x12\x45/v1beta1/projects/{project_id}/zones/{zone}/operations/{operation_id}\xda\x41\x1cproject_id,zone,operation_id\x12\x96\x02\n\x0f\x43\x61ncelOperation\x12\x30.google.container.v1beta1.CancelOperationRequest\x1a\x16.google.protobuf.Empty\"\xb8\x01\x82\xd3\xe4\x93\x02\x92\x01\":/v1beta1/{name=projects/*/locations/*/operations/*}:cancel:\x01*ZQ\"L/v1beta1/projects/{project_id}/zones/{zone}/operations/{operation_id}:cancel:\x01*\xda\x41\x1cproject_id,zone,operation_id\x12\xf7\x01\n\x0fGetServerConfig\x12\x30.google.container.v1beta1.GetServerConfigRequest\x1a&.google.container.v1beta1.ServerConfig\"\x89\x01\x82\xd3\xe4\x93\x02q\x12\x33/v1beta1/{name=projects/*/locations/*}/serverConfigZ:\x12\x38/v1beta1/projects/{project_id}/zones/{zone}/serverconfig\xda\x41\x0fproject_id,zone\x12\xa5\x02\n\rListNodePools\x12..google.container.v1beta1.ListNodePoolsRequest\x1a/.google.container.v1beta1.ListNodePoolsResponse\"\xb2\x01\x82\xd3\xe4\x93\x02\x8e\x01\x12=/v1beta1/{parent=projects/*/locations/*/clusters/*}/nodePoolsZM\x12K/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools\xda\x41\x1aproject_id,zone,cluster_id\x12\xb5\x01\n\x0eGetJSONWebKeys\x12/.google.container.v1beta1.GetJSONWebKeysRequest\x1a\x30.google.container.v1beta1.GetJSONWebKeysResponse\"@\x82\xd3\xe4\x93\x02:\x12\x38/v1beta1/{parent=projects/*/locations/*/clusters/*}/jwks\x12\xb0\x02\n\x0bGetNodePool\x12,.google.container.v1beta1.GetNodePoolRequest\x1a\".google.container.v1beta1.NodePool\"\xce\x01\x82\xd3\xe4\x93\x02\x9d\x01\x12=/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}Z\\\x12Z/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}\xda\x41\'project_id,zone,cluster_id,node_pool_id\x12\xab\x02\n\x0e\x43reateNodePool\x12/.google.container.v1beta1.CreateNodePoolRequest\x1a#.google.container.v1beta1.Operation\"\xc2\x01\x82\xd3\xe4\x93\x02\x94\x01\"=/v1beta1/{parent=projects/*/locations/*/clusters/*}/nodePools:\x01*ZP\"K/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools:\x01*\xda\x41$project_id,zone,cluster_id,node_pool\x12\xb7\x02\n\x0e\x44\x65leteNodePool\x12/.google.container.v1beta1.DeleteNodePoolRequest\x1a#.google.container.v1beta1.Operation\"\xce\x01\x82\xd3\xe4\x93\x02\x9d\x01*=/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}Z\\*Z/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}\xda\x41\'project_id,zone,cluster_id,node_pool_id\x12\xe1\x02\n\x17RollbackNodePoolUpgrade\x12\x38.google.container.v1beta1.RollbackNodePoolUpgradeRequest\x1a#.google.container.v1beta1.Operation\"\xe6\x01\x82\xd3\xe4\x93\x02\xb5\x01\"F/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}:rollback:\x01*Zh\"c/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}:rollback:\x01*\xda\x41\'project_id,zone,cluster_id,node_pool_id\x12\xf2\x02\n\x15SetNodePoolManagement\x12\x36.google.container.v1beta1.SetNodePoolManagementRequest\x1a#.google.container.v1beta1.Operation\"\xfb\x01\x82\xd3\xe4\x93\x02\xbf\x01\"K/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}:setManagement:\x01*Zm\"h/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}/setManagement:\x01*\xda\x41\x32project_id,zone,cluster_id,node_pool_id,management\x12\xc4\x02\n\tSetLabels\x12*.google.container.v1beta1.SetLabelsRequest\x1a#.google.container.v1beta1.Operation\"\xe5\x01\x82\xd3\xe4\x93\x02\x9f\x01\"C/v1beta1/{name=projects/*/locations/*/clusters/*}:setResourceLabels:\x01*ZU\"P/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/resourceLabels:\x01*\xda\x41<project_id,zone,cluster_id,resource_labels,label_fingerprint\x12\xaa\x02\n\rSetLegacyAbac\x12..google.container.v1beta1.SetLegacyAbacRequest\x1a#.google.container.v1beta1.Operation\"\xc3\x01\x82\xd3\xe4\x93\x02\x97\x01\"?/v1beta1/{name=projects/*/locations/*/clusters/*}:setLegacyAbac:\x01*ZQ\"L/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/legacyAbac:\x01*\xda\x41\"project_id,zone,cluster_id,enabled\x12\xad\x02\n\x0fStartIPRotation\x12\x30.google.container.v1beta1.StartIPRotationRequest\x1a#.google.container.v1beta1.Operation\"\xc2\x01\x82\xd3\xe4\x93\x02\x9e\x01\"A/v1beta1/{name=projects/*/locations/*/clusters/*}:startIpRotation:\x01*ZV\"Q/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}:startIpRotation:\x01*\xda\x41\x1aproject_id,zone,cluster_id\x12\xb9\x02\n\x12\x43ompleteIPRotation\x12\x33.google.container.v1beta1.CompleteIPRotationRequest\x1a#.google.container.v1beta1.Operation\"\xc8\x01\x82\xd3\xe4\x93\x02\xa4\x01\"D/v1beta1/{name=projects/*/locations/*/clusters/*}:completeIpRotation:\x01*ZY\"T/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}:completeIpRotation:\x01*\xda\x41\x1aproject_id,zone,cluster_id\x12\xa5\x02\n\x0fSetNodePoolSize\x12\x30.google.container.v1beta1.SetNodePoolSizeRequest\x1a#.google.container.v1beta1.Operation\"\xba\x01\x82\xd3\xe4\x93\x02\xb3\x01\"E/v1beta1/{name=projects/*/locations/*/clusters/*/nodePools/*}:setSize:\x01*Zg\"b/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}/nodePools/{node_pool_id}/setSize:\x01*\x12\xc0\x02\n\x10SetNetworkPolicy\x12\x31.google.container.v1beta1.SetNetworkPolicyRequest\x1a#.google.container.v1beta1.Operation\"\xd3\x01\x82\xd3\xe4\x93\x02\xa0\x01\"B/v1beta1/{name=projects/*/locations/*/clusters/*}:setNetworkPolicy:\x01*ZW\"R/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}:setNetworkPolicy:\x01*\xda\x41)project_id,zone,cluster_id,network_policy\x12\xd4\x02\n\x14SetMaintenancePolicy\x12\x35.google.container.v1beta1.SetMaintenancePolicyRequest\x1a#.google.container.v1beta1.Operation\"\xdf\x01\x82\xd3\xe4\x93\x02\xa8\x01\"F/v1beta1/{name=projects/*/locations/*/clusters/*}:setMaintenancePolicy:\x01*Z[\"V/v1beta1/projects/{project_id}/zones/{zone}/clusters/{cluster_id}:setMaintenancePolicy:\x01*\xda\x41-project_id,zone,cluster_id,maintenance_policy\x12\xd4\x01\n\x15ListUsableSubnetworks\x12\x36.google.container.v1beta1.ListUsableSubnetworksRequest\x1a\x37.google.container.v1beta1.ListUsableSubnetworksResponse\"J\x82\xd3\xe4\x93\x02;\x12\x39/v1beta1/{parent=projects/*}/aggregated/usableSubnetworks\xda\x41\x06parent\x12\xa9\x01\n\rListLocations\x12..google.container.v1beta1.ListLocationsRequest\x1a/.google.container.v1beta1.ListLocationsResponse\"7\x82\xd3\xe4\x93\x02(\x12&/v1beta1/{parent=projects/*}/locations\xda\x41\x06parent\x1aL\xca\x41\x18\x63ontainer.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xa1\x02\n\x1c\x63om.google.container.v1beta1B\x13\x43lusterServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/container/v1beta1;container\xaa\x02\x1eGoogle.Cloud.Container.V1Beta1\xca\x02\x1eGoogle\\Cloud\\Container\\V1beta1\xea\x02!Google::Cloud::Container::V1beta1\xea\x41@\n\x1bpubsub.googleapis.com/Topic\x12!projects/{project}/topics/{topic}b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,google_dot_rpc_dot_code__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,google_dot_rpc_dot_code__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,google_dot_type_dot_date__pb2.DESCRIPTOR,])
 
+_PRIVATEIPV6GOOGLEACCESS = _descriptor.EnumDescriptor(
+  name='PrivateIPv6GoogleAccess',
+  full_name='google.container.v1beta1.PrivateIPv6GoogleAccess',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PRIVATE_IPV6_GOOGLE_ACCESS_DISABLED', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PRIVATE_IPV6_GOOGLE_ACCESS_TO_GOOGLE', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=29120,
+  serialized_end=29318,
+)
+_sym_db.RegisterEnumDescriptor(_PRIVATEIPV6GOOGLEACCESS)
+
+PrivateIPv6GoogleAccess = enum_type_wrapper.EnumTypeWrapper(_PRIVATEIPV6GOOGLEACCESS)
 _DATAPATHPROVIDER = _descriptor.EnumDescriptor(
   name='DatapathProvider',
   full_name='google.container.v1beta1.DatapathProvider',
@@ -58,8 +95,8 @@ _DATAPATHPROVIDER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=24927,
-  serialized_end=25024,
+  serialized_start=29320,
+  serialized_end=29417,
 )
 _sym_db.RegisterEnumDescriptor(_DATAPATHPROVIDER)
 
@@ -89,12 +126,16 @@ _UPGRADERESOURCETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=25026,
-  serialized_end=25113,
+  serialized_start=29419,
+  serialized_end=29506,
 )
 _sym_db.RegisterEnumDescriptor(_UPGRADERESOURCETYPE)
 
 UpgradeResourceType = enum_type_wrapper.EnumTypeWrapper(_UPGRADERESOURCETYPE)
+PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED = 0
+PRIVATE_IPV6_GOOGLE_ACCESS_DISABLED = 1
+PRIVATE_IPV6_GOOGLE_ACCESS_TO_GOOGLE = 2
+PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL = 3
 DATAPATH_PROVIDER_UNSPECIFIED = 0
 LEGACY_DATAPATH = 1
 ADVANCED_DATAPATH = 2
@@ -123,8 +164,8 @@ _SANDBOXCONFIG_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1963,
-  serialized_end=1998,
+  serialized_start=2140,
+  serialized_end=2175,
 )
 _sym_db.RegisterEnumDescriptor(_SANDBOXCONFIG_TYPE)
 
@@ -158,8 +199,8 @@ _RESERVATIONAFFINITY_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2190,
-  serialized_end=2280,
+  serialized_start=2367,
+  serialized_end=2457,
 )
 _sym_db.RegisterEnumDescriptor(_RESERVATIONAFFINITY_TYPE)
 
@@ -193,8 +234,8 @@ _NODETAINT_EFFECT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2384,
-  serialized_end=2473,
+  serialized_start=2561,
+  serialized_end=2650,
 )
 _sym_db.RegisterEnumDescriptor(_NODETAINT_EFFECT)
 
@@ -218,8 +259,8 @@ _ISTIOCONFIG_ISTIOAUTHMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4328,
-  serialized_end=4379,
+  serialized_start=4736,
+  serialized_end=4787,
 )
 _sym_db.RegisterEnumDescriptor(_ISTIOCONFIG_ISTIOAUTHMODE)
 
@@ -248,8 +289,8 @@ _CLOUDRUNCONFIG_LOADBALANCERTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4505,
-  serialized_end=4625,
+  serialized_start=4913,
+  serialized_end=5033,
 )
 _sym_db.RegisterEnumDescriptor(_CLOUDRUNCONFIG_LOADBALANCERTYPE)
 
@@ -273,8 +314,8 @@ _NETWORKPOLICY_PROVIDER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4957,
-  serialized_end=5005,
+  serialized_start=5365,
+  serialized_end=5413,
 )
 _sym_db.RegisterEnumDescriptor(_NETWORKPOLICY_PROVIDER)
 
@@ -308,8 +349,8 @@ _CLUSTERTELEMETRY_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5687,
-  serialized_end=5754,
+  serialized_start=6095,
+  serialized_end=6162,
 )
 _sym_db.RegisterEnumDescriptor(_CLUSTERTELEMETRY_TYPE)
 
@@ -358,8 +399,8 @@ _CLUSTER_STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=8720,
-  serialized_end=8839,
+  serialized_start=9580,
+  serialized_end=9699,
 )
 _sym_db.RegisterEnumDescriptor(_CLUSTER_STATUS)
 
@@ -398,8 +439,8 @@ _OPERATION_STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=11320,
-  serialized_end=11402,
+  serialized_start=13093,
+  serialized_end=13175,
 )
 _sym_db.RegisterEnumDescriptor(_OPERATION_STATUS)
 
@@ -498,8 +539,8 @@ _OPERATION_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=11405,
-  serialized_end=11786,
+  serialized_start=13178,
+  serialized_end=13559,
 )
 _sym_db.RegisterEnumDescriptor(_OPERATION_TYPE)
 
@@ -533,8 +574,8 @@ _SETMASTERAUTHREQUEST_ACTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=14308,
-  serialized_end=14388,
+  serialized_start=16295,
+  serialized_end=16375,
 )
 _sym_db.RegisterEnumDescriptor(_SETMASTERAUTHREQUEST_ACTION)
 
@@ -583,8 +624,8 @@ _NODEPOOL_STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=17050,
-  serialized_end=17179,
+  serialized_start=19509,
+  serialized_end=19638,
 )
 _sym_db.RegisterEnumDescriptor(_NODEPOOL_STATUS)
 
@@ -613,8 +654,8 @@ _CLUSTERAUTOSCALING_AUTOSCALINGPROFILE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=19148,
-  serialized_end=19233,
+  serialized_start=21607,
+  serialized_end=21692,
 )
 _sym_db.RegisterEnumDescriptor(_CLUSTERAUTOSCALING_AUTOSCALINGPROFILE)
 
@@ -648,8 +689,8 @@ _WORKLOADMETADATACONFIG_NODEMETADATA = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=20793,
-  serialized_end=20873,
+  serialized_start=23280,
+  serialized_end=23360,
 )
 _sym_db.RegisterEnumDescriptor(_WORKLOADMETADATACONFIG_NODEMETADATA)
 
@@ -678,8 +719,8 @@ _WORKLOADMETADATACONFIG_MODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=20875,
-  serialized_end=20939,
+  serialized_start=23362,
+  serialized_end=23426,
 )
 _sym_db.RegisterEnumDescriptor(_WORKLOADMETADATACONFIG_MODE)
 
@@ -708,8 +749,8 @@ _LOCATION_LOCATIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=21582,
-  serialized_end=21649,
+  serialized_start=24069,
+  serialized_end=24136,
 )
 _sym_db.RegisterEnumDescriptor(_LOCATION_LOCATIONTYPE)
 
@@ -750,11 +791,16 @@ _STATUSCONDITION_CODE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CA_EXPIRING', index=6, number=9,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
-  serialized_options=None,
-  serialized_start=21797,
-  serialized_end=21937,
+  serialized_options=b'\030\001',
+  serialized_start=24284,
+  serialized_end=24445,
 )
 _sym_db.RegisterEnumDescriptor(_STATUSCONDITION_CODE)
 
@@ -793,10 +839,70 @@ _USABLESUBNETWORKSECONDARYRANGE_STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=22567,
-  serialized_end=22670,
+  serialized_start=25386,
+  serialized_end=25489,
 )
 _sym_db.RegisterEnumDescriptor(_USABLESUBNETWORKSECONDARYRANGE_STATUS)
+
+_DNSCONFIG_PROVIDER = _descriptor.EnumDescriptor(
+  name='Provider',
+  full_name='google.container.v1beta1.DNSConfig.Provider',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='PROVIDER_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PLATFORM_DEFAULT', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CLOUD_DNS', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=26033,
+  serialized_end=26106,
+)
+_sym_db.RegisterEnumDescriptor(_DNSCONFIG_PROVIDER)
+
+_DNSCONFIG_DNSSCOPE = _descriptor.EnumDescriptor(
+  name='DNSScope',
+  full_name='google.container.v1beta1.DNSConfig.DNSScope',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='DNS_SCOPE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CLUSTER_SCOPE', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='VPC_SCOPE', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=26108,
+  serialized_end=26179,
+)
+_sym_db.RegisterEnumDescriptor(_DNSCONFIG_DNSSCOPE)
 
 _DATABASEENCRYPTION_STATE = _descriptor.EnumDescriptor(
   name='State',
@@ -823,8 +929,8 @@ _DATABASEENCRYPTION_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=23256,
-  serialized_end=23306,
+  serialized_start=26526,
+  serialized_end=26576,
 )
 _sym_db.RegisterEnumDescriptor(_DATABASEENCRYPTION_STATE)
 
@@ -858,10 +964,70 @@ _RELEASECHANNEL_CHANNEL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=24299,
-  serialized_end=24361,
+  serialized_start=27600,
+  serialized_end=27662,
 )
 _sym_db.RegisterEnumDescriptor(_RELEASECHANNEL_CHANNEL)
+
+_LOGGINGCOMPONENTCONFIG_COMPONENT = _descriptor.EnumDescriptor(
+  name='Component',
+  full_name='google.container.v1beta1.LoggingComponentConfig.Component',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='COMPONENT_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SYSTEM_COMPONENTS', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='WORKLOADS', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=28744,
+  serialized_end=28820,
+)
+_sym_db.RegisterEnumDescriptor(_LOGGINGCOMPONENTCONFIG_COMPONENT)
+
+_MONITORINGCOMPONENTCONFIG_COMPONENT = _descriptor.EnumDescriptor(
+  name='Component',
+  full_name='google.container.v1beta1.MonitoringComponentConfig.Component',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='COMPONENT_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SYSTEM_COMPONENTS', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='WORKLOADS', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=28744,
+  serialized_end=28820,
+)
+_sym_db.RegisterEnumDescriptor(_MONITORINGCOMPONENTCONFIG_COMPONENT)
 
 
 _LINUXNODECONFIG_SYSCTLSENTRY = _descriptor.Descriptor(
@@ -898,8 +1064,8 @@ _LINUXNODECONFIG_SYSCTLSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=426,
-  serialized_end=472,
+  serialized_start=450,
+  serialized_end=496,
 )
 
 _LINUXNODECONFIG = _descriptor.Descriptor(
@@ -929,8 +1095,8 @@ _LINUXNODECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=334,
-  serialized_end=472,
+  serialized_start=358,
+  serialized_end=496,
 )
 
 
@@ -975,8 +1141,8 @@ _NODEKUBELETCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=475,
-  serialized_end=603,
+  serialized_start=499,
+  serialized_end=627,
 )
 
 
@@ -1014,8 +1180,8 @@ _NODECONFIG_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1672,
-  serialized_end=1719,
+  serialized_start=1749,
+  serialized_end=1796,
 )
 
 _NODECONFIG_LABELSENTRY = _descriptor.Descriptor(
@@ -1052,8 +1218,8 @@ _NODECONFIG_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1721,
-  serialized_end=1766,
+  serialized_start=1798,
+  serialized_end=1843,
 )
 
 _NODECONFIG = _descriptor.Descriptor(
@@ -1225,6 +1391,13 @@ _NODECONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='gvnic', full_name='google.container.v1beta1.NodeConfig.gvnic', index=23,
+      number=29, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1237,8 +1410,54 @@ _NODECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=606,
-  serialized_end=1766,
+  serialized_start=630,
+  serialized_end=1843,
+)
+
+
+_NODENETWORKCONFIG = _descriptor.Descriptor(
+  name='NodeNetworkConfig',
+  full_name='google.container.v1beta1.NodeNetworkConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='create_pod_range', full_name='google.container.v1beta1.NodeNetworkConfig.create_pod_range', index=0,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\004', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='pod_range', full_name='google.container.v1beta1.NodeNetworkConfig.pod_range', index=1,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='pod_ipv4_cidr_block', full_name='google.container.v1beta1.NodeNetworkConfig.pod_ipv4_cidr_block', index=2,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1845,
+  serialized_end=1943,
 )
 
 
@@ -1276,8 +1495,8 @@ _SHIELDEDINSTANCECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1768,
-  serialized_end=1857,
+  serialized_start=1945,
+  serialized_end=2034,
 )
 
 
@@ -1316,8 +1535,8 @@ _SANDBOXCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1860,
-  serialized_end=1998,
+  serialized_start=2037,
+  serialized_end=2175,
 )
 
 
@@ -1348,8 +1567,8 @@ _EPHEMERALSTORAGECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2000,
-  serialized_end=2049,
+  serialized_start=2177,
+  serialized_end=2226,
 )
 
 
@@ -1395,8 +1614,8 @@ _RESERVATIONAFFINITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2052,
-  serialized_end=2280,
+  serialized_start=2229,
+  serialized_end=2457,
 )
 
 
@@ -1442,8 +1661,142 @@ _NODETAINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2283,
-  serialized_end=2473,
+  serialized_start=2460,
+  serialized_end=2650,
+)
+
+
+_NODETAINTS = _descriptor.Descriptor(
+  name='NodeTaints',
+  full_name='google.container.v1beta1.NodeTaints',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='taints', full_name='google.container.v1beta1.NodeTaints.taints', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2652,
+  serialized_end=2717,
+)
+
+
+_NODELABELS_LABELSENTRY = _descriptor.Descriptor(
+  name='LabelsEntry',
+  full_name='google.container.v1beta1.NodeLabels.LabelsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.container.v1beta1.NodeLabels.LabelsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.container.v1beta1.NodeLabels.LabelsEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1798,
+  serialized_end=1843,
+)
+
+_NODELABELS = _descriptor.Descriptor(
+  name='NodeLabels',
+  full_name='google.container.v1beta1.NodeLabels',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='labels', full_name='google.container.v1beta1.NodeLabels.labels', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_NODELABELS_LABELSENTRY, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2719,
+  serialized_end=2844,
+)
+
+
+_NETWORKTAGS = _descriptor.Descriptor(
+  name='NetworkTags',
+  full_name='google.container.v1beta1.NetworkTags',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='tags', full_name='google.container.v1beta1.NetworkTags.tags', index=0,
+      number=1, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2846,
+  serialized_end=2873,
 )
 
 
@@ -1509,8 +1862,8 @@ _MASTERAUTH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2476,
-  serialized_end=2698,
+  serialized_start=2876,
+  serialized_end=3098,
 )
 
 
@@ -1541,8 +1894,8 @@ _CLIENTCERTIFICATECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2700,
-  serialized_end=2759,
+  serialized_start=3100,
+  serialized_end=3159,
 )
 
 
@@ -1623,7 +1976,7 @@ _ADDONSCONFIG = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1636,8 +1989,8 @@ _ADDONSCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2762,
-  serialized_end=3542,
+  serialized_start=3162,
+  serialized_end=3946,
 )
 
 
@@ -1668,8 +2021,8 @@ _HTTPLOADBALANCING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3544,
-  serialized_end=3581,
+  serialized_start=3948,
+  serialized_end=3985,
 )
 
 
@@ -1700,8 +2053,8 @@ _HORIZONTALPODAUTOSCALING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3583,
-  serialized_end=3627,
+  serialized_start=3987,
+  serialized_end=4031,
 )
 
 
@@ -1732,8 +2085,8 @@ _KUBERNETESDASHBOARD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3629,
-  serialized_end=3668,
+  serialized_start=4033,
+  serialized_end=4072,
 )
 
 
@@ -1764,8 +2117,8 @@ _NETWORKPOLICYCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3670,
-  serialized_end=3709,
+  serialized_start=4074,
+  serialized_end=4113,
 )
 
 
@@ -1796,8 +2149,8 @@ _DNSCACHECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3711,
-  serialized_end=3744,
+  serialized_start=4115,
+  serialized_end=4148,
 )
 
 
@@ -1815,7 +2168,7 @@ _KALMCONFIG = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1828,8 +2181,8 @@ _KALMCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3746,
-  serialized_end=3775,
+  serialized_start=4150,
+  serialized_end=4183,
 )
 
 
@@ -1860,8 +2213,8 @@ _CONFIGCONNECTORCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3777,
-  serialized_end=3817,
+  serialized_start=4185,
+  serialized_end=4225,
 )
 
 
@@ -1892,8 +2245,8 @@ _GCEPERSISTENTDISKCSIDRIVERCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3819,
-  serialized_end=3870,
+  serialized_start=4227,
+  serialized_end=4278,
 )
 
 
@@ -1924,8 +2277,8 @@ _PRIVATECLUSTERMASTERGLOBALACCESSCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3872,
-  serialized_end=3929,
+  serialized_start=4280,
+  serialized_end=4337,
 )
 
 
@@ -1998,8 +2351,8 @@ _PRIVATECLUSTERCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3932,
-  serialized_end=4225,
+  serialized_start=4340,
+  serialized_end=4633,
 )
 
 
@@ -2038,8 +2391,8 @@ _ISTIOCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4228,
-  serialized_end=4379,
+  serialized_start=4636,
+  serialized_end=4787,
 )
 
 
@@ -2078,8 +2431,8 @@ _CLOUDRUNCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4382,
-  serialized_end=4625,
+  serialized_start=4790,
+  serialized_end=5033,
 )
 
 
@@ -2117,8 +2470,8 @@ _MASTERAUTHORIZEDNETWORKSCONFIG_CIDRBLOCK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4768,
-  serialized_end=4821,
+  serialized_start=5176,
+  serialized_end=5229,
 )
 
 _MASTERAUTHORIZEDNETWORKSCONFIG = _descriptor.Descriptor(
@@ -2155,8 +2508,8 @@ _MASTERAUTHORIZEDNETWORKSCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4628,
-  serialized_end=4821,
+  serialized_start=5036,
+  serialized_end=5229,
 )
 
 
@@ -2187,8 +2540,8 @@ _LEGACYABAC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4823,
-  serialized_end=4852,
+  serialized_start=5231,
+  serialized_end=5260,
 )
 
 
@@ -2227,8 +2580,8 @@ _NETWORKPOLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4855,
-  serialized_end=5005,
+  serialized_start=5263,
+  serialized_end=5413,
 )
 
 
@@ -2350,8 +2703,8 @@ _IPALLOCATIONPOLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5008,
-  serialized_end=5447,
+  serialized_start=5416,
+  serialized_end=5855,
 )
 
 
@@ -2382,8 +2735,8 @@ _BINARYAUTHORIZATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5449,
-  serialized_end=5487,
+  serialized_start=5857,
+  serialized_end=5895,
 )
 
 
@@ -2414,8 +2767,8 @@ _PODSECURITYPOLICYCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5489,
-  serialized_end=5531,
+  serialized_start=5897,
+  serialized_end=5939,
 )
 
 
@@ -2453,8 +2806,8 @@ _AUTHENTICATORGROUPSCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5533,
-  serialized_end=5601,
+  serialized_start=5941,
+  serialized_end=6009,
 )
 
 
@@ -2486,8 +2839,8 @@ _CLUSTERTELEMETRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5604,
-  serialized_end=5754,
+  serialized_start=6012,
+  serialized_end=6162,
 )
 
 
@@ -2525,8 +2878,8 @@ _CLUSTER_RESOURCELABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8665,
-  serialized_end=8718,
+  serialized_start=9525,
+  serialized_end=9578,
 )
 
 _CLUSTER = _descriptor.Descriptor(
@@ -2783,169 +3136,218 @@ _CLUSTER = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='cluster_telemetry', full_name='google.container.v1beta1.Cluster.cluster_telemetry', index=35,
+      name='workload_certificates', full_name='google.container.v1beta1.Cluster.workload_certificates', index=35,
+      number=52, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cluster_telemetry', full_name='google.container.v1beta1.Cluster.cluster_telemetry', index=36,
       number=46, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tpu_config', full_name='google.container.v1beta1.Cluster.tpu_config', index=36,
+      name='tpu_config', full_name='google.container.v1beta1.Cluster.tpu_config', index=37,
       number=47, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='notification_config', full_name='google.container.v1beta1.Cluster.notification_config', index=37,
+      name='notification_config', full_name='google.container.v1beta1.Cluster.notification_config', index=38,
       number=49, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='confidential_nodes', full_name='google.container.v1beta1.Cluster.confidential_nodes', index=38,
+      name='confidential_nodes', full_name='google.container.v1beta1.Cluster.confidential_nodes', index=39,
       number=50, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='self_link', full_name='google.container.v1beta1.Cluster.self_link', index=39,
+      name='identity_service_config', full_name='google.container.v1beta1.Cluster.identity_service_config', index=40,
+      number=54, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='self_link', full_name='google.container.v1beta1.Cluster.self_link', index=41,
       number=100, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='zone', full_name='google.container.v1beta1.Cluster.zone', index=40,
+      name='zone', full_name='google.container.v1beta1.Cluster.zone', index=42,
       number=101, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='endpoint', full_name='google.container.v1beta1.Cluster.endpoint', index=41,
+      name='endpoint', full_name='google.container.v1beta1.Cluster.endpoint', index=43,
       number=102, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='initial_cluster_version', full_name='google.container.v1beta1.Cluster.initial_cluster_version', index=42,
+      name='initial_cluster_version', full_name='google.container.v1beta1.Cluster.initial_cluster_version', index=44,
       number=103, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='current_master_version', full_name='google.container.v1beta1.Cluster.current_master_version', index=43,
+      name='current_master_version', full_name='google.container.v1beta1.Cluster.current_master_version', index=45,
       number=104, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='current_node_version', full_name='google.container.v1beta1.Cluster.current_node_version', index=44,
+      name='current_node_version', full_name='google.container.v1beta1.Cluster.current_node_version', index=46,
       number=105, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='create_time', full_name='google.container.v1beta1.Cluster.create_time', index=45,
+      name='create_time', full_name='google.container.v1beta1.Cluster.create_time', index=47,
       number=106, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status', full_name='google.container.v1beta1.Cluster.status', index=46,
+      name='status', full_name='google.container.v1beta1.Cluster.status', index=48,
       number=107, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status_message', full_name='google.container.v1beta1.Cluster.status_message', index=47,
+      name='status_message', full_name='google.container.v1beta1.Cluster.status_message', index=49,
       number=108, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='node_ipv4_cidr_size', full_name='google.container.v1beta1.Cluster.node_ipv4_cidr_size', index=48,
+      name='node_ipv4_cidr_size', full_name='google.container.v1beta1.Cluster.node_ipv4_cidr_size', index=50,
       number=109, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='services_ipv4_cidr', full_name='google.container.v1beta1.Cluster.services_ipv4_cidr', index=49,
+      name='services_ipv4_cidr', full_name='google.container.v1beta1.Cluster.services_ipv4_cidr', index=51,
       number=110, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='instance_group_urls', full_name='google.container.v1beta1.Cluster.instance_group_urls', index=50,
+      name='instance_group_urls', full_name='google.container.v1beta1.Cluster.instance_group_urls', index=52,
       number=111, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='current_node_count', full_name='google.container.v1beta1.Cluster.current_node_count', index=51,
+      name='current_node_count', full_name='google.container.v1beta1.Cluster.current_node_count', index=53,
       number=112, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='expire_time', full_name='google.container.v1beta1.Cluster.expire_time', index=52,
+      name='expire_time', full_name='google.container.v1beta1.Cluster.expire_time', index=54,
       number=113, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='location', full_name='google.container.v1beta1.Cluster.location', index=53,
+      name='location', full_name='google.container.v1beta1.Cluster.location', index=55,
       number=114, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='enable_tpu', full_name='google.container.v1beta1.Cluster.enable_tpu', index=54,
+      name='enable_tpu', full_name='google.container.v1beta1.Cluster.enable_tpu', index=56,
       number=115, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tpu_ipv4_cidr_block', full_name='google.container.v1beta1.Cluster.tpu_ipv4_cidr_block', index=55,
+      name='tpu_ipv4_cidr_block', full_name='google.container.v1beta1.Cluster.tpu_ipv4_cidr_block', index=57,
       number=116, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='database_encryption', full_name='google.container.v1beta1.Cluster.database_encryption', index=56,
+      name='database_encryption', full_name='google.container.v1beta1.Cluster.database_encryption', index=58,
       number=38, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='conditions', full_name='google.container.v1beta1.Cluster.conditions', index=57,
+      name='conditions', full_name='google.container.v1beta1.Cluster.conditions', index=59,
       number=118, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='master', full_name='google.container.v1beta1.Cluster.master', index=58,
+      name='master', full_name='google.container.v1beta1.Cluster.master', index=60,
       number=124, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='autopilot', full_name='google.container.v1beta1.Cluster.autopilot', index=61,
+      number=128, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='id', full_name='google.container.v1beta1.Cluster.id', index=62,
+      number=129, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='node_pool_defaults', full_name='google.container.v1beta1.Cluster.node_pool_defaults', index=63,
+      number=131, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='logging_config', full_name='google.container.v1beta1.Cluster.logging_config', index=64,
+      number=132, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='monitoring_config', full_name='google.container.v1beta1.Cluster.monitoring_config', index=65,
+      number=133, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -2962,9 +3364,71 @@ _CLUSTER = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='_node_pool_defaults', full_name='google.container.v1beta1.Cluster._node_pool_defaults',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=5757,
-  serialized_end=8839,
+  serialized_start=6165,
+  serialized_end=9722,
+)
+
+
+_NODEPOOLDEFAULTS = _descriptor.Descriptor(
+  name='NodePoolDefaults',
+  full_name='google.container.v1beta1.NodePoolDefaults',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='node_config_defaults', full_name='google.container.v1beta1.NodePoolDefaults.node_config_defaults', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9724,
+  serialized_end=9818,
+)
+
+
+_NODECONFIGDEFAULTS = _descriptor.Descriptor(
+  name='NodeConfigDefaults',
+  full_name='google.container.v1beta1.NodeConfigDefaults',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=9820,
+  serialized_end=9840,
 )
 
 
@@ -3117,50 +3581,113 @@ _CLUSTERUPDATE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='desired_datapath_provider', full_name='google.container.v1beta1.ClusterUpdate.desired_datapath_provider', index=20,
+      name='desired_l4ilb_subsetting_config', full_name='google.container.v1beta1.ClusterUpdate.desired_l4ilb_subsetting_config', index=20,
+      number=39, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='desired_datapath_provider', full_name='google.container.v1beta1.ClusterUpdate.desired_datapath_provider', index=21,
       number=50, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='desired_notification_config', full_name='google.container.v1beta1.ClusterUpdate.desired_notification_config', index=21,
+      name='desired_private_ipv6_google_access', full_name='google.container.v1beta1.ClusterUpdate.desired_private_ipv6_google_access', index=22,
+      number=51, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='desired_notification_config', full_name='google.container.v1beta1.ClusterUpdate.desired_notification_config', index=23,
       number=55, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='desired_master_version', full_name='google.container.v1beta1.ClusterUpdate.desired_master_version', index=22,
+      name='desired_master_version', full_name='google.container.v1beta1.ClusterUpdate.desired_master_version', index=24,
       number=100, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='desired_database_encryption', full_name='google.container.v1beta1.ClusterUpdate.desired_database_encryption', index=23,
+      name='desired_database_encryption', full_name='google.container.v1beta1.ClusterUpdate.desired_database_encryption', index=25,
       number=46, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='desired_workload_identity_config', full_name='google.container.v1beta1.ClusterUpdate.desired_workload_identity_config', index=24,
+      name='desired_workload_identity_config', full_name='google.container.v1beta1.ClusterUpdate.desired_workload_identity_config', index=26,
       number=47, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='desired_shielded_nodes', full_name='google.container.v1beta1.ClusterUpdate.desired_shielded_nodes', index=25,
+      name='desired_workload_certificates', full_name='google.container.v1beta1.ClusterUpdate.desired_workload_certificates', index=27,
+      number=61, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='desired_shielded_nodes', full_name='google.container.v1beta1.ClusterUpdate.desired_shielded_nodes', index=28,
       number=48, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='desired_master', full_name='google.container.v1beta1.ClusterUpdate.desired_master', index=26,
+      name='desired_master', full_name='google.container.v1beta1.ClusterUpdate.desired_master', index=29,
       number=52, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='desired_dns_config', full_name='google.container.v1beta1.ClusterUpdate.desired_dns_config', index=30,
+      number=53, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='desired_service_external_ips_config', full_name='google.container.v1beta1.ClusterUpdate.desired_service_external_ips_config', index=31,
+      number=60, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='desired_authenticator_groups_config', full_name='google.container.v1beta1.ClusterUpdate.desired_authenticator_groups_config', index=32,
+      number=63, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='desired_logging_config', full_name='google.container.v1beta1.ClusterUpdate.desired_logging_config', index=33,
+      number=64, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='desired_monitoring_config', full_name='google.container.v1beta1.ClusterUpdate.desired_monitoring_config', index=34,
+      number=65, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='desired_identity_service_config', full_name='google.container.v1beta1.ClusterUpdate.desired_identity_service_config', index=35,
+      number=66, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -3177,8 +3704,8 @@ _CLUSTERUPDATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8842,
-  serialized_end=10749,
+  serialized_start=9843,
+  serialized_end=12522,
 )
 
 
@@ -3309,8 +3836,8 @@ _OPERATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10752,
-  serialized_end=11786,
+  serialized_start=12525,
+  serialized_end=13559,
 )
 
 
@@ -3367,8 +3894,8 @@ _OPERATIONPROGRESS_METRIC = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=12014,
-  serialized_end=12119,
+  serialized_start=13787,
+  serialized_end=13892,
 )
 
 _OPERATIONPROGRESS = _descriptor.Descriptor(
@@ -3419,8 +3946,8 @@ _OPERATIONPROGRESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11789,
-  serialized_end=12119,
+  serialized_start=13562,
+  serialized_end=13892,
 )
 
 
@@ -3472,8 +3999,8 @@ _CREATECLUSTERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12122,
-  serialized_end=12265,
+  serialized_start=13895,
+  serialized_end=14038,
 )
 
 
@@ -3525,8 +4052,8 @@ _GETCLUSTERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12267,
-  serialized_end=12375,
+  serialized_start=14040,
+  serialized_end=14148,
 )
 
 
@@ -3585,8 +4112,8 @@ _UPDATECLUSTERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12378,
-  serialized_end=12551,
+  serialized_start=14151,
+  serialized_end=14324,
 )
 
 
@@ -3669,15 +4196,43 @@ _UPDATENODEPOOLREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='linux_node_config', full_name='google.container.v1beta1.UpdateNodePoolRequest.linux_node_config', index=10,
+      name='tags', full_name='google.container.v1beta1.UpdateNodePoolRequest.tags', index=10,
+      number=16, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='taints', full_name='google.container.v1beta1.UpdateNodePoolRequest.taints', index=11,
+      number=17, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='labels', full_name='google.container.v1beta1.UpdateNodePoolRequest.labels', index=12,
+      number=18, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='linux_node_config', full_name='google.container.v1beta1.UpdateNodePoolRequest.linux_node_config', index=13,
       number=19, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='kubelet_config', full_name='google.container.v1beta1.UpdateNodePoolRequest.kubelet_config', index=11,
+      name='kubelet_config', full_name='google.container.v1beta1.UpdateNodePoolRequest.kubelet_config', index=14,
       number=20, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='gvnic', full_name='google.container.v1beta1.UpdateNodePoolRequest.gvnic', index=15,
+      number=29, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -3694,8 +4249,8 @@ _UPDATENODEPOOLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=12554,
-  serialized_end=13067,
+  serialized_start=14327,
+  serialized_end=15054,
 )
 
 
@@ -3761,8 +4316,8 @@ _SETNODEPOOLAUTOSCALINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13070,
-  serialized_end=13292,
+  serialized_start=15057,
+  serialized_end=15279,
 )
 
 
@@ -3821,8 +4376,8 @@ _SETLOGGINGSERVICEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13295,
-  serialized_end=13440,
+  serialized_start=15282,
+  serialized_end=15427,
 )
 
 
@@ -3881,8 +4436,8 @@ _SETMONITORINGSERVICEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13443,
-  serialized_end=13594,
+  serialized_start=15430,
+  serialized_end=15581,
 )
 
 
@@ -3941,8 +4496,8 @@ _SETADDONSCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13597,
-  serialized_end=13778,
+  serialized_start=15584,
+  serialized_end=15765,
 )
 
 
@@ -4001,8 +4556,8 @@ _SETLOCATIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13781,
-  serialized_end=13915,
+  serialized_start=15768,
+  serialized_end=15902,
 )
 
 
@@ -4061,8 +4616,8 @@ _UPDATEMASTERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13918,
-  serialized_end=14057,
+  serialized_start=15905,
+  serialized_end=16044,
 )
 
 
@@ -4129,8 +4684,8 @@ _SETMASTERAUTHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14060,
-  serialized_end=14388,
+  serialized_start=16047,
+  serialized_end=16375,
 )
 
 
@@ -4182,8 +4737,8 @@ _DELETECLUSTERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14390,
-  serialized_end=14501,
+  serialized_start=16377,
+  serialized_end=16488,
 )
 
 
@@ -4228,8 +4783,8 @@ _LISTCLUSTERSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14503,
-  serialized_end=14588,
+  serialized_start=16490,
+  serialized_end=16575,
 )
 
 
@@ -4267,8 +4822,8 @@ _LISTCLUSTERSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14590,
-  serialized_end=14688,
+  serialized_start=16577,
+  serialized_end=16675,
 )
 
 
@@ -4320,8 +4875,8 @@ _GETOPERATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14690,
-  serialized_end=14802,
+  serialized_start=16677,
+  serialized_end=16789,
 )
 
 
@@ -4366,8 +4921,8 @@ _LISTOPERATIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14804,
-  serialized_end=14891,
+  serialized_start=16791,
+  serialized_end=16878,
 )
 
 
@@ -4419,8 +4974,8 @@ _CANCELOPERATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=14893,
-  serialized_end=15008,
+  serialized_start=16880,
+  serialized_end=16995,
 )
 
 
@@ -4458,8 +5013,8 @@ _LISTOPERATIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15010,
-  serialized_end=15114,
+  serialized_start=16997,
+  serialized_end=17101,
 )
 
 
@@ -4504,8 +5059,8 @@ _GETSERVERCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15116,
-  serialized_end=15202,
+  serialized_start=17103,
+  serialized_end=17189,
 )
 
 
@@ -4543,8 +5098,8 @@ _SERVERCONFIG_RELEASECHANNELCONFIG_AVAILABLEVERSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15699,
-  serialized_end=15754,
+  serialized_start=17780,
+  serialized_end=17835,
 )
 
 _SERVERCONFIG_RELEASECHANNELCONFIG = _descriptor.Descriptor(
@@ -4595,8 +5150,46 @@ _SERVERCONFIG_RELEASECHANNELCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15449,
-  serialized_end=15754,
+  serialized_start=17530,
+  serialized_end=17835,
+)
+
+_SERVERCONFIG_WINDOWSVERSIONMAPSENTRY = _descriptor.Descriptor(
+  name='WindowsVersionMapsEntry',
+  full_name='google.container.v1beta1.ServerConfig.WindowsVersionMapsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.container.v1beta1.ServerConfig.WindowsVersionMapsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.container.v1beta1.ServerConfig.WindowsVersionMapsEntry.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=17837,
+  serialized_end=17937,
 )
 
 _SERVERCONFIG = _descriptor.Descriptor(
@@ -4649,10 +5242,17 @@ _SERVERCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='windows_version_maps', full_name='google.container.v1beta1.ServerConfig.windows_version_maps', index=6,
+      number=10, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_SERVERCONFIG_RELEASECHANNELCONFIG, ],
+  nested_types=[_SERVERCONFIG_RELEASECHANNELCONFIG, _SERVERCONFIG_WINDOWSVERSIONMAPSENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -4661,8 +5261,85 @@ _SERVERCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15205,
-  serialized_end=15754,
+  serialized_start=17192,
+  serialized_end=17937,
+)
+
+
+_WINDOWSVERSIONS_WINDOWSVERSION = _descriptor.Descriptor(
+  name='WindowsVersion',
+  full_name='google.container.v1beta1.WindowsVersions.WindowsVersion',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='image_type', full_name='google.container.v1beta1.WindowsVersions.WindowsVersion.image_type', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='os_version', full_name='google.container.v1beta1.WindowsVersions.WindowsVersion.os_version', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='support_end_date', full_name='google.container.v1beta1.WindowsVersions.WindowsVersion.support_end_date', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=18043,
+  serialized_end=18144,
+)
+
+_WINDOWSVERSIONS = _descriptor.Descriptor(
+  name='WindowsVersions',
+  full_name='google.container.v1beta1.WindowsVersions',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='windows_versions', full_name='google.container.v1beta1.WindowsVersions.windows_versions', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_WINDOWSVERSIONS_WINDOWSVERSION, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=17940,
+  serialized_end=18144,
 )
 
 
@@ -4721,8 +5398,8 @@ _CREATENODEPOOLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15757,
-  serialized_end=15931,
+  serialized_start=18147,
+  serialized_end=18321,
 )
 
 
@@ -4781,8 +5458,8 @@ _DELETENODEPOOLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=15934,
-  serialized_end=16075,
+  serialized_start=18324,
+  serialized_end=18465,
 )
 
 
@@ -4834,8 +5511,8 @@ _LISTNODEPOOLSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=16077,
-  serialized_end=16190,
+  serialized_start=18467,
+  serialized_end=18580,
 )
 
 
@@ -4894,8 +5571,8 @@ _GETNODEPOOLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=16193,
-  serialized_end=16331,
+  serialized_start=18583,
+  serialized_end=18721,
 )
 
 
@@ -4933,8 +5610,8 @@ _NODEPOOL_UPGRADESETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=16986,
-  serialized_end=17047,
+  serialized_start=19445,
+  serialized_end=19506,
 )
 
 _NODEPOOL = _descriptor.Descriptor(
@@ -4974,77 +5651,84 @@ _NODEPOOL = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='self_link', full_name='google.container.v1beta1.NodePool.self_link', index=4,
+      name='network_config', full_name='google.container.v1beta1.NodePool.network_config', index=4,
+      number=14, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='self_link', full_name='google.container.v1beta1.NodePool.self_link', index=5,
       number=100, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='version', full_name='google.container.v1beta1.NodePool.version', index=5,
+      name='version', full_name='google.container.v1beta1.NodePool.version', index=6,
       number=101, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='instance_group_urls', full_name='google.container.v1beta1.NodePool.instance_group_urls', index=6,
+      name='instance_group_urls', full_name='google.container.v1beta1.NodePool.instance_group_urls', index=7,
       number=102, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status', full_name='google.container.v1beta1.NodePool.status', index=7,
+      name='status', full_name='google.container.v1beta1.NodePool.status', index=8,
       number=103, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status_message', full_name='google.container.v1beta1.NodePool.status_message', index=8,
+      name='status_message', full_name='google.container.v1beta1.NodePool.status_message', index=9,
       number=104, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='autoscaling', full_name='google.container.v1beta1.NodePool.autoscaling', index=9,
+      name='autoscaling', full_name='google.container.v1beta1.NodePool.autoscaling', index=10,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='management', full_name='google.container.v1beta1.NodePool.management', index=10,
+      name='management', full_name='google.container.v1beta1.NodePool.management', index=11,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='max_pods_constraint', full_name='google.container.v1beta1.NodePool.max_pods_constraint', index=11,
+      name='max_pods_constraint', full_name='google.container.v1beta1.NodePool.max_pods_constraint', index=12,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='conditions', full_name='google.container.v1beta1.NodePool.conditions', index=12,
+      name='conditions', full_name='google.container.v1beta1.NodePool.conditions', index=13,
       number=105, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='pod_ipv4_cidr_size', full_name='google.container.v1beta1.NodePool.pod_ipv4_cidr_size', index=13,
+      name='pod_ipv4_cidr_size', full_name='google.container.v1beta1.NodePool.pod_ipv4_cidr_size', index=14,
       number=7, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='upgrade_settings', full_name='google.container.v1beta1.NodePool.upgrade_settings', index=14,
+      name='upgrade_settings', full_name='google.container.v1beta1.NodePool.upgrade_settings', index=15,
       number=107, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -5063,8 +5747,8 @@ _NODEPOOL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=16334,
-  serialized_end=17179,
+  serialized_start=18724,
+  serialized_end=19638,
 )
 
 
@@ -5109,8 +5793,8 @@ _NODEMANAGEMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17182,
-  serialized_end=17312,
+  serialized_start=19641,
+  serialized_end=19771,
 )
 
 
@@ -5148,8 +5832,8 @@ _AUTOUPGRADEOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17314,
-  serialized_end=17388,
+  serialized_start=19773,
+  serialized_end=19847,
 )
 
 
@@ -5187,8 +5871,8 @@ _MAINTENANCEPOLICY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17390,
-  serialized_end=17496,
+  serialized_start=19849,
+  serialized_end=19955,
 )
 
 
@@ -5226,8 +5910,8 @@ _MAINTENANCEWINDOW_MAINTENANCEEXCLUSIONSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17785,
-  serialized_end=17883,
+  serialized_start=20244,
+  serialized_end=20342,
 )
 
 _MAINTENANCEWINDOW = _descriptor.Descriptor(
@@ -5276,8 +5960,8 @@ _MAINTENANCEWINDOW = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=17499,
-  serialized_end=17893,
+  serialized_start=19958,
+  serialized_end=20352,
 )
 
 
@@ -5315,8 +5999,8 @@ _TIMEWINDOW = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=17895,
-  serialized_end=18001,
+  serialized_start=20354,
+  serialized_end=20460,
 )
 
 
@@ -5354,8 +6038,8 @@ _RECURRINGTIMEWINDOW = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18003,
-  serialized_end=18098,
+  serialized_start=20462,
+  serialized_end=20557,
 )
 
 
@@ -5393,8 +6077,8 @@ _DAILYMAINTENANCEWINDOW = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18100,
-  serialized_end=18162,
+  serialized_start=20559,
+  serialized_end=20621,
 )
 
 
@@ -5460,8 +6144,8 @@ _SETNODEPOOLMANAGEMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18165,
-  serialized_end=18380,
+  serialized_start=20624,
+  serialized_end=20839,
 )
 
 
@@ -5527,8 +6211,8 @@ _SETNODEPOOLSIZEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18383,
-  serialized_end=18550,
+  serialized_start=20842,
+  serialized_end=21009,
 )
 
 
@@ -5587,8 +6271,8 @@ _ROLLBACKNODEPOOLUPGRADEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18553,
-  serialized_end=18703,
+  serialized_start=21012,
+  serialized_end=21162,
 )
 
 
@@ -5619,8 +6303,8 @@ _LISTNODEPOOLSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18705,
-  serialized_end=18784,
+  serialized_start=21164,
+  serialized_end=21243,
 )
 
 
@@ -5680,8 +6364,8 @@ _CLUSTERAUTOSCALING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18787,
-  serialized_end=19233,
+  serialized_start=21246,
+  serialized_end=21692,
 )
 
 
@@ -5775,8 +6459,8 @@ _AUTOPROVISIONINGNODEPOOLDEFAULTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19236,
-  serialized_end=19655,
+  serialized_start=21695,
+  serialized_end=22114,
 )
 
 
@@ -5821,8 +6505,8 @@ _RESOURCELIMIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19657,
-  serialized_end=19729,
+  serialized_start=22116,
+  serialized_end=22188,
 )
 
 
@@ -5874,8 +6558,8 @@ _NODEPOOLAUTOSCALING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19731,
-  serialized_end=19842,
+  serialized_start=22190,
+  serialized_end=22301,
 )
 
 
@@ -5913,8 +6597,8 @@ _SETLABELSREQUEST_RESOURCELABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8665,
-  serialized_end=8718,
+  serialized_start=9525,
+  serialized_end=9578,
 )
 
 _SETLABELSREQUEST = _descriptor.Descriptor(
@@ -5979,8 +6663,8 @@ _SETLABELSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=19845,
-  serialized_end=20133,
+  serialized_start=22304,
+  serialized_end=22592,
 )
 
 
@@ -6039,8 +6723,8 @@ _SETLEGACYABACREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20136,
-  serialized_end=20269,
+  serialized_start=22595,
+  serialized_end=22728,
 )
 
 
@@ -6099,8 +6783,8 @@ _STARTIPROTATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20272,
-  serialized_end=20413,
+  serialized_start=22731,
+  serialized_end=22872,
 )
 
 
@@ -6152,8 +6836,8 @@ _COMPLETEIPROTATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20415,
-  serialized_end=20531,
+  serialized_start=22874,
+  serialized_end=22990,
 )
 
 
@@ -6179,6 +6863,13 @@ _ACCELERATORCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='gpu_partition_size', full_name='google.container.v1beta1.AcceleratorConfig.gpu_partition_size', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -6191,8 +6882,8 @@ _ACCELERATORCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20533,
-  serialized_end=20605,
+  serialized_start=22992,
+  serialized_end=23092,
 )
 
 
@@ -6232,8 +6923,8 @@ _WORKLOADMETADATACONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20608,
-  serialized_end=20939,
+  serialized_start=23095,
+  serialized_end=23426,
 )
 
 
@@ -6292,8 +6983,8 @@ _SETNETWORKPOLICYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20942,
-  serialized_end=21126,
+  serialized_start=23429,
+  serialized_end=23613,
 )
 
 
@@ -6352,8 +7043,8 @@ _SETMAINTENANCEPOLICYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=21129,
-  serialized_end=21319,
+  serialized_start=23616,
+  serialized_end=23806,
 )
 
 
@@ -6384,8 +7075,8 @@ _LISTLOCATIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=21321,
-  serialized_end=21364,
+  serialized_start=23808,
+  serialized_end=23851,
 )
 
 
@@ -6423,8 +7114,8 @@ _LISTLOCATIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=21366,
-  serialized_end=21469,
+  serialized_start=23853,
+  serialized_end=23956,
 )
 
 
@@ -6470,8 +7161,8 @@ _LOCATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=21472,
-  serialized_end=21649,
+  serialized_start=23959,
+  serialized_end=24136,
 )
 
 
@@ -6517,8 +7208,8 @@ _STATUSCONDITION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=21652,
-  serialized_end=21937,
+  serialized_start=24139,
+  serialized_end=24445,
 )
 
 
@@ -6559,9 +7250,37 @@ _NETWORKCONFIG = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='datapath_provider', full_name='google.container.v1beta1.NetworkConfig.datapath_provider', index=4,
+      name='enable_l4ilb_subsetting', full_name='google.container.v1beta1.NetworkConfig.enable_l4ilb_subsetting', index=4,
+      number=10, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='datapath_provider', full_name='google.container.v1beta1.NetworkConfig.datapath_provider', index=5,
       number=11, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='private_ipv6_google_access', full_name='google.container.v1beta1.NetworkConfig.private_ipv6_google_access', index=6,
+      number=12, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dns_config', full_name='google.container.v1beta1.NetworkConfig.dns_config', index=7,
+      number=13, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='service_external_ips_config', full_name='google.container.v1beta1.NetworkConfig.service_external_ips_config', index=8,
+      number=15, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -6577,8 +7296,40 @@ _NETWORKCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=21940,
-  serialized_end=22175,
+  serialized_start=24448,
+  serialized_end=24949,
+)
+
+
+_SERVICEEXTERNALIPSCONFIG = _descriptor.Descriptor(
+  name='ServiceExternalIPsConfig',
+  full_name='google.container.v1beta1.ServiceExternalIPsConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='enabled', full_name='google.container.v1beta1.ServiceExternalIPsConfig.enabled', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=24951,
+  serialized_end=24994,
 )
 
 
@@ -6630,8 +7381,8 @@ _LISTUSABLESUBNETWORKSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22177,
-  serialized_end=22283,
+  serialized_start=24996,
+  serialized_end=25102,
 )
 
 
@@ -6669,8 +7420,8 @@ _LISTUSABLESUBNETWORKSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22285,
-  serialized_end=22406,
+  serialized_start=25104,
+  serialized_end=25225,
 )
 
 
@@ -6716,8 +7467,8 @@ _USABLESUBNETWORKSECONDARYRANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22409,
-  serialized_end=22670,
+  serialized_start=25228,
+  serialized_end=25489,
 )
 
 
@@ -6776,8 +7527,8 @@ _USABLESUBNETWORK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22673,
-  serialized_end=22862,
+  serialized_start=25492,
+  serialized_end=25681,
 )
 
 
@@ -6808,8 +7559,8 @@ _VERTICALPODAUTOSCALING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22864,
-  serialized_end=22905,
+  serialized_start=25683,
+  serialized_end=25724,
 )
 
 
@@ -6840,8 +7591,8 @@ _DEFAULTSNATSTATUS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22907,
-  serialized_end=22944,
+  serialized_start=25726,
+  serialized_end=25763,
 )
 
 
@@ -6872,8 +7623,88 @@ _INTRANODEVISIBILITYCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22946,
-  serialized_end=22990,
+  serialized_start=25765,
+  serialized_end=25809,
+)
+
+
+_ILBSUBSETTINGCONFIG = _descriptor.Descriptor(
+  name='ILBSubsettingConfig',
+  full_name='google.container.v1beta1.ILBSubsettingConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='enabled', full_name='google.container.v1beta1.ILBSubsettingConfig.enabled', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=25811,
+  serialized_end=25849,
+)
+
+
+_DNSCONFIG = _descriptor.Descriptor(
+  name='DNSConfig',
+  full_name='google.container.v1beta1.DNSConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cluster_dns', full_name='google.container.v1beta1.DNSConfig.cluster_dns', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cluster_dns_scope', full_name='google.container.v1beta1.DNSConfig.cluster_dns_scope', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cluster_dns_domain', full_name='google.container.v1beta1.DNSConfig.cluster_dns_domain', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _DNSCONFIG_PROVIDER,
+    _DNSCONFIG_DNSSCOPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=25852,
+  serialized_end=26179,
 )
 
 
@@ -6904,8 +7735,8 @@ _MAXPODSCONSTRAINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=22992,
-  serialized_end=23038,
+  serialized_start=26181,
+  serialized_end=26227,
 )
 
 
@@ -6950,8 +7781,40 @@ _WORKLOADIDENTITYCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23040,
-  serialized_end=23146,
+  serialized_start=26229,
+  serialized_end=26335,
+)
+
+
+_WORKLOADCERTIFICATES = _descriptor.Descriptor(
+  name='WorkloadCertificates',
+  full_name='google.container.v1beta1.WorkloadCertificates',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='enable_certificates', full_name='google.container.v1beta1.WorkloadCertificates.enable_certificates', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=26337,
+  serialized_end=26416,
 )
 
 
@@ -6990,8 +7853,8 @@ _DATABASEENCRYPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23149,
-  serialized_end=23306,
+  serialized_start=26419,
+  serialized_end=26576,
 )
 
 
@@ -7022,8 +7885,8 @@ _RESOURCEUSAGEEXPORTCONFIG_BIGQUERYDESTINATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23597,
-  serialized_end=23638,
+  serialized_start=26867,
+  serialized_end=26908,
 )
 
 _RESOURCEUSAGEEXPORTCONFIG_CONSUMPTIONMETERINGCONFIG = _descriptor.Descriptor(
@@ -7053,8 +7916,8 @@ _RESOURCEUSAGEEXPORTCONFIG_CONSUMPTIONMETERINGCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23640,
-  serialized_end=23684,
+  serialized_start=26910,
+  serialized_end=26954,
 )
 
 _RESOURCEUSAGEEXPORTCONFIG = _descriptor.Descriptor(
@@ -7098,8 +7961,8 @@ _RESOURCEUSAGEEXPORTCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23309,
-  serialized_end=23684,
+  serialized_start=26579,
+  serialized_end=26954,
 )
 
 
@@ -7130,8 +7993,40 @@ _SHIELDEDNODES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23686,
-  serialized_end=23718,
+  serialized_start=26956,
+  serialized_end=26988,
+)
+
+
+_VIRTUALNIC = _descriptor.Descriptor(
+  name='VirtualNIC',
+  full_name='google.container.v1beta1.VirtualNIC',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='enabled', full_name='google.container.v1beta1.VirtualNIC.enabled', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=26990,
+  serialized_end=27019,
 )
 
 
@@ -7162,8 +8057,8 @@ _GETOPENIDCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23720,
-  serialized_end=23760,
+  serialized_start=27021,
+  serialized_end=27061,
 )
 
 
@@ -7236,8 +8131,8 @@ _GETOPENIDCONFIGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23763,
-  serialized_end=23983,
+  serialized_start=27064,
+  serialized_end=27284,
 )
 
 
@@ -7268,8 +8163,8 @@ _GETJSONWEBKEYSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=23985,
-  serialized_end=24024,
+  serialized_start=27286,
+  serialized_end=27325,
 )
 
 
@@ -7356,8 +8251,8 @@ _JWK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24026,
-  serialized_end=24140,
+  serialized_start=27327,
+  serialized_end=27441,
 )
 
 
@@ -7388,8 +8283,8 @@ _GETJSONWEBKEYSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24142,
-  serialized_end=24211,
+  serialized_start=27443,
+  serialized_end=27512,
 )
 
 
@@ -7421,8 +8316,8 @@ _RELEASECHANNEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24214,
-  serialized_end=24361,
+  serialized_start=27515,
+  serialized_end=27662,
 )
 
 
@@ -7467,8 +8362,8 @@ _TPUCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24363,
-  serialized_end=24448,
+  serialized_start=27664,
+  serialized_end=27749,
 )
 
 
@@ -7492,8 +8387,40 @@ _MASTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24450,
-  serialized_end=24458,
+  serialized_start=27751,
+  serialized_end=27759,
+)
+
+
+_AUTOPILOT = _descriptor.Descriptor(
+  name='Autopilot',
+  full_name='google.container.v1beta1.Autopilot',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='enabled', full_name='google.container.v1beta1.Autopilot.enabled', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=27761,
+  serialized_end=27789,
 )
 
 
@@ -7531,8 +8458,8 @@ _NOTIFICATIONCONFIG_PUBSUB = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24552,
-  serialized_end=24626,
+  serialized_start=27883,
+  serialized_end=27957,
 )
 
 _NOTIFICATIONCONFIG = _descriptor.Descriptor(
@@ -7562,8 +8489,8 @@ _NOTIFICATIONCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24461,
-  serialized_end=24626,
+  serialized_start=27792,
+  serialized_end=27957,
 )
 
 
@@ -7594,8 +8521,8 @@ _CONFIDENTIALNODES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24628,
-  serialized_end=24664,
+  serialized_start=27959,
+  serialized_end=27995,
 )
 
 
@@ -7613,42 +8540,42 @@ _UPGRADEEVENT = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='operation', full_name='google.container.v1beta1.UpgradeEvent.operation', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='operation_start_time', full_name='google.container.v1beta1.UpgradeEvent.operation_start_time', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='current_version', full_name='google.container.v1beta1.UpgradeEvent.current_version', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='target_version', full_name='google.container.v1beta1.UpgradeEvent.target_version', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='resource', full_name='google.container.v1beta1.UpgradeEvent.resource', index=5,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -7661,8 +8588,230 @@ _UPGRADEEVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24667,
-  serialized_end=24925,
+  serialized_start=27998,
+  serialized_end=28226,
+)
+
+
+_UPGRADEAVAILABLEEVENT = _descriptor.Descriptor(
+  name='UpgradeAvailableEvent',
+  full_name='google.container.v1beta1.UpgradeAvailableEvent',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='version', full_name='google.container.v1beta1.UpgradeAvailableEvent.version', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='resource_type', full_name='google.container.v1beta1.UpgradeAvailableEvent.resource_type', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='release_channel', full_name='google.container.v1beta1.UpgradeAvailableEvent.release_channel', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='resource', full_name='google.container.v1beta1.UpgradeAvailableEvent.resource', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='windows_versions', full_name='google.container.v1beta1.UpgradeAvailableEvent.windows_versions', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=28229,
+  serialized_end=28493,
+)
+
+
+_IDENTITYSERVICECONFIG = _descriptor.Descriptor(
+  name='IdentityServiceConfig',
+  full_name='google.container.v1beta1.IdentityServiceConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='enabled', full_name='google.container.v1beta1.IdentityServiceConfig.enabled', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=28495,
+  serialized_end=28535,
+)
+
+
+_LOGGINGCONFIG = _descriptor.Descriptor(
+  name='LoggingConfig',
+  full_name='google.container.v1beta1.LoggingConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='component_config', full_name='google.container.v1beta1.LoggingConfig.component_config', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=28537,
+  serialized_end=28628,
+)
+
+
+_LOGGINGCOMPONENTCONFIG = _descriptor.Descriptor(
+  name='LoggingComponentConfig',
+  full_name='google.container.v1beta1.LoggingComponentConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='enable_components', full_name='google.container.v1beta1.LoggingComponentConfig.enable_components', index=0,
+      number=1, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _LOGGINGCOMPONENTCONFIG_COMPONENT,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=28631,
+  serialized_end=28820,
+)
+
+
+_MONITORINGCONFIG = _descriptor.Descriptor(
+  name='MonitoringConfig',
+  full_name='google.container.v1beta1.MonitoringConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='component_config', full_name='google.container.v1beta1.MonitoringConfig.component_config', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=28822,
+  serialized_end=28919,
+)
+
+
+_MONITORINGCOMPONENTCONFIG = _descriptor.Descriptor(
+  name='MonitoringComponentConfig',
+  full_name='google.container.v1beta1.MonitoringComponentConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='enable_components', full_name='google.container.v1beta1.MonitoringComponentConfig.enable_components', index=0,
+      number=1, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _MONITORINGCOMPONENTCONFIG_COMPONENT,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=28922,
+  serialized_end=29117,
 )
 
 _LINUXNODECONFIG_SYSCTLSENTRY.containing_type = _LINUXNODECONFIG
@@ -7681,12 +8830,16 @@ _NODECONFIG.fields_by_name['shielded_instance_config'].message_type = _SHIELDEDI
 _NODECONFIG.fields_by_name['linux_node_config'].message_type = _LINUXNODECONFIG
 _NODECONFIG.fields_by_name['kubelet_config'].message_type = _NODEKUBELETCONFIG
 _NODECONFIG.fields_by_name['ephemeral_storage_config'].message_type = _EPHEMERALSTORAGECONFIG
+_NODECONFIG.fields_by_name['gvnic'].message_type = _VIRTUALNIC
 _SANDBOXCONFIG.fields_by_name['type'].enum_type = _SANDBOXCONFIG_TYPE
 _SANDBOXCONFIG_TYPE.containing_type = _SANDBOXCONFIG
 _RESERVATIONAFFINITY.fields_by_name['consume_reservation_type'].enum_type = _RESERVATIONAFFINITY_TYPE
 _RESERVATIONAFFINITY_TYPE.containing_type = _RESERVATIONAFFINITY
 _NODETAINT.fields_by_name['effect'].enum_type = _NODETAINT_EFFECT
 _NODETAINT_EFFECT.containing_type = _NODETAINT
+_NODETAINTS.fields_by_name['taints'].message_type = _NODETAINT
+_NODELABELS_LABELSENTRY.containing_type = _NODELABELS
+_NODELABELS.fields_by_name['labels'].message_type = _NODELABELS_LABELSENTRY
 _MASTERAUTH.fields_by_name['client_certificate_config'].message_type = _CLIENTCERTIFICATECONFIG
 _ADDONSCONFIG.fields_by_name['http_load_balancing'].message_type = _HTTPLOADBALANCING
 _ADDONSCONFIG.fields_by_name['horizontal_pod_autoscaling'].message_type = _HORIZONTALPODAUTOSCALING
@@ -7732,15 +8885,25 @@ _CLUSTER.fields_by_name['vertical_pod_autoscaling'].message_type = _VERTICALPODA
 _CLUSTER.fields_by_name['shielded_nodes'].message_type = _SHIELDEDNODES
 _CLUSTER.fields_by_name['release_channel'].message_type = _RELEASECHANNEL
 _CLUSTER.fields_by_name['workload_identity_config'].message_type = _WORKLOADIDENTITYCONFIG
+_CLUSTER.fields_by_name['workload_certificates'].message_type = _WORKLOADCERTIFICATES
 _CLUSTER.fields_by_name['cluster_telemetry'].message_type = _CLUSTERTELEMETRY
 _CLUSTER.fields_by_name['tpu_config'].message_type = _TPUCONFIG
 _CLUSTER.fields_by_name['notification_config'].message_type = _NOTIFICATIONCONFIG
 _CLUSTER.fields_by_name['confidential_nodes'].message_type = _CONFIDENTIALNODES
+_CLUSTER.fields_by_name['identity_service_config'].message_type = _IDENTITYSERVICECONFIG
 _CLUSTER.fields_by_name['status'].enum_type = _CLUSTER_STATUS
 _CLUSTER.fields_by_name['database_encryption'].message_type = _DATABASEENCRYPTION
 _CLUSTER.fields_by_name['conditions'].message_type = _STATUSCONDITION
 _CLUSTER.fields_by_name['master'].message_type = _MASTER
+_CLUSTER.fields_by_name['autopilot'].message_type = _AUTOPILOT
+_CLUSTER.fields_by_name['node_pool_defaults'].message_type = _NODEPOOLDEFAULTS
+_CLUSTER.fields_by_name['logging_config'].message_type = _LOGGINGCONFIG
+_CLUSTER.fields_by_name['monitoring_config'].message_type = _MONITORINGCONFIG
 _CLUSTER_STATUS.containing_type = _CLUSTER
+_CLUSTER.oneofs_by_name['_node_pool_defaults'].fields.append(
+  _CLUSTER.fields_by_name['node_pool_defaults'])
+_CLUSTER.fields_by_name['node_pool_defaults'].containing_oneof = _CLUSTER.oneofs_by_name['_node_pool_defaults']
+_NODEPOOLDEFAULTS.fields_by_name['node_config_defaults'].message_type = _NODECONFIGDEFAULTS
 _CLUSTERUPDATE.fields_by_name['desired_addons_config'].message_type = _ADDONSCONFIG
 _CLUSTERUPDATE.fields_by_name['desired_node_pool_autoscaling'].message_type = _NODEPOOLAUTOSCALING
 _CLUSTERUPDATE.fields_by_name['desired_master_authorized_networks_config'].message_type = _MASTERAUTHORIZEDNETWORKSCONFIG
@@ -7755,12 +8918,21 @@ _CLUSTERUPDATE.fields_by_name['desired_default_snat_status'].message_type = _DEF
 _CLUSTERUPDATE.fields_by_name['desired_cluster_telemetry'].message_type = _CLUSTERTELEMETRY
 _CLUSTERUPDATE.fields_by_name['desired_release_channel'].message_type = _RELEASECHANNEL
 _CLUSTERUPDATE.fields_by_name['desired_tpu_config'].message_type = _TPUCONFIG
+_CLUSTERUPDATE.fields_by_name['desired_l4ilb_subsetting_config'].message_type = _ILBSUBSETTINGCONFIG
 _CLUSTERUPDATE.fields_by_name['desired_datapath_provider'].enum_type = _DATAPATHPROVIDER
+_CLUSTERUPDATE.fields_by_name['desired_private_ipv6_google_access'].enum_type = _PRIVATEIPV6GOOGLEACCESS
 _CLUSTERUPDATE.fields_by_name['desired_notification_config'].message_type = _NOTIFICATIONCONFIG
 _CLUSTERUPDATE.fields_by_name['desired_database_encryption'].message_type = _DATABASEENCRYPTION
 _CLUSTERUPDATE.fields_by_name['desired_workload_identity_config'].message_type = _WORKLOADIDENTITYCONFIG
+_CLUSTERUPDATE.fields_by_name['desired_workload_certificates'].message_type = _WORKLOADCERTIFICATES
 _CLUSTERUPDATE.fields_by_name['desired_shielded_nodes'].message_type = _SHIELDEDNODES
 _CLUSTERUPDATE.fields_by_name['desired_master'].message_type = _MASTER
+_CLUSTERUPDATE.fields_by_name['desired_dns_config'].message_type = _DNSCONFIG
+_CLUSTERUPDATE.fields_by_name['desired_service_external_ips_config'].message_type = _SERVICEEXTERNALIPSCONFIG
+_CLUSTERUPDATE.fields_by_name['desired_authenticator_groups_config'].message_type = _AUTHENTICATORGROUPSCONFIG
+_CLUSTERUPDATE.fields_by_name['desired_logging_config'].message_type = _LOGGINGCONFIG
+_CLUSTERUPDATE.fields_by_name['desired_monitoring_config'].message_type = _MONITORINGCONFIG
+_CLUSTERUPDATE.fields_by_name['desired_identity_service_config'].message_type = _IDENTITYSERVICECONFIG
 _OPERATION.fields_by_name['operation_type'].enum_type = _OPERATION_TYPE
 _OPERATION.fields_by_name['status'].enum_type = _OPERATION_STATUS
 _OPERATION.fields_by_name['progress'].message_type = _OPERATIONPROGRESS
@@ -7786,8 +8958,12 @@ _CREATECLUSTERREQUEST.fields_by_name['cluster'].message_type = _CLUSTER
 _UPDATECLUSTERREQUEST.fields_by_name['update'].message_type = _CLUSTERUPDATE
 _UPDATENODEPOOLREQUEST.fields_by_name['workload_metadata_config'].message_type = _WORKLOADMETADATACONFIG
 _UPDATENODEPOOLREQUEST.fields_by_name['upgrade_settings'].message_type = _NODEPOOL_UPGRADESETTINGS
+_UPDATENODEPOOLREQUEST.fields_by_name['tags'].message_type = _NETWORKTAGS
+_UPDATENODEPOOLREQUEST.fields_by_name['taints'].message_type = _NODETAINTS
+_UPDATENODEPOOLREQUEST.fields_by_name['labels'].message_type = _NODELABELS
 _UPDATENODEPOOLREQUEST.fields_by_name['linux_node_config'].message_type = _LINUXNODECONFIG
 _UPDATENODEPOOLREQUEST.fields_by_name['kubelet_config'].message_type = _NODEKUBELETCONFIG
+_UPDATENODEPOOLREQUEST.fields_by_name['gvnic'].message_type = _VIRTUALNIC
 _SETNODEPOOLAUTOSCALINGREQUEST.fields_by_name['autoscaling'].message_type = _NODEPOOLAUTOSCALING
 _SETADDONSCONFIGREQUEST.fields_by_name['addons_config'].message_type = _ADDONSCONFIG
 _SETMASTERAUTHREQUEST.fields_by_name['action'].enum_type = _SETMASTERAUTHREQUEST_ACTION
@@ -7799,10 +8975,17 @@ _SERVERCONFIG_RELEASECHANNELCONFIG_AVAILABLEVERSION.containing_type = _SERVERCON
 _SERVERCONFIG_RELEASECHANNELCONFIG.fields_by_name['channel'].enum_type = _RELEASECHANNEL_CHANNEL
 _SERVERCONFIG_RELEASECHANNELCONFIG.fields_by_name['available_versions'].message_type = _SERVERCONFIG_RELEASECHANNELCONFIG_AVAILABLEVERSION
 _SERVERCONFIG_RELEASECHANNELCONFIG.containing_type = _SERVERCONFIG
+_SERVERCONFIG_WINDOWSVERSIONMAPSENTRY.fields_by_name['value'].message_type = _WINDOWSVERSIONS
+_SERVERCONFIG_WINDOWSVERSIONMAPSENTRY.containing_type = _SERVERCONFIG
 _SERVERCONFIG.fields_by_name['channels'].message_type = _SERVERCONFIG_RELEASECHANNELCONFIG
+_SERVERCONFIG.fields_by_name['windows_version_maps'].message_type = _SERVERCONFIG_WINDOWSVERSIONMAPSENTRY
+_WINDOWSVERSIONS_WINDOWSVERSION.fields_by_name['support_end_date'].message_type = google_dot_type_dot_date__pb2._DATE
+_WINDOWSVERSIONS_WINDOWSVERSION.containing_type = _WINDOWSVERSIONS
+_WINDOWSVERSIONS.fields_by_name['windows_versions'].message_type = _WINDOWSVERSIONS_WINDOWSVERSION
 _CREATENODEPOOLREQUEST.fields_by_name['node_pool'].message_type = _NODEPOOL
 _NODEPOOL_UPGRADESETTINGS.containing_type = _NODEPOOL
 _NODEPOOL.fields_by_name['config'].message_type = _NODECONFIG
+_NODEPOOL.fields_by_name['network_config'].message_type = _NODENETWORKCONFIG
 _NODEPOOL.fields_by_name['status'].enum_type = _NODEPOOL_STATUS
 _NODEPOOL.fields_by_name['autoscaling'].message_type = _NODEPOOLAUTOSCALING
 _NODEPOOL.fields_by_name['management'].message_type = _NODEMANAGEMENT
@@ -7851,10 +9034,18 @@ _STATUSCONDITION.fields_by_name['canonical_code'].enum_type = google_dot_rpc_dot
 _STATUSCONDITION_CODE.containing_type = _STATUSCONDITION
 _NETWORKCONFIG.fields_by_name['default_snat_status'].message_type = _DEFAULTSNATSTATUS
 _NETWORKCONFIG.fields_by_name['datapath_provider'].enum_type = _DATAPATHPROVIDER
+_NETWORKCONFIG.fields_by_name['private_ipv6_google_access'].enum_type = _PRIVATEIPV6GOOGLEACCESS
+_NETWORKCONFIG.fields_by_name['dns_config'].message_type = _DNSCONFIG
+_NETWORKCONFIG.fields_by_name['service_external_ips_config'].message_type = _SERVICEEXTERNALIPSCONFIG
 _LISTUSABLESUBNETWORKSRESPONSE.fields_by_name['subnetworks'].message_type = _USABLESUBNETWORK
 _USABLESUBNETWORKSECONDARYRANGE.fields_by_name['status'].enum_type = _USABLESUBNETWORKSECONDARYRANGE_STATUS
 _USABLESUBNETWORKSECONDARYRANGE_STATUS.containing_type = _USABLESUBNETWORKSECONDARYRANGE
 _USABLESUBNETWORK.fields_by_name['secondary_ip_ranges'].message_type = _USABLESUBNETWORKSECONDARYRANGE
+_DNSCONFIG.fields_by_name['cluster_dns'].enum_type = _DNSCONFIG_PROVIDER
+_DNSCONFIG.fields_by_name['cluster_dns_scope'].enum_type = _DNSCONFIG_DNSSCOPE
+_DNSCONFIG_PROVIDER.containing_type = _DNSCONFIG
+_DNSCONFIG_DNSSCOPE.containing_type = _DNSCONFIG
+_WORKLOADCERTIFICATES.fields_by_name['enable_certificates'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _DATABASEENCRYPTION.fields_by_name['state'].enum_type = _DATABASEENCRYPTION_STATE
 _DATABASEENCRYPTION_STATE.containing_type = _DATABASEENCRYPTION
 _RESOURCEUSAGEEXPORTCONFIG_BIGQUERYDESTINATION.containing_type = _RESOURCEUSAGEEXPORTCONFIG
@@ -7868,14 +9059,27 @@ _NOTIFICATIONCONFIG_PUBSUB.containing_type = _NOTIFICATIONCONFIG
 _NOTIFICATIONCONFIG.fields_by_name['pubsub'].message_type = _NOTIFICATIONCONFIG_PUBSUB
 _UPGRADEEVENT.fields_by_name['resource_type'].enum_type = _UPGRADERESOURCETYPE
 _UPGRADEEVENT.fields_by_name['operation_start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_UPGRADEAVAILABLEEVENT.fields_by_name['resource_type'].enum_type = _UPGRADERESOURCETYPE
+_UPGRADEAVAILABLEEVENT.fields_by_name['release_channel'].message_type = _RELEASECHANNEL
+_UPGRADEAVAILABLEEVENT.fields_by_name['windows_versions'].message_type = _WINDOWSVERSIONS
+_LOGGINGCONFIG.fields_by_name['component_config'].message_type = _LOGGINGCOMPONENTCONFIG
+_LOGGINGCOMPONENTCONFIG.fields_by_name['enable_components'].enum_type = _LOGGINGCOMPONENTCONFIG_COMPONENT
+_LOGGINGCOMPONENTCONFIG_COMPONENT.containing_type = _LOGGINGCOMPONENTCONFIG
+_MONITORINGCONFIG.fields_by_name['component_config'].message_type = _MONITORINGCOMPONENTCONFIG
+_MONITORINGCOMPONENTCONFIG.fields_by_name['enable_components'].enum_type = _MONITORINGCOMPONENTCONFIG_COMPONENT
+_MONITORINGCOMPONENTCONFIG_COMPONENT.containing_type = _MONITORINGCOMPONENTCONFIG
 DESCRIPTOR.message_types_by_name['LinuxNodeConfig'] = _LINUXNODECONFIG
 DESCRIPTOR.message_types_by_name['NodeKubeletConfig'] = _NODEKUBELETCONFIG
 DESCRIPTOR.message_types_by_name['NodeConfig'] = _NODECONFIG
+DESCRIPTOR.message_types_by_name['NodeNetworkConfig'] = _NODENETWORKCONFIG
 DESCRIPTOR.message_types_by_name['ShieldedInstanceConfig'] = _SHIELDEDINSTANCECONFIG
 DESCRIPTOR.message_types_by_name['SandboxConfig'] = _SANDBOXCONFIG
 DESCRIPTOR.message_types_by_name['EphemeralStorageConfig'] = _EPHEMERALSTORAGECONFIG
 DESCRIPTOR.message_types_by_name['ReservationAffinity'] = _RESERVATIONAFFINITY
 DESCRIPTOR.message_types_by_name['NodeTaint'] = _NODETAINT
+DESCRIPTOR.message_types_by_name['NodeTaints'] = _NODETAINTS
+DESCRIPTOR.message_types_by_name['NodeLabels'] = _NODELABELS
+DESCRIPTOR.message_types_by_name['NetworkTags'] = _NETWORKTAGS
 DESCRIPTOR.message_types_by_name['MasterAuth'] = _MASTERAUTH
 DESCRIPTOR.message_types_by_name['ClientCertificateConfig'] = _CLIENTCERTIFICATECONFIG
 DESCRIPTOR.message_types_by_name['AddonsConfig'] = _ADDONSCONFIG
@@ -7900,6 +9104,8 @@ DESCRIPTOR.message_types_by_name['PodSecurityPolicyConfig'] = _PODSECURITYPOLICY
 DESCRIPTOR.message_types_by_name['AuthenticatorGroupsConfig'] = _AUTHENTICATORGROUPSCONFIG
 DESCRIPTOR.message_types_by_name['ClusterTelemetry'] = _CLUSTERTELEMETRY
 DESCRIPTOR.message_types_by_name['Cluster'] = _CLUSTER
+DESCRIPTOR.message_types_by_name['NodePoolDefaults'] = _NODEPOOLDEFAULTS
+DESCRIPTOR.message_types_by_name['NodeConfigDefaults'] = _NODECONFIGDEFAULTS
 DESCRIPTOR.message_types_by_name['ClusterUpdate'] = _CLUSTERUPDATE
 DESCRIPTOR.message_types_by_name['Operation'] = _OPERATION
 DESCRIPTOR.message_types_by_name['OperationProgress'] = _OPERATIONPROGRESS
@@ -7923,6 +9129,7 @@ DESCRIPTOR.message_types_by_name['CancelOperationRequest'] = _CANCELOPERATIONREQ
 DESCRIPTOR.message_types_by_name['ListOperationsResponse'] = _LISTOPERATIONSRESPONSE
 DESCRIPTOR.message_types_by_name['GetServerConfigRequest'] = _GETSERVERCONFIGREQUEST
 DESCRIPTOR.message_types_by_name['ServerConfig'] = _SERVERCONFIG
+DESCRIPTOR.message_types_by_name['WindowsVersions'] = _WINDOWSVERSIONS
 DESCRIPTOR.message_types_by_name['CreateNodePoolRequest'] = _CREATENODEPOOLREQUEST
 DESCRIPTOR.message_types_by_name['DeleteNodePoolRequest'] = _DELETENODEPOOLREQUEST
 DESCRIPTOR.message_types_by_name['ListNodePoolsRequest'] = _LISTNODEPOOLSREQUEST
@@ -7956,6 +9163,7 @@ DESCRIPTOR.message_types_by_name['ListLocationsResponse'] = _LISTLOCATIONSRESPON
 DESCRIPTOR.message_types_by_name['Location'] = _LOCATION
 DESCRIPTOR.message_types_by_name['StatusCondition'] = _STATUSCONDITION
 DESCRIPTOR.message_types_by_name['NetworkConfig'] = _NETWORKCONFIG
+DESCRIPTOR.message_types_by_name['ServiceExternalIPsConfig'] = _SERVICEEXTERNALIPSCONFIG
 DESCRIPTOR.message_types_by_name['ListUsableSubnetworksRequest'] = _LISTUSABLESUBNETWORKSREQUEST
 DESCRIPTOR.message_types_by_name['ListUsableSubnetworksResponse'] = _LISTUSABLESUBNETWORKSRESPONSE
 DESCRIPTOR.message_types_by_name['UsableSubnetworkSecondaryRange'] = _USABLESUBNETWORKSECONDARYRANGE
@@ -7963,11 +9171,15 @@ DESCRIPTOR.message_types_by_name['UsableSubnetwork'] = _USABLESUBNETWORK
 DESCRIPTOR.message_types_by_name['VerticalPodAutoscaling'] = _VERTICALPODAUTOSCALING
 DESCRIPTOR.message_types_by_name['DefaultSnatStatus'] = _DEFAULTSNATSTATUS
 DESCRIPTOR.message_types_by_name['IntraNodeVisibilityConfig'] = _INTRANODEVISIBILITYCONFIG
+DESCRIPTOR.message_types_by_name['ILBSubsettingConfig'] = _ILBSUBSETTINGCONFIG
+DESCRIPTOR.message_types_by_name['DNSConfig'] = _DNSCONFIG
 DESCRIPTOR.message_types_by_name['MaxPodsConstraint'] = _MAXPODSCONSTRAINT
 DESCRIPTOR.message_types_by_name['WorkloadIdentityConfig'] = _WORKLOADIDENTITYCONFIG
+DESCRIPTOR.message_types_by_name['WorkloadCertificates'] = _WORKLOADCERTIFICATES
 DESCRIPTOR.message_types_by_name['DatabaseEncryption'] = _DATABASEENCRYPTION
 DESCRIPTOR.message_types_by_name['ResourceUsageExportConfig'] = _RESOURCEUSAGEEXPORTCONFIG
 DESCRIPTOR.message_types_by_name['ShieldedNodes'] = _SHIELDEDNODES
+DESCRIPTOR.message_types_by_name['VirtualNIC'] = _VIRTUALNIC
 DESCRIPTOR.message_types_by_name['GetOpenIDConfigRequest'] = _GETOPENIDCONFIGREQUEST
 DESCRIPTOR.message_types_by_name['GetOpenIDConfigResponse'] = _GETOPENIDCONFIGRESPONSE
 DESCRIPTOR.message_types_by_name['GetJSONWebKeysRequest'] = _GETJSONWEBKEYSREQUEST
@@ -7976,9 +9188,17 @@ DESCRIPTOR.message_types_by_name['GetJSONWebKeysResponse'] = _GETJSONWEBKEYSRESP
 DESCRIPTOR.message_types_by_name['ReleaseChannel'] = _RELEASECHANNEL
 DESCRIPTOR.message_types_by_name['TpuConfig'] = _TPUCONFIG
 DESCRIPTOR.message_types_by_name['Master'] = _MASTER
+DESCRIPTOR.message_types_by_name['Autopilot'] = _AUTOPILOT
 DESCRIPTOR.message_types_by_name['NotificationConfig'] = _NOTIFICATIONCONFIG
 DESCRIPTOR.message_types_by_name['ConfidentialNodes'] = _CONFIDENTIALNODES
 DESCRIPTOR.message_types_by_name['UpgradeEvent'] = _UPGRADEEVENT
+DESCRIPTOR.message_types_by_name['UpgradeAvailableEvent'] = _UPGRADEAVAILABLEEVENT
+DESCRIPTOR.message_types_by_name['IdentityServiceConfig'] = _IDENTITYSERVICECONFIG
+DESCRIPTOR.message_types_by_name['LoggingConfig'] = _LOGGINGCONFIG
+DESCRIPTOR.message_types_by_name['LoggingComponentConfig'] = _LOGGINGCOMPONENTCONFIG
+DESCRIPTOR.message_types_by_name['MonitoringConfig'] = _MONITORINGCONFIG
+DESCRIPTOR.message_types_by_name['MonitoringComponentConfig'] = _MONITORINGCOMPONENTCONFIG
+DESCRIPTOR.enum_types_by_name['PrivateIPv6GoogleAccess'] = _PRIVATEIPV6GOOGLEACCESS
 DESCRIPTOR.enum_types_by_name['DatapathProvider'] = _DATAPATHPROVIDER
 DESCRIPTOR.enum_types_by_name['UpgradeResourceType'] = _UPGRADERESOURCETYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -8028,6 +9248,13 @@ _sym_db.RegisterMessage(NodeConfig)
 _sym_db.RegisterMessage(NodeConfig.MetadataEntry)
 _sym_db.RegisterMessage(NodeConfig.LabelsEntry)
 
+NodeNetworkConfig = _reflection.GeneratedProtocolMessageType('NodeNetworkConfig', (_message.Message,), {
+  'DESCRIPTOR' : _NODENETWORKCONFIG,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.NodeNetworkConfig)
+  })
+_sym_db.RegisterMessage(NodeNetworkConfig)
+
 ShieldedInstanceConfig = _reflection.GeneratedProtocolMessageType('ShieldedInstanceConfig', (_message.Message,), {
   'DESCRIPTOR' : _SHIELDEDINSTANCECONFIG,
   '__module__' : 'google.container.v1beta1.cluster_service_pb2'
@@ -8062,6 +9289,35 @@ NodeTaint = _reflection.GeneratedProtocolMessageType('NodeTaint', (_message.Mess
   # @@protoc_insertion_point(class_scope:google.container.v1beta1.NodeTaint)
   })
 _sym_db.RegisterMessage(NodeTaint)
+
+NodeTaints = _reflection.GeneratedProtocolMessageType('NodeTaints', (_message.Message,), {
+  'DESCRIPTOR' : _NODETAINTS,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.NodeTaints)
+  })
+_sym_db.RegisterMessage(NodeTaints)
+
+NodeLabels = _reflection.GeneratedProtocolMessageType('NodeLabels', (_message.Message,), {
+
+  'LabelsEntry' : _reflection.GeneratedProtocolMessageType('LabelsEntry', (_message.Message,), {
+    'DESCRIPTOR' : _NODELABELS_LABELSENTRY,
+    '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+    # @@protoc_insertion_point(class_scope:google.container.v1beta1.NodeLabels.LabelsEntry)
+    })
+  ,
+  'DESCRIPTOR' : _NODELABELS,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.NodeLabels)
+  })
+_sym_db.RegisterMessage(NodeLabels)
+_sym_db.RegisterMessage(NodeLabels.LabelsEntry)
+
+NetworkTags = _reflection.GeneratedProtocolMessageType('NetworkTags', (_message.Message,), {
+  'DESCRIPTOR' : _NETWORKTAGS,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.NetworkTags)
+  })
+_sym_db.RegisterMessage(NetworkTags)
 
 MasterAuth = _reflection.GeneratedProtocolMessageType('MasterAuth', (_message.Message,), {
   'DESCRIPTOR' : _MASTERAUTH,
@@ -8247,6 +9503,20 @@ Cluster = _reflection.GeneratedProtocolMessageType('Cluster', (_message.Message,
 _sym_db.RegisterMessage(Cluster)
 _sym_db.RegisterMessage(Cluster.ResourceLabelsEntry)
 
+NodePoolDefaults = _reflection.GeneratedProtocolMessageType('NodePoolDefaults', (_message.Message,), {
+  'DESCRIPTOR' : _NODEPOOLDEFAULTS,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.NodePoolDefaults)
+  })
+_sym_db.RegisterMessage(NodePoolDefaults)
+
+NodeConfigDefaults = _reflection.GeneratedProtocolMessageType('NodeConfigDefaults', (_message.Message,), {
+  'DESCRIPTOR' : _NODECONFIGDEFAULTS,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.NodeConfigDefaults)
+  })
+_sym_db.RegisterMessage(NodeConfigDefaults)
+
 ClusterUpdate = _reflection.GeneratedProtocolMessageType('ClusterUpdate', (_message.Message,), {
   'DESCRIPTOR' : _CLUSTERUPDATE,
   '__module__' : 'google.container.v1beta1.cluster_service_pb2'
@@ -8424,6 +9694,13 @@ ServerConfig = _reflection.GeneratedProtocolMessageType('ServerConfig', (_messag
     # @@protoc_insertion_point(class_scope:google.container.v1beta1.ServerConfig.ReleaseChannelConfig)
     })
   ,
+
+  'WindowsVersionMapsEntry' : _reflection.GeneratedProtocolMessageType('WindowsVersionMapsEntry', (_message.Message,), {
+    'DESCRIPTOR' : _SERVERCONFIG_WINDOWSVERSIONMAPSENTRY,
+    '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+    # @@protoc_insertion_point(class_scope:google.container.v1beta1.ServerConfig.WindowsVersionMapsEntry)
+    })
+  ,
   'DESCRIPTOR' : _SERVERCONFIG,
   '__module__' : 'google.container.v1beta1.cluster_service_pb2'
   # @@protoc_insertion_point(class_scope:google.container.v1beta1.ServerConfig)
@@ -8431,6 +9708,22 @@ ServerConfig = _reflection.GeneratedProtocolMessageType('ServerConfig', (_messag
 _sym_db.RegisterMessage(ServerConfig)
 _sym_db.RegisterMessage(ServerConfig.ReleaseChannelConfig)
 _sym_db.RegisterMessage(ServerConfig.ReleaseChannelConfig.AvailableVersion)
+_sym_db.RegisterMessage(ServerConfig.WindowsVersionMapsEntry)
+
+WindowsVersions = _reflection.GeneratedProtocolMessageType('WindowsVersions', (_message.Message,), {
+
+  'WindowsVersion' : _reflection.GeneratedProtocolMessageType('WindowsVersion', (_message.Message,), {
+    'DESCRIPTOR' : _WINDOWSVERSIONS_WINDOWSVERSION,
+    '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+    # @@protoc_insertion_point(class_scope:google.container.v1beta1.WindowsVersions.WindowsVersion)
+    })
+  ,
+  'DESCRIPTOR' : _WINDOWSVERSIONS,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.WindowsVersions)
+  })
+_sym_db.RegisterMessage(WindowsVersions)
+_sym_db.RegisterMessage(WindowsVersions.WindowsVersion)
 
 CreateNodePoolRequest = _reflection.GeneratedProtocolMessageType('CreateNodePoolRequest', (_message.Message,), {
   'DESCRIPTOR' : _CREATENODEPOOLREQUEST,
@@ -8687,6 +9980,13 @@ NetworkConfig = _reflection.GeneratedProtocolMessageType('NetworkConfig', (_mess
   })
 _sym_db.RegisterMessage(NetworkConfig)
 
+ServiceExternalIPsConfig = _reflection.GeneratedProtocolMessageType('ServiceExternalIPsConfig', (_message.Message,), {
+  'DESCRIPTOR' : _SERVICEEXTERNALIPSCONFIG,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.ServiceExternalIPsConfig)
+  })
+_sym_db.RegisterMessage(ServiceExternalIPsConfig)
+
 ListUsableSubnetworksRequest = _reflection.GeneratedProtocolMessageType('ListUsableSubnetworksRequest', (_message.Message,), {
   'DESCRIPTOR' : _LISTUSABLESUBNETWORKSREQUEST,
   '__module__' : 'google.container.v1beta1.cluster_service_pb2'
@@ -8736,6 +10036,20 @@ IntraNodeVisibilityConfig = _reflection.GeneratedProtocolMessageType('IntraNodeV
   })
 _sym_db.RegisterMessage(IntraNodeVisibilityConfig)
 
+ILBSubsettingConfig = _reflection.GeneratedProtocolMessageType('ILBSubsettingConfig', (_message.Message,), {
+  'DESCRIPTOR' : _ILBSUBSETTINGCONFIG,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.ILBSubsettingConfig)
+  })
+_sym_db.RegisterMessage(ILBSubsettingConfig)
+
+DNSConfig = _reflection.GeneratedProtocolMessageType('DNSConfig', (_message.Message,), {
+  'DESCRIPTOR' : _DNSCONFIG,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.DNSConfig)
+  })
+_sym_db.RegisterMessage(DNSConfig)
+
 MaxPodsConstraint = _reflection.GeneratedProtocolMessageType('MaxPodsConstraint', (_message.Message,), {
   'DESCRIPTOR' : _MAXPODSCONSTRAINT,
   '__module__' : 'google.container.v1beta1.cluster_service_pb2'
@@ -8749,6 +10063,13 @@ WorkloadIdentityConfig = _reflection.GeneratedProtocolMessageType('WorkloadIdent
   # @@protoc_insertion_point(class_scope:google.container.v1beta1.WorkloadIdentityConfig)
   })
 _sym_db.RegisterMessage(WorkloadIdentityConfig)
+
+WorkloadCertificates = _reflection.GeneratedProtocolMessageType('WorkloadCertificates', (_message.Message,), {
+  'DESCRIPTOR' : _WORKLOADCERTIFICATES,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.WorkloadCertificates)
+  })
+_sym_db.RegisterMessage(WorkloadCertificates)
 
 DatabaseEncryption = _reflection.GeneratedProtocolMessageType('DatabaseEncryption', (_message.Message,), {
   'DESCRIPTOR' : _DATABASEENCRYPTION,
@@ -8786,6 +10107,13 @@ ShieldedNodes = _reflection.GeneratedProtocolMessageType('ShieldedNodes', (_mess
   # @@protoc_insertion_point(class_scope:google.container.v1beta1.ShieldedNodes)
   })
 _sym_db.RegisterMessage(ShieldedNodes)
+
+VirtualNIC = _reflection.GeneratedProtocolMessageType('VirtualNIC', (_message.Message,), {
+  'DESCRIPTOR' : _VIRTUALNIC,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.VirtualNIC)
+  })
+_sym_db.RegisterMessage(VirtualNIC)
 
 GetOpenIDConfigRequest = _reflection.GeneratedProtocolMessageType('GetOpenIDConfigRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETOPENIDCONFIGREQUEST,
@@ -8843,6 +10171,13 @@ Master = _reflection.GeneratedProtocolMessageType('Master', (_message.Message,),
   })
 _sym_db.RegisterMessage(Master)
 
+Autopilot = _reflection.GeneratedProtocolMessageType('Autopilot', (_message.Message,), {
+  'DESCRIPTOR' : _AUTOPILOT,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.Autopilot)
+  })
+_sym_db.RegisterMessage(Autopilot)
+
 NotificationConfig = _reflection.GeneratedProtocolMessageType('NotificationConfig', (_message.Message,), {
 
   'PubSub' : _reflection.GeneratedProtocolMessageType('PubSub', (_message.Message,), {
@@ -8872,15 +10207,61 @@ UpgradeEvent = _reflection.GeneratedProtocolMessageType('UpgradeEvent', (_messag
   })
 _sym_db.RegisterMessage(UpgradeEvent)
 
+UpgradeAvailableEvent = _reflection.GeneratedProtocolMessageType('UpgradeAvailableEvent', (_message.Message,), {
+  'DESCRIPTOR' : _UPGRADEAVAILABLEEVENT,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.UpgradeAvailableEvent)
+  })
+_sym_db.RegisterMessage(UpgradeAvailableEvent)
+
+IdentityServiceConfig = _reflection.GeneratedProtocolMessageType('IdentityServiceConfig', (_message.Message,), {
+  'DESCRIPTOR' : _IDENTITYSERVICECONFIG,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.IdentityServiceConfig)
+  })
+_sym_db.RegisterMessage(IdentityServiceConfig)
+
+LoggingConfig = _reflection.GeneratedProtocolMessageType('LoggingConfig', (_message.Message,), {
+  'DESCRIPTOR' : _LOGGINGCONFIG,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.LoggingConfig)
+  })
+_sym_db.RegisterMessage(LoggingConfig)
+
+LoggingComponentConfig = _reflection.GeneratedProtocolMessageType('LoggingComponentConfig', (_message.Message,), {
+  'DESCRIPTOR' : _LOGGINGCOMPONENTCONFIG,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.LoggingComponentConfig)
+  })
+_sym_db.RegisterMessage(LoggingComponentConfig)
+
+MonitoringConfig = _reflection.GeneratedProtocolMessageType('MonitoringConfig', (_message.Message,), {
+  'DESCRIPTOR' : _MONITORINGCONFIG,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.MonitoringConfig)
+  })
+_sym_db.RegisterMessage(MonitoringConfig)
+
+MonitoringComponentConfig = _reflection.GeneratedProtocolMessageType('MonitoringComponentConfig', (_message.Message,), {
+  'DESCRIPTOR' : _MONITORINGCOMPONENTCONFIG,
+  '__module__' : 'google.container.v1beta1.cluster_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.container.v1beta1.MonitoringComponentConfig)
+  })
+_sym_db.RegisterMessage(MonitoringComponentConfig)
+
 
 DESCRIPTOR._options = None
 _LINUXNODECONFIG_SYSCTLSENTRY._options = None
 _NODECONFIG_METADATAENTRY._options = None
 _NODECONFIG_LABELSENTRY._options = None
+_NODENETWORKCONFIG.fields_by_name['create_pod_range']._options = None
 _SANDBOXCONFIG.fields_by_name['sandbox_type']._options = None
+_NODELABELS_LABELSENTRY._options = None
 _MASTERAUTH.fields_by_name['username']._options = None
 _MASTERAUTH.fields_by_name['password']._options = None
 _ADDONSCONFIG.fields_by_name['kubernetes_dashboard']._options = None
+_ADDONSCONFIG.fields_by_name['kalm_config']._options = None
+_KALMCONFIG.fields_by_name['enabled']._options = None
 _IPALLOCATIONPOLICY.fields_by_name['cluster_ipv4_cidr']._options = None
 _IPALLOCATIONPOLICY.fields_by_name['node_ipv4_cidr']._options = None
 _IPALLOCATIONPOLICY.fields_by_name['services_ipv4_cidr']._options = None
@@ -8894,6 +10275,7 @@ _CLUSTER.fields_by_name['current_node_version']._options = None
 _CLUSTER.fields_by_name['status_message']._options = None
 _CLUSTER.fields_by_name['instance_group_urls']._options = None
 _CLUSTER.fields_by_name['current_node_count']._options = None
+_CLUSTER.fields_by_name['id']._options = None
 _OPERATION.fields_by_name['zone']._options = None
 _OPERATION.fields_by_name['status_message']._options = None
 _OPERATION.fields_by_name['progress']._options = None
@@ -8963,6 +10345,7 @@ _GETSERVERCONFIGREQUEST.fields_by_name['project_id']._options = None
 _GETSERVERCONFIGREQUEST.fields_by_name['zone']._options = None
 _SERVERCONFIG_RELEASECHANNELCONFIG_AVAILABLEVERSION._options = None
 _SERVERCONFIG_RELEASECHANNELCONFIG.fields_by_name['available_versions']._options = None
+_SERVERCONFIG_WINDOWSVERSIONMAPSENTRY._options = None
 _CREATENODEPOOLREQUEST.fields_by_name['project_id']._options = None
 _CREATENODEPOOLREQUEST.fields_by_name['zone']._options = None
 _CREATENODEPOOLREQUEST.fields_by_name['cluster_id']._options = None
@@ -9020,16 +10403,11 @@ _SETMAINTENANCEPOLICYREQUEST.fields_by_name['zone']._options = None
 _SETMAINTENANCEPOLICYREQUEST.fields_by_name['cluster_id']._options = None
 _SETMAINTENANCEPOLICYREQUEST.fields_by_name['maintenance_policy']._options = None
 _LISTLOCATIONSREQUEST.fields_by_name['parent']._options = None
+_STATUSCONDITION_CODE._options = None
 _STATUSCONDITION.fields_by_name['code']._options = None
 _LISTUSABLESUBNETWORKSREQUEST.fields_by_name['parent']._options = None
 _WORKLOADIDENTITYCONFIG.fields_by_name['identity_namespace']._options = None
 _NOTIFICATIONCONFIG_PUBSUB.fields_by_name['topic']._options = None
-_UPGRADEEVENT.fields_by_name['resource_type']._options = None
-_UPGRADEEVENT.fields_by_name['operation']._options = None
-_UPGRADEEVENT.fields_by_name['operation_start_time']._options = None
-_UPGRADEEVENT.fields_by_name['current_version']._options = None
-_UPGRADEEVENT.fields_by_name['target_version']._options = None
-_UPGRADEEVENT.fields_by_name['resource']._options = None
 
 _CLUSTERMANAGER = _descriptor.ServiceDescriptor(
   name='ClusterManager',
@@ -9038,8 +10416,8 @@ _CLUSTERMANAGER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\030container.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=25116,
-  serialized_end=34694,
+  serialized_start=29509,
+  serialized_end=39087,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListClusters',

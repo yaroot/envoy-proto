@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.aiplatform.v1beta1 import encryption_spec_pb2 as google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_encryption__spec__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
@@ -21,11 +22,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1beta1/featurestore.proto',
   package='google.cloud.aiplatform.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\021FeaturestoreProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
+  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\021FeaturestoreProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\252\002\037Google.Cloud.AIPlatform.V1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1\352\002\"Google::Cloud::AIPlatform::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n2google/cloud/aiplatform/v1beta1/featurestore.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xb2\x05\n\x0c\x46\x65\x61turestore\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x11\n\x04\x65tag\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12N\n\x06labels\x18\x06 \x03(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.Featurestore.LabelsEntryB\x03\xe0\x41\x01\x12\x65\n\x15online_serving_config\x18\x07 \x01(\x0b\x32\x41.google.cloud.aiplatform.v1beta1.Featurestore.OnlineServingConfigB\x03\xe0\x41\x02\x12G\n\x05state\x18\x08 \x01(\x0e\x32\x33.google.cloud.aiplatform.v1beta1.Featurestore.StateB\x03\xe0\x41\x03\x1a\x34\n\x13OnlineServingConfig\x12\x1d\n\x10\x66ixed_node_count\x18\x02 \x01(\x05\x42\x03\xe0\x41\x02\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"8\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\n\n\x06STABLE\x10\x01\x12\x0c\n\x08UPDATING\x10\x02:q\xea\x41n\n&aiplatform.googleapis.com/Featurestore\x12\x44projects/{project}/locations/{location}/featurestores/{featurestore}B\x85\x01\n#com.google.cloud.aiplatform.v1beta1B\x11\x46\x65\x61turestoreProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n2google/cloud/aiplatform/v1beta1/featurestore.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x35google/cloud/aiplatform/v1beta1/encryption_spec.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xad\x05\n\x0c\x46\x65\x61turestore\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x11\n\x04\x65tag\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12N\n\x06labels\x18\x06 \x03(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.Featurestore.LabelsEntryB\x03\xe0\x41\x01\x12\x65\n\x15online_serving_config\x18\x07 \x01(\x0b\x32\x41.google.cloud.aiplatform.v1beta1.Featurestore.OnlineServingConfigB\x03\xe0\x41\x02\x12G\n\x05state\x18\x08 \x01(\x0e\x32\x33.google.cloud.aiplatform.v1beta1.Featurestore.StateB\x03\xe0\x41\x03\x1a/\n\x13OnlineServingConfig\x12\x18\n\x10\x66ixed_node_count\x18\x02 \x01(\x05\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"8\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\n\n\x06STABLE\x10\x01\x12\x0c\n\x08UPDATING\x10\x02:q\xea\x41n\n&aiplatform.googleapis.com/Featurestore\x12\x44projects/{project}/locations/{location}/featurestores/{featurestore}B\xee\x01\n#com.google.cloud.aiplatform.v1beta1B\x11\x46\x65\x61turestoreProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_encryption__spec__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -54,8 +55,8 @@ _FEATURESTORE_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=730,
-  serialized_end=786,
+  serialized_start=780,
+  serialized_end=836,
 )
 _sym_db.RegisterEnumDescriptor(_FEATURESTORE_STATE)
 
@@ -74,7 +75,7 @@ _FEATURESTORE_ONLINESERVINGCONFIG = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -87,8 +88,8 @@ _FEATURESTORE_ONLINESERVINGCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=629,
-  serialized_end=681,
+  serialized_start=684,
+  serialized_end=731,
 )
 
 _FEATURESTORE_LABELSENTRY = _descriptor.Descriptor(
@@ -125,8 +126,8 @@ _FEATURESTORE_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=683,
-  serialized_end=728,
+  serialized_start=733,
+  serialized_end=778,
 )
 
 _FEATURESTORE = _descriptor.Descriptor(
@@ -199,8 +200,8 @@ _FEATURESTORE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=211,
-  serialized_end=901,
+  serialized_start=266,
+  serialized_end=951,
 )
 
 _FEATURESTORE_ONLINESERVINGCONFIG.containing_type = _FEATURESTORE
@@ -239,7 +240,6 @@ _sym_db.RegisterMessage(Featurestore.LabelsEntry)
 
 
 DESCRIPTOR._options = None
-_FEATURESTORE_ONLINESERVINGCONFIG.fields_by_name['fixed_node_count']._options = None
 _FEATURESTORE_LABELSENTRY._options = None
 _FEATURESTORE.fields_by_name['name']._options = None
 _FEATURESTORE.fields_by_name['create_time']._options = None

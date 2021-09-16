@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.ads.googleads.v8.enumsB\035ChangeStatusResourceTypeProtoP\001ZBgoogle.golang.org/genproto/googleapis/ads/googleads/v8/enums;enums\242\002\003GAA\252\002\035Google.Ads.GoogleAds.V8.Enums\312\002\035Google\\Ads\\GoogleAds\\V8\\Enums\352\002!Google::Ads::GoogleAds::V8::Enums',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n?google/ads/googleads/v8/enums/change_status_resource_type.proto\x12\x1dgoogle.ads.googleads.v8.enums\x1a\x1cgoogle/api/annotations.proto\"\x90\x02\n\x1c\x43hangeStatusResourceTypeEnum\"\xef\x01\n\x18\x43hangeStatusResourceType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07UNKNOWN\x10\x01\x12\x0c\n\x08\x41\x44_GROUP\x10\x03\x12\x0f\n\x0b\x41\x44_GROUP_AD\x10\x04\x12\x16\n\x12\x41\x44_GROUP_CRITERION\x10\x05\x12\x0c\n\x08\x43\x41MPAIGN\x10\x06\x12\x16\n\x12\x43\x41MPAIGN_CRITERION\x10\x07\x12\x08\n\x04\x46\x45\x45\x44\x10\t\x12\r\n\tFEED_ITEM\x10\n\x12\x11\n\rAD_GROUP_FEED\x10\x0b\x12\x11\n\rCAMPAIGN_FEED\x10\x0c\x12\x19\n\x15\x41\x44_GROUP_BID_MODIFIER\x10\rB\xf2\x01\n!com.google.ads.googleads.v8.enumsB\x1d\x43hangeStatusResourceTypeProtoP\x01ZBgoogle.golang.org/genproto/googleapis/ads/googleads/v8/enums;enums\xa2\x02\x03GAA\xaa\x02\x1dGoogle.Ads.GoogleAds.V8.Enums\xca\x02\x1dGoogle\\Ads\\GoogleAds\\V8\\Enums\xea\x02!Google::Ads::GoogleAds::V8::Enumsb\x06proto3'
+  serialized_pb=b'\n?google/ads/googleads/v8/enums/change_status_resource_type.proto\x12\x1dgoogle.ads.googleads.v8.enums\x1a\x1cgoogle/api/annotations.proto\"\x80\x03\n\x1c\x43hangeStatusResourceTypeEnum\"\xdf\x02\n\x18\x43hangeStatusResourceType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07UNKNOWN\x10\x01\x12\x0c\n\x08\x41\x44_GROUP\x10\x03\x12\x0f\n\x0b\x41\x44_GROUP_AD\x10\x04\x12\x16\n\x12\x41\x44_GROUP_CRITERION\x10\x05\x12\x0c\n\x08\x43\x41MPAIGN\x10\x06\x12\x16\n\x12\x43\x41MPAIGN_CRITERION\x10\x07\x12\x08\n\x04\x46\x45\x45\x44\x10\t\x12\r\n\tFEED_ITEM\x10\n\x12\x11\n\rAD_GROUP_FEED\x10\x0b\x12\x11\n\rCAMPAIGN_FEED\x10\x0c\x12\x19\n\x15\x41\x44_GROUP_BID_MODIFIER\x10\r\x12\x0e\n\nSHARED_SET\x10\x0e\x12\x17\n\x13\x43\x41MPAIGN_SHARED_SET\x10\x0f\x12\t\n\x05\x41SSET\x10\x10\x12\x12\n\x0e\x43USTOMER_ASSET\x10\x11\x12\x12\n\x0e\x43\x41MPAIGN_ASSET\x10\x12\x12\x12\n\x0e\x41\x44_GROUP_ASSET\x10\x13\x42\xf2\x01\n!com.google.ads.googleads.v8.enumsB\x1d\x43hangeStatusResourceTypeProtoP\x01ZBgoogle.golang.org/genproto/googleapis/ads/googleads/v8/enums;enums\xa2\x02\x03GAA\xaa\x02\x1dGoogle.Ads.GoogleAds.V8.Enums\xca\x02\x1dGoogle\\Ads\\GoogleAds\\V8\\Enums\xea\x02!Google::Ads::GoogleAds::V8::Enumsb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -93,11 +93,41 @@ _CHANGESTATUSRESOURCETYPEENUM_CHANGESTATUSRESOURCETYPE = _descriptor.EnumDescrip
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SHARED_SET', index=12, number=14,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CAMPAIGN_SHARED_SET', index=13, number=15,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ASSET', index=14, number=16,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CUSTOMER_ASSET', index=15, number=17,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CAMPAIGN_ASSET', index=16, number=18,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='AD_GROUP_ASSET', index=17, number=19,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=162,
-  serialized_end=401,
+  serialized_end=513,
 )
 _sym_db.RegisterEnumDescriptor(_CHANGESTATUSRESOURCETYPEENUM_CHANGESTATUSRESOURCETYPE)
 
@@ -124,7 +154,7 @@ _CHANGESTATUSRESOURCETYPEENUM = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=129,
-  serialized_end=401,
+  serialized_end=513,
 )
 
 _CHANGESTATUSRESOURCETYPEENUM_CHANGESTATUSRESOURCETYPE.containing_type = _CHANGESTATUSRESOURCETYPEENUM

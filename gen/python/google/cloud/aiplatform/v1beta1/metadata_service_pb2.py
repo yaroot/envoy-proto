@@ -31,9 +31,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1beta1/metadata_service.proto',
   package='google.cloud.aiplatform.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\024MetadataServiceProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
+  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\024MetadataServiceProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\252\002\037Google.Cloud.AIPlatform.V1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1\352\002\"Google::Cloud::AIPlatform::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n6google/cloud/aiplatform/v1beta1/metadata_service.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.google/cloud/aiplatform/v1beta1/artifact.proto\x1a-google/cloud/aiplatform/v1beta1/context.proto\x1a+google/cloud/aiplatform/v1beta1/event.proto\x1a/google/cloud/aiplatform/v1beta1/execution.proto\x1a\x36google/cloud/aiplatform/v1beta1/lineage_subgraph.proto\x1a\x35google/cloud/aiplatform/v1beta1/metadata_schema.proto\x1a\x34google/cloud/aiplatform/v1beta1/metadata_store.proto\x1a/google/cloud/aiplatform/v1beta1/operation.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\"\xbf\x01\n\x1a\x43reateMetadataStoreRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12K\n\x0emetadata_store\x18\x02 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.MetadataStoreB\x03\xe0\x41\x02\x12\x19\n\x11metadata_store_id\x18\x03 \x01(\t\"{\n$CreateMetadataStoreOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\"X\n\x17GetMetadataStoreRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/MetadataStore\"}\n\x19ListMetadataStoresRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"~\n\x1aListMetadataStoresResponse\x12G\n\x0fmetadata_stores\x18\x01 \x03(\x0b\x32..google.cloud.aiplatform.v1beta1.MetadataStore\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"j\n\x1a\x44\x65leteMetadataStoreRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/MetadataStore\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\"{\n$DeleteMetadataStoreOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\"\xaf\x01\n\x15\x43reateArtifactRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/MetadataStore\x12@\n\x08\x61rtifact\x18\x02 \x01(\x0b\x32).google.cloud.aiplatform.v1beta1.ArtifactB\x03\xe0\x41\x02\x12\x13\n\x0b\x61rtifact_id\x18\x03 \x01(\t\"N\n\x12GetArtifactRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"aiplatform.googleapis.com/Artifact\"\x89\x01\n\x14ListArtifactsRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"aiplatform.googleapis.com/Artifact\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"n\n\x15ListArtifactsResponse\x12<\n\tartifacts\x18\x01 \x03(\x0b\x32).google.cloud.aiplatform.v1beta1.Artifact\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xa6\x01\n\x15UpdateArtifactRequest\x12@\n\x08\x61rtifact\x18\x01 \x01(\x0b\x32).google.cloud.aiplatform.v1beta1.ArtifactB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x15\n\rallow_missing\x18\x03 \x01(\x08\"\xab\x01\n\x14\x43reateContextRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/MetadataStore\x12>\n\x07\x63ontext\x18\x02 \x01(\x0b\x32(.google.cloud.aiplatform.v1beta1.ContextB\x03\xe0\x41\x02\x12\x12\n\ncontext_id\x18\x03 \x01(\t\"L\n\x11GetContextRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!aiplatform.googleapis.com/Context\"\x87\x01\n\x13ListContextsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!aiplatform.googleapis.com/Context\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"k\n\x14ListContextsResponse\x12:\n\x08\x63ontexts\x18\x01 \x03(\x0b\x32(.google.cloud.aiplatform.v1beta1.Context\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xa3\x01\n\x14UpdateContextRequest\x12>\n\x07\x63ontext\x18\x01 \x01(\x0b\x32(.google.cloud.aiplatform.v1beta1.ContextB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x15\n\rallow_missing\x18\x03 \x01(\x08\"^\n\x14\x44\x65leteContextRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!aiplatform.googleapis.com/Context\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\"\xdf\x01\n\'AddContextArtifactsAndExecutionsRequest\x12:\n\x07\x63ontext\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!aiplatform.googleapis.com/Context\x12:\n\tartifacts\x18\x02 \x03(\tB\'\xfa\x41$\n\"aiplatform.googleapis.com/Artifact\x12<\n\nexecutions\x18\x03 \x03(\tB(\xfa\x41%\n#aiplatform.googleapis.com/Execution\"*\n(AddContextArtifactsAndExecutionsResponse\"\x97\x01\n\x19\x41\x64\x64\x43ontextChildrenRequest\x12:\n\x07\x63ontext\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!aiplatform.googleapis.com/Context\x12>\n\x0e\x63hild_contexts\x18\x02 \x03(\tB&\xfa\x41#\n!aiplatform.googleapis.com/Context\"\x1c\n\x1a\x41\x64\x64\x43ontextChildrenResponse\"`\n\"QueryContextLineageSubgraphRequest\x12:\n\x07\x63ontext\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!aiplatform.googleapis.com/Context\"\xb3\x01\n\x16\x43reateExecutionRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/MetadataStore\x12\x42\n\texecution\x18\x02 \x01(\x0b\x32*.google.cloud.aiplatform.v1beta1.ExecutionB\x03\xe0\x41\x02\x12\x14\n\x0c\x65xecution_id\x18\x03 \x01(\t\"P\n\x13GetExecutionRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#aiplatform.googleapis.com/Execution\"\x8b\x01\n\x15ListExecutionsRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#aiplatform.googleapis.com/Execution\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"q\n\x16ListExecutionsResponse\x12>\n\nexecutions\x18\x01 \x03(\x0b\x32*.google.cloud.aiplatform.v1beta1.Execution\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xa9\x01\n\x16UpdateExecutionRequest\x12\x42\n\texecution\x18\x01 \x01(\x0b\x32*.google.cloud.aiplatform.v1beta1.ExecutionB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x15\n\rallow_missing\x18\x03 \x01(\x08\"\x93\x01\n\x19\x41\x64\x64\x45xecutionEventsRequest\x12>\n\texecution\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#aiplatform.googleapis.com/Execution\x12\x36\n\x06\x65vents\x18\x02 \x03(\x0b\x32&.google.cloud.aiplatform.v1beta1.Event\"\x1c\n\x1a\x41\x64\x64\x45xecutionEventsResponse\"g\n%QueryExecutionInputsAndOutputsRequest\x12>\n\texecution\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#aiplatform.googleapis.com/Execution\"\xc9\x01\n\x1b\x43reateMetadataSchemaRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/MetadataStore\x12M\n\x0fmetadata_schema\x18\x02 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.MetadataSchemaB\x03\xe0\x41\x02\x12\x1a\n\x12metadata_schema_id\x18\x03 \x01(\t\"Z\n\x18GetMetadataSchemaRequest\x12>\n\x04name\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\n(aiplatform.googleapis.com/MetadataSchema\"\x95\x01\n\x1aListMetadataSchemasRequest\x12@\n\x06parent\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\x12(aiplatform.googleapis.com/MetadataSchema\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"\x81\x01\n\x1bListMetadataSchemasResponse\x12I\n\x10metadata_schemas\x18\x01 \x03(\x0b\x32/.google.cloud.aiplatform.v1beta1.MetadataSchema\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x85\x01\n#QueryArtifactLineageSubgraphRequest\x12<\n\x08\x61rtifact\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"aiplatform.googleapis.com/Artifact\x12\x10\n\x08max_hops\x18\x02 \x01(\x05\x12\x0e\n\x06\x66ilter\x18\x03 \x01(\t2\xf2\x31\n\x0fMetadataService\x12\xa5\x02\n\x13\x43reateMetadataStore\x12;.google.cloud.aiplatform.v1beta1.CreateMetadataStoreRequest\x1a\x1d.google.longrunning.Operation\"\xb1\x01\x82\xd3\xe4\x93\x02I\"7/v1beta1/{parent=projects/*/locations/*}/metadataStores:\x0emetadata_store\xda\x41\'parent,metadata_store,metadata_store_id\xca\x41\x35\n\rMetadataStore\x12$CreateMetadataStoreOperationMetadata\x12\xc4\x01\n\x10GetMetadataStore\x12\x38.google.cloud.aiplatform.v1beta1.GetMetadataStoreRequest\x1a..google.cloud.aiplatform.v1beta1.MetadataStore\"F\x82\xd3\xe4\x93\x02\x39\x12\x37/v1beta1/{name=projects/*/locations/*/metadataStores/*}\xda\x41\x04name\x12\xd7\x01\n\x12ListMetadataStores\x12:.google.cloud.aiplatform.v1beta1.ListMetadataStoresRequest\x1a;.google.cloud.aiplatform.v1beta1.ListMetadataStoresResponse\"H\x82\xd3\xe4\x93\x02\x39\x12\x37/v1beta1/{parent=projects/*/locations/*}/metadataStores\xda\x41\x06parent\x12\xfa\x01\n\x13\x44\x65leteMetadataStore\x12;.google.cloud.aiplatform.v1beta1.DeleteMetadataStoreRequest\x1a\x1d.google.longrunning.Operation\"\x86\x01\x82\xd3\xe4\x93\x02\x39*7/v1beta1/{name=projects/*/locations/*/metadataStores/*}\xda\x41\x04name\xca\x41=\n\x15google.protobuf.Empty\x12$DeleteMetadataStoreOperationMetadata\x12\xe8\x01\n\x0e\x43reateArtifact\x12\x36.google.cloud.aiplatform.v1beta1.CreateArtifactRequest\x1a).google.cloud.aiplatform.v1beta1.Artifact\"s\x82\xd3\xe4\x93\x02O\"C/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/artifacts:\x08\x61rtifact\xda\x41\x1bparent,artifact,artifact_id\x12\xc1\x01\n\x0bGetArtifact\x12\x33.google.cloud.aiplatform.v1beta1.GetArtifactRequest\x1a).google.cloud.aiplatform.v1beta1.Artifact\"R\x82\xd3\xe4\x93\x02\x45\x12\x43/v1beta1/{name=projects/*/locations/*/metadataStores/*/artifacts/*}\xda\x41\x04name\x12\xd4\x01\n\rListArtifacts\x12\x35.google.cloud.aiplatform.v1beta1.ListArtifactsRequest\x1a\x36.google.cloud.aiplatform.v1beta1.ListArtifactsResponse\"T\x82\xd3\xe4\x93\x02\x45\x12\x43/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/artifacts\xda\x41\x06parent\x12\xea\x01\n\x0eUpdateArtifact\x12\x36.google.cloud.aiplatform.v1beta1.UpdateArtifactRequest\x1a).google.cloud.aiplatform.v1beta1.Artifact\"u\x82\xd3\xe4\x93\x02X2L/v1beta1/{artifact.name=projects/*/locations/*/metadataStores/*/artifacts/*}:\x08\x61rtifact\xda\x41\x14\x61rtifact,update_mask\x12\xe1\x01\n\rCreateContext\x12\x35.google.cloud.aiplatform.v1beta1.CreateContextRequest\x1a(.google.cloud.aiplatform.v1beta1.Context\"o\x82\xd3\xe4\x93\x02M\"B/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/contexts:\x07\x63ontext\xda\x41\x19parent,context,context_id\x12\xbd\x01\n\nGetContext\x12\x32.google.cloud.aiplatform.v1beta1.GetContextRequest\x1a(.google.cloud.aiplatform.v1beta1.Context\"Q\x82\xd3\xe4\x93\x02\x44\x12\x42/v1beta1/{name=projects/*/locations/*/metadataStores/*/contexts/*}\xda\x41\x04name\x12\xd0\x01\n\x0cListContexts\x12\x34.google.cloud.aiplatform.v1beta1.ListContextsRequest\x1a\x35.google.cloud.aiplatform.v1beta1.ListContextsResponse\"S\x82\xd3\xe4\x93\x02\x44\x12\x42/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/contexts\xda\x41\x06parent\x12\xe3\x01\n\rUpdateContext\x12\x35.google.cloud.aiplatform.v1beta1.UpdateContextRequest\x1a(.google.cloud.aiplatform.v1beta1.Context\"q\x82\xd3\xe4\x93\x02U2J/v1beta1/{context.name=projects/*/locations/*/metadataStores/*/contexts/*}:\x07\x63ontext\xda\x41\x13\x63ontext,update_mask\x12\xec\x01\n\rDeleteContext\x12\x35.google.cloud.aiplatform.v1beta1.DeleteContextRequest\x1a\x1d.google.longrunning.Operation\"\x84\x01\x82\xd3\xe4\x93\x02\x44*B/v1beta1/{name=projects/*/locations/*/metadataStores/*/contexts/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xca\x02\n AddContextArtifactsAndExecutions\x12H.google.cloud.aiplatform.v1beta1.AddContextArtifactsAndExecutionsRequest\x1aI.google.cloud.aiplatform.v1beta1.AddContextArtifactsAndExecutionsResponse\"\x90\x01\x82\xd3\xe4\x93\x02k\"f/v1beta1/{context=projects/*/locations/*/metadataStores/*/contexts/*}:addContextArtifactsAndExecutions:\x01*\xda\x41\x1c\x63ontext,artifacts,executions\x12\x8b\x02\n\x12\x41\x64\x64\x43ontextChildren\x12:.google.cloud.aiplatform.v1beta1.AddContextChildrenRequest\x1a;.google.cloud.aiplatform.v1beta1.AddContextChildrenResponse\"|\x82\xd3\xe4\x93\x02]\"X/v1beta1/{context=projects/*/locations/*/metadataStores/*/contexts/*}:addContextChildren:\x01*\xda\x41\x16\x63ontext,child_contexts\x12\x89\x02\n\x1bQueryContextLineageSubgraph\x12\x43.google.cloud.aiplatform.v1beta1.QueryContextLineageSubgraphRequest\x1a\x30.google.cloud.aiplatform.v1beta1.LineageSubgraph\"s\x82\xd3\xe4\x93\x02\x63\x12\x61/v1beta1/{context=projects/*/locations/*/metadataStores/*/contexts/*}:queryContextLineageSubgraph\xda\x41\x07\x63ontext\x12\xef\x01\n\x0f\x43reateExecution\x12\x37.google.cloud.aiplatform.v1beta1.CreateExecutionRequest\x1a*.google.cloud.aiplatform.v1beta1.Execution\"w\x82\xd3\xe4\x93\x02Q\"D/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/executions:\texecution\xda\x41\x1dparent,execution,execution_id\x12\xc5\x01\n\x0cGetExecution\x12\x34.google.cloud.aiplatform.v1beta1.GetExecutionRequest\x1a*.google.cloud.aiplatform.v1beta1.Execution\"S\x82\xd3\xe4\x93\x02\x46\x12\x44/v1beta1/{name=projects/*/locations/*/metadataStores/*/executions/*}\xda\x41\x04name\x12\xd8\x01\n\x0eListExecutions\x12\x36.google.cloud.aiplatform.v1beta1.ListExecutionsRequest\x1a\x37.google.cloud.aiplatform.v1beta1.ListExecutionsResponse\"U\x82\xd3\xe4\x93\x02\x46\x12\x44/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/executions\xda\x41\x06parent\x12\xf1\x01\n\x0fUpdateExecution\x12\x37.google.cloud.aiplatform.v1beta1.UpdateExecutionRequest\x1a*.google.cloud.aiplatform.v1beta1.Execution\"y\x82\xd3\xe4\x93\x02[2N/v1beta1/{execution.name=projects/*/locations/*/metadataStores/*/executions/*}:\texecution\xda\x41\x15\x65xecution,update_mask\x12\x89\x02\n\x12\x41\x64\x64\x45xecutionEvents\x12:.google.cloud.aiplatform.v1beta1.AddExecutionEventsRequest\x1a;.google.cloud.aiplatform.v1beta1.AddExecutionEventsResponse\"z\x82\xd3\xe4\x93\x02\x61\"\\/v1beta1/{execution=projects/*/locations/*/metadataStores/*/executions/*}:addExecutionEvents:\x01*\xda\x41\x10\x65xecution,events\x12\x98\x02\n\x1eQueryExecutionInputsAndOutputs\x12\x46.google.cloud.aiplatform.v1beta1.QueryExecutionInputsAndOutputsRequest\x1a\x30.google.cloud.aiplatform.v1beta1.LineageSubgraph\"|\x82\xd3\xe4\x93\x02j\x12h/v1beta1/{execution=projects/*/locations/*/metadataStores/*/executions/*}:queryExecutionInputsAndOutputs\xda\x41\texecution\x12\x96\x02\n\x14\x43reateMetadataSchema\x12<.google.cloud.aiplatform.v1beta1.CreateMetadataSchemaRequest\x1a/.google.cloud.aiplatform.v1beta1.MetadataSchema\"\x8e\x01\x82\xd3\xe4\x93\x02\\\"I/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/metadataSchemas:\x0fmetadata_schema\xda\x41)parent,metadata_schema,metadata_schema_id\x12\xd9\x01\n\x11GetMetadataSchema\x12\x39.google.cloud.aiplatform.v1beta1.GetMetadataSchemaRequest\x1a/.google.cloud.aiplatform.v1beta1.MetadataSchema\"X\x82\xd3\xe4\x93\x02K\x12I/v1beta1/{name=projects/*/locations/*/metadataStores/*/metadataSchemas/*}\xda\x41\x04name\x12\xec\x01\n\x13ListMetadataSchemas\x12;.google.cloud.aiplatform.v1beta1.ListMetadataSchemasRequest\x1a<.google.cloud.aiplatform.v1beta1.ListMetadataSchemasResponse\"Z\x82\xd3\xe4\x93\x02K\x12I/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/metadataSchemas\xda\x41\x06parent\x12\x8f\x02\n\x1cQueryArtifactLineageSubgraph\x12\x44.google.cloud.aiplatform.v1beta1.QueryArtifactLineageSubgraphRequest\x1a\x30.google.cloud.aiplatform.v1beta1.LineageSubgraph\"w\x82\xd3\xe4\x93\x02\x66\x12\x64/v1beta1/{artifact=projects/*/locations/*/metadataStores/*/artifacts/*}:queryArtifactLineageSubgraph\xda\x41\x08\x61rtifact\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x88\x01\n#com.google.cloud.aiplatform.v1beta1B\x14MetadataServiceProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n6google/cloud/aiplatform/v1beta1/metadata_service.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.google/cloud/aiplatform/v1beta1/artifact.proto\x1a-google/cloud/aiplatform/v1beta1/context.proto\x1a+google/cloud/aiplatform/v1beta1/event.proto\x1a/google/cloud/aiplatform/v1beta1/execution.proto\x1a\x36google/cloud/aiplatform/v1beta1/lineage_subgraph.proto\x1a\x35google/cloud/aiplatform/v1beta1/metadata_schema.proto\x1a\x34google/cloud/aiplatform/v1beta1/metadata_store.proto\x1a/google/cloud/aiplatform/v1beta1/operation.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\"\xbf\x01\n\x1a\x43reateMetadataStoreRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12K\n\x0emetadata_store\x18\x02 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.MetadataStoreB\x03\xe0\x41\x02\x12\x19\n\x11metadata_store_id\x18\x03 \x01(\t\"{\n$CreateMetadataStoreOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\"X\n\x17GetMetadataStoreRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/MetadataStore\"}\n\x19ListMetadataStoresRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"~\n\x1aListMetadataStoresResponse\x12G\n\x0fmetadata_stores\x18\x01 \x03(\x0b\x32..google.cloud.aiplatform.v1beta1.MetadataStore\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"n\n\x1a\x44\x65leteMetadataStoreRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/MetadataStore\x12\x11\n\x05\x66orce\x18\x02 \x01(\x08\x42\x02\x18\x01\"{\n$DeleteMetadataStoreOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\"\xaf\x01\n\x15\x43reateArtifactRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/MetadataStore\x12@\n\x08\x61rtifact\x18\x02 \x01(\x0b\x32).google.cloud.aiplatform.v1beta1.ArtifactB\x03\xe0\x41\x02\x12\x13\n\x0b\x61rtifact_id\x18\x03 \x01(\t\"N\n\x12GetArtifactRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"aiplatform.googleapis.com/Artifact\"\x89\x01\n\x14ListArtifactsRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"aiplatform.googleapis.com/Artifact\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"n\n\x15ListArtifactsResponse\x12<\n\tartifacts\x18\x01 \x03(\x0b\x32).google.cloud.aiplatform.v1beta1.Artifact\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xa6\x01\n\x15UpdateArtifactRequest\x12@\n\x08\x61rtifact\x18\x01 \x01(\x0b\x32).google.cloud.aiplatform.v1beta1.ArtifactB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x15\n\rallow_missing\x18\x03 \x01(\x08\"d\n\x15\x44\x65leteArtifactRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"aiplatform.googleapis.com/Artifact\x12\x11\n\x04\x65tag\x18\x02 \x01(\tB\x03\xe0\x41\x01\"|\n\x15PurgeArtifactsRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12\"aiplatform.googleapis.com/Artifact\x12\x13\n\x06\x66ilter\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05\x66orce\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\"l\n\x16PurgeArtifactsResponse\x12\x13\n\x0bpurge_count\x18\x01 \x01(\x03\x12=\n\x0cpurge_sample\x18\x02 \x03(\tB\'\xfa\x41$\n\"aiplatform.googleapis.com/Artifact\"m\n\x16PurgeArtifactsMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\"\xab\x01\n\x14\x43reateContextRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/MetadataStore\x12>\n\x07\x63ontext\x18\x02 \x01(\x0b\x32(.google.cloud.aiplatform.v1beta1.ContextB\x03\xe0\x41\x02\x12\x12\n\ncontext_id\x18\x03 \x01(\t\"L\n\x11GetContextRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!aiplatform.googleapis.com/Context\"\x87\x01\n\x13ListContextsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!aiplatform.googleapis.com/Context\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"k\n\x14ListContextsResponse\x12:\n\x08\x63ontexts\x18\x01 \x03(\x0b\x32(.google.cloud.aiplatform.v1beta1.Context\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xa3\x01\n\x14UpdateContextRequest\x12>\n\x07\x63ontext\x18\x01 \x01(\x0b\x32(.google.cloud.aiplatform.v1beta1.ContextB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x15\n\rallow_missing\x18\x03 \x01(\x08\"q\n\x14\x44\x65leteContextRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!aiplatform.googleapis.com/Context\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\x12\x11\n\x04\x65tag\x18\x03 \x01(\tB\x03\xe0\x41\x01\"z\n\x14PurgeContextsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!aiplatform.googleapis.com/Context\x12\x13\n\x06\x66ilter\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05\x66orce\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\"j\n\x15PurgeContextsResponse\x12\x13\n\x0bpurge_count\x18\x01 \x01(\x03\x12<\n\x0cpurge_sample\x18\x02 \x03(\tB&\xfa\x41#\n!aiplatform.googleapis.com/Context\"l\n\x15PurgeContextsMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\"\xdf\x01\n\'AddContextArtifactsAndExecutionsRequest\x12:\n\x07\x63ontext\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!aiplatform.googleapis.com/Context\x12:\n\tartifacts\x18\x02 \x03(\tB\'\xfa\x41$\n\"aiplatform.googleapis.com/Artifact\x12<\n\nexecutions\x18\x03 \x03(\tB(\xfa\x41%\n#aiplatform.googleapis.com/Execution\"*\n(AddContextArtifactsAndExecutionsResponse\"\x97\x01\n\x19\x41\x64\x64\x43ontextChildrenRequest\x12:\n\x07\x63ontext\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!aiplatform.googleapis.com/Context\x12>\n\x0e\x63hild_contexts\x18\x02 \x03(\tB&\xfa\x41#\n!aiplatform.googleapis.com/Context\"\x1c\n\x1a\x41\x64\x64\x43ontextChildrenResponse\"`\n\"QueryContextLineageSubgraphRequest\x12:\n\x07\x63ontext\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!aiplatform.googleapis.com/Context\"\xb3\x01\n\x16\x43reateExecutionRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/MetadataStore\x12\x42\n\texecution\x18\x02 \x01(\x0b\x32*.google.cloud.aiplatform.v1beta1.ExecutionB\x03\xe0\x41\x02\x12\x14\n\x0c\x65xecution_id\x18\x03 \x01(\t\"P\n\x13GetExecutionRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#aiplatform.googleapis.com/Execution\"\x8b\x01\n\x15ListExecutionsRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#aiplatform.googleapis.com/Execution\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"q\n\x16ListExecutionsResponse\x12>\n\nexecutions\x18\x01 \x03(\x0b\x32*.google.cloud.aiplatform.v1beta1.Execution\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xa9\x01\n\x16UpdateExecutionRequest\x12\x42\n\texecution\x18\x01 \x01(\x0b\x32*.google.cloud.aiplatform.v1beta1.ExecutionB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x15\n\rallow_missing\x18\x03 \x01(\x08\"f\n\x16\x44\x65leteExecutionRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#aiplatform.googleapis.com/Execution\x12\x11\n\x04\x65tag\x18\x02 \x01(\tB\x03\xe0\x41\x01\"~\n\x16PurgeExecutionsRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#aiplatform.googleapis.com/Execution\x12\x13\n\x06\x66ilter\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05\x66orce\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\"n\n\x17PurgeExecutionsResponse\x12\x13\n\x0bpurge_count\x18\x01 \x01(\x03\x12>\n\x0cpurge_sample\x18\x02 \x03(\tB(\xfa\x41%\n#aiplatform.googleapis.com/Execution\"n\n\x17PurgeExecutionsMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\"\x93\x01\n\x19\x41\x64\x64\x45xecutionEventsRequest\x12>\n\texecution\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#aiplatform.googleapis.com/Execution\x12\x36\n\x06\x65vents\x18\x02 \x03(\x0b\x32&.google.cloud.aiplatform.v1beta1.Event\"\x1c\n\x1a\x41\x64\x64\x45xecutionEventsResponse\"g\n%QueryExecutionInputsAndOutputsRequest\x12>\n\texecution\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#aiplatform.googleapis.com/Execution\"\xc9\x01\n\x1b\x43reateMetadataSchemaRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/MetadataStore\x12M\n\x0fmetadata_schema\x18\x02 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.MetadataSchemaB\x03\xe0\x41\x02\x12\x1a\n\x12metadata_schema_id\x18\x03 \x01(\t\"Z\n\x18GetMetadataSchemaRequest\x12>\n\x04name\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\n(aiplatform.googleapis.com/MetadataSchema\"\x95\x01\n\x1aListMetadataSchemasRequest\x12@\n\x06parent\x18\x01 \x01(\tB0\xe0\x41\x02\xfa\x41*\x12(aiplatform.googleapis.com/MetadataSchema\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"\x81\x01\n\x1bListMetadataSchemasResponse\x12I\n\x10metadata_schemas\x18\x01 \x03(\x0b\x32/.google.cloud.aiplatform.v1beta1.MetadataSchema\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x85\x01\n#QueryArtifactLineageSubgraphRequest\x12<\n\x08\x61rtifact\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"aiplatform.googleapis.com/Artifact\x12\x10\n\x08max_hops\x18\x02 \x01(\x05\x12\x0e\n\x06\x66ilter\x18\x03 \x01(\t2\xd0;\n\x0fMetadataService\x12\xa5\x02\n\x13\x43reateMetadataStore\x12;.google.cloud.aiplatform.v1beta1.CreateMetadataStoreRequest\x1a\x1d.google.longrunning.Operation\"\xb1\x01\x82\xd3\xe4\x93\x02I\"7/v1beta1/{parent=projects/*/locations/*}/metadataStores:\x0emetadata_store\xda\x41\'parent,metadata_store,metadata_store_id\xca\x41\x35\n\rMetadataStore\x12$CreateMetadataStoreOperationMetadata\x12\xc4\x01\n\x10GetMetadataStore\x12\x38.google.cloud.aiplatform.v1beta1.GetMetadataStoreRequest\x1a..google.cloud.aiplatform.v1beta1.MetadataStore\"F\x82\xd3\xe4\x93\x02\x39\x12\x37/v1beta1/{name=projects/*/locations/*/metadataStores/*}\xda\x41\x04name\x12\xd7\x01\n\x12ListMetadataStores\x12:.google.cloud.aiplatform.v1beta1.ListMetadataStoresRequest\x1a;.google.cloud.aiplatform.v1beta1.ListMetadataStoresResponse\"H\x82\xd3\xe4\x93\x02\x39\x12\x37/v1beta1/{parent=projects/*/locations/*}/metadataStores\xda\x41\x06parent\x12\xfa\x01\n\x13\x44\x65leteMetadataStore\x12;.google.cloud.aiplatform.v1beta1.DeleteMetadataStoreRequest\x1a\x1d.google.longrunning.Operation\"\x86\x01\x82\xd3\xe4\x93\x02\x39*7/v1beta1/{name=projects/*/locations/*/metadataStores/*}\xda\x41\x04name\xca\x41=\n\x15google.protobuf.Empty\x12$DeleteMetadataStoreOperationMetadata\x12\xe8\x01\n\x0e\x43reateArtifact\x12\x36.google.cloud.aiplatform.v1beta1.CreateArtifactRequest\x1a).google.cloud.aiplatform.v1beta1.Artifact\"s\x82\xd3\xe4\x93\x02O\"C/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/artifacts:\x08\x61rtifact\xda\x41\x1bparent,artifact,artifact_id\x12\xc1\x01\n\x0bGetArtifact\x12\x33.google.cloud.aiplatform.v1beta1.GetArtifactRequest\x1a).google.cloud.aiplatform.v1beta1.Artifact\"R\x82\xd3\xe4\x93\x02\x45\x12\x43/v1beta1/{name=projects/*/locations/*/metadataStores/*/artifacts/*}\xda\x41\x04name\x12\xd4\x01\n\rListArtifacts\x12\x35.google.cloud.aiplatform.v1beta1.ListArtifactsRequest\x1a\x36.google.cloud.aiplatform.v1beta1.ListArtifactsResponse\"T\x82\xd3\xe4\x93\x02\x45\x12\x43/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/artifacts\xda\x41\x06parent\x12\xea\x01\n\x0eUpdateArtifact\x12\x36.google.cloud.aiplatform.v1beta1.UpdateArtifactRequest\x1a).google.cloud.aiplatform.v1beta1.Artifact\"u\x82\xd3\xe4\x93\x02X2L/v1beta1/{artifact.name=projects/*/locations/*/metadataStores/*/artifacts/*}:\x08\x61rtifact\xda\x41\x14\x61rtifact,update_mask\x12\xef\x01\n\x0e\x44\x65leteArtifact\x12\x36.google.cloud.aiplatform.v1beta1.DeleteArtifactRequest\x1a\x1d.google.longrunning.Operation\"\x85\x01\x82\xd3\xe4\x93\x02\x45*C/v1beta1/{name=projects/*/locations/*/metadataStores/*/artifacts/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xfa\x01\n\x0ePurgeArtifacts\x12\x36.google.cloud.aiplatform.v1beta1.PurgeArtifactsRequest\x1a\x1d.google.longrunning.Operation\"\x90\x01\x82\xd3\xe4\x93\x02N\"I/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/artifacts:purge:\x01*\xda\x41\x06parent\xca\x41\x30\n\x16PurgeArtifactsResponse\x12\x16PurgeArtifactsMetadata\x12\xe1\x01\n\rCreateContext\x12\x35.google.cloud.aiplatform.v1beta1.CreateContextRequest\x1a(.google.cloud.aiplatform.v1beta1.Context\"o\x82\xd3\xe4\x93\x02M\"B/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/contexts:\x07\x63ontext\xda\x41\x19parent,context,context_id\x12\xbd\x01\n\nGetContext\x12\x32.google.cloud.aiplatform.v1beta1.GetContextRequest\x1a(.google.cloud.aiplatform.v1beta1.Context\"Q\x82\xd3\xe4\x93\x02\x44\x12\x42/v1beta1/{name=projects/*/locations/*/metadataStores/*/contexts/*}\xda\x41\x04name\x12\xd0\x01\n\x0cListContexts\x12\x34.google.cloud.aiplatform.v1beta1.ListContextsRequest\x1a\x35.google.cloud.aiplatform.v1beta1.ListContextsResponse\"S\x82\xd3\xe4\x93\x02\x44\x12\x42/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/contexts\xda\x41\x06parent\x12\xe3\x01\n\rUpdateContext\x12\x35.google.cloud.aiplatform.v1beta1.UpdateContextRequest\x1a(.google.cloud.aiplatform.v1beta1.Context\"q\x82\xd3\xe4\x93\x02U2J/v1beta1/{context.name=projects/*/locations/*/metadataStores/*/contexts/*}:\x07\x63ontext\xda\x41\x13\x63ontext,update_mask\x12\xec\x01\n\rDeleteContext\x12\x35.google.cloud.aiplatform.v1beta1.DeleteContextRequest\x1a\x1d.google.longrunning.Operation\"\x84\x01\x82\xd3\xe4\x93\x02\x44*B/v1beta1/{name=projects/*/locations/*/metadataStores/*/contexts/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xf5\x01\n\rPurgeContexts\x12\x35.google.cloud.aiplatform.v1beta1.PurgeContextsRequest\x1a\x1d.google.longrunning.Operation\"\x8d\x01\x82\xd3\xe4\x93\x02M\"H/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/contexts:purge:\x01*\xda\x41\x06parent\xca\x41.\n\x15PurgeContextsResponse\x12\x15PurgeContextsMetadata\x12\xca\x02\n AddContextArtifactsAndExecutions\x12H.google.cloud.aiplatform.v1beta1.AddContextArtifactsAndExecutionsRequest\x1aI.google.cloud.aiplatform.v1beta1.AddContextArtifactsAndExecutionsResponse\"\x90\x01\x82\xd3\xe4\x93\x02k\"f/v1beta1/{context=projects/*/locations/*/metadataStores/*/contexts/*}:addContextArtifactsAndExecutions:\x01*\xda\x41\x1c\x63ontext,artifacts,executions\x12\x8b\x02\n\x12\x41\x64\x64\x43ontextChildren\x12:.google.cloud.aiplatform.v1beta1.AddContextChildrenRequest\x1a;.google.cloud.aiplatform.v1beta1.AddContextChildrenResponse\"|\x82\xd3\xe4\x93\x02]\"X/v1beta1/{context=projects/*/locations/*/metadataStores/*/contexts/*}:addContextChildren:\x01*\xda\x41\x16\x63ontext,child_contexts\x12\x89\x02\n\x1bQueryContextLineageSubgraph\x12\x43.google.cloud.aiplatform.v1beta1.QueryContextLineageSubgraphRequest\x1a\x30.google.cloud.aiplatform.v1beta1.LineageSubgraph\"s\x82\xd3\xe4\x93\x02\x63\x12\x61/v1beta1/{context=projects/*/locations/*/metadataStores/*/contexts/*}:queryContextLineageSubgraph\xda\x41\x07\x63ontext\x12\xef\x01\n\x0f\x43reateExecution\x12\x37.google.cloud.aiplatform.v1beta1.CreateExecutionRequest\x1a*.google.cloud.aiplatform.v1beta1.Execution\"w\x82\xd3\xe4\x93\x02Q\"D/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/executions:\texecution\xda\x41\x1dparent,execution,execution_id\x12\xc5\x01\n\x0cGetExecution\x12\x34.google.cloud.aiplatform.v1beta1.GetExecutionRequest\x1a*.google.cloud.aiplatform.v1beta1.Execution\"S\x82\xd3\xe4\x93\x02\x46\x12\x44/v1beta1/{name=projects/*/locations/*/metadataStores/*/executions/*}\xda\x41\x04name\x12\xd8\x01\n\x0eListExecutions\x12\x36.google.cloud.aiplatform.v1beta1.ListExecutionsRequest\x1a\x37.google.cloud.aiplatform.v1beta1.ListExecutionsResponse\"U\x82\xd3\xe4\x93\x02\x46\x12\x44/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/executions\xda\x41\x06parent\x12\xf1\x01\n\x0fUpdateExecution\x12\x37.google.cloud.aiplatform.v1beta1.UpdateExecutionRequest\x1a*.google.cloud.aiplatform.v1beta1.Execution\"y\x82\xd3\xe4\x93\x02[2N/v1beta1/{execution.name=projects/*/locations/*/metadataStores/*/executions/*}:\texecution\xda\x41\x15\x65xecution,update_mask\x12\xf2\x01\n\x0f\x44\x65leteExecution\x12\x37.google.cloud.aiplatform.v1beta1.DeleteExecutionRequest\x1a\x1d.google.longrunning.Operation\"\x86\x01\x82\xd3\xe4\x93\x02\x46*D/v1beta1/{name=projects/*/locations/*/metadataStores/*/executions/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xff\x01\n\x0fPurgeExecutions\x12\x37.google.cloud.aiplatform.v1beta1.PurgeExecutionsRequest\x1a\x1d.google.longrunning.Operation\"\x93\x01\x82\xd3\xe4\x93\x02O\"J/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/executions:purge:\x01*\xda\x41\x06parent\xca\x41\x32\n\x17PurgeExecutionsResponse\x12\x17PurgeExecutionsMetadata\x12\x89\x02\n\x12\x41\x64\x64\x45xecutionEvents\x12:.google.cloud.aiplatform.v1beta1.AddExecutionEventsRequest\x1a;.google.cloud.aiplatform.v1beta1.AddExecutionEventsResponse\"z\x82\xd3\xe4\x93\x02\x61\"\\/v1beta1/{execution=projects/*/locations/*/metadataStores/*/executions/*}:addExecutionEvents:\x01*\xda\x41\x10\x65xecution,events\x12\x98\x02\n\x1eQueryExecutionInputsAndOutputs\x12\x46.google.cloud.aiplatform.v1beta1.QueryExecutionInputsAndOutputsRequest\x1a\x30.google.cloud.aiplatform.v1beta1.LineageSubgraph\"|\x82\xd3\xe4\x93\x02j\x12h/v1beta1/{execution=projects/*/locations/*/metadataStores/*/executions/*}:queryExecutionInputsAndOutputs\xda\x41\texecution\x12\x96\x02\n\x14\x43reateMetadataSchema\x12<.google.cloud.aiplatform.v1beta1.CreateMetadataSchemaRequest\x1a/.google.cloud.aiplatform.v1beta1.MetadataSchema\"\x8e\x01\x82\xd3\xe4\x93\x02\\\"I/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/metadataSchemas:\x0fmetadata_schema\xda\x41)parent,metadata_schema,metadata_schema_id\x12\xd9\x01\n\x11GetMetadataSchema\x12\x39.google.cloud.aiplatform.v1beta1.GetMetadataSchemaRequest\x1a/.google.cloud.aiplatform.v1beta1.MetadataSchema\"X\x82\xd3\xe4\x93\x02K\x12I/v1beta1/{name=projects/*/locations/*/metadataStores/*/metadataSchemas/*}\xda\x41\x04name\x12\xec\x01\n\x13ListMetadataSchemas\x12;.google.cloud.aiplatform.v1beta1.ListMetadataSchemasRequest\x1a<.google.cloud.aiplatform.v1beta1.ListMetadataSchemasResponse\"Z\x82\xd3\xe4\x93\x02K\x12I/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/metadataSchemas\xda\x41\x06parent\x12\x8f\x02\n\x1cQueryArtifactLineageSubgraph\x12\x44.google.cloud.aiplatform.v1beta1.QueryArtifactLineageSubgraphRequest\x1a\x30.google.cloud.aiplatform.v1beta1.LineageSubgraph\"w\x82\xd3\xe4\x93\x02\x66\x12\x64/v1beta1/{artifact=projects/*/locations/*/metadataStores/*/artifacts/*}:queryArtifactLineageSubgraph\xda\x41\x08\x61rtifact\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xf1\x01\n#com.google.cloud.aiplatform.v1beta1B\x14MetadataServiceProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_artifact__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_context__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_event__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_execution__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_lineage__subgraph__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_metadata__schema__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_metadata__store__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_operation__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
 
@@ -256,7 +256,7 @@ _DELETEMETADATASTOREREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -270,7 +270,7 @@ _DELETEMETADATASTOREREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1344,
-  serialized_end=1450,
+  serialized_end=1454,
 )
 
 
@@ -301,8 +301,8 @@ _DELETEMETADATASTOREOPERATIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1452,
-  serialized_end=1575,
+  serialized_start=1456,
+  serialized_end=1579,
 )
 
 
@@ -347,8 +347,8 @@ _CREATEARTIFACTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1578,
-  serialized_end=1753,
+  serialized_start=1582,
+  serialized_end=1757,
 )
 
 
@@ -379,8 +379,8 @@ _GETARTIFACTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1755,
-  serialized_end=1833,
+  serialized_start=1759,
+  serialized_end=1837,
 )
 
 
@@ -432,8 +432,8 @@ _LISTARTIFACTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1836,
-  serialized_end=1973,
+  serialized_start=1840,
+  serialized_end=1977,
 )
 
 
@@ -471,8 +471,8 @@ _LISTARTIFACTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1975,
-  serialized_end=2085,
+  serialized_start=1979,
+  serialized_end=2089,
 )
 
 
@@ -517,8 +517,164 @@ _UPDATEARTIFACTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2088,
-  serialized_end=2254,
+  serialized_start=2092,
+  serialized_end=2258,
+)
+
+
+_DELETEARTIFACTREQUEST = _descriptor.Descriptor(
+  name='DeleteArtifactRequest',
+  full_name='google.cloud.aiplatform.v1beta1.DeleteArtifactRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.aiplatform.v1beta1.DeleteArtifactRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A$\n\"aiplatform.googleapis.com/Artifact', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='etag', full_name='google.cloud.aiplatform.v1beta1.DeleteArtifactRequest.etag', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2260,
+  serialized_end=2360,
+)
+
+
+_PURGEARTIFACTSREQUEST = _descriptor.Descriptor(
+  name='PurgeArtifactsRequest',
+  full_name='google.cloud.aiplatform.v1beta1.PurgeArtifactsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.aiplatform.v1beta1.PurgeArtifactsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A$\022\"aiplatform.googleapis.com/Artifact', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filter', full_name='google.cloud.aiplatform.v1beta1.PurgeArtifactsRequest.filter', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='force', full_name='google.cloud.aiplatform.v1beta1.PurgeArtifactsRequest.force', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2362,
+  serialized_end=2486,
+)
+
+
+_PURGEARTIFACTSRESPONSE = _descriptor.Descriptor(
+  name='PurgeArtifactsResponse',
+  full_name='google.cloud.aiplatform.v1beta1.PurgeArtifactsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='purge_count', full_name='google.cloud.aiplatform.v1beta1.PurgeArtifactsResponse.purge_count', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='purge_sample', full_name='google.cloud.aiplatform.v1beta1.PurgeArtifactsResponse.purge_sample', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A$\n\"aiplatform.googleapis.com/Artifact', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2488,
+  serialized_end=2596,
+)
+
+
+_PURGEARTIFACTSMETADATA = _descriptor.Descriptor(
+  name='PurgeArtifactsMetadata',
+  full_name='google.cloud.aiplatform.v1beta1.PurgeArtifactsMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='generic_metadata', full_name='google.cloud.aiplatform.v1beta1.PurgeArtifactsMetadata.generic_metadata', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2598,
+  serialized_end=2707,
 )
 
 
@@ -563,8 +719,8 @@ _CREATECONTEXTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2257,
-  serialized_end=2428,
+  serialized_start=2710,
+  serialized_end=2881,
 )
 
 
@@ -595,8 +751,8 @@ _GETCONTEXTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2430,
-  serialized_end=2506,
+  serialized_start=2883,
+  serialized_end=2959,
 )
 
 
@@ -648,8 +804,8 @@ _LISTCONTEXTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2509,
-  serialized_end=2644,
+  serialized_start=2962,
+  serialized_end=3097,
 )
 
 
@@ -687,8 +843,8 @@ _LISTCONTEXTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2646,
-  serialized_end=2753,
+  serialized_start=3099,
+  serialized_end=3206,
 )
 
 
@@ -733,8 +889,8 @@ _UPDATECONTEXTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2756,
-  serialized_end=2919,
+  serialized_start=3209,
+  serialized_end=3372,
 )
 
 
@@ -760,6 +916,13 @@ _DELETECONTEXTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='etag', full_name='google.cloud.aiplatform.v1beta1.DeleteContextRequest.etag', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -772,8 +935,125 @@ _DELETECONTEXTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2921,
-  serialized_end=3015,
+  serialized_start=3374,
+  serialized_end=3487,
+)
+
+
+_PURGECONTEXTSREQUEST = _descriptor.Descriptor(
+  name='PurgeContextsRequest',
+  full_name='google.cloud.aiplatform.v1beta1.PurgeContextsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.aiplatform.v1beta1.PurgeContextsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A#\022!aiplatform.googleapis.com/Context', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filter', full_name='google.cloud.aiplatform.v1beta1.PurgeContextsRequest.filter', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='force', full_name='google.cloud.aiplatform.v1beta1.PurgeContextsRequest.force', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3489,
+  serialized_end=3611,
+)
+
+
+_PURGECONTEXTSRESPONSE = _descriptor.Descriptor(
+  name='PurgeContextsResponse',
+  full_name='google.cloud.aiplatform.v1beta1.PurgeContextsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='purge_count', full_name='google.cloud.aiplatform.v1beta1.PurgeContextsResponse.purge_count', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='purge_sample', full_name='google.cloud.aiplatform.v1beta1.PurgeContextsResponse.purge_sample', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A#\n!aiplatform.googleapis.com/Context', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3613,
+  serialized_end=3719,
+)
+
+
+_PURGECONTEXTSMETADATA = _descriptor.Descriptor(
+  name='PurgeContextsMetadata',
+  full_name='google.cloud.aiplatform.v1beta1.PurgeContextsMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='generic_metadata', full_name='google.cloud.aiplatform.v1beta1.PurgeContextsMetadata.generic_metadata', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3721,
+  serialized_end=3829,
 )
 
 
@@ -818,8 +1098,8 @@ _ADDCONTEXTARTIFACTSANDEXECUTIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3018,
-  serialized_end=3241,
+  serialized_start=3832,
+  serialized_end=4055,
 )
 
 
@@ -843,8 +1123,8 @@ _ADDCONTEXTARTIFACTSANDEXECUTIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3243,
-  serialized_end=3285,
+  serialized_start=4057,
+  serialized_end=4099,
 )
 
 
@@ -882,8 +1162,8 @@ _ADDCONTEXTCHILDRENREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3288,
-  serialized_end=3439,
+  serialized_start=4102,
+  serialized_end=4253,
 )
 
 
@@ -907,8 +1187,8 @@ _ADDCONTEXTCHILDRENRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3441,
-  serialized_end=3469,
+  serialized_start=4255,
+  serialized_end=4283,
 )
 
 
@@ -939,8 +1219,8 @@ _QUERYCONTEXTLINEAGESUBGRAPHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3471,
-  serialized_end=3567,
+  serialized_start=4285,
+  serialized_end=4381,
 )
 
 
@@ -985,8 +1265,8 @@ _CREATEEXECUTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3570,
-  serialized_end=3749,
+  serialized_start=4384,
+  serialized_end=4563,
 )
 
 
@@ -1017,8 +1297,8 @@ _GETEXECUTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3751,
-  serialized_end=3831,
+  serialized_start=4565,
+  serialized_end=4645,
 )
 
 
@@ -1070,8 +1350,8 @@ _LISTEXECUTIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3834,
-  serialized_end=3973,
+  serialized_start=4648,
+  serialized_end=4787,
 )
 
 
@@ -1109,8 +1389,8 @@ _LISTEXECUTIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3975,
-  serialized_end=4088,
+  serialized_start=4789,
+  serialized_end=4902,
 )
 
 
@@ -1155,8 +1435,164 @@ _UPDATEEXECUTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4091,
-  serialized_end=4260,
+  serialized_start=4905,
+  serialized_end=5074,
+)
+
+
+_DELETEEXECUTIONREQUEST = _descriptor.Descriptor(
+  name='DeleteExecutionRequest',
+  full_name='google.cloud.aiplatform.v1beta1.DeleteExecutionRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.aiplatform.v1beta1.DeleteExecutionRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A%\n#aiplatform.googleapis.com/Execution', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='etag', full_name='google.cloud.aiplatform.v1beta1.DeleteExecutionRequest.etag', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5076,
+  serialized_end=5178,
+)
+
+
+_PURGEEXECUTIONSREQUEST = _descriptor.Descriptor(
+  name='PurgeExecutionsRequest',
+  full_name='google.cloud.aiplatform.v1beta1.PurgeExecutionsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.aiplatform.v1beta1.PurgeExecutionsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A%\022#aiplatform.googleapis.com/Execution', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filter', full_name='google.cloud.aiplatform.v1beta1.PurgeExecutionsRequest.filter', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='force', full_name='google.cloud.aiplatform.v1beta1.PurgeExecutionsRequest.force', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5180,
+  serialized_end=5306,
+)
+
+
+_PURGEEXECUTIONSRESPONSE = _descriptor.Descriptor(
+  name='PurgeExecutionsResponse',
+  full_name='google.cloud.aiplatform.v1beta1.PurgeExecutionsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='purge_count', full_name='google.cloud.aiplatform.v1beta1.PurgeExecutionsResponse.purge_count', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='purge_sample', full_name='google.cloud.aiplatform.v1beta1.PurgeExecutionsResponse.purge_sample', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A%\n#aiplatform.googleapis.com/Execution', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5308,
+  serialized_end=5418,
+)
+
+
+_PURGEEXECUTIONSMETADATA = _descriptor.Descriptor(
+  name='PurgeExecutionsMetadata',
+  full_name='google.cloud.aiplatform.v1beta1.PurgeExecutionsMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='generic_metadata', full_name='google.cloud.aiplatform.v1beta1.PurgeExecutionsMetadata.generic_metadata', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5420,
+  serialized_end=5530,
 )
 
 
@@ -1194,8 +1630,8 @@ _ADDEXECUTIONEVENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4263,
-  serialized_end=4410,
+  serialized_start=5533,
+  serialized_end=5680,
 )
 
 
@@ -1219,8 +1655,8 @@ _ADDEXECUTIONEVENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4412,
-  serialized_end=4440,
+  serialized_start=5682,
+  serialized_end=5710,
 )
 
 
@@ -1251,8 +1687,8 @@ _QUERYEXECUTIONINPUTSANDOUTPUTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4442,
-  serialized_end=4545,
+  serialized_start=5712,
+  serialized_end=5815,
 )
 
 
@@ -1297,8 +1733,8 @@ _CREATEMETADATASCHEMAREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4548,
-  serialized_end=4749,
+  serialized_start=5818,
+  serialized_end=6019,
 )
 
 
@@ -1329,8 +1765,8 @@ _GETMETADATASCHEMAREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4751,
-  serialized_end=4841,
+  serialized_start=6021,
+  serialized_end=6111,
 )
 
 
@@ -1382,8 +1818,8 @@ _LISTMETADATASCHEMASREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4844,
-  serialized_end=4993,
+  serialized_start=6114,
+  serialized_end=6263,
 )
 
 
@@ -1421,8 +1857,8 @@ _LISTMETADATASCHEMASRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4996,
-  serialized_end=5125,
+  serialized_start=6266,
+  serialized_end=6395,
 )
 
 
@@ -1467,8 +1903,8 @@ _QUERYARTIFACTLINEAGESUBGRAPHREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5128,
-  serialized_end=5261,
+  serialized_start=6398,
+  serialized_end=6531,
 )
 
 _CREATEMETADATASTOREREQUEST.fields_by_name['metadata_store'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_metadata__store__pb2._METADATASTORE
@@ -1479,14 +1915,17 @@ _CREATEARTIFACTREQUEST.fields_by_name['artifact'].message_type = google_dot_clou
 _LISTARTIFACTSRESPONSE.fields_by_name['artifacts'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_artifact__pb2._ARTIFACT
 _UPDATEARTIFACTREQUEST.fields_by_name['artifact'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_artifact__pb2._ARTIFACT
 _UPDATEARTIFACTREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_PURGEARTIFACTSMETADATA.fields_by_name['generic_metadata'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_operation__pb2._GENERICOPERATIONMETADATA
 _CREATECONTEXTREQUEST.fields_by_name['context'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_context__pb2._CONTEXT
 _LISTCONTEXTSRESPONSE.fields_by_name['contexts'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_context__pb2._CONTEXT
 _UPDATECONTEXTREQUEST.fields_by_name['context'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_context__pb2._CONTEXT
 _UPDATECONTEXTREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_PURGECONTEXTSMETADATA.fields_by_name['generic_metadata'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_operation__pb2._GENERICOPERATIONMETADATA
 _CREATEEXECUTIONREQUEST.fields_by_name['execution'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_execution__pb2._EXECUTION
 _LISTEXECUTIONSRESPONSE.fields_by_name['executions'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_execution__pb2._EXECUTION
 _UPDATEEXECUTIONREQUEST.fields_by_name['execution'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_execution__pb2._EXECUTION
 _UPDATEEXECUTIONREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_PURGEEXECUTIONSMETADATA.fields_by_name['generic_metadata'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_operation__pb2._GENERICOPERATIONMETADATA
 _ADDEXECUTIONEVENTSREQUEST.fields_by_name['events'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_event__pb2._EVENT
 _CREATEMETADATASCHEMAREQUEST.fields_by_name['metadata_schema'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_metadata__schema__pb2._METADATASCHEMA
 _LISTMETADATASCHEMASRESPONSE.fields_by_name['metadata_schemas'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_metadata__schema__pb2._METADATASCHEMA
@@ -1502,12 +1941,19 @@ DESCRIPTOR.message_types_by_name['GetArtifactRequest'] = _GETARTIFACTREQUEST
 DESCRIPTOR.message_types_by_name['ListArtifactsRequest'] = _LISTARTIFACTSREQUEST
 DESCRIPTOR.message_types_by_name['ListArtifactsResponse'] = _LISTARTIFACTSRESPONSE
 DESCRIPTOR.message_types_by_name['UpdateArtifactRequest'] = _UPDATEARTIFACTREQUEST
+DESCRIPTOR.message_types_by_name['DeleteArtifactRequest'] = _DELETEARTIFACTREQUEST
+DESCRIPTOR.message_types_by_name['PurgeArtifactsRequest'] = _PURGEARTIFACTSREQUEST
+DESCRIPTOR.message_types_by_name['PurgeArtifactsResponse'] = _PURGEARTIFACTSRESPONSE
+DESCRIPTOR.message_types_by_name['PurgeArtifactsMetadata'] = _PURGEARTIFACTSMETADATA
 DESCRIPTOR.message_types_by_name['CreateContextRequest'] = _CREATECONTEXTREQUEST
 DESCRIPTOR.message_types_by_name['GetContextRequest'] = _GETCONTEXTREQUEST
 DESCRIPTOR.message_types_by_name['ListContextsRequest'] = _LISTCONTEXTSREQUEST
 DESCRIPTOR.message_types_by_name['ListContextsResponse'] = _LISTCONTEXTSRESPONSE
 DESCRIPTOR.message_types_by_name['UpdateContextRequest'] = _UPDATECONTEXTREQUEST
 DESCRIPTOR.message_types_by_name['DeleteContextRequest'] = _DELETECONTEXTREQUEST
+DESCRIPTOR.message_types_by_name['PurgeContextsRequest'] = _PURGECONTEXTSREQUEST
+DESCRIPTOR.message_types_by_name['PurgeContextsResponse'] = _PURGECONTEXTSRESPONSE
+DESCRIPTOR.message_types_by_name['PurgeContextsMetadata'] = _PURGECONTEXTSMETADATA
 DESCRIPTOR.message_types_by_name['AddContextArtifactsAndExecutionsRequest'] = _ADDCONTEXTARTIFACTSANDEXECUTIONSREQUEST
 DESCRIPTOR.message_types_by_name['AddContextArtifactsAndExecutionsResponse'] = _ADDCONTEXTARTIFACTSANDEXECUTIONSRESPONSE
 DESCRIPTOR.message_types_by_name['AddContextChildrenRequest'] = _ADDCONTEXTCHILDRENREQUEST
@@ -1518,6 +1964,10 @@ DESCRIPTOR.message_types_by_name['GetExecutionRequest'] = _GETEXECUTIONREQUEST
 DESCRIPTOR.message_types_by_name['ListExecutionsRequest'] = _LISTEXECUTIONSREQUEST
 DESCRIPTOR.message_types_by_name['ListExecutionsResponse'] = _LISTEXECUTIONSRESPONSE
 DESCRIPTOR.message_types_by_name['UpdateExecutionRequest'] = _UPDATEEXECUTIONREQUEST
+DESCRIPTOR.message_types_by_name['DeleteExecutionRequest'] = _DELETEEXECUTIONREQUEST
+DESCRIPTOR.message_types_by_name['PurgeExecutionsRequest'] = _PURGEEXECUTIONSREQUEST
+DESCRIPTOR.message_types_by_name['PurgeExecutionsResponse'] = _PURGEEXECUTIONSRESPONSE
+DESCRIPTOR.message_types_by_name['PurgeExecutionsMetadata'] = _PURGEEXECUTIONSMETADATA
 DESCRIPTOR.message_types_by_name['AddExecutionEventsRequest'] = _ADDEXECUTIONEVENTSREQUEST
 DESCRIPTOR.message_types_by_name['AddExecutionEventsResponse'] = _ADDEXECUTIONEVENTSRESPONSE
 DESCRIPTOR.message_types_by_name['QueryExecutionInputsAndOutputsRequest'] = _QUERYEXECUTIONINPUTSANDOUTPUTSREQUEST
@@ -1612,6 +2062,34 @@ UpdateArtifactRequest = _reflection.GeneratedProtocolMessageType('UpdateArtifact
   })
 _sym_db.RegisterMessage(UpdateArtifactRequest)
 
+DeleteArtifactRequest = _reflection.GeneratedProtocolMessageType('DeleteArtifactRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEARTIFACTREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.metadata_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.DeleteArtifactRequest)
+  })
+_sym_db.RegisterMessage(DeleteArtifactRequest)
+
+PurgeArtifactsRequest = _reflection.GeneratedProtocolMessageType('PurgeArtifactsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _PURGEARTIFACTSREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.metadata_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.PurgeArtifactsRequest)
+  })
+_sym_db.RegisterMessage(PurgeArtifactsRequest)
+
+PurgeArtifactsResponse = _reflection.GeneratedProtocolMessageType('PurgeArtifactsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _PURGEARTIFACTSRESPONSE,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.metadata_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.PurgeArtifactsResponse)
+  })
+_sym_db.RegisterMessage(PurgeArtifactsResponse)
+
+PurgeArtifactsMetadata = _reflection.GeneratedProtocolMessageType('PurgeArtifactsMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _PURGEARTIFACTSMETADATA,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.metadata_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.PurgeArtifactsMetadata)
+  })
+_sym_db.RegisterMessage(PurgeArtifactsMetadata)
+
 CreateContextRequest = _reflection.GeneratedProtocolMessageType('CreateContextRequest', (_message.Message,), {
   'DESCRIPTOR' : _CREATECONTEXTREQUEST,
   '__module__' : 'google.cloud.aiplatform.v1beta1.metadata_service_pb2'
@@ -1653,6 +2131,27 @@ DeleteContextRequest = _reflection.GeneratedProtocolMessageType('DeleteContextRe
   # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.DeleteContextRequest)
   })
 _sym_db.RegisterMessage(DeleteContextRequest)
+
+PurgeContextsRequest = _reflection.GeneratedProtocolMessageType('PurgeContextsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _PURGECONTEXTSREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.metadata_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.PurgeContextsRequest)
+  })
+_sym_db.RegisterMessage(PurgeContextsRequest)
+
+PurgeContextsResponse = _reflection.GeneratedProtocolMessageType('PurgeContextsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _PURGECONTEXTSRESPONSE,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.metadata_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.PurgeContextsResponse)
+  })
+_sym_db.RegisterMessage(PurgeContextsResponse)
+
+PurgeContextsMetadata = _reflection.GeneratedProtocolMessageType('PurgeContextsMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _PURGECONTEXTSMETADATA,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.metadata_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.PurgeContextsMetadata)
+  })
+_sym_db.RegisterMessage(PurgeContextsMetadata)
 
 AddContextArtifactsAndExecutionsRequest = _reflection.GeneratedProtocolMessageType('AddContextArtifactsAndExecutionsRequest', (_message.Message,), {
   'DESCRIPTOR' : _ADDCONTEXTARTIFACTSANDEXECUTIONSREQUEST,
@@ -1724,6 +2223,34 @@ UpdateExecutionRequest = _reflection.GeneratedProtocolMessageType('UpdateExecuti
   })
 _sym_db.RegisterMessage(UpdateExecutionRequest)
 
+DeleteExecutionRequest = _reflection.GeneratedProtocolMessageType('DeleteExecutionRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEEXECUTIONREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.metadata_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.DeleteExecutionRequest)
+  })
+_sym_db.RegisterMessage(DeleteExecutionRequest)
+
+PurgeExecutionsRequest = _reflection.GeneratedProtocolMessageType('PurgeExecutionsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _PURGEEXECUTIONSREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.metadata_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.PurgeExecutionsRequest)
+  })
+_sym_db.RegisterMessage(PurgeExecutionsRequest)
+
+PurgeExecutionsResponse = _reflection.GeneratedProtocolMessageType('PurgeExecutionsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _PURGEEXECUTIONSRESPONSE,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.metadata_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.PurgeExecutionsResponse)
+  })
+_sym_db.RegisterMessage(PurgeExecutionsResponse)
+
+PurgeExecutionsMetadata = _reflection.GeneratedProtocolMessageType('PurgeExecutionsMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _PURGEEXECUTIONSMETADATA,
+  '__module__' : 'google.cloud.aiplatform.v1beta1.metadata_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.PurgeExecutionsMetadata)
+  })
+_sym_db.RegisterMessage(PurgeExecutionsMetadata)
+
 AddExecutionEventsRequest = _reflection.GeneratedProtocolMessageType('AddExecutionEventsRequest', (_message.Message,), {
   'DESCRIPTOR' : _ADDEXECUTIONEVENTSREQUEST,
   '__module__' : 'google.cloud.aiplatform.v1beta1.metadata_service_pb2'
@@ -1787,12 +2314,19 @@ _CREATEMETADATASTOREREQUEST.fields_by_name['metadata_store']._options = None
 _GETMETADATASTOREREQUEST.fields_by_name['name']._options = None
 _LISTMETADATASTORESREQUEST.fields_by_name['parent']._options = None
 _DELETEMETADATASTOREREQUEST.fields_by_name['name']._options = None
+_DELETEMETADATASTOREREQUEST.fields_by_name['force']._options = None
 _CREATEARTIFACTREQUEST.fields_by_name['parent']._options = None
 _CREATEARTIFACTREQUEST.fields_by_name['artifact']._options = None
 _GETARTIFACTREQUEST.fields_by_name['name']._options = None
 _LISTARTIFACTSREQUEST.fields_by_name['parent']._options = None
 _UPDATEARTIFACTREQUEST.fields_by_name['artifact']._options = None
 _UPDATEARTIFACTREQUEST.fields_by_name['update_mask']._options = None
+_DELETEARTIFACTREQUEST.fields_by_name['name']._options = None
+_DELETEARTIFACTREQUEST.fields_by_name['etag']._options = None
+_PURGEARTIFACTSREQUEST.fields_by_name['parent']._options = None
+_PURGEARTIFACTSREQUEST.fields_by_name['filter']._options = None
+_PURGEARTIFACTSREQUEST.fields_by_name['force']._options = None
+_PURGEARTIFACTSRESPONSE.fields_by_name['purge_sample']._options = None
 _CREATECONTEXTREQUEST.fields_by_name['parent']._options = None
 _CREATECONTEXTREQUEST.fields_by_name['context']._options = None
 _GETCONTEXTREQUEST.fields_by_name['name']._options = None
@@ -1800,6 +2334,11 @@ _LISTCONTEXTSREQUEST.fields_by_name['parent']._options = None
 _UPDATECONTEXTREQUEST.fields_by_name['context']._options = None
 _UPDATECONTEXTREQUEST.fields_by_name['update_mask']._options = None
 _DELETECONTEXTREQUEST.fields_by_name['name']._options = None
+_DELETECONTEXTREQUEST.fields_by_name['etag']._options = None
+_PURGECONTEXTSREQUEST.fields_by_name['parent']._options = None
+_PURGECONTEXTSREQUEST.fields_by_name['filter']._options = None
+_PURGECONTEXTSREQUEST.fields_by_name['force']._options = None
+_PURGECONTEXTSRESPONSE.fields_by_name['purge_sample']._options = None
 _ADDCONTEXTARTIFACTSANDEXECUTIONSREQUEST.fields_by_name['context']._options = None
 _ADDCONTEXTARTIFACTSANDEXECUTIONSREQUEST.fields_by_name['artifacts']._options = None
 _ADDCONTEXTARTIFACTSANDEXECUTIONSREQUEST.fields_by_name['executions']._options = None
@@ -1812,6 +2351,12 @@ _GETEXECUTIONREQUEST.fields_by_name['name']._options = None
 _LISTEXECUTIONSREQUEST.fields_by_name['parent']._options = None
 _UPDATEEXECUTIONREQUEST.fields_by_name['execution']._options = None
 _UPDATEEXECUTIONREQUEST.fields_by_name['update_mask']._options = None
+_DELETEEXECUTIONREQUEST.fields_by_name['name']._options = None
+_DELETEEXECUTIONREQUEST.fields_by_name['etag']._options = None
+_PURGEEXECUTIONSREQUEST.fields_by_name['parent']._options = None
+_PURGEEXECUTIONSREQUEST.fields_by_name['filter']._options = None
+_PURGEEXECUTIONSREQUEST.fields_by_name['force']._options = None
+_PURGEEXECUTIONSRESPONSE.fields_by_name['purge_sample']._options = None
 _ADDEXECUTIONEVENTSREQUEST.fields_by_name['execution']._options = None
 _QUERYEXECUTIONINPUTSANDOUTPUTSREQUEST.fields_by_name['execution']._options = None
 _CREATEMETADATASCHEMAREQUEST.fields_by_name['parent']._options = None
@@ -1827,8 +2372,8 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031aiplatform.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=5264,
-  serialized_end=11650,
+  serialized_start=6534,
+  serialized_end=14166,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateMetadataStore',
@@ -1911,9 +2456,29 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='DeleteArtifact',
+    full_name='google.cloud.aiplatform.v1beta1.MetadataService.DeleteArtifact',
+    index=8,
+    containing_service=None,
+    input_type=_DELETEARTIFACTREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002E*C/v1beta1/{name=projects/*/locations/*/metadataStores/*/artifacts/*}\332A\004name\312A0\n\025google.protobuf.Empty\022\027DeleteOperationMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='PurgeArtifacts',
+    full_name='google.cloud.aiplatform.v1beta1.MetadataService.PurgeArtifacts',
+    index=9,
+    containing_service=None,
+    input_type=_PURGEARTIFACTSREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002N\"I/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/artifacts:purge:\001*\332A\006parent\312A0\n\026PurgeArtifactsResponse\022\026PurgeArtifactsMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='CreateContext',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.CreateContext',
-    index=8,
+    index=10,
     containing_service=None,
     input_type=_CREATECONTEXTREQUEST,
     output_type=google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_context__pb2._CONTEXT,
@@ -1923,7 +2488,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetContext',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.GetContext',
-    index=9,
+    index=11,
     containing_service=None,
     input_type=_GETCONTEXTREQUEST,
     output_type=google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_context__pb2._CONTEXT,
@@ -1933,7 +2498,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListContexts',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.ListContexts',
-    index=10,
+    index=12,
     containing_service=None,
     input_type=_LISTCONTEXTSREQUEST,
     output_type=_LISTCONTEXTSRESPONSE,
@@ -1943,7 +2508,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateContext',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.UpdateContext',
-    index=11,
+    index=13,
     containing_service=None,
     input_type=_UPDATECONTEXTREQUEST,
     output_type=google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_context__pb2._CONTEXT,
@@ -1953,7 +2518,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteContext',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.DeleteContext',
-    index=12,
+    index=14,
     containing_service=None,
     input_type=_DELETECONTEXTREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -1961,9 +2526,19 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='PurgeContexts',
+    full_name='google.cloud.aiplatform.v1beta1.MetadataService.PurgeContexts',
+    index=15,
+    containing_service=None,
+    input_type=_PURGECONTEXTSREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002M\"H/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/contexts:purge:\001*\332A\006parent\312A.\n\025PurgeContextsResponse\022\025PurgeContextsMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='AddContextArtifactsAndExecutions',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.AddContextArtifactsAndExecutions',
-    index=13,
+    index=16,
     containing_service=None,
     input_type=_ADDCONTEXTARTIFACTSANDEXECUTIONSREQUEST,
     output_type=_ADDCONTEXTARTIFACTSANDEXECUTIONSRESPONSE,
@@ -1973,7 +2548,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='AddContextChildren',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.AddContextChildren',
-    index=14,
+    index=17,
     containing_service=None,
     input_type=_ADDCONTEXTCHILDRENREQUEST,
     output_type=_ADDCONTEXTCHILDRENRESPONSE,
@@ -1983,7 +2558,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='QueryContextLineageSubgraph',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.QueryContextLineageSubgraph',
-    index=15,
+    index=18,
     containing_service=None,
     input_type=_QUERYCONTEXTLINEAGESUBGRAPHREQUEST,
     output_type=google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_lineage__subgraph__pb2._LINEAGESUBGRAPH,
@@ -1993,7 +2568,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateExecution',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.CreateExecution',
-    index=16,
+    index=19,
     containing_service=None,
     input_type=_CREATEEXECUTIONREQUEST,
     output_type=google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_execution__pb2._EXECUTION,
@@ -2003,7 +2578,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetExecution',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.GetExecution',
-    index=17,
+    index=20,
     containing_service=None,
     input_type=_GETEXECUTIONREQUEST,
     output_type=google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_execution__pb2._EXECUTION,
@@ -2013,7 +2588,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListExecutions',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.ListExecutions',
-    index=18,
+    index=21,
     containing_service=None,
     input_type=_LISTEXECUTIONSREQUEST,
     output_type=_LISTEXECUTIONSRESPONSE,
@@ -2023,7 +2598,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateExecution',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.UpdateExecution',
-    index=19,
+    index=22,
     containing_service=None,
     input_type=_UPDATEEXECUTIONREQUEST,
     output_type=google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_execution__pb2._EXECUTION,
@@ -2031,9 +2606,29 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='DeleteExecution',
+    full_name='google.cloud.aiplatform.v1beta1.MetadataService.DeleteExecution',
+    index=23,
+    containing_service=None,
+    input_type=_DELETEEXECUTIONREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002F*D/v1beta1/{name=projects/*/locations/*/metadataStores/*/executions/*}\332A\004name\312A0\n\025google.protobuf.Empty\022\027DeleteOperationMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='PurgeExecutions',
+    full_name='google.cloud.aiplatform.v1beta1.MetadataService.PurgeExecutions',
+    index=24,
+    containing_service=None,
+    input_type=_PURGEEXECUTIONSREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002O\"J/v1beta1/{parent=projects/*/locations/*/metadataStores/*}/executions:purge:\001*\332A\006parent\312A2\n\027PurgeExecutionsResponse\022\027PurgeExecutionsMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='AddExecutionEvents',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.AddExecutionEvents',
-    index=20,
+    index=25,
     containing_service=None,
     input_type=_ADDEXECUTIONEVENTSREQUEST,
     output_type=_ADDEXECUTIONEVENTSRESPONSE,
@@ -2043,7 +2638,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='QueryExecutionInputsAndOutputs',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.QueryExecutionInputsAndOutputs',
-    index=21,
+    index=26,
     containing_service=None,
     input_type=_QUERYEXECUTIONINPUTSANDOUTPUTSREQUEST,
     output_type=google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_lineage__subgraph__pb2._LINEAGESUBGRAPH,
@@ -2053,7 +2648,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateMetadataSchema',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.CreateMetadataSchema',
-    index=22,
+    index=27,
     containing_service=None,
     input_type=_CREATEMETADATASCHEMAREQUEST,
     output_type=google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_metadata__schema__pb2._METADATASCHEMA,
@@ -2063,7 +2658,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetMetadataSchema',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.GetMetadataSchema',
-    index=23,
+    index=28,
     containing_service=None,
     input_type=_GETMETADATASCHEMAREQUEST,
     output_type=google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_metadata__schema__pb2._METADATASCHEMA,
@@ -2073,7 +2668,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListMetadataSchemas',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.ListMetadataSchemas',
-    index=24,
+    index=29,
     containing_service=None,
     input_type=_LISTMETADATASCHEMASREQUEST,
     output_type=_LISTMETADATASCHEMASRESPONSE,
@@ -2083,7 +2678,7 @@ _METADATASERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='QueryArtifactLineageSubgraph',
     full_name='google.cloud.aiplatform.v1beta1.MetadataService.QueryArtifactLineageSubgraph',
-    index=25,
+    index=30,
     containing_service=None,
     input_type=_QUERYARTIFACTLINEAGESUBGRAPHREQUEST,
     output_type=google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_lineage__subgraph__pb2._LINEAGESUBGRAPH,

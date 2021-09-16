@@ -14,6 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.ads.googleads.v8.enums import ad_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_ad__type__pb2
 from google.ads.googleads.v8.enums import advertising_channel_sub_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_advertising__channel__sub__type__pb2
 from google.ads.googleads.v8.enums import advertising_channel_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_advertising__channel__type__pb2
+from google.ads.googleads.v8.enums import asset_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_asset__type__pb2
 from google.ads.googleads.v8.enums import change_status_operation_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__status__operation__pb2
 from google.ads.googleads.v8.enums import change_status_resource_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__status__resource__type__pb2
 from google.ads.googleads.v8.enums import criterion_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_criterion__type__pb2
@@ -29,9 +30,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n%com.google.ads.googleads.v8.resourcesB\021ChangeStatusProtoP\001ZJgoogle.golang.org/genproto/googleapis/ads/googleads/v8/resources;resources\242\002\003GAA\252\002!Google.Ads.GoogleAds.V8.Resources\312\002!Google\\Ads\\GoogleAds\\V8\\Resources\352\002%Google::Ads::GoogleAds::V8::Resources',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n5google/ads/googleads/v8/resources/change_status.proto\x12!google.ads.googleads.v8.resources\x1a+google/ads/googleads/v8/enums/ad_type.proto\x1a@google/ads/googleads/v8/enums/advertising_channel_sub_type.proto\x1a<google/ads/googleads/v8/enums/advertising_channel_type.proto\x1a;google/ads/googleads/v8/enums/change_status_operation.proto\x1a?google/ads/googleads/v8/enums/change_status_resource_type.proto\x1a\x32google/ads/googleads/v8/enums/criterion_type.proto\x1a/google/ads/googleads/v8/enums/feed_origin.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\xe6\n\n\x0c\x43hangeStatus\x12\x44\n\rresource_name\x18\x01 \x01(\tB-\xe0\x41\x03\xfa\x41\'\n%googleads.googleapis.com/ChangeStatus\x12\'\n\x15last_change_date_time\x18\x18 \x01(\tB\x03\xe0\x41\x03H\x00\x88\x01\x01\x12p\n\rresource_type\x18\x04 \x01(\x0e\x32T.google.ads.googleads.v8.enums.ChangeStatusResourceTypeEnum.ChangeStatusResourceTypeB\x03\xe0\x41\x03\x12@\n\x08\x63\x61mpaign\x18\x11 \x01(\tB)\xe0\x41\x03\xfa\x41#\n!googleads.googleapis.com/CampaignH\x01\x88\x01\x01\x12?\n\x08\x61\x64_group\x18\x12 \x01(\tB(\xe0\x41\x03\xfa\x41\"\n googleads.googleapis.com/AdGroupH\x02\x88\x01\x01\x12l\n\x0fresource_status\x18\x08 \x01(\x0e\x32N.google.ads.googleads.v8.enums.ChangeStatusOperationEnum.ChangeStatusOperationB\x03\xe0\x41\x03\x12\x44\n\x0b\x61\x64_group_ad\x18\x19 \x01(\tB*\xe0\x41\x03\xfa\x41$\n\"googleads.googleapis.com/AdGroupAdH\x03\x88\x01\x01\x12R\n\x12\x61\x64_group_criterion\x18\x1a \x01(\tB1\xe0\x41\x03\xfa\x41+\n)googleads.googleapis.com/AdGroupCriterionH\x04\x88\x01\x01\x12S\n\x12\x63\x61mpaign_criterion\x18\x1b \x01(\tB2\xe0\x41\x03\xfa\x41,\n*googleads.googleapis.com/CampaignCriterionH\x05\x88\x01\x01\x12\x38\n\x04\x66\x65\x65\x64\x18\x1c \x01(\tB%\xe0\x41\x03\xfa\x41\x1f\n\x1dgoogleads.googleapis.com/FeedH\x06\x88\x01\x01\x12\x41\n\tfeed_item\x18\x1d \x01(\tB)\xe0\x41\x03\xfa\x41#\n!googleads.googleapis.com/FeedItemH\x07\x88\x01\x01\x12H\n\rad_group_feed\x18\x1e \x01(\tB,\xe0\x41\x03\xfa\x41&\n$googleads.googleapis.com/AdGroupFeedH\x08\x88\x01\x01\x12I\n\rcampaign_feed\x18\x1f \x01(\tB-\xe0\x41\x03\xfa\x41\'\n%googleads.googleapis.com/CampaignFeedH\t\x88\x01\x01\x12W\n\x15\x61\x64_group_bid_modifier\x18  \x01(\tB3\xe0\x41\x03\xfa\x41-\n+googleads.googleapis.com/AdGroupBidModifierH\n\x88\x01\x01:c\xea\x41`\n%googleads.googleapis.com/ChangeStatus\x12\x37\x63ustomers/{customer_id}/changeStatus/{change_status_id}B\x18\n\x16_last_change_date_timeB\x0b\n\t_campaignB\x0b\n\t_ad_groupB\x0e\n\x0c_ad_group_adB\x15\n\x13_ad_group_criterionB\x15\n\x13_campaign_criterionB\x07\n\x05_feedB\x0c\n\n_feed_itemB\x10\n\x0e_ad_group_feedB\x10\n\x0e_campaign_feedB\x18\n\x16_ad_group_bid_modifierB\xfe\x01\n%com.google.ads.googleads.v8.resourcesB\x11\x43hangeStatusProtoP\x01ZJgoogle.golang.org/genproto/googleapis/ads/googleads/v8/resources;resources\xa2\x02\x03GAA\xaa\x02!Google.Ads.GoogleAds.V8.Resources\xca\x02!Google\\Ads\\GoogleAds\\V8\\Resources\xea\x02%Google::Ads::GoogleAds::V8::Resourcesb\x06proto3'
+  serialized_pb=b'\n5google/ads/googleads/v8/resources/change_status.proto\x12!google.ads.googleads.v8.resources\x1a+google/ads/googleads/v8/enums/ad_type.proto\x1a@google/ads/googleads/v8/enums/advertising_channel_sub_type.proto\x1a<google/ads/googleads/v8/enums/advertising_channel_type.proto\x1a.google/ads/googleads/v8/enums/asset_type.proto\x1a;google/ads/googleads/v8/enums/change_status_operation.proto\x1a?google/ads/googleads/v8/enums/change_status_resource_type.proto\x1a\x32google/ads/googleads/v8/enums/criterion_type.proto\x1a/google/ads/googleads/v8/enums/feed_origin.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\x85\x0e\n\x0c\x43hangeStatus\x12\x44\n\rresource_name\x18\x01 \x01(\tB-\xe0\x41\x03\xfa\x41\'\n%googleads.googleapis.com/ChangeStatus\x12\'\n\x15last_change_date_time\x18\x18 \x01(\tB\x03\xe0\x41\x03H\x00\x88\x01\x01\x12p\n\rresource_type\x18\x04 \x01(\x0e\x32T.google.ads.googleads.v8.enums.ChangeStatusResourceTypeEnum.ChangeStatusResourceTypeB\x03\xe0\x41\x03\x12@\n\x08\x63\x61mpaign\x18\x11 \x01(\tB)\xe0\x41\x03\xfa\x41#\n!googleads.googleapis.com/CampaignH\x01\x88\x01\x01\x12?\n\x08\x61\x64_group\x18\x12 \x01(\tB(\xe0\x41\x03\xfa\x41\"\n googleads.googleapis.com/AdGroupH\x02\x88\x01\x01\x12l\n\x0fresource_status\x18\x08 \x01(\x0e\x32N.google.ads.googleads.v8.enums.ChangeStatusOperationEnum.ChangeStatusOperationB\x03\xe0\x41\x03\x12\x44\n\x0b\x61\x64_group_ad\x18\x19 \x01(\tB*\xe0\x41\x03\xfa\x41$\n\"googleads.googleapis.com/AdGroupAdH\x03\x88\x01\x01\x12R\n\x12\x61\x64_group_criterion\x18\x1a \x01(\tB1\xe0\x41\x03\xfa\x41+\n)googleads.googleapis.com/AdGroupCriterionH\x04\x88\x01\x01\x12S\n\x12\x63\x61mpaign_criterion\x18\x1b \x01(\tB2\xe0\x41\x03\xfa\x41,\n*googleads.googleapis.com/CampaignCriterionH\x05\x88\x01\x01\x12\x38\n\x04\x66\x65\x65\x64\x18\x1c \x01(\tB%\xe0\x41\x03\xfa\x41\x1f\n\x1dgoogleads.googleapis.com/FeedH\x06\x88\x01\x01\x12\x41\n\tfeed_item\x18\x1d \x01(\tB)\xe0\x41\x03\xfa\x41#\n!googleads.googleapis.com/FeedItemH\x07\x88\x01\x01\x12H\n\rad_group_feed\x18\x1e \x01(\tB,\xe0\x41\x03\xfa\x41&\n$googleads.googleapis.com/AdGroupFeedH\x08\x88\x01\x01\x12I\n\rcampaign_feed\x18\x1f \x01(\tB-\xe0\x41\x03\xfa\x41\'\n%googleads.googleapis.com/CampaignFeedH\t\x88\x01\x01\x12W\n\x15\x61\x64_group_bid_modifier\x18  \x01(\tB3\xe0\x41\x03\xfa\x41-\n+googleads.googleapis.com/AdGroupBidModifierH\n\x88\x01\x01\x12>\n\nshared_set\x18! \x01(\tB*\xe0\x41\x03\xfa\x41$\n\"googleads.googleapis.com/SharedSet\x12O\n\x13\x63\x61mpaign_shared_set\x18\" \x01(\tB2\xe0\x41\x03\xfa\x41,\n*googleads.googleapis.com/CampaignSharedSet\x12\x35\n\x05\x61sset\x18# \x01(\tB&\xe0\x41\x03\xfa\x41 \n\x1egoogleads.googleapis.com/Asset\x12\x46\n\x0e\x63ustomer_asset\x18$ \x01(\tB.\xe0\x41\x03\xfa\x41(\n&googleads.googleapis.com/CustomerAsset\x12\x46\n\x0e\x63\x61mpaign_asset\x18% \x01(\tB.\xe0\x41\x03\xfa\x41(\n&googleads.googleapis.com/CampaignAsset\x12\x45\n\x0e\x61\x64_group_asset\x18& \x01(\tB-\xe0\x41\x03\xfa\x41\'\n%googleads.googleapis.com/AdGroupAsset:c\xea\x41`\n%googleads.googleapis.com/ChangeStatus\x12\x37\x63ustomers/{customer_id}/changeStatus/{change_status_id}B\x18\n\x16_last_change_date_timeB\x0b\n\t_campaignB\x0b\n\t_ad_groupB\x0e\n\x0c_ad_group_adB\x15\n\x13_ad_group_criterionB\x15\n\x13_campaign_criterionB\x07\n\x05_feedB\x0c\n\n_feed_itemB\x10\n\x0e_ad_group_feedB\x10\n\x0e_campaign_feedB\x18\n\x16_ad_group_bid_modifierB\xfe\x01\n%com.google.ads.googleads.v8.resourcesB\x11\x43hangeStatusProtoP\x01ZJgoogle.golang.org/genproto/googleapis/ads/googleads/v8/resources;resources\xa2\x02\x03GAA\xaa\x02!Google.Ads.GoogleAds.V8.Resources\xca\x02!Google\\Ads\\GoogleAds\\V8\\Resources\xea\x02%Google::Ads::GoogleAds::V8::Resourcesb\x06proto3'
   ,
-  dependencies=[google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_ad__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_advertising__channel__sub__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_advertising__channel__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__status__operation__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__status__resource__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_criterion__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_feed__origin__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_ad__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_advertising__channel__sub__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_advertising__channel__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_asset__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__status__operation__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__status__resource__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_criterion__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_feed__origin__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -142,6 +143,48 @@ _CHANGESTATUS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003\372A-\n+googleads.googleapis.com/AdGroupBidModifier', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='shared_set', full_name='google.ads.googleads.v8.resources.ChangeStatus.shared_set', index=14,
+      number=33, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003\372A$\n\"googleads.googleapis.com/SharedSet', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='campaign_shared_set', full_name='google.ads.googleads.v8.resources.ChangeStatus.campaign_shared_set', index=15,
+      number=34, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003\372A,\n*googleads.googleapis.com/CampaignSharedSet', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='asset', full_name='google.ads.googleads.v8.resources.ChangeStatus.asset', index=16,
+      number=35, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003\372A \n\036googleads.googleapis.com/Asset', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='customer_asset', full_name='google.ads.googleads.v8.resources.ChangeStatus.customer_asset', index=17,
+      number=36, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003\372A(\n&googleads.googleapis.com/CustomerAsset', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='campaign_asset', full_name='google.ads.googleads.v8.resources.ChangeStatus.campaign_asset', index=18,
+      number=37, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003\372A(\n&googleads.googleapis.com/CampaignAsset', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ad_group_asset', full_name='google.ads.googleads.v8.resources.ChangeStatus.ad_group_asset', index=19,
+      number=38, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003\372A\'\n%googleads.googleapis.com/AdGroupAsset', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -209,8 +252,8 @@ _CHANGESTATUS = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=583,
-  serialized_end=1965,
+  serialized_start=631,
+  serialized_end=2428,
 )
 
 _CHANGESTATUS.fields_by_name['resource_type'].enum_type = google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_change__status__resource__type__pb2._CHANGESTATUSRESOURCETYPEENUM_CHANGESTATUSRESOURCETYPE
@@ -274,5 +317,11 @@ _CHANGESTATUS.fields_by_name['feed_item']._options = None
 _CHANGESTATUS.fields_by_name['ad_group_feed']._options = None
 _CHANGESTATUS.fields_by_name['campaign_feed']._options = None
 _CHANGESTATUS.fields_by_name['ad_group_bid_modifier']._options = None
+_CHANGESTATUS.fields_by_name['shared_set']._options = None
+_CHANGESTATUS.fields_by_name['campaign_shared_set']._options = None
+_CHANGESTATUS.fields_by_name['asset']._options = None
+_CHANGESTATUS.fields_by_name['customer_asset']._options = None
+_CHANGESTATUS.fields_by_name['campaign_asset']._options = None
+_CHANGESTATUS.fields_by_name['ad_group_asset']._options = None
 _CHANGESTATUS._options = None
 # @@protoc_insertion_point(module_scope)

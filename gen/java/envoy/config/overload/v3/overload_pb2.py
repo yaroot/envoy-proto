@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n&io.envoyproxy.envoy.config.overload.v3B\rOverloadProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'envoy/config/overload/v3/overload.proto\x12\x18\x65nvoy.config.overload.v3\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xa9\x01\n\x0fResourceMonitor\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:4\x9a\xc5\x88\x1e/\n-envoy.config.overload.v2alpha.ResourceMonitorB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\"q\n\x10ThresholdTrigger\x12&\n\x05value\x18\x01 \x01(\x01\x42\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\xf0?)\x00\x00\x00\x00\x00\x00\x00\x00:5\x9a\xc5\x88\x1e\x30\n.envoy.config.overload.v2alpha.ThresholdTrigger\"z\n\rScaledTrigger\x12\x32\n\x11scaling_threshold\x18\x01 \x01(\x01\x42\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\xf0?)\x00\x00\x00\x00\x00\x00\x00\x00\x12\x35\n\x14saturation_threshold\x18\x02 \x01(\x01\x42\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\xf0?)\x00\x00\x00\x00\x00\x00\x00\x00\"\xe0\x01\n\x07Trigger\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12?\n\tthreshold\x18\x02 \x01(\x0b\x32*.envoy.config.overload.v3.ThresholdTriggerH\x00\x12\x39\n\x06scaled\x18\x03 \x01(\x0b\x32\'.envoy.config.overload.v3.ScaledTriggerH\x00:,\x9a\xc5\x88\x1e\'\n%envoy.config.overload.v2alpha.TriggerB\x14\n\rtrigger_oneof\x12\x03\xf8\x42\x01\"\xf7\x03\n\x1fScaleTimersOverloadActionConfig\x12k\n\x13timer_scale_factors\x18\x01 \x03(\x0b\x32\x44.envoy.config.overload.v3.ScaleTimersOverloadActionConfig.ScaleTimerB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\xe3\x01\n\nScaleTimer\x12^\n\x05timer\x18\x01 \x01(\x0e\x32\x43.envoy.config.overload.v3.ScaleTimersOverloadActionConfig.TimerTypeB\n\xfa\x42\x07\x82\x01\x04\x10\x01 \x00\x12\x30\n\x0bmin_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12+\n\tmin_scale\x18\x03 \x01(\x0b\x32\x16.envoy.type.v3.PercentH\x00\x42\x16\n\x0foverload_adjust\x12\x03\xf8\x42\x01\"\x80\x01\n\tTimerType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12#\n\x1fHTTP_DOWNSTREAM_CONNECTION_IDLE\x10\x01\x12\x1f\n\x1bHTTP_DOWNSTREAM_STREAM_IDLE\x10\x02\x12\x1c\n\x18TRANSPORT_SOCKET_CONNECT\x10\x03\"\xc7\x01\n\x0eOverloadAction\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12=\n\x08triggers\x18\x02 \x03(\x0b\x32!.envoy.config.overload.v3.TriggerB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12*\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any:3\x9a\xc5\x88\x1e.\n,envoy.config.overload.v2alpha.OverloadAction\"\x87\x02\n\x0fOverloadManager\x12\x33\n\x10refresh_interval\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12N\n\x11resource_monitors\x18\x02 \x03(\x0b\x32).envoy.config.overload.v3.ResourceMonitorB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12\x39\n\x07\x61\x63tions\x18\x03 \x03(\x0b\x32(.envoy.config.overload.v3.OverloadAction:4\x9a\xc5\x88\x1e/\n-envoy.config.overload.v2alpha.OverloadManagerBA\n&io.envoyproxy.envoy.config.overload.v3B\rOverloadProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n\'envoy/config/overload/v3/overload.proto\x12\x18\x65nvoy.config.overload.v3\x1a\x1b\x65nvoy/type/v3/percent.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xa9\x01\n\x0fResourceMonitor\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12,\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00:4\x9a\xc5\x88\x1e/\n-envoy.config.overload.v2alpha.ResourceMonitorB\r\n\x0b\x63onfig_typeJ\x04\x08\x02\x10\x03R\x06\x63onfig\"q\n\x10ThresholdTrigger\x12&\n\x05value\x18\x01 \x01(\x01\x42\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\xf0?)\x00\x00\x00\x00\x00\x00\x00\x00:5\x9a\xc5\x88\x1e\x30\n.envoy.config.overload.v2alpha.ThresholdTrigger\"z\n\rScaledTrigger\x12\x32\n\x11scaling_threshold\x18\x01 \x01(\x01\x42\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\xf0?)\x00\x00\x00\x00\x00\x00\x00\x00\x12\x35\n\x14saturation_threshold\x18\x02 \x01(\x01\x42\x17\xfa\x42\x14\x12\x12\x19\x00\x00\x00\x00\x00\x00\xf0?)\x00\x00\x00\x00\x00\x00\x00\x00\"\xe0\x01\n\x07Trigger\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12?\n\tthreshold\x18\x02 \x01(\x0b\x32*.envoy.config.overload.v3.ThresholdTriggerH\x00\x12\x39\n\x06scaled\x18\x03 \x01(\x0b\x32\'.envoy.config.overload.v3.ScaledTriggerH\x00:,\x9a\xc5\x88\x1e\'\n%envoy.config.overload.v2alpha.TriggerB\x14\n\rtrigger_oneof\x12\x03\xf8\x42\x01\"\xf7\x03\n\x1fScaleTimersOverloadActionConfig\x12k\n\x13timer_scale_factors\x18\x01 \x03(\x0b\x32\x44.envoy.config.overload.v3.ScaleTimersOverloadActionConfig.ScaleTimerB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\xe3\x01\n\nScaleTimer\x12^\n\x05timer\x18\x01 \x01(\x0e\x32\x43.envoy.config.overload.v3.ScaleTimersOverloadActionConfig.TimerTypeB\n\xfa\x42\x07\x82\x01\x04\x10\x01 \x00\x12\x30\n\x0bmin_timeout\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12+\n\tmin_scale\x18\x03 \x01(\x0b\x32\x16.envoy.type.v3.PercentH\x00\x42\x16\n\x0foverload_adjust\x12\x03\xf8\x42\x01\"\x80\x01\n\tTimerType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12#\n\x1fHTTP_DOWNSTREAM_CONNECTION_IDLE\x10\x01\x12\x1f\n\x1bHTTP_DOWNSTREAM_STREAM_IDLE\x10\x02\x12\x1c\n\x18TRANSPORT_SOCKET_CONNECT\x10\x03\"\xc7\x01\n\x0eOverloadAction\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12=\n\x08triggers\x18\x02 \x03(\x0b\x32!.envoy.config.overload.v3.TriggerB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12*\n\x0ctyped_config\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any:3\x9a\xc5\x88\x1e.\n,envoy.config.overload.v2alpha.OverloadAction\"O\n\x13\x42ufferFactoryConfig\x12\x38\n%minimum_account_to_track_power_of_two\x18\x01 \x01(\rB\t\xfa\x42\x06*\x04\x18\x38(\n\"\xd5\x02\n\x0fOverloadManager\x12\x33\n\x10refresh_interval\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12N\n\x11resource_monitors\x18\x02 \x03(\x0b\x32).envoy.config.overload.v3.ResourceMonitorB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x12\x39\n\x07\x61\x63tions\x18\x03 \x03(\x0b\x32(.envoy.config.overload.v3.OverloadAction\x12L\n\x15\x62uffer_factory_config\x18\x04 \x01(\x0b\x32-.envoy.config.overload.v3.BufferFactoryConfig:4\x9a\xc5\x88\x1e/\n-envoy.config.overload.v2alpha.OverloadManagerBA\n&io.envoyproxy.envoy.config.overload.v3B\rOverloadProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_type_dot_v3_dot_percent__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -362,6 +362,38 @@ _OVERLOADACTION = _descriptor.Descriptor(
 )
 
 
+_BUFFERFACTORYCONFIG = _descriptor.Descriptor(
+  name='BufferFactoryConfig',
+  full_name='envoy.config.overload.v3.BufferFactoryConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='minimum_account_to_track_power_of_two', full_name='envoy.config.overload.v3.BufferFactoryConfig.minimum_account_to_track_power_of_two', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\006*\004\0308(\n', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1594,
+  serialized_end=1673,
+)
+
+
 _OVERLOADMANAGER = _descriptor.Descriptor(
   name='OverloadManager',
   full_name='envoy.config.overload.v3.OverloadManager',
@@ -391,6 +423,13 @@ _OVERLOADMANAGER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='buffer_factory_config', full_name='envoy.config.overload.v3.OverloadManager.buffer_factory_config', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -403,8 +442,8 @@ _OVERLOADMANAGER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1595,
-  serialized_end=1858,
+  serialized_start=1676,
+  serialized_end=2017,
 )
 
 _RESOURCEMONITOR.fields_by_name['typed_config'].message_type = google_dot_protobuf_dot_any__pb2._ANY
@@ -436,12 +475,14 @@ _OVERLOADACTION.fields_by_name['typed_config'].message_type = google_dot_protobu
 _OVERLOADMANAGER.fields_by_name['refresh_interval'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _OVERLOADMANAGER.fields_by_name['resource_monitors'].message_type = _RESOURCEMONITOR
 _OVERLOADMANAGER.fields_by_name['actions'].message_type = _OVERLOADACTION
+_OVERLOADMANAGER.fields_by_name['buffer_factory_config'].message_type = _BUFFERFACTORYCONFIG
 DESCRIPTOR.message_types_by_name['ResourceMonitor'] = _RESOURCEMONITOR
 DESCRIPTOR.message_types_by_name['ThresholdTrigger'] = _THRESHOLDTRIGGER
 DESCRIPTOR.message_types_by_name['ScaledTrigger'] = _SCALEDTRIGGER
 DESCRIPTOR.message_types_by_name['Trigger'] = _TRIGGER
 DESCRIPTOR.message_types_by_name['ScaleTimersOverloadActionConfig'] = _SCALETIMERSOVERLOADACTIONCONFIG
 DESCRIPTOR.message_types_by_name['OverloadAction'] = _OVERLOADACTION
+DESCRIPTOR.message_types_by_name['BufferFactoryConfig'] = _BUFFERFACTORYCONFIG
 DESCRIPTOR.message_types_by_name['OverloadManager'] = _OVERLOADMANAGER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -495,6 +536,13 @@ OverloadAction = _reflection.GeneratedProtocolMessageType('OverloadAction', (_me
   })
 _sym_db.RegisterMessage(OverloadAction)
 
+BufferFactoryConfig = _reflection.GeneratedProtocolMessageType('BufferFactoryConfig', (_message.Message,), {
+  'DESCRIPTOR' : _BUFFERFACTORYCONFIG,
+  '__module__' : 'envoy.config.overload.v3.overload_pb2'
+  # @@protoc_insertion_point(class_scope:envoy.config.overload.v3.BufferFactoryConfig)
+  })
+_sym_db.RegisterMessage(BufferFactoryConfig)
+
 OverloadManager = _reflection.GeneratedProtocolMessageType('OverloadManager', (_message.Message,), {
   'DESCRIPTOR' : _OVERLOADMANAGER,
   '__module__' : 'envoy.config.overload.v3.overload_pb2'
@@ -519,6 +567,7 @@ _SCALETIMERSOVERLOADACTIONCONFIG.fields_by_name['timer_scale_factors']._options 
 _OVERLOADACTION.fields_by_name['name']._options = None
 _OVERLOADACTION.fields_by_name['triggers']._options = None
 _OVERLOADACTION._options = None
+_BUFFERFACTORYCONFIG.fields_by_name['minimum_account_to_track_power_of_two']._options = None
 _OVERLOADMANAGER.fields_by_name['resource_monitors']._options = None
 _OVERLOADMANAGER._options = None
 # @@protoc_insertion_point(module_scope)

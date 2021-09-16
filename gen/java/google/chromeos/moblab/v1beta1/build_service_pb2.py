@@ -27,11 +27,160 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"com.google.chromeos.moblab.v1beta1B\021BuildServiceProtoH\001P\001ZDgoogle.golang.org/genproto/googleapis/chromeos/moblab/v1beta1;moblab',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n2google/chromeos/moblab/v1beta1/build_service.proto\x12\x1egoogle.chromeos.moblab.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.google/chromeos/moblab/v1beta1/resources.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfd\x01\n\x11ListBuildsRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#chromeosmoblab.googleapis.com/Model\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x32\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\x12\x31\n\x08group_by\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\"x\n\x12ListBuildsResponse\x12\x35\n\x06\x62uilds\x18\x01 \x03(\x0b\x32%.google.chromeos.moblab.v1beta1.Build\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x12\n\ntotal_size\x18\x03 \x01(\x05\"v\n\x1c\x43heckBuildStageStatusRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+chromeosmoblab.googleapis.com/BuildArtifact\x12\x13\n\x06\x66ilter\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\xd4\x01\n\x1d\x43heckBuildStageStatusResponse\x12\x17\n\x0fis_build_staged\x18\x01 \x01(\x08\x12L\n\x15staged_build_artifact\x18\x02 \x01(\x0b\x32-.google.chromeos.moblab.v1beta1.BuildArtifact\x12L\n\x15source_build_artifact\x18\x03 \x01(\x0b\x32-.google.chromeos.moblab.v1beta1.BuildArtifact\"k\n\x11StageBuildRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+chromeosmoblab.googleapis.com/BuildArtifact\x12\x13\n\x06\x66ilter\x18\x02 \x01(\tB\x03\xe0\x41\x01\"b\n\x12StageBuildResponse\x12L\n\x15staged_build_artifact\x18\x01 \x01(\x0b\x32-.google.chromeos.moblab.v1beta1.BuildArtifact\"\x8c\x01\n\x12StageBuildMetadata\x12\x18\n\x10progress_percent\x18\x01 \x01(\x02\x12.\n\nstart_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xe1\x05\n\x0c\x42uildService\x12\xb6\x01\n\nListBuilds\x12\x31.google.chromeos.moblab.v1beta1.ListBuildsRequest\x1a\x32.google.chromeos.moblab.v1beta1.ListBuildsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta1/{parent=buildTargets/*/models/*}/builds\xda\x41\x06parent\x12\xe7\x01\n\x15\x43heckBuildStageStatus\x12<.google.chromeos.moblab.v1beta1.CheckBuildStageStatusRequest\x1a=.google.chromeos.moblab.v1beta1.CheckBuildStageStatusResponse\"Q\x82\xd3\xe4\x93\x02\x44\x12\x42/v1beta1/{name=buildTargets/*/models/*/builds/*/artifacts/*}:check\xda\x41\x04name\x12\xdf\x01\n\nStageBuild\x12\x31.google.chromeos.moblab.v1beta1.StageBuildRequest\x1a\x1d.google.longrunning.Operation\"\x7f\x82\xd3\xe4\x93\x02G\"B/v1beta1/{name=buildTargets/*/models/*/builds/*/artifacts/*}:stage:\x01*\xda\x41\x04name\xca\x41(\n\x12StageBuildResponse\x12\x12StageBuildMetadata\x1aL\xca\x41\x1d\x63hromeosmoblab.googleapis.com\xd2\x41)https://www.googleapis.com/auth/moblabapiB\x81\x01\n\"com.google.chromeos.moblab.v1beta1B\x11\x42uildServiceProtoH\x01P\x01ZDgoogle.golang.org/genproto/googleapis/chromeos/moblab/v1beta1;moblabb\x06proto3'
+  serialized_pb=b'\n2google/chromeos/moblab/v1beta1/build_service.proto\x12\x1egoogle.chromeos.moblab.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.google/chromeos/moblab/v1beta1/resources.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"e\n\x1a\x46indMostStableBuildRequest\x12G\n\x0c\x62uild_target\x18\x01 \x01(\tB1\xe0\x41\x02\xfa\x41+\n)chromeosmoblab.googleapis.com/BuildTarget\"S\n\x1b\x46indMostStableBuildResponse\x12\x34\n\x05\x62uild\x18\x01 \x01(\x0b\x32%.google.chromeos.moblab.v1beta1.Build\"J\n\x17ListBuildTargetsRequest\x12\x16\n\tpage_size\x18\x01 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\x8b\x01\n\x18ListBuildTargetsResponse\x12\x42\n\rbuild_targets\x18\x01 \x03(\x0b\x32+.google.chromeos.moblab.v1beta1.BuildTarget\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x12\n\ntotal_size\x18\x03 \x01(\x05\"\xfd\x01\n\x11ListBuildsRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#chromeosmoblab.googleapis.com/Model\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x32\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\x12\x31\n\x08group_by\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\"x\n\x12ListBuildsResponse\x12\x35\n\x06\x62uilds\x18\x01 \x03(\x0b\x32%.google.chromeos.moblab.v1beta1.Build\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x12\n\ntotal_size\x18\x03 \x01(\x05\"v\n\x1c\x43heckBuildStageStatusRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+chromeosmoblab.googleapis.com/BuildArtifact\x12\x13\n\x06\x66ilter\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\xd4\x01\n\x1d\x43heckBuildStageStatusResponse\x12\x17\n\x0fis_build_staged\x18\x01 \x01(\x08\x12L\n\x15staged_build_artifact\x18\x02 \x01(\x0b\x32-.google.chromeos.moblab.v1beta1.BuildArtifact\x12L\n\x15source_build_artifact\x18\x03 \x01(\x0b\x32-.google.chromeos.moblab.v1beta1.BuildArtifact\"k\n\x11StageBuildRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+chromeosmoblab.googleapis.com/BuildArtifact\x12\x13\n\x06\x66ilter\x18\x02 \x01(\tB\x03\xe0\x41\x01\"b\n\x12StageBuildResponse\x12L\n\x15staged_build_artifact\x18\x01 \x01(\x0b\x32-.google.chromeos.moblab.v1beta1.BuildArtifact\"\x8c\x01\n\x12StageBuildMetadata\x12\x18\n\x10progress_percent\x18\x01 \x01(\x02\x12.\n\nstart_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\xec\x08\n\x0c\x42uildService\x12\xa4\x01\n\x10ListBuildTargets\x12\x37.google.chromeos.moblab.v1beta1.ListBuildTargetsRequest\x1a\x38.google.chromeos.moblab.v1beta1.ListBuildTargetsResponse\"\x1d\x82\xd3\xe4\x93\x02\x17\x12\x15/v1beta1/buildTargets\x12\xb6\x01\n\nListBuilds\x12\x31.google.chromeos.moblab.v1beta1.ListBuildsRequest\x1a\x32.google.chromeos.moblab.v1beta1.ListBuildsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta1/{parent=buildTargets/*/models/*}/builds\xda\x41\x06parent\x12\xe7\x01\n\x15\x43heckBuildStageStatus\x12<.google.chromeos.moblab.v1beta1.CheckBuildStageStatusRequest\x1a=.google.chromeos.moblab.v1beta1.CheckBuildStageStatusResponse\"Q\x82\xd3\xe4\x93\x02\x44\x12\x42/v1beta1/{name=buildTargets/*/models/*/builds/*/artifacts/*}:check\xda\x41\x04name\x12\xdf\x01\n\nStageBuild\x12\x31.google.chromeos.moblab.v1beta1.StageBuildRequest\x1a\x1d.google.longrunning.Operation\"\x7f\x82\xd3\xe4\x93\x02G\"B/v1beta1/{name=buildTargets/*/models/*/builds/*/artifacts/*}:stage:\x01*\xda\x41\x04name\xca\x41(\n\x12StageBuildResponse\x12\x12StageBuildMetadata\x12\xe1\x01\n\x13\x46indMostStableBuild\x12:.google.chromeos.moblab.v1beta1.FindMostStableBuildRequest\x1a;.google.chromeos.moblab.v1beta1.FindMostStableBuildResponse\"Q\x82\xd3\xe4\x93\x02<\x12:/v1beta1/{build_target=buildTargets/*}:findMostStableBuild\xda\x41\x0c\x62uild_target\x1aL\xca\x41\x1d\x63hromeosmoblab.googleapis.com\xd2\x41)https://www.googleapis.com/auth/moblabapiB\x81\x01\n\"com.google.chromeos.moblab.v1beta1B\x11\x42uildServiceProtoH\x01P\x01ZDgoogle.golang.org/genproto/googleapis/chromeos/moblab/v1beta1;moblabb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_chromeos_dot_moblab_dot_v1beta1_dot_resources__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
+
+
+_FINDMOSTSTABLEBUILDREQUEST = _descriptor.Descriptor(
+  name='FindMostStableBuildRequest',
+  full_name='google.chromeos.moblab.v1beta1.FindMostStableBuildRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='build_target', full_name='google.chromeos.moblab.v1beta1.FindMostStableBuildRequest.build_target', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A+\n)chromeosmoblab.googleapis.com/BuildTarget', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=353,
+  serialized_end=454,
+)
+
+
+_FINDMOSTSTABLEBUILDRESPONSE = _descriptor.Descriptor(
+  name='FindMostStableBuildResponse',
+  full_name='google.chromeos.moblab.v1beta1.FindMostStableBuildResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='build', full_name='google.chromeos.moblab.v1beta1.FindMostStableBuildResponse.build', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=456,
+  serialized_end=539,
+)
+
+
+_LISTBUILDTARGETSREQUEST = _descriptor.Descriptor(
+  name='ListBuildTargetsRequest',
+  full_name='google.chromeos.moblab.v1beta1.ListBuildTargetsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.chromeos.moblab.v1beta1.ListBuildTargetsRequest.page_size', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.chromeos.moblab.v1beta1.ListBuildTargetsRequest.page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=541,
+  serialized_end=615,
+)
+
+
+_LISTBUILDTARGETSRESPONSE = _descriptor.Descriptor(
+  name='ListBuildTargetsResponse',
+  full_name='google.chromeos.moblab.v1beta1.ListBuildTargetsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='build_targets', full_name='google.chromeos.moblab.v1beta1.ListBuildTargetsResponse.build_targets', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.chromeos.moblab.v1beta1.ListBuildTargetsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_size', full_name='google.chromeos.moblab.v1beta1.ListBuildTargetsResponse.total_size', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=618,
+  serialized_end=757,
+)
 
 
 _LISTBUILDSREQUEST = _descriptor.Descriptor(
@@ -96,8 +245,8 @@ _LISTBUILDSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=354,
-  serialized_end=607,
+  serialized_start=760,
+  serialized_end=1013,
 )
 
 
@@ -142,8 +291,8 @@ _LISTBUILDSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=609,
-  serialized_end=729,
+  serialized_start=1015,
+  serialized_end=1135,
 )
 
 
@@ -181,8 +330,8 @@ _CHECKBUILDSTAGESTATUSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=731,
-  serialized_end=849,
+  serialized_start=1137,
+  serialized_end=1255,
 )
 
 
@@ -227,8 +376,8 @@ _CHECKBUILDSTAGESTATUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=852,
-  serialized_end=1064,
+  serialized_start=1258,
+  serialized_end=1470,
 )
 
 
@@ -266,8 +415,8 @@ _STAGEBUILDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1066,
-  serialized_end=1173,
+  serialized_start=1472,
+  serialized_end=1579,
 )
 
 
@@ -298,8 +447,8 @@ _STAGEBUILDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1175,
-  serialized_end=1273,
+  serialized_start=1581,
+  serialized_end=1679,
 )
 
 
@@ -344,10 +493,12 @@ _STAGEBUILDMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1276,
-  serialized_end=1416,
+  serialized_start=1682,
+  serialized_end=1822,
 )
 
+_FINDMOSTSTABLEBUILDRESPONSE.fields_by_name['build'].message_type = google_dot_chromeos_dot_moblab_dot_v1beta1_dot_resources__pb2._BUILD
+_LISTBUILDTARGETSRESPONSE.fields_by_name['build_targets'].message_type = google_dot_chromeos_dot_moblab_dot_v1beta1_dot_resources__pb2._BUILDTARGET
 _LISTBUILDSREQUEST.fields_by_name['read_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 _LISTBUILDSREQUEST.fields_by_name['group_by'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 _LISTBUILDSRESPONSE.fields_by_name['builds'].message_type = google_dot_chromeos_dot_moblab_dot_v1beta1_dot_resources__pb2._BUILD
@@ -356,6 +507,10 @@ _CHECKBUILDSTAGESTATUSRESPONSE.fields_by_name['source_build_artifact'].message_t
 _STAGEBUILDRESPONSE.fields_by_name['staged_build_artifact'].message_type = google_dot_chromeos_dot_moblab_dot_v1beta1_dot_resources__pb2._BUILDARTIFACT
 _STAGEBUILDMETADATA.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _STAGEBUILDMETADATA.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+DESCRIPTOR.message_types_by_name['FindMostStableBuildRequest'] = _FINDMOSTSTABLEBUILDREQUEST
+DESCRIPTOR.message_types_by_name['FindMostStableBuildResponse'] = _FINDMOSTSTABLEBUILDRESPONSE
+DESCRIPTOR.message_types_by_name['ListBuildTargetsRequest'] = _LISTBUILDTARGETSREQUEST
+DESCRIPTOR.message_types_by_name['ListBuildTargetsResponse'] = _LISTBUILDTARGETSRESPONSE
 DESCRIPTOR.message_types_by_name['ListBuildsRequest'] = _LISTBUILDSREQUEST
 DESCRIPTOR.message_types_by_name['ListBuildsResponse'] = _LISTBUILDSRESPONSE
 DESCRIPTOR.message_types_by_name['CheckBuildStageStatusRequest'] = _CHECKBUILDSTAGESTATUSREQUEST
@@ -364,6 +519,34 @@ DESCRIPTOR.message_types_by_name['StageBuildRequest'] = _STAGEBUILDREQUEST
 DESCRIPTOR.message_types_by_name['StageBuildResponse'] = _STAGEBUILDRESPONSE
 DESCRIPTOR.message_types_by_name['StageBuildMetadata'] = _STAGEBUILDMETADATA
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+FindMostStableBuildRequest = _reflection.GeneratedProtocolMessageType('FindMostStableBuildRequest', (_message.Message,), {
+  'DESCRIPTOR' : _FINDMOSTSTABLEBUILDREQUEST,
+  '__module__' : 'google.chromeos.moblab.v1beta1.build_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.chromeos.moblab.v1beta1.FindMostStableBuildRequest)
+  })
+_sym_db.RegisterMessage(FindMostStableBuildRequest)
+
+FindMostStableBuildResponse = _reflection.GeneratedProtocolMessageType('FindMostStableBuildResponse', (_message.Message,), {
+  'DESCRIPTOR' : _FINDMOSTSTABLEBUILDRESPONSE,
+  '__module__' : 'google.chromeos.moblab.v1beta1.build_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.chromeos.moblab.v1beta1.FindMostStableBuildResponse)
+  })
+_sym_db.RegisterMessage(FindMostStableBuildResponse)
+
+ListBuildTargetsRequest = _reflection.GeneratedProtocolMessageType('ListBuildTargetsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTBUILDTARGETSREQUEST,
+  '__module__' : 'google.chromeos.moblab.v1beta1.build_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.chromeos.moblab.v1beta1.ListBuildTargetsRequest)
+  })
+_sym_db.RegisterMessage(ListBuildTargetsRequest)
+
+ListBuildTargetsResponse = _reflection.GeneratedProtocolMessageType('ListBuildTargetsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTBUILDTARGETSRESPONSE,
+  '__module__' : 'google.chromeos.moblab.v1beta1.build_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.chromeos.moblab.v1beta1.ListBuildTargetsResponse)
+  })
+_sym_db.RegisterMessage(ListBuildTargetsResponse)
 
 ListBuildsRequest = _reflection.GeneratedProtocolMessageType('ListBuildsRequest', (_message.Message,), {
   'DESCRIPTOR' : _LISTBUILDSREQUEST,
@@ -416,6 +599,9 @@ _sym_db.RegisterMessage(StageBuildMetadata)
 
 
 DESCRIPTOR._options = None
+_FINDMOSTSTABLEBUILDREQUEST.fields_by_name['build_target']._options = None
+_LISTBUILDTARGETSREQUEST.fields_by_name['page_size']._options = None
+_LISTBUILDTARGETSREQUEST.fields_by_name['page_token']._options = None
 _LISTBUILDSREQUEST.fields_by_name['parent']._options = None
 _LISTBUILDSREQUEST.fields_by_name['page_size']._options = None
 _LISTBUILDSREQUEST.fields_by_name['page_token']._options = None
@@ -434,13 +620,23 @@ _BUILDSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\035chromeosmoblab.googleapis.com\322A)https://www.googleapis.com/auth/moblabapi',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1419,
-  serialized_end=2156,
+  serialized_start=1825,
+  serialized_end=2957,
   methods=[
+  _descriptor.MethodDescriptor(
+    name='ListBuildTargets',
+    full_name='google.chromeos.moblab.v1beta1.BuildService.ListBuildTargets',
+    index=0,
+    containing_service=None,
+    input_type=_LISTBUILDTARGETSREQUEST,
+    output_type=_LISTBUILDTARGETSRESPONSE,
+    serialized_options=b'\202\323\344\223\002\027\022\025/v1beta1/buildTargets',
+    create_key=_descriptor._internal_create_key,
+  ),
   _descriptor.MethodDescriptor(
     name='ListBuilds',
     full_name='google.chromeos.moblab.v1beta1.BuildService.ListBuilds',
-    index=0,
+    index=1,
     containing_service=None,
     input_type=_LISTBUILDSREQUEST,
     output_type=_LISTBUILDSRESPONSE,
@@ -450,7 +646,7 @@ _BUILDSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CheckBuildStageStatus',
     full_name='google.chromeos.moblab.v1beta1.BuildService.CheckBuildStageStatus',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_CHECKBUILDSTAGESTATUSREQUEST,
     output_type=_CHECKBUILDSTAGESTATUSRESPONSE,
@@ -460,11 +656,21 @@ _BUILDSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='StageBuild',
     full_name='google.chromeos.moblab.v1beta1.BuildService.StageBuild',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_STAGEBUILDREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
     serialized_options=b'\202\323\344\223\002G\"B/v1beta1/{name=buildTargets/*/models/*/builds/*/artifacts/*}:stage:\001*\332A\004name\312A(\n\022StageBuildResponse\022\022StageBuildMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='FindMostStableBuild',
+    full_name='google.chromeos.moblab.v1beta1.BuildService.FindMostStableBuild',
+    index=4,
+    containing_service=None,
+    input_type=_FINDMOSTSTABLEBUILDREQUEST,
+    output_type=_FINDMOSTSTABLEBUILDRESPONSE,
+    serialized_options=b'\202\323\344\223\002<\022:/v1beta1/{build_target=buildTargets/*}:findMostStableBuild\332A\014build_target',
     create_key=_descriptor._internal_create_key,
   ),
 ])

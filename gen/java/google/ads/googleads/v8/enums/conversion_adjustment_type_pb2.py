@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.ads.googleads.v8.enumsB\035ConversionAdjustmentTypeProtoP\001ZBgoogle.golang.org/genproto/googleapis/ads/googleads/v8/enums;enums\242\002\003GAA\252\002\035Google.Ads.GoogleAds.V8.Enums\312\002\035Google\\Ads\\GoogleAds\\V8\\Enums\352\002!Google::Ads::GoogleAds::V8::Enums',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n>google/ads/googleads/v8/enums/conversion_adjustment_type.proto\x12\x1dgoogle.ads.googleads.v8.enums\x1a\x1cgoogle/api/annotations.proto\"y\n\x1c\x43onversionAdjustmentTypeEnum\"Y\n\x18\x43onversionAdjustmentType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07UNKNOWN\x10\x01\x12\x0e\n\nRETRACTION\x10\x02\x12\x0f\n\x0bRESTATEMENT\x10\x03\x42\xf2\x01\n!com.google.ads.googleads.v8.enumsB\x1d\x43onversionAdjustmentTypeProtoP\x01ZBgoogle.golang.org/genproto/googleapis/ads/googleads/v8/enums;enums\xa2\x02\x03GAA\xaa\x02\x1dGoogle.Ads.GoogleAds.V8.Enums\xca\x02\x1dGoogle\\Ads\\GoogleAds\\V8\\Enums\xea\x02!Google::Ads::GoogleAds::V8::Enumsb\x06proto3'
+  serialized_pb=b'\n>google/ads/googleads/v8/enums/conversion_adjustment_type.proto\x12\x1dgoogle.ads.googleads.v8.enums\x1a\x1cgoogle/api/annotations.proto\"\x8a\x01\n\x1c\x43onversionAdjustmentTypeEnum\"j\n\x18\x43onversionAdjustmentType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0b\n\x07UNKNOWN\x10\x01\x12\x0e\n\nRETRACTION\x10\x02\x12\x0f\n\x0bRESTATEMENT\x10\x03\x12\x0f\n\x0b\x45NHANCEMENT\x10\x04\x42\xf2\x01\n!com.google.ads.googleads.v8.enumsB\x1d\x43onversionAdjustmentTypeProtoP\x01ZBgoogle.golang.org/genproto/googleapis/ads/googleads/v8/enums;enums\xa2\x02\x03GAA\xaa\x02\x1dGoogle.Ads.GoogleAds.V8.Enums\xca\x02\x1dGoogle\\Ads\\GoogleAds\\V8\\Enums\xea\x02!Google::Ads::GoogleAds::V8::Enumsb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -53,11 +53,16 @@ _CONVERSIONADJUSTMENTTYPEENUM_CONVERSIONADJUSTMENTTYPE = _descriptor.EnumDescrip
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ENHANCEMENT', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=159,
-  serialized_end=248,
+  serialized_start=160,
+  serialized_end=266,
 )
 _sym_db.RegisterEnumDescriptor(_CONVERSIONADJUSTMENTTYPEENUM_CONVERSIONADJUSTMENTTYPE)
 
@@ -83,8 +88,8 @@ _CONVERSIONADJUSTMENTTYPEENUM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=127,
-  serialized_end=248,
+  serialized_start=128,
+  serialized_end=266,
 )
 
 _CONVERSIONADJUSTMENTTYPEENUM_CONVERSIONADJUSTMENTTYPE.containing_type = _CONVERSIONADJUSTMENTTYPEENUM

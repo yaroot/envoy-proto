@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n1io.envoyproxy.envoy.extensions.request_id.uuid.v3B\tUuidProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.envoy/extensions/request_id/uuid/v3/uuid.proto\x12#envoy.extensions.request_id.uuid.v3\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\"L\n\x13UuidRequestIdConfig\x12\x35\n\x11pack_trace_reason\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValueBH\n1io.envoyproxy.envoy.extensions.request_id.uuid.v3B\tUuidProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n.envoy/extensions/request_id/uuid/v3/uuid.proto\x12#envoy.extensions.request_id.uuid.v3\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\"\x93\x01\n\x13UuidRequestIdConfig\x12\x35\n\x11pack_trace_reason\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x45\n!use_request_id_for_trace_sampling\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.BoolValueBH\n1io.envoyproxy.envoy.extensions.request_id.uuid.v3B\tUuidProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,])
 
@@ -43,6 +43,13 @@ _UUIDREQUESTIDCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='use_request_id_for_trace_sampling', full_name='envoy.extensions.request_id.uuid.v3.UuidRequestIdConfig.use_request_id_for_trace_sampling', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -55,11 +62,12 @@ _UUIDREQUESTIDCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=150,
-  serialized_end=226,
+  serialized_start=151,
+  serialized_end=298,
 )
 
 _UUIDREQUESTIDCONFIG.fields_by_name['pack_trace_reason'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
+_UUIDREQUESTIDCONFIG.fields_by_name['use_request_id_for_trace_sampling'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 DESCRIPTOR.message_types_by_name['UuidRequestIdConfig'] = _UUIDREQUESTIDCONFIG
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

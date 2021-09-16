@@ -15,6 +15,7 @@ _sym_db = _symbol_database.Default()
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
@@ -22,11 +23,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/dialogflow/cx/v3/audio_config.proto',
   package='google.cloud.dialogflow.cx.v3',
   syntax='proto3',
-  serialized_options=b'\n!com.google.cloud.dialogflow.cx.v3B\020AudioConfigProtoP\001Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\370\001\001\242\002\002DF\252\002\035Google.Cloud.Dialogflow.Cx.V3',
+  serialized_options=b'\n!com.google.cloud.dialogflow.cx.v3B\020AudioConfigProtoP\001Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\370\001\001\242\002\002DF\252\002\035Google.Cloud.Dialogflow.Cx.V3\352\002!Google::Cloud::Dialogflow::CX::V3',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n0google/cloud/dialogflow/cx/v3/audio_config.proto\x12\x1dgoogle.cloud.dialogflow.cx.v3\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/api/annotations.proto\"\x92\x01\n\x0eSpeechWordInfo\x12\x0c\n\x04word\x18\x03 \x01(\t\x12/\n\x0cstart_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12-\n\nend_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x12\n\nconfidence\x18\x04 \x01(\x02\"\x9b\x02\n\x10InputAudioConfig\x12I\n\x0e\x61udio_encoding\x18\x01 \x01(\x0e\x32,.google.cloud.dialogflow.cx.v3.AudioEncodingB\x03\xe0\x41\x02\x12\x19\n\x11sample_rate_hertz\x18\x02 \x01(\x05\x12\x18\n\x10\x65nable_word_info\x18\r \x01(\x08\x12\x14\n\x0cphrase_hints\x18\x04 \x03(\t\x12\r\n\x05model\x18\x07 \x01(\t\x12H\n\rmodel_variant\x18\n \x01(\x0e\x32\x31.google.cloud.dialogflow.cx.v3.SpeechModelVariant\x12\x18\n\x10single_utterance\x18\x08 \x01(\x08\"i\n\x14VoiceSelectionParams\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x43\n\x0bssml_gender\x18\x02 \x01(\x0e\x32..google.cloud.dialogflow.cx.v3.SsmlVoiceGender\"\xb6\x01\n\x16SynthesizeSpeechConfig\x12\x15\n\rspeaking_rate\x18\x01 \x01(\x01\x12\r\n\x05pitch\x18\x02 \x01(\x01\x12\x16\n\x0evolume_gain_db\x18\x03 \x01(\x01\x12\x1a\n\x12\x65\x66\x66\x65\x63ts_profile_id\x18\x05 \x03(\t\x12\x42\n\x05voice\x18\x04 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3.VoiceSelectionParams\"\xd8\x01\n\x11OutputAudioConfig\x12O\n\x0e\x61udio_encoding\x18\x01 \x01(\x0e\x32\x32.google.cloud.dialogflow.cx.v3.OutputAudioEncodingB\x03\xe0\x41\x02\x12\x19\n\x11sample_rate_hertz\x18\x02 \x01(\x05\x12W\n\x18synthesize_speech_config\x18\x03 \x01(\x0b\x32\x35.google.cloud.dialogflow.cx.v3.SynthesizeSpeechConfig*\xfb\x01\n\rAudioEncoding\x12\x1e\n\x1a\x41UDIO_ENCODING_UNSPECIFIED\x10\x00\x12\x1c\n\x18\x41UDIO_ENCODING_LINEAR_16\x10\x01\x12\x17\n\x13\x41UDIO_ENCODING_FLAC\x10\x02\x12\x18\n\x14\x41UDIO_ENCODING_MULAW\x10\x03\x12\x16\n\x12\x41UDIO_ENCODING_AMR\x10\x04\x12\x19\n\x15\x41UDIO_ENCODING_AMR_WB\x10\x05\x12\x1b\n\x17\x41UDIO_ENCODING_OGG_OPUS\x10\x06\x12)\n%AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE\x10\x07*v\n\x12SpeechModelVariant\x12$\n SPEECH_MODEL_VARIANT_UNSPECIFIED\x10\x00\x12\x16\n\x12USE_BEST_AVAILABLE\x10\x01\x12\x10\n\x0cUSE_STANDARD\x10\x02\x12\x10\n\x0cUSE_ENHANCED\x10\x03*\x8d\x01\n\x0fSsmlVoiceGender\x12!\n\x1dSSML_VOICE_GENDER_UNSPECIFIED\x10\x00\x12\x1a\n\x16SSML_VOICE_GENDER_MALE\x10\x01\x12\x1c\n\x18SSML_VOICE_GENDER_FEMALE\x10\x02\x12\x1d\n\x19SSML_VOICE_GENDER_NEUTRAL\x10\x03*\xec\x01\n\x13OutputAudioEncoding\x12%\n!OUTPUT_AUDIO_ENCODING_UNSPECIFIED\x10\x00\x12#\n\x1fOUTPUT_AUDIO_ENCODING_LINEAR_16\x10\x01\x12\x1d\n\x19OUTPUT_AUDIO_ENCODING_MP3\x10\x02\x12%\n!OUTPUT_AUDIO_ENCODING_MP3_64_KBPS\x10\x04\x12\"\n\x1eOUTPUT_AUDIO_ENCODING_OGG_OPUS\x10\x03\x12\x1f\n\x1bOUTPUT_AUDIO_ENCODING_MULAW\x10\x05\x42\xa0\x01\n!com.google.cloud.dialogflow.cx.v3B\x10\x41udioConfigProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1dGoogle.Cloud.Dialogflow.Cx.V3b\x06proto3'
+  serialized_pb=b'\n0google/cloud/dialogflow/cx/v3/audio_config.proto\x12\x1dgoogle.cloud.dialogflow.cx.v3\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\x92\x01\n\x0eSpeechWordInfo\x12\x0c\n\x04word\x18\x03 \x01(\t\x12/\n\x0cstart_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12-\n\nend_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x12\n\nconfidence\x18\x04 \x01(\x02\"\x9b\x02\n\x10InputAudioConfig\x12I\n\x0e\x61udio_encoding\x18\x01 \x01(\x0e\x32,.google.cloud.dialogflow.cx.v3.AudioEncodingB\x03\xe0\x41\x02\x12\x19\n\x11sample_rate_hertz\x18\x02 \x01(\x05\x12\x18\n\x10\x65nable_word_info\x18\r \x01(\x08\x12\x14\n\x0cphrase_hints\x18\x04 \x03(\t\x12\r\n\x05model\x18\x07 \x01(\t\x12H\n\rmodel_variant\x18\n \x01(\x0e\x32\x31.google.cloud.dialogflow.cx.v3.SpeechModelVariant\x12\x18\n\x10single_utterance\x18\x08 \x01(\x08\"i\n\x14VoiceSelectionParams\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x43\n\x0bssml_gender\x18\x02 \x01(\x0e\x32..google.cloud.dialogflow.cx.v3.SsmlVoiceGender\"\xb6\x01\n\x16SynthesizeSpeechConfig\x12\x15\n\rspeaking_rate\x18\x01 \x01(\x01\x12\r\n\x05pitch\x18\x02 \x01(\x01\x12\x16\n\x0evolume_gain_db\x18\x03 \x01(\x01\x12\x1a\n\x12\x65\x66\x66\x65\x63ts_profile_id\x18\x05 \x03(\t\x12\x42\n\x05voice\x18\x04 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3.VoiceSelectionParams\"\xd8\x01\n\x11OutputAudioConfig\x12O\n\x0e\x61udio_encoding\x18\x01 \x01(\x0e\x32\x32.google.cloud.dialogflow.cx.v3.OutputAudioEncodingB\x03\xe0\x41\x02\x12\x19\n\x11sample_rate_hertz\x18\x02 \x01(\x05\x12W\n\x18synthesize_speech_config\x18\x03 \x01(\x0b\x32\x35.google.cloud.dialogflow.cx.v3.SynthesizeSpeechConfig*\xfb\x01\n\rAudioEncoding\x12\x1e\n\x1a\x41UDIO_ENCODING_UNSPECIFIED\x10\x00\x12\x1c\n\x18\x41UDIO_ENCODING_LINEAR_16\x10\x01\x12\x17\n\x13\x41UDIO_ENCODING_FLAC\x10\x02\x12\x18\n\x14\x41UDIO_ENCODING_MULAW\x10\x03\x12\x16\n\x12\x41UDIO_ENCODING_AMR\x10\x04\x12\x19\n\x15\x41UDIO_ENCODING_AMR_WB\x10\x05\x12\x1b\n\x17\x41UDIO_ENCODING_OGG_OPUS\x10\x06\x12)\n%AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE\x10\x07*v\n\x12SpeechModelVariant\x12$\n SPEECH_MODEL_VARIANT_UNSPECIFIED\x10\x00\x12\x16\n\x12USE_BEST_AVAILABLE\x10\x01\x12\x10\n\x0cUSE_STANDARD\x10\x02\x12\x10\n\x0cUSE_ENHANCED\x10\x03*\x8d\x01\n\x0fSsmlVoiceGender\x12!\n\x1dSSML_VOICE_GENDER_UNSPECIFIED\x10\x00\x12\x1a\n\x16SSML_VOICE_GENDER_MALE\x10\x01\x12\x1c\n\x18SSML_VOICE_GENDER_FEMALE\x10\x02\x12\x1d\n\x19SSML_VOICE_GENDER_NEUTRAL\x10\x03*\xec\x01\n\x13OutputAudioEncoding\x12%\n!OUTPUT_AUDIO_ENCODING_UNSPECIFIED\x10\x00\x12#\n\x1fOUTPUT_AUDIO_ENCODING_LINEAR_16\x10\x01\x12\x1d\n\x19OUTPUT_AUDIO_ENCODING_MP3\x10\x02\x12%\n!OUTPUT_AUDIO_ENCODING_MP3_64_KBPS\x10\x04\x12\"\n\x1eOUTPUT_AUDIO_ENCODING_OGG_OPUS\x10\x03\x12\x1f\n\x1bOUTPUT_AUDIO_ENCODING_MULAW\x10\x05\x42\xc4\x01\n!com.google.cloud.dialogflow.cx.v3B\x10\x41udioConfigProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1dGoogle.Cloud.Dialogflow.Cx.V3\xea\x02!Google::Cloud::Dialogflow::CX::V3b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 _AUDIOENCODING = _descriptor.EnumDescriptor(
   name='AudioEncoding',
@@ -78,8 +79,8 @@ _AUDIOENCODING = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1152,
-  serialized_end=1403,
+  serialized_start=1185,
+  serialized_end=1436,
 )
 _sym_db.RegisterEnumDescriptor(_AUDIOENCODING)
 
@@ -114,8 +115,8 @@ _SPEECHMODELVARIANT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1405,
-  serialized_end=1523,
+  serialized_start=1438,
+  serialized_end=1556,
 )
 _sym_db.RegisterEnumDescriptor(_SPEECHMODELVARIANT)
 
@@ -150,8 +151,8 @@ _SSMLVOICEGENDER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1526,
-  serialized_end=1667,
+  serialized_start=1559,
+  serialized_end=1700,
 )
 _sym_db.RegisterEnumDescriptor(_SSMLVOICEGENDER)
 
@@ -196,8 +197,8 @@ _OUTPUTAUDIOENCODING = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1670,
-  serialized_end=1906,
+  serialized_start=1703,
+  serialized_end=1939,
 )
 _sym_db.RegisterEnumDescriptor(_OUTPUTAUDIOENCODING)
 
@@ -275,8 +276,8 @@ _SPEECHWORDINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=206,
-  serialized_end=352,
+  serialized_start=239,
+  serialized_end=385,
 )
 
 
@@ -349,8 +350,8 @@ _INPUTAUDIOCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=355,
-  serialized_end=638,
+  serialized_start=388,
+  serialized_end=671,
 )
 
 
@@ -388,8 +389,8 @@ _VOICESELECTIONPARAMS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=640,
-  serialized_end=745,
+  serialized_start=673,
+  serialized_end=778,
 )
 
 
@@ -448,8 +449,8 @@ _SYNTHESIZESPEECHCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=748,
-  serialized_end=930,
+  serialized_start=781,
+  serialized_end=963,
 )
 
 
@@ -494,8 +495,8 @@ _OUTPUTAUDIOCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=933,
-  serialized_end=1149,
+  serialized_start=966,
+  serialized_end=1182,
 )
 
 _SPEECHWORDINFO.fields_by_name['start_offset'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION

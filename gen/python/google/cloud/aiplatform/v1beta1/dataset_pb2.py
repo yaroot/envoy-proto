@@ -24,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1beta1/dataset.proto',
   package='google.cloud.aiplatform.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\014DatasetProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
+  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\014DatasetProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\252\002\037Google.Cloud.AIPlatform.V1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1\352\002\"Google::Cloud::AIPlatform::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n-google/cloud/aiplatform/v1beta1/dataset.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x35google/cloud/aiplatform/v1beta1/encryption_spec.proto\x1a(google/cloud/aiplatform/v1beta1/io.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xa5\x04\n\x07\x44\x61taset\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12 \n\x13metadata_schema_uri\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12-\n\x08metadata\x18\x08 \x01(\x0b\x32\x16.google.protobuf.ValueB\x03\xe0\x41\x02\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x0c\n\x04\x65tag\x18\x06 \x01(\t\x12\x44\n\x06labels\x18\x07 \x03(\x0b\x32\x34.google.cloud.aiplatform.v1beta1.Dataset.LabelsEntry\x12H\n\x0f\x65ncryption_spec\x18\x0b \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.EncryptionSpec\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:b\xea\x41_\n!aiplatform.googleapis.com/Dataset\x12:projects/{project}/locations/{location}/datasets/{dataset}\"\x96\x02\n\x10ImportDataConfig\x12@\n\ngcs_source\x18\x01 \x01(\x0b\x32*.google.cloud.aiplatform.v1beta1.GcsSourceH\x00\x12_\n\x10\x64\x61ta_item_labels\x18\x02 \x03(\x0b\x32\x45.google.cloud.aiplatform.v1beta1.ImportDataConfig.DataItemLabelsEntry\x12\x1e\n\x11import_schema_uri\x18\x04 \x01(\tB\x03\xe0\x41\x02\x1a\x35\n\x13\x44\x61taItemLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x08\n\x06source\"\x89\x01\n\x10\x45xportDataConfig\x12J\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.GcsDestinationH\x00\x12\x1a\n\x12\x61nnotations_filter\x18\x02 \x01(\tB\r\n\x0b\x64\x65stinationB\x80\x01\n#com.google.cloud.aiplatform.v1beta1B\x0c\x44\x61tasetProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n-google/cloud/aiplatform/v1beta1/dataset.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x35google/cloud/aiplatform/v1beta1/encryption_spec.proto\x1a(google/cloud/aiplatform/v1beta1/io.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xbf\x04\n\x07\x44\x61taset\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x0b\x64\x65scription\x18\x10 \x01(\tB\x03\xe0\x41\x01\x12 \n\x13metadata_schema_uri\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12-\n\x08metadata\x18\x08 \x01(\x0b\x32\x16.google.protobuf.ValueB\x03\xe0\x41\x02\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x0c\n\x04\x65tag\x18\x06 \x01(\t\x12\x44\n\x06labels\x18\x07 \x03(\x0b\x32\x34.google.cloud.aiplatform.v1beta1.Dataset.LabelsEntry\x12H\n\x0f\x65ncryption_spec\x18\x0b \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.EncryptionSpec\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:b\xea\x41_\n!aiplatform.googleapis.com/Dataset\x12:projects/{project}/locations/{location}/datasets/{dataset}\"\x96\x02\n\x10ImportDataConfig\x12@\n\ngcs_source\x18\x01 \x01(\x0b\x32*.google.cloud.aiplatform.v1beta1.GcsSourceH\x00\x12_\n\x10\x64\x61ta_item_labels\x18\x02 \x03(\x0b\x32\x45.google.cloud.aiplatform.v1beta1.ImportDataConfig.DataItemLabelsEntry\x12\x1e\n\x11import_schema_uri\x18\x04 \x01(\tB\x03\xe0\x41\x02\x1a\x35\n\x13\x44\x61taItemLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x08\n\x06source\"\x89\x01\n\x10\x45xportDataConfig\x12J\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.GcsDestinationH\x00\x12\x1a\n\x12\x61nnotations_filter\x18\x02 \x01(\tB\r\n\x0b\x64\x65stinationB\xe9\x01\n#com.google.cloud.aiplatform.v1beta1B\x0c\x44\x61tasetProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_encryption__spec__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_io__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -67,8 +67,8 @@ _DATASET_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=737,
-  serialized_end=782,
+  serialized_start=763,
+  serialized_end=808,
 )
 
 _DATASET = _descriptor.Descriptor(
@@ -94,49 +94,56 @@ _DATASET = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='metadata_schema_uri', full_name='google.cloud.aiplatform.v1beta1.Dataset.metadata_schema_uri', index=2,
+      name='description', full_name='google.cloud.aiplatform.v1beta1.Dataset.description', index=2,
+      number=16, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='metadata_schema_uri', full_name='google.cloud.aiplatform.v1beta1.Dataset.metadata_schema_uri', index=3,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='metadata', full_name='google.cloud.aiplatform.v1beta1.Dataset.metadata', index=3,
+      name='metadata', full_name='google.cloud.aiplatform.v1beta1.Dataset.metadata', index=4,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='create_time', full_name='google.cloud.aiplatform.v1beta1.Dataset.create_time', index=4,
+      name='create_time', full_name='google.cloud.aiplatform.v1beta1.Dataset.create_time', index=5,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='update_time', full_name='google.cloud.aiplatform.v1beta1.Dataset.update_time', index=5,
+      name='update_time', full_name='google.cloud.aiplatform.v1beta1.Dataset.update_time', index=6,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='etag', full_name='google.cloud.aiplatform.v1beta1.Dataset.etag', index=6,
+      name='etag', full_name='google.cloud.aiplatform.v1beta1.Dataset.etag', index=7,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='labels', full_name='google.cloud.aiplatform.v1beta1.Dataset.labels', index=7,
+      name='labels', full_name='google.cloud.aiplatform.v1beta1.Dataset.labels', index=8,
       number=7, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='encryption_spec', full_name='google.cloud.aiplatform.v1beta1.Dataset.encryption_spec', index=8,
+      name='encryption_spec', full_name='google.cloud.aiplatform.v1beta1.Dataset.encryption_spec', index=9,
       number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -155,7 +162,7 @@ _DATASET = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=333,
-  serialized_end=882,
+  serialized_end=908,
 )
 
 
@@ -193,8 +200,8 @@ _IMPORTDATACONFIG_DATAITEMLABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1100,
-  serialized_end=1153,
+  serialized_start=1126,
+  serialized_end=1179,
 )
 
 _IMPORTDATACONFIG = _descriptor.Descriptor(
@@ -243,8 +250,8 @@ _IMPORTDATACONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=885,
-  serialized_end=1163,
+  serialized_start=911,
+  serialized_end=1189,
 )
 
 
@@ -287,8 +294,8 @@ _EXPORTDATACONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1166,
-  serialized_end=1303,
+  serialized_start=1192,
+  serialized_end=1329,
 )
 
 _DATASET_LABELSENTRY.containing_type = _DATASET
@@ -354,6 +361,7 @@ DESCRIPTOR._options = None
 _DATASET_LABELSENTRY._options = None
 _DATASET.fields_by_name['name']._options = None
 _DATASET.fields_by_name['display_name']._options = None
+_DATASET.fields_by_name['description']._options = None
 _DATASET.fields_by_name['metadata_schema_uri']._options = None
 _DATASET.fields_by_name['metadata']._options = None
 _DATASET.fields_by_name['create_time']._options = None

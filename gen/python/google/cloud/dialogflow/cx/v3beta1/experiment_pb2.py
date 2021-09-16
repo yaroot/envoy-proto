@@ -25,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/dialogflow/cx/v3beta1/experiment.proto',
   package='google.cloud.dialogflow.cx.v3beta1',
   syntax='proto3',
-  serialized_options=b'\n&com.google.cloud.dialogflow.cx.v3beta1B\017ExperimentProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\370\001\001\242\002\002DF\252\002\"Google.Cloud.Dialogflow.Cx.V3Beta1',
+  serialized_options=b'\n&com.google.cloud.dialogflow.cx.v3beta1B\017ExperimentProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\370\001\001\242\002\002DF\252\002\"Google.Cloud.Dialogflow.Cx.V3Beta1\352\002&Google::Cloud::Dialogflow::CX::V3beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n3google/cloud/dialogflow/cx/v3beta1/experiment.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xef\x0f\n\nExperiment\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x43\n\x05state\x18\x04 \x01(\x0e\x32\x34.google.cloud.dialogflow.cx.v3beta1.Experiment.State\x12M\n\ndefinition\x18\x05 \x01(\x0b\x32\x39.google.cloud.dialogflow.cx.v3beta1.Experiment.Definition\x12\x45\n\x06result\x18\x06 \x01(\x0b\x32\x35.google.cloud.dialogflow.cx.v3beta1.Experiment.Result\x12/\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nstart_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x34\n\x10last_update_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x34\n\x11\x65xperiment_length\x18\x0b \x01(\x0b\x32\x19.google.protobuf.Duration\x12M\n\x10variants_history\x18\x0c \x03(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.VariantsHistory\x1a|\n\nDefinition\x12\x11\n\tcondition\x18\x01 \x01(\t\x12O\n\x10version_variants\x18\x02 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.VersionVariantsH\x00\x42\n\n\x08variants\x1a\xa4\x08\n\x06Result\x12]\n\x0fversion_metrics\x18\x01 \x03(\x0b\x32\x44.google.cloud.dialogflow.cx.v3beta1.Experiment.Result.VersionMetrics\x12\x34\n\x10last_update_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1ag\n\x12\x43onfidenceInterval\x12\x18\n\x10\x63onfidence_level\x18\x01 \x01(\x01\x12\r\n\x05ratio\x18\x02 \x01(\x01\x12\x13\n\x0blower_bound\x18\x03 \x01(\x01\x12\x13\n\x0bupper_bound\x18\x04 \x01(\x01\x1a\xbf\x02\n\x06Metric\x12N\n\x04type\x18\x01 \x01(\x0e\x32@.google.cloud.dialogflow.cx.v3beta1.Experiment.Result.MetricType\x12S\n\ncount_type\x18\x05 \x01(\x0e\x32?.google.cloud.dialogflow.cx.v3beta1.Experiment.Result.CountType\x12\x0f\n\x05ratio\x18\x02 \x01(\x01H\x00\x12\x0f\n\x05\x63ount\x18\x04 \x01(\x01H\x00\x12\x65\n\x13\x63onfidence_interval\x18\x03 \x01(\x0b\x32H.google.cloud.dialogflow.cx.v3beta1.Experiment.Result.ConfidenceIntervalB\x07\n\x05value\x1a\xaf\x01\n\x0eVersionMetrics\x12\x37\n\x07version\x18\x01 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Version\x12M\n\x07metrics\x18\x02 \x03(\x0b\x32<.google.cloud.dialogflow.cx.v3beta1.Experiment.Result.Metric\x12\x15\n\rsession_count\x18\x03 \x01(\x05\"\xb6\x01\n\nMetricType\x12\x16\n\x12METRIC_UNSPECIFIED\x10\x00\x12&\n\"CONTAINED_SESSION_NO_CALLBACK_RATE\x10\x01\x12\x1b\n\x17LIVE_AGENT_HANDOFF_RATE\x10\x02\x12\x19\n\x15\x43\x41LLBACK_SESSION_RATE\x10\x03\x12\x1a\n\x16\x41\x42\x41NDONED_SESSION_RATE\x10\x04\x12\x14\n\x10SESSION_END_RATE\x10\x05\"o\n\tCountType\x12\x1a\n\x16\x43OUNT_TYPE_UNSPECIFIED\x10\x00\x12\x18\n\x14TOTAL_NO_MATCH_COUNT\x10\x01\x12\x14\n\x10TOTAL_TURN_COUNT\x10\x02\x12\x16\n\x12\x41VERAGE_TURN_COUNT\x10\x03\"@\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\t\n\x05\x44RAFT\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x08\n\x04\x44ONE\x10\x03:\x96\x01\xea\x41\x92\x01\n$dialogflow.googleapis.com/Experiment\x12jprojects/{project}/locations/{location}/agents/{agent}/environments/{environment}/experiments/{experiment}\"\xb2\x01\n\x0fVersionVariants\x12M\n\x08variants\x18\x01 \x03(\x0b\x32;.google.cloud.dialogflow.cx.v3beta1.VersionVariants.Variant\x1aP\n\x07Variant\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x1a\n\x12traffic_allocation\x18\x02 \x01(\x02\x12\x18\n\x10is_control_group\x18\x03 \x01(\x08\"\x9f\x01\n\x0fVariantsHistory\x12O\n\x10version_variants\x18\x01 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.VersionVariantsH\x00\x12/\n\x0bupdate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\n\n\x08variants\"}\n\x16ListExperimentsRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\x12$dialogflow.googleapis.com/Experiment\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"w\n\x17ListExperimentsResponse\x12\x43\n\x0b\x65xperiments\x18\x01 \x03(\x0b\x32..google.cloud.dialogflow.cx.v3beta1.Experiment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"R\n\x14GetExperimentRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/Experiment\"\xa0\x01\n\x17\x43reateExperimentRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\x12$dialogflow.googleapis.com/Experiment\x12G\n\nexperiment\x18\x02 \x01(\x0b\x32..google.cloud.dialogflow.cx.v3beta1.ExperimentB\x03\xe0\x41\x02\"\x98\x01\n\x17UpdateExperimentRequest\x12G\n\nexperiment\x18\x01 \x01(\x0b\x32..google.cloud.dialogflow.cx.v3beta1.ExperimentB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"U\n\x17\x44\x65leteExperimentRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/Experiment\"T\n\x16StartExperimentRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/Experiment\"S\n\x15StopExperimentRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/Experiment2\xdd\r\n\x0b\x45xperiments\x12\xe9\x01\n\x0fListExperiments\x12:.google.cloud.dialogflow.cx.v3beta1.ListExperimentsRequest\x1a;.google.cloud.dialogflow.cx.v3beta1.ListExperimentsResponse\"]\x82\xd3\xe4\x93\x02N\x12L/v3beta1/{parent=projects/*/locations/*/agents/*/environments/*}/experiments\xda\x41\x06parent\x12\xd6\x01\n\rGetExperiment\x12\x38.google.cloud.dialogflow.cx.v3beta1.GetExperimentRequest\x1a..google.cloud.dialogflow.cx.v3beta1.Experiment\"[\x82\xd3\xe4\x93\x02N\x12L/v3beta1/{name=projects/*/locations/*/agents/*/environments/*/experiments/*}\xda\x41\x04name\x12\xf5\x01\n\x10\x43reateExperiment\x12;.google.cloud.dialogflow.cx.v3beta1.CreateExperimentRequest\x1a..google.cloud.dialogflow.cx.v3beta1.Experiment\"t\x82\xd3\xe4\x93\x02Z\"L/v3beta1/{parent=projects/*/locations/*/agents/*/environments/*}/experiments:\nexperiment\xda\x41\x11parent,experiment\x12\x86\x02\n\x10UpdateExperiment\x12;.google.cloud.dialogflow.cx.v3beta1.UpdateExperimentRequest\x1a..google.cloud.dialogflow.cx.v3beta1.Experiment\"\x84\x01\x82\xd3\xe4\x93\x02\x65\x32W/v3beta1/{experiment.name=projects/*/locations/*/agents/*/environments/*/experiments/*}:\nexperiment\xda\x41\x16\x65xperiment,update_mask\x12\xc4\x01\n\x10\x44\x65leteExperiment\x12;.google.cloud.dialogflow.cx.v3beta1.DeleteExperimentRequest\x1a\x16.google.protobuf.Empty\"[\x82\xd3\xe4\x93\x02N*L/v3beta1/{name=projects/*/locations/*/agents/*/environments/*/experiments/*}\xda\x41\x04name\x12\xe3\x01\n\x0fStartExperiment\x12:.google.cloud.dialogflow.cx.v3beta1.StartExperimentRequest\x1a..google.cloud.dialogflow.cx.v3beta1.Experiment\"d\x82\xd3\xe4\x93\x02W\"R/v3beta1/{name=projects/*/locations/*/agents/*/environments/*/experiments/*}:start:\x01*\xda\x41\x04name\x12\xe0\x01\n\x0eStopExperiment\x12\x39.google.cloud.dialogflow.cx.v3beta1.StopExperimentRequest\x1a..google.cloud.dialogflow.cx.v3beta1.Experiment\"c\x82\xd3\xe4\x93\x02V\"Q/v3beta1/{name=projects/*/locations/*/agents/*/environments/*/experiments/*}:stop:\x01*\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xae\x01\n&com.google.cloud.dialogflow.cx.v3beta1B\x0f\x45xperimentProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1b\x06proto3'
+  serialized_pb=b'\n3google/cloud/dialogflow/cx/v3beta1/experiment.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb7\x11\n\nExperiment\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x43\n\x05state\x18\x04 \x01(\x0e\x32\x34.google.cloud.dialogflow.cx.v3beta1.Experiment.State\x12M\n\ndefinition\x18\x05 \x01(\x0b\x32\x39.google.cloud.dialogflow.cx.v3beta1.Experiment.Definition\x12I\n\x0erollout_config\x18\x0e \x01(\x0b\x32\x31.google.cloud.dialogflow.cx.v3beta1.RolloutConfig\x12G\n\rrollout_state\x18\x0f \x01(\x0b\x32\x30.google.cloud.dialogflow.cx.v3beta1.RolloutState\x12\x1e\n\x16rollout_failure_reason\x18\x10 \x01(\t\x12\x45\n\x06result\x18\x06 \x01(\x0b\x32\x35.google.cloud.dialogflow.cx.v3beta1.Experiment.Result\x12/\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nstart_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x34\n\x10last_update_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x34\n\x11\x65xperiment_length\x18\x0b \x01(\x0b\x32\x19.google.protobuf.Duration\x12M\n\x10variants_history\x18\x0c \x03(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.VariantsHistory\x1a|\n\nDefinition\x12\x11\n\tcondition\x18\x01 \x01(\t\x12O\n\x10version_variants\x18\x02 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.VersionVariantsH\x00\x42\n\n\x08variants\x1a\xa4\x08\n\x06Result\x12]\n\x0fversion_metrics\x18\x01 \x03(\x0b\x32\x44.google.cloud.dialogflow.cx.v3beta1.Experiment.Result.VersionMetrics\x12\x34\n\x10last_update_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1ag\n\x12\x43onfidenceInterval\x12\x18\n\x10\x63onfidence_level\x18\x01 \x01(\x01\x12\r\n\x05ratio\x18\x02 \x01(\x01\x12\x13\n\x0blower_bound\x18\x03 \x01(\x01\x12\x13\n\x0bupper_bound\x18\x04 \x01(\x01\x1a\xbf\x02\n\x06Metric\x12N\n\x04type\x18\x01 \x01(\x0e\x32@.google.cloud.dialogflow.cx.v3beta1.Experiment.Result.MetricType\x12S\n\ncount_type\x18\x05 \x01(\x0e\x32?.google.cloud.dialogflow.cx.v3beta1.Experiment.Result.CountType\x12\x0f\n\x05ratio\x18\x02 \x01(\x01H\x00\x12\x0f\n\x05\x63ount\x18\x04 \x01(\x01H\x00\x12\x65\n\x13\x63onfidence_interval\x18\x03 \x01(\x0b\x32H.google.cloud.dialogflow.cx.v3beta1.Experiment.Result.ConfidenceIntervalB\x07\n\x05value\x1a\xaf\x01\n\x0eVersionMetrics\x12\x37\n\x07version\x18\x01 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Version\x12M\n\x07metrics\x18\x02 \x03(\x0b\x32<.google.cloud.dialogflow.cx.v3beta1.Experiment.Result.Metric\x12\x15\n\rsession_count\x18\x03 \x01(\x05\"\xb6\x01\n\nMetricType\x12\x16\n\x12METRIC_UNSPECIFIED\x10\x00\x12&\n\"CONTAINED_SESSION_NO_CALLBACK_RATE\x10\x01\x12\x1b\n\x17LIVE_AGENT_HANDOFF_RATE\x10\x02\x12\x19\n\x15\x43\x41LLBACK_SESSION_RATE\x10\x03\x12\x1a\n\x16\x41\x42\x41NDONED_SESSION_RATE\x10\x04\x12\x14\n\x10SESSION_END_RATE\x10\x05\"o\n\tCountType\x12\x1a\n\x16\x43OUNT_TYPE_UNSPECIFIED\x10\x00\x12\x18\n\x14TOTAL_NO_MATCH_COUNT\x10\x01\x12\x14\n\x10TOTAL_TURN_COUNT\x10\x02\x12\x16\n\x12\x41VERAGE_TURN_COUNT\x10\x03\"T\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\t\n\x05\x44RAFT\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x08\n\x04\x44ONE\x10\x03\x12\x12\n\x0eROLLOUT_FAILED\x10\x04:\x96\x01\xea\x41\x92\x01\n$dialogflow.googleapis.com/Experiment\x12jprojects/{project}/locations/{location}/agents/{agent}/environments/{environment}/experiments/{experiment}\"\xb2\x01\n\x0fVersionVariants\x12M\n\x08variants\x18\x01 \x03(\x0b\x32;.google.cloud.dialogflow.cx.v3beta1.VersionVariants.Variant\x1aP\n\x07Variant\x12\x0f\n\x07version\x18\x01 \x01(\t\x12\x1a\n\x12traffic_allocation\x18\x02 \x01(\x02\x12\x18\n\x10is_control_group\x18\x03 \x01(\x08\"\x8a\x02\n\rRolloutConfig\x12T\n\rrollout_steps\x18\x01 \x03(\x0b\x32=.google.cloud.dialogflow.cx.v3beta1.RolloutConfig.RolloutStep\x12\x19\n\x11rollout_condition\x18\x02 \x01(\t\x12\x19\n\x11\x66\x61ilure_condition\x18\x03 \x01(\t\x1am\n\x0bRolloutStep\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12\x17\n\x0ftraffic_percent\x18\x02 \x01(\x05\x12/\n\x0cmin_duration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\"`\n\x0cRolloutState\x12\x0c\n\x04step\x18\x01 \x01(\t\x12\x12\n\nstep_index\x18\x03 \x01(\x05\x12.\n\nstart_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x9f\x01\n\x0fVariantsHistory\x12O\n\x10version_variants\x18\x01 \x01(\x0b\x32\x33.google.cloud.dialogflow.cx.v3beta1.VersionVariantsH\x00\x12/\n\x0bupdate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\n\n\x08variants\"}\n\x16ListExperimentsRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\x12$dialogflow.googleapis.com/Experiment\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"w\n\x17ListExperimentsResponse\x12\x43\n\x0b\x65xperiments\x18\x01 \x03(\x0b\x32..google.cloud.dialogflow.cx.v3beta1.Experiment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"R\n\x14GetExperimentRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/Experiment\"\xa0\x01\n\x17\x43reateExperimentRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\x12$dialogflow.googleapis.com/Experiment\x12G\n\nexperiment\x18\x02 \x01(\x0b\x32..google.cloud.dialogflow.cx.v3beta1.ExperimentB\x03\xe0\x41\x02\"\x98\x01\n\x17UpdateExperimentRequest\x12G\n\nexperiment\x18\x01 \x01(\x0b\x32..google.cloud.dialogflow.cx.v3beta1.ExperimentB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"U\n\x17\x44\x65leteExperimentRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/Experiment\"T\n\x16StartExperimentRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/Experiment\"S\n\x15StopExperimentRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/Experiment2\xdd\r\n\x0b\x45xperiments\x12\xe9\x01\n\x0fListExperiments\x12:.google.cloud.dialogflow.cx.v3beta1.ListExperimentsRequest\x1a;.google.cloud.dialogflow.cx.v3beta1.ListExperimentsResponse\"]\x82\xd3\xe4\x93\x02N\x12L/v3beta1/{parent=projects/*/locations/*/agents/*/environments/*}/experiments\xda\x41\x06parent\x12\xd6\x01\n\rGetExperiment\x12\x38.google.cloud.dialogflow.cx.v3beta1.GetExperimentRequest\x1a..google.cloud.dialogflow.cx.v3beta1.Experiment\"[\x82\xd3\xe4\x93\x02N\x12L/v3beta1/{name=projects/*/locations/*/agents/*/environments/*/experiments/*}\xda\x41\x04name\x12\xf5\x01\n\x10\x43reateExperiment\x12;.google.cloud.dialogflow.cx.v3beta1.CreateExperimentRequest\x1a..google.cloud.dialogflow.cx.v3beta1.Experiment\"t\x82\xd3\xe4\x93\x02Z\"L/v3beta1/{parent=projects/*/locations/*/agents/*/environments/*}/experiments:\nexperiment\xda\x41\x11parent,experiment\x12\x86\x02\n\x10UpdateExperiment\x12;.google.cloud.dialogflow.cx.v3beta1.UpdateExperimentRequest\x1a..google.cloud.dialogflow.cx.v3beta1.Experiment\"\x84\x01\x82\xd3\xe4\x93\x02\x65\x32W/v3beta1/{experiment.name=projects/*/locations/*/agents/*/environments/*/experiments/*}:\nexperiment\xda\x41\x16\x65xperiment,update_mask\x12\xc4\x01\n\x10\x44\x65leteExperiment\x12;.google.cloud.dialogflow.cx.v3beta1.DeleteExperimentRequest\x1a\x16.google.protobuf.Empty\"[\x82\xd3\xe4\x93\x02N*L/v3beta1/{name=projects/*/locations/*/agents/*/environments/*/experiments/*}\xda\x41\x04name\x12\xe3\x01\n\x0fStartExperiment\x12:.google.cloud.dialogflow.cx.v3beta1.StartExperimentRequest\x1a..google.cloud.dialogflow.cx.v3beta1.Experiment\"d\x82\xd3\xe4\x93\x02W\"R/v3beta1/{name=projects/*/locations/*/agents/*/environments/*/experiments/*}:start:\x01*\xda\x41\x04name\x12\xe0\x01\n\x0eStopExperiment\x12\x39.google.cloud.dialogflow.cx.v3beta1.StopExperimentRequest\x1a..google.cloud.dialogflow.cx.v3beta1.Experiment\"c\x82\xd3\xe4\x93\x02V\"Q/v3beta1/{name=projects/*/locations/*/agents/*/environments/*/experiments/*}:stop:\x01*\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xd7\x01\n&com.google.cloud.dialogflow.cx.v3beta1B\x0f\x45xperimentProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1\xea\x02&Google::Cloud::Dialogflow::CX::V3beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -73,8 +73,8 @@ _EXPERIMENT_RESULT_METRICTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1852,
-  serialized_end=2034,
+  serialized_start=2032,
+  serialized_end=2214,
 )
 _sym_db.RegisterEnumDescriptor(_EXPERIMENT_RESULT_METRICTYPE)
 
@@ -108,8 +108,8 @@ _EXPERIMENT_RESULT_COUNTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2036,
-  serialized_end=2147,
+  serialized_start=2216,
+  serialized_end=2327,
 )
 _sym_db.RegisterEnumDescriptor(_EXPERIMENT_RESULT_COUNTTYPE)
 
@@ -140,11 +140,16 @@ _EXPERIMENT_STATE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ROLLOUT_FAILED', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2149,
-  serialized_end=2213,
+  serialized_start=2329,
+  serialized_end=2413,
 )
 _sym_db.RegisterEnumDescriptor(_EXPERIMENT_STATE)
 
@@ -188,8 +193,8 @@ _EXPERIMENT_DEFINITION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=960,
-  serialized_end=1084,
+  serialized_start=1140,
+  serialized_end=1264,
 )
 
 _EXPERIMENT_RESULT_CONFIDENCEINTERVAL = _descriptor.Descriptor(
@@ -240,8 +245,8 @@ _EXPERIMENT_RESULT_CONFIDENCEINTERVAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1246,
-  serialized_end=1349,
+  serialized_start=1426,
+  serialized_end=1529,
 )
 
 _EXPERIMENT_RESULT_METRIC = _descriptor.Descriptor(
@@ -304,8 +309,8 @@ _EXPERIMENT_RESULT_METRIC = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1352,
-  serialized_end=1671,
+  serialized_start=1532,
+  serialized_end=1851,
 )
 
 _EXPERIMENT_RESULT_VERSIONMETRICS = _descriptor.Descriptor(
@@ -349,8 +354,8 @@ _EXPERIMENT_RESULT_VERSIONMETRICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1674,
-  serialized_end=1849,
+  serialized_start=1854,
+  serialized_end=2029,
 )
 
 _EXPERIMENT_RESULT = _descriptor.Descriptor(
@@ -389,8 +394,8 @@ _EXPERIMENT_RESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1087,
-  serialized_end=2147,
+  serialized_start=1267,
+  serialized_end=2327,
 )
 
 _EXPERIMENT = _descriptor.Descriptor(
@@ -437,49 +442,70 @@ _EXPERIMENT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='result', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.result', index=5,
+      name='rollout_config', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.rollout_config', index=5,
+      number=14, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rollout_state', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.rollout_state', index=6,
+      number=15, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rollout_failure_reason', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.rollout_failure_reason', index=7,
+      number=16, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='result', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.result', index=8,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='create_time', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.create_time', index=6,
+      name='create_time', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.create_time', index=9,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='start_time', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.start_time', index=7,
+      name='start_time', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.start_time', index=10,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='end_time', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.end_time', index=8,
+      name='end_time', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.end_time', index=11,
       number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='last_update_time', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.last_update_time', index=9,
+      name='last_update_time', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.last_update_time', index=12,
       number=10, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='experiment_length', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.experiment_length', index=10,
+      name='experiment_length', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.experiment_length', index=13,
       number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='variants_history', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.variants_history', index=11,
+      name='variants_history', full_name='google.cloud.dialogflow.cx.v3beta1.Experiment.variants_history', index=14,
       number=12, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -499,7 +525,7 @@ _EXPERIMENT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=335,
-  serialized_end=2366,
+  serialized_end=2566,
 )
 
 
@@ -544,8 +570,8 @@ _VERSIONVARIANTS_VARIANT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2467,
-  serialized_end=2547,
+  serialized_start=2667,
+  serialized_end=2747,
 )
 
 _VERSIONVARIANTS = _descriptor.Descriptor(
@@ -575,8 +601,145 @@ _VERSIONVARIANTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2369,
-  serialized_end=2547,
+  serialized_start=2569,
+  serialized_end=2747,
+)
+
+
+_ROLLOUTCONFIG_ROLLOUTSTEP = _descriptor.Descriptor(
+  name='RolloutStep',
+  full_name='google.cloud.dialogflow.cx.v3beta1.RolloutConfig.RolloutStep',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='display_name', full_name='google.cloud.dialogflow.cx.v3beta1.RolloutConfig.RolloutStep.display_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='traffic_percent', full_name='google.cloud.dialogflow.cx.v3beta1.RolloutConfig.RolloutStep.traffic_percent', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='min_duration', full_name='google.cloud.dialogflow.cx.v3beta1.RolloutConfig.RolloutStep.min_duration', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2907,
+  serialized_end=3016,
+)
+
+_ROLLOUTCONFIG = _descriptor.Descriptor(
+  name='RolloutConfig',
+  full_name='google.cloud.dialogflow.cx.v3beta1.RolloutConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='rollout_steps', full_name='google.cloud.dialogflow.cx.v3beta1.RolloutConfig.rollout_steps', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rollout_condition', full_name='google.cloud.dialogflow.cx.v3beta1.RolloutConfig.rollout_condition', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='failure_condition', full_name='google.cloud.dialogflow.cx.v3beta1.RolloutConfig.failure_condition', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_ROLLOUTCONFIG_ROLLOUTSTEP, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2750,
+  serialized_end=3016,
+)
+
+
+_ROLLOUTSTATE = _descriptor.Descriptor(
+  name='RolloutState',
+  full_name='google.cloud.dialogflow.cx.v3beta1.RolloutState',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='step', full_name='google.cloud.dialogflow.cx.v3beta1.RolloutState.step', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='step_index', full_name='google.cloud.dialogflow.cx.v3beta1.RolloutState.step_index', index=1,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='google.cloud.dialogflow.cx.v3beta1.RolloutState.start_time', index=2,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3018,
+  serialized_end=3114,
 )
 
 
@@ -619,8 +782,8 @@ _VARIANTSHISTORY = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2550,
-  serialized_end=2709,
+  serialized_start=3117,
+  serialized_end=3276,
 )
 
 
@@ -665,8 +828,8 @@ _LISTEXPERIMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2711,
-  serialized_end=2836,
+  serialized_start=3278,
+  serialized_end=3403,
 )
 
 
@@ -704,8 +867,8 @@ _LISTEXPERIMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2838,
-  serialized_end=2957,
+  serialized_start=3405,
+  serialized_end=3524,
 )
 
 
@@ -736,8 +899,8 @@ _GETEXPERIMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2959,
-  serialized_end=3041,
+  serialized_start=3526,
+  serialized_end=3608,
 )
 
 
@@ -775,8 +938,8 @@ _CREATEEXPERIMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3044,
-  serialized_end=3204,
+  serialized_start=3611,
+  serialized_end=3771,
 )
 
 
@@ -814,8 +977,8 @@ _UPDATEEXPERIMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3207,
-  serialized_end=3359,
+  serialized_start=3774,
+  serialized_end=3926,
 )
 
 
@@ -846,8 +1009,8 @@ _DELETEEXPERIMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3361,
-  serialized_end=3446,
+  serialized_start=3928,
+  serialized_end=4013,
 )
 
 
@@ -878,8 +1041,8 @@ _STARTEXPERIMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3448,
-  serialized_end=3532,
+  serialized_start=4015,
+  serialized_end=4099,
 )
 
 
@@ -910,8 +1073,8 @@ _STOPEXPERIMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3534,
-  serialized_end=3617,
+  serialized_start=4101,
+  serialized_end=4184,
 )
 
 _EXPERIMENT_DEFINITION.fields_by_name['version_variants'].message_type = _VERSIONVARIANTS
@@ -939,6 +1102,8 @@ _EXPERIMENT_RESULT_METRICTYPE.containing_type = _EXPERIMENT_RESULT
 _EXPERIMENT_RESULT_COUNTTYPE.containing_type = _EXPERIMENT_RESULT
 _EXPERIMENT.fields_by_name['state'].enum_type = _EXPERIMENT_STATE
 _EXPERIMENT.fields_by_name['definition'].message_type = _EXPERIMENT_DEFINITION
+_EXPERIMENT.fields_by_name['rollout_config'].message_type = _ROLLOUTCONFIG
+_EXPERIMENT.fields_by_name['rollout_state'].message_type = _ROLLOUTSTATE
 _EXPERIMENT.fields_by_name['result'].message_type = _EXPERIMENT_RESULT
 _EXPERIMENT.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _EXPERIMENT.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -949,6 +1114,10 @@ _EXPERIMENT.fields_by_name['variants_history'].message_type = _VARIANTSHISTORY
 _EXPERIMENT_STATE.containing_type = _EXPERIMENT
 _VERSIONVARIANTS_VARIANT.containing_type = _VERSIONVARIANTS
 _VERSIONVARIANTS.fields_by_name['variants'].message_type = _VERSIONVARIANTS_VARIANT
+_ROLLOUTCONFIG_ROLLOUTSTEP.fields_by_name['min_duration'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
+_ROLLOUTCONFIG_ROLLOUTSTEP.containing_type = _ROLLOUTCONFIG
+_ROLLOUTCONFIG.fields_by_name['rollout_steps'].message_type = _ROLLOUTCONFIG_ROLLOUTSTEP
+_ROLLOUTSTATE.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _VARIANTSHISTORY.fields_by_name['version_variants'].message_type = _VERSIONVARIANTS
 _VARIANTSHISTORY.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _VARIANTSHISTORY.oneofs_by_name['variants'].fields.append(
@@ -960,6 +1129,8 @@ _UPDATEEXPERIMENTREQUEST.fields_by_name['experiment'].message_type = _EXPERIMENT
 _UPDATEEXPERIMENTREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 DESCRIPTOR.message_types_by_name['Experiment'] = _EXPERIMENT
 DESCRIPTOR.message_types_by_name['VersionVariants'] = _VERSIONVARIANTS
+DESCRIPTOR.message_types_by_name['RolloutConfig'] = _ROLLOUTCONFIG
+DESCRIPTOR.message_types_by_name['RolloutState'] = _ROLLOUTSTATE
 DESCRIPTOR.message_types_by_name['VariantsHistory'] = _VARIANTSHISTORY
 DESCRIPTOR.message_types_by_name['ListExperimentsRequest'] = _LISTEXPERIMENTSREQUEST
 DESCRIPTOR.message_types_by_name['ListExperimentsResponse'] = _LISTEXPERIMENTSRESPONSE
@@ -1032,6 +1203,28 @@ VersionVariants = _reflection.GeneratedProtocolMessageType('VersionVariants', (_
   })
 _sym_db.RegisterMessage(VersionVariants)
 _sym_db.RegisterMessage(VersionVariants.Variant)
+
+RolloutConfig = _reflection.GeneratedProtocolMessageType('RolloutConfig', (_message.Message,), {
+
+  'RolloutStep' : _reflection.GeneratedProtocolMessageType('RolloutStep', (_message.Message,), {
+    'DESCRIPTOR' : _ROLLOUTCONFIG_ROLLOUTSTEP,
+    '__module__' : 'google.cloud.dialogflow.cx.v3beta1.experiment_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3beta1.RolloutConfig.RolloutStep)
+    })
+  ,
+  'DESCRIPTOR' : _ROLLOUTCONFIG,
+  '__module__' : 'google.cloud.dialogflow.cx.v3beta1.experiment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3beta1.RolloutConfig)
+  })
+_sym_db.RegisterMessage(RolloutConfig)
+_sym_db.RegisterMessage(RolloutConfig.RolloutStep)
+
+RolloutState = _reflection.GeneratedProtocolMessageType('RolloutState', (_message.Message,), {
+  'DESCRIPTOR' : _ROLLOUTSTATE,
+  '__module__' : 'google.cloud.dialogflow.cx.v3beta1.experiment_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.dialogflow.cx.v3beta1.RolloutState)
+  })
+_sym_db.RegisterMessage(RolloutState)
 
 VariantsHistory = _reflection.GeneratedProtocolMessageType('VariantsHistory', (_message.Message,), {
   'DESCRIPTOR' : _VARIANTSHISTORY,
@@ -1118,8 +1311,8 @@ _EXPERIMENTS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=3620,
-  serialized_end=5377,
+  serialized_start=4187,
+  serialized_end=5944,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListExperiments',

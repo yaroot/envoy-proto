@@ -14,7 +14,9 @@ _sym_db = _symbol_database.Default()
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from google.api import httpbody_pb2 as google_dot_api_dot_httpbody__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.aiplatform.v1 import explanation_pb2 as google_dot_cloud_dot_aiplatform_dot_v1_dot_explanation__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
@@ -24,9 +26,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\036com.google.cloud.aiplatform.v1B\026PredictionServiceProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\252\002\032Google.Cloud.AIPlatform.V1\312\002\032Google\\Cloud\\AIPlatform\\V1\352\002\035Google::Cloud::AIPlatform::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n3google/cloud/aiplatform/v1/prediction_service.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xaa\x01\n\x0ePredictRequest\x12<\n\x08\x65ndpoint\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"aiplatform.googleapis.com/Endpoint\x12.\n\tinstances\x18\x02 \x03(\x0b\x32\x16.google.protobuf.ValueB\x03\xe0\x41\x02\x12*\n\nparameters\x18\x03 \x01(\x0b\x32\x16.google.protobuf.Value\"Y\n\x0fPredictResponse\x12+\n\x0bpredictions\x18\x01 \x03(\x0b\x32\x16.google.protobuf.Value\x12\x19\n\x11\x64\x65ployed_model_id\x18\x02 \x01(\t2\xad\x02\n\x11PredictionService\x12\xc8\x01\n\x07Predict\x12*.google.cloud.aiplatform.v1.PredictRequest\x1a+.google.cloud.aiplatform.v1.PredictResponse\"d\x82\xd3\xe4\x93\x02>\"9/v1/{endpoint=projects/*/locations/*/endpoints/*}:predict:\x01*\xda\x41\x1d\x65ndpoint,instances,parameters\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xda\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x16PredictionServiceProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
+  serialized_pb=b'\n3google/cloud/aiplatform/v1/prediction_service.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/httpbody.proto\x1a\x19google/api/resource.proto\x1a,google/cloud/aiplatform/v1/explanation.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xaa\x01\n\x0ePredictRequest\x12<\n\x08\x65ndpoint\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"aiplatform.googleapis.com/Endpoint\x12.\n\tinstances\x18\x02 \x03(\x0b\x32\x16.google.protobuf.ValueB\x03\xe0\x41\x02\x12*\n\nparameters\x18\x03 \x01(\x0b\x32\x16.google.protobuf.Value\"Y\n\x0fPredictResponse\x12+\n\x0bpredictions\x18\x01 \x03(\x0b\x32\x16.google.protobuf.Value\x12\x19\n\x11\x64\x65ployed_model_id\x18\x02 \x01(\t\"z\n\x11RawPredictRequest\x12<\n\x08\x65ndpoint\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"aiplatform.googleapis.com/Endpoint\x12\'\n\thttp_body\x18\x02 \x01(\x0b\x32\x14.google.api.HttpBody\"\x9d\x02\n\x0e\x45xplainRequest\x12<\n\x08\x65ndpoint\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n\"aiplatform.googleapis.com/Endpoint\x12.\n\tinstances\x18\x02 \x03(\x0b\x32\x16.google.protobuf.ValueB\x03\xe0\x41\x02\x12*\n\nparameters\x18\x04 \x01(\x0b\x32\x16.google.protobuf.Value\x12V\n\x19\x65xplanation_spec_override\x18\x05 \x01(\x0b\x32\x33.google.cloud.aiplatform.v1.ExplanationSpecOverride\x12\x19\n\x11\x64\x65ployed_model_id\x18\x03 \x01(\t\"\x98\x01\n\x0f\x45xplainResponse\x12=\n\x0c\x65xplanations\x18\x01 \x03(\x0b\x32\'.google.cloud.aiplatform.v1.Explanation\x12\x19\n\x11\x64\x65ployed_model_id\x18\x02 \x01(\t\x12+\n\x0bpredictions\x18\x03 \x03(\x0b\x32\x16.google.protobuf.Value2\xbc\x05\n\x11PredictionService\x12\xc8\x01\n\x07Predict\x12*.google.cloud.aiplatform.v1.PredictRequest\x1a+.google.cloud.aiplatform.v1.PredictResponse\"d\x82\xd3\xe4\x93\x02>\"9/v1/{endpoint=projects/*/locations/*/endpoints/*}:predict:\x01*\xda\x41\x1d\x65ndpoint,instances,parameters\x12\xaf\x01\n\nRawPredict\x12-.google.cloud.aiplatform.v1.RawPredictRequest\x1a\x14.google.api.HttpBody\"\\\x82\xd3\xe4\x93\x02\x41\"</v1/{endpoint=projects/*/locations/*/endpoints/*}:rawPredict:\x01*\xda\x41\x12\x65ndpoint,http_body\x12\xda\x01\n\x07\x45xplain\x12*.google.cloud.aiplatform.v1.ExplainRequest\x1a+.google.cloud.aiplatform.v1.ExplainResponse\"v\x82\xd3\xe4\x93\x02>\"9/v1/{endpoint=projects/*/locations/*/endpoints/*}:explain:\x01*\xda\x41/endpoint,instances,parameters,deployed_model_id\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xda\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x16PredictionServiceProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_httpbody__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_explanation__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
 
 
@@ -72,8 +74,8 @@ _PREDICTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=229,
-  serialized_end=399,
+  serialized_start=302,
+  serialized_end=472,
 )
 
 
@@ -111,15 +113,169 @@ _PREDICTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=401,
-  serialized_end=490,
+  serialized_start=474,
+  serialized_end=563,
+)
+
+
+_RAWPREDICTREQUEST = _descriptor.Descriptor(
+  name='RawPredictRequest',
+  full_name='google.cloud.aiplatform.v1.RawPredictRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='endpoint', full_name='google.cloud.aiplatform.v1.RawPredictRequest.endpoint', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A$\n\"aiplatform.googleapis.com/Endpoint', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='http_body', full_name='google.cloud.aiplatform.v1.RawPredictRequest.http_body', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=565,
+  serialized_end=687,
+)
+
+
+_EXPLAINREQUEST = _descriptor.Descriptor(
+  name='ExplainRequest',
+  full_name='google.cloud.aiplatform.v1.ExplainRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='endpoint', full_name='google.cloud.aiplatform.v1.ExplainRequest.endpoint', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A$\n\"aiplatform.googleapis.com/Endpoint', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='instances', full_name='google.cloud.aiplatform.v1.ExplainRequest.instances', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='parameters', full_name='google.cloud.aiplatform.v1.ExplainRequest.parameters', index=2,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='explanation_spec_override', full_name='google.cloud.aiplatform.v1.ExplainRequest.explanation_spec_override', index=3,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='deployed_model_id', full_name='google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id', index=4,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=690,
+  serialized_end=975,
+)
+
+
+_EXPLAINRESPONSE = _descriptor.Descriptor(
+  name='ExplainResponse',
+  full_name='google.cloud.aiplatform.v1.ExplainResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='explanations', full_name='google.cloud.aiplatform.v1.ExplainResponse.explanations', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='deployed_model_id', full_name='google.cloud.aiplatform.v1.ExplainResponse.deployed_model_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='predictions', full_name='google.cloud.aiplatform.v1.ExplainResponse.predictions', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=978,
+  serialized_end=1130,
 )
 
 _PREDICTREQUEST.fields_by_name['instances'].message_type = google_dot_protobuf_dot_struct__pb2._VALUE
 _PREDICTREQUEST.fields_by_name['parameters'].message_type = google_dot_protobuf_dot_struct__pb2._VALUE
 _PREDICTRESPONSE.fields_by_name['predictions'].message_type = google_dot_protobuf_dot_struct__pb2._VALUE
+_RAWPREDICTREQUEST.fields_by_name['http_body'].message_type = google_dot_api_dot_httpbody__pb2._HTTPBODY
+_EXPLAINREQUEST.fields_by_name['instances'].message_type = google_dot_protobuf_dot_struct__pb2._VALUE
+_EXPLAINREQUEST.fields_by_name['parameters'].message_type = google_dot_protobuf_dot_struct__pb2._VALUE
+_EXPLAINREQUEST.fields_by_name['explanation_spec_override'].message_type = google_dot_cloud_dot_aiplatform_dot_v1_dot_explanation__pb2._EXPLANATIONSPECOVERRIDE
+_EXPLAINRESPONSE.fields_by_name['explanations'].message_type = google_dot_cloud_dot_aiplatform_dot_v1_dot_explanation__pb2._EXPLANATION
+_EXPLAINRESPONSE.fields_by_name['predictions'].message_type = google_dot_protobuf_dot_struct__pb2._VALUE
 DESCRIPTOR.message_types_by_name['PredictRequest'] = _PREDICTREQUEST
 DESCRIPTOR.message_types_by_name['PredictResponse'] = _PREDICTRESPONSE
+DESCRIPTOR.message_types_by_name['RawPredictRequest'] = _RAWPREDICTREQUEST
+DESCRIPTOR.message_types_by_name['ExplainRequest'] = _EXPLAINREQUEST
+DESCRIPTOR.message_types_by_name['ExplainResponse'] = _EXPLAINRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 PredictRequest = _reflection.GeneratedProtocolMessageType('PredictRequest', (_message.Message,), {
@@ -136,10 +292,34 @@ PredictResponse = _reflection.GeneratedProtocolMessageType('PredictResponse', (_
   })
 _sym_db.RegisterMessage(PredictResponse)
 
+RawPredictRequest = _reflection.GeneratedProtocolMessageType('RawPredictRequest', (_message.Message,), {
+  'DESCRIPTOR' : _RAWPREDICTREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1.prediction_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.RawPredictRequest)
+  })
+_sym_db.RegisterMessage(RawPredictRequest)
+
+ExplainRequest = _reflection.GeneratedProtocolMessageType('ExplainRequest', (_message.Message,), {
+  'DESCRIPTOR' : _EXPLAINREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1.prediction_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.ExplainRequest)
+  })
+_sym_db.RegisterMessage(ExplainRequest)
+
+ExplainResponse = _reflection.GeneratedProtocolMessageType('ExplainResponse', (_message.Message,), {
+  'DESCRIPTOR' : _EXPLAINRESPONSE,
+  '__module__' : 'google.cloud.aiplatform.v1.prediction_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.ExplainResponse)
+  })
+_sym_db.RegisterMessage(ExplainResponse)
+
 
 DESCRIPTOR._options = None
 _PREDICTREQUEST.fields_by_name['endpoint']._options = None
 _PREDICTREQUEST.fields_by_name['instances']._options = None
+_RAWPREDICTREQUEST.fields_by_name['endpoint']._options = None
+_EXPLAINREQUEST.fields_by_name['endpoint']._options = None
+_EXPLAINREQUEST.fields_by_name['instances']._options = None
 
 _PREDICTIONSERVICE = _descriptor.ServiceDescriptor(
   name='PredictionService',
@@ -148,8 +328,8 @@ _PREDICTIONSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031aiplatform.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=493,
-  serialized_end=794,
+  serialized_start=1133,
+  serialized_end=1833,
   methods=[
   _descriptor.MethodDescriptor(
     name='Predict',
@@ -159,6 +339,26 @@ _PREDICTIONSERVICE = _descriptor.ServiceDescriptor(
     input_type=_PREDICTREQUEST,
     output_type=_PREDICTRESPONSE,
     serialized_options=b'\202\323\344\223\002>\"9/v1/{endpoint=projects/*/locations/*/endpoints/*}:predict:\001*\332A\035endpoint,instances,parameters',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='RawPredict',
+    full_name='google.cloud.aiplatform.v1.PredictionService.RawPredict',
+    index=1,
+    containing_service=None,
+    input_type=_RAWPREDICTREQUEST,
+    output_type=google_dot_api_dot_httpbody__pb2._HTTPBODY,
+    serialized_options=b'\202\323\344\223\002A\"</v1/{endpoint=projects/*/locations/*/endpoints/*}:rawPredict:\001*\332A\022endpoint,http_body',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Explain',
+    full_name='google.cloud.aiplatform.v1.PredictionService.Explain',
+    index=2,
+    containing_service=None,
+    input_type=_EXPLAINREQUEST,
+    output_type=_EXPLAINRESPONSE,
+    serialized_options=b'\202\323\344\223\002>\"9/v1/{endpoint=projects/*/locations/*/endpoints/*}:explain:\001*\332A/endpoint,instances,parameters,deployed_model_id',
     create_key=_descriptor._internal_create_key,
   ),
 ])

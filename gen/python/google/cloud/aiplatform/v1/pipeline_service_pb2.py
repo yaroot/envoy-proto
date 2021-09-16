@@ -15,6 +15,7 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.aiplatform.v1 import pipeline_job_pb2 as google_dot_cloud_dot_aiplatform_dot_v1_dot_pipeline__job__pb2
 from google.cloud.aiplatform.v1 import training_pipeline_pb2 as google_dot_cloud_dot_aiplatform_dot_v1_dot_training__pipeline__pb2
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
@@ -27,9 +28,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\036com.google.cloud.aiplatform.v1B\024PipelineServiceProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\252\002\032Google.Cloud.AIPlatform.V1\312\002\032Google\\Cloud\\AIPlatform\\V1\352\002\035Google::Cloud::AIPlatform::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n1google/cloud/aiplatform/v1/pipeline_service.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x32google/cloud/aiplatform/v1/training_pipeline.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\xa8\x01\n\x1d\x43reateTrainingPipelineRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12L\n\x11training_pipeline\x18\x02 \x01(\x0b\x32,.google.cloud.aiplatform.v1.TrainingPipelineB\x03\xe0\x41\x02\"^\n\x1aGetTrainingPipelineRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*aiplatform.googleapis.com/TrainingPipeline\"\xbf\x01\n\x1cListTrainingPipelinesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\x82\x01\n\x1dListTrainingPipelinesResponse\x12H\n\x12training_pipelines\x18\x01 \x03(\x0b\x32,.google.cloud.aiplatform.v1.TrainingPipeline\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"a\n\x1d\x44\x65leteTrainingPipelineRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*aiplatform.googleapis.com/TrainingPipeline\"a\n\x1d\x43\x61ncelTrainingPipelineRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*aiplatform.googleapis.com/TrainingPipeline2\x98\t\n\x0fPipelineService\x12\xee\x01\n\x16\x43reateTrainingPipeline\x12\x39.google.cloud.aiplatform.v1.CreateTrainingPipelineRequest\x1a,.google.cloud.aiplatform.v1.TrainingPipeline\"k\x82\xd3\xe4\x93\x02J\"5/v1/{parent=projects/*/locations/*}/trainingPipelines:\x11training_pipeline\xda\x41\x18parent,training_pipeline\x12\xc1\x01\n\x13GetTrainingPipeline\x12\x36.google.cloud.aiplatform.v1.GetTrainingPipelineRequest\x1a,.google.cloud.aiplatform.v1.TrainingPipeline\"D\x82\xd3\xe4\x93\x02\x37\x12\x35/v1/{name=projects/*/locations/*/trainingPipelines/*}\xda\x41\x04name\x12\xd4\x01\n\x15ListTrainingPipelines\x12\x38.google.cloud.aiplatform.v1.ListTrainingPipelinesRequest\x1a\x39.google.cloud.aiplatform.v1.ListTrainingPipelinesResponse\"F\x82\xd3\xe4\x93\x02\x37\x12\x35/v1/{parent=projects/*/locations/*}/trainingPipelines\xda\x41\x06parent\x12\xeb\x01\n\x16\x44\x65leteTrainingPipeline\x12\x39.google.cloud.aiplatform.v1.DeleteTrainingPipelineRequest\x1a\x1d.google.longrunning.Operation\"w\x82\xd3\xe4\x93\x02\x37*5/v1/{name=projects/*/locations/*/trainingPipelines/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xbb\x01\n\x16\x43\x61ncelTrainingPipeline\x12\x39.google.cloud.aiplatform.v1.CancelTrainingPipelineRequest\x1a\x16.google.protobuf.Empty\"N\x82\xd3\xe4\x93\x02\x41\"</v1/{name=projects/*/locations/*/trainingPipelines/*}:cancel:\x01*\xda\x41\x04name\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xd8\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x14PipelineServiceProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
+  serialized_pb=b'\n1google/cloud/aiplatform/v1/pipeline_service.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/aiplatform/v1/pipeline_job.proto\x1a\x32google/cloud/aiplatform/v1/training_pipeline.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\xa8\x01\n\x1d\x43reateTrainingPipelineRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12L\n\x11training_pipeline\x18\x02 \x01(\x0b\x32,.google.cloud.aiplatform.v1.TrainingPipelineB\x03\xe0\x41\x02\"^\n\x1aGetTrainingPipelineRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*aiplatform.googleapis.com/TrainingPipeline\"\xbf\x01\n\x1cListTrainingPipelinesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\x82\x01\n\x1dListTrainingPipelinesResponse\x12H\n\x12training_pipelines\x18\x01 \x03(\x0b\x32,.google.cloud.aiplatform.v1.TrainingPipeline\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"a\n\x1d\x44\x65leteTrainingPipelineRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*aiplatform.googleapis.com/TrainingPipeline\"a\n\x1d\x43\x61ncelTrainingPipelineRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*aiplatform.googleapis.com/TrainingPipeline\"\xb2\x01\n\x18\x43reatePipelineJobRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x42\n\x0cpipeline_job\x18\x02 \x01(\x0b\x32\'.google.cloud.aiplatform.v1.PipelineJobB\x03\xe0\x41\x02\x12\x17\n\x0fpipeline_job_id\x18\x03 \x01(\t\"T\n\x15GetPipelineJobRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%aiplatform.googleapis.com/PipelineJob\"\x8b\x01\n\x17ListPipelineJobsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"s\n\x18ListPipelineJobsResponse\x12>\n\rpipeline_jobs\x18\x01 \x03(\x0b\x32\'.google.cloud.aiplatform.v1.PipelineJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"W\n\x18\x44\x65letePipelineJobRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%aiplatform.googleapis.com/PipelineJob\"W\n\x18\x43\x61ncelPipelineJobRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%aiplatform.googleapis.com/PipelineJob2\xfc\x10\n\x0fPipelineService\x12\xee\x01\n\x16\x43reateTrainingPipeline\x12\x39.google.cloud.aiplatform.v1.CreateTrainingPipelineRequest\x1a,.google.cloud.aiplatform.v1.TrainingPipeline\"k\x82\xd3\xe4\x93\x02J\"5/v1/{parent=projects/*/locations/*}/trainingPipelines:\x11training_pipeline\xda\x41\x18parent,training_pipeline\x12\xc1\x01\n\x13GetTrainingPipeline\x12\x36.google.cloud.aiplatform.v1.GetTrainingPipelineRequest\x1a,.google.cloud.aiplatform.v1.TrainingPipeline\"D\x82\xd3\xe4\x93\x02\x37\x12\x35/v1/{name=projects/*/locations/*/trainingPipelines/*}\xda\x41\x04name\x12\xd4\x01\n\x15ListTrainingPipelines\x12\x38.google.cloud.aiplatform.v1.ListTrainingPipelinesRequest\x1a\x39.google.cloud.aiplatform.v1.ListTrainingPipelinesResponse\"F\x82\xd3\xe4\x93\x02\x37\x12\x35/v1/{parent=projects/*/locations/*}/trainingPipelines\xda\x41\x06parent\x12\xeb\x01\n\x16\x44\x65leteTrainingPipeline\x12\x39.google.cloud.aiplatform.v1.DeleteTrainingPipelineRequest\x1a\x1d.google.longrunning.Operation\"w\x82\xd3\xe4\x93\x02\x37*5/v1/{name=projects/*/locations/*/trainingPipelines/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xbb\x01\n\x16\x43\x61ncelTrainingPipeline\x12\x39.google.cloud.aiplatform.v1.CancelTrainingPipelineRequest\x1a\x16.google.protobuf.Empty\"N\x82\xd3\xe4\x93\x02\x41\"</v1/{name=projects/*/locations/*/trainingPipelines/*}:cancel:\x01*\xda\x41\x04name\x12\xe0\x01\n\x11\x43reatePipelineJob\x12\x34.google.cloud.aiplatform.v1.CreatePipelineJobRequest\x1a\'.google.cloud.aiplatform.v1.PipelineJob\"l\x82\xd3\xe4\x93\x02@\"0/v1/{parent=projects/*/locations/*}/pipelineJobs:\x0cpipeline_job\xda\x41#parent,pipeline_job,pipeline_job_id\x12\xad\x01\n\x0eGetPipelineJob\x12\x31.google.cloud.aiplatform.v1.GetPipelineJobRequest\x1a\'.google.cloud.aiplatform.v1.PipelineJob\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{name=projects/*/locations/*/pipelineJobs/*}\xda\x41\x04name\x12\xc0\x01\n\x10ListPipelineJobs\x12\x33.google.cloud.aiplatform.v1.ListPipelineJobsRequest\x1a\x34.google.cloud.aiplatform.v1.ListPipelineJobsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{parent=projects/*/locations/*}/pipelineJobs\xda\x41\x06parent\x12\xdc\x01\n\x11\x44\x65letePipelineJob\x12\x34.google.cloud.aiplatform.v1.DeletePipelineJobRequest\x1a\x1d.google.longrunning.Operation\"r\x82\xd3\xe4\x93\x02\x32*0/v1/{name=projects/*/locations/*/pipelineJobs/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\xac\x01\n\x11\x43\x61ncelPipelineJob\x12\x34.google.cloud.aiplatform.v1.CancelPipelineJobRequest\x1a\x16.google.protobuf.Empty\"I\x82\xd3\xe4\x93\x02<\"7/v1/{name=projects/*/locations/*/pipelineJobs/*}:cancel:\x01*\xda\x41\x04name\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xd8\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x14PipelineServiceProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_training__pipeline__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_pipeline__job__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_training__pipeline__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
 
 
 
@@ -68,8 +69,8 @@ _CREATETRAININGPIPELINEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=349,
-  serialized_end=517,
+  serialized_start=396,
+  serialized_end=564,
 )
 
 
@@ -100,8 +101,8 @@ _GETTRAININGPIPELINEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=519,
-  serialized_end=613,
+  serialized_start=566,
+  serialized_end=660,
 )
 
 
@@ -160,8 +161,8 @@ _LISTTRAININGPIPELINESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=616,
-  serialized_end=807,
+  serialized_start=663,
+  serialized_end=854,
 )
 
 
@@ -199,8 +200,8 @@ _LISTTRAININGPIPELINESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=810,
-  serialized_end=940,
+  serialized_start=857,
+  serialized_end=987,
 )
 
 
@@ -231,8 +232,8 @@ _DELETETRAININGPIPELINEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=942,
-  serialized_end=1039,
+  serialized_start=989,
+  serialized_end=1086,
 )
 
 
@@ -263,19 +264,261 @@ _CANCELTRAININGPIPELINEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1041,
-  serialized_end=1138,
+  serialized_start=1088,
+  serialized_end=1185,
+)
+
+
+_CREATEPIPELINEJOBREQUEST = _descriptor.Descriptor(
+  name='CreatePipelineJobRequest',
+  full_name='google.cloud.aiplatform.v1.CreatePipelineJobRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.aiplatform.v1.CreatePipelineJobRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='pipeline_job', full_name='google.cloud.aiplatform.v1.CreatePipelineJobRequest.pipeline_job', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='pipeline_job_id', full_name='google.cloud.aiplatform.v1.CreatePipelineJobRequest.pipeline_job_id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1188,
+  serialized_end=1366,
+)
+
+
+_GETPIPELINEJOBREQUEST = _descriptor.Descriptor(
+  name='GetPipelineJobRequest',
+  full_name='google.cloud.aiplatform.v1.GetPipelineJobRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.aiplatform.v1.GetPipelineJobRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\'\n%aiplatform.googleapis.com/PipelineJob', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1368,
+  serialized_end=1452,
+)
+
+
+_LISTPIPELINEJOBSREQUEST = _descriptor.Descriptor(
+  name='ListPipelineJobsRequest',
+  full_name='google.cloud.aiplatform.v1.ListPipelineJobsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.aiplatform.v1.ListPipelineJobsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filter', full_name='google.cloud.aiplatform.v1.ListPipelineJobsRequest.filter', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.cloud.aiplatform.v1.ListPipelineJobsRequest.page_size', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.cloud.aiplatform.v1.ListPipelineJobsRequest.page_token', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1455,
+  serialized_end=1594,
+)
+
+
+_LISTPIPELINEJOBSRESPONSE = _descriptor.Descriptor(
+  name='ListPipelineJobsResponse',
+  full_name='google.cloud.aiplatform.v1.ListPipelineJobsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='pipeline_jobs', full_name='google.cloud.aiplatform.v1.ListPipelineJobsResponse.pipeline_jobs', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.cloud.aiplatform.v1.ListPipelineJobsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1596,
+  serialized_end=1711,
+)
+
+
+_DELETEPIPELINEJOBREQUEST = _descriptor.Descriptor(
+  name='DeletePipelineJobRequest',
+  full_name='google.cloud.aiplatform.v1.DeletePipelineJobRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.aiplatform.v1.DeletePipelineJobRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\'\n%aiplatform.googleapis.com/PipelineJob', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1713,
+  serialized_end=1800,
+)
+
+
+_CANCELPIPELINEJOBREQUEST = _descriptor.Descriptor(
+  name='CancelPipelineJobRequest',
+  full_name='google.cloud.aiplatform.v1.CancelPipelineJobRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.aiplatform.v1.CancelPipelineJobRequest.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\'\n%aiplatform.googleapis.com/PipelineJob', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1802,
+  serialized_end=1889,
 )
 
 _CREATETRAININGPIPELINEREQUEST.fields_by_name['training_pipeline'].message_type = google_dot_cloud_dot_aiplatform_dot_v1_dot_training__pipeline__pb2._TRAININGPIPELINE
 _LISTTRAININGPIPELINESREQUEST.fields_by_name['read_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 _LISTTRAININGPIPELINESRESPONSE.fields_by_name['training_pipelines'].message_type = google_dot_cloud_dot_aiplatform_dot_v1_dot_training__pipeline__pb2._TRAININGPIPELINE
+_CREATEPIPELINEJOBREQUEST.fields_by_name['pipeline_job'].message_type = google_dot_cloud_dot_aiplatform_dot_v1_dot_pipeline__job__pb2._PIPELINEJOB
+_LISTPIPELINEJOBSRESPONSE.fields_by_name['pipeline_jobs'].message_type = google_dot_cloud_dot_aiplatform_dot_v1_dot_pipeline__job__pb2._PIPELINEJOB
 DESCRIPTOR.message_types_by_name['CreateTrainingPipelineRequest'] = _CREATETRAININGPIPELINEREQUEST
 DESCRIPTOR.message_types_by_name['GetTrainingPipelineRequest'] = _GETTRAININGPIPELINEREQUEST
 DESCRIPTOR.message_types_by_name['ListTrainingPipelinesRequest'] = _LISTTRAININGPIPELINESREQUEST
 DESCRIPTOR.message_types_by_name['ListTrainingPipelinesResponse'] = _LISTTRAININGPIPELINESRESPONSE
 DESCRIPTOR.message_types_by_name['DeleteTrainingPipelineRequest'] = _DELETETRAININGPIPELINEREQUEST
 DESCRIPTOR.message_types_by_name['CancelTrainingPipelineRequest'] = _CANCELTRAININGPIPELINEREQUEST
+DESCRIPTOR.message_types_by_name['CreatePipelineJobRequest'] = _CREATEPIPELINEJOBREQUEST
+DESCRIPTOR.message_types_by_name['GetPipelineJobRequest'] = _GETPIPELINEJOBREQUEST
+DESCRIPTOR.message_types_by_name['ListPipelineJobsRequest'] = _LISTPIPELINEJOBSREQUEST
+DESCRIPTOR.message_types_by_name['ListPipelineJobsResponse'] = _LISTPIPELINEJOBSRESPONSE
+DESCRIPTOR.message_types_by_name['DeletePipelineJobRequest'] = _DELETEPIPELINEJOBREQUEST
+DESCRIPTOR.message_types_by_name['CancelPipelineJobRequest'] = _CANCELPIPELINEJOBREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateTrainingPipelineRequest = _reflection.GeneratedProtocolMessageType('CreateTrainingPipelineRequest', (_message.Message,), {
@@ -320,6 +563,48 @@ CancelTrainingPipelineRequest = _reflection.GeneratedProtocolMessageType('Cancel
   })
 _sym_db.RegisterMessage(CancelTrainingPipelineRequest)
 
+CreatePipelineJobRequest = _reflection.GeneratedProtocolMessageType('CreatePipelineJobRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEPIPELINEJOBREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1.pipeline_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.CreatePipelineJobRequest)
+  })
+_sym_db.RegisterMessage(CreatePipelineJobRequest)
+
+GetPipelineJobRequest = _reflection.GeneratedProtocolMessageType('GetPipelineJobRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETPIPELINEJOBREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1.pipeline_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.GetPipelineJobRequest)
+  })
+_sym_db.RegisterMessage(GetPipelineJobRequest)
+
+ListPipelineJobsRequest = _reflection.GeneratedProtocolMessageType('ListPipelineJobsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTPIPELINEJOBSREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1.pipeline_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.ListPipelineJobsRequest)
+  })
+_sym_db.RegisterMessage(ListPipelineJobsRequest)
+
+ListPipelineJobsResponse = _reflection.GeneratedProtocolMessageType('ListPipelineJobsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTPIPELINEJOBSRESPONSE,
+  '__module__' : 'google.cloud.aiplatform.v1.pipeline_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.ListPipelineJobsResponse)
+  })
+_sym_db.RegisterMessage(ListPipelineJobsResponse)
+
+DeletePipelineJobRequest = _reflection.GeneratedProtocolMessageType('DeletePipelineJobRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEPIPELINEJOBREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1.pipeline_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.DeletePipelineJobRequest)
+  })
+_sym_db.RegisterMessage(DeletePipelineJobRequest)
+
+CancelPipelineJobRequest = _reflection.GeneratedProtocolMessageType('CancelPipelineJobRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CANCELPIPELINEJOBREQUEST,
+  '__module__' : 'google.cloud.aiplatform.v1.pipeline_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.CancelPipelineJobRequest)
+  })
+_sym_db.RegisterMessage(CancelPipelineJobRequest)
+
 
 DESCRIPTOR._options = None
 _CREATETRAININGPIPELINEREQUEST.fields_by_name['parent']._options = None
@@ -328,6 +613,12 @@ _GETTRAININGPIPELINEREQUEST.fields_by_name['name']._options = None
 _LISTTRAININGPIPELINESREQUEST.fields_by_name['parent']._options = None
 _DELETETRAININGPIPELINEREQUEST.fields_by_name['name']._options = None
 _CANCELTRAININGPIPELINEREQUEST.fields_by_name['name']._options = None
+_CREATEPIPELINEJOBREQUEST.fields_by_name['parent']._options = None
+_CREATEPIPELINEJOBREQUEST.fields_by_name['pipeline_job']._options = None
+_GETPIPELINEJOBREQUEST.fields_by_name['name']._options = None
+_LISTPIPELINEJOBSREQUEST.fields_by_name['parent']._options = None
+_DELETEPIPELINEJOBREQUEST.fields_by_name['name']._options = None
+_CANCELPIPELINEJOBREQUEST.fields_by_name['name']._options = None
 
 _PIPELINESERVICE = _descriptor.ServiceDescriptor(
   name='PipelineService',
@@ -336,8 +627,8 @@ _PIPELINESERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031aiplatform.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1141,
-  serialized_end=2317,
+  serialized_start=1892,
+  serialized_end=4064,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateTrainingPipeline',
@@ -387,6 +678,56 @@ _PIPELINESERVICE = _descriptor.ServiceDescriptor(
     input_type=_CANCELTRAININGPIPELINEREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=b'\202\323\344\223\002A\"</v1/{name=projects/*/locations/*/trainingPipelines/*}:cancel:\001*\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='CreatePipelineJob',
+    full_name='google.cloud.aiplatform.v1.PipelineService.CreatePipelineJob',
+    index=5,
+    containing_service=None,
+    input_type=_CREATEPIPELINEJOBREQUEST,
+    output_type=google_dot_cloud_dot_aiplatform_dot_v1_dot_pipeline__job__pb2._PIPELINEJOB,
+    serialized_options=b'\202\323\344\223\002@\"0/v1/{parent=projects/*/locations/*}/pipelineJobs:\014pipeline_job\332A#parent,pipeline_job,pipeline_job_id',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetPipelineJob',
+    full_name='google.cloud.aiplatform.v1.PipelineService.GetPipelineJob',
+    index=6,
+    containing_service=None,
+    input_type=_GETPIPELINEJOBREQUEST,
+    output_type=google_dot_cloud_dot_aiplatform_dot_v1_dot_pipeline__job__pb2._PIPELINEJOB,
+    serialized_options=b'\202\323\344\223\0022\0220/v1/{name=projects/*/locations/*/pipelineJobs/*}\332A\004name',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ListPipelineJobs',
+    full_name='google.cloud.aiplatform.v1.PipelineService.ListPipelineJobs',
+    index=7,
+    containing_service=None,
+    input_type=_LISTPIPELINEJOBSREQUEST,
+    output_type=_LISTPIPELINEJOBSRESPONSE,
+    serialized_options=b'\202\323\344\223\0022\0220/v1/{parent=projects/*/locations/*}/pipelineJobs\332A\006parent',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeletePipelineJob',
+    full_name='google.cloud.aiplatform.v1.PipelineService.DeletePipelineJob',
+    index=8,
+    containing_service=None,
+    input_type=_DELETEPIPELINEJOBREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\0022*0/v1/{name=projects/*/locations/*/pipelineJobs/*}\332A\004name\312A0\n\025google.protobuf.Empty\022\027DeleteOperationMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='CancelPipelineJob',
+    full_name='google.cloud.aiplatform.v1.PipelineService.CancelPipelineJob',
+    index=9,
+    containing_service=None,
+    input_type=_CANCELPIPELINEJOBREQUEST,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=b'\202\323\344\223\002<\"7/v1/{name=projects/*/locations/*/pipelineJobs/*}:cancel:\001*\332A\004name',
     create_key=_descriptor._internal_create_key,
   ),
 ])

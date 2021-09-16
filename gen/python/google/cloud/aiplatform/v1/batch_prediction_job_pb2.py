@@ -15,10 +15,12 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.aiplatform.v1 import completion_stats_pb2 as google_dot_cloud_dot_aiplatform_dot_v1_dot_completion__stats__pb2
 from google.cloud.aiplatform.v1 import encryption_spec_pb2 as google_dot_cloud_dot_aiplatform_dot_v1_dot_encryption__spec__pb2
+from google.cloud.aiplatform.v1 import explanation_pb2 as google_dot_cloud_dot_aiplatform_dot_v1_dot_explanation__pb2
 from google.cloud.aiplatform.v1 import io_pb2 as google_dot_cloud_dot_aiplatform_dot_v1_dot_io__pb2
 from google.cloud.aiplatform.v1 import job_state_pb2 as google_dot_cloud_dot_aiplatform_dot_v1_dot_job__state__pb2
 from google.cloud.aiplatform.v1 import machine_resources_pb2 as google_dot_cloud_dot_aiplatform_dot_v1_dot_machine__resources__pb2
 from google.cloud.aiplatform.v1 import manual_batch_tuning_parameters_pb2 as google_dot_cloud_dot_aiplatform_dot_v1_dot_manual__batch__tuning__parameters__pb2
+from google.cloud.aiplatform.v1 import model_monitoring_pb2 as google_dot_cloud_dot_aiplatform_dot_v1_dot_model__monitoring__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
@@ -31,9 +33,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\036com.google.cloud.aiplatform.v1B\027BatchPredictionJobProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\252\002\032Google.Cloud.AIPlatform.V1\312\002\032Google\\Cloud\\AIPlatform\\V1\352\002\035Google::Cloud::AIPlatform::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n5google/cloud/aiplatform/v1/batch_prediction_job.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x31google/cloud/aiplatform/v1/completion_stats.proto\x1a\x30google/cloud/aiplatform/v1/encryption_spec.proto\x1a#google/cloud/aiplatform/v1/io.proto\x1a*google/cloud/aiplatform/v1/job_state.proto\x1a\x32google/cloud/aiplatform/v1/machine_resources.proto\x1a?google/cloud/aiplatform/v1/manual_batch_tuning_parameters.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\x1a\x1cgoogle/api/annotations.proto\"\xbb\x0f\n\x12\x42\x61tchPredictionJob\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x36\n\x05model\x18\x03 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x61iplatform.googleapis.com/Model\x12U\n\x0cinput_config\x18\x04 \x01(\x0b\x32:.google.cloud.aiplatform.v1.BatchPredictionJob.InputConfigB\x03\xe0\x41\x02\x12\x30\n\x10model_parameters\x18\x05 \x01(\x0b\x32\x16.google.protobuf.Value\x12W\n\routput_config\x18\x06 \x01(\x0b\x32;.google.cloud.aiplatform.v1.BatchPredictionJob.OutputConfigB\x03\xe0\x41\x02\x12P\n\x13\x64\x65\x64icated_resources\x18\x07 \x01(\x0b\x32\x33.google.cloud.aiplatform.v1.BatchDedicatedResources\x12\x64\n\x1emanual_batch_tuning_parameters\x18\x08 \x01(\x0b\x32\x37.google.cloud.aiplatform.v1.ManualBatchTuningParametersB\x03\xe0\x41\x05\x12S\n\x0boutput_info\x18\t \x01(\x0b\x32\x39.google.cloud.aiplatform.v1.BatchPredictionJob.OutputInfoB\x03\xe0\x41\x03\x12\x38\n\x05state\x18\n \x01(\x0e\x32$.google.cloud.aiplatform.v1.JobStateB\x03\xe0\x41\x03\x12&\n\x05\x65rror\x18\x0b \x01(\x0b\x32\x12.google.rpc.StatusB\x03\xe0\x41\x03\x12\x31\n\x10partial_failures\x18\x0c \x03(\x0b\x32\x12.google.rpc.StatusB\x03\xe0\x41\x03\x12N\n\x12resources_consumed\x18\r \x01(\x0b\x32-.google.cloud.aiplatform.v1.ResourcesConsumedB\x03\xe0\x41\x03\x12J\n\x10\x63ompletion_stats\x18\x0e \x01(\x0b\x32+.google.cloud.aiplatform.v1.CompletionStatsB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x33\n\nstart_time\x18\x10 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x11 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x12 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12J\n\x06labels\x18\x13 \x03(\x0b\x32:.google.cloud.aiplatform.v1.BatchPredictionJob.LabelsEntry\x12\x43\n\x0f\x65ncryption_spec\x18\x18 \x01(\x0b\x32*.google.cloud.aiplatform.v1.EncryptionSpec\x1a\xba\x01\n\x0bInputConfig\x12;\n\ngcs_source\x18\x02 \x01(\x0b\x32%.google.cloud.aiplatform.v1.GcsSourceH\x00\x12\x45\n\x0f\x62igquery_source\x18\x03 \x01(\x0b\x32*.google.cloud.aiplatform.v1.BigQuerySourceH\x00\x12\x1d\n\x10instances_format\x18\x01 \x01(\tB\x03\xe0\x41\x02\x42\x08\n\x06source\x1a\xd6\x01\n\x0cOutputConfig\x12\x45\n\x0fgcs_destination\x18\x02 \x01(\x0b\x32*.google.cloud.aiplatform.v1.GcsDestinationH\x00\x12O\n\x14\x62igquery_destination\x18\x03 \x01(\x0b\x32/.google.cloud.aiplatform.v1.BigQueryDestinationH\x00\x12\x1f\n\x12predictions_format\x18\x01 \x01(\tB\x03\xe0\x41\x02\x42\r\n\x0b\x64\x65stination\x1al\n\nOutputInfo\x12#\n\x14gcs_output_directory\x18\x01 \x01(\tB\x03\xe0\x41\x03H\x00\x12&\n\x17\x62igquery_output_dataset\x18\x02 \x01(\tB\x03\xe0\x41\x03H\x00\x42\x11\n\x0foutput_location\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x86\x01\xea\x41\x82\x01\n,aiplatform.googleapis.com/BatchPredictionJob\x12Rprojects/{project}/locations/{location}/batchPredictionJobs/{batch_prediction_job}B\xdb\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x17\x42\x61tchPredictionJobProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
+  serialized_pb=b'\n5google/cloud/aiplatform/v1/batch_prediction_job.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x31google/cloud/aiplatform/v1/completion_stats.proto\x1a\x30google/cloud/aiplatform/v1/encryption_spec.proto\x1a,google/cloud/aiplatform/v1/explanation.proto\x1a#google/cloud/aiplatform/v1/io.proto\x1a*google/cloud/aiplatform/v1/job_state.proto\x1a\x32google/cloud/aiplatform/v1/machine_resources.proto\x1a?google/cloud/aiplatform/v1/manual_batch_tuning_parameters.proto\x1a\x31google/cloud/aiplatform/v1/model_monitoring.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\x1a\x1cgoogle/api/annotations.proto\"\xc5\x10\n\x12\x42\x61tchPredictionJob\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x36\n\x05model\x18\x03 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x61iplatform.googleapis.com/Model\x12U\n\x0cinput_config\x18\x04 \x01(\x0b\x32:.google.cloud.aiplatform.v1.BatchPredictionJob.InputConfigB\x03\xe0\x41\x02\x12\x30\n\x10model_parameters\x18\x05 \x01(\x0b\x32\x16.google.protobuf.Value\x12W\n\routput_config\x18\x06 \x01(\x0b\x32;.google.cloud.aiplatform.v1.BatchPredictionJob.OutputConfigB\x03\xe0\x41\x02\x12P\n\x13\x64\x65\x64icated_resources\x18\x07 \x01(\x0b\x32\x33.google.cloud.aiplatform.v1.BatchDedicatedResources\x12\x64\n\x1emanual_batch_tuning_parameters\x18\x08 \x01(\x0b\x32\x37.google.cloud.aiplatform.v1.ManualBatchTuningParametersB\x03\xe0\x41\x05\x12\x1c\n\x14generate_explanation\x18\x17 \x01(\x08\x12\x45\n\x10\x65xplanation_spec\x18\x19 \x01(\x0b\x32+.google.cloud.aiplatform.v1.ExplanationSpec\x12S\n\x0boutput_info\x18\t \x01(\x0b\x32\x39.google.cloud.aiplatform.v1.BatchPredictionJob.OutputInfoB\x03\xe0\x41\x03\x12\x38\n\x05state\x18\n \x01(\x0e\x32$.google.cloud.aiplatform.v1.JobStateB\x03\xe0\x41\x03\x12&\n\x05\x65rror\x18\x0b \x01(\x0b\x32\x12.google.rpc.StatusB\x03\xe0\x41\x03\x12\x31\n\x10partial_failures\x18\x0c \x03(\x0b\x32\x12.google.rpc.StatusB\x03\xe0\x41\x03\x12N\n\x12resources_consumed\x18\r \x01(\x0b\x32-.google.cloud.aiplatform.v1.ResourcesConsumedB\x03\xe0\x41\x03\x12J\n\x10\x63ompletion_stats\x18\x0e \x01(\x0b\x32+.google.cloud.aiplatform.v1.CompletionStatsB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x33\n\nstart_time\x18\x10 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x11 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x12 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12J\n\x06labels\x18\x13 \x03(\x0b\x32:.google.cloud.aiplatform.v1.BatchPredictionJob.LabelsEntry\x12\x43\n\x0f\x65ncryption_spec\x18\x18 \x01(\x0b\x32*.google.cloud.aiplatform.v1.EncryptionSpec\x1a\xba\x01\n\x0bInputConfig\x12;\n\ngcs_source\x18\x02 \x01(\x0b\x32%.google.cloud.aiplatform.v1.GcsSourceH\x00\x12\x45\n\x0f\x62igquery_source\x18\x03 \x01(\x0b\x32*.google.cloud.aiplatform.v1.BigQuerySourceH\x00\x12\x1d\n\x10instances_format\x18\x01 \x01(\tB\x03\xe0\x41\x02\x42\x08\n\x06source\x1a\xd6\x01\n\x0cOutputConfig\x12\x45\n\x0fgcs_destination\x18\x02 \x01(\x0b\x32*.google.cloud.aiplatform.v1.GcsDestinationH\x00\x12O\n\x14\x62igquery_destination\x18\x03 \x01(\x0b\x32/.google.cloud.aiplatform.v1.BigQueryDestinationH\x00\x12\x1f\n\x12predictions_format\x18\x01 \x01(\tB\x03\xe0\x41\x02\x42\r\n\x0b\x64\x65stination\x1a\x90\x01\n\nOutputInfo\x12#\n\x14gcs_output_directory\x18\x01 \x01(\tB\x03\xe0\x41\x03H\x00\x12&\n\x17\x62igquery_output_dataset\x18\x02 \x01(\tB\x03\xe0\x41\x03H\x00\x12\"\n\x15\x62igquery_output_table\x18\x04 \x01(\tB\x03\xe0\x41\x03\x42\x11\n\x0foutput_location\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x86\x01\xea\x41\x82\x01\n,aiplatform.googleapis.com/BatchPredictionJob\x12Rprojects/{project}/locations/{location}/batchPredictionJobs/{batch_prediction_job}B\xdb\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x17\x42\x61tchPredictionJobProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_completion__stats__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_encryption__spec__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_io__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_job__state__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_machine__resources__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_manual__batch__tuning__parameters__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_completion__stats__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_encryption__spec__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_explanation__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_io__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_job__state__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_machine__resources__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_manual__batch__tuning__parameters__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1_dot_model__monitoring__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -84,8 +86,8 @@ _BATCHPREDICTIONJOB_INPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1845,
-  serialized_end=2031,
+  serialized_start=2043,
+  serialized_end=2229,
 )
 
 _BATCHPREDICTIONJOB_OUTPUTCONFIG = _descriptor.Descriptor(
@@ -134,8 +136,8 @@ _BATCHPREDICTIONJOB_OUTPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2034,
-  serialized_end=2248,
+  serialized_start=2232,
+  serialized_end=2446,
 )
 
 _BATCHPREDICTIONJOB_OUTPUTINFO = _descriptor.Descriptor(
@@ -160,6 +162,13 @@ _BATCHPREDICTIONJOB_OUTPUTINFO = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='bigquery_output_table', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.OutputInfo.bigquery_output_table', index=2,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -177,8 +186,8 @@ _BATCHPREDICTIONJOB_OUTPUTINFO = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2250,
-  serialized_end=2358,
+  serialized_start=2449,
+  serialized_end=2593,
 )
 
 _BATCHPREDICTIONJOB_LABELSENTRY = _descriptor.Descriptor(
@@ -215,8 +224,8 @@ _BATCHPREDICTIONJOB_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2360,
-  serialized_end=2405,
+  serialized_start=2595,
+  serialized_end=2640,
 )
 
 _BATCHPREDICTIONJOB = _descriptor.Descriptor(
@@ -284,84 +293,98 @@ _BATCHPREDICTIONJOB = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='output_info', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.output_info', index=8,
+      name='generate_explanation', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.generate_explanation', index=8,
+      number=23, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='explanation_spec', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.explanation_spec', index=9,
+      number=25, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='output_info', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.output_info', index=10,
       number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='state', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.state', index=9,
+      name='state', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.state', index=11,
       number=10, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='error', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.error', index=10,
+      name='error', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.error', index=12,
       number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='partial_failures', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.partial_failures', index=11,
+      name='partial_failures', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.partial_failures', index=13,
       number=12, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='resources_consumed', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.resources_consumed', index=12,
+      name='resources_consumed', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.resources_consumed', index=14,
       number=13, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='completion_stats', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.completion_stats', index=13,
+      name='completion_stats', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.completion_stats', index=15,
       number=14, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='create_time', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.create_time', index=14,
+      name='create_time', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.create_time', index=16,
       number=15, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='start_time', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.start_time', index=15,
+      name='start_time', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.start_time', index=17,
       number=16, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='end_time', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.end_time', index=16,
+      name='end_time', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.end_time', index=18,
       number=17, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='update_time', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.update_time', index=17,
+      name='update_time', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.update_time', index=19,
       number=18, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='labels', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.labels', index=18,
+      name='labels', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.labels', index=20,
       number=19, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='encryption_spec', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.encryption_spec', index=19,
+      name='encryption_spec', full_name='google.cloud.aiplatform.v1.BatchPredictionJob.encryption_spec', index=21,
       number=24, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -379,8 +402,8 @@ _BATCHPREDICTIONJOB = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=563,
-  serialized_end=2542,
+  serialized_start=660,
+  serialized_end=2777,
 )
 
 _BATCHPREDICTIONJOB_INPUTCONFIG.fields_by_name['gcs_source'].message_type = google_dot_cloud_dot_aiplatform_dot_v1_dot_io__pb2._GCSSOURCE
@@ -414,6 +437,7 @@ _BATCHPREDICTIONJOB.fields_by_name['model_parameters'].message_type = google_dot
 _BATCHPREDICTIONJOB.fields_by_name['output_config'].message_type = _BATCHPREDICTIONJOB_OUTPUTCONFIG
 _BATCHPREDICTIONJOB.fields_by_name['dedicated_resources'].message_type = google_dot_cloud_dot_aiplatform_dot_v1_dot_machine__resources__pb2._BATCHDEDICATEDRESOURCES
 _BATCHPREDICTIONJOB.fields_by_name['manual_batch_tuning_parameters'].message_type = google_dot_cloud_dot_aiplatform_dot_v1_dot_manual__batch__tuning__parameters__pb2._MANUALBATCHTUNINGPARAMETERS
+_BATCHPREDICTIONJOB.fields_by_name['explanation_spec'].message_type = google_dot_cloud_dot_aiplatform_dot_v1_dot_explanation__pb2._EXPLANATIONSPEC
 _BATCHPREDICTIONJOB.fields_by_name['output_info'].message_type = _BATCHPREDICTIONJOB_OUTPUTINFO
 _BATCHPREDICTIONJOB.fields_by_name['state'].enum_type = google_dot_cloud_dot_aiplatform_dot_v1_dot_job__state__pb2._JOBSTATE
 _BATCHPREDICTIONJOB.fields_by_name['error'].message_type = google_dot_rpc_dot_status__pb2._STATUS
@@ -474,6 +498,7 @@ _BATCHPREDICTIONJOB_INPUTCONFIG.fields_by_name['instances_format']._options = No
 _BATCHPREDICTIONJOB_OUTPUTCONFIG.fields_by_name['predictions_format']._options = None
 _BATCHPREDICTIONJOB_OUTPUTINFO.fields_by_name['gcs_output_directory']._options = None
 _BATCHPREDICTIONJOB_OUTPUTINFO.fields_by_name['bigquery_output_dataset']._options = None
+_BATCHPREDICTIONJOB_OUTPUTINFO.fields_by_name['bigquery_output_table']._options = None
 _BATCHPREDICTIONJOB_LABELSENTRY._options = None
 _BATCHPREDICTIONJOB.fields_by_name['name']._options = None
 _BATCHPREDICTIONJOB.fields_by_name['display_name']._options = None

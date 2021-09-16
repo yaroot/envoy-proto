@@ -16,7 +16,6 @@ from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
-from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
@@ -26,11 +25,46 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\036com.google.cloud.aiplatform.v1B\nStudyProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\252\002\032Google.Cloud.AIPlatform.V1\312\002\032Google\\Cloud\\AIPlatform\\V1\352\002\035Google::Cloud::AIPlatform::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n&google/cloud/aiplatform/v1/study.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1cgoogle/api/annotations.proto\"\xb7\x05\n\x05Trial\x12\x0f\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12;\n\x05state\x18\x03 \x01(\x0e\x32\'.google.cloud.aiplatform.v1.Trial.StateB\x03\xe0\x41\x03\x12\x44\n\nparameters\x18\x04 \x03(\x0b\x32+.google.cloud.aiplatform.v1.Trial.ParameterB\x03\xe0\x41\x03\x12G\n\x11\x66inal_measurement\x18\x05 \x01(\x0b\x32\'.google.cloud.aiplatform.v1.MeasurementB\x03\xe0\x41\x03\x12\x33\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12?\n\ncustom_job\x18\x0b \x01(\tB+\xe0\x41\x03\xfa\x41%\n#aiplatform.googleapis.com/CustomJob\x1aR\n\tParameter\x12\x19\n\x0cparameter_id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12*\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.ValueB\x03\xe0\x41\x03\"f\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\r\n\tREQUESTED\x10\x01\x12\n\n\x06\x41\x43TIVE\x10\x02\x12\x0c\n\x08STOPPING\x10\x03\x12\r\n\tSUCCEEDED\x10\x04\x12\x0e\n\nINFEASIBLE\x10\x05:l\xea\x41i\n\x1f\x61iplatform.googleapis.com/Trial\x12\x46projects/{project}/locations/{location}/studies/{study}/trials/{trial}\"\xf6\x13\n\tStudySpec\x12\x46\n\x07metrics\x18\x01 \x03(\x0b\x32\x30.google.cloud.aiplatform.v1.StudySpec.MetricSpecB\x03\xe0\x41\x02\x12L\n\nparameters\x18\x02 \x03(\x0b\x32\x33.google.cloud.aiplatform.v1.StudySpec.ParameterSpecB\x03\xe0\x41\x02\x12\x42\n\talgorithm\x18\x03 \x01(\x0e\x32/.google.cloud.aiplatform.v1.StudySpec.Algorithm\x12Q\n\x11observation_noise\x18\x06 \x01(\x0e\x32\x36.google.cloud.aiplatform.v1.StudySpec.ObservationNoise\x12\x62\n\x1ameasurement_selection_type\x18\x07 \x01(\x0e\x32>.google.cloud.aiplatform.v1.StudySpec.MeasurementSelectionType\x1a\xb5\x01\n\nMetricSpec\x12\x16\n\tmetric_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12L\n\x04goal\x18\x02 \x01(\x0e\x32\x39.google.cloud.aiplatform.v1.StudySpec.MetricSpec.GoalTypeB\x03\xe0\x41\x02\"A\n\x08GoalType\x12\x19\n\x15GOAL_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08MAXIMIZE\x10\x01\x12\x0c\n\x08MINIMIZE\x10\x02\x1a\x95\r\n\rParameterSpec\x12`\n\x11\x64ouble_value_spec\x18\x02 \x01(\x0b\x32\x43.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.DoubleValueSpecH\x00\x12\x62\n\x12integer_value_spec\x18\x03 \x01(\x0b\x32\x44.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.IntegerValueSpecH\x00\x12j\n\x16\x63\x61tegorical_value_spec\x18\x04 \x01(\x0b\x32H.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.CategoricalValueSpecH\x00\x12\x64\n\x13\x64iscrete_value_spec\x18\x05 \x01(\x0b\x32\x45.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.DiscreteValueSpecH\x00\x12\x19\n\x0cparameter_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12Q\n\nscale_type\x18\x06 \x01(\x0e\x32=.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.ScaleType\x12q\n\x1b\x63onditional_parameter_specs\x18\n \x03(\x0b\x32L.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.ConditionalParameterSpec\x1a\x41\n\x0f\x44oubleValueSpec\x12\x16\n\tmin_value\x18\x01 \x01(\x01\x42\x03\xe0\x41\x02\x12\x16\n\tmax_value\x18\x02 \x01(\x01\x42\x03\xe0\x41\x02\x1a\x42\n\x10IntegerValueSpec\x12\x16\n\tmin_value\x18\x01 \x01(\x03\x42\x03\xe0\x41\x02\x12\x16\n\tmax_value\x18\x02 \x01(\x03\x42\x03\xe0\x41\x02\x1a+\n\x14\x43\x61tegoricalValueSpec\x12\x13\n\x06values\x18\x01 \x03(\tB\x03\xe0\x41\x02\x1a(\n\x11\x44iscreteValueSpec\x12\x13\n\x06values\x18\x01 \x03(\x01\x42\x03\xe0\x41\x02\x1a\xa4\x05\n\x18\x43onditionalParameterSpec\x12\x85\x01\n\x16parent_discrete_values\x18\x02 \x01(\x0b\x32\x63.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.ConditionalParameterSpec.DiscreteValueConditionH\x00\x12{\n\x11parent_int_values\x18\x03 \x01(\x0b\x32^.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.ConditionalParameterSpec.IntValueConditionH\x00\x12\x8b\x01\n\x19parent_categorical_values\x18\x04 \x01(\x0b\x32\x66.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.ConditionalParameterSpec.CategoricalValueConditionH\x00\x12P\n\x0eparameter_spec\x18\x01 \x01(\x0b\x32\x33.google.cloud.aiplatform.v1.StudySpec.ParameterSpecB\x03\xe0\x41\x02\x1a-\n\x16\x44iscreteValueCondition\x12\x13\n\x06values\x18\x01 \x03(\x01\x42\x03\xe0\x41\x02\x1a(\n\x11IntValueCondition\x12\x13\n\x06values\x18\x01 \x03(\x03\x42\x03\xe0\x41\x02\x1a\x30\n\x19\x43\x61tegoricalValueCondition\x12\x13\n\x06values\x18\x01 \x03(\tB\x03\xe0\x41\x02\x42\x18\n\x16parent_value_condition\"n\n\tScaleType\x12\x1a\n\x16SCALE_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11UNIT_LINEAR_SCALE\x10\x01\x12\x12\n\x0eUNIT_LOG_SCALE\x10\x02\x12\x1a\n\x16UNIT_REVERSE_LOG_SCALE\x10\x03\x42\x16\n\x14parameter_value_spec\"J\n\tAlgorithm\x12\x19\n\x15\x41LGORITHM_UNSPECIFIED\x10\x00\x12\x0f\n\x0bGRID_SEARCH\x10\x02\x12\x11\n\rRANDOM_SEARCH\x10\x03\"H\n\x10ObservationNoise\x12!\n\x1dOBSERVATION_NOISE_UNSPECIFIED\x10\x00\x12\x07\n\x03LOW\x10\x01\x12\x08\n\x04HIGH\x10\x02\"r\n\x18MeasurementSelectionType\x12*\n&MEASUREMENT_SELECTION_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10LAST_MEASUREMENT\x10\x01\x12\x14\n\x10\x42\x45ST_MEASUREMENT\x10\x02\"\xa2\x01\n\x0bMeasurement\x12\x17\n\nstep_count\x18\x02 \x01(\x03\x42\x03\xe0\x41\x03\x12\x44\n\x07metrics\x18\x03 \x03(\x0b\x32..google.cloud.aiplatform.v1.Measurement.MetricB\x03\xe0\x41\x03\x1a\x34\n\x06Metric\x12\x16\n\tmetric_id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x12\n\x05value\x18\x02 \x01(\x01\x42\x03\xe0\x41\x03\x42\xce\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\nStudyProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
+  serialized_pb=b'\n&google/cloud/aiplatform/v1/study.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xae\x03\n\x05Study\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12>\n\nstudy_spec\x18\x03 \x01(\x0b\x32%.google.cloud.aiplatform.v1.StudySpecB\x03\xe0\x41\x02\x12;\n\x05state\x18\x04 \x01(\x0e\x32\'.google.cloud.aiplatform.v1.Study.StateB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x1c\n\x0finactive_reason\x18\x06 \x01(\tB\x03\xe0\x41\x03\"G\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\n\n\x06\x41\x43TIVE\x10\x01\x12\x0c\n\x08INACTIVE\x10\x02\x12\r\n\tCOMPLETED\x10\x03:]\xea\x41Z\n\x1f\x61iplatform.googleapis.com/Study\x12\x37projects/{project}/locations/{location}/studies/{study}\"\xd0\x07\n\x05Trial\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x0f\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12;\n\x05state\x18\x03 \x01(\x0e\x32\'.google.cloud.aiplatform.v1.Trial.StateB\x03\xe0\x41\x03\x12\x44\n\nparameters\x18\x04 \x03(\x0b\x32+.google.cloud.aiplatform.v1.Trial.ParameterB\x03\xe0\x41\x03\x12G\n\x11\x66inal_measurement\x18\x05 \x01(\x0b\x32\'.google.cloud.aiplatform.v1.MeasurementB\x03\xe0\x41\x03\x12\x42\n\x0cmeasurements\x18\x06 \x03(\x0b\x32\'.google.cloud.aiplatform.v1.MeasurementB\x03\xe0\x41\x03\x12\x33\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x16\n\tclient_id\x18\t \x01(\tB\x03\xe0\x41\x03\x12\x1e\n\x11infeasible_reason\x18\n \x01(\tB\x03\xe0\x41\x03\x12?\n\ncustom_job\x18\x0b \x01(\tB+\xe0\x41\x03\xfa\x41%\n#aiplatform.googleapis.com/CustomJob\x12R\n\x0fweb_access_uris\x18\x0c \x03(\x0b\x32\x34.google.cloud.aiplatform.v1.Trial.WebAccessUrisEntryB\x03\xe0\x41\x03\x1aR\n\tParameter\x12\x19\n\x0cparameter_id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12*\n\x05value\x18\x02 \x01(\x0b\x32\x16.google.protobuf.ValueB\x03\xe0\x41\x03\x1a\x34\n\x12WebAccessUrisEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"f\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\r\n\tREQUESTED\x10\x01\x12\n\n\x06\x41\x43TIVE\x10\x02\x12\x0c\n\x08STOPPING\x10\x03\x12\r\n\tSUCCEEDED\x10\x04\x12\x0e\n\nINFEASIBLE\x10\x05:l\xea\x41i\n\x1f\x61iplatform.googleapis.com/Trial\x12\x46projects/{project}/locations/{location}/studies/{study}/trials/{trial}\"\xa0\x18\n\tStudySpec\x12j\n\x19\x64\x65\x63\x61y_curve_stopping_spec\x18\x04 \x01(\x0b\x32\x45.google.cloud.aiplatform.v1.StudySpec.DecayCurveAutomatedStoppingSpecH\x00\x12k\n\x1emedian_automated_stopping_spec\x18\x05 \x01(\x0b\x32\x41.google.cloud.aiplatform.v1.StudySpec.MedianAutomatedStoppingSpecH\x00\x12\x46\n\x07metrics\x18\x01 \x03(\x0b\x32\x30.google.cloud.aiplatform.v1.StudySpec.MetricSpecB\x03\xe0\x41\x02\x12L\n\nparameters\x18\x02 \x03(\x0b\x32\x33.google.cloud.aiplatform.v1.StudySpec.ParameterSpecB\x03\xe0\x41\x02\x12\x42\n\talgorithm\x18\x03 \x01(\x0e\x32/.google.cloud.aiplatform.v1.StudySpec.Algorithm\x12Q\n\x11observation_noise\x18\x06 \x01(\x0e\x32\x36.google.cloud.aiplatform.v1.StudySpec.ObservationNoise\x12\x62\n\x1ameasurement_selection_type\x18\x07 \x01(\x0e\x32>.google.cloud.aiplatform.v1.StudySpec.MeasurementSelectionType\x1a\xb5\x01\n\nMetricSpec\x12\x16\n\tmetric_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12L\n\x04goal\x18\x02 \x01(\x0e\x32\x39.google.cloud.aiplatform.v1.StudySpec.MetricSpec.GoalTypeB\x03\xe0\x41\x02\"A\n\x08GoalType\x12\x19\n\x15GOAL_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08MAXIMIZE\x10\x01\x12\x0c\n\x08MINIMIZE\x10\x02\x1a\xcd\x0e\n\rParameterSpec\x12`\n\x11\x64ouble_value_spec\x18\x02 \x01(\x0b\x32\x43.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.DoubleValueSpecH\x00\x12\x62\n\x12integer_value_spec\x18\x03 \x01(\x0b\x32\x44.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.IntegerValueSpecH\x00\x12j\n\x16\x63\x61tegorical_value_spec\x18\x04 \x01(\x0b\x32H.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.CategoricalValueSpecH\x00\x12\x64\n\x13\x64iscrete_value_spec\x18\x05 \x01(\x0b\x32\x45.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.DiscreteValueSpecH\x00\x12\x19\n\x0cparameter_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12Q\n\nscale_type\x18\x06 \x01(\x0e\x32=.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.ScaleType\x12q\n\x1b\x63onditional_parameter_specs\x18\n \x03(\x0b\x32L.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.ConditionalParameterSpec\x1ao\n\x0f\x44oubleValueSpec\x12\x16\n\tmin_value\x18\x01 \x01(\x01\x42\x03\xe0\x41\x02\x12\x16\n\tmax_value\x18\x02 \x01(\x01\x42\x03\xe0\x41\x02\x12\x1a\n\rdefault_value\x18\x04 \x01(\x01H\x00\x88\x01\x01\x42\x10\n\x0e_default_value\x1ap\n\x10IntegerValueSpec\x12\x16\n\tmin_value\x18\x01 \x01(\x03\x42\x03\xe0\x41\x02\x12\x16\n\tmax_value\x18\x02 \x01(\x03\x42\x03\xe0\x41\x02\x12\x1a\n\rdefault_value\x18\x04 \x01(\x03H\x00\x88\x01\x01\x42\x10\n\x0e_default_value\x1aY\n\x14\x43\x61tegoricalValueSpec\x12\x13\n\x06values\x18\x01 \x03(\tB\x03\xe0\x41\x02\x12\x1a\n\rdefault_value\x18\x03 \x01(\tH\x00\x88\x01\x01\x42\x10\n\x0e_default_value\x1aV\n\x11\x44iscreteValueSpec\x12\x13\n\x06values\x18\x01 \x03(\x01\x42\x03\xe0\x41\x02\x12\x1a\n\rdefault_value\x18\x03 \x01(\x01H\x00\x88\x01\x01\x42\x10\n\x0e_default_value\x1a\xa4\x05\n\x18\x43onditionalParameterSpec\x12\x85\x01\n\x16parent_discrete_values\x18\x02 \x01(\x0b\x32\x63.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.ConditionalParameterSpec.DiscreteValueConditionH\x00\x12{\n\x11parent_int_values\x18\x03 \x01(\x0b\x32^.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.ConditionalParameterSpec.IntValueConditionH\x00\x12\x8b\x01\n\x19parent_categorical_values\x18\x04 \x01(\x0b\x32\x66.google.cloud.aiplatform.v1.StudySpec.ParameterSpec.ConditionalParameterSpec.CategoricalValueConditionH\x00\x12P\n\x0eparameter_spec\x18\x01 \x01(\x0b\x32\x33.google.cloud.aiplatform.v1.StudySpec.ParameterSpecB\x03\xe0\x41\x02\x1a-\n\x16\x44iscreteValueCondition\x12\x13\n\x06values\x18\x01 \x03(\x01\x42\x03\xe0\x41\x02\x1a(\n\x11IntValueCondition\x12\x13\n\x06values\x18\x01 \x03(\x03\x42\x03\xe0\x41\x02\x1a\x30\n\x19\x43\x61tegoricalValueCondition\x12\x13\n\x06values\x18\x01 \x03(\tB\x03\xe0\x41\x02\x42\x18\n\x16parent_value_condition\"n\n\tScaleType\x12\x1a\n\x16SCALE_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11UNIT_LINEAR_SCALE\x10\x01\x12\x12\n\x0eUNIT_LOG_SCALE\x10\x02\x12\x1a\n\x16UNIT_REVERSE_LOG_SCALE\x10\x03\x42\x16\n\x14parameter_value_spec\x1a?\n\x1f\x44\x65\x63\x61yCurveAutomatedStoppingSpec\x12\x1c\n\x14use_elapsed_duration\x18\x01 \x01(\x08\x1a;\n\x1bMedianAutomatedStoppingSpec\x12\x1c\n\x14use_elapsed_duration\x18\x01 \x01(\x08\"J\n\tAlgorithm\x12\x19\n\x15\x41LGORITHM_UNSPECIFIED\x10\x00\x12\x0f\n\x0bGRID_SEARCH\x10\x02\x12\x11\n\rRANDOM_SEARCH\x10\x03\"H\n\x10ObservationNoise\x12!\n\x1dOBSERVATION_NOISE_UNSPECIFIED\x10\x00\x12\x07\n\x03LOW\x10\x01\x12\x08\n\x04HIGH\x10\x02\"r\n\x18MeasurementSelectionType\x12*\n&MEASUREMENT_SELECTION_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10LAST_MEASUREMENT\x10\x01\x12\x14\n\x10\x42\x45ST_MEASUREMENT\x10\x02\x42\x19\n\x17\x61utomated_stopping_spec\"\xdc\x01\n\x0bMeasurement\x12\x38\n\x10\x65lapsed_duration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x03\x12\x17\n\nstep_count\x18\x02 \x01(\x03\x42\x03\xe0\x41\x03\x12\x44\n\x07metrics\x18\x03 \x03(\x0b\x32..google.cloud.aiplatform.v1.Measurement.MetricB\x03\xe0\x41\x03\x1a\x34\n\x06Metric\x12\x16\n\tmetric_id\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x12\n\x05value\x18\x02 \x01(\x01\x42\x03\xe0\x41\x03\x42\xce\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\nStudyProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
+
+_STUDY_STATE = _descriptor.EnumDescriptor(
+  name='State',
+  full_name='google.cloud.aiplatform.v1.Study.State',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='STATE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ACTIVE', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='INACTIVE', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='COMPLETED', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=520,
+  serialized_end=591,
+)
+_sym_db.RegisterEnumDescriptor(_STUDY_STATE)
 
 _TRIAL_STATE = _descriptor.EnumDescriptor(
   name='State',
@@ -72,8 +106,8 @@ _TRIAL_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=771,
-  serialized_end=873,
+  serialized_start=1453,
+  serialized_end=1555,
 )
 _sym_db.RegisterEnumDescriptor(_TRIAL_STATE)
 
@@ -102,8 +136,8 @@ _STUDYSPEC_METRICSPEC_GOALTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1517,
-  serialized_end=1582,
+  serialized_start=2416,
+  serialized_end=2481,
 )
 _sym_db.RegisterEnumDescriptor(_STUDYSPEC_METRICSPEC_GOALTYPE)
 
@@ -137,8 +171,8 @@ _STUDYSPEC_PARAMETERSPEC_SCALETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3136,
-  serialized_end=3246,
+  serialized_start=4219,
+  serialized_end=4329,
 )
 _sym_db.RegisterEnumDescriptor(_STUDYSPEC_PARAMETERSPEC_SCALETYPE)
 
@@ -167,8 +201,8 @@ _STUDYSPEC_ALGORITHM = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3272,
-  serialized_end=3346,
+  serialized_start=4481,
+  serialized_end=4555,
 )
 _sym_db.RegisterEnumDescriptor(_STUDYSPEC_ALGORITHM)
 
@@ -197,8 +231,8 @@ _STUDYSPEC_OBSERVATIONNOISE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3348,
-  serialized_end=3420,
+  serialized_start=4557,
+  serialized_end=4629,
 )
 _sym_db.RegisterEnumDescriptor(_STUDYSPEC_OBSERVATIONNOISE)
 
@@ -227,10 +261,78 @@ _STUDYSPEC_MEASUREMENTSELECTIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3422,
-  serialized_end=3536,
+  serialized_start=4631,
+  serialized_end=4745,
 )
 _sym_db.RegisterEnumDescriptor(_STUDYSPEC_MEASUREMENTSELECTIONTYPE)
+
+
+_STUDY = _descriptor.Descriptor(
+  name='Study',
+  full_name='google.cloud.aiplatform.v1.Study',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.cloud.aiplatform.v1.Study.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='display_name', full_name='google.cloud.aiplatform.v1.Study.display_name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='study_spec', full_name='google.cloud.aiplatform.v1.Study.study_spec', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='state', full_name='google.cloud.aiplatform.v1.Study.state', index=3,
+      number=4, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='create_time', full_name='google.cloud.aiplatform.v1.Study.create_time', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='inactive_reason', full_name='google.cloud.aiplatform.v1.Study.inactive_reason', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _STUDY_STATE,
+  ],
+  serialized_options=b'\352AZ\n\037aiplatform.googleapis.com/Study\0227projects/{project}/locations/{location}/studies/{study}',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=256,
+  serialized_end=686,
+)
 
 
 _TRIAL_PARAMETER = _descriptor.Descriptor(
@@ -267,8 +369,46 @@ _TRIAL_PARAMETER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=687,
-  serialized_end=769,
+  serialized_start=1315,
+  serialized_end=1397,
+)
+
+_TRIAL_WEBACCESSURISENTRY = _descriptor.Descriptor(
+  name='WebAccessUrisEntry',
+  full_name='google.cloud.aiplatform.v1.Trial.WebAccessUrisEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.cloud.aiplatform.v1.Trial.WebAccessUrisEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.cloud.aiplatform.v1.Trial.WebAccessUrisEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1399,
+  serialized_end=1451,
 )
 
 _TRIAL = _descriptor.Descriptor(
@@ -280,58 +420,93 @@ _TRIAL = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='google.cloud.aiplatform.v1.Trial.id', index=0,
+      name='name', full_name='google.cloud.aiplatform.v1.Trial.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='id', full_name='google.cloud.aiplatform.v1.Trial.id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='state', full_name='google.cloud.aiplatform.v1.Trial.state', index=1,
+      name='state', full_name='google.cloud.aiplatform.v1.Trial.state', index=2,
       number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='parameters', full_name='google.cloud.aiplatform.v1.Trial.parameters', index=2,
+      name='parameters', full_name='google.cloud.aiplatform.v1.Trial.parameters', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='final_measurement', full_name='google.cloud.aiplatform.v1.Trial.final_measurement', index=3,
+      name='final_measurement', full_name='google.cloud.aiplatform.v1.Trial.final_measurement', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='start_time', full_name='google.cloud.aiplatform.v1.Trial.start_time', index=4,
+      name='measurements', full_name='google.cloud.aiplatform.v1.Trial.measurements', index=5,
+      number=6, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='google.cloud.aiplatform.v1.Trial.start_time', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='end_time', full_name='google.cloud.aiplatform.v1.Trial.end_time', index=5,
+      name='end_time', full_name='google.cloud.aiplatform.v1.Trial.end_time', index=7,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='custom_job', full_name='google.cloud.aiplatform.v1.Trial.custom_job', index=6,
+      name='client_id', full_name='google.cloud.aiplatform.v1.Trial.client_id', index=8,
+      number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='infeasible_reason', full_name='google.cloud.aiplatform.v1.Trial.infeasible_reason', index=9,
+      number=10, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='custom_job', full_name='google.cloud.aiplatform.v1.Trial.custom_job', index=10,
       number=11, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003\372A%\n#aiplatform.googleapis.com/CustomJob', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='web_access_uris', full_name='google.cloud.aiplatform.v1.Trial.web_access_uris', index=11,
+      number=12, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_TRIAL_PARAMETER, ],
+  nested_types=[_TRIAL_PARAMETER, _TRIAL_WEBACCESSURISENTRY, ],
   enum_types=[
     _TRIAL_STATE,
   ],
@@ -341,8 +516,8 @@ _TRIAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=288,
-  serialized_end=983,
+  serialized_start=689,
+  serialized_end=1665,
 )
 
 
@@ -381,8 +556,8 @@ _STUDYSPEC_METRICSPEC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1401,
-  serialized_end=1582,
+  serialized_start=2300,
+  serialized_end=2481,
 )
 
 _STUDYSPEC_PARAMETERSPEC_DOUBLEVALUESPEC = _descriptor.Descriptor(
@@ -407,6 +582,13 @@ _STUDYSPEC_PARAMETERSPEC_DOUBLEVALUESPEC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='default_value', full_name='google.cloud.aiplatform.v1.StudySpec.ParameterSpec.DoubleValueSpec.default_value', index=2,
+      number=4, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -418,9 +600,14 @@ _STUDYSPEC_PARAMETERSPEC_DOUBLEVALUESPEC = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='_default_value', full_name='google.cloud.aiplatform.v1.StudySpec.ParameterSpec.DoubleValueSpec._default_value',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=2235,
-  serialized_end=2300,
+  serialized_start=3134,
+  serialized_end=3245,
 )
 
 _STUDYSPEC_PARAMETERSPEC_INTEGERVALUESPEC = _descriptor.Descriptor(
@@ -445,6 +632,13 @@ _STUDYSPEC_PARAMETERSPEC_INTEGERVALUESPEC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='default_value', full_name='google.cloud.aiplatform.v1.StudySpec.ParameterSpec.IntegerValueSpec.default_value', index=2,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -456,9 +650,14 @@ _STUDYSPEC_PARAMETERSPEC_INTEGERVALUESPEC = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='_default_value', full_name='google.cloud.aiplatform.v1.StudySpec.ParameterSpec.IntegerValueSpec._default_value',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=2302,
-  serialized_end=2368,
+  serialized_start=3247,
+  serialized_end=3359,
 )
 
 _STUDYSPEC_PARAMETERSPEC_CATEGORICALVALUESPEC = _descriptor.Descriptor(
@@ -476,6 +675,13 @@ _STUDYSPEC_PARAMETERSPEC_CATEGORICALVALUESPEC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='default_value', full_name='google.cloud.aiplatform.v1.StudySpec.ParameterSpec.CategoricalValueSpec.default_value', index=1,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -487,9 +693,14 @@ _STUDYSPEC_PARAMETERSPEC_CATEGORICALVALUESPEC = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='_default_value', full_name='google.cloud.aiplatform.v1.StudySpec.ParameterSpec.CategoricalValueSpec._default_value',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=2370,
-  serialized_end=2413,
+  serialized_start=3361,
+  serialized_end=3450,
 )
 
 _STUDYSPEC_PARAMETERSPEC_DISCRETEVALUESPEC = _descriptor.Descriptor(
@@ -507,6 +718,13 @@ _STUDYSPEC_PARAMETERSPEC_DISCRETEVALUESPEC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='default_value', full_name='google.cloud.aiplatform.v1.StudySpec.ParameterSpec.DiscreteValueSpec.default_value', index=1,
+      number=3, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -518,9 +736,14 @@ _STUDYSPEC_PARAMETERSPEC_DISCRETEVALUESPEC = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='_default_value', full_name='google.cloud.aiplatform.v1.StudySpec.ParameterSpec.DiscreteValueSpec._default_value',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=2415,
-  serialized_end=2455,
+  serialized_start=3452,
+  serialized_end=3538,
 )
 
 _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC_DISCRETEVALUECONDITION = _descriptor.Descriptor(
@@ -550,8 +773,8 @@ _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC_DISCRETEVALUECONDITION = _desc
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2971,
-  serialized_end=3016,
+  serialized_start=4054,
+  serialized_end=4099,
 )
 
 _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC_INTVALUECONDITION = _descriptor.Descriptor(
@@ -581,8 +804,8 @@ _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC_INTVALUECONDITION = _descripto
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3018,
-  serialized_end=3058,
+  serialized_start=4101,
+  serialized_end=4141,
 )
 
 _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC_CATEGORICALVALUECONDITION = _descriptor.Descriptor(
@@ -612,8 +835,8 @@ _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC_CATEGORICALVALUECONDITION = _d
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3060,
-  serialized_end=3108,
+  serialized_start=4143,
+  serialized_end=4191,
 )
 
 _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC = _descriptor.Descriptor(
@@ -669,8 +892,8 @@ _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2458,
-  serialized_end=3134,
+  serialized_start=3541,
+  serialized_end=4217,
 )
 
 _STUDYSPEC_PARAMETERSPEC = _descriptor.Descriptor(
@@ -748,8 +971,70 @@ _STUDYSPEC_PARAMETERSPEC = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1585,
-  serialized_end=3270,
+  serialized_start=2484,
+  serialized_end=4353,
+)
+
+_STUDYSPEC_DECAYCURVEAUTOMATEDSTOPPINGSPEC = _descriptor.Descriptor(
+  name='DecayCurveAutomatedStoppingSpec',
+  full_name='google.cloud.aiplatform.v1.StudySpec.DecayCurveAutomatedStoppingSpec',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='use_elapsed_duration', full_name='google.cloud.aiplatform.v1.StudySpec.DecayCurveAutomatedStoppingSpec.use_elapsed_duration', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4355,
+  serialized_end=4418,
+)
+
+_STUDYSPEC_MEDIANAUTOMATEDSTOPPINGSPEC = _descriptor.Descriptor(
+  name='MedianAutomatedStoppingSpec',
+  full_name='google.cloud.aiplatform.v1.StudySpec.MedianAutomatedStoppingSpec',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='use_elapsed_duration', full_name='google.cloud.aiplatform.v1.StudySpec.MedianAutomatedStoppingSpec.use_elapsed_duration', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4420,
+  serialized_end=4479,
 )
 
 _STUDYSPEC = _descriptor.Descriptor(
@@ -761,35 +1046,49 @@ _STUDYSPEC = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='metrics', full_name='google.cloud.aiplatform.v1.StudySpec.metrics', index=0,
+      name='decay_curve_stopping_spec', full_name='google.cloud.aiplatform.v1.StudySpec.decay_curve_stopping_spec', index=0,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='median_automated_stopping_spec', full_name='google.cloud.aiplatform.v1.StudySpec.median_automated_stopping_spec', index=1,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='metrics', full_name='google.cloud.aiplatform.v1.StudySpec.metrics', index=2,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='parameters', full_name='google.cloud.aiplatform.v1.StudySpec.parameters', index=1,
+      name='parameters', full_name='google.cloud.aiplatform.v1.StudySpec.parameters', index=3,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='algorithm', full_name='google.cloud.aiplatform.v1.StudySpec.algorithm', index=2,
+      name='algorithm', full_name='google.cloud.aiplatform.v1.StudySpec.algorithm', index=4,
       number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='observation_noise', full_name='google.cloud.aiplatform.v1.StudySpec.observation_noise', index=3,
+      name='observation_noise', full_name='google.cloud.aiplatform.v1.StudySpec.observation_noise', index=5,
       number=6, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='measurement_selection_type', full_name='google.cloud.aiplatform.v1.StudySpec.measurement_selection_type', index=4,
+      name='measurement_selection_type', full_name='google.cloud.aiplatform.v1.StudySpec.measurement_selection_type', index=6,
       number=7, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -798,7 +1097,7 @@ _STUDYSPEC = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_STUDYSPEC_METRICSPEC, _STUDYSPEC_PARAMETERSPEC, ],
+  nested_types=[_STUDYSPEC_METRICSPEC, _STUDYSPEC_PARAMETERSPEC, _STUDYSPEC_DECAYCURVEAUTOMATEDSTOPPINGSPEC, _STUDYSPEC_MEDIANAUTOMATEDSTOPPINGSPEC, ],
   enum_types=[
     _STUDYSPEC_ALGORITHM,
     _STUDYSPEC_OBSERVATIONNOISE,
@@ -809,9 +1108,14 @@ _STUDYSPEC = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='automated_stopping_spec', full_name='google.cloud.aiplatform.v1.StudySpec.automated_stopping_spec',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=986,
-  serialized_end=3536,
+  serialized_start=1668,
+  serialized_end=4772,
 )
 
 
@@ -849,8 +1153,8 @@ _MEASUREMENT_METRIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3649,
-  serialized_end=3701,
+  serialized_start=4943,
+  serialized_end=4995,
 )
 
 _MEASUREMENT = _descriptor.Descriptor(
@@ -862,14 +1166,21 @@ _MEASUREMENT = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='step_count', full_name='google.cloud.aiplatform.v1.Measurement.step_count', index=0,
+      name='elapsed_duration', full_name='google.cloud.aiplatform.v1.Measurement.elapsed_duration', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='step_count', full_name='google.cloud.aiplatform.v1.Measurement.step_count', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='metrics', full_name='google.cloud.aiplatform.v1.Measurement.metrics', index=1,
+      name='metrics', full_name='google.cloud.aiplatform.v1.Measurement.metrics', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -887,25 +1198,44 @@ _MEASUREMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3539,
-  serialized_end=3701,
+  serialized_start=4775,
+  serialized_end=4995,
 )
 
+_STUDY.fields_by_name['study_spec'].message_type = _STUDYSPEC
+_STUDY.fields_by_name['state'].enum_type = _STUDY_STATE
+_STUDY.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_STUDY_STATE.containing_type = _STUDY
 _TRIAL_PARAMETER.fields_by_name['value'].message_type = google_dot_protobuf_dot_struct__pb2._VALUE
 _TRIAL_PARAMETER.containing_type = _TRIAL
+_TRIAL_WEBACCESSURISENTRY.containing_type = _TRIAL
 _TRIAL.fields_by_name['state'].enum_type = _TRIAL_STATE
 _TRIAL.fields_by_name['parameters'].message_type = _TRIAL_PARAMETER
 _TRIAL.fields_by_name['final_measurement'].message_type = _MEASUREMENT
+_TRIAL.fields_by_name['measurements'].message_type = _MEASUREMENT
 _TRIAL.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _TRIAL.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TRIAL.fields_by_name['web_access_uris'].message_type = _TRIAL_WEBACCESSURISENTRY
 _TRIAL_STATE.containing_type = _TRIAL
 _STUDYSPEC_METRICSPEC.fields_by_name['goal'].enum_type = _STUDYSPEC_METRICSPEC_GOALTYPE
 _STUDYSPEC_METRICSPEC.containing_type = _STUDYSPEC
 _STUDYSPEC_METRICSPEC_GOALTYPE.containing_type = _STUDYSPEC_METRICSPEC
 _STUDYSPEC_PARAMETERSPEC_DOUBLEVALUESPEC.containing_type = _STUDYSPEC_PARAMETERSPEC
+_STUDYSPEC_PARAMETERSPEC_DOUBLEVALUESPEC.oneofs_by_name['_default_value'].fields.append(
+  _STUDYSPEC_PARAMETERSPEC_DOUBLEVALUESPEC.fields_by_name['default_value'])
+_STUDYSPEC_PARAMETERSPEC_DOUBLEVALUESPEC.fields_by_name['default_value'].containing_oneof = _STUDYSPEC_PARAMETERSPEC_DOUBLEVALUESPEC.oneofs_by_name['_default_value']
 _STUDYSPEC_PARAMETERSPEC_INTEGERVALUESPEC.containing_type = _STUDYSPEC_PARAMETERSPEC
+_STUDYSPEC_PARAMETERSPEC_INTEGERVALUESPEC.oneofs_by_name['_default_value'].fields.append(
+  _STUDYSPEC_PARAMETERSPEC_INTEGERVALUESPEC.fields_by_name['default_value'])
+_STUDYSPEC_PARAMETERSPEC_INTEGERVALUESPEC.fields_by_name['default_value'].containing_oneof = _STUDYSPEC_PARAMETERSPEC_INTEGERVALUESPEC.oneofs_by_name['_default_value']
 _STUDYSPEC_PARAMETERSPEC_CATEGORICALVALUESPEC.containing_type = _STUDYSPEC_PARAMETERSPEC
+_STUDYSPEC_PARAMETERSPEC_CATEGORICALVALUESPEC.oneofs_by_name['_default_value'].fields.append(
+  _STUDYSPEC_PARAMETERSPEC_CATEGORICALVALUESPEC.fields_by_name['default_value'])
+_STUDYSPEC_PARAMETERSPEC_CATEGORICALVALUESPEC.fields_by_name['default_value'].containing_oneof = _STUDYSPEC_PARAMETERSPEC_CATEGORICALVALUESPEC.oneofs_by_name['_default_value']
 _STUDYSPEC_PARAMETERSPEC_DISCRETEVALUESPEC.containing_type = _STUDYSPEC_PARAMETERSPEC
+_STUDYSPEC_PARAMETERSPEC_DISCRETEVALUESPEC.oneofs_by_name['_default_value'].fields.append(
+  _STUDYSPEC_PARAMETERSPEC_DISCRETEVALUESPEC.fields_by_name['default_value'])
+_STUDYSPEC_PARAMETERSPEC_DISCRETEVALUESPEC.fields_by_name['default_value'].containing_oneof = _STUDYSPEC_PARAMETERSPEC_DISCRETEVALUESPEC.oneofs_by_name['_default_value']
 _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC_DISCRETEVALUECONDITION.containing_type = _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC
 _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC_INTVALUECONDITION.containing_type = _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC
 _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC_CATEGORICALVALUECONDITION.containing_type = _STUDYSPEC_PARAMETERSPEC_CONDITIONALPARAMETERSPEC
@@ -943,6 +1273,10 @@ _STUDYSPEC_PARAMETERSPEC.fields_by_name['categorical_value_spec'].containing_one
 _STUDYSPEC_PARAMETERSPEC.oneofs_by_name['parameter_value_spec'].fields.append(
   _STUDYSPEC_PARAMETERSPEC.fields_by_name['discrete_value_spec'])
 _STUDYSPEC_PARAMETERSPEC.fields_by_name['discrete_value_spec'].containing_oneof = _STUDYSPEC_PARAMETERSPEC.oneofs_by_name['parameter_value_spec']
+_STUDYSPEC_DECAYCURVEAUTOMATEDSTOPPINGSPEC.containing_type = _STUDYSPEC
+_STUDYSPEC_MEDIANAUTOMATEDSTOPPINGSPEC.containing_type = _STUDYSPEC
+_STUDYSPEC.fields_by_name['decay_curve_stopping_spec'].message_type = _STUDYSPEC_DECAYCURVEAUTOMATEDSTOPPINGSPEC
+_STUDYSPEC.fields_by_name['median_automated_stopping_spec'].message_type = _STUDYSPEC_MEDIANAUTOMATEDSTOPPINGSPEC
 _STUDYSPEC.fields_by_name['metrics'].message_type = _STUDYSPEC_METRICSPEC
 _STUDYSPEC.fields_by_name['parameters'].message_type = _STUDYSPEC_PARAMETERSPEC
 _STUDYSPEC.fields_by_name['algorithm'].enum_type = _STUDYSPEC_ALGORITHM
@@ -951,12 +1285,27 @@ _STUDYSPEC.fields_by_name['measurement_selection_type'].enum_type = _STUDYSPEC_M
 _STUDYSPEC_ALGORITHM.containing_type = _STUDYSPEC
 _STUDYSPEC_OBSERVATIONNOISE.containing_type = _STUDYSPEC
 _STUDYSPEC_MEASUREMENTSELECTIONTYPE.containing_type = _STUDYSPEC
+_STUDYSPEC.oneofs_by_name['automated_stopping_spec'].fields.append(
+  _STUDYSPEC.fields_by_name['decay_curve_stopping_spec'])
+_STUDYSPEC.fields_by_name['decay_curve_stopping_spec'].containing_oneof = _STUDYSPEC.oneofs_by_name['automated_stopping_spec']
+_STUDYSPEC.oneofs_by_name['automated_stopping_spec'].fields.append(
+  _STUDYSPEC.fields_by_name['median_automated_stopping_spec'])
+_STUDYSPEC.fields_by_name['median_automated_stopping_spec'].containing_oneof = _STUDYSPEC.oneofs_by_name['automated_stopping_spec']
 _MEASUREMENT_METRIC.containing_type = _MEASUREMENT
+_MEASUREMENT.fields_by_name['elapsed_duration'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _MEASUREMENT.fields_by_name['metrics'].message_type = _MEASUREMENT_METRIC
+DESCRIPTOR.message_types_by_name['Study'] = _STUDY
 DESCRIPTOR.message_types_by_name['Trial'] = _TRIAL
 DESCRIPTOR.message_types_by_name['StudySpec'] = _STUDYSPEC
 DESCRIPTOR.message_types_by_name['Measurement'] = _MEASUREMENT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+Study = _reflection.GeneratedProtocolMessageType('Study', (_message.Message,), {
+  'DESCRIPTOR' : _STUDY,
+  '__module__' : 'google.cloud.aiplatform.v1.study_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.Study)
+  })
+_sym_db.RegisterMessage(Study)
 
 Trial = _reflection.GeneratedProtocolMessageType('Trial', (_message.Message,), {
 
@@ -966,12 +1315,20 @@ Trial = _reflection.GeneratedProtocolMessageType('Trial', (_message.Message,), {
     # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.Trial.Parameter)
     })
   ,
+
+  'WebAccessUrisEntry' : _reflection.GeneratedProtocolMessageType('WebAccessUrisEntry', (_message.Message,), {
+    'DESCRIPTOR' : _TRIAL_WEBACCESSURISENTRY,
+    '__module__' : 'google.cloud.aiplatform.v1.study_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.Trial.WebAccessUrisEntry)
+    })
+  ,
   'DESCRIPTOR' : _TRIAL,
   '__module__' : 'google.cloud.aiplatform.v1.study_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.Trial)
   })
 _sym_db.RegisterMessage(Trial)
 _sym_db.RegisterMessage(Trial.Parameter)
+_sym_db.RegisterMessage(Trial.WebAccessUrisEntry)
 
 StudySpec = _reflection.GeneratedProtocolMessageType('StudySpec', (_message.Message,), {
 
@@ -1044,6 +1401,20 @@ StudySpec = _reflection.GeneratedProtocolMessageType('StudySpec', (_message.Mess
     # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.StudySpec.ParameterSpec)
     })
   ,
+
+  'DecayCurveAutomatedStoppingSpec' : _reflection.GeneratedProtocolMessageType('DecayCurveAutomatedStoppingSpec', (_message.Message,), {
+    'DESCRIPTOR' : _STUDYSPEC_DECAYCURVEAUTOMATEDSTOPPINGSPEC,
+    '__module__' : 'google.cloud.aiplatform.v1.study_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.StudySpec.DecayCurveAutomatedStoppingSpec)
+    })
+  ,
+
+  'MedianAutomatedStoppingSpec' : _reflection.GeneratedProtocolMessageType('MedianAutomatedStoppingSpec', (_message.Message,), {
+    'DESCRIPTOR' : _STUDYSPEC_MEDIANAUTOMATEDSTOPPINGSPEC,
+    '__module__' : 'google.cloud.aiplatform.v1.study_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.StudySpec.MedianAutomatedStoppingSpec)
+    })
+  ,
   'DESCRIPTOR' : _STUDYSPEC,
   '__module__' : 'google.cloud.aiplatform.v1.study_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.StudySpec)
@@ -1059,6 +1430,8 @@ _sym_db.RegisterMessage(StudySpec.ParameterSpec.ConditionalParameterSpec)
 _sym_db.RegisterMessage(StudySpec.ParameterSpec.ConditionalParameterSpec.DiscreteValueCondition)
 _sym_db.RegisterMessage(StudySpec.ParameterSpec.ConditionalParameterSpec.IntValueCondition)
 _sym_db.RegisterMessage(StudySpec.ParameterSpec.ConditionalParameterSpec.CategoricalValueCondition)
+_sym_db.RegisterMessage(StudySpec.DecayCurveAutomatedStoppingSpec)
+_sym_db.RegisterMessage(StudySpec.MedianAutomatedStoppingSpec)
 
 Measurement = _reflection.GeneratedProtocolMessageType('Measurement', (_message.Message,), {
 
@@ -1077,15 +1450,28 @@ _sym_db.RegisterMessage(Measurement.Metric)
 
 
 DESCRIPTOR._options = None
+_STUDY.fields_by_name['name']._options = None
+_STUDY.fields_by_name['display_name']._options = None
+_STUDY.fields_by_name['study_spec']._options = None
+_STUDY.fields_by_name['state']._options = None
+_STUDY.fields_by_name['create_time']._options = None
+_STUDY.fields_by_name['inactive_reason']._options = None
+_STUDY._options = None
 _TRIAL_PARAMETER.fields_by_name['parameter_id']._options = None
 _TRIAL_PARAMETER.fields_by_name['value']._options = None
+_TRIAL_WEBACCESSURISENTRY._options = None
+_TRIAL.fields_by_name['name']._options = None
 _TRIAL.fields_by_name['id']._options = None
 _TRIAL.fields_by_name['state']._options = None
 _TRIAL.fields_by_name['parameters']._options = None
 _TRIAL.fields_by_name['final_measurement']._options = None
+_TRIAL.fields_by_name['measurements']._options = None
 _TRIAL.fields_by_name['start_time']._options = None
 _TRIAL.fields_by_name['end_time']._options = None
+_TRIAL.fields_by_name['client_id']._options = None
+_TRIAL.fields_by_name['infeasible_reason']._options = None
 _TRIAL.fields_by_name['custom_job']._options = None
+_TRIAL.fields_by_name['web_access_uris']._options = None
 _TRIAL._options = None
 _STUDYSPEC_METRICSPEC.fields_by_name['metric_id']._options = None
 _STUDYSPEC_METRICSPEC.fields_by_name['goal']._options = None
@@ -1104,6 +1490,7 @@ _STUDYSPEC.fields_by_name['metrics']._options = None
 _STUDYSPEC.fields_by_name['parameters']._options = None
 _MEASUREMENT_METRIC.fields_by_name['metric_id']._options = None
 _MEASUREMENT_METRIC.fields_by_name['value']._options = None
+_MEASUREMENT.fields_by_name['elapsed_duration']._options = None
 _MEASUREMENT.fields_by_name['step_count']._options = None
 _MEASUREMENT.fields_by_name['metrics']._options = None
 # @@protoc_insertion_point(module_scope)

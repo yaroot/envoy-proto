@@ -13,6 +13,8 @@ _sym_db = _symbol_database.Default()
 
 from envoy.config.common.matcher.v3 import matcher_pb2 as envoy_dot_config_dot_common_dot_matcher_dot_v3_dot_matcher__pb2
 from envoy.config.core.v3 import extension_pb2 as envoy_dot_config_dot_core_dot_v3_dot_extension__pb2
+from xds.type.matcher.v3 import matcher_pb2 as xds_dot_type_dot_matcher_dot_v3_dot_matcher__pb2
+from envoy.annotations import deprecation_pb2 as envoy_dot_annotations_dot_deprecation__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from validate import validate_pb2 as validate_dot_validate__pb2
 
@@ -23,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n1io.envoyproxy.envoy.extensions.common.matching.v3B\025ExtensionMatcherProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n;envoy/extensions/common/matching/v3/extension_matcher.proto\x12#envoy.extensions.common.matching.v3\x1a,envoy/config/common/matcher/v3/matcher.proto\x1a$envoy/config/core/v3/extension.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\xaa\x01\n\x14\x45xtensionWithMatcher\x12\x42\n\x07matcher\x18\x01 \x01(\x0b\x32\'.envoy.config.common.matcher.v3.MatcherB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12N\n\x10\x65xtension_config\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x42T\n1io.envoyproxy.envoy.extensions.common.matching.v3B\x15\x45xtensionMatcherProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n;envoy/extensions/common/matching/v3/extension_matcher.proto\x12#envoy.extensions.common.matching.v3\x1a,envoy/config/common/matcher/v3/matcher.proto\x1a$envoy/config/core/v3/extension.proto\x1a!xds/type/matcher/v3/matcher.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\xe0\x01\n\x14\x45xtensionWithMatcher\x12\x45\n\x07matcher\x18\x01 \x01(\x0b\x32\'.envoy.config.common.matcher.v3.MatcherB\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12\x31\n\x0bxds_matcher\x18\x03 \x01(\x0b\x32\x1c.xds.type.matcher.v3.Matcher\x12N\n\x10\x65xtension_config\x18\x02 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfigB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x42T\n1io.envoyproxy.envoy.extensions.common.matching.v3B\x15\x45xtensionMatcherProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_common_dot_matcher_dot_v3_dot_matcher__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_extension__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_common_dot_matcher_dot_v3_dot_matcher__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_extension__pb2.DESCRIPTOR,xds_dot_type_dot_matcher_dot_v3_dot_matcher__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -44,9 +46,16 @@ _EXTENSIONWITHMATCHER = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\372B\005\212\001\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\030\001\222\307\206\330\004\0033.0', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='extension_config', full_name='envoy.extensions.common.matching.v3.ExtensionWithMatcher.extension_config', index=1,
+      name='xds_matcher', full_name='envoy.extensions.common.matching.v3.ExtensionWithMatcher.xds_matcher', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='extension_config', full_name='envoy.extensions.common.matching.v3.ExtensionWithMatcher.extension_config', index=2,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -64,11 +73,12 @@ _EXTENSIONWITHMATCHER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=241,
-  serialized_end=411,
+  serialized_start=313,
+  serialized_end=537,
 )
 
 _EXTENSIONWITHMATCHER.fields_by_name['matcher'].message_type = envoy_dot_config_dot_common_dot_matcher_dot_v3_dot_matcher__pb2._MATCHER
+_EXTENSIONWITHMATCHER.fields_by_name['xds_matcher'].message_type = xds_dot_type_dot_matcher_dot_v3_dot_matcher__pb2._MATCHER
 _EXTENSIONWITHMATCHER.fields_by_name['extension_config'].message_type = envoy_dot_config_dot_core_dot_v3_dot_extension__pb2._TYPEDEXTENSIONCONFIG
 DESCRIPTOR.message_types_by_name['ExtensionWithMatcher'] = _EXTENSIONWITHMATCHER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)

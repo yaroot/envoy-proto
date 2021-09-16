@@ -23,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1beta1/index_endpoint.proto',
   package='google.cloud.aiplatform.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\022IndexEndpointProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
+  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\022IndexEndpointProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\252\002\037Google.Cloud.AIPlatform.V1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1\352\002\"Google::Cloud::AIPlatform::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n4google/cloud/aiplatform/v1beta1/index_endpoint.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a+google/cloud/aiplatform/v1beta1/index.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x37google/cloud/aiplatform/v1beta1/machine_resources.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xa6\x04\n\rIndexEndpoint\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12M\n\x10\x64\x65ployed_indexes\x18\x04 \x03(\x0b\x32..google.cloud.aiplatform.v1beta1.DeployedIndexB\x03\xe0\x41\x03\x12\x0c\n\x04\x65tag\x18\x05 \x01(\t\x12J\n\x06labels\x18\x06 \x03(\x0b\x32:.google.cloud.aiplatform.v1beta1.IndexEndpoint.LabelsEntry\x12\x34\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x17\n\x07network\x18\t \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:u\xea\x41r\n\'aiplatform.googleapis.com/IndexEndpoint\x12Gprojects/{project}/locations/{location}/indexEndpoints/{index_endpoint}\"\x94\x04\n\rDeployedIndex\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x36\n\x05index\x18\x02 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x61iplatform.googleapis.com/Index\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12V\n\x11private_endpoints\x18\x05 \x01(\x0b\x32\x36.google.cloud.aiplatform.v1beta1.IndexPrivateEndpointsB\x03\xe0\x41\x03\x12\x38\n\x0findex_sync_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12U\n\x13\x61utomatic_resources\x18\x07 \x01(\x0b\x32\x33.google.cloud.aiplatform.v1beta1.AutomaticResourcesB\x03\xe0\x41\x01\x12\"\n\x15\x65nable_access_logging\x18\x08 \x01(\x08\x42\x03\xe0\x41\x01\x12\x61\n\x1a\x64\x65ployed_index_auth_config\x18\t \x01(\x0b\x32\x38.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfigB\x03\xe0\x41\x01\"\xb3\x01\n\x17\x44\x65ployedIndexAuthConfig\x12\\\n\rauth_provider\x18\x01 \x01(\x0b\x32\x45.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider\x1a:\n\x0c\x41uthProvider\x12\x11\n\taudiences\x18\x01 \x03(\t\x12\x17\n\x0f\x61llowed_issuers\x18\x02 \x03(\t\"8\n\x15IndexPrivateEndpoints\x12\x1f\n\x12match_grpc_address\x18\x01 \x01(\tB\x03\xe0\x41\x03\x42\x86\x01\n#com.google.cloud.aiplatform.v1beta1B\x12IndexEndpointProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n4google/cloud/aiplatform/v1beta1/index_endpoint.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a+google/cloud/aiplatform/v1beta1/index.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x37google/cloud/aiplatform/v1beta1/machine_resources.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xa6\x04\n\rIndexEndpoint\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12M\n\x10\x64\x65ployed_indexes\x18\x04 \x03(\x0b\x32..google.cloud.aiplatform.v1beta1.DeployedIndexB\x03\xe0\x41\x03\x12\x0c\n\x04\x65tag\x18\x05 \x01(\t\x12J\n\x06labels\x18\x06 \x03(\x0b\x32:.google.cloud.aiplatform.v1beta1.IndexEndpoint.LabelsEntry\x12\x34\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x17\n\x07network\x18\t \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:u\xea\x41r\n\'aiplatform.googleapis.com/IndexEndpoint\x12Gprojects/{project}/locations/{location}/indexEndpoints/{index_endpoint}\"\xd4\x04\n\rDeployedIndex\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x36\n\x05index\x18\x02 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x61iplatform.googleapis.com/Index\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12V\n\x11private_endpoints\x18\x05 \x01(\x0b\x32\x36.google.cloud.aiplatform.v1beta1.IndexPrivateEndpointsB\x03\xe0\x41\x03\x12\x38\n\x0findex_sync_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12U\n\x13\x61utomatic_resources\x18\x07 \x01(\x0b\x32\x33.google.cloud.aiplatform.v1beta1.AutomaticResourcesB\x03\xe0\x41\x01\x12\"\n\x15\x65nable_access_logging\x18\x08 \x01(\x08\x42\x03\xe0\x41\x01\x12\x61\n\x1a\x64\x65ployed_index_auth_config\x18\t \x01(\x0b\x32\x38.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfigB\x03\xe0\x41\x01\x12\x1f\n\x12reserved_ip_ranges\x18\n \x03(\tB\x03\xe0\x41\x01\x12\x1d\n\x10\x64\x65ployment_group\x18\x0b \x01(\tB\x03\xe0\x41\x01\"\xb3\x01\n\x17\x44\x65ployedIndexAuthConfig\x12\\\n\rauth_provider\x18\x01 \x01(\x0b\x32\x45.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider\x1a:\n\x0c\x41uthProvider\x12\x11\n\taudiences\x18\x01 \x03(\t\x12\x17\n\x0f\x61llowed_issuers\x18\x02 \x03(\t\"8\n\x15IndexPrivateEndpoints\x12\x1f\n\x12match_grpc_address\x18\x01 \x01(\tB\x03\xe0\x41\x03\x42\xef\x01\n#com.google.cloud.aiplatform.v1beta1B\x12IndexEndpointProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_index__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_machine__resources__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -229,6 +229,20 @@ _DEPLOYEDINDEX = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='reserved_ip_ranges', full_name='google.cloud.aiplatform.v1beta1.DeployedIndex.reserved_ip_ranges', index=9,
+      number=10, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='deployment_group', full_name='google.cloud.aiplatform.v1beta1.DeployedIndex.deployment_group', index=10,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -242,7 +256,7 @@ _DEPLOYEDINDEX = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=868,
-  serialized_end=1400,
+  serialized_end=1464,
 )
 
 
@@ -280,8 +294,8 @@ _DEPLOYEDINDEXAUTHCONFIG_AUTHPROVIDER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1524,
-  serialized_end=1582,
+  serialized_start=1588,
+  serialized_end=1646,
 )
 
 _DEPLOYEDINDEXAUTHCONFIG = _descriptor.Descriptor(
@@ -311,8 +325,8 @@ _DEPLOYEDINDEXAUTHCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1403,
-  serialized_end=1582,
+  serialized_start=1467,
+  serialized_end=1646,
 )
 
 
@@ -343,8 +357,8 @@ _INDEXPRIVATEENDPOINTS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1584,
-  serialized_end=1640,
+  serialized_start=1648,
+  serialized_end=1704,
 )
 
 _INDEXENDPOINT_LABELSENTRY.containing_type = _INDEXENDPOINT
@@ -427,5 +441,7 @@ _DEPLOYEDINDEX.fields_by_name['index_sync_time']._options = None
 _DEPLOYEDINDEX.fields_by_name['automatic_resources']._options = None
 _DEPLOYEDINDEX.fields_by_name['enable_access_logging']._options = None
 _DEPLOYEDINDEX.fields_by_name['deployed_index_auth_config']._options = None
+_DEPLOYEDINDEX.fields_by_name['reserved_ip_ranges']._options = None
+_DEPLOYEDINDEX.fields_by_name['deployment_group']._options = None
 _INDEXPRIVATEENDPOINTS.fields_by_name['match_grpc_address']._options = None
 # @@protoc_insertion_point(module_scope)

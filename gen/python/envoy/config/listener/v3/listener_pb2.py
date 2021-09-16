@@ -34,7 +34,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n&io.envoyproxy.envoy.config.listener.v3B\rListenerProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'envoy/config/listener/v3/listener.proto\x12\x18\x65nvoy.config.listener.v3\x1a)envoy/config/accesslog/v3/accesslog.proto\x1a\"envoy/config/core/v3/address.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a(envoy/config/core/v3/socket_option.proto\x1a+envoy/config/listener/v3/api_listener.proto\x1a\x32\x65nvoy/config/listener/v3/listener_components.proto\x1a\x32\x65nvoy/config/listener/v3/udp_listener_config.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\"xds/core/v3/collection_entry.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1fudpa/annotations/security.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"C\n\x12ListenerCollection\x12-\n\x07\x65ntries\x18\x01 \x03(\x0b\x32\x1c.xds.core.v3.CollectionEntry\"\x8e\x10\n\x08Listener\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x38\n\x07\x61\x64\x64ress\x18\x02 \x01(\x0b\x32\x1d.envoy.config.core.v3.AddressB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x13\n\x0bstat_prefix\x18\x1c \x01(\t\x12<\n\rfilter_chains\x18\x03 \x03(\x0b\x32%.envoy.config.listener.v3.FilterChain\x12\x34\n\x10use_original_dst\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x43\n\x14\x64\x65\x66\x61ult_filter_chain\x18\x19 \x01(\x0b\x32%.envoy.config.listener.v3.FilterChain\x12P\n!per_connection_buffer_limit_bytes\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\x8a\x93\xb7*\x02\x08\x01\x12\x30\n\x08metadata\x18\x06 \x01(\x0b\x32\x1e.envoy.config.core.v3.Metadata\x12S\n\rdeprecated_v1\x18\x07 \x01(\x0b\x32/.envoy.config.listener.v3.Listener.DeprecatedV1B\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12@\n\ndrain_type\x18\x08 \x01(\x0e\x32,.envoy.config.listener.v3.Listener.DrainType\x12\x42\n\x10listener_filters\x18\t \x03(\x0b\x32(.envoy.config.listener.v3.ListenerFilter\x12;\n\x18listener_filters_timeout\x18\x0f \x01(\x0b\x32\x19.google.protobuf.Duration\x12,\n$continue_on_listener_filters_timeout\x18\x11 \x01(\x08\x12/\n\x0btransparent\x18\n \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12,\n\x08\x66reebind\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12:\n\x0esocket_options\x18\r \x03(\x0b\x32\".envoy.config.core.v3.SocketOption\x12@\n\x1atcp_fast_open_queue_length\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x41\n\x11traffic_direction\x18\x10 \x01(\x0e\x32&.envoy.config.core.v3.TrafficDirection\x12H\n\x13udp_listener_config\x18\x12 \x01(\x0b\x32+.envoy.config.listener.v3.UdpListenerConfig\x12;\n\x0c\x61pi_listener\x18\x13 \x01(\x0b\x32%.envoy.config.listener.v3.ApiListener\x12]\n\x19\x63onnection_balance_config\x18\x14 \x01(\x0b\x32:.envoy.config.listener.v3.Listener.ConnectionBalanceConfig\x12\x12\n\nreuse_port\x18\x15 \x01(\x08\x12\x38\n\naccess_log\x18\x16 \x03(\x0b\x32$.envoy.config.accesslog.v3.AccessLog\x12\x36\n\x10tcp_backlog_size\x18\x18 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x30\n\x0c\x62ind_to_port\x18\x1a \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12V\n\x11internal_listener\x18\x1b \x01(\x0b\x32\x39.envoy.config.listener.v3.Listener.InternalListenerConfigH\x00\x1ak\n\x0c\x44\x65precatedV1\x12\x30\n\x0c\x62ind_to_port\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:)\x9a\xc5\x88\x1e$\n\"envoy.api.v2.Listener.DeprecatedV1\x1a\x99\x02\n\x17\x43onnectionBalanceConfig\x12`\n\rexact_balance\x18\x01 \x01(\x0b\x32G.envoy.config.listener.v3.Listener.ConnectionBalanceConfig.ExactBalanceH\x00\x1aQ\n\x0c\x45xactBalance:A\x9a\xc5\x88\x1e<\n:envoy.api.v2.Listener.ConnectionBalanceConfig.ExactBalance:4\x9a\xc5\x88\x1e/\n-envoy.api.v2.Listener.ConnectionBalanceConfigB\x13\n\x0c\x62\x61lance_type\x12\x03\xf8\x42\x01\x1a\x18\n\x16InternalListenerConfig\")\n\tDrainType\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x00\x12\x0f\n\x0bMODIFY_ONLY\x10\x01:\x1c\x9a\xc5\x88\x1e\x17\n\x15\x65nvoy.api.v2.ListenerB\x14\n\x12listener_specifierJ\x04\x08\x0e\x10\x0fJ\x04\x08\x17\x10\x18\x42\x41\n&io.envoyproxy.envoy.config.listener.v3B\rListenerProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n\'envoy/config/listener/v3/listener.proto\x12\x18\x65nvoy.config.listener.v3\x1a)envoy/config/accesslog/v3/accesslog.proto\x1a\"envoy/config/core/v3/address.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a(envoy/config/core/v3/socket_option.proto\x1a+envoy/config/listener/v3/api_listener.proto\x1a\x32\x65nvoy/config/listener/v3/listener_components.proto\x1a\x32\x65nvoy/config/listener/v3/udp_listener_config.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\"xds/core/v3/collection_entry.proto\x1a#envoy/annotations/deprecation.proto\x1a\x1fudpa/annotations/security.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"C\n\x12ListenerCollection\x12-\n\x07\x65ntries\x18\x01 \x03(\x0b\x32\x1c.xds.core.v3.CollectionEntry\"\xd2\x10\n\x08Listener\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x38\n\x07\x61\x64\x64ress\x18\x02 \x01(\x0b\x32\x1d.envoy.config.core.v3.AddressB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x13\n\x0bstat_prefix\x18\x1c \x01(\t\x12<\n\rfilter_chains\x18\x03 \x03(\x0b\x32%.envoy.config.listener.v3.FilterChain\x12\x34\n\x10use_original_dst\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x43\n\x14\x64\x65\x66\x61ult_filter_chain\x18\x19 \x01(\x0b\x32%.envoy.config.listener.v3.FilterChain\x12P\n!per_connection_buffer_limit_bytes\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\x8a\x93\xb7*\x02\x08\x01\x12\x30\n\x08metadata\x18\x06 \x01(\x0b\x32\x1e.envoy.config.core.v3.Metadata\x12S\n\rdeprecated_v1\x18\x07 \x01(\x0b\x32/.envoy.config.listener.v3.Listener.DeprecatedV1B\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12@\n\ndrain_type\x18\x08 \x01(\x0e\x32,.envoy.config.listener.v3.Listener.DrainType\x12\x42\n\x10listener_filters\x18\t \x03(\x0b\x32(.envoy.config.listener.v3.ListenerFilter\x12;\n\x18listener_filters_timeout\x18\x0f \x01(\x0b\x32\x19.google.protobuf.Duration\x12,\n$continue_on_listener_filters_timeout\x18\x11 \x01(\x08\x12/\n\x0btransparent\x18\n \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12,\n\x08\x66reebind\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12:\n\x0esocket_options\x18\r \x03(\x0b\x32\".envoy.config.core.v3.SocketOption\x12@\n\x1atcp_fast_open_queue_length\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x41\n\x11traffic_direction\x18\x10 \x01(\x0e\x32&.envoy.config.core.v3.TrafficDirection\x12H\n\x13udp_listener_config\x18\x12 \x01(\x0b\x32+.envoy.config.listener.v3.UdpListenerConfig\x12;\n\x0c\x61pi_listener\x18\x13 \x01(\x0b\x32%.envoy.config.listener.v3.ApiListener\x12]\n\x19\x63onnection_balance_config\x18\x14 \x01(\x0b\x32:.envoy.config.listener.v3.Listener.ConnectionBalanceConfig\x12\x1f\n\nreuse_port\x18\x15 \x01(\x08\x42\x0b\x18\x01\x92\xc7\x86\xd8\x04\x03\x33.0\x12\x35\n\x11\x65nable_reuse_port\x18\x1d \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12\x38\n\naccess_log\x18\x16 \x03(\x0b\x32$.envoy.config.accesslog.v3.AccessLog\x12\x36\n\x10tcp_backlog_size\x18\x18 \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12\x30\n\x0c\x62ind_to_port\x18\x1a \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12V\n\x11internal_listener\x18\x1b \x01(\x0b\x32\x39.envoy.config.listener.v3.Listener.InternalListenerConfigH\x00\x1ak\n\x0c\x44\x65precatedV1\x12\x30\n\x0c\x62ind_to_port\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.BoolValue:)\x9a\xc5\x88\x1e$\n\"envoy.api.v2.Listener.DeprecatedV1\x1a\x99\x02\n\x17\x43onnectionBalanceConfig\x12`\n\rexact_balance\x18\x01 \x01(\x0b\x32G.envoy.config.listener.v3.Listener.ConnectionBalanceConfig.ExactBalanceH\x00\x1aQ\n\x0c\x45xactBalance:A\x9a\xc5\x88\x1e<\n:envoy.api.v2.Listener.ConnectionBalanceConfig.ExactBalance:4\x9a\xc5\x88\x1e/\n-envoy.api.v2.Listener.ConnectionBalanceConfigB\x13\n\x0c\x62\x61lance_type\x12\x03\xf8\x42\x01\x1a\x18\n\x16InternalListenerConfig\")\n\tDrainType\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x00\x12\x0f\n\x0bMODIFY_ONLY\x10\x01:\x1c\x9a\xc5\x88\x1e\x17\n\x15\x65nvoy.api.v2.ListenerB\x14\n\x12listener_specifierJ\x04\x08\x0e\x10\x0fJ\x04\x08\x17\x10\x18\x42\x41\n&io.envoyproxy.envoy.config.listener.v3B\rListenerProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_accesslog_dot_v3_dot_accesslog__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_address__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_socket__option__pb2.DESCRIPTOR,envoy_dot_config_dot_listener_dot_v3_dot_api__listener__pb2.DESCRIPTOR,envoy_dot_config_dot_listener_dot_v3_dot_listener__components__pb2.DESCRIPTOR,envoy_dot_config_dot_listener_dot_v3_dot_udp__listener__config__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,xds_dot_core_dot_v3_dot_collection__entry__pb2.DESCRIPTOR,envoy_dot_annotations_dot_deprecation__pb2.DESCRIPTOR,udpa_dot_annotations_dot_security__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -60,8 +60,8 @@ _LISTENER_DRAINTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2660,
-  serialized_end=2701,
+  serialized_start=2728,
+  serialized_end=2769,
 )
 _sym_db.RegisterEnumDescriptor(_LISTENER_DRAINTYPE)
 
@@ -125,8 +125,8 @@ _LISTENER_DEPRECATEDV1 = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2241,
-  serialized_end=2348,
+  serialized_start=2309,
+  serialized_end=2416,
 )
 
 _LISTENER_CONNECTIONBALANCECONFIG_EXACTBALANCE = _descriptor.Descriptor(
@@ -149,8 +149,8 @@ _LISTENER_CONNECTIONBALANCECONFIG_EXACTBALANCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2476,
-  serialized_end=2557,
+  serialized_start=2544,
+  serialized_end=2625,
 )
 
 _LISTENER_CONNECTIONBALANCECONFIG = _descriptor.Descriptor(
@@ -185,8 +185,8 @@ _LISTENER_CONNECTIONBALANCECONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[], serialized_options=b'\370B\001'),
   ],
-  serialized_start=2351,
-  serialized_end=2632,
+  serialized_start=2419,
+  serialized_end=2700,
 )
 
 _LISTENER_INTERNALLISTENERCONFIG = _descriptor.Descriptor(
@@ -209,8 +209,8 @@ _LISTENER_INTERNALLISTENERCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2634,
-  serialized_end=2658,
+  serialized_start=2702,
+  serialized_end=2726,
 )
 
 _LISTENER = _descriptor.Descriptor(
@@ -374,30 +374,37 @@ _LISTENER = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
+      serialized_options=b'\030\001\222\307\206\330\004\0033.0', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='enable_reuse_port', full_name='envoy.config.listener.v3.Listener.enable_reuse_port', index=22,
+      number=29, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='access_log', full_name='envoy.config.listener.v3.Listener.access_log', index=22,
+      name='access_log', full_name='envoy.config.listener.v3.Listener.access_log', index=23,
       number=22, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tcp_backlog_size', full_name='envoy.config.listener.v3.Listener.tcp_backlog_size', index=23,
+      name='tcp_backlog_size', full_name='envoy.config.listener.v3.Listener.tcp_backlog_size', index=24,
       number=24, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='bind_to_port', full_name='envoy.config.listener.v3.Listener.bind_to_port', index=24,
+      name='bind_to_port', full_name='envoy.config.listener.v3.Listener.bind_to_port', index=25,
       number=26, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='internal_listener', full_name='envoy.config.listener.v3.Listener.internal_listener', index=25,
+      name='internal_listener', full_name='envoy.config.listener.v3.Listener.internal_listener', index=26,
       number=27, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -422,7 +429,7 @@ _LISTENER = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=703,
-  serialized_end=2765,
+  serialized_end=2833,
 )
 
 _LISTENERCOLLECTION.fields_by_name['entries'].message_type = xds_dot_core_dot_v3_dot_collection__entry__pb2._COLLECTIONENTRY
@@ -453,6 +460,7 @@ _LISTENER.fields_by_name['traffic_direction'].enum_type = envoy_dot_config_dot_c
 _LISTENER.fields_by_name['udp_listener_config'].message_type = envoy_dot_config_dot_listener_dot_v3_dot_udp__listener__config__pb2._UDPLISTENERCONFIG
 _LISTENER.fields_by_name['api_listener'].message_type = envoy_dot_config_dot_listener_dot_v3_dot_api__listener__pb2._APILISTENER
 _LISTENER.fields_by_name['connection_balance_config'].message_type = _LISTENER_CONNECTIONBALANCECONFIG
+_LISTENER.fields_by_name['enable_reuse_port'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _LISTENER.fields_by_name['access_log'].message_type = envoy_dot_config_dot_accesslog_dot_v3_dot_accesslog__pb2._ACCESSLOG
 _LISTENER.fields_by_name['tcp_backlog_size'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
 _LISTENER.fields_by_name['bind_to_port'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
@@ -520,5 +528,6 @@ _LISTENER_CONNECTIONBALANCECONFIG._options = None
 _LISTENER.fields_by_name['address']._options = None
 _LISTENER.fields_by_name['per_connection_buffer_limit_bytes']._options = None
 _LISTENER.fields_by_name['deprecated_v1']._options = None
+_LISTENER.fields_by_name['reuse_port']._options = None
 _LISTENER._options = None
 # @@protoc_insertion_point(module_scope)

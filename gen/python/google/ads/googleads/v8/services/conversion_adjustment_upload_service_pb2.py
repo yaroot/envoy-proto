@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.ads.googleads.v8.common import offline_user_data_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_common_dot_offline__user__data__pb2
 from google.ads.googleads.v8.enums import conversion_adjustment_type_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_conversion__adjustment__type__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
@@ -24,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v8.servicesB&ConversionAdjustmentUploadServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v8/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V8.Services\312\002 Google\\Ads\\GoogleAds\\V8\\Services\352\002$Google::Ads::GoogleAds::V8::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nKgoogle/ads/googleads/v8/services/conversion_adjustment_upload_service.proto\x12 google.ads.googleads.v8.services\x1a>google/ads/googleads/v8/enums/conversion_adjustment_type.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x17google/rpc/status.proto\"\xd0\x01\n\"UploadConversionAdjustmentsRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12[\n\x16\x63onversion_adjustments\x18\x02 \x03(\x0b\x32\x36.google.ads.googleads.v8.services.ConversionAdjustmentB\x03\xe0\x41\x02\x12\x1c\n\x0fpartial_failure\x18\x03 \x01(\x08\x42\x03\xe0\x41\x02\x12\x15\n\rvalidate_only\x18\x04 \x01(\x08\"\xa7\x01\n#UploadConversionAdjustmentsResponse\x12\x31\n\x15partial_failure_error\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12M\n\x07results\x18\x02 \x03(\x0b\x32<.google.ads.googleads.v8.services.ConversionAdjustmentResult\"\xc8\x03\n\x14\x43onversionAdjustment\x12\x1e\n\x11\x63onversion_action\x18\x08 \x01(\tH\x01\x88\x01\x01\x12!\n\x14\x61\x64justment_date_time\x18\t \x01(\tH\x02\x88\x01\x01\x12m\n\x0f\x61\x64justment_type\x18\x05 \x01(\x0e\x32T.google.ads.googleads.v8.enums.ConversionAdjustmentTypeEnum.ConversionAdjustmentType\x12M\n\x11restatement_value\x18\x06 \x01(\x0b\x32\x32.google.ads.googleads.v8.services.RestatementValue\x12S\n\x14gclid_date_time_pair\x18\x01 \x01(\x0b\x32\x33.google.ads.googleads.v8.services.GclidDateTimePairH\x00\x12\x12\n\x08order_id\x18\x07 \x01(\tH\x00\x42\x17\n\x15\x63onversion_identifierB\x14\n\x12_conversion_actionB\x17\n\x15_adjustment_date_time\"p\n\x10RestatementValue\x12\x1b\n\x0e\x61\x64justed_value\x18\x03 \x01(\x01H\x00\x88\x01\x01\x12\x1a\n\rcurrency_code\x18\x04 \x01(\tH\x01\x88\x01\x01\x42\x11\n\x0f_adjusted_valueB\x10\n\x0e_currency_code\"m\n\x11GclidDateTimePair\x12\x12\n\x05gclid\x18\x03 \x01(\tH\x00\x88\x01\x01\x12!\n\x14\x63onversion_date_time\x18\x04 \x01(\tH\x01\x88\x01\x01\x42\x08\n\x06_gclidB\x17\n\x15_conversion_date_time\"\xff\x02\n\x1a\x43onversionAdjustmentResult\x12\x1e\n\x11\x63onversion_action\x18\x07 \x01(\tH\x01\x88\x01\x01\x12!\n\x14\x61\x64justment_date_time\x18\x08 \x01(\tH\x02\x88\x01\x01\x12m\n\x0f\x61\x64justment_type\x18\x05 \x01(\x0e\x32T.google.ads.googleads.v8.enums.ConversionAdjustmentTypeEnum.ConversionAdjustmentType\x12S\n\x14gclid_date_time_pair\x18\x01 \x01(\x0b\x32\x33.google.ads.googleads.v8.services.GclidDateTimePairH\x00\x12\x12\n\x08order_id\x18\x06 \x01(\tH\x00\x42\x17\n\x15\x63onversion_identifierB\x14\n\x12_conversion_actionB\x17\n\x15_adjustment_date_time2\x92\x03\n!ConversionAdjustmentUploadService\x12\xa5\x02\n\x1bUploadConversionAdjustments\x12\x44.google.ads.googleads.v8.services.UploadConversionAdjustmentsRequest\x1a\x45.google.ads.googleads.v8.services.UploadConversionAdjustmentsResponse\"y\x82\xd3\xe4\x93\x02>\"9/v8/customers/{customer_id=*}:uploadConversionAdjustments:\x01*\xda\x41\x32\x63ustomer_id,conversion_adjustments,partial_failure\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x8d\x02\n$com.google.ads.googleads.v8.servicesB&ConversionAdjustmentUploadServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v8/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V8.Services\xca\x02 Google\\Ads\\GoogleAds\\V8\\Services\xea\x02$Google::Ads::GoogleAds::V8::Servicesb\x06proto3'
+  serialized_pb=b'\nKgoogle/ads/googleads/v8/services/conversion_adjustment_upload_service.proto\x12 google.ads.googleads.v8.services\x1a\x36google/ads/googleads/v8/common/offline_user_data.proto\x1a>google/ads/googleads/v8/enums/conversion_adjustment_type.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x17google/rpc/status.proto\"\xd0\x01\n\"UploadConversionAdjustmentsRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12[\n\x16\x63onversion_adjustments\x18\x02 \x03(\x0b\x32\x36.google.ads.googleads.v8.services.ConversionAdjustmentB\x03\xe0\x41\x02\x12\x1c\n\x0fpartial_failure\x18\x03 \x01(\x08\x42\x03\xe0\x41\x02\x12\x15\n\rvalidate_only\x18\x04 \x01(\x08\"\xa7\x01\n#UploadConversionAdjustmentsResponse\x12\x31\n\x15partial_failure_error\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12M\n\x07results\x18\x02 \x03(\x0b\x32<.google.ads.googleads.v8.services.ConversionAdjustmentResult\"\xba\x04\n\x14\x43onversionAdjustment\x12\x1e\n\x11\x63onversion_action\x18\x08 \x01(\tH\x01\x88\x01\x01\x12!\n\x14\x61\x64justment_date_time\x18\t \x01(\tH\x02\x88\x01\x01\x12m\n\x0f\x61\x64justment_type\x18\x05 \x01(\x0e\x32T.google.ads.googleads.v8.enums.ConversionAdjustmentTypeEnum.ConversionAdjustmentType\x12M\n\x11restatement_value\x18\x06 \x01(\x0b\x32\x32.google.ads.googleads.v8.services.RestatementValue\x12H\n\x10user_identifiers\x18\n \x03(\x0b\x32..google.ads.googleads.v8.common.UserIdentifier\x12\x17\n\nuser_agent\x18\x0b \x01(\tH\x03\x88\x01\x01\x12S\n\x14gclid_date_time_pair\x18\x01 \x01(\x0b\x32\x33.google.ads.googleads.v8.services.GclidDateTimePairH\x00\x12\x12\n\x08order_id\x18\x07 \x01(\tH\x00\x42\x17\n\x15\x63onversion_identifierB\x14\n\x12_conversion_actionB\x17\n\x15_adjustment_date_timeB\r\n\x0b_user_agent\"p\n\x10RestatementValue\x12\x1b\n\x0e\x61\x64justed_value\x18\x03 \x01(\x01H\x00\x88\x01\x01\x12\x1a\n\rcurrency_code\x18\x04 \x01(\tH\x01\x88\x01\x01\x42\x11\n\x0f_adjusted_valueB\x10\n\x0e_currency_code\"m\n\x11GclidDateTimePair\x12\x12\n\x05gclid\x18\x03 \x01(\tH\x00\x88\x01\x01\x12!\n\x14\x63onversion_date_time\x18\x04 \x01(\tH\x01\x88\x01\x01\x42\x08\n\x06_gclidB\x17\n\x15_conversion_date_time\"\xff\x02\n\x1a\x43onversionAdjustmentResult\x12\x1e\n\x11\x63onversion_action\x18\x07 \x01(\tH\x01\x88\x01\x01\x12!\n\x14\x61\x64justment_date_time\x18\x08 \x01(\tH\x02\x88\x01\x01\x12m\n\x0f\x61\x64justment_type\x18\x05 \x01(\x0e\x32T.google.ads.googleads.v8.enums.ConversionAdjustmentTypeEnum.ConversionAdjustmentType\x12S\n\x14gclid_date_time_pair\x18\x01 \x01(\x0b\x32\x33.google.ads.googleads.v8.services.GclidDateTimePairH\x00\x12\x12\n\x08order_id\x18\x06 \x01(\tH\x00\x42\x17\n\x15\x63onversion_identifierB\x14\n\x12_conversion_actionB\x17\n\x15_adjustment_date_time2\x92\x03\n!ConversionAdjustmentUploadService\x12\xa5\x02\n\x1bUploadConversionAdjustments\x12\x44.google.ads.googleads.v8.services.UploadConversionAdjustmentsRequest\x1a\x45.google.ads.googleads.v8.services.UploadConversionAdjustmentsResponse\"y\x82\xd3\xe4\x93\x02>\"9/v8/customers/{customer_id=*}:uploadConversionAdjustments:\x01*\xda\x41\x32\x63ustomer_id,conversion_adjustments,partial_failure\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x8d\x02\n$com.google.ads.googleads.v8.servicesB&ConversionAdjustmentUploadServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v8/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V8.Services\xca\x02 Google\\Ads\\GoogleAds\\V8\\Services\xea\x02$Google::Ads::GoogleAds::V8::Servicesb\x06proto3'
   ,
-  dependencies=[google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_conversion__adjustment__type__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_ads_dot_googleads_dot_v8_dot_common_dot_offline__user__data__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_conversion__adjustment__type__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
 
 
@@ -79,8 +80,8 @@ _UPLOADCONVERSIONADJUSTMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=291,
-  serialized_end=499,
+  serialized_start=347,
+  serialized_end=555,
 )
 
 
@@ -118,8 +119,8 @@ _UPLOADCONVERSIONADJUSTMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=502,
-  serialized_end=669,
+  serialized_start=558,
+  serialized_end=725,
 )
 
 
@@ -160,14 +161,28 @@ _CONVERSIONADJUSTMENT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='gclid_date_time_pair', full_name='google.ads.googleads.v8.services.ConversionAdjustment.gclid_date_time_pair', index=4,
+      name='user_identifiers', full_name='google.ads.googleads.v8.services.ConversionAdjustment.user_identifiers', index=4,
+      number=10, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='user_agent', full_name='google.ads.googleads.v8.services.ConversionAdjustment.user_agent', index=5,
+      number=11, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='gclid_date_time_pair', full_name='google.ads.googleads.v8.services.ConversionAdjustment.gclid_date_time_pair', index=6,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='order_id', full_name='google.ads.googleads.v8.services.ConversionAdjustment.order_id', index=5,
+      name='order_id', full_name='google.ads.googleads.v8.services.ConversionAdjustment.order_id', index=7,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -199,9 +214,14 @@ _CONVERSIONADJUSTMENT = _descriptor.Descriptor(
       index=2, containing_type=None,
       create_key=_descriptor._internal_create_key,
     fields=[]),
+    _descriptor.OneofDescriptor(
+      name='_user_agent', full_name='google.ads.googleads.v8.services.ConversionAdjustment._user_agent',
+      index=3, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=672,
-  serialized_end=1128,
+  serialized_start=728,
+  serialized_end=1298,
 )
 
 
@@ -249,8 +269,8 @@ _RESTATEMENTVALUE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1130,
-  serialized_end=1242,
+  serialized_start=1300,
+  serialized_end=1412,
 )
 
 
@@ -298,8 +318,8 @@ _GCLIDDATETIMEPAIR = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1244,
-  serialized_end=1353,
+  serialized_start=1414,
+  serialized_end=1523,
 )
 
 
@@ -373,8 +393,8 @@ _CONVERSIONADJUSTMENTRESULT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1356,
-  serialized_end=1739,
+  serialized_start=1526,
+  serialized_end=1909,
 )
 
 _UPLOADCONVERSIONADJUSTMENTSREQUEST.fields_by_name['conversion_adjustments'].message_type = _CONVERSIONADJUSTMENT
@@ -382,6 +402,7 @@ _UPLOADCONVERSIONADJUSTMENTSRESPONSE.fields_by_name['partial_failure_error'].mes
 _UPLOADCONVERSIONADJUSTMENTSRESPONSE.fields_by_name['results'].message_type = _CONVERSIONADJUSTMENTRESULT
 _CONVERSIONADJUSTMENT.fields_by_name['adjustment_type'].enum_type = google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_conversion__adjustment__type__pb2._CONVERSIONADJUSTMENTTYPEENUM_CONVERSIONADJUSTMENTTYPE
 _CONVERSIONADJUSTMENT.fields_by_name['restatement_value'].message_type = _RESTATEMENTVALUE
+_CONVERSIONADJUSTMENT.fields_by_name['user_identifiers'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_common_dot_offline__user__data__pb2._USERIDENTIFIER
 _CONVERSIONADJUSTMENT.fields_by_name['gclid_date_time_pair'].message_type = _GCLIDDATETIMEPAIR
 _CONVERSIONADJUSTMENT.oneofs_by_name['conversion_identifier'].fields.append(
   _CONVERSIONADJUSTMENT.fields_by_name['gclid_date_time_pair'])
@@ -395,6 +416,9 @@ _CONVERSIONADJUSTMENT.fields_by_name['conversion_action'].containing_oneof = _CO
 _CONVERSIONADJUSTMENT.oneofs_by_name['_adjustment_date_time'].fields.append(
   _CONVERSIONADJUSTMENT.fields_by_name['adjustment_date_time'])
 _CONVERSIONADJUSTMENT.fields_by_name['adjustment_date_time'].containing_oneof = _CONVERSIONADJUSTMENT.oneofs_by_name['_adjustment_date_time']
+_CONVERSIONADJUSTMENT.oneofs_by_name['_user_agent'].fields.append(
+  _CONVERSIONADJUSTMENT.fields_by_name['user_agent'])
+_CONVERSIONADJUSTMENT.fields_by_name['user_agent'].containing_oneof = _CONVERSIONADJUSTMENT.oneofs_by_name['_user_agent']
 _RESTATEMENTVALUE.oneofs_by_name['_adjusted_value'].fields.append(
   _RESTATEMENTVALUE.fields_by_name['adjusted_value'])
 _RESTATEMENTVALUE.fields_by_name['adjusted_value'].containing_oneof = _RESTATEMENTVALUE.oneofs_by_name['_adjusted_value']
@@ -484,8 +508,8 @@ _CONVERSIONADJUSTMENTUPLOADSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1742,
-  serialized_end=2144,
+  serialized_start=1912,
+  serialized_end=2314,
   methods=[
   _descriptor.MethodDescriptor(
     name='UploadConversionAdjustments',

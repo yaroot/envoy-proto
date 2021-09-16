@@ -28,9 +28,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1beta1/custom_job.proto',
   package='google.cloud.aiplatform.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\016CustomJobProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
+  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\016CustomJobProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\252\002\037Google.Cloud.AIPlatform.V1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1\352\002\"Google::Cloud::AIPlatform::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n0google/cloud/aiplatform/v1beta1/custom_job.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x35google/cloud/aiplatform/v1beta1/encryption_spec.proto\x1a-google/cloud/aiplatform/v1beta1/env_var.proto\x1a(google/cloud/aiplatform/v1beta1/io.proto\x1a/google/cloud/aiplatform/v1beta1/job_state.proto\x1a\x37google/cloud/aiplatform/v1beta1/machine_resources.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\x1a\x1cgoogle/api/annotations.proto\"\xe7\x05\n\tCustomJob\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x45\n\x08job_spec\x18\x04 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.CustomJobSpecB\x03\xe0\x41\x02\x12=\n\x05state\x18\x05 \x01(\x0e\x32).google.cloud.aiplatform.v1beta1.JobStateB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x33\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12&\n\x05\x65rror\x18\n \x01(\x0b\x32\x12.google.rpc.StatusB\x03\xe0\x41\x03\x12\x46\n\x06labels\x18\x0b \x03(\x0b\x32\x36.google.cloud.aiplatform.v1beta1.CustomJob.LabelsEntry\x12H\n\x0f\x65ncryption_spec\x18\x0c \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.EncryptionSpec\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:i\xea\x41\x66\n#aiplatform.googleapis.com/CustomJob\x12?projects/{project}/locations/{location}/customJobs/{custom_job}\"\x84\x03\n\rCustomJobSpec\x12O\n\x11worker_pool_specs\x18\x01 \x03(\x0b\x32/.google.cloud.aiplatform.v1beta1.WorkerPoolSpecB\x03\xe0\x41\x02\x12?\n\nscheduling\x18\x03 \x01(\x0b\x32+.google.cloud.aiplatform.v1beta1.Scheduling\x12\x17\n\x0fservice_account\x18\x04 \x01(\t\x12\x34\n\x07network\x18\x05 \x01(\tB#\xfa\x41 \n\x1e\x63ompute.googleapis.com/Network\x12N\n\x15\x62\x61se_output_directory\x18\x06 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.GcsDestination\x12\x42\n\x0btensorboard\x18\x07 \x01(\tB-\xe0\x41\x01\xfa\x41\'\n%aiplatform.googleapis.com/Tensorboard\"\xdb\x02\n\x0eWorkerPoolSpec\x12H\n\x0e\x63ontainer_spec\x18\x06 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.ContainerSpecH\x00\x12Q\n\x13python_package_spec\x18\x07 \x01(\x0b\x32\x32.google.cloud.aiplatform.v1beta1.PythonPackageSpecH\x00\x12J\n\x0cmachine_spec\x18\x01 \x01(\x0b\x32,.google.cloud.aiplatform.v1beta1.MachineSpecB\x06\xe0\x41\x01\xe0\x41\x05\x12\x1a\n\rreplica_count\x18\x02 \x01(\x03\x42\x03\xe0\x41\x01\x12<\n\tdisk_spec\x18\x05 \x01(\x0b\x32).google.cloud.aiplatform.v1beta1.DiskSpecB\x06\n\x04task\"F\n\rContainerSpec\x12\x16\n\timage_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0f\n\x07\x63ommand\x18\x02 \x03(\t\x12\x0c\n\x04\x61rgs\x18\x03 \x03(\t\"y\n\x11PythonPackageSpec\x12\x1f\n\x12\x65xecutor_image_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0cpackage_uris\x18\x02 \x03(\tB\x03\xe0\x41\x02\x12\x1a\n\rpython_module\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04\x61rgs\x18\x04 \x03(\t\"_\n\nScheduling\x12*\n\x07timeout\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12%\n\x1drestart_job_on_worker_restart\x18\x03 \x01(\x08\x42\x82\x01\n#com.google.cloud.aiplatform.v1beta1B\x0e\x43ustomJobProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n0google/cloud/aiplatform/v1beta1/custom_job.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x35google/cloud/aiplatform/v1beta1/encryption_spec.proto\x1a-google/cloud/aiplatform/v1beta1/env_var.proto\x1a(google/cloud/aiplatform/v1beta1/io.proto\x1a/google/cloud/aiplatform/v1beta1/job_state.proto\x1a\x37google/cloud/aiplatform/v1beta1/machine_resources.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\x1a\x1cgoogle/api/annotations.proto\"\xfa\x06\n\tCustomJob\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x45\n\x08job_spec\x18\x04 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.CustomJobSpecB\x03\xe0\x41\x02\x12=\n\x05state\x18\x05 \x01(\x0e\x32).google.cloud.aiplatform.v1beta1.JobStateB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x33\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12&\n\x05\x65rror\x18\n \x01(\x0b\x32\x12.google.rpc.StatusB\x03\xe0\x41\x03\x12\x46\n\x06labels\x18\x0b \x03(\x0b\x32\x36.google.cloud.aiplatform.v1beta1.CustomJob.LabelsEntry\x12H\n\x0f\x65ncryption_spec\x18\x0c \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.EncryptionSpec\x12[\n\x0fweb_access_uris\x18\x10 \x03(\x0b\x32=.google.cloud.aiplatform.v1beta1.CustomJob.WebAccessUrisEntryB\x03\xe0\x41\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x34\n\x12WebAccessUrisEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:i\xea\x41\x66\n#aiplatform.googleapis.com/CustomJob\x12?projects/{project}/locations/{location}/customJobs/{custom_job}\"\xa4\x03\n\rCustomJobSpec\x12O\n\x11worker_pool_specs\x18\x01 \x03(\x0b\x32/.google.cloud.aiplatform.v1beta1.WorkerPoolSpecB\x03\xe0\x41\x02\x12?\n\nscheduling\x18\x03 \x01(\x0b\x32+.google.cloud.aiplatform.v1beta1.Scheduling\x12\x17\n\x0fservice_account\x18\x04 \x01(\t\x12\x34\n\x07network\x18\x05 \x01(\tB#\xfa\x41 \n\x1e\x63ompute.googleapis.com/Network\x12N\n\x15\x62\x61se_output_directory\x18\x06 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.GcsDestination\x12\x42\n\x0btensorboard\x18\x07 \x01(\tB-\xe0\x41\x01\xfa\x41\'\n%aiplatform.googleapis.com/Tensorboard\x12\x1e\n\x11\x65nable_web_access\x18\n \x01(\x08\x42\x03\xe0\x41\x01\"\xdb\x02\n\x0eWorkerPoolSpec\x12H\n\x0e\x63ontainer_spec\x18\x06 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.ContainerSpecH\x00\x12Q\n\x13python_package_spec\x18\x07 \x01(\x0b\x32\x32.google.cloud.aiplatform.v1beta1.PythonPackageSpecH\x00\x12J\n\x0cmachine_spec\x18\x01 \x01(\x0b\x32,.google.cloud.aiplatform.v1beta1.MachineSpecB\x06\xe0\x41\x01\xe0\x41\x05\x12\x1a\n\rreplica_count\x18\x02 \x01(\x03\x42\x03\xe0\x41\x01\x12<\n\tdisk_spec\x18\x05 \x01(\x0b\x32).google.cloud.aiplatform.v1beta1.DiskSpecB\x06\n\x04task\"F\n\rContainerSpec\x12\x16\n\timage_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0f\n\x07\x63ommand\x18\x02 \x03(\t\x12\x0c\n\x04\x61rgs\x18\x03 \x03(\t\"y\n\x11PythonPackageSpec\x12\x1f\n\x12\x65xecutor_image_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0cpackage_uris\x18\x02 \x03(\tB\x03\xe0\x41\x02\x12\x1a\n\rpython_module\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04\x61rgs\x18\x04 \x03(\t\"_\n\nScheduling\x12*\n\x07timeout\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12%\n\x1drestart_job_on_worker_restart\x18\x03 \x01(\x08\x42\xeb\x01\n#com.google.cloud.aiplatform.v1beta1B\x0e\x43ustomJobProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_encryption__spec__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_env__var__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_io__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_job__state__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_machine__resources__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -71,8 +71,46 @@ _CUSTOMJOB_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1107,
-  serialized_end=1152,
+  serialized_start=1200,
+  serialized_end=1245,
+)
+
+_CUSTOMJOB_WEBACCESSURISENTRY = _descriptor.Descriptor(
+  name='WebAccessUrisEntry',
+  full_name='google.cloud.aiplatform.v1beta1.CustomJob.WebAccessUrisEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.cloud.aiplatform.v1beta1.CustomJob.WebAccessUrisEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.cloud.aiplatform.v1beta1.CustomJob.WebAccessUrisEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1247,
+  serialized_end=1299,
 )
 
 _CUSTOMJOB = _descriptor.Descriptor(
@@ -160,10 +198,17 @@ _CUSTOMJOB = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='web_access_uris', full_name='google.cloud.aiplatform.v1beta1.CustomJob.web_access_uris', index=11,
+      number=16, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_CUSTOMJOB_LABELSENTRY, ],
+  nested_types=[_CUSTOMJOB_LABELSENTRY, _CUSTOMJOB_WEBACCESSURISENTRY, ],
   enum_types=[
   ],
   serialized_options=b'\352Af\n#aiplatform.googleapis.com/CustomJob\022?projects/{project}/locations/{location}/customJobs/{custom_job}',
@@ -173,7 +218,7 @@ _CUSTOMJOB = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=516,
-  serialized_end=1259,
+  serialized_end=1406,
 )
 
 
@@ -227,6 +272,13 @@ _CUSTOMJOBSPEC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001\372A\'\n%aiplatform.googleapis.com/Tensorboard', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='enable_web_access', full_name='google.cloud.aiplatform.v1beta1.CustomJobSpec.enable_web_access', index=6,
+      number=10, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -239,8 +291,8 @@ _CUSTOMJOBSPEC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1262,
-  serialized_end=1650,
+  serialized_start=1409,
+  serialized_end=1829,
 )
 
 
@@ -304,8 +356,8 @@ _WORKERPOOLSPEC = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1653,
-  serialized_end=2000,
+  serialized_start=1832,
+  serialized_end=2179,
 )
 
 
@@ -350,8 +402,8 @@ _CONTAINERSPEC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2002,
-  serialized_end=2072,
+  serialized_start=2181,
+  serialized_end=2251,
 )
 
 
@@ -403,8 +455,8 @@ _PYTHONPACKAGESPEC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2074,
-  serialized_end=2195,
+  serialized_start=2253,
+  serialized_end=2374,
 )
 
 
@@ -442,11 +494,12 @@ _SCHEDULING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2197,
-  serialized_end=2292,
+  serialized_start=2376,
+  serialized_end=2471,
 )
 
 _CUSTOMJOB_LABELSENTRY.containing_type = _CUSTOMJOB
+_CUSTOMJOB_WEBACCESSURISENTRY.containing_type = _CUSTOMJOB
 _CUSTOMJOB.fields_by_name['job_spec'].message_type = _CUSTOMJOBSPEC
 _CUSTOMJOB.fields_by_name['state'].enum_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_job__state__pb2._JOBSTATE
 _CUSTOMJOB.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -456,6 +509,7 @@ _CUSTOMJOB.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_
 _CUSTOMJOB.fields_by_name['error'].message_type = google_dot_rpc_dot_status__pb2._STATUS
 _CUSTOMJOB.fields_by_name['labels'].message_type = _CUSTOMJOB_LABELSENTRY
 _CUSTOMJOB.fields_by_name['encryption_spec'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_encryption__spec__pb2._ENCRYPTIONSPEC
+_CUSTOMJOB.fields_by_name['web_access_uris'].message_type = _CUSTOMJOB_WEBACCESSURISENTRY
 _CUSTOMJOBSPEC.fields_by_name['worker_pool_specs'].message_type = _WORKERPOOLSPEC
 _CUSTOMJOBSPEC.fields_by_name['scheduling'].message_type = _SCHEDULING
 _CUSTOMJOBSPEC.fields_by_name['base_output_directory'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_io__pb2._GCSDESTINATION
@@ -486,12 +540,20 @@ CustomJob = _reflection.GeneratedProtocolMessageType('CustomJob', (_message.Mess
     # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.CustomJob.LabelsEntry)
     })
   ,
+
+  'WebAccessUrisEntry' : _reflection.GeneratedProtocolMessageType('WebAccessUrisEntry', (_message.Message,), {
+    'DESCRIPTOR' : _CUSTOMJOB_WEBACCESSURISENTRY,
+    '__module__' : 'google.cloud.aiplatform.v1beta1.custom_job_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.CustomJob.WebAccessUrisEntry)
+    })
+  ,
   'DESCRIPTOR' : _CUSTOMJOB,
   '__module__' : 'google.cloud.aiplatform.v1beta1.custom_job_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.CustomJob)
   })
 _sym_db.RegisterMessage(CustomJob)
 _sym_db.RegisterMessage(CustomJob.LabelsEntry)
+_sym_db.RegisterMessage(CustomJob.WebAccessUrisEntry)
 
 CustomJobSpec = _reflection.GeneratedProtocolMessageType('CustomJobSpec', (_message.Message,), {
   'DESCRIPTOR' : _CUSTOMJOBSPEC,
@@ -531,6 +593,7 @@ _sym_db.RegisterMessage(Scheduling)
 
 DESCRIPTOR._options = None
 _CUSTOMJOB_LABELSENTRY._options = None
+_CUSTOMJOB_WEBACCESSURISENTRY._options = None
 _CUSTOMJOB.fields_by_name['name']._options = None
 _CUSTOMJOB.fields_by_name['display_name']._options = None
 _CUSTOMJOB.fields_by_name['job_spec']._options = None
@@ -540,10 +603,12 @@ _CUSTOMJOB.fields_by_name['start_time']._options = None
 _CUSTOMJOB.fields_by_name['end_time']._options = None
 _CUSTOMJOB.fields_by_name['update_time']._options = None
 _CUSTOMJOB.fields_by_name['error']._options = None
+_CUSTOMJOB.fields_by_name['web_access_uris']._options = None
 _CUSTOMJOB._options = None
 _CUSTOMJOBSPEC.fields_by_name['worker_pool_specs']._options = None
 _CUSTOMJOBSPEC.fields_by_name['network']._options = None
 _CUSTOMJOBSPEC.fields_by_name['tensorboard']._options = None
+_CUSTOMJOBSPEC.fields_by_name['enable_web_access']._options = None
 _WORKERPOOLSPEC.fields_by_name['machine_spec']._options = None
 _WORKERPOOLSPEC.fields_by_name['replica_count']._options = None
 _CONTAINERSPEC.fields_by_name['image_uri']._options = None

@@ -12,6 +12,8 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
+from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.rpc import code_pb2 as google_dot_rpc_dot_code__pb2
@@ -23,11 +25,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/storagetransfer/v1/transfer_types.proto',
   package='google.storagetransfer.v1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.storagetransfer.v1.protoB\rTransferTypesZHgoogle.golang.org/genproto/googleapis/storagetransfer/v1;storagetransfer\370\001\001\252\002\037Google.Cloud.StorageTransfer.V1\312\002\037Google\\Cloud\\StorageTransfer\\V1',
+  serialized_options=b'\n#com.google.storagetransfer.v1.protoB\rTransferTypesZHgoogle.golang.org/genproto/googleapis/storagetransfer/v1;storagetransfer\370\001\001\252\002\037Google.Cloud.StorageTransfer.V1\312\002\037Google\\Cloud\\StorageTransfer\\V1\352\002\"Google::Cloud::StorageTransfer::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n.google/storagetransfer/v1/transfer_types.proto\x12\x19google.storagetransfer.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x15google/rpc/code.proto\x1a\x16google/type/date.proto\x1a\x1bgoogle/type/timeofday.proto\"-\n\x14GoogleServiceAccount\x12\x15\n\raccount_email\x18\x01 \x01(\t\"@\n\x0c\x41wsAccessKey\x12\x15\n\raccess_key_id\x18\x01 \x01(\t\x12\x19\n\x11secret_access_key\x18\x02 \x01(\t\"\xe0\x01\n\x10ObjectConditions\x12K\n(min_time_elapsed_since_last_modification\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12K\n(max_time_elapsed_since_last_modification\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x18\n\x10include_prefixes\x18\x03 \x03(\t\x12\x18\n\x10\x65xclude_prefixes\x18\x04 \x03(\t\"\x1e\n\x07GcsData\x12\x13\n\x0b\x62ucket_name\x18\x01 \x01(\t\"a\n\tAwsS3Data\x12\x13\n\x0b\x62ucket_name\x18\x01 \x01(\t\x12?\n\x0e\x61ws_access_key\x18\x02 \x01(\x0b\x32\'.google.storagetransfer.v1.AwsAccessKey\"\x1c\n\x08HttpData\x12\x10\n\x08list_url\x18\x01 \x01(\t\"\x9f\x01\n\x0fTransferOptions\x12\x32\n*overwrite_objects_already_existing_in_sink\x18\x01 \x01(\x08\x12%\n\x1d\x64\x65lete_objects_unique_in_sink\x18\x02 \x01(\x08\x12\x31\n)delete_objects_from_source_after_transfer\x18\x03 \x01(\x08\"\xb9\x03\n\x0cTransferSpec\x12=\n\x0fgcs_data_source\x18\x01 \x01(\x0b\x32\".google.storagetransfer.v1.GcsDataH\x00\x12\x42\n\x12\x61ws_s3_data_source\x18\x02 \x01(\x0b\x32$.google.storagetransfer.v1.AwsS3DataH\x00\x12?\n\x10http_data_source\x18\x03 \x01(\x0b\x32#.google.storagetransfer.v1.HttpDataH\x00\x12;\n\rgcs_data_sink\x18\x04 \x01(\x0b\x32\".google.storagetransfer.v1.GcsDataH\x01\x12\x46\n\x11object_conditions\x18\x05 \x01(\x0b\x32+.google.storagetransfer.v1.ObjectConditions\x12\x44\n\x10transfer_options\x18\x06 \x01(\x0b\x32*.google.storagetransfer.v1.TransferOptionsB\r\n\x0b\x64\x61ta_sourceB\x0b\n\tdata_sink\"\x9b\x01\n\x08Schedule\x12.\n\x13schedule_start_date\x18\x01 \x01(\x0b\x32\x11.google.type.Date\x12,\n\x11schedule_end_date\x18\x02 \x01(\x0b\x32\x11.google.type.Date\x12\x31\n\x11start_time_of_day\x18\x03 \x01(\x0b\x32\x16.google.type.TimeOfDay\"\xe6\x03\n\x0bTransferJob\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x12\n\nproject_id\x18\x03 \x01(\t\x12>\n\rtransfer_spec\x18\x04 \x01(\x0b\x32\'.google.storagetransfer.v1.TransferSpec\x12\x35\n\x08schedule\x18\x05 \x01(\x0b\x32#.google.storagetransfer.v1.Schedule\x12=\n\x06status\x18\x06 \x01(\x0e\x32-.google.storagetransfer.v1.TransferJob.Status\x12\x31\n\rcreation_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12:\n\x16last_modification_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x31\n\rdeletion_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"H\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x45NABLED\x10\x01\x12\x0c\n\x08\x44ISABLED\x10\x02\x12\x0b\n\x07\x44\x45LETED\x10\x03\"3\n\rErrorLogEntry\x12\x0b\n\x03url\x18\x01 \x01(\t\x12\x15\n\rerror_details\x18\x03 \x03(\t\"\x8e\x01\n\x0c\x45rrorSummary\x12$\n\nerror_code\x18\x01 \x01(\x0e\x32\x10.google.rpc.Code\x12\x13\n\x0b\x65rror_count\x18\x02 \x01(\x03\x12\x43\n\x11\x65rror_log_entries\x18\x03 \x03(\x0b\x32(.google.storagetransfer.v1.ErrorLogEntry\"\xde\x04\n\x10TransferCounters\x12!\n\x19objects_found_from_source\x18\x01 \x01(\x03\x12\x1f\n\x17\x62ytes_found_from_source\x18\x02 \x01(\x03\x12$\n\x1cobjects_found_only_from_sink\x18\x03 \x01(\x03\x12\"\n\x1a\x62ytes_found_only_from_sink\x18\x04 \x01(\x03\x12+\n#objects_from_source_skipped_by_sync\x18\x05 \x01(\x03\x12)\n!bytes_from_source_skipped_by_sync\x18\x06 \x01(\x03\x12\x1e\n\x16objects_copied_to_sink\x18\x07 \x01(\x03\x12\x1c\n\x14\x62ytes_copied_to_sink\x18\x08 \x01(\x03\x12#\n\x1bobjects_deleted_from_source\x18\t \x01(\x03\x12!\n\x19\x62ytes_deleted_from_source\x18\n \x01(\x03\x12!\n\x19objects_deleted_from_sink\x18\x0b \x01(\x03\x12\x1f\n\x17\x62ytes_deleted_from_sink\x18\x0c \x01(\x03\x12\"\n\x1aobjects_from_source_failed\x18\r \x01(\x03\x12 \n\x18\x62ytes_from_source_failed\x18\x0e \x01(\x03\x12*\n\"objects_failed_to_delete_from_sink\x18\x0f \x01(\x03\x12(\n bytes_failed_to_delete_from_sink\x18\x10 \x01(\x03\"\x9a\x04\n\x11TransferOperation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nproject_id\x18\x02 \x01(\t\x12>\n\rtransfer_spec\x18\x03 \x01(\x0b\x32\'.google.storagetransfer.v1.TransferSpec\x12.\n\nstart_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x43\n\x06status\x18\x06 \x01(\x0e\x32\x33.google.storagetransfer.v1.TransferOperation.Status\x12=\n\x08\x63ounters\x18\x07 \x01(\x0b\x32+.google.storagetransfer.v1.TransferCounters\x12\x41\n\x10\x65rror_breakdowns\x18\x08 \x03(\x0b\x32\'.google.storagetransfer.v1.ErrorSummary\x12\x19\n\x11transfer_job_name\x18\t \x01(\t\"c\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x0f\n\x0bIN_PROGRESS\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\x0b\n\x07SUCCESS\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04\x12\x0b\n\x07\x41\x42ORTED\x10\x05\x42\xc5\x01\n#com.google.storagetransfer.v1.protoB\rTransferTypesZHgoogle.golang.org/genproto/googleapis/storagetransfer/v1;storagetransfer\xf8\x01\x01\xaa\x02\x1fGoogle.Cloud.StorageTransfer.V1\xca\x02\x1fGoogle\\Cloud\\StorageTransfer\\V1b\x06proto3'
+  serialized_pb=b'\n.google/storagetransfer/v1/transfer_types.proto\x12\x19google.storagetransfer.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/protobuf/any.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x15google/rpc/code.proto\x1a\x16google/type/date.proto\x1a\x1bgoogle/type/timeofday.proto\"A\n\x14GoogleServiceAccount\x12\x15\n\raccount_email\x18\x01 \x01(\t\x12\x12\n\nsubject_id\x18\x02 \x01(\t\"J\n\x0c\x41wsAccessKey\x12\x1a\n\raccess_key_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1e\n\x11secret_access_key\x18\x02 \x01(\tB\x03\xe0\x41\x02\"*\n\x10\x41zureCredentials\x12\x16\n\tsas_token\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\xd3\x02\n\x10ObjectConditions\x12K\n(min_time_elapsed_since_last_modification\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12K\n(max_time_elapsed_since_last_modification\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x18\n\x10include_prefixes\x18\x03 \x03(\t\x12\x18\n\x10\x65xclude_prefixes\x18\x04 \x03(\t\x12\x37\n\x13last_modified_since\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x38\n\x14last_modified_before\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"1\n\x07GcsData\x12\x18\n\x0b\x62ucket_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04path\x18\x03 \x01(\t\"\x90\x01\n\tAwsS3Data\x12\x18\n\x0b\x62ucket_name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x44\n\x0e\x61ws_access_key\x18\x02 \x01(\x0b\x32\'.google.storagetransfer.v1.AwsAccessKeyB\x03\xe0\x41\x04\x12\x0c\n\x04path\x18\x03 \x01(\t\x12\x15\n\x08role_arn\x18\x04 \x01(\tB\x03\xe0\x41\x04\"\xaa\x01\n\x14\x41zureBlobStorageData\x12\x1c\n\x0fstorage_account\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12N\n\x11\x61zure_credentials\x18\x02 \x01(\x0b\x32+.google.storagetransfer.v1.AzureCredentialsB\x06\xe0\x41\x02\xe0\x41\x04\x12\x16\n\tcontainer\x18\x04 \x01(\tB\x03\xe0\x41\x02\x12\x0c\n\x04path\x18\x05 \x01(\t\"!\n\x08HttpData\x12\x15\n\x08list_url\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\x9f\x01\n\x0fTransferOptions\x12\x32\n*overwrite_objects_already_existing_in_sink\x18\x01 \x01(\x08\x12%\n\x1d\x64\x65lete_objects_unique_in_sink\x18\x02 \x01(\x08\x12\x31\n)delete_objects_from_source_after_transfer\x18\x03 \x01(\x08\"\x94\x04\n\x0cTransferSpec\x12;\n\rgcs_data_sink\x18\x04 \x01(\x0b\x32\".google.storagetransfer.v1.GcsDataH\x00\x12=\n\x0fgcs_data_source\x18\x01 \x01(\x0b\x32\".google.storagetransfer.v1.GcsDataH\x01\x12\x42\n\x12\x61ws_s3_data_source\x18\x02 \x01(\x0b\x32$.google.storagetransfer.v1.AwsS3DataH\x01\x12?\n\x10http_data_source\x18\x03 \x01(\x0b\x32#.google.storagetransfer.v1.HttpDataH\x01\x12Y\n\x1e\x61zure_blob_storage_data_source\x18\x08 \x01(\x0b\x32/.google.storagetransfer.v1.AzureBlobStorageDataH\x01\x12\x46\n\x11object_conditions\x18\x05 \x01(\x0b\x32+.google.storagetransfer.v1.ObjectConditions\x12\x44\n\x10transfer_options\x18\x06 \x01(\x0b\x32*.google.storagetransfer.v1.TransferOptionsB\x0b\n\tdata_sinkB\r\n\x0b\x64\x61ta_source\"\x85\x02\n\x08Schedule\x12\x33\n\x13schedule_start_date\x18\x01 \x01(\x0b\x32\x11.google.type.DateB\x03\xe0\x41\x02\x12,\n\x11schedule_end_date\x18\x02 \x01(\x0b\x32\x11.google.type.Date\x12\x31\n\x11start_time_of_day\x18\x03 \x01(\x0b\x32\x16.google.type.TimeOfDay\x12/\n\x0f\x65nd_time_of_day\x18\x04 \x01(\x0b\x32\x16.google.type.TimeOfDay\x12\x32\n\x0frepeat_interval\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\"\xe0\x04\n\x0bTransferJob\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x12\n\nproject_id\x18\x03 \x01(\t\x12>\n\rtransfer_spec\x18\x04 \x01(\x0b\x32\'.google.storagetransfer.v1.TransferSpec\x12J\n\x13notification_config\x18\x0b \x01(\x0b\x32-.google.storagetransfer.v1.NotificationConfig\x12\x35\n\x08schedule\x18\x05 \x01(\x0b\x32#.google.storagetransfer.v1.Schedule\x12=\n\x06status\x18\x06 \x01(\x0e\x32-.google.storagetransfer.v1.TransferJob.Status\x12\x36\n\rcreation_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12?\n\x16last_modification_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x36\n\rdeletion_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x1d\n\x15latest_operation_name\x18\x0c \x01(\t\"H\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x45NABLED\x10\x01\x12\x0c\n\x08\x44ISABLED\x10\x02\x12\x0b\n\x07\x44\x45LETED\x10\x03\"8\n\rErrorLogEntry\x12\x10\n\x03url\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\rerror_details\x18\x03 \x03(\t\"\x98\x01\n\x0c\x45rrorSummary\x12)\n\nerror_code\x18\x01 \x01(\x0e\x32\x10.google.rpc.CodeB\x03\xe0\x41\x02\x12\x18\n\x0b\x65rror_count\x18\x02 \x01(\x03\x42\x03\xe0\x41\x02\x12\x43\n\x11\x65rror_log_entries\x18\x03 \x03(\x0b\x32(.google.storagetransfer.v1.ErrorLogEntry\"\xde\x04\n\x10TransferCounters\x12!\n\x19objects_found_from_source\x18\x01 \x01(\x03\x12\x1f\n\x17\x62ytes_found_from_source\x18\x02 \x01(\x03\x12$\n\x1cobjects_found_only_from_sink\x18\x03 \x01(\x03\x12\"\n\x1a\x62ytes_found_only_from_sink\x18\x04 \x01(\x03\x12+\n#objects_from_source_skipped_by_sync\x18\x05 \x01(\x03\x12)\n!bytes_from_source_skipped_by_sync\x18\x06 \x01(\x03\x12\x1e\n\x16objects_copied_to_sink\x18\x07 \x01(\x03\x12\x1c\n\x14\x62ytes_copied_to_sink\x18\x08 \x01(\x03\x12#\n\x1bobjects_deleted_from_source\x18\t \x01(\x03\x12!\n\x19\x62ytes_deleted_from_source\x18\n \x01(\x03\x12!\n\x19objects_deleted_from_sink\x18\x0b \x01(\x03\x12\x1f\n\x17\x62ytes_deleted_from_sink\x18\x0c \x01(\x03\x12\"\n\x1aobjects_from_source_failed\x18\r \x01(\x03\x12 \n\x18\x62ytes_from_source_failed\x18\x0e \x01(\x03\x12*\n\"objects_failed_to_delete_from_sink\x18\x0f \x01(\x03\x12(\n bytes_failed_to_delete_from_sink\x18\x10 \x01(\x03\"\xa5\x03\n\x12NotificationConfig\x12\x19\n\x0cpubsub_topic\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12L\n\x0b\x65vent_types\x18\x02 \x03(\x0e\x32\x37.google.storagetransfer.v1.NotificationConfig.EventType\x12X\n\x0epayload_format\x18\x03 \x01(\x0e\x32;.google.storagetransfer.v1.NotificationConfig.PayloadFormatB\x03\xe0\x41\x02\"\x86\x01\n\tEventType\x12\x1a\n\x16\x45VENT_TYPE_UNSPECIFIED\x10\x00\x12\x1e\n\x1aTRANSFER_OPERATION_SUCCESS\x10\x01\x12\x1d\n\x19TRANSFER_OPERATION_FAILED\x10\x02\x12\x1e\n\x1aTRANSFER_OPERATION_ABORTED\x10\x03\"C\n\rPayloadFormat\x12\x1e\n\x1aPAYLOAD_FORMAT_UNSPECIFIED\x10\x00\x12\x08\n\x04NONE\x10\x01\x12\x08\n\x04JSON\x10\x02\"\xf2\x04\n\x11TransferOperation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nproject_id\x18\x02 \x01(\t\x12>\n\rtransfer_spec\x18\x03 \x01(\x0b\x32\'.google.storagetransfer.v1.TransferSpec\x12J\n\x13notification_config\x18\n \x01(\x0b\x32-.google.storagetransfer.v1.NotificationConfig\x12.\n\nstart_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x43\n\x06status\x18\x06 \x01(\x0e\x32\x33.google.storagetransfer.v1.TransferOperation.Status\x12=\n\x08\x63ounters\x18\x07 \x01(\x0b\x32+.google.storagetransfer.v1.TransferCounters\x12\x41\n\x10\x65rror_breakdowns\x18\x08 \x03(\x0b\x32\'.google.storagetransfer.v1.ErrorSummary\x12\x19\n\x11transfer_job_name\x18\t \x01(\t\"o\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x0f\n\x0bIN_PROGRESS\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\x0b\n\x07SUCCESS\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04\x12\x0b\n\x07\x41\x42ORTED\x10\x05\x12\n\n\x06QUEUED\x10\x06\x42\xea\x01\n#com.google.storagetransfer.v1.protoB\rTransferTypesZHgoogle.golang.org/genproto/googleapis/storagetransfer/v1;storagetransfer\xf8\x01\x01\xaa\x02\x1fGoogle.Cloud.StorageTransfer.V1\xca\x02\x1fGoogle\\Cloud\\StorageTransfer\\V1\xea\x02\"Google::Cloud::StorageTransfer::V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_code__pb2.DESCRIPTOR,google_dot_type_dot_date__pb2.DESCRIPTOR,google_dot_type_dot_timeofday__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_code__pb2.DESCRIPTOR,google_dot_type_dot_date__pb2.DESCRIPTOR,google_dot_type_dot_timeofday__pb2.DESCRIPTOR,])
 
 
 
@@ -61,10 +63,75 @@ _TRANSFERJOB_STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1928,
-  serialized_end=2000,
+  serialized_start=2741,
+  serialized_end=2813,
 )
 _sym_db.RegisterEnumDescriptor(_TRANSFERJOB_STATUS)
+
+_NOTIFICATIONCONFIG_EVENTTYPE = _descriptor.EnumDescriptor(
+  name='EventType',
+  full_name='google.storagetransfer.v1.NotificationConfig.EventType',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='EVENT_TYPE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TRANSFER_OPERATION_SUCCESS', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TRANSFER_OPERATION_FAILED', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TRANSFER_OPERATION_ABORTED', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3856,
+  serialized_end=3990,
+)
+_sym_db.RegisterEnumDescriptor(_NOTIFICATIONCONFIG_EVENTTYPE)
+
+_NOTIFICATIONCONFIG_PAYLOADFORMAT = _descriptor.EnumDescriptor(
+  name='PayloadFormat',
+  full_name='google.storagetransfer.v1.NotificationConfig.PayloadFormat',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='PAYLOAD_FORMAT_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='NONE', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='JSON', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3992,
+  serialized_end=4059,
+)
+_sym_db.RegisterEnumDescriptor(_NOTIFICATIONCONFIG_PAYLOADFORMAT)
 
 _TRANSFEROPERATION_STATUS = _descriptor.EnumDescriptor(
   name='Status',
@@ -103,11 +170,16 @@ _TRANSFEROPERATION_STATUS = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='QUEUED', index=6, number=6,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3249,
-  serialized_end=3348,
+  serialized_start=4577,
+  serialized_end=4688,
 )
 _sym_db.RegisterEnumDescriptor(_TRANSFEROPERATION_STATUS)
 
@@ -127,40 +199,8 @@ _GOOGLESERVICEACCOUNT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=248,
-  serialized_end=293,
-)
-
-
-_AWSACCESSKEY = _descriptor.Descriptor(
-  name='AwsAccessKey',
-  full_name='google.storagetransfer.v1.AwsAccessKey',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
     _descriptor.FieldDescriptor(
-      name='access_key_id', full_name='google.storagetransfer.v1.AwsAccessKey.access_key_id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='secret_access_key', full_name='google.storagetransfer.v1.AwsAccessKey.secret_access_key', index=1,
+      name='subject_id', full_name='google.storagetransfer.v1.GoogleServiceAccount.subject_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -178,8 +218,79 @@ _AWSACCESSKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=295,
-  serialized_end=359,
+  serialized_start=308,
+  serialized_end=373,
+)
+
+
+_AWSACCESSKEY = _descriptor.Descriptor(
+  name='AwsAccessKey',
+  full_name='google.storagetransfer.v1.AwsAccessKey',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='access_key_id', full_name='google.storagetransfer.v1.AwsAccessKey.access_key_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='secret_access_key', full_name='google.storagetransfer.v1.AwsAccessKey.secret_access_key', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=375,
+  serialized_end=449,
+)
+
+
+_AZURECREDENTIALS = _descriptor.Descriptor(
+  name='AzureCredentials',
+  full_name='google.storagetransfer.v1.AzureCredentials',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sas_token', full_name='google.storagetransfer.v1.AzureCredentials.sas_token', index=0,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=451,
+  serialized_end=493,
 )
 
 
@@ -219,6 +330,20 @@ _OBJECTCONDITIONS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_modified_since', full_name='google.storagetransfer.v1.ObjectConditions.last_modified_since', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_modified_before', full_name='google.storagetransfer.v1.ObjectConditions.last_modified_before', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -231,8 +356,8 @@ _OBJECTCONDITIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=362,
-  serialized_end=586,
+  serialized_start=496,
+  serialized_end=835,
 )
 
 
@@ -250,6 +375,13 @@ _GCSDATA = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='path', full_name='google.storagetransfer.v1.GcsData.path', index=1,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
@@ -263,8 +395,8 @@ _GCSDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=588,
-  serialized_end=618,
+  serialized_start=837,
+  serialized_end=886,
 )
 
 
@@ -282,11 +414,78 @@ _AWSS3DATA = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='aws_access_key', full_name='google.storagetransfer.v1.AwsS3Data.aws_access_key', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\004', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='path', full_name='google.storagetransfer.v1.AwsS3Data.path', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='role_arn', full_name='google.storagetransfer.v1.AwsS3Data.role_arn', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\004', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=889,
+  serialized_end=1033,
+)
+
+
+_AZUREBLOBSTORAGEDATA = _descriptor.Descriptor(
+  name='AzureBlobStorageData',
+  full_name='google.storagetransfer.v1.AzureBlobStorageData',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='storage_account', full_name='google.storagetransfer.v1.AzureBlobStorageData.storage_account', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='azure_credentials', full_name='google.storagetransfer.v1.AzureBlobStorageData.azure_credentials', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\340A\004', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='container', full_name='google.storagetransfer.v1.AzureBlobStorageData.container', index=2,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='path', full_name='google.storagetransfer.v1.AzureBlobStorageData.path', index=3,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -302,8 +501,8 @@ _AWSS3DATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=620,
-  serialized_end=717,
+  serialized_start=1036,
+  serialized_end=1206,
 )
 
 
@@ -321,7 +520,7 @@ _HTTPDATA = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -334,8 +533,8 @@ _HTTPDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=719,
-  serialized_end=747,
+  serialized_start=1208,
+  serialized_end=1241,
 )
 
 
@@ -380,8 +579,8 @@ _TRANSFEROPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=750,
-  serialized_end=909,
+  serialized_start=1244,
+  serialized_end=1403,
 )
 
 
@@ -394,42 +593,49 @@ _TRANSFERSPEC = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='gcs_data_source', full_name='google.storagetransfer.v1.TransferSpec.gcs_data_source', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='aws_s3_data_source', full_name='google.storagetransfer.v1.TransferSpec.aws_s3_data_source', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='http_data_source', full_name='google.storagetransfer.v1.TransferSpec.http_data_source', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='gcs_data_sink', full_name='google.storagetransfer.v1.TransferSpec.gcs_data_sink', index=3,
+      name='gcs_data_sink', full_name='google.storagetransfer.v1.TransferSpec.gcs_data_sink', index=0,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='object_conditions', full_name='google.storagetransfer.v1.TransferSpec.object_conditions', index=4,
+      name='gcs_data_source', full_name='google.storagetransfer.v1.TransferSpec.gcs_data_source', index=1,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='aws_s3_data_source', full_name='google.storagetransfer.v1.TransferSpec.aws_s3_data_source', index=2,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='http_data_source', full_name='google.storagetransfer.v1.TransferSpec.http_data_source', index=3,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='azure_blob_storage_data_source', full_name='google.storagetransfer.v1.TransferSpec.azure_blob_storage_data_source', index=4,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='object_conditions', full_name='google.storagetransfer.v1.TransferSpec.object_conditions', index=5,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='transfer_options', full_name='google.storagetransfer.v1.TransferSpec.transfer_options', index=5,
+      name='transfer_options', full_name='google.storagetransfer.v1.TransferSpec.transfer_options', index=6,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -447,18 +653,18 @@ _TRANSFERSPEC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='data_source', full_name='google.storagetransfer.v1.TransferSpec.data_source',
+      name='data_sink', full_name='google.storagetransfer.v1.TransferSpec.data_sink',
       index=0, containing_type=None,
       create_key=_descriptor._internal_create_key,
     fields=[]),
     _descriptor.OneofDescriptor(
-      name='data_sink', full_name='google.storagetransfer.v1.TransferSpec.data_sink',
+      name='data_source', full_name='google.storagetransfer.v1.TransferSpec.data_source',
       index=1, containing_type=None,
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=912,
-  serialized_end=1353,
+  serialized_start=1406,
+  serialized_end=1938,
 )
 
 
@@ -476,7 +682,7 @@ _SCHEDULE = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='schedule_end_date', full_name='google.storagetransfer.v1.Schedule.schedule_end_date', index=1,
       number=2, type=11, cpp_type=10, label=1,
@@ -487,6 +693,20 @@ _SCHEDULE = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='start_time_of_day', full_name='google.storagetransfer.v1.Schedule.start_time_of_day', index=2,
       number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_time_of_day', full_name='google.storagetransfer.v1.Schedule.end_time_of_day', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='repeat_interval', full_name='google.storagetransfer.v1.Schedule.repeat_interval', index=4,
+      number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -503,8 +723,8 @@ _SCHEDULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1356,
-  serialized_end=1511,
+  serialized_start=1941,
+  serialized_end=2202,
 )
 
 
@@ -545,37 +765,51 @@ _TRANSFERJOB = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='schedule', full_name='google.storagetransfer.v1.TransferJob.schedule', index=4,
+      name='notification_config', full_name='google.storagetransfer.v1.TransferJob.notification_config', index=4,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='schedule', full_name='google.storagetransfer.v1.TransferJob.schedule', index=5,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status', full_name='google.storagetransfer.v1.TransferJob.status', index=5,
+      name='status', full_name='google.storagetransfer.v1.TransferJob.status', index=6,
       number=6, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='creation_time', full_name='google.storagetransfer.v1.TransferJob.creation_time', index=6,
+      name='creation_time', full_name='google.storagetransfer.v1.TransferJob.creation_time', index=7,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='last_modification_time', full_name='google.storagetransfer.v1.TransferJob.last_modification_time', index=7,
+      name='last_modification_time', full_name='google.storagetransfer.v1.TransferJob.last_modification_time', index=8,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='deletion_time', full_name='google.storagetransfer.v1.TransferJob.deletion_time', index=8,
+      name='deletion_time', full_name='google.storagetransfer.v1.TransferJob.deletion_time', index=9,
       number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='latest_operation_name', full_name='google.storagetransfer.v1.TransferJob.latest_operation_name', index=10,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -592,8 +826,8 @@ _TRANSFERJOB = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1514,
-  serialized_end=2000,
+  serialized_start=2205,
+  serialized_end=2813,
 )
 
 
@@ -611,7 +845,7 @@ _ERRORLOGENTRY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='error_details', full_name='google.storagetransfer.v1.ErrorLogEntry.error_details', index=1,
       number=3, type=9, cpp_type=9, label=3,
@@ -631,8 +865,8 @@ _ERRORLOGENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2002,
-  serialized_end=2053,
+  serialized_start=2815,
+  serialized_end=2871,
 )
 
 
@@ -650,14 +884,14 @@ _ERRORSUMMARY = _descriptor.Descriptor(
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='error_count', full_name='google.storagetransfer.v1.ErrorSummary.error_count', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='error_log_entries', full_name='google.storagetransfer.v1.ErrorSummary.error_log_entries', index=2,
       number=3, type=11, cpp_type=10, label=3,
@@ -677,8 +911,8 @@ _ERRORSUMMARY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2056,
-  serialized_end=2198,
+  serialized_start=2874,
+  serialized_end=3026,
 )
 
 
@@ -814,8 +1048,56 @@ _TRANSFERCOUNTERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2201,
-  serialized_end=2807,
+  serialized_start=3029,
+  serialized_end=3635,
+)
+
+
+_NOTIFICATIONCONFIG = _descriptor.Descriptor(
+  name='NotificationConfig',
+  full_name='google.storagetransfer.v1.NotificationConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='pubsub_topic', full_name='google.storagetransfer.v1.NotificationConfig.pubsub_topic', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='event_types', full_name='google.storagetransfer.v1.NotificationConfig.event_types', index=1,
+      number=2, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='payload_format', full_name='google.storagetransfer.v1.NotificationConfig.payload_format', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _NOTIFICATIONCONFIG_EVENTTYPE,
+    _NOTIFICATIONCONFIG_PAYLOADFORMAT,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3638,
+  serialized_end=4059,
 )
 
 
@@ -849,42 +1131,49 @@ _TRANSFEROPERATION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='start_time', full_name='google.storagetransfer.v1.TransferOperation.start_time', index=3,
+      name='notification_config', full_name='google.storagetransfer.v1.TransferOperation.notification_config', index=3,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='google.storagetransfer.v1.TransferOperation.start_time', index=4,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='end_time', full_name='google.storagetransfer.v1.TransferOperation.end_time', index=4,
+      name='end_time', full_name='google.storagetransfer.v1.TransferOperation.end_time', index=5,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status', full_name='google.storagetransfer.v1.TransferOperation.status', index=5,
+      name='status', full_name='google.storagetransfer.v1.TransferOperation.status', index=6,
       number=6, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='counters', full_name='google.storagetransfer.v1.TransferOperation.counters', index=6,
+      name='counters', full_name='google.storagetransfer.v1.TransferOperation.counters', index=7,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='error_breakdowns', full_name='google.storagetransfer.v1.TransferOperation.error_breakdowns', index=7,
+      name='error_breakdowns', full_name='google.storagetransfer.v1.TransferOperation.error_breakdowns', index=8,
       number=8, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='transfer_job_name', full_name='google.storagetransfer.v1.TransferOperation.transfer_job_name', index=8,
+      name='transfer_job_name', full_name='google.storagetransfer.v1.TransferOperation.transfer_job_name', index=9,
       number=9, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -903,19 +1192,26 @@ _TRANSFEROPERATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2810,
-  serialized_end=3348,
+  serialized_start=4062,
+  serialized_end=4688,
 )
 
 _OBJECTCONDITIONS.fields_by_name['min_time_elapsed_since_last_modification'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _OBJECTCONDITIONS.fields_by_name['max_time_elapsed_since_last_modification'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
+_OBJECTCONDITIONS.fields_by_name['last_modified_since'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_OBJECTCONDITIONS.fields_by_name['last_modified_before'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _AWSS3DATA.fields_by_name['aws_access_key'].message_type = _AWSACCESSKEY
+_AZUREBLOBSTORAGEDATA.fields_by_name['azure_credentials'].message_type = _AZURECREDENTIALS
+_TRANSFERSPEC.fields_by_name['gcs_data_sink'].message_type = _GCSDATA
 _TRANSFERSPEC.fields_by_name['gcs_data_source'].message_type = _GCSDATA
 _TRANSFERSPEC.fields_by_name['aws_s3_data_source'].message_type = _AWSS3DATA
 _TRANSFERSPEC.fields_by_name['http_data_source'].message_type = _HTTPDATA
-_TRANSFERSPEC.fields_by_name['gcs_data_sink'].message_type = _GCSDATA
+_TRANSFERSPEC.fields_by_name['azure_blob_storage_data_source'].message_type = _AZUREBLOBSTORAGEDATA
 _TRANSFERSPEC.fields_by_name['object_conditions'].message_type = _OBJECTCONDITIONS
 _TRANSFERSPEC.fields_by_name['transfer_options'].message_type = _TRANSFEROPTIONS
+_TRANSFERSPEC.oneofs_by_name['data_sink'].fields.append(
+  _TRANSFERSPEC.fields_by_name['gcs_data_sink'])
+_TRANSFERSPEC.fields_by_name['gcs_data_sink'].containing_oneof = _TRANSFERSPEC.oneofs_by_name['data_sink']
 _TRANSFERSPEC.oneofs_by_name['data_source'].fields.append(
   _TRANSFERSPEC.fields_by_name['gcs_data_source'])
 _TRANSFERSPEC.fields_by_name['gcs_data_source'].containing_oneof = _TRANSFERSPEC.oneofs_by_name['data_source']
@@ -925,13 +1221,16 @@ _TRANSFERSPEC.fields_by_name['aws_s3_data_source'].containing_oneof = _TRANSFERS
 _TRANSFERSPEC.oneofs_by_name['data_source'].fields.append(
   _TRANSFERSPEC.fields_by_name['http_data_source'])
 _TRANSFERSPEC.fields_by_name['http_data_source'].containing_oneof = _TRANSFERSPEC.oneofs_by_name['data_source']
-_TRANSFERSPEC.oneofs_by_name['data_sink'].fields.append(
-  _TRANSFERSPEC.fields_by_name['gcs_data_sink'])
-_TRANSFERSPEC.fields_by_name['gcs_data_sink'].containing_oneof = _TRANSFERSPEC.oneofs_by_name['data_sink']
+_TRANSFERSPEC.oneofs_by_name['data_source'].fields.append(
+  _TRANSFERSPEC.fields_by_name['azure_blob_storage_data_source'])
+_TRANSFERSPEC.fields_by_name['azure_blob_storage_data_source'].containing_oneof = _TRANSFERSPEC.oneofs_by_name['data_source']
 _SCHEDULE.fields_by_name['schedule_start_date'].message_type = google_dot_type_dot_date__pb2._DATE
 _SCHEDULE.fields_by_name['schedule_end_date'].message_type = google_dot_type_dot_date__pb2._DATE
 _SCHEDULE.fields_by_name['start_time_of_day'].message_type = google_dot_type_dot_timeofday__pb2._TIMEOFDAY
+_SCHEDULE.fields_by_name['end_time_of_day'].message_type = google_dot_type_dot_timeofday__pb2._TIMEOFDAY
+_SCHEDULE.fields_by_name['repeat_interval'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _TRANSFERJOB.fields_by_name['transfer_spec'].message_type = _TRANSFERSPEC
+_TRANSFERJOB.fields_by_name['notification_config'].message_type = _NOTIFICATIONCONFIG
 _TRANSFERJOB.fields_by_name['schedule'].message_type = _SCHEDULE
 _TRANSFERJOB.fields_by_name['status'].enum_type = _TRANSFERJOB_STATUS
 _TRANSFERJOB.fields_by_name['creation_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -940,7 +1239,12 @@ _TRANSFERJOB.fields_by_name['deletion_time'].message_type = google_dot_protobuf_
 _TRANSFERJOB_STATUS.containing_type = _TRANSFERJOB
 _ERRORSUMMARY.fields_by_name['error_code'].enum_type = google_dot_rpc_dot_code__pb2._CODE
 _ERRORSUMMARY.fields_by_name['error_log_entries'].message_type = _ERRORLOGENTRY
+_NOTIFICATIONCONFIG.fields_by_name['event_types'].enum_type = _NOTIFICATIONCONFIG_EVENTTYPE
+_NOTIFICATIONCONFIG.fields_by_name['payload_format'].enum_type = _NOTIFICATIONCONFIG_PAYLOADFORMAT
+_NOTIFICATIONCONFIG_EVENTTYPE.containing_type = _NOTIFICATIONCONFIG
+_NOTIFICATIONCONFIG_PAYLOADFORMAT.containing_type = _NOTIFICATIONCONFIG
 _TRANSFEROPERATION.fields_by_name['transfer_spec'].message_type = _TRANSFERSPEC
+_TRANSFEROPERATION.fields_by_name['notification_config'].message_type = _NOTIFICATIONCONFIG
 _TRANSFEROPERATION.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _TRANSFEROPERATION.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _TRANSFEROPERATION.fields_by_name['status'].enum_type = _TRANSFEROPERATION_STATUS
@@ -949,9 +1253,11 @@ _TRANSFEROPERATION.fields_by_name['error_breakdowns'].message_type = _ERRORSUMMA
 _TRANSFEROPERATION_STATUS.containing_type = _TRANSFEROPERATION
 DESCRIPTOR.message_types_by_name['GoogleServiceAccount'] = _GOOGLESERVICEACCOUNT
 DESCRIPTOR.message_types_by_name['AwsAccessKey'] = _AWSACCESSKEY
+DESCRIPTOR.message_types_by_name['AzureCredentials'] = _AZURECREDENTIALS
 DESCRIPTOR.message_types_by_name['ObjectConditions'] = _OBJECTCONDITIONS
 DESCRIPTOR.message_types_by_name['GcsData'] = _GCSDATA
 DESCRIPTOR.message_types_by_name['AwsS3Data'] = _AWSS3DATA
+DESCRIPTOR.message_types_by_name['AzureBlobStorageData'] = _AZUREBLOBSTORAGEDATA
 DESCRIPTOR.message_types_by_name['HttpData'] = _HTTPDATA
 DESCRIPTOR.message_types_by_name['TransferOptions'] = _TRANSFEROPTIONS
 DESCRIPTOR.message_types_by_name['TransferSpec'] = _TRANSFERSPEC
@@ -960,6 +1266,7 @@ DESCRIPTOR.message_types_by_name['TransferJob'] = _TRANSFERJOB
 DESCRIPTOR.message_types_by_name['ErrorLogEntry'] = _ERRORLOGENTRY
 DESCRIPTOR.message_types_by_name['ErrorSummary'] = _ERRORSUMMARY
 DESCRIPTOR.message_types_by_name['TransferCounters'] = _TRANSFERCOUNTERS
+DESCRIPTOR.message_types_by_name['NotificationConfig'] = _NOTIFICATIONCONFIG
 DESCRIPTOR.message_types_by_name['TransferOperation'] = _TRANSFEROPERATION
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -976,6 +1283,13 @@ AwsAccessKey = _reflection.GeneratedProtocolMessageType('AwsAccessKey', (_messag
   # @@protoc_insertion_point(class_scope:google.storagetransfer.v1.AwsAccessKey)
   })
 _sym_db.RegisterMessage(AwsAccessKey)
+
+AzureCredentials = _reflection.GeneratedProtocolMessageType('AzureCredentials', (_message.Message,), {
+  'DESCRIPTOR' : _AZURECREDENTIALS,
+  '__module__' : 'google.storagetransfer.v1.transfer_types_pb2'
+  # @@protoc_insertion_point(class_scope:google.storagetransfer.v1.AzureCredentials)
+  })
+_sym_db.RegisterMessage(AzureCredentials)
 
 ObjectConditions = _reflection.GeneratedProtocolMessageType('ObjectConditions', (_message.Message,), {
   'DESCRIPTOR' : _OBJECTCONDITIONS,
@@ -997,6 +1311,13 @@ AwsS3Data = _reflection.GeneratedProtocolMessageType('AwsS3Data', (_message.Mess
   # @@protoc_insertion_point(class_scope:google.storagetransfer.v1.AwsS3Data)
   })
 _sym_db.RegisterMessage(AwsS3Data)
+
+AzureBlobStorageData = _reflection.GeneratedProtocolMessageType('AzureBlobStorageData', (_message.Message,), {
+  'DESCRIPTOR' : _AZUREBLOBSTORAGEDATA,
+  '__module__' : 'google.storagetransfer.v1.transfer_types_pb2'
+  # @@protoc_insertion_point(class_scope:google.storagetransfer.v1.AzureBlobStorageData)
+  })
+_sym_db.RegisterMessage(AzureBlobStorageData)
 
 HttpData = _reflection.GeneratedProtocolMessageType('HttpData', (_message.Message,), {
   'DESCRIPTOR' : _HTTPDATA,
@@ -1054,6 +1375,13 @@ TransferCounters = _reflection.GeneratedProtocolMessageType('TransferCounters', 
   })
 _sym_db.RegisterMessage(TransferCounters)
 
+NotificationConfig = _reflection.GeneratedProtocolMessageType('NotificationConfig', (_message.Message,), {
+  'DESCRIPTOR' : _NOTIFICATIONCONFIG,
+  '__module__' : 'google.storagetransfer.v1.transfer_types_pb2'
+  # @@protoc_insertion_point(class_scope:google.storagetransfer.v1.NotificationConfig)
+  })
+_sym_db.RegisterMessage(NotificationConfig)
+
 TransferOperation = _reflection.GeneratedProtocolMessageType('TransferOperation', (_message.Message,), {
   'DESCRIPTOR' : _TRANSFEROPERATION,
   '__module__' : 'google.storagetransfer.v1.transfer_types_pb2'
@@ -1063,4 +1391,24 @@ _sym_db.RegisterMessage(TransferOperation)
 
 
 DESCRIPTOR._options = None
+_AWSACCESSKEY.fields_by_name['access_key_id']._options = None
+_AWSACCESSKEY.fields_by_name['secret_access_key']._options = None
+_AZURECREDENTIALS.fields_by_name['sas_token']._options = None
+_GCSDATA.fields_by_name['bucket_name']._options = None
+_AWSS3DATA.fields_by_name['bucket_name']._options = None
+_AWSS3DATA.fields_by_name['aws_access_key']._options = None
+_AWSS3DATA.fields_by_name['role_arn']._options = None
+_AZUREBLOBSTORAGEDATA.fields_by_name['storage_account']._options = None
+_AZUREBLOBSTORAGEDATA.fields_by_name['azure_credentials']._options = None
+_AZUREBLOBSTORAGEDATA.fields_by_name['container']._options = None
+_HTTPDATA.fields_by_name['list_url']._options = None
+_SCHEDULE.fields_by_name['schedule_start_date']._options = None
+_TRANSFERJOB.fields_by_name['creation_time']._options = None
+_TRANSFERJOB.fields_by_name['last_modification_time']._options = None
+_TRANSFERJOB.fields_by_name['deletion_time']._options = None
+_ERRORLOGENTRY.fields_by_name['url']._options = None
+_ERRORSUMMARY.fields_by_name['error_code']._options = None
+_ERRORSUMMARY.fields_by_name['error_count']._options = None
+_NOTIFICATIONCONFIG.fields_by_name['pubsub_topic']._options = None
+_NOTIFICATIONCONFIG.fields_by_name['payload_format']._options = None
 # @@protoc_insertion_point(module_scope)

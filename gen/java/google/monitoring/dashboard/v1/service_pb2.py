@@ -17,9 +17,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/monitoring/dashboard/v1/service.proto',
   package='google.monitoring.dashboard.v1',
   syntax='proto3',
-  serialized_options=b'\n\"com.google.monitoring.dashboard.v1B\026ServiceMonitoringProtoP\001ZGgoogle.golang.org/genproto/googleapis/monitoring/dashboard/v1;dashboard\312\002$Google\\Cloud\\Monitoring\\Dashboard\\V1\352\002(Google::Cloud::Monitoring::Dashboard::V1',
+  serialized_options=b'\n\"com.google.monitoring.dashboard.v1B\026ServiceMonitoringProtoP\001ZGgoogle.golang.org/genproto/googleapis/monitoring/dashboard/v1;dashboard\252\002$Google.Cloud.Monitoring.Dashboard.V1\312\002$Google\\Cloud\\Monitoring\\Dashboard\\V1\352\002(Google::Cloud::Monitoring::Dashboard::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,google/monitoring/dashboard/v1/service.proto\x12\x1egoogle.monitoring.dashboard.v1B\xd9\x01\n\"com.google.monitoring.dashboard.v1B\x16ServiceMonitoringProtoP\x01ZGgoogle.golang.org/genproto/googleapis/monitoring/dashboard/v1;dashboard\xca\x02$Google\\Cloud\\Monitoring\\Dashboard\\V1\xea\x02(Google::Cloud::Monitoring::Dashboard::V1b\x06proto3'
+  serialized_pb=b'\n,google/monitoring/dashboard/v1/service.proto\x12\x1egoogle.monitoring.dashboard.v1B\x80\x02\n\"com.google.monitoring.dashboard.v1B\x16ServiceMonitoringProtoP\x01ZGgoogle.golang.org/genproto/googleapis/monitoring/dashboard/v1;dashboard\xaa\x02$Google.Cloud.Monitoring.Dashboard.V1\xca\x02$Google\\Cloud\\Monitoring\\Dashboard\\V1\xea\x02(Google::Cloud::Monitoring::Dashboard::V1b\x06proto3'
 )
 
 

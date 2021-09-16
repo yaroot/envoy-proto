@@ -23,9 +23,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1beta1/execution.proto',
   package='google.cloud.aiplatform.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\016ExecutionProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
+  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\016ExecutionProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\252\002\037Google.Cloud.AIPlatform.V1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1\352\002\"Google::Cloud::AIPlatform::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n/google/cloud/aiplatform/v1beta1/execution.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a+google/cloud/aiplatform/v1beta1/value.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xb0\x05\n\tExecution\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12?\n\x05state\x18\x06 \x01(\x0e\x32\x30.google.cloud.aiplatform.v1beta1.Execution.State\x12\x0c\n\x04\x65tag\x18\t \x01(\t\x12\x46\n\x06labels\x18\n \x03(\x0b\x32\x36.google.cloud.aiplatform.v1beta1.Execution.LabelsEntry\x12\x34\n\x0b\x63reate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x14\n\x0cschema_title\x18\r \x01(\t\x12\x16\n\x0eschema_version\x18\x0e \x01(\t\x12)\n\x08metadata\x18\x0f \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x13\n\x0b\x64\x65scription\x18\x10 \x01(\t\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"N\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x07\n\x03NEW\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x0c\n\x08\x43OMPLETE\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04:\x89\x01\xea\x41\x85\x01\n#aiplatform.googleapis.com/Execution\x12^projects/{project}/locations/{location}/metadataStores/{metadata_store}/executions/{execution}B\x82\x01\n#com.google.cloud.aiplatform.v1beta1B\x0e\x45xecutionProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n/google/cloud/aiplatform/v1beta1/execution.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a+google/cloud/aiplatform/v1beta1/value.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xcb\x05\n\tExecution\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12?\n\x05state\x18\x06 \x01(\x0e\x32\x30.google.cloud.aiplatform.v1beta1.Execution.State\x12\x0c\n\x04\x65tag\x18\t \x01(\t\x12\x46\n\x06labels\x18\n \x03(\x0b\x32\x36.google.cloud.aiplatform.v1beta1.Execution.LabelsEntry\x12\x34\n\x0b\x63reate_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x14\n\x0cschema_title\x18\r \x01(\t\x12\x16\n\x0eschema_version\x18\x0e \x01(\t\x12)\n\x08metadata\x18\x0f \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x13\n\x0b\x64\x65scription\x18\x10 \x01(\t\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"i\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x07\n\x03NEW\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x0c\n\x08\x43OMPLETE\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04\x12\n\n\x06\x43\x41\x43HED\x10\x05\x12\r\n\tCANCELLED\x10\x06:\x89\x01\xea\x41\x85\x01\n#aiplatform.googleapis.com/Execution\x12^projects/{project}/locations/{location}/metadataStores/{metadata_store}/executions/{execution}B\xeb\x01\n#com.google.cloud.aiplatform.v1beta1B\x0e\x45xecutionProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_value__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -63,11 +63,21 @@ _EXECUTION_STATE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CACHED', index=5, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CANCELLED', index=6, number=6,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
   serialized_start=753,
-  serialized_end=831,
+  serialized_end=858,
 )
 _sym_db.RegisterEnumDescriptor(_EXECUTION_STATE)
 
@@ -209,7 +219,7 @@ _EXECUTION = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=283,
-  serialized_end=971,
+  serialized_end=998,
 )
 
 _EXECUTION_LABELSENTRY.containing_type = _EXECUTION

@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB\021AutoMLTablesProtoP\001Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definition',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nQgoogle/cloud/aiplatform/v1beta1/schema/trainingjob/definition/automl_tables.proto\x12=google.cloud.aiplatform.v1beta1.schema.trainingjob.definition\x1a\x66google/cloud/aiplatform/v1beta1/schema/trainingjob/definition/export_evaluated_data_items_config.proto\x1a\x1cgoogle/api/annotations.proto\"\xd8\x01\n\x0c\x41utoMlTables\x12\x61\n\x06inputs\x18\x01 \x01(\x0b\x32Q.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs\x12\x65\n\x08metadata\x18\x02 \x01(\x0b\x32S.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesMetadata\"\x88\x12\n\x12\x41utoMlTablesInputs\x12-\n#optimization_objective_recall_value\x18\x05 \x01(\x02H\x00\x12\x30\n&optimization_objective_precision_value\x18\x06 \x01(\x02H\x00\x12\x17\n\x0fprediction_type\x18\x01 \x01(\t\x12\x15\n\rtarget_column\x18\x02 \x01(\t\x12y\n\x0ftransformations\x18\x03 \x03(\x0b\x32`.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation\x12\x1e\n\x16optimization_objective\x18\x04 \x01(\t\x12%\n\x1dtrain_budget_milli_node_hours\x18\x07 \x01(\x03\x12\x1e\n\x16\x64isable_early_stopping\x18\x08 \x01(\x08\x12\x1a\n\x12weight_column_name\x18\t \x01(\t\x12\x89\x01\n\"export_evaluated_data_items_config\x18\n \x01(\x0b\x32].google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.ExportEvaluatedDataItemsConfig\x1a\xaa\r\n\x0eTransformation\x12\x83\x01\n\x04\x61uto\x18\x01 \x01(\x0b\x32s.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.AutoTransformationH\x00\x12\x89\x01\n\x07numeric\x18\x02 \x01(\x0b\x32v.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.NumericTransformationH\x00\x12\x91\x01\n\x0b\x63\x61tegorical\x18\x03 \x01(\x0b\x32z.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.CategoricalTransformationH\x00\x12\x8d\x01\n\ttimestamp\x18\x04 \x01(\x0b\x32x.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.TimestampTransformationH\x00\x12\x83\x01\n\x04text\x18\x05 \x01(\x0b\x32s.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.TextTransformationH\x00\x12\x97\x01\n\x10repeated_numeric\x18\x06 \x01(\x0b\x32{.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.NumericArrayTransformationH\x00\x12\x9f\x01\n\x14repeated_categorical\x18\x07 \x01(\x0b\x32\x7f.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.CategoricalArrayTransformationH\x00\x12\x91\x01\n\rrepeated_text\x18\x08 \x01(\x0b\x32x.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.TextArrayTransformationH\x00\x1a)\n\x12\x41utoTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x1aL\n\x15NumericTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x12\x1e\n\x16invalid_values_allowed\x18\x02 \x01(\x08\x1a\x30\n\x19\x43\x61tegoricalTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x1a\x63\n\x17TimestampTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x12\x13\n\x0btime_format\x18\x02 \x01(\t\x12\x1e\n\x16invalid_values_allowed\x18\x03 \x01(\x08\x1a)\n\x12TextTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x1aQ\n\x1aNumericArrayTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x12\x1e\n\x16invalid_values_allowed\x18\x02 \x01(\x08\x1a\x35\n\x1e\x43\x61tegoricalArrayTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x1a.\n\x17TextArrayTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\tB\x17\n\x15transformation_detailB*\n(additional_optimization_objective_config\";\n\x14\x41utoMlTablesMetadata\x12#\n\x1btrain_cost_milli_node_hours\x18\x01 \x01(\x03\x42\xc1\x01\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB\x11\x41utoMLTablesProtoP\x01Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definitionb\x06proto3'
+  serialized_pb=b'\nQgoogle/cloud/aiplatform/v1beta1/schema/trainingjob/definition/automl_tables.proto\x12=google.cloud.aiplatform.v1beta1.schema.trainingjob.definition\x1a\x66google/cloud/aiplatform/v1beta1/schema/trainingjob/definition/export_evaluated_data_items_config.proto\x1a\x1cgoogle/api/annotations.proto\"\xd8\x01\n\x0c\x41utoMlTables\x12\x61\n\x06inputs\x18\x01 \x01(\x0b\x32Q.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs\x12\x65\n\x08metadata\x18\x02 \x01(\x0b\x32S.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesMetadata\"\xa8\x12\n\x12\x41utoMlTablesInputs\x12-\n#optimization_objective_recall_value\x18\x05 \x01(\x02H\x00\x12\x30\n&optimization_objective_precision_value\x18\x06 \x01(\x02H\x00\x12\x17\n\x0fprediction_type\x18\x01 \x01(\t\x12\x15\n\rtarget_column\x18\x02 \x01(\t\x12y\n\x0ftransformations\x18\x03 \x03(\x0b\x32`.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation\x12\x1e\n\x16optimization_objective\x18\x04 \x01(\t\x12%\n\x1dtrain_budget_milli_node_hours\x18\x07 \x01(\x03\x12\x1e\n\x16\x64isable_early_stopping\x18\x08 \x01(\x08\x12\x1a\n\x12weight_column_name\x18\t \x01(\t\x12\x89\x01\n\"export_evaluated_data_items_config\x18\n \x01(\x0b\x32].google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.ExportEvaluatedDataItemsConfig\x12\x1e\n\x16\x61\x64\x64itional_experiments\x18\x0b \x03(\t\x1a\xaa\r\n\x0eTransformation\x12\x83\x01\n\x04\x61uto\x18\x01 \x01(\x0b\x32s.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.AutoTransformationH\x00\x12\x89\x01\n\x07numeric\x18\x02 \x01(\x0b\x32v.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.NumericTransformationH\x00\x12\x91\x01\n\x0b\x63\x61tegorical\x18\x03 \x01(\x0b\x32z.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.CategoricalTransformationH\x00\x12\x8d\x01\n\ttimestamp\x18\x04 \x01(\x0b\x32x.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.TimestampTransformationH\x00\x12\x83\x01\n\x04text\x18\x05 \x01(\x0b\x32s.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.TextTransformationH\x00\x12\x97\x01\n\x10repeated_numeric\x18\x06 \x01(\x0b\x32{.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.NumericArrayTransformationH\x00\x12\x9f\x01\n\x14repeated_categorical\x18\x07 \x01(\x0b\x32\x7f.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.CategoricalArrayTransformationH\x00\x12\x91\x01\n\rrepeated_text\x18\x08 \x01(\x0b\x32x.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.Transformation.TextArrayTransformationH\x00\x1a)\n\x12\x41utoTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x1aL\n\x15NumericTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x12\x1e\n\x16invalid_values_allowed\x18\x02 \x01(\x08\x1a\x30\n\x19\x43\x61tegoricalTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x1a\x63\n\x17TimestampTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x12\x13\n\x0btime_format\x18\x02 \x01(\t\x12\x1e\n\x16invalid_values_allowed\x18\x03 \x01(\x08\x1a)\n\x12TextTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x1aQ\n\x1aNumericArrayTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x12\x1e\n\x16invalid_values_allowed\x18\x02 \x01(\x08\x1a\x35\n\x1e\x43\x61tegoricalArrayTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\t\x1a.\n\x17TextArrayTransformation\x12\x13\n\x0b\x63olumn_name\x18\x01 \x01(\tB\x17\n\x15transformation_detailB*\n(additional_optimization_objective_config\";\n\x14\x41utoMlTablesMetadata\x12#\n\x1btrain_cost_milli_node_hours\x18\x01 \x01(\x03\x42\xc1\x01\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB\x11\x41utoMLTablesProtoP\x01Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definitionb\x06proto3'
   ,
   dependencies=[google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_schema_dot_trainingjob_dot_definition_dot_export__evaluated__data__items__config__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -94,8 +94,8 @@ _AUTOMLTABLESINPUTS_TRANSFORMATION_AUTOTRANSFORMATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2246,
-  serialized_end=2287,
+  serialized_start=2278,
+  serialized_end=2319,
 )
 
 _AUTOMLTABLESINPUTS_TRANSFORMATION_NUMERICTRANSFORMATION = _descriptor.Descriptor(
@@ -132,8 +132,8 @@ _AUTOMLTABLESINPUTS_TRANSFORMATION_NUMERICTRANSFORMATION = _descriptor.Descripto
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2289,
-  serialized_end=2365,
+  serialized_start=2321,
+  serialized_end=2397,
 )
 
 _AUTOMLTABLESINPUTS_TRANSFORMATION_CATEGORICALTRANSFORMATION = _descriptor.Descriptor(
@@ -163,8 +163,8 @@ _AUTOMLTABLESINPUTS_TRANSFORMATION_CATEGORICALTRANSFORMATION = _descriptor.Descr
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2367,
-  serialized_end=2415,
+  serialized_start=2399,
+  serialized_end=2447,
 )
 
 _AUTOMLTABLESINPUTS_TRANSFORMATION_TIMESTAMPTRANSFORMATION = _descriptor.Descriptor(
@@ -208,8 +208,8 @@ _AUTOMLTABLESINPUTS_TRANSFORMATION_TIMESTAMPTRANSFORMATION = _descriptor.Descrip
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2417,
-  serialized_end=2516,
+  serialized_start=2449,
+  serialized_end=2548,
 )
 
 _AUTOMLTABLESINPUTS_TRANSFORMATION_TEXTTRANSFORMATION = _descriptor.Descriptor(
@@ -239,8 +239,8 @@ _AUTOMLTABLESINPUTS_TRANSFORMATION_TEXTTRANSFORMATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2518,
-  serialized_end=2559,
+  serialized_start=2550,
+  serialized_end=2591,
 )
 
 _AUTOMLTABLESINPUTS_TRANSFORMATION_NUMERICARRAYTRANSFORMATION = _descriptor.Descriptor(
@@ -277,8 +277,8 @@ _AUTOMLTABLESINPUTS_TRANSFORMATION_NUMERICARRAYTRANSFORMATION = _descriptor.Desc
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2561,
-  serialized_end=2642,
+  serialized_start=2593,
+  serialized_end=2674,
 )
 
 _AUTOMLTABLESINPUTS_TRANSFORMATION_CATEGORICALARRAYTRANSFORMATION = _descriptor.Descriptor(
@@ -308,8 +308,8 @@ _AUTOMLTABLESINPUTS_TRANSFORMATION_CATEGORICALARRAYTRANSFORMATION = _descriptor.
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2644,
-  serialized_end=2697,
+  serialized_start=2676,
+  serialized_end=2729,
 )
 
 _AUTOMLTABLESINPUTS_TRANSFORMATION_TEXTARRAYTRANSFORMATION = _descriptor.Descriptor(
@@ -339,8 +339,8 @@ _AUTOMLTABLESINPUTS_TRANSFORMATION_TEXTARRAYTRANSFORMATION = _descriptor.Descrip
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2699,
-  serialized_end=2745,
+  serialized_start=2731,
+  serialized_end=2777,
 )
 
 _AUTOMLTABLESINPUTS_TRANSFORMATION = _descriptor.Descriptor(
@@ -424,8 +424,8 @@ _AUTOMLTABLESINPUTS_TRANSFORMATION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1064,
-  serialized_end=2770,
+  serialized_start=1096,
+  serialized_end=2802,
 )
 
 _AUTOMLTABLESINPUTS = _descriptor.Descriptor(
@@ -506,6 +506,13 @@ _AUTOMLTABLESINPUTS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='additional_experiments', full_name='google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTablesInputs.additional_experiments', index=10,
+      number=11, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -524,7 +531,7 @@ _AUTOMLTABLESINPUTS = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=502,
-  serialized_end=2814,
+  serialized_end=2846,
 )
 
 
@@ -555,8 +562,8 @@ _AUTOMLTABLESMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2816,
-  serialized_end=2875,
+  serialized_start=2848,
+  serialized_end=2907,
 )
 
 _AUTOMLTABLES.fields_by_name['inputs'].message_type = _AUTOMLTABLESINPUTS

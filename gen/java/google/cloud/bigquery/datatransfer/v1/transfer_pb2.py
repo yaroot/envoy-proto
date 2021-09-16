@@ -14,6 +14,7 @@ _sym_db = _symbol_database.Default()
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
@@ -25,9 +26,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n)com.google.cloud.bigquery.datatransfer.v1B\rTransferProtoP\001ZQgoogle.golang.org/genproto/googleapis/cloud/bigquery/datatransfer/v1;datatransfer\242\002\005GCBDT\252\002%Google.Cloud.BigQuery.DataTransfer.V1\312\002%Google\\Cloud\\BigQuery\\DataTransfer\\V1\352\002)Google::Cloud::Bigquery::DataTransfer::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n4google/cloud/bigquery/datatransfer/v1/transfer.proto\x12%google.cloud.bigquery.datatransfer.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"0\n\x10\x45mailPreferences\x12\x1c\n\x14\x65nable_failure_email\x18\x01 \x01(\x08\"\x90\x01\n\x0fScheduleOptions\x12\x1f\n\x17\x64isable_auto_scheduling\x18\x03 \x01(\x08\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xd7\x06\n\x0eTransferConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12 \n\x16\x64\x65stination_dataset_id\x18\x02 \x01(\tH\x00\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x16\n\x0e\x64\x61ta_source_id\x18\x05 \x01(\t\x12\'\n\x06params\x18\t \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x10\n\x08schedule\x18\x07 \x01(\t\x12P\n\x10schedule_options\x18\x18 \x01(\x0b\x32\x36.google.cloud.bigquery.datatransfer.v1.ScheduleOptions\x12 \n\x18\x64\x61ta_refresh_window_days\x18\x0c \x01(\x05\x12\x10\n\x08\x64isabled\x18\r \x01(\x08\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x36\n\rnext_run_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12H\n\x05state\x18\n \x01(\x0e\x32\x34.google.cloud.bigquery.datatransfer.v1.TransferStateB\x03\xe0\x41\x03\x12\x0f\n\x07user_id\x18\x0b \x01(\x03\x12\x1b\n\x0e\x64\x61taset_region\x18\x0e \x01(\tB\x03\xe0\x41\x03\x12!\n\x19notification_pubsub_topic\x18\x0f \x01(\t\x12R\n\x11\x65mail_preferences\x18\x12 \x01(\x0b\x32\x37.google.cloud.bigquery.datatransfer.v1.EmailPreferences:\xb9\x01\xea\x41\xb5\x01\n2bigquerydatatransfer.googleapis.com/TransferConfig\x12\x34projects/{project}/transferConfigs/{transfer_config}\x12Iprojects/{project}/locations/{location}/transferConfigs/{transfer_config}B\r\n\x0b\x64\x65stination\"\xfa\x06\n\x0bTransferRun\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x31\n\rschedule_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08run_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12(\n\x0c\x65rror_status\x18\x15 \x01(\x0b\x32\x12.google.rpc.Status\x12\x33\n\nstart_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12,\n\x06params\x18\t \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03\x12%\n\x16\x64\x65stination_dataset_id\x18\x02 \x01(\tB\x03\xe0\x41\x03H\x00\x12\x1b\n\x0e\x64\x61ta_source_id\x18\x07 \x01(\tB\x03\xe0\x41\x03\x12\x43\n\x05state\x18\x08 \x01(\x0e\x32\x34.google.cloud.bigquery.datatransfer.v1.TransferState\x12\x0f\n\x07user_id\x18\x0b \x01(\x03\x12\x15\n\x08schedule\x18\x0c \x01(\tB\x03\xe0\x41\x03\x12&\n\x19notification_pubsub_topic\x18\x17 \x01(\tB\x03\xe0\x41\x03\x12W\n\x11\x65mail_preferences\x18\x19 \x01(\x0b\x32\x37.google.cloud.bigquery.datatransfer.v1.EmailPreferencesB\x03\xe0\x41\x03:\xc4\x01\xea\x41\xc0\x01\n\'bigquerydatatransfer.googleapis.com/Run\x12?projects/{project}/transferConfigs/{transfer_config}/runs/{run}\x12Tprojects/{project}/locations/{location}/transferConfigs/{transfer_config}/runs/{run}B\r\n\x0b\x64\x65stination\"\x8a\x02\n\x0fTransferMessage\x12\x30\n\x0cmessage_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12X\n\x08severity\x18\x02 \x01(\x0e\x32\x46.google.cloud.bigquery.datatransfer.v1.TransferMessage.MessageSeverity\x12\x14\n\x0cmessage_text\x18\x03 \x01(\t\"U\n\x0fMessageSeverity\x12 \n\x1cMESSAGE_SEVERITY_UNSPECIFIED\x10\x00\x12\x08\n\x04INFO\x10\x01\x12\x0b\n\x07WARNING\x10\x02\x12\t\n\x05\x45RROR\x10\x03*K\n\x0cTransferType\x12\x1d\n\x19TRANSFER_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05\x42\x41TCH\x10\x01\x12\r\n\tSTREAMING\x10\x02\x1a\x02\x18\x01*s\n\rTransferState\x12\x1e\n\x1aTRANSFER_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x02\x12\x0b\n\x07RUNNING\x10\x03\x12\r\n\tSUCCEEDED\x10\x04\x12\n\n\x06\x46\x41ILED\x10\x05\x12\r\n\tCANCELLED\x10\x06\x42\x93\x02\n)com.google.cloud.bigquery.datatransfer.v1B\rTransferProtoP\x01ZQgoogle.golang.org/genproto/googleapis/cloud/bigquery/datatransfer/v1;datatransfer\xa2\x02\x05GCBDT\xaa\x02%Google.Cloud.BigQuery.DataTransfer.V1\xca\x02%Google\\Cloud\\BigQuery\\DataTransfer\\V1\xea\x02)Google::Cloud::Bigquery::DataTransfer::V1b\x06proto3'
+  serialized_pb=b'\n4google/cloud/bigquery/datatransfer/v1/transfer.proto\x12%google.cloud.bigquery.datatransfer.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"0\n\x10\x45mailPreferences\x12\x1c\n\x14\x65nable_failure_email\x18\x01 \x01(\x08\"\x90\x01\n\x0fScheduleOptions\x12\x1f\n\x17\x64isable_auto_scheduling\x18\x03 \x01(\x08\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xd7\x06\n\x0eTransferConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12 \n\x16\x64\x65stination_dataset_id\x18\x02 \x01(\tH\x00\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x16\n\x0e\x64\x61ta_source_id\x18\x05 \x01(\t\x12\'\n\x06params\x18\t \x01(\x0b\x32\x17.google.protobuf.Struct\x12\x10\n\x08schedule\x18\x07 \x01(\t\x12P\n\x10schedule_options\x18\x18 \x01(\x0b\x32\x36.google.cloud.bigquery.datatransfer.v1.ScheduleOptions\x12 \n\x18\x64\x61ta_refresh_window_days\x18\x0c \x01(\x05\x12\x10\n\x08\x64isabled\x18\r \x01(\x08\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x36\n\rnext_run_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12H\n\x05state\x18\n \x01(\x0e\x32\x34.google.cloud.bigquery.datatransfer.v1.TransferStateB\x03\xe0\x41\x03\x12\x0f\n\x07user_id\x18\x0b \x01(\x03\x12\x1b\n\x0e\x64\x61taset_region\x18\x0e \x01(\tB\x03\xe0\x41\x03\x12!\n\x19notification_pubsub_topic\x18\x0f \x01(\t\x12R\n\x11\x65mail_preferences\x18\x12 \x01(\x0b\x32\x37.google.cloud.bigquery.datatransfer.v1.EmailPreferences:\xb9\x01\xea\x41\xb5\x01\n2bigquerydatatransfer.googleapis.com/TransferConfig\x12\x34projects/{project}/transferConfigs/{transfer_config}\x12Iprojects/{project}/locations/{location}/transferConfigs/{transfer_config}B\r\n\x0b\x64\x65stination\"\xfa\x06\n\x0bTransferRun\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x31\n\rschedule_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08run_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12(\n\x0c\x65rror_status\x18\x15 \x01(\x0b\x32\x12.google.rpc.Status\x12\x33\n\nstart_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12,\n\x06params\x18\t \x01(\x0b\x32\x17.google.protobuf.StructB\x03\xe0\x41\x03\x12%\n\x16\x64\x65stination_dataset_id\x18\x02 \x01(\tB\x03\xe0\x41\x03H\x00\x12\x1b\n\x0e\x64\x61ta_source_id\x18\x07 \x01(\tB\x03\xe0\x41\x03\x12\x43\n\x05state\x18\x08 \x01(\x0e\x32\x34.google.cloud.bigquery.datatransfer.v1.TransferState\x12\x0f\n\x07user_id\x18\x0b \x01(\x03\x12\x15\n\x08schedule\x18\x0c \x01(\tB\x03\xe0\x41\x03\x12&\n\x19notification_pubsub_topic\x18\x17 \x01(\tB\x03\xe0\x41\x03\x12W\n\x11\x65mail_preferences\x18\x19 \x01(\x0b\x32\x37.google.cloud.bigquery.datatransfer.v1.EmailPreferencesB\x03\xe0\x41\x03:\xc4\x01\xea\x41\xc0\x01\n\'bigquerydatatransfer.googleapis.com/Run\x12?projects/{project}/transferConfigs/{transfer_config}/runs/{run}\x12Tprojects/{project}/locations/{location}/transferConfigs/{transfer_config}/runs/{run}B\r\n\x0b\x64\x65stination\"\x8a\x02\n\x0fTransferMessage\x12\x30\n\x0cmessage_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12X\n\x08severity\x18\x02 \x01(\x0e\x32\x46.google.cloud.bigquery.datatransfer.v1.TransferMessage.MessageSeverity\x12\x14\n\x0cmessage_text\x18\x03 \x01(\t\"U\n\x0fMessageSeverity\x12 \n\x1cMESSAGE_SEVERITY_UNSPECIFIED\x10\x00\x12\x08\n\x04INFO\x10\x01\x12\x0b\n\x07WARNING\x10\x02\x12\t\n\x05\x45RROR\x10\x03*K\n\x0cTransferType\x12\x1d\n\x19TRANSFER_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05\x42\x41TCH\x10\x01\x12\r\n\tSTREAMING\x10\x02\x1a\x02\x18\x01*s\n\rTransferState\x12\x1e\n\x1aTRANSFER_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x02\x12\x0b\n\x07RUNNING\x10\x03\x12\r\n\tSUCCEEDED\x10\x04\x12\n\n\x06\x46\x41ILED\x10\x05\x12\r\n\tCANCELLED\x10\x06\x42\x93\x02\n)com.google.cloud.bigquery.datatransfer.v1B\rTransferProtoP\x01ZQgoogle.golang.org/genproto/googleapis/cloud/bigquery/datatransfer/v1;datatransfer\xa2\x02\x05GCBDT\xaa\x02%Google.Cloud.BigQuery.DataTransfer.V1\xca\x02%Google\\Cloud\\BigQuery\\DataTransfer\\V1\xea\x02)Google::Cloud::Bigquery::DataTransfer::V1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
 _TRANSFERTYPE = _descriptor.EnumDescriptor(
   name='TransferType',
@@ -54,8 +55,8 @@ _TRANSFERTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=b'\030\001',
-  serialized_start=2460,
-  serialized_end=2535,
+  serialized_start=2492,
+  serialized_end=2567,
 )
 _sym_db.RegisterEnumDescriptor(_TRANSFERTYPE)
 
@@ -100,8 +101,8 @@ _TRANSFERSTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2537,
-  serialized_end=2652,
+  serialized_start=2569,
+  serialized_end=2684,
 )
 _sym_db.RegisterEnumDescriptor(_TRANSFERSTATE)
 
@@ -147,8 +148,8 @@ _TRANSFERMESSAGE_MESSAGESEVERITY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2373,
-  serialized_end=2458,
+  serialized_start=2405,
+  serialized_end=2490,
 )
 _sym_db.RegisterEnumDescriptor(_TRANSFERMESSAGE_MESSAGESEVERITY)
 
@@ -180,8 +181,8 @@ _EMAILPREFERENCES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=243,
-  serialized_end=291,
+  serialized_start=275,
+  serialized_end=323,
 )
 
 
@@ -226,8 +227,8 @@ _SCHEDULEOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=294,
-  serialized_end=438,
+  serialized_start=326,
+  serialized_end=470,
 )
 
 
@@ -368,8 +369,8 @@ _TRANSFERCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=441,
-  serialized_end=1296,
+  serialized_start=473,
+  serialized_end=1328,
 )
 
 
@@ -503,8 +504,8 @@ _TRANSFERRUN = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1299,
-  serialized_end=2189,
+  serialized_start=1331,
+  serialized_end=2221,
 )
 
 
@@ -550,8 +551,8 @@ _TRANSFERMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2192,
-  serialized_end=2458,
+  serialized_start=2224,
+  serialized_end=2490,
 )
 
 _SCHEDULEOPTIONS.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP

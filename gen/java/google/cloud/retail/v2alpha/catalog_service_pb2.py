@@ -27,7 +27,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\037com.google.cloud.retail.v2alphaB\023CatalogServiceProtoP\001ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\242\002\006RETAIL\252\002\033Google.Cloud.Retail.V2Alpha\312\002\033Google\\Cloud\\Retail\\V2alpha\352\002\036Google::Cloud::Retail::V2alpha',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n1google/cloud/retail/v2alpha/catalog_service.proto\x12\x1bgoogle.cloud.retail.v2alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a)google/cloud/retail/v2alpha/catalog.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"w\n\x13ListCatalogsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"g\n\x14ListCatalogsResponse\x12\x36\n\x08\x63\x61talogs\x18\x01 \x03(\x0b\x32$.google.cloud.retail.v2alpha.Catalog\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x83\x01\n\x14UpdateCatalogRequest\x12:\n\x07\x63\x61talog\x18\x01 \x01(\x0b\x32$.google.cloud.retail.v2alpha.CatalogB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask2\xe2\x03\n\x0e\x43\x61talogService\x12\xb7\x01\n\x0cListCatalogs\x12\x30.google.cloud.retail.v2alpha.ListCatalogsRequest\x1a\x31.google.cloud.retail.v2alpha.ListCatalogsResponse\"B\x82\xd3\xe4\x93\x02\x33\x12\x31/v2alpha/{parent=projects/*/locations/*}/catalogs\xda\x41\x06parent\x12\xca\x01\n\rUpdateCatalog\x12\x31.google.cloud.retail.v2alpha.UpdateCatalogRequest\x1a$.google.cloud.retail.v2alpha.Catalog\"`\x82\xd3\xe4\x93\x02\x44\x32\x39/v2alpha/{catalog.name=projects/*/locations/*/catalogs/*}:\x07\x63\x61talog\xda\x41\x13\x63\x61talog,update_mask\x1aI\xca\x41\x15retail.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xe1\x01\n\x1f\x63om.google.cloud.retail.v2alphaB\x13\x43\x61talogServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\xa2\x02\x06RETAIL\xaa\x02\x1bGoogle.Cloud.Retail.V2Alpha\xca\x02\x1bGoogle\\Cloud\\Retail\\V2alpha\xea\x02\x1eGoogle::Cloud::Retail::V2alphab\x06proto3'
+  serialized_pb=b'\n1google/cloud/retail/v2alpha/catalog_service.proto\x12\x1bgoogle.cloud.retail.v2alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a)google/cloud/retail/v2alpha/catalog.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"w\n\x13ListCatalogsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"g\n\x14ListCatalogsResponse\x12\x36\n\x08\x63\x61talogs\x18\x01 \x03(\x0b\x32$.google.cloud.retail.v2alpha.Catalog\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x83\x01\n\x14UpdateCatalogRequest\x12:\n\x07\x63\x61talog\x18\x01 \x01(\x0b\x32$.google.cloud.retail.v2alpha.CatalogB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\x92\x01\n\x17SetDefaultBranchRequest\x12\x33\n\x07\x63\x61talog\x18\x01 \x01(\tB\"\xfa\x41\x1f\n\x1dretail.googleapis.com/Catalog\x12\x34\n\tbranch_id\x18\x02 \x01(\tB!\xfa\x41\x1e\n\x1cretail.googleapis.com/Branch\x12\x0c\n\x04note\x18\x03 \x01(\t\"N\n\x17GetDefaultBranchRequest\x12\x33\n\x07\x63\x61talog\x18\x01 \x01(\tB\"\xfa\x41\x1f\n\x1dretail.googleapis.com/Catalog\"\x89\x01\n\x18GetDefaultBranchResponse\x12\x31\n\x06\x62ranch\x18\x01 \x01(\tB!\xfa\x41\x1e\n\x1cretail.googleapis.com/Branch\x12,\n\x08set_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0c\n\x04note\x18\x03 \x01(\t2\xfc\x06\n\x0e\x43\x61talogService\x12\xb7\x01\n\x0cListCatalogs\x12\x30.google.cloud.retail.v2alpha.ListCatalogsRequest\x1a\x31.google.cloud.retail.v2alpha.ListCatalogsResponse\"B\x82\xd3\xe4\x93\x02\x33\x12\x31/v2alpha/{parent=projects/*/locations/*}/catalogs\xda\x41\x06parent\x12\xca\x01\n\rUpdateCatalog\x12\x31.google.cloud.retail.v2alpha.UpdateCatalogRequest\x1a$.google.cloud.retail.v2alpha.Catalog\"`\x82\xd3\xe4\x93\x02\x44\x32\x39/v2alpha/{catalog.name=projects/*/locations/*/catalogs/*}:\x07\x63\x61talog\xda\x41\x13\x63\x61talog,update_mask\x12\xbc\x01\n\x10SetDefaultBranch\x12\x34.google.cloud.retail.v2alpha.SetDefaultBranchRequest\x1a\x16.google.protobuf.Empty\"Z\x82\xd3\xe4\x93\x02J\"E/v2alpha/{catalog=projects/*/locations/*/catalogs/*}:setDefaultBranch:\x01*\xda\x41\x07\x63\x61talog\x12\xd8\x01\n\x10GetDefaultBranch\x12\x34.google.cloud.retail.v2alpha.GetDefaultBranchRequest\x1a\x35.google.cloud.retail.v2alpha.GetDefaultBranchResponse\"W\x82\xd3\xe4\x93\x02G\x12\x45/v2alpha/{catalog=projects/*/locations/*/catalogs/*}:getDefaultBranch\xda\x41\x07\x63\x61talog\x1aI\xca\x41\x15retail.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xe1\x01\n\x1f\x63om.google.cloud.retail.v2alphaB\x13\x43\x61talogServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\xa2\x02\x06RETAIL\xaa\x02\x1bGoogle.Cloud.Retail.V2Alpha\xca\x02\x1bGoogle\\Cloud\\Retail\\V2alpha\xea\x02\x1eGoogle::Cloud::Retail::V2alphab\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2alpha_dot_catalog__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -157,12 +157,140 @@ _UPDATECATALOGREQUEST = _descriptor.Descriptor(
   serialized_end=694,
 )
 
+
+_SETDEFAULTBRANCHREQUEST = _descriptor.Descriptor(
+  name='SetDefaultBranchRequest',
+  full_name='google.cloud.retail.v2alpha.SetDefaultBranchRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='catalog', full_name='google.cloud.retail.v2alpha.SetDefaultBranchRequest.catalog', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A\037\n\035retail.googleapis.com/Catalog', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='branch_id', full_name='google.cloud.retail.v2alpha.SetDefaultBranchRequest.branch_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A\036\n\034retail.googleapis.com/Branch', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='note', full_name='google.cloud.retail.v2alpha.SetDefaultBranchRequest.note', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=697,
+  serialized_end=843,
+)
+
+
+_GETDEFAULTBRANCHREQUEST = _descriptor.Descriptor(
+  name='GetDefaultBranchRequest',
+  full_name='google.cloud.retail.v2alpha.GetDefaultBranchRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='catalog', full_name='google.cloud.retail.v2alpha.GetDefaultBranchRequest.catalog', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A\037\n\035retail.googleapis.com/Catalog', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=845,
+  serialized_end=923,
+)
+
+
+_GETDEFAULTBRANCHRESPONSE = _descriptor.Descriptor(
+  name='GetDefaultBranchResponse',
+  full_name='google.cloud.retail.v2alpha.GetDefaultBranchResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='branch', full_name='google.cloud.retail.v2alpha.GetDefaultBranchResponse.branch', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A\036\n\034retail.googleapis.com/Branch', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='set_time', full_name='google.cloud.retail.v2alpha.GetDefaultBranchResponse.set_time', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='note', full_name='google.cloud.retail.v2alpha.GetDefaultBranchResponse.note', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=926,
+  serialized_end=1063,
+)
+
 _LISTCATALOGSRESPONSE.fields_by_name['catalogs'].message_type = google_dot_cloud_dot_retail_dot_v2alpha_dot_catalog__pb2._CATALOG
 _UPDATECATALOGREQUEST.fields_by_name['catalog'].message_type = google_dot_cloud_dot_retail_dot_v2alpha_dot_catalog__pb2._CATALOG
 _UPDATECATALOGREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_GETDEFAULTBRANCHRESPONSE.fields_by_name['set_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 DESCRIPTOR.message_types_by_name['ListCatalogsRequest'] = _LISTCATALOGSREQUEST
 DESCRIPTOR.message_types_by_name['ListCatalogsResponse'] = _LISTCATALOGSRESPONSE
 DESCRIPTOR.message_types_by_name['UpdateCatalogRequest'] = _UPDATECATALOGREQUEST
+DESCRIPTOR.message_types_by_name['SetDefaultBranchRequest'] = _SETDEFAULTBRANCHREQUEST
+DESCRIPTOR.message_types_by_name['GetDefaultBranchRequest'] = _GETDEFAULTBRANCHREQUEST
+DESCRIPTOR.message_types_by_name['GetDefaultBranchResponse'] = _GETDEFAULTBRANCHRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ListCatalogsRequest = _reflection.GeneratedProtocolMessageType('ListCatalogsRequest', (_message.Message,), {
@@ -186,10 +314,35 @@ UpdateCatalogRequest = _reflection.GeneratedProtocolMessageType('UpdateCatalogRe
   })
 _sym_db.RegisterMessage(UpdateCatalogRequest)
 
+SetDefaultBranchRequest = _reflection.GeneratedProtocolMessageType('SetDefaultBranchRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SETDEFAULTBRANCHREQUEST,
+  '__module__' : 'google.cloud.retail.v2alpha.catalog_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2alpha.SetDefaultBranchRequest)
+  })
+_sym_db.RegisterMessage(SetDefaultBranchRequest)
+
+GetDefaultBranchRequest = _reflection.GeneratedProtocolMessageType('GetDefaultBranchRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETDEFAULTBRANCHREQUEST,
+  '__module__' : 'google.cloud.retail.v2alpha.catalog_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2alpha.GetDefaultBranchRequest)
+  })
+_sym_db.RegisterMessage(GetDefaultBranchRequest)
+
+GetDefaultBranchResponse = _reflection.GeneratedProtocolMessageType('GetDefaultBranchResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETDEFAULTBRANCHRESPONSE,
+  '__module__' : 'google.cloud.retail.v2alpha.catalog_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2alpha.GetDefaultBranchResponse)
+  })
+_sym_db.RegisterMessage(GetDefaultBranchResponse)
+
 
 DESCRIPTOR._options = None
 _LISTCATALOGSREQUEST.fields_by_name['parent']._options = None
 _UPDATECATALOGREQUEST.fields_by_name['catalog']._options = None
+_SETDEFAULTBRANCHREQUEST.fields_by_name['catalog']._options = None
+_SETDEFAULTBRANCHREQUEST.fields_by_name['branch_id']._options = None
+_GETDEFAULTBRANCHREQUEST.fields_by_name['catalog']._options = None
+_GETDEFAULTBRANCHRESPONSE.fields_by_name['branch']._options = None
 
 _CATALOGSERVICE = _descriptor.ServiceDescriptor(
   name='CatalogService',
@@ -198,8 +351,8 @@ _CATALOGSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\025retail.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=697,
-  serialized_end=1179,
+  serialized_start=1066,
+  serialized_end=1958,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListCatalogs',
@@ -219,6 +372,26 @@ _CATALOGSERVICE = _descriptor.ServiceDescriptor(
     input_type=_UPDATECATALOGREQUEST,
     output_type=google_dot_cloud_dot_retail_dot_v2alpha_dot_catalog__pb2._CATALOG,
     serialized_options=b'\202\323\344\223\002D29/v2alpha/{catalog.name=projects/*/locations/*/catalogs/*}:\007catalog\332A\023catalog,update_mask',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SetDefaultBranch',
+    full_name='google.cloud.retail.v2alpha.CatalogService.SetDefaultBranch',
+    index=2,
+    containing_service=None,
+    input_type=_SETDEFAULTBRANCHREQUEST,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=b'\202\323\344\223\002J\"E/v2alpha/{catalog=projects/*/locations/*/catalogs/*}:setDefaultBranch:\001*\332A\007catalog',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetDefaultBranch',
+    full_name='google.cloud.retail.v2alpha.CatalogService.GetDefaultBranch',
+    index=3,
+    containing_service=None,
+    input_type=_GETDEFAULTBRANCHREQUEST,
+    output_type=_GETDEFAULTBRANCHRESPONSE,
+    serialized_options=b'\202\323\344\223\002G\022E/v2alpha/{catalog=projects/*/locations/*/catalogs/*}:getDefaultBranch\332A\007catalog',
     create_key=_descriptor._internal_create_key,
   ),
 ])

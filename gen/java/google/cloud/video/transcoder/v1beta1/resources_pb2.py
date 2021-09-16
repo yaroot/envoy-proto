@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n)com.google.cloud.video.transcoder.v1beta1B\016ResourcesProtoP\001ZOgoogle.golang.org/genproto/googleapis/cloud/video/transcoder/v1beta1;transcoder',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n5google/cloud/video/transcoder/v1beta1/resources.proto\x12%google.cloud.video.transcoder.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa4\x07\n\x03Job\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x16\n\tinput_uri\x18\x02 \x01(\tB\x03\xe0\x41\x04\x12\x17\n\noutput_uri\x18\x03 \x01(\tB\x03\xe0\x41\x04\x12\x1a\n\x0btemplate_id\x18\x04 \x01(\tB\x03\xe0\x41\x04H\x00\x12\x42\n\x06\x63onfig\x18\x05 \x01(\x0b\x32\x30.google.cloud.video.transcoder.v1beta1.JobConfigH\x00\x12\x10\n\x08priority\x18\x06 \x01(\x05\x12M\n\norigin_uri\x18\x07 \x01(\x0b\x32\x34.google.cloud.video.transcoder.v1beta1.Job.OriginUriB\x03\xe0\x41\x03\x12N\n\x05state\x18\x08 \x01(\x0e\x32:.google.cloud.video.transcoder.v1beta1.Job.ProcessingStateB\x03\xe0\x41\x03\x12\x46\n\x08progress\x18\t \x01(\x0b\x32/.google.cloud.video.transcoder.v1beta1.ProgressB\x03\xe0\x41\x03\x12\x1b\n\x0e\x66\x61ilure_reason\x18\n \x01(\tB\x03\xe0\x41\x03\x12R\n\x0f\x66\x61ilure_details\x18\x0b \x03(\x0b\x32\x34.google.cloud.video.transcoder.v1beta1.FailureDetailB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x33\n\nstart_time\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1a&\n\tOriginUri\x12\x0b\n\x03hls\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61sh\x18\x02 \x01(\t\"h\n\x0fProcessingState\x12 \n\x1cPROCESSING_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\r\n\tSUCCEEDED\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04:V\xea\x41S\n\x1dtranscoder.googleapis.com/Job\x12\x32projects/{project}/locations/{location}/jobs/{job}B\x0c\n\njob_config\"\xce\x01\n\x0bJobTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12@\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x30.google.cloud.video.transcoder.v1beta1.JobConfig:o\xea\x41l\n%transcoder.googleapis.com/JobTemplate\x12\x43projects/{project}/locations/{location}/jobTemplates/{job_template}\"\xd2\x05\n\tJobConfig\x12<\n\x06inputs\x18\x01 \x03(\x0b\x32,.google.cloud.video.transcoder.v1beta1.Input\x12\x42\n\tedit_list\x18\x02 \x03(\x0b\x32/.google.cloud.video.transcoder.v1beta1.EditAtom\x12S\n\x12\x65lementary_streams\x18\x03 \x03(\x0b\x32\x37.google.cloud.video.transcoder.v1beta1.ElementaryStream\x12\x45\n\x0bmux_streams\x18\x04 \x03(\x0b\x32\x30.google.cloud.video.transcoder.v1beta1.MuxStream\x12\x42\n\tmanifests\x18\x05 \x03(\x0b\x32/.google.cloud.video.transcoder.v1beta1.Manifest\x12=\n\x06output\x18\x06 \x01(\x0b\x32-.google.cloud.video.transcoder.v1beta1.Output\x12\x41\n\tad_breaks\x18\x07 \x03(\x0b\x32..google.cloud.video.transcoder.v1beta1.AdBreak\x12T\n\x12pubsub_destination\x18\x08 \x01(\x0b\x32\x38.google.cloud.video.transcoder.v1beta1.PubsubDestination\x12I\n\rsprite_sheets\x18\t \x03(\x0b\x32\x32.google.cloud.video.transcoder.v1beta1.SpriteSheet\x12@\n\x08overlays\x18\n \x03(\x0b\x32..google.cloud.video.transcoder.v1beta1.Overlay\"{\n\x05Input\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0b\n\x03uri\x18\x02 \x01(\t\x12X\n\x14preprocessing_config\x18\x03 \x01(\x0b\x32:.google.cloud.video.transcoder.v1beta1.PreprocessingConfig\"\x15\n\x06Output\x12\x0b\n\x03uri\x18\x01 \x01(\t\"\x91\x01\n\x08\x45\x64itAtom\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0e\n\x06inputs\x18\x02 \x03(\t\x12\x32\n\x0f\x65nd_time_offset\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x34\n\x11start_time_offset\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\"?\n\x07\x41\x64\x42reak\x12\x34\n\x11start_time_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\"\x96\x02\n\x10\x45lementaryStream\x12\x0b\n\x03key\x18\x04 \x01(\t\x12J\n\x0cvideo_stream\x18\x01 \x01(\x0b\x32\x32.google.cloud.video.transcoder.v1beta1.VideoStreamH\x00\x12J\n\x0c\x61udio_stream\x18\x02 \x01(\x0b\x32\x32.google.cloud.video.transcoder.v1beta1.AudioStreamH\x00\x12H\n\x0btext_stream\x18\x03 \x01(\x0b\x32\x31.google.cloud.video.transcoder.v1beta1.TextStreamH\x00\x42\x13\n\x11\x65lementary_stream\"\xf3\x01\n\tMuxStream\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x11\n\tfile_name\x18\x02 \x01(\t\x12\x11\n\tcontainer\x18\x03 \x01(\t\x12\x1a\n\x12\x65lementary_streams\x18\x04 \x03(\t\x12P\n\x10segment_settings\x18\x05 \x01(\x0b\x32\x36.google.cloud.video.transcoder.v1beta1.SegmentSettings\x12\x45\n\nencryption\x18\x06 \x01(\x0b\x32\x31.google.cloud.video.transcoder.v1beta1.Encryption\"\xca\x01\n\x08Manifest\x12\x11\n\tfile_name\x18\x01 \x01(\t\x12O\n\x04type\x18\x02 \x01(\x0e\x32<.google.cloud.video.transcoder.v1beta1.Manifest.ManifestTypeB\x03\xe0\x41\x02\x12\x18\n\x0bmux_streams\x18\x03 \x03(\tB\x03\xe0\x41\x02\"@\n\x0cManifestType\x12\x1d\n\x19MANIFEST_TYPE_UNSPECIFIED\x10\x00\x12\x07\n\x03HLS\x10\x01\x12\x08\n\x04\x44\x41SH\x10\x02\"\"\n\x11PubsubDestination\x12\r\n\x05topic\x18\x01 \x01(\t\"\xec\x02\n\x0bSpriteSheet\x12\x0e\n\x06\x66ormat\x18\x01 \x01(\t\x12\x18\n\x0b\x66ile_prefix\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12 \n\x13sprite_width_pixels\x18\x03 \x01(\x05\x42\x03\xe0\x41\x02\x12!\n\x14sprite_height_pixels\x18\x04 \x01(\x05\x42\x03\xe0\x41\x02\x12\x14\n\x0c\x63olumn_count\x18\x05 \x01(\x05\x12\x11\n\trow_count\x18\x06 \x01(\x05\x12\x34\n\x11start_time_offset\x18\x07 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x32\n\x0f\x65nd_time_offset\x18\x08 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x15\n\x0btotal_count\x18\t \x01(\x05H\x00\x12-\n\x08interval\x18\n \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x42\x15\n\x13\x65xtraction_strategy\"\xb9\t\n\x07Overlay\x12\x43\n\x05image\x18\x01 \x01(\x0b\x32\x34.google.cloud.video.transcoder.v1beta1.Overlay.Image\x12L\n\nanimations\x18\x02 \x03(\x0b\x32\x38.google.cloud.video.transcoder.v1beta1.Overlay.Animation\x1a,\n\x14NormalizedCoordinate\x12\t\n\x01x\x18\x01 \x01(\x01\x12\t\n\x01y\x18\x02 \x01(\x01\x1a\x81\x01\n\x05Image\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12W\n\nresolution\x18\x02 \x01(\x0b\x32\x43.google.cloud.video.transcoder.v1beta1.Overlay.NormalizedCoordinate\x12\r\n\x05\x61lpha\x18\x03 \x01(\x01\x1a\x98\x01\n\x0f\x41nimationStatic\x12O\n\x02xy\x18\x01 \x01(\x0b\x32\x43.google.cloud.video.transcoder.v1beta1.Overlay.NormalizedCoordinate\x12\x34\n\x11start_time_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x1a\x9b\x02\n\rAnimationFade\x12O\n\tfade_type\x18\x01 \x01(\x0e\x32\x37.google.cloud.video.transcoder.v1beta1.Overlay.FadeTypeB\x03\xe0\x41\x02\x12O\n\x02xy\x18\x02 \x01(\x0b\x32\x43.google.cloud.video.transcoder.v1beta1.Overlay.NormalizedCoordinate\x12\x34\n\x11start_time_offset\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x32\n\x0f\x65nd_time_offset\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x1a\x44\n\x0c\x41nimationEnd\x12\x34\n\x11start_time_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x1a\xa7\x02\n\tAnimation\x12Z\n\x10\x61nimation_static\x18\x01 \x01(\x0b\x32>.google.cloud.video.transcoder.v1beta1.Overlay.AnimationStaticH\x00\x12V\n\x0e\x61nimation_fade\x18\x02 \x01(\x0b\x32<.google.cloud.video.transcoder.v1beta1.Overlay.AnimationFadeH\x00\x12T\n\ranimation_end\x18\x03 \x01(\x0b\x32;.google.cloud.video.transcoder.v1beta1.Overlay.AnimationEndH\x00\x42\x10\n\x0e\x61nimation_type\"@\n\x08\x46\x61\x64\x65Type\x12\x19\n\x15\x46\x41\x44\x45_TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x46\x41\x44\x45_IN\x10\x01\x12\x0c\n\x08\x46\x41\x44\x45_OUT\x10\x02\"\xbb\x04\n\x13PreprocessingConfig\x12O\n\x05\x63olor\x18\x01 \x01(\x0b\x32@.google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Color\x12S\n\x07\x64\x65noise\x18\x02 \x01(\x0b\x32\x42.google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Denoise\x12S\n\x07\x64\x65\x62lock\x18\x03 \x01(\x0b\x32\x42.google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Deblock\x12O\n\x05\x61udio\x18\x04 \x01(\x0b\x32@.google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Audio\x1a\x41\n\x05\x43olor\x12\x12\n\nsaturation\x18\x01 \x01(\x01\x12\x10\n\x08\x63ontrast\x18\x02 \x01(\x01\x12\x12\n\nbrightness\x18\x03 \x01(\x01\x1a)\n\x07\x44\x65noise\x12\x10\n\x08strength\x18\x01 \x01(\x01\x12\x0c\n\x04tune\x18\x02 \x01(\t\x1a,\n\x07\x44\x65\x62lock\x12\x10\n\x08strength\x18\x01 \x01(\x01\x12\x0f\n\x07\x65nabled\x18\x02 \x01(\x08\x1a<\n\x05\x41udio\x12\x0c\n\x04lufs\x18\x01 \x01(\x01\x12\x12\n\nhigh_boost\x18\x02 \x01(\x08\x12\x11\n\tlow_boost\x18\x03 \x01(\x08\"\x82\x04\n\x0bVideoStream\x12\r\n\x05\x63odec\x18\x01 \x01(\t\x12\x0f\n\x07profile\x18\x02 \x01(\t\x12\x0c\n\x04tune\x18\x03 \x01(\t\x12\x0e\n\x06preset\x18\x04 \x01(\t\x12\x15\n\rheight_pixels\x18\x05 \x01(\x05\x12\x14\n\x0cwidth_pixels\x18\x06 \x01(\x05\x12\x14\n\x0cpixel_format\x18\x07 \x01(\t\x12\x18\n\x0b\x62itrate_bps\x18\x08 \x01(\x05\x42\x03\xe0\x41\x02\x12\x19\n\x11rate_control_mode\x18\t \x01(\t\x12\x17\n\x0f\x65nable_two_pass\x18\n \x01(\x08\x12\x11\n\tcrf_level\x18\x0b \x01(\x05\x12\x15\n\rvbv_size_bits\x18\x0c \x01(\x05\x12\x19\n\x11vbv_fullness_bits\x18\r \x01(\x05\x12\x16\n\x0e\x61llow_open_gop\x18\x0e \x01(\x08\x12\x19\n\x0fgop_frame_count\x18\x0f \x01(\x05H\x00\x12\x31\n\x0cgop_duration\x18\x10 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12\x15\n\rentropy_coder\x18\x11 \x01(\t\x12\x11\n\tb_pyramid\x18\x12 \x01(\x08\x12\x15\n\rb_frame_count\x18\x13 \x01(\x05\x12\x17\n\nframe_rate\x18\x14 \x01(\x01\x42\x03\xe0\x41\x02\x12\x13\n\x0b\x61q_strength\x18\x15 \x01(\x01\x42\n\n\x08gop_mode\"\xac\x04\n\x0b\x41udioStream\x12\r\n\x05\x63odec\x18\x01 \x01(\t\x12\x18\n\x0b\x62itrate_bps\x18\x02 \x01(\x05\x42\x03\xe0\x41\x02\x12\x15\n\rchannel_count\x18\x03 \x01(\x05\x12\x16\n\x0e\x63hannel_layout\x18\x04 \x03(\t\x12M\n\x07mapping\x18\x05 \x03(\x0b\x32<.google.cloud.video.transcoder.v1beta1.AudioStream.AudioAtom\x12\x19\n\x11sample_rate_hertz\x18\x06 \x01(\x05\x1a\xda\x02\n\tAudioAtom\x12\x10\n\x03key\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12[\n\x08\x63hannels\x18\x02 \x03(\x0b\x32I.google.cloud.video.transcoder.v1beta1.AudioStream.AudioAtom.AudioChannel\x1a\xdd\x01\n\x0c\x41udioChannel\x12k\n\x06inputs\x18\x02 \x03(\x0b\x32[.google.cloud.video.transcoder.v1beta1.AudioStream.AudioAtom.AudioChannel.AudioChannelInput\x1a`\n\x11\x41udioChannelInput\x12\x10\n\x03key\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05track\x18\x02 \x01(\x05\x42\x03\xe0\x41\x02\x12\x14\n\x07\x63hannel\x18\x03 \x01(\x05\x42\x03\xe0\x41\x02\x12\x0f\n\x07gain_db\x18\x04 \x01(\x01\"\xac\x02\n\nTextStream\x12\r\n\x05\x63odec\x18\x01 \x01(\t\x12\x1a\n\rlanguage_code\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12K\n\x07mapping\x18\x03 \x03(\x0b\x32:.google.cloud.video.transcoder.v1beta1.TextStream.TextAtom\x1a\xa5\x01\n\x08TextAtom\x12\x10\n\x03key\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12T\n\x06inputs\x18\x02 \x03(\x0b\x32\x44.google.cloud.video.transcoder.v1beta1.TextStream.TextAtom.TextInput\x1a\x31\n\tTextInput\x12\x10\n\x03key\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05track\x18\x02 \x01(\x05\x42\x03\xe0\x41\x02\"h\n\x0fSegmentSettings\x12\x33\n\x10segment_duration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12 \n\x13individual_segments\x18\x03 \x01(\x08\x42\x03\xe0\x41\x02\"\xec\x03\n\nEncryption\x12\x10\n\x03key\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0f\n\x02iv\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12U\n\x07\x61\x65s_128\x18\x03 \x01(\x0b\x32\x42.google.cloud.video.transcoder.v1beta1.Encryption.Aes128EncryptionH\x00\x12[\n\nsample_aes\x18\x04 \x01(\x0b\x32\x45.google.cloud.video.transcoder.v1beta1.Encryption.SampleAesEncryptionH\x00\x12[\n\tmpeg_cenc\x18\x05 \x01(\x0b\x32\x46.google.cloud.video.transcoder.v1beta1.Encryption.MpegCommonEncryptionH\x00\x1a(\n\x10\x41\x65s128Encryption\x12\x14\n\x07key_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a+\n\x13SampleAesEncryption\x12\x14\n\x07key_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a@\n\x14MpegCommonEncryption\x12\x13\n\x06key_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x06scheme\x18\x02 \x01(\tB\x03\xe0\x41\x02\x42\x11\n\x0f\x65ncryption_mode\"Q\n\x08Progress\x12\x10\n\x08\x61nalyzed\x18\x01 \x01(\x01\x12\x0f\n\x07\x65ncoded\x18\x02 \x01(\x01\x12\x10\n\x08uploaded\x18\x03 \x01(\x01\x12\x10\n\x08notified\x18\x04 \x01(\x01\"$\n\rFailureDetail\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\tB\x8e\x01\n)com.google.cloud.video.transcoder.v1beta1B\x0eResourcesProtoP\x01ZOgoogle.golang.org/genproto/googleapis/cloud/video/transcoder/v1beta1;transcoderb\x06proto3'
+  serialized_pb=b'\n5google/cloud/video/transcoder/v1beta1/resources.proto\x12%google.cloud.video.transcoder.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc7\x07\n\x03Job\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x16\n\tinput_uri\x18\x02 \x01(\tB\x03\xe0\x41\x04\x12\x17\n\noutput_uri\x18\x03 \x01(\tB\x03\xe0\x41\x04\x12\x1a\n\x0btemplate_id\x18\x04 \x01(\tB\x03\xe0\x41\x04H\x00\x12\x42\n\x06\x63onfig\x18\x05 \x01(\x0b\x32\x30.google.cloud.video.transcoder.v1beta1.JobConfigH\x00\x12\x10\n\x08priority\x18\x06 \x01(\x05\x12M\n\norigin_uri\x18\x07 \x01(\x0b\x32\x34.google.cloud.video.transcoder.v1beta1.Job.OriginUriB\x03\xe0\x41\x03\x12N\n\x05state\x18\x08 \x01(\x0e\x32:.google.cloud.video.transcoder.v1beta1.Job.ProcessingStateB\x03\xe0\x41\x03\x12\x46\n\x08progress\x18\t \x01(\x0b\x32/.google.cloud.video.transcoder.v1beta1.ProgressB\x03\xe0\x41\x03\x12\x1b\n\x0e\x66\x61ilure_reason\x18\n \x01(\tB\x03\xe0\x41\x03\x12R\n\x0f\x66\x61ilure_details\x18\x0b \x03(\x0b\x32\x34.google.cloud.video.transcoder.v1beta1.FailureDetailB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x33\n\nstart_time\x18\r \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12!\n\x19ttl_after_completion_days\x18\x0f \x01(\x05\x1a&\n\tOriginUri\x12\x0b\n\x03hls\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61sh\x18\x02 \x01(\t\"h\n\x0fProcessingState\x12 \n\x1cPROCESSING_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\r\n\tSUCCEEDED\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04:V\xea\x41S\n\x1dtranscoder.googleapis.com/Job\x12\x32projects/{project}/locations/{location}/jobs/{job}B\x0c\n\njob_config\"\xce\x01\n\x0bJobTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12@\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x30.google.cloud.video.transcoder.v1beta1.JobConfig:o\xea\x41l\n%transcoder.googleapis.com/JobTemplate\x12\x43projects/{project}/locations/{location}/jobTemplates/{job_template}\"\xd2\x05\n\tJobConfig\x12<\n\x06inputs\x18\x01 \x03(\x0b\x32,.google.cloud.video.transcoder.v1beta1.Input\x12\x42\n\tedit_list\x18\x02 \x03(\x0b\x32/.google.cloud.video.transcoder.v1beta1.EditAtom\x12S\n\x12\x65lementary_streams\x18\x03 \x03(\x0b\x32\x37.google.cloud.video.transcoder.v1beta1.ElementaryStream\x12\x45\n\x0bmux_streams\x18\x04 \x03(\x0b\x32\x30.google.cloud.video.transcoder.v1beta1.MuxStream\x12\x42\n\tmanifests\x18\x05 \x03(\x0b\x32/.google.cloud.video.transcoder.v1beta1.Manifest\x12=\n\x06output\x18\x06 \x01(\x0b\x32-.google.cloud.video.transcoder.v1beta1.Output\x12\x41\n\tad_breaks\x18\x07 \x03(\x0b\x32..google.cloud.video.transcoder.v1beta1.AdBreak\x12T\n\x12pubsub_destination\x18\x08 \x01(\x0b\x32\x38.google.cloud.video.transcoder.v1beta1.PubsubDestination\x12I\n\rsprite_sheets\x18\t \x03(\x0b\x32\x32.google.cloud.video.transcoder.v1beta1.SpriteSheet\x12@\n\x08overlays\x18\n \x03(\x0b\x32..google.cloud.video.transcoder.v1beta1.Overlay\"{\n\x05Input\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0b\n\x03uri\x18\x02 \x01(\t\x12X\n\x14preprocessing_config\x18\x03 \x01(\x0b\x32:.google.cloud.video.transcoder.v1beta1.PreprocessingConfig\"\x15\n\x06Output\x12\x0b\n\x03uri\x18\x01 \x01(\t\"\x91\x01\n\x08\x45\x64itAtom\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0e\n\x06inputs\x18\x02 \x03(\t\x12\x32\n\x0f\x65nd_time_offset\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x34\n\x11start_time_offset\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\"?\n\x07\x41\x64\x42reak\x12\x34\n\x11start_time_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\"\x96\x02\n\x10\x45lementaryStream\x12\x0b\n\x03key\x18\x04 \x01(\t\x12J\n\x0cvideo_stream\x18\x01 \x01(\x0b\x32\x32.google.cloud.video.transcoder.v1beta1.VideoStreamH\x00\x12J\n\x0c\x61udio_stream\x18\x02 \x01(\x0b\x32\x32.google.cloud.video.transcoder.v1beta1.AudioStreamH\x00\x12H\n\x0btext_stream\x18\x03 \x01(\x0b\x32\x31.google.cloud.video.transcoder.v1beta1.TextStreamH\x00\x42\x13\n\x11\x65lementary_stream\"\xf3\x01\n\tMuxStream\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x11\n\tfile_name\x18\x02 \x01(\t\x12\x11\n\tcontainer\x18\x03 \x01(\t\x12\x1a\n\x12\x65lementary_streams\x18\x04 \x03(\t\x12P\n\x10segment_settings\x18\x05 \x01(\x0b\x32\x36.google.cloud.video.transcoder.v1beta1.SegmentSettings\x12\x45\n\nencryption\x18\x06 \x01(\x0b\x32\x31.google.cloud.video.transcoder.v1beta1.Encryption\"\xca\x01\n\x08Manifest\x12\x11\n\tfile_name\x18\x01 \x01(\t\x12O\n\x04type\x18\x02 \x01(\x0e\x32<.google.cloud.video.transcoder.v1beta1.Manifest.ManifestTypeB\x03\xe0\x41\x02\x12\x18\n\x0bmux_streams\x18\x03 \x03(\tB\x03\xe0\x41\x02\"@\n\x0cManifestType\x12\x1d\n\x19MANIFEST_TYPE_UNSPECIFIED\x10\x00\x12\x07\n\x03HLS\x10\x01\x12\x08\n\x04\x44\x41SH\x10\x02\"\"\n\x11PubsubDestination\x12\r\n\x05topic\x18\x01 \x01(\t\"\xfd\x02\n\x0bSpriteSheet\x12\x0e\n\x06\x66ormat\x18\x01 \x01(\t\x12\x18\n\x0b\x66ile_prefix\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12 \n\x13sprite_width_pixels\x18\x03 \x01(\x05\x42\x03\xe0\x41\x02\x12!\n\x14sprite_height_pixels\x18\x04 \x01(\x05\x42\x03\xe0\x41\x02\x12\x14\n\x0c\x63olumn_count\x18\x05 \x01(\x05\x12\x11\n\trow_count\x18\x06 \x01(\x05\x12\x34\n\x11start_time_offset\x18\x07 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x32\n\x0f\x65nd_time_offset\x18\x08 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x15\n\x0btotal_count\x18\t \x01(\x05H\x00\x12-\n\x08interval\x18\n \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12\x0f\n\x07quality\x18\x0b \x01(\x05\x42\x15\n\x13\x65xtraction_strategy\"\xb9\t\n\x07Overlay\x12\x43\n\x05image\x18\x01 \x01(\x0b\x32\x34.google.cloud.video.transcoder.v1beta1.Overlay.Image\x12L\n\nanimations\x18\x02 \x03(\x0b\x32\x38.google.cloud.video.transcoder.v1beta1.Overlay.Animation\x1a,\n\x14NormalizedCoordinate\x12\t\n\x01x\x18\x01 \x01(\x01\x12\t\n\x01y\x18\x02 \x01(\x01\x1a\x81\x01\n\x05Image\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12W\n\nresolution\x18\x02 \x01(\x0b\x32\x43.google.cloud.video.transcoder.v1beta1.Overlay.NormalizedCoordinate\x12\r\n\x05\x61lpha\x18\x03 \x01(\x01\x1a\x98\x01\n\x0f\x41nimationStatic\x12O\n\x02xy\x18\x01 \x01(\x0b\x32\x43.google.cloud.video.transcoder.v1beta1.Overlay.NormalizedCoordinate\x12\x34\n\x11start_time_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x1a\x9b\x02\n\rAnimationFade\x12O\n\tfade_type\x18\x01 \x01(\x0e\x32\x37.google.cloud.video.transcoder.v1beta1.Overlay.FadeTypeB\x03\xe0\x41\x02\x12O\n\x02xy\x18\x02 \x01(\x0b\x32\x43.google.cloud.video.transcoder.v1beta1.Overlay.NormalizedCoordinate\x12\x34\n\x11start_time_offset\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x32\n\x0f\x65nd_time_offset\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x1a\x44\n\x0c\x41nimationEnd\x12\x34\n\x11start_time_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x1a\xa7\x02\n\tAnimation\x12Z\n\x10\x61nimation_static\x18\x01 \x01(\x0b\x32>.google.cloud.video.transcoder.v1beta1.Overlay.AnimationStaticH\x00\x12V\n\x0e\x61nimation_fade\x18\x02 \x01(\x0b\x32<.google.cloud.video.transcoder.v1beta1.Overlay.AnimationFadeH\x00\x12T\n\ranimation_end\x18\x03 \x01(\x0b\x32;.google.cloud.video.transcoder.v1beta1.Overlay.AnimationEndH\x00\x42\x10\n\x0e\x61nimation_type\"@\n\x08\x46\x61\x64\x65Type\x12\x19\n\x15\x46\x41\x44\x45_TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x46\x41\x44\x45_IN\x10\x01\x12\x0c\n\x08\x46\x41\x44\x45_OUT\x10\x02\"\x92\x07\n\x13PreprocessingConfig\x12O\n\x05\x63olor\x18\x01 \x01(\x0b\x32@.google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Color\x12S\n\x07\x64\x65noise\x18\x02 \x01(\x0b\x32\x42.google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Denoise\x12S\n\x07\x64\x65\x62lock\x18\x03 \x01(\x0b\x32\x42.google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Deblock\x12O\n\x05\x61udio\x18\x04 \x01(\x0b\x32@.google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Audio\x12M\n\x04\x63rop\x18\x05 \x01(\x0b\x32?.google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Crop\x12K\n\x03pad\x18\x06 \x01(\x0b\x32>.google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Pad\x1a\x41\n\x05\x43olor\x12\x12\n\nsaturation\x18\x01 \x01(\x01\x12\x10\n\x08\x63ontrast\x18\x02 \x01(\x01\x12\x12\n\nbrightness\x18\x03 \x01(\x01\x1a)\n\x07\x44\x65noise\x12\x10\n\x08strength\x18\x01 \x01(\x01\x12\x0c\n\x04tune\x18\x02 \x01(\t\x1a,\n\x07\x44\x65\x62lock\x12\x10\n\x08strength\x18\x01 \x01(\x01\x12\x0f\n\x07\x65nabled\x18\x02 \x01(\x08\x1a<\n\x05\x41udio\x12\x0c\n\x04lufs\x18\x01 \x01(\x01\x12\x12\n\nhigh_boost\x18\x02 \x01(\x08\x12\x11\n\tlow_boost\x18\x03 \x01(\x08\x1a\\\n\x04\x43rop\x12\x12\n\ntop_pixels\x18\x01 \x01(\x05\x12\x15\n\rbottom_pixels\x18\x02 \x01(\x05\x12\x13\n\x0bleft_pixels\x18\x03 \x01(\x05\x12\x14\n\x0cright_pixels\x18\x04 \x01(\x05\x1a[\n\x03Pad\x12\x12\n\ntop_pixels\x18\x01 \x01(\x05\x12\x15\n\rbottom_pixels\x18\x02 \x01(\x05\x12\x13\n\x0bleft_pixels\x18\x03 \x01(\x05\x12\x14\n\x0cright_pixels\x18\x04 \x01(\x05\"\x82\x04\n\x0bVideoStream\x12\r\n\x05\x63odec\x18\x01 \x01(\t\x12\x0f\n\x07profile\x18\x02 \x01(\t\x12\x0c\n\x04tune\x18\x03 \x01(\t\x12\x0e\n\x06preset\x18\x04 \x01(\t\x12\x15\n\rheight_pixels\x18\x05 \x01(\x05\x12\x14\n\x0cwidth_pixels\x18\x06 \x01(\x05\x12\x14\n\x0cpixel_format\x18\x07 \x01(\t\x12\x18\n\x0b\x62itrate_bps\x18\x08 \x01(\x05\x42\x03\xe0\x41\x02\x12\x19\n\x11rate_control_mode\x18\t \x01(\t\x12\x17\n\x0f\x65nable_two_pass\x18\n \x01(\x08\x12\x11\n\tcrf_level\x18\x0b \x01(\x05\x12\x15\n\rvbv_size_bits\x18\x0c \x01(\x05\x12\x19\n\x11vbv_fullness_bits\x18\r \x01(\x05\x12\x16\n\x0e\x61llow_open_gop\x18\x0e \x01(\x08\x12\x19\n\x0fgop_frame_count\x18\x0f \x01(\x05H\x00\x12\x31\n\x0cgop_duration\x18\x10 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12\x15\n\rentropy_coder\x18\x11 \x01(\t\x12\x11\n\tb_pyramid\x18\x12 \x01(\x08\x12\x15\n\rb_frame_count\x18\x13 \x01(\x05\x12\x17\n\nframe_rate\x18\x14 \x01(\x01\x42\x03\xe0\x41\x02\x12\x13\n\x0b\x61q_strength\x18\x15 \x01(\x01\x42\n\n\x08gop_mode\"\xac\x04\n\x0b\x41udioStream\x12\r\n\x05\x63odec\x18\x01 \x01(\t\x12\x18\n\x0b\x62itrate_bps\x18\x02 \x01(\x05\x42\x03\xe0\x41\x02\x12\x15\n\rchannel_count\x18\x03 \x01(\x05\x12\x16\n\x0e\x63hannel_layout\x18\x04 \x03(\t\x12M\n\x07mapping\x18\x05 \x03(\x0b\x32<.google.cloud.video.transcoder.v1beta1.AudioStream.AudioAtom\x12\x19\n\x11sample_rate_hertz\x18\x06 \x01(\x05\x1a\xda\x02\n\tAudioAtom\x12\x10\n\x03key\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12[\n\x08\x63hannels\x18\x02 \x03(\x0b\x32I.google.cloud.video.transcoder.v1beta1.AudioStream.AudioAtom.AudioChannel\x1a\xdd\x01\n\x0c\x41udioChannel\x12k\n\x06inputs\x18\x02 \x03(\x0b\x32[.google.cloud.video.transcoder.v1beta1.AudioStream.AudioAtom.AudioChannel.AudioChannelInput\x1a`\n\x11\x41udioChannelInput\x12\x10\n\x03key\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05track\x18\x02 \x01(\x05\x42\x03\xe0\x41\x02\x12\x14\n\x07\x63hannel\x18\x03 \x01(\x05\x42\x03\xe0\x41\x02\x12\x0f\n\x07gain_db\x18\x04 \x01(\x01\"\xac\x02\n\nTextStream\x12\r\n\x05\x63odec\x18\x01 \x01(\t\x12\x1a\n\rlanguage_code\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12K\n\x07mapping\x18\x03 \x03(\x0b\x32:.google.cloud.video.transcoder.v1beta1.TextStream.TextAtom\x1a\xa5\x01\n\x08TextAtom\x12\x10\n\x03key\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12T\n\x06inputs\x18\x02 \x03(\x0b\x32\x44.google.cloud.video.transcoder.v1beta1.TextStream.TextAtom.TextInput\x1a\x31\n\tTextInput\x12\x10\n\x03key\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05track\x18\x02 \x01(\x05\x42\x03\xe0\x41\x02\"h\n\x0fSegmentSettings\x12\x33\n\x10segment_duration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12 \n\x13individual_segments\x18\x03 \x01(\x08\x42\x03\xe0\x41\x02\"\xec\x03\n\nEncryption\x12\x10\n\x03key\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0f\n\x02iv\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12U\n\x07\x61\x65s_128\x18\x03 \x01(\x0b\x32\x42.google.cloud.video.transcoder.v1beta1.Encryption.Aes128EncryptionH\x00\x12[\n\nsample_aes\x18\x04 \x01(\x0b\x32\x45.google.cloud.video.transcoder.v1beta1.Encryption.SampleAesEncryptionH\x00\x12[\n\tmpeg_cenc\x18\x05 \x01(\x0b\x32\x46.google.cloud.video.transcoder.v1beta1.Encryption.MpegCommonEncryptionH\x00\x1a(\n\x10\x41\x65s128Encryption\x12\x14\n\x07key_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a+\n\x13SampleAesEncryption\x12\x14\n\x07key_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a@\n\x14MpegCommonEncryption\x12\x13\n\x06key_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x06scheme\x18\x02 \x01(\tB\x03\xe0\x41\x02\x42\x11\n\x0f\x65ncryption_mode\"Q\n\x08Progress\x12\x10\n\x08\x61nalyzed\x18\x01 \x01(\x01\x12\x0f\n\x07\x65ncoded\x18\x02 \x01(\x01\x12\x10\n\x08uploaded\x18\x03 \x01(\x01\x12\x10\n\x08notified\x18\x04 \x01(\x01\"$\n\rFailureDetail\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\tB\x8e\x01\n)com.google.cloud.video.transcoder.v1beta1B\x0eResourcesProtoP\x01ZOgoogle.golang.org/genproto/googleapis/cloud/video/transcoder/v1beta1;transcoderb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -64,8 +64,8 @@ _JOB_PROCESSINGSTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=948,
-  serialized_end=1052,
+  serialized_start=983,
+  serialized_end=1087,
 )
 _sym_db.RegisterEnumDescriptor(_JOB_PROCESSINGSTATE)
 
@@ -94,8 +94,8 @@ _MANIFEST_MANIFESTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3117,
-  serialized_end=3181,
+  serialized_start=3152,
+  serialized_end=3216,
 )
 _sym_db.RegisterEnumDescriptor(_MANIFEST_MANIFESTTYPE)
 
@@ -124,8 +124,8 @@ _OVERLAY_FADETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4732,
-  serialized_end=4796,
+  serialized_start=4784,
+  serialized_end=4848,
 )
 _sym_db.RegisterEnumDescriptor(_OVERLAY_FADETYPE)
 
@@ -164,8 +164,8 @@ _JOB_ORIGINURI = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=908,
-  serialized_end=946,
+  serialized_start=943,
+  serialized_end=981,
 )
 
 _JOB = _descriptor.Descriptor(
@@ -274,6 +274,13 @@ _JOB = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='ttl_after_completion_days', full_name='google.cloud.video.transcoder.v1beta1.Job.ttl_after_completion_days', index=14,
+      number=15, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -293,7 +300,7 @@ _JOB = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=222,
-  serialized_end=1154,
+  serialized_end=1189,
 )
 
 
@@ -331,8 +338,8 @@ _JOBTEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1157,
-  serialized_end=1363,
+  serialized_start=1192,
+  serialized_end=1398,
 )
 
 
@@ -426,8 +433,8 @@ _JOBCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1366,
-  serialized_end=2088,
+  serialized_start=1401,
+  serialized_end=2123,
 )
 
 
@@ -472,8 +479,8 @@ _INPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2090,
-  serialized_end=2213,
+  serialized_start=2125,
+  serialized_end=2248,
 )
 
 
@@ -504,8 +511,8 @@ _OUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2215,
-  serialized_end=2236,
+  serialized_start=2250,
+  serialized_end=2271,
 )
 
 
@@ -557,8 +564,8 @@ _EDITATOM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2239,
-  serialized_end=2384,
+  serialized_start=2274,
+  serialized_end=2419,
 )
 
 
@@ -589,8 +596,8 @@ _ADBREAK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2386,
-  serialized_end=2449,
+  serialized_start=2421,
+  serialized_end=2484,
 )
 
 
@@ -647,8 +654,8 @@ _ELEMENTARYSTREAM = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2452,
-  serialized_end=2730,
+  serialized_start=2487,
+  serialized_end=2765,
 )
 
 
@@ -714,8 +721,8 @@ _MUXSTREAM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2733,
-  serialized_end=2976,
+  serialized_start=2768,
+  serialized_end=3011,
 )
 
 
@@ -761,8 +768,8 @@ _MANIFEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2979,
-  serialized_end=3181,
+  serialized_start=3014,
+  serialized_end=3216,
 )
 
 
@@ -793,8 +800,8 @@ _PUBSUBDESTINATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3183,
-  serialized_end=3217,
+  serialized_start=3218,
+  serialized_end=3252,
 )
 
 
@@ -876,6 +883,13 @@ _SPRITESHEET = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='quality', full_name='google.cloud.video.transcoder.v1beta1.SpriteSheet.quality', index=10,
+      number=11, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -893,8 +907,8 @@ _SPRITESHEET = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3220,
-  serialized_end=3584,
+  serialized_start=3255,
+  serialized_end=3636,
 )
 
 
@@ -932,8 +946,8 @@ _OVERLAY_NORMALIZEDCOORDINATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3745,
-  serialized_end=3789,
+  serialized_start=3797,
+  serialized_end=3841,
 )
 
 _OVERLAY_IMAGE = _descriptor.Descriptor(
@@ -977,8 +991,8 @@ _OVERLAY_IMAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3792,
-  serialized_end=3921,
+  serialized_start=3844,
+  serialized_end=3973,
 )
 
 _OVERLAY_ANIMATIONSTATIC = _descriptor.Descriptor(
@@ -1015,8 +1029,8 @@ _OVERLAY_ANIMATIONSTATIC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3924,
-  serialized_end=4076,
+  serialized_start=3976,
+  serialized_end=4128,
 )
 
 _OVERLAY_ANIMATIONFADE = _descriptor.Descriptor(
@@ -1067,8 +1081,8 @@ _OVERLAY_ANIMATIONFADE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4079,
-  serialized_end=4362,
+  serialized_start=4131,
+  serialized_end=4414,
 )
 
 _OVERLAY_ANIMATIONEND = _descriptor.Descriptor(
@@ -1098,8 +1112,8 @@ _OVERLAY_ANIMATIONEND = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4364,
-  serialized_end=4432,
+  serialized_start=4416,
+  serialized_end=4484,
 )
 
 _OVERLAY_ANIMATION = _descriptor.Descriptor(
@@ -1148,8 +1162,8 @@ _OVERLAY_ANIMATION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4435,
-  serialized_end=4730,
+  serialized_start=4487,
+  serialized_end=4782,
 )
 
 _OVERLAY = _descriptor.Descriptor(
@@ -1187,8 +1201,8 @@ _OVERLAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3587,
-  serialized_end=4796,
+  serialized_start=3639,
+  serialized_end=4848,
 )
 
 
@@ -1233,8 +1247,8 @@ _PREPROCESSINGCONFIG_COLOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5154,
-  serialized_end=5219,
+  serialized_start=5362,
+  serialized_end=5427,
 )
 
 _PREPROCESSINGCONFIG_DENOISE = _descriptor.Descriptor(
@@ -1271,8 +1285,8 @@ _PREPROCESSINGCONFIG_DENOISE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5221,
-  serialized_end=5262,
+  serialized_start=5429,
+  serialized_end=5470,
 )
 
 _PREPROCESSINGCONFIG_DEBLOCK = _descriptor.Descriptor(
@@ -1309,8 +1323,8 @@ _PREPROCESSINGCONFIG_DEBLOCK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5264,
-  serialized_end=5308,
+  serialized_start=5472,
+  serialized_end=5516,
 )
 
 _PREPROCESSINGCONFIG_AUDIO = _descriptor.Descriptor(
@@ -1354,8 +1368,112 @@ _PREPROCESSINGCONFIG_AUDIO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5310,
-  serialized_end=5370,
+  serialized_start=5518,
+  serialized_end=5578,
+)
+
+_PREPROCESSINGCONFIG_CROP = _descriptor.Descriptor(
+  name='Crop',
+  full_name='google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Crop',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='top_pixels', full_name='google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Crop.top_pixels', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='bottom_pixels', full_name='google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Crop.bottom_pixels', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='left_pixels', full_name='google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Crop.left_pixels', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='right_pixels', full_name='google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Crop.right_pixels', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5580,
+  serialized_end=5672,
+)
+
+_PREPROCESSINGCONFIG_PAD = _descriptor.Descriptor(
+  name='Pad',
+  full_name='google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Pad',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='top_pixels', full_name='google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Pad.top_pixels', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='bottom_pixels', full_name='google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Pad.bottom_pixels', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='left_pixels', full_name='google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Pad.left_pixels', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='right_pixels', full_name='google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Pad.right_pixels', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5674,
+  serialized_end=5765,
 )
 
 _PREPROCESSINGCONFIG = _descriptor.Descriptor(
@@ -1394,10 +1512,24 @@ _PREPROCESSINGCONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='crop', full_name='google.cloud.video.transcoder.v1beta1.PreprocessingConfig.crop', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='pad', full_name='google.cloud.video.transcoder.v1beta1.PreprocessingConfig.pad', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_PREPROCESSINGCONFIG_COLOR, _PREPROCESSINGCONFIG_DENOISE, _PREPROCESSINGCONFIG_DEBLOCK, _PREPROCESSINGCONFIG_AUDIO, ],
+  nested_types=[_PREPROCESSINGCONFIG_COLOR, _PREPROCESSINGCONFIG_DENOISE, _PREPROCESSINGCONFIG_DEBLOCK, _PREPROCESSINGCONFIG_AUDIO, _PREPROCESSINGCONFIG_CROP, _PREPROCESSINGCONFIG_PAD, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -1406,8 +1538,8 @@ _PREPROCESSINGCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4799,
-  serialized_end=5370,
+  serialized_start=4851,
+  serialized_end=5765,
 )
 
 
@@ -1583,8 +1715,8 @@ _VIDEOSTREAM = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=5373,
-  serialized_end=5887,
+  serialized_start=5768,
+  serialized_end=6282,
 )
 
 
@@ -1636,8 +1768,8 @@ _AUDIOSTREAM_AUDIOATOM_AUDIOCHANNEL_AUDIOCHANNELINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6350,
-  serialized_end=6446,
+  serialized_start=6745,
+  serialized_end=6841,
 )
 
 _AUDIOSTREAM_AUDIOATOM_AUDIOCHANNEL = _descriptor.Descriptor(
@@ -1667,8 +1799,8 @@ _AUDIOSTREAM_AUDIOATOM_AUDIOCHANNEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6225,
-  serialized_end=6446,
+  serialized_start=6620,
+  serialized_end=6841,
 )
 
 _AUDIOSTREAM_AUDIOATOM = _descriptor.Descriptor(
@@ -1705,8 +1837,8 @@ _AUDIOSTREAM_AUDIOATOM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6100,
-  serialized_end=6446,
+  serialized_start=6495,
+  serialized_end=6841,
 )
 
 _AUDIOSTREAM = _descriptor.Descriptor(
@@ -1771,8 +1903,8 @@ _AUDIOSTREAM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5890,
-  serialized_end=6446,
+  serialized_start=6285,
+  serialized_end=6841,
 )
 
 
@@ -1810,8 +1942,8 @@ _TEXTSTREAM_TEXTATOM_TEXTINPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6700,
-  serialized_end=6749,
+  serialized_start=7095,
+  serialized_end=7144,
 )
 
 _TEXTSTREAM_TEXTATOM = _descriptor.Descriptor(
@@ -1848,8 +1980,8 @@ _TEXTSTREAM_TEXTATOM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6584,
-  serialized_end=6749,
+  serialized_start=6979,
+  serialized_end=7144,
 )
 
 _TEXTSTREAM = _descriptor.Descriptor(
@@ -1893,8 +2025,8 @@ _TEXTSTREAM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6449,
-  serialized_end=6749,
+  serialized_start=6844,
+  serialized_end=7144,
 )
 
 
@@ -1932,8 +2064,8 @@ _SEGMENTSETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6751,
-  serialized_end=6855,
+  serialized_start=7146,
+  serialized_end=7250,
 )
 
 
@@ -1964,8 +2096,8 @@ _ENCRYPTION_AES128ENCRYPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7180,
-  serialized_end=7220,
+  serialized_start=7575,
+  serialized_end=7615,
 )
 
 _ENCRYPTION_SAMPLEAESENCRYPTION = _descriptor.Descriptor(
@@ -1995,8 +2127,8 @@ _ENCRYPTION_SAMPLEAESENCRYPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7222,
-  serialized_end=7265,
+  serialized_start=7617,
+  serialized_end=7660,
 )
 
 _ENCRYPTION_MPEGCOMMONENCRYPTION = _descriptor.Descriptor(
@@ -2033,8 +2165,8 @@ _ENCRYPTION_MPEGCOMMONENCRYPTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7267,
-  serialized_end=7331,
+  serialized_start=7662,
+  serialized_end=7726,
 )
 
 _ENCRYPTION = _descriptor.Descriptor(
@@ -2097,8 +2229,8 @@ _ENCRYPTION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=6858,
-  serialized_end=7350,
+  serialized_start=7253,
+  serialized_end=7745,
 )
 
 
@@ -2150,8 +2282,8 @@ _PROGRESS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7352,
-  serialized_end=7433,
+  serialized_start=7747,
+  serialized_end=7828,
 )
 
 
@@ -2182,8 +2314,8 @@ _FAILUREDETAIL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7435,
-  serialized_end=7471,
+  serialized_start=7830,
+  serialized_end=7866,
 )
 
 _JOB_ORIGINURI.containing_type = _JOB
@@ -2275,10 +2407,14 @@ _PREPROCESSINGCONFIG_COLOR.containing_type = _PREPROCESSINGCONFIG
 _PREPROCESSINGCONFIG_DENOISE.containing_type = _PREPROCESSINGCONFIG
 _PREPROCESSINGCONFIG_DEBLOCK.containing_type = _PREPROCESSINGCONFIG
 _PREPROCESSINGCONFIG_AUDIO.containing_type = _PREPROCESSINGCONFIG
+_PREPROCESSINGCONFIG_CROP.containing_type = _PREPROCESSINGCONFIG
+_PREPROCESSINGCONFIG_PAD.containing_type = _PREPROCESSINGCONFIG
 _PREPROCESSINGCONFIG.fields_by_name['color'].message_type = _PREPROCESSINGCONFIG_COLOR
 _PREPROCESSINGCONFIG.fields_by_name['denoise'].message_type = _PREPROCESSINGCONFIG_DENOISE
 _PREPROCESSINGCONFIG.fields_by_name['deblock'].message_type = _PREPROCESSINGCONFIG_DEBLOCK
 _PREPROCESSINGCONFIG.fields_by_name['audio'].message_type = _PREPROCESSINGCONFIG_AUDIO
+_PREPROCESSINGCONFIG.fields_by_name['crop'].message_type = _PREPROCESSINGCONFIG_CROP
+_PREPROCESSINGCONFIG.fields_by_name['pad'].message_type = _PREPROCESSINGCONFIG_PAD
 _VIDEOSTREAM.fields_by_name['gop_duration'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _VIDEOSTREAM.oneofs_by_name['gop_mode'].fields.append(
   _VIDEOSTREAM.fields_by_name['gop_frame_count'])
@@ -2511,6 +2647,20 @@ PreprocessingConfig = _reflection.GeneratedProtocolMessageType('PreprocessingCon
     # @@protoc_insertion_point(class_scope:google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Audio)
     })
   ,
+
+  'Crop' : _reflection.GeneratedProtocolMessageType('Crop', (_message.Message,), {
+    'DESCRIPTOR' : _PREPROCESSINGCONFIG_CROP,
+    '__module__' : 'google.cloud.video.transcoder.v1beta1.resources_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Crop)
+    })
+  ,
+
+  'Pad' : _reflection.GeneratedProtocolMessageType('Pad', (_message.Message,), {
+    'DESCRIPTOR' : _PREPROCESSINGCONFIG_PAD,
+    '__module__' : 'google.cloud.video.transcoder.v1beta1.resources_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.video.transcoder.v1beta1.PreprocessingConfig.Pad)
+    })
+  ,
   'DESCRIPTOR' : _PREPROCESSINGCONFIG,
   '__module__' : 'google.cloud.video.transcoder.v1beta1.resources_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.video.transcoder.v1beta1.PreprocessingConfig)
@@ -2520,6 +2670,8 @@ _sym_db.RegisterMessage(PreprocessingConfig.Color)
 _sym_db.RegisterMessage(PreprocessingConfig.Denoise)
 _sym_db.RegisterMessage(PreprocessingConfig.Deblock)
 _sym_db.RegisterMessage(PreprocessingConfig.Audio)
+_sym_db.RegisterMessage(PreprocessingConfig.Crop)
+_sym_db.RegisterMessage(PreprocessingConfig.Pad)
 
 VideoStream = _reflection.GeneratedProtocolMessageType('VideoStream', (_message.Message,), {
   'DESCRIPTOR' : _VIDEOSTREAM,

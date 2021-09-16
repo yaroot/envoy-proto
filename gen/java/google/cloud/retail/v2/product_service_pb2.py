@@ -21,6 +21,7 @@ from google.cloud.retail.v2 import purge_config_pb2 as google_dot_cloud_dot_reta
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -29,9 +30,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\032com.google.cloud.retail.v2B\023ProductServiceProtoP\001Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\242\002\006RETAIL\252\002\026Google.Cloud.Retail.V2\312\002\026Google\\Cloud\\Retail\\V2\352\002\031Google::Cloud::Retail::V2',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,google/cloud/retail/v2/product_service.proto\x12\x16google.cloud.retail.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a*google/cloud/retail/v2/import_config.proto\x1a$google/cloud/retail/v2/product.proto\x1a)google/cloud/retail/v2/purge_config.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\x9c\x01\n\x14\x43reateProductRequest\x12\x34\n\x06parent\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1cretail.googleapis.com/Branch\x12\x35\n\x07product\x18\x02 \x01(\x0b\x32\x1f.google.cloud.retail.v2.ProductB\x03\xe0\x41\x02\x12\x17\n\nproduct_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"H\n\x11GetProductRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1dretail.googleapis.com/Product\"~\n\x14UpdateProductRequest\x12\x35\n\x07product\x18\x01 \x01(\x0b\x32\x1f.google.cloud.retail.v2.ProductB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"K\n\x14\x44\x65leteProductRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1dretail.googleapis.com/Product2\xee\x08\n\x0eProductService\x12\xcf\x01\n\rCreateProduct\x12,.google.cloud.retail.v2.CreateProductRequest\x1a\x1f.google.cloud.retail.v2.Product\"o\x82\xd3\xe4\x93\x02M\"B/v2/{parent=projects/*/locations/*/catalogs/*/branches/*}/products:\x07product\xda\x41\x19parent,product,product_id\x12\xac\x01\n\nGetProduct\x12).google.cloud.retail.v2.GetProductRequest\x1a\x1f.google.cloud.retail.v2.Product\"R\x82\xd3\xe4\x93\x02\x45\x12\x43/v2/{name=projects/*/locations/*/catalogs/*/branches/*/products/**}\xda\x41\x04name\x12\xd2\x01\n\rUpdateProduct\x12,.google.cloud.retail.v2.UpdateProductRequest\x1a\x1f.google.cloud.retail.v2.Product\"r\x82\xd3\xe4\x93\x02V2K/v2/{product.name=projects/*/locations/*/catalogs/*/branches/*/products/**}:\x07product\xda\x41\x13product,update_mask\x12\xa9\x01\n\rDeleteProduct\x12,.google.cloud.retail.v2.DeleteProductRequest\x1a\x16.google.protobuf.Empty\"R\x82\xd3\xe4\x93\x02\x45*C/v2/{name=projects/*/locations/*/catalogs/*/branches/*/products/**}\xda\x41\x04name\x12\x8e\x02\n\x0eImportProducts\x12-.google.cloud.retail.v2.ImportProductsRequest\x1a\x1d.google.longrunning.Operation\"\xad\x01\x82\xd3\xe4\x93\x02N\"I/v2/{parent=projects/*/locations/*/catalogs/*/branches/*}/products:import:\x01*\xca\x41V\n-google.cloud.retail.v2.ImportProductsResponse\x12%google.cloud.retail.v2.ImportMetadata\x1aI\xca\x41\x15retail.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xc8\x01\n\x1a\x63om.google.cloud.retail.v2B\x13ProductServiceProtoP\x01Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\xa2\x02\x06RETAIL\xaa\x02\x16Google.Cloud.Retail.V2\xca\x02\x16Google\\Cloud\\Retail\\V2\xea\x02\x19Google::Cloud::Retail::V2b\x06proto3'
+  serialized_pb=b'\n,google/cloud/retail/v2/product_service.proto\x12\x16google.cloud.retail.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a*google/cloud/retail/v2/import_config.proto\x1a$google/cloud/retail/v2/product.proto\x1a)google/cloud/retail/v2/purge_config.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9c\x01\n\x14\x43reateProductRequest\x12\x34\n\x06parent\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1cretail.googleapis.com/Branch\x12\x35\n\x07product\x18\x02 \x01(\x0b\x32\x1f.google.cloud.retail.v2.ProductB\x03\xe0\x41\x02\x12\x17\n\nproduct_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"H\n\x11GetProductRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1dretail.googleapis.com/Product\"\x95\x01\n\x14UpdateProductRequest\x12\x35\n\x07product\x18\x01 \x01(\x0b\x32\x1f.google.cloud.retail.v2.ProductB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12\x15\n\rallow_missing\x18\x03 \x01(\x08\"K\n\x14\x44\x65leteProductRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1dretail.googleapis.com/Product\"\xb1\x01\n\x13ListProductsRequest\x12\x34\n\x06parent\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1cretail.googleapis.com/Branch\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12-\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"b\n\x14ListProductsResponse\x12\x31\n\x08products\x18\x01 \x03(\x0b\x32\x1f.google.cloud.retail.v2.Product\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xc1\x01\n\x13SetInventoryRequest\x12\x37\n\tinventory\x18\x01 \x01(\x0b\x32\x1f.google.cloud.retail.v2.ProductB\x03\xe0\x41\x02\x12,\n\x08set_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12,\n\x08set_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x15\n\rallow_missing\x18\x04 \x01(\x08\"\x16\n\x14SetInventoryMetadata\"\x16\n\x14SetInventoryResponse\"\xc5\x01\n\x1b\x41\x64\x64\x46ulfillmentPlacesRequest\x12\x36\n\x07product\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1dretail.googleapis.com/Product\x12\x11\n\x04type\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tplace_ids\x18\x03 \x03(\tB\x03\xe0\x41\x02\x12,\n\x08\x61\x64\x64_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x15\n\rallow_missing\x18\x05 \x01(\x08\"\x1e\n\x1c\x41\x64\x64\x46ulfillmentPlacesMetadata\"\x1e\n\x1c\x41\x64\x64\x46ulfillmentPlacesResponse\"\xcb\x01\n\x1eRemoveFulfillmentPlacesRequest\x12\x36\n\x07product\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1dretail.googleapis.com/Product\x12\x11\n\x04type\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tplace_ids\x18\x03 \x03(\tB\x03\xe0\x41\x02\x12/\n\x0bremove_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x15\n\rallow_missing\x18\x05 \x01(\x08\"!\n\x1fRemoveFulfillmentPlacesMetadata\"!\n\x1fRemoveFulfillmentPlacesResponse2\x8f\x12\n\x0eProductService\x12\xcf\x01\n\rCreateProduct\x12,.google.cloud.retail.v2.CreateProductRequest\x1a\x1f.google.cloud.retail.v2.Product\"o\x82\xd3\xe4\x93\x02M\"B/v2/{parent=projects/*/locations/*/catalogs/*/branches/*}/products:\x07product\xda\x41\x19parent,product,product_id\x12\xac\x01\n\nGetProduct\x12).google.cloud.retail.v2.GetProductRequest\x1a\x1f.google.cloud.retail.v2.Product\"R\x82\xd3\xe4\x93\x02\x45\x12\x43/v2/{name=projects/*/locations/*/catalogs/*/branches/*/products/**}\xda\x41\x04name\x12\xbe\x01\n\x0cListProducts\x12+.google.cloud.retail.v2.ListProductsRequest\x1a,.google.cloud.retail.v2.ListProductsResponse\"S\x82\xd3\xe4\x93\x02\x44\x12\x42/v2/{parent=projects/*/locations/*/catalogs/*/branches/*}/products\xda\x41\x06parent\x12\xd2\x01\n\rUpdateProduct\x12,.google.cloud.retail.v2.UpdateProductRequest\x1a\x1f.google.cloud.retail.v2.Product\"r\x82\xd3\xe4\x93\x02V2K/v2/{product.name=projects/*/locations/*/catalogs/*/branches/*/products/**}:\x07product\xda\x41\x13product,update_mask\x12\xa9\x01\n\rDeleteProduct\x12,.google.cloud.retail.v2.DeleteProductRequest\x1a\x16.google.protobuf.Empty\"R\x82\xd3\xe4\x93\x02\x45*C/v2/{name=projects/*/locations/*/catalogs/*/branches/*/products/**}\xda\x41\x04name\x12\x8e\x02\n\x0eImportProducts\x12-.google.cloud.retail.v2.ImportProductsRequest\x1a\x1d.google.longrunning.Operation\"\xad\x01\x82\xd3\xe4\x93\x02N\"I/v2/{parent=projects/*/locations/*/catalogs/*/branches/*}/products:import:\x01*\xca\x41V\n-google.cloud.retail.v2.ImportProductsResponse\x12%google.cloud.retail.v2.ImportMetadata\x12\xb4\x02\n\x0cSetInventory\x12+.google.cloud.retail.v2.SetInventoryRequest\x1a\x1d.google.longrunning.Operation\"\xd7\x01\x82\xd3\xe4\x93\x02_\"Z/v2/{inventory.name=projects/*/locations/*/catalogs/*/branches/*/products/**}:setInventory:\x01*\xda\x41\x12inventory,set_mask\xca\x41Z\n+google.cloud.retail.v2.SetInventoryResponse\x12+google.cloud.retail.v2.SetInventoryMetadata\x12\xca\x02\n\x14\x41\x64\x64\x46ulfillmentPlaces\x12\x33.google.cloud.retail.v2.AddFulfillmentPlacesRequest\x1a\x1d.google.longrunning.Operation\"\xdd\x01\x82\xd3\xe4\x93\x02`\"[/v2/{product=projects/*/locations/*/catalogs/*/branches/*/products/**}:addFulfillmentPlaces:\x01*\xda\x41\x07product\xca\x41j\n3google.cloud.retail.v2.AddFulfillmentPlacesResponse\x12\x33google.cloud.retail.v2.AddFulfillmentPlacesMetadata\x12\xd9\x02\n\x17RemoveFulfillmentPlaces\x12\x36.google.cloud.retail.v2.RemoveFulfillmentPlacesRequest\x1a\x1d.google.longrunning.Operation\"\xe6\x01\x82\xd3\xe4\x93\x02\x63\"^/v2/{product=projects/*/locations/*/catalogs/*/branches/*/products/**}:removeFulfillmentPlaces:\x01*\xda\x41\x07product\xca\x41p\n6google.cloud.retail.v2.RemoveFulfillmentPlacesResponse\x12\x36google.cloud.retail.v2.RemoveFulfillmentPlacesMetadata\x1aI\xca\x41\x15retail.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xc8\x01\n\x1a\x63om.google.cloud.retail.v2B\x13ProductServiceProtoP\x01Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\xa2\x02\x06RETAIL\xaa\x02\x16Google.Cloud.Retail.V2\xca\x02\x16Google\\Cloud\\Retail\\V2\xea\x02\x19Google::Cloud::Retail::V2b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2_dot_import__config__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2_dot_product__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2_dot_purge__config__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2_dot_import__config__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2_dot_product__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2_dot_purge__config__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
 
@@ -77,8 +78,8 @@ _CREATEPRODUCTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=413,
-  serialized_end=569,
+  serialized_start=446,
+  serialized_end=602,
 )
 
 
@@ -109,8 +110,8 @@ _GETPRODUCTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=571,
-  serialized_end=643,
+  serialized_start=604,
+  serialized_end=676,
 )
 
 
@@ -136,6 +137,13 @@ _UPDATEPRODUCTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allow_missing', full_name='google.cloud.retail.v2.UpdateProductRequest.allow_missing', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -148,8 +156,8 @@ _UPDATEPRODUCTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=645,
-  serialized_end=771,
+  serialized_start=679,
+  serialized_end=828,
 )
 
 
@@ -180,17 +188,457 @@ _DELETEPRODUCTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=773,
-  serialized_end=848,
+  serialized_start=830,
+  serialized_end=905,
+)
+
+
+_LISTPRODUCTSREQUEST = _descriptor.Descriptor(
+  name='ListProductsRequest',
+  full_name='google.cloud.retail.v2.ListProductsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.retail.v2.ListProductsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\036\n\034retail.googleapis.com/Branch', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.cloud.retail.v2.ListProductsRequest.page_size', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.cloud.retail.v2.ListProductsRequest.page_token', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='filter', full_name='google.cloud.retail.v2.ListProductsRequest.filter', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='read_mask', full_name='google.cloud.retail.v2.ListProductsRequest.read_mask', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=908,
+  serialized_end=1085,
+)
+
+
+_LISTPRODUCTSRESPONSE = _descriptor.Descriptor(
+  name='ListProductsResponse',
+  full_name='google.cloud.retail.v2.ListProductsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='products', full_name='google.cloud.retail.v2.ListProductsResponse.products', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.cloud.retail.v2.ListProductsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1087,
+  serialized_end=1185,
+)
+
+
+_SETINVENTORYREQUEST = _descriptor.Descriptor(
+  name='SetInventoryRequest',
+  full_name='google.cloud.retail.v2.SetInventoryRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='inventory', full_name='google.cloud.retail.v2.SetInventoryRequest.inventory', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='set_mask', full_name='google.cloud.retail.v2.SetInventoryRequest.set_mask', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='set_time', full_name='google.cloud.retail.v2.SetInventoryRequest.set_time', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allow_missing', full_name='google.cloud.retail.v2.SetInventoryRequest.allow_missing', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1188,
+  serialized_end=1381,
+)
+
+
+_SETINVENTORYMETADATA = _descriptor.Descriptor(
+  name='SetInventoryMetadata',
+  full_name='google.cloud.retail.v2.SetInventoryMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1383,
+  serialized_end=1405,
+)
+
+
+_SETINVENTORYRESPONSE = _descriptor.Descriptor(
+  name='SetInventoryResponse',
+  full_name='google.cloud.retail.v2.SetInventoryResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1407,
+  serialized_end=1429,
+)
+
+
+_ADDFULFILLMENTPLACESREQUEST = _descriptor.Descriptor(
+  name='AddFulfillmentPlacesRequest',
+  full_name='google.cloud.retail.v2.AddFulfillmentPlacesRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='product', full_name='google.cloud.retail.v2.AddFulfillmentPlacesRequest.product', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\037\n\035retail.googleapis.com/Product', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='google.cloud.retail.v2.AddFulfillmentPlacesRequest.type', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='place_ids', full_name='google.cloud.retail.v2.AddFulfillmentPlacesRequest.place_ids', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='add_time', full_name='google.cloud.retail.v2.AddFulfillmentPlacesRequest.add_time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allow_missing', full_name='google.cloud.retail.v2.AddFulfillmentPlacesRequest.allow_missing', index=4,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1432,
+  serialized_end=1629,
+)
+
+
+_ADDFULFILLMENTPLACESMETADATA = _descriptor.Descriptor(
+  name='AddFulfillmentPlacesMetadata',
+  full_name='google.cloud.retail.v2.AddFulfillmentPlacesMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1631,
+  serialized_end=1661,
+)
+
+
+_ADDFULFILLMENTPLACESRESPONSE = _descriptor.Descriptor(
+  name='AddFulfillmentPlacesResponse',
+  full_name='google.cloud.retail.v2.AddFulfillmentPlacesResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1663,
+  serialized_end=1693,
+)
+
+
+_REMOVEFULFILLMENTPLACESREQUEST = _descriptor.Descriptor(
+  name='RemoveFulfillmentPlacesRequest',
+  full_name='google.cloud.retail.v2.RemoveFulfillmentPlacesRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='product', full_name='google.cloud.retail.v2.RemoveFulfillmentPlacesRequest.product', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A\037\n\035retail.googleapis.com/Product', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='google.cloud.retail.v2.RemoveFulfillmentPlacesRequest.type', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='place_ids', full_name='google.cloud.retail.v2.RemoveFulfillmentPlacesRequest.place_ids', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='remove_time', full_name='google.cloud.retail.v2.RemoveFulfillmentPlacesRequest.remove_time', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='allow_missing', full_name='google.cloud.retail.v2.RemoveFulfillmentPlacesRequest.allow_missing', index=4,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1696,
+  serialized_end=1899,
+)
+
+
+_REMOVEFULFILLMENTPLACESMETADATA = _descriptor.Descriptor(
+  name='RemoveFulfillmentPlacesMetadata',
+  full_name='google.cloud.retail.v2.RemoveFulfillmentPlacesMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1901,
+  serialized_end=1934,
+)
+
+
+_REMOVEFULFILLMENTPLACESRESPONSE = _descriptor.Descriptor(
+  name='RemoveFulfillmentPlacesResponse',
+  full_name='google.cloud.retail.v2.RemoveFulfillmentPlacesResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1936,
+  serialized_end=1969,
 )
 
 _CREATEPRODUCTREQUEST.fields_by_name['product'].message_type = google_dot_cloud_dot_retail_dot_v2_dot_product__pb2._PRODUCT
 _UPDATEPRODUCTREQUEST.fields_by_name['product'].message_type = google_dot_cloud_dot_retail_dot_v2_dot_product__pb2._PRODUCT
 _UPDATEPRODUCTREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_LISTPRODUCTSREQUEST.fields_by_name['read_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_LISTPRODUCTSRESPONSE.fields_by_name['products'].message_type = google_dot_cloud_dot_retail_dot_v2_dot_product__pb2._PRODUCT
+_SETINVENTORYREQUEST.fields_by_name['inventory'].message_type = google_dot_cloud_dot_retail_dot_v2_dot_product__pb2._PRODUCT
+_SETINVENTORYREQUEST.fields_by_name['set_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_SETINVENTORYREQUEST.fields_by_name['set_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_ADDFULFILLMENTPLACESREQUEST.fields_by_name['add_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_REMOVEFULFILLMENTPLACESREQUEST.fields_by_name['remove_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 DESCRIPTOR.message_types_by_name['CreateProductRequest'] = _CREATEPRODUCTREQUEST
 DESCRIPTOR.message_types_by_name['GetProductRequest'] = _GETPRODUCTREQUEST
 DESCRIPTOR.message_types_by_name['UpdateProductRequest'] = _UPDATEPRODUCTREQUEST
 DESCRIPTOR.message_types_by_name['DeleteProductRequest'] = _DELETEPRODUCTREQUEST
+DESCRIPTOR.message_types_by_name['ListProductsRequest'] = _LISTPRODUCTSREQUEST
+DESCRIPTOR.message_types_by_name['ListProductsResponse'] = _LISTPRODUCTSRESPONSE
+DESCRIPTOR.message_types_by_name['SetInventoryRequest'] = _SETINVENTORYREQUEST
+DESCRIPTOR.message_types_by_name['SetInventoryMetadata'] = _SETINVENTORYMETADATA
+DESCRIPTOR.message_types_by_name['SetInventoryResponse'] = _SETINVENTORYRESPONSE
+DESCRIPTOR.message_types_by_name['AddFulfillmentPlacesRequest'] = _ADDFULFILLMENTPLACESREQUEST
+DESCRIPTOR.message_types_by_name['AddFulfillmentPlacesMetadata'] = _ADDFULFILLMENTPLACESMETADATA
+DESCRIPTOR.message_types_by_name['AddFulfillmentPlacesResponse'] = _ADDFULFILLMENTPLACESRESPONSE
+DESCRIPTOR.message_types_by_name['RemoveFulfillmentPlacesRequest'] = _REMOVEFULFILLMENTPLACESREQUEST
+DESCRIPTOR.message_types_by_name['RemoveFulfillmentPlacesMetadata'] = _REMOVEFULFILLMENTPLACESMETADATA
+DESCRIPTOR.message_types_by_name['RemoveFulfillmentPlacesResponse'] = _REMOVEFULFILLMENTPLACESRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateProductRequest = _reflection.GeneratedProtocolMessageType('CreateProductRequest', (_message.Message,), {
@@ -221,6 +669,83 @@ DeleteProductRequest = _reflection.GeneratedProtocolMessageType('DeleteProductRe
   })
 _sym_db.RegisterMessage(DeleteProductRequest)
 
+ListProductsRequest = _reflection.GeneratedProtocolMessageType('ListProductsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _LISTPRODUCTSREQUEST,
+  '__module__' : 'google.cloud.retail.v2.product_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.ListProductsRequest)
+  })
+_sym_db.RegisterMessage(ListProductsRequest)
+
+ListProductsResponse = _reflection.GeneratedProtocolMessageType('ListProductsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _LISTPRODUCTSRESPONSE,
+  '__module__' : 'google.cloud.retail.v2.product_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.ListProductsResponse)
+  })
+_sym_db.RegisterMessage(ListProductsResponse)
+
+SetInventoryRequest = _reflection.GeneratedProtocolMessageType('SetInventoryRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SETINVENTORYREQUEST,
+  '__module__' : 'google.cloud.retail.v2.product_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.SetInventoryRequest)
+  })
+_sym_db.RegisterMessage(SetInventoryRequest)
+
+SetInventoryMetadata = _reflection.GeneratedProtocolMessageType('SetInventoryMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _SETINVENTORYMETADATA,
+  '__module__' : 'google.cloud.retail.v2.product_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.SetInventoryMetadata)
+  })
+_sym_db.RegisterMessage(SetInventoryMetadata)
+
+SetInventoryResponse = _reflection.GeneratedProtocolMessageType('SetInventoryResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SETINVENTORYRESPONSE,
+  '__module__' : 'google.cloud.retail.v2.product_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.SetInventoryResponse)
+  })
+_sym_db.RegisterMessage(SetInventoryResponse)
+
+AddFulfillmentPlacesRequest = _reflection.GeneratedProtocolMessageType('AddFulfillmentPlacesRequest', (_message.Message,), {
+  'DESCRIPTOR' : _ADDFULFILLMENTPLACESREQUEST,
+  '__module__' : 'google.cloud.retail.v2.product_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.AddFulfillmentPlacesRequest)
+  })
+_sym_db.RegisterMessage(AddFulfillmentPlacesRequest)
+
+AddFulfillmentPlacesMetadata = _reflection.GeneratedProtocolMessageType('AddFulfillmentPlacesMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _ADDFULFILLMENTPLACESMETADATA,
+  '__module__' : 'google.cloud.retail.v2.product_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.AddFulfillmentPlacesMetadata)
+  })
+_sym_db.RegisterMessage(AddFulfillmentPlacesMetadata)
+
+AddFulfillmentPlacesResponse = _reflection.GeneratedProtocolMessageType('AddFulfillmentPlacesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _ADDFULFILLMENTPLACESRESPONSE,
+  '__module__' : 'google.cloud.retail.v2.product_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.AddFulfillmentPlacesResponse)
+  })
+_sym_db.RegisterMessage(AddFulfillmentPlacesResponse)
+
+RemoveFulfillmentPlacesRequest = _reflection.GeneratedProtocolMessageType('RemoveFulfillmentPlacesRequest', (_message.Message,), {
+  'DESCRIPTOR' : _REMOVEFULFILLMENTPLACESREQUEST,
+  '__module__' : 'google.cloud.retail.v2.product_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.RemoveFulfillmentPlacesRequest)
+  })
+_sym_db.RegisterMessage(RemoveFulfillmentPlacesRequest)
+
+RemoveFulfillmentPlacesMetadata = _reflection.GeneratedProtocolMessageType('RemoveFulfillmentPlacesMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _REMOVEFULFILLMENTPLACESMETADATA,
+  '__module__' : 'google.cloud.retail.v2.product_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.RemoveFulfillmentPlacesMetadata)
+  })
+_sym_db.RegisterMessage(RemoveFulfillmentPlacesMetadata)
+
+RemoveFulfillmentPlacesResponse = _reflection.GeneratedProtocolMessageType('RemoveFulfillmentPlacesResponse', (_message.Message,), {
+  'DESCRIPTOR' : _REMOVEFULFILLMENTPLACESRESPONSE,
+  '__module__' : 'google.cloud.retail.v2.product_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2.RemoveFulfillmentPlacesResponse)
+  })
+_sym_db.RegisterMessage(RemoveFulfillmentPlacesResponse)
+
 
 DESCRIPTOR._options = None
 _CREATEPRODUCTREQUEST.fields_by_name['parent']._options = None
@@ -229,6 +754,14 @@ _CREATEPRODUCTREQUEST.fields_by_name['product_id']._options = None
 _GETPRODUCTREQUEST.fields_by_name['name']._options = None
 _UPDATEPRODUCTREQUEST.fields_by_name['product']._options = None
 _DELETEPRODUCTREQUEST.fields_by_name['name']._options = None
+_LISTPRODUCTSREQUEST.fields_by_name['parent']._options = None
+_SETINVENTORYREQUEST.fields_by_name['inventory']._options = None
+_ADDFULFILLMENTPLACESREQUEST.fields_by_name['product']._options = None
+_ADDFULFILLMENTPLACESREQUEST.fields_by_name['type']._options = None
+_ADDFULFILLMENTPLACESREQUEST.fields_by_name['place_ids']._options = None
+_REMOVEFULFILLMENTPLACESREQUEST.fields_by_name['product']._options = None
+_REMOVEFULFILLMENTPLACESREQUEST.fields_by_name['type']._options = None
+_REMOVEFULFILLMENTPLACESREQUEST.fields_by_name['place_ids']._options = None
 
 _PRODUCTSERVICE = _descriptor.ServiceDescriptor(
   name='ProductService',
@@ -237,8 +770,8 @@ _PRODUCTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\025retail.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=851,
-  serialized_end=1985,
+  serialized_start=1972,
+  serialized_end=4291,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateProduct',
@@ -261,9 +794,19 @@ _PRODUCTSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='ListProducts',
+    full_name='google.cloud.retail.v2.ProductService.ListProducts',
+    index=2,
+    containing_service=None,
+    input_type=_LISTPRODUCTSREQUEST,
+    output_type=_LISTPRODUCTSRESPONSE,
+    serialized_options=b'\202\323\344\223\002D\022B/v2/{parent=projects/*/locations/*/catalogs/*/branches/*}/products\332A\006parent',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='UpdateProduct',
     full_name='google.cloud.retail.v2.ProductService.UpdateProduct',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_UPDATEPRODUCTREQUEST,
     output_type=google_dot_cloud_dot_retail_dot_v2_dot_product__pb2._PRODUCT,
@@ -273,7 +816,7 @@ _PRODUCTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteProduct',
     full_name='google.cloud.retail.v2.ProductService.DeleteProduct',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=_DELETEPRODUCTREQUEST,
     output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -283,11 +826,41 @@ _PRODUCTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ImportProducts',
     full_name='google.cloud.retail.v2.ProductService.ImportProducts',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=google_dot_cloud_dot_retail_dot_v2_dot_import__config__pb2._IMPORTPRODUCTSREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
     serialized_options=b'\202\323\344\223\002N\"I/v2/{parent=projects/*/locations/*/catalogs/*/branches/*}/products:import:\001*\312AV\n-google.cloud.retail.v2.ImportProductsResponse\022%google.cloud.retail.v2.ImportMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SetInventory',
+    full_name='google.cloud.retail.v2.ProductService.SetInventory',
+    index=6,
+    containing_service=None,
+    input_type=_SETINVENTORYREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002_\"Z/v2/{inventory.name=projects/*/locations/*/catalogs/*/branches/*/products/**}:setInventory:\001*\332A\022inventory,set_mask\312AZ\n+google.cloud.retail.v2.SetInventoryResponse\022+google.cloud.retail.v2.SetInventoryMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='AddFulfillmentPlaces',
+    full_name='google.cloud.retail.v2.ProductService.AddFulfillmentPlaces',
+    index=7,
+    containing_service=None,
+    input_type=_ADDFULFILLMENTPLACESREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002`\"[/v2/{product=projects/*/locations/*/catalogs/*/branches/*/products/**}:addFulfillmentPlaces:\001*\332A\007product\312Aj\n3google.cloud.retail.v2.AddFulfillmentPlacesResponse\0223google.cloud.retail.v2.AddFulfillmentPlacesMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='RemoveFulfillmentPlaces',
+    full_name='google.cloud.retail.v2.ProductService.RemoveFulfillmentPlaces',
+    index=8,
+    containing_service=None,
+    input_type=_REMOVEFULFILLMENTPLACESREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002c\"^/v2/{product=projects/*/locations/*/catalogs/*/branches/*/products/**}:removeFulfillmentPlaces:\001*\332A\007product\312Ap\n6google.cloud.retail.v2.RemoveFulfillmentPlacesResponse\0226google.cloud.retail.v2.RemoveFulfillmentPlacesMetadata',
     create_key=_descriptor._internal_create_key,
   ),
 ])

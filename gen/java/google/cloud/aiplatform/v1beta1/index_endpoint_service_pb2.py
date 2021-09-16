@@ -25,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1beta1/index_endpoint_service.proto',
   package='google.cloud.aiplatform.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\031IndexEndpointServiceProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
+  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\031IndexEndpointServiceProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\252\002\037Google.Cloud.AIPlatform.V1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1\352\002\"Google::Cloud::AIPlatform::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n<google/cloud/aiplatform/v1beta1/index_endpoint_service.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x34google/cloud/aiplatform/v1beta1/index_endpoint.proto\x1a/google/cloud/aiplatform/v1beta1/operation.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\"\xa4\x01\n\x1a\x43reateIndexEndpointRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12K\n\x0eindex_endpoint\x18\x02 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.IndexEndpointB\x03\xe0\x41\x02\"{\n$CreateIndexEndpointOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\"X\n\x17GetIndexEndpointRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/IndexEndpoint\"\xd0\x01\n\x19ListIndexEndpointsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x13\n\x06\x66ilter\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x16\n\tpage_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x32\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\"~\n\x1aListIndexEndpointsResponse\x12G\n\x0findex_endpoints\x18\x01 \x03(\x0b\x32..google.cloud.aiplatform.v1beta1.IndexEndpoint\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x9f\x01\n\x1aUpdateIndexEndpointRequest\x12K\n\x0eindex_endpoint\x18\x01 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.IndexEndpointB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"[\n\x1a\x44\x65leteIndexEndpointRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/IndexEndpoint\"\xaa\x01\n\x12\x44\x65ployIndexRequest\x12G\n\x0eindex_endpoint\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/IndexEndpoint\x12K\n\x0e\x64\x65ployed_index\x18\x02 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.DeployedIndexB\x03\xe0\x41\x02\"]\n\x13\x44\x65ployIndexResponse\x12\x46\n\x0e\x64\x65ployed_index\x18\x01 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.DeployedIndex\"s\n\x1c\x44\x65ployIndexOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\"\x7f\n\x14UndeployIndexRequest\x12G\n\x0eindex_endpoint\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/IndexEndpoint\x12\x1e\n\x11\x64\x65ployed_index_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\x17\n\x15UndeployIndexResponse\"u\n\x1eUndeployIndexOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata2\xc4\x0e\n\x14IndexEndpointService\x12\x93\x02\n\x13\x43reateIndexEndpoint\x12;.google.cloud.aiplatform.v1beta1.CreateIndexEndpointRequest\x1a\x1d.google.longrunning.Operation\"\x9f\x01\x82\xd3\xe4\x93\x02I\"7/v1beta1/{parent=projects/*/locations/*}/indexEndpoints:\x0eindex_endpoint\xda\x41\x15parent,index_endpoint\xca\x41\x35\n\rIndexEndpoint\x12$CreateIndexEndpointOperationMetadata\x12\xc4\x01\n\x10GetIndexEndpoint\x12\x38.google.cloud.aiplatform.v1beta1.GetIndexEndpointRequest\x1a..google.cloud.aiplatform.v1beta1.IndexEndpoint\"F\x82\xd3\xe4\x93\x02\x39\x12\x37/v1beta1/{name=projects/*/locations/*/indexEndpoints/*}\xda\x41\x04name\x12\xd7\x01\n\x12ListIndexEndpoints\x12:.google.cloud.aiplatform.v1beta1.ListIndexEndpointsRequest\x1a;.google.cloud.aiplatform.v1beta1.ListIndexEndpointsResponse\"H\x82\xd3\xe4\x93\x02\x39\x12\x37/v1beta1/{parent=projects/*/locations/*}/indexEndpoints\xda\x41\x06parent\x12\xff\x01\n\x13UpdateIndexEndpoint\x12;.google.cloud.aiplatform.v1beta1.UpdateIndexEndpointRequest\x1a..google.cloud.aiplatform.v1beta1.IndexEndpoint\"{\x82\xd3\xe4\x93\x02X2F/v1beta1/{index_endpoint.name=projects/*/locations/*/indexEndpoints/*}:\x0eindex_endpoint\xda\x41\x1aindex_endpoint,update_mask\x12\xec\x01\n\x13\x44\x65leteIndexEndpoint\x12;.google.cloud.aiplatform.v1beta1.DeleteIndexEndpointRequest\x1a\x1d.google.longrunning.Operation\"y\x82\xd3\xe4\x93\x02\x39*7/v1beta1/{name=projects/*/locations/*/indexEndpoints/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\x92\x02\n\x0b\x44\x65ployIndex\x12\x33.google.cloud.aiplatform.v1beta1.DeployIndexRequest\x1a\x1d.google.longrunning.Operation\"\xae\x01\x82\xd3\xe4\x93\x02R\"M/v1beta1/{index_endpoint=projects/*/locations/*/indexEndpoints/*}:deployIndex:\x01*\xda\x41\x1dindex_endpoint,deployed_index\xca\x41\x33\n\x13\x44\x65ployIndexResponse\x12\x1c\x44\x65ployIndexOperationMetadata\x12\x9f\x02\n\rUndeployIndex\x12\x35.google.cloud.aiplatform.v1beta1.UndeployIndexRequest\x1a\x1d.google.longrunning.Operation\"\xb7\x01\x82\xd3\xe4\x93\x02T\"O/v1beta1/{index_endpoint=projects/*/locations/*/indexEndpoints/*}:undeployIndex:\x01*\xda\x41 index_endpoint,deployed_index_id\xca\x41\x37\n\x15UndeployIndexResponse\x12\x1eUndeployIndexOperationMetadata\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x8d\x01\n#com.google.cloud.aiplatform.v1beta1B\x19IndexEndpointServiceProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n<google/cloud/aiplatform/v1beta1/index_endpoint_service.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x34google/cloud/aiplatform/v1beta1/index_endpoint.proto\x1a/google/cloud/aiplatform/v1beta1/operation.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\"\xa4\x01\n\x1a\x43reateIndexEndpointRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12K\n\x0eindex_endpoint\x18\x02 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.IndexEndpointB\x03\xe0\x41\x02\"{\n$CreateIndexEndpointOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\"X\n\x17GetIndexEndpointRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/IndexEndpoint\"\xd0\x01\n\x19ListIndexEndpointsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x13\n\x06\x66ilter\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x16\n\tpage_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x32\n\tread_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\"~\n\x1aListIndexEndpointsResponse\x12G\n\x0findex_endpoints\x18\x01 \x03(\x0b\x32..google.cloud.aiplatform.v1beta1.IndexEndpoint\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x9f\x01\n\x1aUpdateIndexEndpointRequest\x12K\n\x0eindex_endpoint\x18\x01 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.IndexEndpointB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"[\n\x1a\x44\x65leteIndexEndpointRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/IndexEndpoint\"\xaa\x01\n\x12\x44\x65ployIndexRequest\x12G\n\x0eindex_endpoint\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/IndexEndpoint\x12K\n\x0e\x64\x65ployed_index\x18\x02 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.DeployedIndexB\x03\xe0\x41\x02\"]\n\x13\x44\x65ployIndexResponse\x12\x46\n\x0e\x64\x65ployed_index\x18\x01 \x01(\x0b\x32..google.cloud.aiplatform.v1beta1.DeployedIndex\"\x8e\x01\n\x1c\x44\x65ployIndexOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata\x12\x19\n\x11\x64\x65ployed_index_id\x18\x02 \x01(\t\"\x7f\n\x14UndeployIndexRequest\x12G\n\x0eindex_endpoint\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'aiplatform.googleapis.com/IndexEndpoint\x12\x1e\n\x11\x64\x65ployed_index_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"\x17\n\x15UndeployIndexResponse\"u\n\x1eUndeployIndexOperationMetadata\x12S\n\x10generic_metadata\x18\x01 \x01(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.GenericOperationMetadata2\xc4\x0e\n\x14IndexEndpointService\x12\x93\x02\n\x13\x43reateIndexEndpoint\x12;.google.cloud.aiplatform.v1beta1.CreateIndexEndpointRequest\x1a\x1d.google.longrunning.Operation\"\x9f\x01\x82\xd3\xe4\x93\x02I\"7/v1beta1/{parent=projects/*/locations/*}/indexEndpoints:\x0eindex_endpoint\xda\x41\x15parent,index_endpoint\xca\x41\x35\n\rIndexEndpoint\x12$CreateIndexEndpointOperationMetadata\x12\xc4\x01\n\x10GetIndexEndpoint\x12\x38.google.cloud.aiplatform.v1beta1.GetIndexEndpointRequest\x1a..google.cloud.aiplatform.v1beta1.IndexEndpoint\"F\x82\xd3\xe4\x93\x02\x39\x12\x37/v1beta1/{name=projects/*/locations/*/indexEndpoints/*}\xda\x41\x04name\x12\xd7\x01\n\x12ListIndexEndpoints\x12:.google.cloud.aiplatform.v1beta1.ListIndexEndpointsRequest\x1a;.google.cloud.aiplatform.v1beta1.ListIndexEndpointsResponse\"H\x82\xd3\xe4\x93\x02\x39\x12\x37/v1beta1/{parent=projects/*/locations/*}/indexEndpoints\xda\x41\x06parent\x12\xff\x01\n\x13UpdateIndexEndpoint\x12;.google.cloud.aiplatform.v1beta1.UpdateIndexEndpointRequest\x1a..google.cloud.aiplatform.v1beta1.IndexEndpoint\"{\x82\xd3\xe4\x93\x02X2F/v1beta1/{index_endpoint.name=projects/*/locations/*/indexEndpoints/*}:\x0eindex_endpoint\xda\x41\x1aindex_endpoint,update_mask\x12\xec\x01\n\x13\x44\x65leteIndexEndpoint\x12;.google.cloud.aiplatform.v1beta1.DeleteIndexEndpointRequest\x1a\x1d.google.longrunning.Operation\"y\x82\xd3\xe4\x93\x02\x39*7/v1beta1/{name=projects/*/locations/*/indexEndpoints/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteOperationMetadata\x12\x92\x02\n\x0b\x44\x65ployIndex\x12\x33.google.cloud.aiplatform.v1beta1.DeployIndexRequest\x1a\x1d.google.longrunning.Operation\"\xae\x01\x82\xd3\xe4\x93\x02R\"M/v1beta1/{index_endpoint=projects/*/locations/*/indexEndpoints/*}:deployIndex:\x01*\xda\x41\x1dindex_endpoint,deployed_index\xca\x41\x33\n\x13\x44\x65ployIndexResponse\x12\x1c\x44\x65ployIndexOperationMetadata\x12\x9f\x02\n\rUndeployIndex\x12\x35.google.cloud.aiplatform.v1beta1.UndeployIndexRequest\x1a\x1d.google.longrunning.Operation\"\xb7\x01\x82\xd3\xe4\x93\x02T\"O/v1beta1/{index_endpoint=projects/*/locations/*/indexEndpoints/*}:undeployIndex:\x01*\xda\x41 index_endpoint,deployed_index_id\xca\x41\x37\n\x15UndeployIndexResponse\x12\x1eUndeployIndexOperationMetadata\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xf6\x01\n#com.google.cloud.aiplatform.v1beta1B\x19IndexEndpointServiceProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_index__endpoint__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_operation__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
 
@@ -393,6 +393,13 @@ _DEPLOYINDEXOPERATIONMETADATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='deployed_index_id', full_name='google.cloud.aiplatform.v1beta1.DeployIndexOperationMetadata.deployed_index_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -405,8 +412,8 @@ _DEPLOYINDEXOPERATIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1630,
-  serialized_end=1745,
+  serialized_start=1631,
+  serialized_end=1773,
 )
 
 
@@ -444,8 +451,8 @@ _UNDEPLOYINDEXREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1747,
-  serialized_end=1874,
+  serialized_start=1775,
+  serialized_end=1902,
 )
 
 
@@ -469,8 +476,8 @@ _UNDEPLOYINDEXRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1876,
-  serialized_end=1899,
+  serialized_start=1904,
+  serialized_end=1927,
 )
 
 
@@ -501,8 +508,8 @@ _UNDEPLOYINDEXOPERATIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1901,
-  serialized_end=2018,
+  serialized_start=1929,
+  serialized_end=2046,
 )
 
 _CREATEINDEXENDPOINTREQUEST.fields_by_name['index_endpoint'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_index__endpoint__pb2._INDEXENDPOINT
@@ -646,8 +653,8 @@ _INDEXENDPOINTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031aiplatform.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=2021,
-  serialized_end=3881,
+  serialized_start=2049,
+  serialized_end=3909,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateIndexEndpoint',

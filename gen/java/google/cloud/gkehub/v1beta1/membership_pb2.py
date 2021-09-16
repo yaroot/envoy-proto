@@ -27,7 +27,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\037com.google.cloud.gkehub.v1beta1P\001ZAgoogle.golang.org/genproto/googleapis/cloud/gkehub/v1beta1;gkehub\252\002\033Google.Cloud.GkeHub.V1Beta1\312\002\033Google\\Cloud\\GkeHub\\V1beta1\352\002\036Google::Cloud::GkeHub::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,google/cloud/gkehub/v1beta1/membership.proto\x12\x1bgoogle.cloud.gkehub.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xb9\x07\n\nMembership\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12H\n\x06labels\x18\x02 \x03(\x0b\x32\x33.google.cloud.gkehub.v1beta1.Membership.LabelsEntryB\x03\xe0\x41\x01\x12\x18\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12H\n\x08\x65ndpoint\x18\x04 \x01(\x0b\x32/.google.cloud.gkehub.v1beta1.MembershipEndpointB\x03\xe0\x41\x01H\x00\x12@\n\x05state\x18\x05 \x01(\x0b\x32,.google.cloud.gkehub.v1beta1.MembershipStateB\x03\xe0\x41\x03\x12>\n\tauthority\x18\t \x01(\x0b\x32&.google.cloud.gkehub.v1beta1.AuthorityB\x03\xe0\x41\x01\x12\x34\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0b\x64\x65lete_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x18\n\x0b\x65xternal_id\x18\n \x01(\tB\x03\xe0\x41\x01\x12=\n\x14last_connection_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x16\n\tunique_id\x18\x0c \x01(\tB\x03\xe0\x41\x03\x12\\\n\x13infrastructure_type\x18\r \x01(\x0e\x32:.google.cloud.gkehub.v1beta1.Membership.InfrastructureTypeB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"W\n\x12InfrastructureType\x12#\n\x1fINFRASTRUCTURE_TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07ON_PREM\x10\x01\x12\x0f\n\x0bMULTI_CLOUD\x10\x02:g\xea\x41\x64\n gkehub.googleapis.com/Membership\x12@projects/{project}/locations/{location}/memberships/{membership}B\x06\n\x04type\"\xfd\x01\n\x12MembershipEndpoint\x12\x41\n\x0bgke_cluster\x18\x04 \x01(\x0b\x32\'.google.cloud.gkehub.v1beta1.GkeClusterB\x03\xe0\x41\x01\x12Q\n\x13kubernetes_metadata\x18\x05 \x01(\x0b\x32/.google.cloud.gkehub.v1beta1.KubernetesMetadataB\x03\xe0\x41\x03\x12Q\n\x13kubernetes_resource\x18\x06 \x01(\x0b\x32/.google.cloud.gkehub.v1beta1.KubernetesResourceB\x03\xe0\x41\x01\"\xa7\x02\n\x12KubernetesResource\x12#\n\x16membership_cr_manifest\x18\x01 \x01(\tB\x03\xe0\x41\x04\x12P\n\x14membership_resources\x18\x02 \x03(\x0b\x32-.google.cloud.gkehub.v1beta1.ResourceManifestB\x03\xe0\x41\x03\x12M\n\x11\x63onnect_resources\x18\x03 \x03(\x0b\x32-.google.cloud.gkehub.v1beta1.ResourceManifestB\x03\xe0\x41\x03\x12K\n\x10resource_options\x18\x04 \x01(\x0b\x32,.google.cloud.gkehub.v1beta1.ResourceOptionsB\x03\xe0\x41\x01\"I\n\x0fResourceOptions\x12\x1c\n\x0f\x63onnect_version\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x18\n\x0bv1beta1_crd\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\"<\n\x10ResourceManifest\x12\x10\n\x08manifest\x18\x01 \x01(\t\x12\x16\n\x0e\x63luster_scoped\x18\x02 \x01(\x08\"(\n\nGkeCluster\x12\x1a\n\rresource_link\x18\x01 \x01(\tB\x03\xe0\x41\x05\"\xdf\x01\n\x12KubernetesMetadata\x12*\n\x1dkubernetes_api_server_version\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x1d\n\x10node_provider_id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x17\n\nnode_count\x18\x03 \x01(\x05\x42\x03\xe0\x41\x03\x12\x17\n\nvcpu_count\x18\x04 \x01(\x05\x42\x03\xe0\x41\x03\x12\x16\n\tmemory_mb\x18\x05 \x01(\x05\x42\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x64 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\"}\n\tAuthority\x12\x13\n\x06issuer\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12#\n\x16workload_identity_pool\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x1e\n\x11identity_provider\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x16\n\toidc_jwks\x18\x04 \x01(\x0c\x42\x03\xe0\x41\x01\"\x8e\x02\n\x0fMembershipState\x12\x44\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x31.google.cloud.gkehub.v1beta1.MembershipState.CodeB\x03\xe0\x41\x03\x12\x17\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x02\x18\x01\x12\x33\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02\x18\x01\"g\n\x04\x43ode\x12\x14\n\x10\x43ODE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\t\n\x05READY\x10\x02\x12\x0c\n\x08\x44\x45LETING\x10\x03\x12\x0c\n\x08UPDATING\x10\x04\x12\x14\n\x10SERVICE_UPDATING\x10\x05\"\x8a\x01\n\x16ListMembershipsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\x83\x01\n\x17ListMembershipsResponse\x12:\n\tresources\x18\x01 \x03(\x0b\x32\'.google.cloud.gkehub.v1beta1.Membership\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\")\n\x14GetMembershipRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\x8a\x01\n\x17\x43reateMembershipRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rmembership_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12>\n\x08resource\x18\x03 \x01(\x0b\x32\'.google.cloud.gkehub.v1beta1.MembershipB\x03\xe0\x41\x02\",\n\x17\x44\x65leteMembershipRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\xa2\x01\n\x17UpdateMembershipRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12>\n\x08resource\x18\x03 \x01(\x0b\x32\'.google.cloud.gkehub.v1beta1.MembershipB\x03\xe0\x41\x02\"\xe8\x01\n\x1eGenerateConnectManifestRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x45\n\rconnect_agent\x18\x02 \x01(\x0b\x32).google.cloud.gkehub.v1beta1.ConnectAgentB\x03\xe0\x41\x01\x12\x14\n\x07version\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x17\n\nis_upgrade\x18\x04 \x01(\x08\x42\x03\xe0\x41\x01\x12\x15\n\x08registry\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12&\n\x19image_pull_secret_content\x18\x06 \x01(\x0c\x42\x03\xe0\x41\x01\"f\n\x1fGenerateConnectManifestResponse\x12\x43\n\x08manifest\x18\x01 \x03(\x0b\x32\x31.google.cloud.gkehub.v1beta1.ConnectAgentResource\"]\n\x14\x43onnectAgentResource\x12\x33\n\x04type\x18\x01 \x01(\x0b\x32%.google.cloud.gkehub.v1beta1.TypeMeta\x12\x10\n\x08manifest\x18\x02 \x01(\t\"-\n\x08TypeMeta\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x13\n\x0b\x61pi_version\x18\x02 \x01(\t\"L\n\x0c\x43onnectAgent\x12\x10\n\x04name\x18\x01 \x01(\tB\x02\x18\x01\x12\x12\n\x05proxy\x18\x02 \x01(\x0c\x42\x03\xe0\x41\x01\x12\x16\n\tnamespace\x18\x03 \x01(\tB\x03\xe0\x41\x01\"m\n\x1aValidateExclusivityRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x0b\x63r_manifest\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12 \n\x13intended_membership\x18\x03 \x01(\tB\x03\xe0\x41\x02\"A\n\x1bValidateExclusivityResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\"l\n\"GenerateExclusivityManifestRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0c\x63rd_manifest\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x18\n\x0b\x63r_manifest\x18\x03 \x01(\tB\x03\xe0\x41\x01\"P\n#GenerateExclusivityManifestResponse\x12\x14\n\x0c\x63rd_manifest\x18\x01 \x01(\t\x12\x13\n\x0b\x63r_manifest\x18\x02 \x01(\t\"\xf9\x01\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1a\n\rstatus_detail\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\x1d\n\x10\x63\x61ncel_requested\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\x32\xe6\x0e\n\x17GkeHubMembershipService\x12\xc3\x01\n\x0fListMemberships\x12\x33.google.cloud.gkehub.v1beta1.ListMembershipsRequest\x1a\x34.google.cloud.gkehub.v1beta1.ListMembershipsResponse\"E\x82\xd3\xe4\x93\x02\x36\x12\x34/v1beta1/{parent=projects/*/locations/*}/memberships\xda\x41\x06parent\x12\xb0\x01\n\rGetMembership\x12\x31.google.cloud.gkehub.v1beta1.GetMembershipRequest\x1a\'.google.cloud.gkehub.v1beta1.Membership\"C\x82\xd3\xe4\x93\x02\x36\x12\x34/v1beta1/{name=projects/*/locations/*/memberships/*}\xda\x41\x04name\x12\xf2\x01\n\x10\x43reateMembership\x12\x34.google.cloud.gkehub.v1beta1.CreateMembershipRequest\x1a\x1d.google.longrunning.Operation\"\x88\x01\x82\xd3\xe4\x93\x02@\"4/v1beta1/{parent=projects/*/locations/*}/memberships:\x08resource\xda\x41\x1dparent,resource,membership_id\xca\x41\x1f\n\nMembership\x12\x11OperationMetadata\x12\xd9\x01\n\x10\x44\x65leteMembership\x12\x34.google.cloud.gkehub.v1beta1.DeleteMembershipRequest\x1a\x1d.google.longrunning.Operation\"p\x82\xd3\xe4\x93\x02\x36*4/v1beta1/{name=projects/*/locations/*/memberships/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xee\x01\n\x10UpdateMembership\x12\x34.google.cloud.gkehub.v1beta1.UpdateMembershipRequest\x1a\x1d.google.longrunning.Operation\"\x84\x01\x82\xd3\xe4\x93\x02@24/v1beta1/{name=projects/*/locations/*/memberships/*}:\x08resource\xda\x41\x19name,resource,update_mask\xca\x41\x1f\n\nMembership\x12\x11OperationMetadata\x12\xea\x01\n\x17GenerateConnectManifest\x12;.google.cloud.gkehub.v1beta1.GenerateConnectManifestRequest\x1a<.google.cloud.gkehub.v1beta1.GenerateConnectManifestResponse\"T\x82\xd3\xe4\x93\x02N\x12L/v1beta1/{name=projects/*/locations/*/memberships/*}:generateConnectManifest\x12\xda\x01\n\x13ValidateExclusivity\x12\x37.google.cloud.gkehub.v1beta1.ValidateExclusivityRequest\x1a\x38.google.cloud.gkehub.v1beta1.ValidateExclusivityResponse\"P\x82\xd3\xe4\x93\x02J\x12H/v1beta1/{parent=projects/*/locations/*}/memberships:validateExclusivity\x12\xfa\x01\n\x1bGenerateExclusivityManifest\x12?.google.cloud.gkehub.v1beta1.GenerateExclusivityManifestRequest\x1a@.google.cloud.gkehub.v1beta1.GenerateExclusivityManifestResponse\"X\x82\xd3\xe4\x93\x02R\x12P/v1beta1/{name=projects/*/locations/*/memberships/*}:generateExclusivityManifest\x1aI\xca\x41\x15gkehub.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xc3\x01\n\x1f\x63om.google.cloud.gkehub.v1beta1P\x01ZAgoogle.golang.org/genproto/googleapis/cloud/gkehub/v1beta1;gkehub\xaa\x02\x1bGoogle.Cloud.GkeHub.V1Beta1\xca\x02\x1bGoogle\\Cloud\\GkeHub\\V1beta1\xea\x02\x1eGoogle::Cloud::GkeHub::V1beta1b\x06proto3'
+  serialized_pb=b'\n,google/cloud/gkehub/v1beta1/membership.proto\x12\x1bgoogle.cloud.gkehub.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xb9\x07\n\nMembership\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12H\n\x06labels\x18\x02 \x03(\x0b\x32\x33.google.cloud.gkehub.v1beta1.Membership.LabelsEntryB\x03\xe0\x41\x01\x12\x18\n\x0b\x64\x65scription\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12H\n\x08\x65ndpoint\x18\x04 \x01(\x0b\x32/.google.cloud.gkehub.v1beta1.MembershipEndpointB\x03\xe0\x41\x01H\x00\x12@\n\x05state\x18\x05 \x01(\x0b\x32,.google.cloud.gkehub.v1beta1.MembershipStateB\x03\xe0\x41\x03\x12>\n\tauthority\x18\t \x01(\x0b\x32&.google.cloud.gkehub.v1beta1.AuthorityB\x03\xe0\x41\x01\x12\x34\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0b\x64\x65lete_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x18\n\x0b\x65xternal_id\x18\n \x01(\tB\x03\xe0\x41\x01\x12=\n\x14last_connection_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x16\n\tunique_id\x18\x0c \x01(\tB\x03\xe0\x41\x03\x12\\\n\x13infrastructure_type\x18\r \x01(\x0e\x32:.google.cloud.gkehub.v1beta1.Membership.InfrastructureTypeB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"W\n\x12InfrastructureType\x12#\n\x1fINFRASTRUCTURE_TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07ON_PREM\x10\x01\x12\x0f\n\x0bMULTI_CLOUD\x10\x02:g\xea\x41\x64\n gkehub.googleapis.com/Membership\x12@projects/{project}/locations/{location}/memberships/{membership}B\x06\n\x04type\"\xa7\x03\n\x12MembershipEndpoint\x12\x43\n\x0bgke_cluster\x18\x04 \x01(\x0b\x32\'.google.cloud.gkehub.v1beta1.GkeClusterB\x03\xe0\x41\x01H\x00\x12J\n\x0fon_prem_cluster\x18\x07 \x01(\x0b\x32*.google.cloud.gkehub.v1beta1.OnPremClusterB\x03\xe0\x41\x01H\x00\x12R\n\x13multi_cloud_cluster\x18\x08 \x01(\x0b\x32..google.cloud.gkehub.v1beta1.MultiCloudClusterB\x03\xe0\x41\x01H\x00\x12Q\n\x13kubernetes_metadata\x18\x05 \x01(\x0b\x32/.google.cloud.gkehub.v1beta1.KubernetesMetadataB\x03\xe0\x41\x03\x12Q\n\x13kubernetes_resource\x18\x06 \x01(\x0b\x32/.google.cloud.gkehub.v1beta1.KubernetesResourceB\x03\xe0\x41\x01\x42\x06\n\x04type\"\xa7\x02\n\x12KubernetesResource\x12#\n\x16membership_cr_manifest\x18\x01 \x01(\tB\x03\xe0\x41\x04\x12P\n\x14membership_resources\x18\x02 \x03(\x0b\x32-.google.cloud.gkehub.v1beta1.ResourceManifestB\x03\xe0\x41\x03\x12M\n\x11\x63onnect_resources\x18\x03 \x03(\x0b\x32-.google.cloud.gkehub.v1beta1.ResourceManifestB\x03\xe0\x41\x03\x12K\n\x10resource_options\x18\x04 \x01(\x0b\x32,.google.cloud.gkehub.v1beta1.ResourceOptionsB\x03\xe0\x41\x01\"I\n\x0fResourceOptions\x12\x1c\n\x0f\x63onnect_version\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x18\n\x0bv1beta1_crd\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\"<\n\x10ResourceManifest\x12\x10\n\x08manifest\x18\x01 \x01(\t\x12\x16\n\x0e\x63luster_scoped\x18\x02 \x01(\x08\"F\n\nGkeCluster\x12\x1a\n\rresource_link\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x1c\n\x0f\x63luster_missing\x18\x03 \x01(\x08\x42\x03\xe0\x41\x03\"e\n\rOnPremCluster\x12\x1a\n\rresource_link\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x1c\n\x0f\x63luster_missing\x18\x02 \x01(\x08\x42\x03\xe0\x41\x03\x12\x1a\n\radmin_cluster\x18\x03 \x01(\x08\x42\x03\xe0\x41\x05\"M\n\x11MultiCloudCluster\x12\x1a\n\rresource_link\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x1c\n\x0f\x63luster_missing\x18\x02 \x01(\x08\x42\x03\xe0\x41\x03\"\xdf\x01\n\x12KubernetesMetadata\x12*\n\x1dkubernetes_api_server_version\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x1d\n\x10node_provider_id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x17\n\nnode_count\x18\x03 \x01(\x05\x42\x03\xe0\x41\x03\x12\x17\n\nvcpu_count\x18\x04 \x01(\x05\x42\x03\xe0\x41\x03\x12\x16\n\tmemory_mb\x18\x05 \x01(\x05\x42\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x64 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\"}\n\tAuthority\x12\x13\n\x06issuer\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12#\n\x16workload_identity_pool\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x1e\n\x11identity_provider\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x16\n\toidc_jwks\x18\x04 \x01(\x0c\x42\x03\xe0\x41\x01\"\x8e\x02\n\x0fMembershipState\x12\x44\n\x04\x63ode\x18\x01 \x01(\x0e\x32\x31.google.cloud.gkehub.v1beta1.MembershipState.CodeB\x03\xe0\x41\x03\x12\x17\n\x0b\x64\x65scription\x18\x02 \x01(\tB\x02\x18\x01\x12\x33\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02\x18\x01\"g\n\x04\x43ode\x12\x14\n\x10\x43ODE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\t\n\x05READY\x10\x02\x12\x0c\n\x08\x44\x45LETING\x10\x03\x12\x0c\n\x08UPDATING\x10\x04\x12\x14\n\x10SERVICE_UPDATING\x10\x05\"\x8a\x01\n\x16ListMembershipsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\x83\x01\n\x17ListMembershipsResponse\x12:\n\tresources\x18\x01 \x03(\x0b\x32\'.google.cloud.gkehub.v1beta1.Membership\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\")\n\x14GetMembershipRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\xa3\x01\n\x17\x43reateMembershipRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1a\n\rmembership_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12>\n\x08resource\x18\x03 \x01(\x0b\x32\'.google.cloud.gkehub.v1beta1.MembershipB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"E\n\x17\x44\x65leteMembershipRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xbb\x01\n\x17UpdateMembershipRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12>\n\x08resource\x18\x03 \x01(\x0b\x32\'.google.cloud.gkehub.v1beta1.MembershipB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xe8\x01\n\x1eGenerateConnectManifestRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x45\n\rconnect_agent\x18\x02 \x01(\x0b\x32).google.cloud.gkehub.v1beta1.ConnectAgentB\x03\xe0\x41\x01\x12\x14\n\x07version\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x17\n\nis_upgrade\x18\x04 \x01(\x08\x42\x03\xe0\x41\x01\x12\x15\n\x08registry\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12&\n\x19image_pull_secret_content\x18\x06 \x01(\x0c\x42\x03\xe0\x41\x01\"f\n\x1fGenerateConnectManifestResponse\x12\x43\n\x08manifest\x18\x01 \x03(\x0b\x32\x31.google.cloud.gkehub.v1beta1.ConnectAgentResource\"]\n\x14\x43onnectAgentResource\x12\x33\n\x04type\x18\x01 \x01(\x0b\x32%.google.cloud.gkehub.v1beta1.TypeMeta\x12\x10\n\x08manifest\x18\x02 \x01(\t\"-\n\x08TypeMeta\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x13\n\x0b\x61pi_version\x18\x02 \x01(\t\"L\n\x0c\x43onnectAgent\x12\x10\n\x04name\x18\x01 \x01(\tB\x02\x18\x01\x12\x12\n\x05proxy\x18\x02 \x01(\x0c\x42\x03\xe0\x41\x01\x12\x16\n\tnamespace\x18\x03 \x01(\tB\x03\xe0\x41\x01\"m\n\x1aValidateExclusivityRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x0b\x63r_manifest\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12 \n\x13intended_membership\x18\x03 \x01(\tB\x03\xe0\x41\x02\"A\n\x1bValidateExclusivityResponse\x12\"\n\x06status\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\"l\n\"GenerateExclusivityManifestRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x19\n\x0c\x63rd_manifest\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x18\n\x0b\x63r_manifest\x18\x03 \x01(\tB\x03\xe0\x41\x01\"P\n#GenerateExclusivityManifestResponse\x12\x14\n\x0c\x63rd_manifest\x18\x01 \x01(\t\x12\x13\n\x0b\x63r_manifest\x18\x02 \x01(\t\"\xf9\x01\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1a\n\rstatus_detail\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\x1d\n\x10\x63\x61ncel_requested\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\x32\xe6\x0e\n\x17GkeHubMembershipService\x12\xc3\x01\n\x0fListMemberships\x12\x33.google.cloud.gkehub.v1beta1.ListMembershipsRequest\x1a\x34.google.cloud.gkehub.v1beta1.ListMembershipsResponse\"E\x82\xd3\xe4\x93\x02\x36\x12\x34/v1beta1/{parent=projects/*/locations/*}/memberships\xda\x41\x06parent\x12\xb0\x01\n\rGetMembership\x12\x31.google.cloud.gkehub.v1beta1.GetMembershipRequest\x1a\'.google.cloud.gkehub.v1beta1.Membership\"C\x82\xd3\xe4\x93\x02\x36\x12\x34/v1beta1/{name=projects/*/locations/*/memberships/*}\xda\x41\x04name\x12\xf2\x01\n\x10\x43reateMembership\x12\x34.google.cloud.gkehub.v1beta1.CreateMembershipRequest\x1a\x1d.google.longrunning.Operation\"\x88\x01\x82\xd3\xe4\x93\x02@\"4/v1beta1/{parent=projects/*/locations/*}/memberships:\x08resource\xda\x41\x1dparent,resource,membership_id\xca\x41\x1f\n\nMembership\x12\x11OperationMetadata\x12\xd9\x01\n\x10\x44\x65leteMembership\x12\x34.google.cloud.gkehub.v1beta1.DeleteMembershipRequest\x1a\x1d.google.longrunning.Operation\"p\x82\xd3\xe4\x93\x02\x36*4/v1beta1/{name=projects/*/locations/*/memberships/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xee\x01\n\x10UpdateMembership\x12\x34.google.cloud.gkehub.v1beta1.UpdateMembershipRequest\x1a\x1d.google.longrunning.Operation\"\x84\x01\x82\xd3\xe4\x93\x02@24/v1beta1/{name=projects/*/locations/*/memberships/*}:\x08resource\xda\x41\x19name,resource,update_mask\xca\x41\x1f\n\nMembership\x12\x11OperationMetadata\x12\xea\x01\n\x17GenerateConnectManifest\x12;.google.cloud.gkehub.v1beta1.GenerateConnectManifestRequest\x1a<.google.cloud.gkehub.v1beta1.GenerateConnectManifestResponse\"T\x82\xd3\xe4\x93\x02N\x12L/v1beta1/{name=projects/*/locations/*/memberships/*}:generateConnectManifest\x12\xda\x01\n\x13ValidateExclusivity\x12\x37.google.cloud.gkehub.v1beta1.ValidateExclusivityRequest\x1a\x38.google.cloud.gkehub.v1beta1.ValidateExclusivityResponse\"P\x82\xd3\xe4\x93\x02J\x12H/v1beta1/{parent=projects/*/locations/*}/memberships:validateExclusivity\x12\xfa\x01\n\x1bGenerateExclusivityManifest\x12?.google.cloud.gkehub.v1beta1.GenerateExclusivityManifestRequest\x1a@.google.cloud.gkehub.v1beta1.GenerateExclusivityManifestResponse\"X\x82\xd3\xe4\x93\x02R\x12P/v1beta1/{name=projects/*/locations/*/memberships/*}:generateExclusivityManifest\x1aI\xca\x41\x15gkehub.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xc3\x01\n\x1f\x63om.google.cloud.gkehub.v1beta1P\x01ZAgoogle.golang.org/genproto/googleapis/cloud/gkehub/v1beta1;gkehub\xaa\x02\x1bGoogle.Cloud.GkeHub.V1Beta1\xca\x02\x1bGoogle\\Cloud\\GkeHub\\V1beta1\xea\x02\x1eGoogle::Cloud::GkeHub::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
@@ -103,8 +103,8 @@ _MEMBERSHIPSTATE_CODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2531,
-  serialized_end=2634,
+  serialized_start=2913,
+  serialized_end=3016,
 )
 _sym_db.RegisterEnumDescriptor(_MEMBERSHIPSTATE_CODE)
 
@@ -175,7 +175,7 @@ _MEMBERSHIP = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='endpoint', full_name='google.cloud.gkehub.v1beta1.Membership.endpoint', index=3,
       number=4, type=11, cpp_type=10, label=1,
@@ -285,14 +285,28 @@ _MEMBERSHIPENDPOINT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='kubernetes_metadata', full_name='google.cloud.gkehub.v1beta1.MembershipEndpoint.kubernetes_metadata', index=1,
+      name='on_prem_cluster', full_name='google.cloud.gkehub.v1beta1.MembershipEndpoint.on_prem_cluster', index=1,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='multi_cloud_cluster', full_name='google.cloud.gkehub.v1beta1.MembershipEndpoint.multi_cloud_cluster', index=2,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='kubernetes_metadata', full_name='google.cloud.gkehub.v1beta1.MembershipEndpoint.kubernetes_metadata', index=3,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='kubernetes_resource', full_name='google.cloud.gkehub.v1beta1.MembershipEndpoint.kubernetes_resource', index=2,
+      name='kubernetes_resource', full_name='google.cloud.gkehub.v1beta1.MembershipEndpoint.kubernetes_resource', index=4,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -309,9 +323,14 @@ _MEMBERSHIPENDPOINT = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
+    _descriptor.OneofDescriptor(
+      name='type', full_name='google.cloud.gkehub.v1beta1.MembershipEndpoint.type',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
   serialized_start=1278,
-  serialized_end=1531,
+  serialized_end=1701,
 )
 
 
@@ -363,8 +382,8 @@ _KUBERNETESRESOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1534,
-  serialized_end=1829,
+  serialized_start=1704,
+  serialized_end=1999,
 )
 
 
@@ -402,8 +421,8 @@ _RESOURCEOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1831,
-  serialized_end=1904,
+  serialized_start=2001,
+  serialized_end=2074,
 )
 
 
@@ -441,8 +460,8 @@ _RESOURCEMANIFEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1906,
-  serialized_end=1966,
+  serialized_start=2076,
+  serialized_end=2136,
 )
 
 
@@ -461,6 +480,13 @@ _GKECLUSTER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cluster_missing', full_name='google.cloud.gkehub.v1beta1.GkeCluster.cluster_missing', index=1,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -473,8 +499,93 @@ _GKECLUSTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1968,
-  serialized_end=2008,
+  serialized_start=2138,
+  serialized_end=2208,
+)
+
+
+_ONPREMCLUSTER = _descriptor.Descriptor(
+  name='OnPremCluster',
+  full_name='google.cloud.gkehub.v1beta1.OnPremCluster',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='resource_link', full_name='google.cloud.gkehub.v1beta1.OnPremCluster.resource_link', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cluster_missing', full_name='google.cloud.gkehub.v1beta1.OnPremCluster.cluster_missing', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='admin_cluster', full_name='google.cloud.gkehub.v1beta1.OnPremCluster.admin_cluster', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2210,
+  serialized_end=2311,
+)
+
+
+_MULTICLOUDCLUSTER = _descriptor.Descriptor(
+  name='MultiCloudCluster',
+  full_name='google.cloud.gkehub.v1beta1.MultiCloudCluster',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='resource_link', full_name='google.cloud.gkehub.v1beta1.MultiCloudCluster.resource_link', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cluster_missing', full_name='google.cloud.gkehub.v1beta1.MultiCloudCluster.cluster_missing', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2313,
+  serialized_end=2390,
 )
 
 
@@ -540,8 +651,8 @@ _KUBERNETESMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2011,
-  serialized_end=2234,
+  serialized_start=2393,
+  serialized_end=2616,
 )
 
 
@@ -593,8 +704,8 @@ _AUTHORITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2236,
-  serialized_end=2361,
+  serialized_start=2618,
+  serialized_end=2743,
 )
 
 
@@ -640,8 +751,8 @@ _MEMBERSHIPSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2364,
-  serialized_end=2634,
+  serialized_start=2746,
+  serialized_end=3016,
 )
 
 
@@ -700,8 +811,8 @@ _LISTMEMBERSHIPSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2637,
-  serialized_end=2775,
+  serialized_start=3019,
+  serialized_end=3157,
 )
 
 
@@ -746,8 +857,8 @@ _LISTMEMBERSHIPSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2778,
-  serialized_end=2909,
+  serialized_start=3160,
+  serialized_end=3291,
 )
 
 
@@ -778,8 +889,8 @@ _GETMEMBERSHIPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2911,
-  serialized_end=2952,
+  serialized_start=3293,
+  serialized_end=3334,
 )
 
 
@@ -812,6 +923,13 @@ _CREATEMEMBERSHIPREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.gkehub.v1beta1.CreateMembershipRequest.request_id', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -824,8 +942,8 @@ _CREATEMEMBERSHIPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2955,
-  serialized_end=3093,
+  serialized_start=3337,
+  serialized_end=3500,
 )
 
 
@@ -844,6 +962,13 @@ _DELETEMEMBERSHIPREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.gkehub.v1beta1.DeleteMembershipRequest.request_id', index=1,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -856,8 +981,8 @@ _DELETEMEMBERSHIPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3095,
-  serialized_end=3139,
+  serialized_start=3502,
+  serialized_end=3571,
 )
 
 
@@ -890,6 +1015,13 @@ _UPDATEMEMBERSHIPREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_id', full_name='google.cloud.gkehub.v1beta1.UpdateMembershipRequest.request_id', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -902,8 +1034,8 @@ _UPDATEMEMBERSHIPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3142,
-  serialized_end=3304,
+  serialized_start=3574,
+  serialized_end=3761,
 )
 
 
@@ -969,8 +1101,8 @@ _GENERATECONNECTMANIFESTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3307,
-  serialized_end=3539,
+  serialized_start=3764,
+  serialized_end=3996,
 )
 
 
@@ -1001,8 +1133,8 @@ _GENERATECONNECTMANIFESTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3541,
-  serialized_end=3643,
+  serialized_start=3998,
+  serialized_end=4100,
 )
 
 
@@ -1040,8 +1172,8 @@ _CONNECTAGENTRESOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3645,
-  serialized_end=3738,
+  serialized_start=4102,
+  serialized_end=4195,
 )
 
 
@@ -1079,8 +1211,8 @@ _TYPEMETA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3740,
-  serialized_end=3785,
+  serialized_start=4197,
+  serialized_end=4242,
 )
 
 
@@ -1125,8 +1257,8 @@ _CONNECTAGENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3787,
-  serialized_end=3863,
+  serialized_start=4244,
+  serialized_end=4320,
 )
 
 
@@ -1171,8 +1303,8 @@ _VALIDATEEXCLUSIVITYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3865,
-  serialized_end=3974,
+  serialized_start=4322,
+  serialized_end=4431,
 )
 
 
@@ -1203,8 +1335,8 @@ _VALIDATEEXCLUSIVITYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3976,
-  serialized_end=4041,
+  serialized_start=4433,
+  serialized_end=4498,
 )
 
 
@@ -1249,8 +1381,8 @@ _GENERATEEXCLUSIVITYMANIFESTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4043,
-  serialized_end=4151,
+  serialized_start=4500,
+  serialized_end=4608,
 )
 
 
@@ -1288,8 +1420,8 @@ _GENERATEEXCLUSIVITYMANIFESTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4153,
-  serialized_end=4233,
+  serialized_start=4610,
+  serialized_end=4690,
 )
 
 
@@ -1362,8 +1494,8 @@ _OPERATIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4236,
-  serialized_end=4485,
+  serialized_start=4693,
+  serialized_end=4942,
 )
 
 _MEMBERSHIP_LABELSENTRY.containing_type = _MEMBERSHIP
@@ -1381,8 +1513,19 @@ _MEMBERSHIP.oneofs_by_name['type'].fields.append(
   _MEMBERSHIP.fields_by_name['endpoint'])
 _MEMBERSHIP.fields_by_name['endpoint'].containing_oneof = _MEMBERSHIP.oneofs_by_name['type']
 _MEMBERSHIPENDPOINT.fields_by_name['gke_cluster'].message_type = _GKECLUSTER
+_MEMBERSHIPENDPOINT.fields_by_name['on_prem_cluster'].message_type = _ONPREMCLUSTER
+_MEMBERSHIPENDPOINT.fields_by_name['multi_cloud_cluster'].message_type = _MULTICLOUDCLUSTER
 _MEMBERSHIPENDPOINT.fields_by_name['kubernetes_metadata'].message_type = _KUBERNETESMETADATA
 _MEMBERSHIPENDPOINT.fields_by_name['kubernetes_resource'].message_type = _KUBERNETESRESOURCE
+_MEMBERSHIPENDPOINT.oneofs_by_name['type'].fields.append(
+  _MEMBERSHIPENDPOINT.fields_by_name['gke_cluster'])
+_MEMBERSHIPENDPOINT.fields_by_name['gke_cluster'].containing_oneof = _MEMBERSHIPENDPOINT.oneofs_by_name['type']
+_MEMBERSHIPENDPOINT.oneofs_by_name['type'].fields.append(
+  _MEMBERSHIPENDPOINT.fields_by_name['on_prem_cluster'])
+_MEMBERSHIPENDPOINT.fields_by_name['on_prem_cluster'].containing_oneof = _MEMBERSHIPENDPOINT.oneofs_by_name['type']
+_MEMBERSHIPENDPOINT.oneofs_by_name['type'].fields.append(
+  _MEMBERSHIPENDPOINT.fields_by_name['multi_cloud_cluster'])
+_MEMBERSHIPENDPOINT.fields_by_name['multi_cloud_cluster'].containing_oneof = _MEMBERSHIPENDPOINT.oneofs_by_name['type']
 _KUBERNETESRESOURCE.fields_by_name['membership_resources'].message_type = _RESOURCEMANIFEST
 _KUBERNETESRESOURCE.fields_by_name['connect_resources'].message_type = _RESOURCEMANIFEST
 _KUBERNETESRESOURCE.fields_by_name['resource_options'].message_type = _RESOURCEOPTIONS
@@ -1406,6 +1549,8 @@ DESCRIPTOR.message_types_by_name['KubernetesResource'] = _KUBERNETESRESOURCE
 DESCRIPTOR.message_types_by_name['ResourceOptions'] = _RESOURCEOPTIONS
 DESCRIPTOR.message_types_by_name['ResourceManifest'] = _RESOURCEMANIFEST
 DESCRIPTOR.message_types_by_name['GkeCluster'] = _GKECLUSTER
+DESCRIPTOR.message_types_by_name['OnPremCluster'] = _ONPREMCLUSTER
+DESCRIPTOR.message_types_by_name['MultiCloudCluster'] = _MULTICLOUDCLUSTER
 DESCRIPTOR.message_types_by_name['KubernetesMetadata'] = _KUBERNETESMETADATA
 DESCRIPTOR.message_types_by_name['Authority'] = _AUTHORITY
 DESCRIPTOR.message_types_by_name['MembershipState'] = _MEMBERSHIPSTATE
@@ -1476,6 +1621,20 @@ GkeCluster = _reflection.GeneratedProtocolMessageType('GkeCluster', (_message.Me
   # @@protoc_insertion_point(class_scope:google.cloud.gkehub.v1beta1.GkeCluster)
   })
 _sym_db.RegisterMessage(GkeCluster)
+
+OnPremCluster = _reflection.GeneratedProtocolMessageType('OnPremCluster', (_message.Message,), {
+  'DESCRIPTOR' : _ONPREMCLUSTER,
+  '__module__' : 'google.cloud.gkehub.v1beta1.membership_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.gkehub.v1beta1.OnPremCluster)
+  })
+_sym_db.RegisterMessage(OnPremCluster)
+
+MultiCloudCluster = _reflection.GeneratedProtocolMessageType('MultiCloudCluster', (_message.Message,), {
+  'DESCRIPTOR' : _MULTICLOUDCLUSTER,
+  '__module__' : 'google.cloud.gkehub.v1beta1.membership_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.gkehub.v1beta1.MultiCloudCluster)
+  })
+_sym_db.RegisterMessage(MultiCloudCluster)
 
 KubernetesMetadata = _reflection.GeneratedProtocolMessageType('KubernetesMetadata', (_message.Message,), {
   'DESCRIPTOR' : _KUBERNETESMETADATA,
@@ -1628,6 +1787,8 @@ _MEMBERSHIP.fields_by_name['unique_id']._options = None
 _MEMBERSHIP.fields_by_name['infrastructure_type']._options = None
 _MEMBERSHIP._options = None
 _MEMBERSHIPENDPOINT.fields_by_name['gke_cluster']._options = None
+_MEMBERSHIPENDPOINT.fields_by_name['on_prem_cluster']._options = None
+_MEMBERSHIPENDPOINT.fields_by_name['multi_cloud_cluster']._options = None
 _MEMBERSHIPENDPOINT.fields_by_name['kubernetes_metadata']._options = None
 _MEMBERSHIPENDPOINT.fields_by_name['kubernetes_resource']._options = None
 _KUBERNETESRESOURCE.fields_by_name['membership_cr_manifest']._options = None
@@ -1637,6 +1798,12 @@ _KUBERNETESRESOURCE.fields_by_name['resource_options']._options = None
 _RESOURCEOPTIONS.fields_by_name['connect_version']._options = None
 _RESOURCEOPTIONS.fields_by_name['v1beta1_crd']._options = None
 _GKECLUSTER.fields_by_name['resource_link']._options = None
+_GKECLUSTER.fields_by_name['cluster_missing']._options = None
+_ONPREMCLUSTER.fields_by_name['resource_link']._options = None
+_ONPREMCLUSTER.fields_by_name['cluster_missing']._options = None
+_ONPREMCLUSTER.fields_by_name['admin_cluster']._options = None
+_MULTICLOUDCLUSTER.fields_by_name['resource_link']._options = None
+_MULTICLOUDCLUSTER.fields_by_name['cluster_missing']._options = None
 _KUBERNETESMETADATA.fields_by_name['kubernetes_api_server_version']._options = None
 _KUBERNETESMETADATA.fields_by_name['node_provider_id']._options = None
 _KUBERNETESMETADATA.fields_by_name['node_count']._options = None
@@ -1659,10 +1826,13 @@ _GETMEMBERSHIPREQUEST.fields_by_name['name']._options = None
 _CREATEMEMBERSHIPREQUEST.fields_by_name['parent']._options = None
 _CREATEMEMBERSHIPREQUEST.fields_by_name['membership_id']._options = None
 _CREATEMEMBERSHIPREQUEST.fields_by_name['resource']._options = None
+_CREATEMEMBERSHIPREQUEST.fields_by_name['request_id']._options = None
 _DELETEMEMBERSHIPREQUEST.fields_by_name['name']._options = None
+_DELETEMEMBERSHIPREQUEST.fields_by_name['request_id']._options = None
 _UPDATEMEMBERSHIPREQUEST.fields_by_name['name']._options = None
 _UPDATEMEMBERSHIPREQUEST.fields_by_name['update_mask']._options = None
 _UPDATEMEMBERSHIPREQUEST.fields_by_name['resource']._options = None
+_UPDATEMEMBERSHIPREQUEST.fields_by_name['request_id']._options = None
 _GENERATECONNECTMANIFESTREQUEST.fields_by_name['name']._options = None
 _GENERATECONNECTMANIFESTREQUEST.fields_by_name['connect_agent']._options = None
 _GENERATECONNECTMANIFESTREQUEST.fields_by_name['version']._options = None
@@ -1693,8 +1863,8 @@ _GKEHUBMEMBERSHIPSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\025gkehub.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=4488,
-  serialized_end=6382,
+  serialized_start=4945,
+  serialized_end=6839,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListMemberships',

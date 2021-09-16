@@ -15,6 +15,7 @@ _sym_db = _symbol_database.Default()
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.type import date_pb2 as google_dot_type_dot_date__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n!com.google.cloud.osconfig.v1alphaB\013InventoriesP\001ZEgoogle.golang.org/genproto/googleapis/cloud/osconfig/v1alpha;osconfig\252\002\035Google.Cloud.OsConfig.V1Alpha\312\002\035Google\\Cloud\\OsConfig\\V1alpha\352\002 Google::Cloud::OsConfig::V1alpha',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n-google/cloud/osconfig/v1alpha/inventory.proto\x12\x1dgoogle.cloud.osconfig.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc6\x14\n\tInventory\x12\x11\n\x04name\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x45\n\x07os_info\x18\x01 \x01(\x0b\x32/.google.cloud.osconfig.v1alpha.Inventory.OsInfoB\x03\xe0\x41\x03\x12G\n\x05items\x18\x02 \x03(\x0b\x32\x33.google.cloud.osconfig.v1alpha.Inventory.ItemsEntryB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1a\xb8\x01\n\x06OsInfo\x12\x10\n\x08hostname\x18\t \x01(\t\x12\x11\n\tlong_name\x18\x02 \x01(\t\x12\x12\n\nshort_name\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x14\n\x0c\x61rchitecture\x18\x05 \x01(\t\x12\x16\n\x0ekernel_version\x18\x06 \x01(\t\x12\x16\n\x0ekernel_release\x18\x07 \x01(\t\x12\x1e\n\x16osconfig_agent_version\x18\x08 \x01(\t\x1a\xcb\x04\n\x04Item\x12\n\n\x02id\x18\x01 \x01(\t\x12M\n\x0borigin_type\x18\x02 \x01(\x0e\x32\x38.google.cloud.osconfig.v1alpha.Inventory.Item.OriginType\x12/\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12@\n\x04type\x18\x05 \x01(\x0e\x32\x32.google.cloud.osconfig.v1alpha.Inventory.Item.Type\x12U\n\x11installed_package\x18\x06 \x01(\x0b\x32\x38.google.cloud.osconfig.v1alpha.Inventory.SoftwarePackageH\x00\x12U\n\x11\x61vailable_package\x18\x07 \x01(\x0b\x32\x38.google.cloud.osconfig.v1alpha.Inventory.SoftwarePackageH\x00\"?\n\nOriginType\x12\x1b\n\x17ORIGIN_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10INVENTORY_REPORT\x10\x01\"J\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11INSTALLED_PACKAGE\x10\x01\x12\x15\n\x11\x41VAILABLE_PACKAGE\x10\x02\x42\t\n\x07\x64\x65tails\x1a\xc3\x05\n\x0fSoftwarePackage\x12P\n\x0byum_package\x18\x01 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12P\n\x0b\x61pt_package\x18\x02 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12S\n\x0ezypper_package\x18\x03 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12S\n\x0egooget_package\x18\x04 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12L\n\x0czypper_patch\x18\x05 \x01(\x0b\x32\x34.google.cloud.osconfig.v1alpha.Inventory.ZypperPatchH\x00\x12T\n\x0bwua_package\x18\x06 \x01(\x0b\x32=.google.cloud.osconfig.v1alpha.Inventory.WindowsUpdatePackageH\x00\x12\x61\n\x0bqfe_package\x18\x07 \x01(\x0b\x32J.google.cloud.osconfig.v1alpha.Inventory.WindowsQuickFixEngineeringPackageH\x00\x12P\n\x0b\x63os_package\x18\x08 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x42\t\n\x07\x64\x65tails\x1aO\n\x10VersionedPackage\x12\x14\n\x0cpackage_name\x18\x04 \x01(\t\x12\x14\n\x0c\x61rchitecture\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\x1aV\n\x0bZypperPatch\x12\x12\n\npatch_name\x18\x05 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\t\x12\x10\n\x08severity\x18\x03 \x01(\t\x12\x0f\n\x07summary\x18\x04 \x01(\t\x1a\x88\x03\n\x14WindowsUpdatePackage\x12\r\n\x05title\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12g\n\ncategories\x18\x03 \x03(\x0b\x32S.google.cloud.osconfig.v1alpha.Inventory.WindowsUpdatePackage.WindowsUpdateCategory\x12\x16\n\x0ekb_article_ids\x18\x04 \x03(\t\x12\x13\n\x0bsupport_url\x18\x0b \x01(\t\x12\x16\n\x0emore_info_urls\x18\x05 \x03(\t\x12\x11\n\tupdate_id\x18\x06 \x01(\t\x12\x17\n\x0frevision_number\x18\x07 \x01(\x05\x12?\n\x1blast_deployment_change_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x31\n\x15WindowsUpdateCategory\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a\x8f\x01\n!WindowsQuickFixEngineeringPackage\x12\x0f\n\x07\x63\x61ption\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x12\n\nhot_fix_id\x18\x03 \x01(\t\x12\x30\n\x0cinstall_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a[\n\nItemsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12<\n\x05value\x18\x02 \x01(\x0b\x32-.google.cloud.osconfig.v1alpha.Inventory.Item:\x02\x38\x01:n\xea\x41k\n!osconfig.googleapis.com/Inventory\x12\x46projects/{project}/locations/{location}/instances/{instance}/inventory\"\x8a\x01\n\x13GetInventoryRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!osconfig.googleapis.com/Inventory\x12:\n\x04view\x18\x02 \x01(\x0e\x32,.google.cloud.osconfig.v1alpha.InventoryView\"\xc4\x01\n\x16ListInventoriesRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x63ompute.googleapis.com/Instance\x12:\n\x04view\x18\x02 \x01(\x0e\x32,.google.cloud.osconfig.v1alpha.InventoryView\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\"q\n\x17ListInventoriesResponse\x12=\n\x0binventories\x18\x01 \x03(\x0b\x32(.google.cloud.osconfig.v1alpha.Inventory\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t*D\n\rInventoryView\x12\x1e\n\x1aINVENTORY_VIEW_UNSPECIFIED\x10\x00\x12\t\n\x05\x42\x41SIC\x10\x01\x12\x08\n\x04\x46ULL\x10\x02\x42\xdc\x01\n!com.google.cloud.osconfig.v1alphaB\x0bInventoriesP\x01ZEgoogle.golang.org/genproto/googleapis/cloud/osconfig/v1alpha;osconfig\xaa\x02\x1dGoogle.Cloud.OsConfig.V1Alpha\xca\x02\x1dGoogle\\Cloud\\OsConfig\\V1alpha\xea\x02 Google::Cloud::OsConfig::V1alphab\x06proto3'
+  serialized_pb=b'\n-google/cloud/osconfig/v1alpha/inventory.proto\x12\x1dgoogle.cloud.osconfig.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x16google/type/date.proto\"\xb7\x16\n\tInventory\x12\x11\n\x04name\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x45\n\x07os_info\x18\x01 \x01(\x0b\x32/.google.cloud.osconfig.v1alpha.Inventory.OsInfoB\x03\xe0\x41\x03\x12G\n\x05items\x18\x02 \x03(\x0b\x32\x33.google.cloud.osconfig.v1alpha.Inventory.ItemsEntryB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1a\xb8\x01\n\x06OsInfo\x12\x10\n\x08hostname\x18\t \x01(\t\x12\x11\n\tlong_name\x18\x02 \x01(\t\x12\x12\n\nshort_name\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x14\n\x0c\x61rchitecture\x18\x05 \x01(\t\x12\x16\n\x0ekernel_version\x18\x06 \x01(\t\x12\x16\n\x0ekernel_release\x18\x07 \x01(\t\x12\x1e\n\x16osconfig_agent_version\x18\x08 \x01(\t\x1a\xcb\x04\n\x04Item\x12\n\n\x02id\x18\x01 \x01(\t\x12M\n\x0borigin_type\x18\x02 \x01(\x0e\x32\x38.google.cloud.osconfig.v1alpha.Inventory.Item.OriginType\x12/\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12@\n\x04type\x18\x05 \x01(\x0e\x32\x32.google.cloud.osconfig.v1alpha.Inventory.Item.Type\x12U\n\x11installed_package\x18\x06 \x01(\x0b\x32\x38.google.cloud.osconfig.v1alpha.Inventory.SoftwarePackageH\x00\x12U\n\x11\x61vailable_package\x18\x07 \x01(\x0b\x32\x38.google.cloud.osconfig.v1alpha.Inventory.SoftwarePackageH\x00\"?\n\nOriginType\x12\x1b\n\x17ORIGIN_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10INVENTORY_REPORT\x10\x01\"J\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11INSTALLED_PACKAGE\x10\x01\x12\x15\n\x11\x41VAILABLE_PACKAGE\x10\x02\x42\t\n\x07\x64\x65tails\x1a\x9f\x06\n\x0fSoftwarePackage\x12P\n\x0byum_package\x18\x01 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12P\n\x0b\x61pt_package\x18\x02 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12S\n\x0ezypper_package\x18\x03 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12S\n\x0egooget_package\x18\x04 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12L\n\x0czypper_patch\x18\x05 \x01(\x0b\x32\x34.google.cloud.osconfig.v1alpha.Inventory.ZypperPatchH\x00\x12T\n\x0bwua_package\x18\x06 \x01(\x0b\x32=.google.cloud.osconfig.v1alpha.Inventory.WindowsUpdatePackageH\x00\x12\x61\n\x0bqfe_package\x18\x07 \x01(\x0b\x32J.google.cloud.osconfig.v1alpha.Inventory.WindowsQuickFixEngineeringPackageH\x00\x12P\n\x0b\x63os_package\x18\x08 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12Z\n\x13windows_application\x18\t \x01(\x0b\x32;.google.cloud.osconfig.v1alpha.Inventory.WindowsApplicationH\x00\x42\t\n\x07\x64\x65tails\x1aO\n\x10VersionedPackage\x12\x14\n\x0cpackage_name\x18\x04 \x01(\t\x12\x14\n\x0c\x61rchitecture\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\x1aV\n\x0bZypperPatch\x12\x12\n\npatch_name\x18\x05 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\t\x12\x10\n\x08severity\x18\x03 \x01(\t\x12\x0f\n\x07summary\x18\x04 \x01(\t\x1a\x88\x03\n\x14WindowsUpdatePackage\x12\r\n\x05title\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12g\n\ncategories\x18\x03 \x03(\x0b\x32S.google.cloud.osconfig.v1alpha.Inventory.WindowsUpdatePackage.WindowsUpdateCategory\x12\x16\n\x0ekb_article_ids\x18\x04 \x03(\t\x12\x13\n\x0bsupport_url\x18\x0b \x01(\t\x12\x16\n\x0emore_info_urls\x18\x05 \x03(\t\x12\x11\n\tupdate_id\x18\x06 \x01(\t\x12\x17\n\x0frevision_number\x18\x07 \x01(\x05\x12?\n\x1blast_deployment_change_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x31\n\x15WindowsUpdateCategory\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a\x8f\x01\n!WindowsQuickFixEngineeringPackage\x12\x0f\n\x07\x63\x61ption\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x12\n\nhot_fix_id\x18\x03 \x01(\t\x12\x30\n\x0cinstall_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x92\x01\n\x12WindowsApplication\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12\x17\n\x0f\x64isplay_version\x18\x02 \x01(\t\x12\x11\n\tpublisher\x18\x03 \x01(\t\x12\'\n\x0cinstall_date\x18\x04 \x01(\x0b\x32\x11.google.type.Date\x12\x11\n\thelp_link\x18\x05 \x01(\t\x1a[\n\nItemsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12<\n\x05value\x18\x02 \x01(\x0b\x32-.google.cloud.osconfig.v1alpha.Inventory.Item:\x02\x38\x01:n\xea\x41k\n!osconfig.googleapis.com/Inventory\x12\x46projects/{project}/locations/{location}/instances/{instance}/inventory\"\x8a\x01\n\x13GetInventoryRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!osconfig.googleapis.com/Inventory\x12:\n\x04view\x18\x02 \x01(\x0e\x32,.google.cloud.osconfig.v1alpha.InventoryView\"\xc4\x01\n\x16ListInventoriesRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x63ompute.googleapis.com/Instance\x12:\n\x04view\x18\x02 \x01(\x0e\x32,.google.cloud.osconfig.v1alpha.InventoryView\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\"q\n\x17ListInventoriesResponse\x12=\n\x0binventories\x18\x01 \x03(\x0b\x32(.google.cloud.osconfig.v1alpha.Inventory\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t*D\n\rInventoryView\x12\x1e\n\x1aINVENTORY_VIEW_UNSPECIFIED\x10\x00\x12\t\n\x05\x42\x41SIC\x10\x01\x12\x08\n\x04\x46ULL\x10\x02\x42\xdc\x01\n!com.google.cloud.osconfig.v1alphaB\x0bInventoriesP\x01ZEgoogle.golang.org/genproto/googleapis/cloud/osconfig/v1alpha;osconfig\xaa\x02\x1dGoogle.Cloud.OsConfig.V1Alpha\xca\x02\x1dGoogle\\Cloud\\OsConfig\\V1alpha\xea\x02 Google::Cloud::OsConfig::V1alphab\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_type_dot_date__pb2.DESCRIPTOR,])
 
 _INVENTORYVIEW = _descriptor.EnumDescriptor(
   name='InventoryView',
@@ -52,8 +53,8 @@ _INVENTORYVIEW = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3261,
-  serialized_end=3329,
+  serialized_start=3526,
+  serialized_end=3594,
 )
 _sym_db.RegisterEnumDescriptor(_INVENTORYVIEW)
 
@@ -83,8 +84,8 @@ _INVENTORY_ITEM_ORIGINTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1029,
-  serialized_end=1092,
+  serialized_start=1053,
+  serialized_end=1116,
 )
 _sym_db.RegisterEnumDescriptor(_INVENTORY_ITEM_ORIGINTYPE)
 
@@ -113,8 +114,8 @@ _INVENTORY_ITEM_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1094,
-  serialized_end=1168,
+  serialized_start=1118,
+  serialized_end=1192,
 )
 _sym_db.RegisterEnumDescriptor(_INVENTORY_ITEM_TYPE)
 
@@ -195,8 +196,8 @@ _INVENTORY_OSINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=405,
-  serialized_end=589,
+  serialized_start=429,
+  serialized_end=613,
 )
 
 _INVENTORY_ITEM = _descriptor.Descriptor(
@@ -275,8 +276,8 @@ _INVENTORY_ITEM = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=592,
-  serialized_end=1179,
+  serialized_start=616,
+  serialized_end=1203,
 )
 
 _INVENTORY_SOFTWAREPACKAGE = _descriptor.Descriptor(
@@ -343,6 +344,13 @@ _INVENTORY_SOFTWAREPACKAGE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='windows_application', full_name='google.cloud.osconfig.v1alpha.Inventory.SoftwarePackage.windows_application', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -360,8 +368,8 @@ _INVENTORY_SOFTWAREPACKAGE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1182,
-  serialized_end=1889,
+  serialized_start=1206,
+  serialized_end=2005,
 )
 
 _INVENTORY_VERSIONEDPACKAGE = _descriptor.Descriptor(
@@ -405,8 +413,8 @@ _INVENTORY_VERSIONEDPACKAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1891,
-  serialized_end=1970,
+  serialized_start=2007,
+  serialized_end=2086,
 )
 
 _INVENTORY_ZYPPERPATCH = _descriptor.Descriptor(
@@ -457,8 +465,8 @@ _INVENTORY_ZYPPERPATCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1972,
-  serialized_end=2058,
+  serialized_start=2088,
+  serialized_end=2174,
 )
 
 _INVENTORY_WINDOWSUPDATEPACKAGE_WINDOWSUPDATECATEGORY = _descriptor.Descriptor(
@@ -495,8 +503,8 @@ _INVENTORY_WINDOWSUPDATEPACKAGE_WINDOWSUPDATECATEGORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2404,
-  serialized_end=2453,
+  serialized_start=2520,
+  serialized_end=2569,
 )
 
 _INVENTORY_WINDOWSUPDATEPACKAGE = _descriptor.Descriptor(
@@ -582,8 +590,8 @@ _INVENTORY_WINDOWSUPDATEPACKAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2061,
-  serialized_end=2453,
+  serialized_start=2177,
+  serialized_end=2569,
 )
 
 _INVENTORY_WINDOWSQUICKFIXENGINEERINGPACKAGE = _descriptor.Descriptor(
@@ -634,8 +642,67 @@ _INVENTORY_WINDOWSQUICKFIXENGINEERINGPACKAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2456,
-  serialized_end=2599,
+  serialized_start=2572,
+  serialized_end=2715,
+)
+
+_INVENTORY_WINDOWSAPPLICATION = _descriptor.Descriptor(
+  name='WindowsApplication',
+  full_name='google.cloud.osconfig.v1alpha.Inventory.WindowsApplication',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='display_name', full_name='google.cloud.osconfig.v1alpha.Inventory.WindowsApplication.display_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='display_version', full_name='google.cloud.osconfig.v1alpha.Inventory.WindowsApplication.display_version', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='publisher', full_name='google.cloud.osconfig.v1alpha.Inventory.WindowsApplication.publisher', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='install_date', full_name='google.cloud.osconfig.v1alpha.Inventory.WindowsApplication.install_date', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='help_link', full_name='google.cloud.osconfig.v1alpha.Inventory.WindowsApplication.help_link', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2718,
+  serialized_end=2864,
 )
 
 _INVENTORY_ITEMSENTRY = _descriptor.Descriptor(
@@ -672,8 +739,8 @@ _INVENTORY_ITEMSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2601,
-  serialized_end=2692,
+  serialized_start=2866,
+  serialized_end=2957,
 )
 
 _INVENTORY = _descriptor.Descriptor(
@@ -715,7 +782,7 @@ _INVENTORY = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_INVENTORY_OSINFO, _INVENTORY_ITEM, _INVENTORY_SOFTWAREPACKAGE, _INVENTORY_VERSIONEDPACKAGE, _INVENTORY_ZYPPERPATCH, _INVENTORY_WINDOWSUPDATEPACKAGE, _INVENTORY_WINDOWSQUICKFIXENGINEERINGPACKAGE, _INVENTORY_ITEMSENTRY, ],
+  nested_types=[_INVENTORY_OSINFO, _INVENTORY_ITEM, _INVENTORY_SOFTWAREPACKAGE, _INVENTORY_VERSIONEDPACKAGE, _INVENTORY_ZYPPERPATCH, _INVENTORY_WINDOWSUPDATEPACKAGE, _INVENTORY_WINDOWSQUICKFIXENGINEERINGPACKAGE, _INVENTORY_WINDOWSAPPLICATION, _INVENTORY_ITEMSENTRY, ],
   enum_types=[
   ],
   serialized_options=b'\352Ak\n!osconfig.googleapis.com/Inventory\022Fprojects/{project}/locations/{location}/instances/{instance}/inventory',
@@ -724,8 +791,8 @@ _INVENTORY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=174,
-  serialized_end=2804,
+  serialized_start=198,
+  serialized_end=3069,
 )
 
 
@@ -763,8 +830,8 @@ _GETINVENTORYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2807,
-  serialized_end=2945,
+  serialized_start=3072,
+  serialized_end=3210,
 )
 
 
@@ -823,8 +890,8 @@ _LISTINVENTORIESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2948,
-  serialized_end=3144,
+  serialized_start=3213,
+  serialized_end=3409,
 )
 
 
@@ -862,8 +929,8 @@ _LISTINVENTORIESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3146,
-  serialized_end=3259,
+  serialized_start=3411,
+  serialized_end=3524,
 )
 
 _INVENTORY_OSINFO.containing_type = _INVENTORY
@@ -890,6 +957,7 @@ _INVENTORY_SOFTWAREPACKAGE.fields_by_name['zypper_patch'].message_type = _INVENT
 _INVENTORY_SOFTWAREPACKAGE.fields_by_name['wua_package'].message_type = _INVENTORY_WINDOWSUPDATEPACKAGE
 _INVENTORY_SOFTWAREPACKAGE.fields_by_name['qfe_package'].message_type = _INVENTORY_WINDOWSQUICKFIXENGINEERINGPACKAGE
 _INVENTORY_SOFTWAREPACKAGE.fields_by_name['cos_package'].message_type = _INVENTORY_VERSIONEDPACKAGE
+_INVENTORY_SOFTWAREPACKAGE.fields_by_name['windows_application'].message_type = _INVENTORY_WINDOWSAPPLICATION
 _INVENTORY_SOFTWAREPACKAGE.containing_type = _INVENTORY
 _INVENTORY_SOFTWAREPACKAGE.oneofs_by_name['details'].fields.append(
   _INVENTORY_SOFTWAREPACKAGE.fields_by_name['yum_package'])
@@ -915,6 +983,9 @@ _INVENTORY_SOFTWAREPACKAGE.fields_by_name['qfe_package'].containing_oneof = _INV
 _INVENTORY_SOFTWAREPACKAGE.oneofs_by_name['details'].fields.append(
   _INVENTORY_SOFTWAREPACKAGE.fields_by_name['cos_package'])
 _INVENTORY_SOFTWAREPACKAGE.fields_by_name['cos_package'].containing_oneof = _INVENTORY_SOFTWAREPACKAGE.oneofs_by_name['details']
+_INVENTORY_SOFTWAREPACKAGE.oneofs_by_name['details'].fields.append(
+  _INVENTORY_SOFTWAREPACKAGE.fields_by_name['windows_application'])
+_INVENTORY_SOFTWAREPACKAGE.fields_by_name['windows_application'].containing_oneof = _INVENTORY_SOFTWAREPACKAGE.oneofs_by_name['details']
 _INVENTORY_VERSIONEDPACKAGE.containing_type = _INVENTORY
 _INVENTORY_ZYPPERPATCH.containing_type = _INVENTORY
 _INVENTORY_WINDOWSUPDATEPACKAGE_WINDOWSUPDATECATEGORY.containing_type = _INVENTORY_WINDOWSUPDATEPACKAGE
@@ -923,6 +994,8 @@ _INVENTORY_WINDOWSUPDATEPACKAGE.fields_by_name['last_deployment_change_time'].me
 _INVENTORY_WINDOWSUPDATEPACKAGE.containing_type = _INVENTORY
 _INVENTORY_WINDOWSQUICKFIXENGINEERINGPACKAGE.fields_by_name['install_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _INVENTORY_WINDOWSQUICKFIXENGINEERINGPACKAGE.containing_type = _INVENTORY
+_INVENTORY_WINDOWSAPPLICATION.fields_by_name['install_date'].message_type = google_dot_type_dot_date__pb2._DATE
+_INVENTORY_WINDOWSAPPLICATION.containing_type = _INVENTORY
 _INVENTORY_ITEMSENTRY.fields_by_name['value'].message_type = _INVENTORY_ITEM
 _INVENTORY_ITEMSENTRY.containing_type = _INVENTORY
 _INVENTORY.fields_by_name['os_info'].message_type = _INVENTORY_OSINFO
@@ -996,6 +1069,13 @@ Inventory = _reflection.GeneratedProtocolMessageType('Inventory', (_message.Mess
     })
   ,
 
+  'WindowsApplication' : _reflection.GeneratedProtocolMessageType('WindowsApplication', (_message.Message,), {
+    'DESCRIPTOR' : _INVENTORY_WINDOWSAPPLICATION,
+    '__module__' : 'google.cloud.osconfig.v1alpha.inventory_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.osconfig.v1alpha.Inventory.WindowsApplication)
+    })
+  ,
+
   'ItemsEntry' : _reflection.GeneratedProtocolMessageType('ItemsEntry', (_message.Message,), {
     'DESCRIPTOR' : _INVENTORY_ITEMSENTRY,
     '__module__' : 'google.cloud.osconfig.v1alpha.inventory_pb2'
@@ -1015,6 +1095,7 @@ _sym_db.RegisterMessage(Inventory.ZypperPatch)
 _sym_db.RegisterMessage(Inventory.WindowsUpdatePackage)
 _sym_db.RegisterMessage(Inventory.WindowsUpdatePackage.WindowsUpdateCategory)
 _sym_db.RegisterMessage(Inventory.WindowsQuickFixEngineeringPackage)
+_sym_db.RegisterMessage(Inventory.WindowsApplication)
 _sym_db.RegisterMessage(Inventory.ItemsEntry)
 
 GetInventoryRequest = _reflection.GeneratedProtocolMessageType('GetInventoryRequest', (_message.Message,), {

@@ -28,7 +28,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\'com.google.cloud.bigquery.connection.v1P\001ZMgoogle.golang.org/genproto/googleapis/cloud/bigquery/connection/v1;connection\252\002#Google.Cloud.BigQuery.Connection.V1\312\002#Google\\Cloud\\BigQuery\\Connection\\V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n4google/cloud/bigquery/connection/v1/connection.proto\x12#google.cloud.bigquery.connection.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/iam/v1/iam_policy.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xba\x01\n\x17\x43reateConnectionRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x1a\n\rconnection_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12H\n\nconnection\x18\x03 \x01(\x0b\x32/.google.cloud.bigquery.connection.v1.ConnectionB\x03\xe0\x41\x02\"Z\n\x14GetConnectionRequest\x12\x42\n\x04name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,bigqueryconnection.googleapis.com/Connection\"\x7f\n\x16ListConnectionsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x16\n\tpage_size\x18\x04 \x01(\x05\x42\x03\xe0\x41\x02\x12\x12\n\npage_token\x18\x03 \x01(\t\"x\n\x17ListConnectionsResponse\x12\x17\n\x0fnext_page_token\x18\x01 \x01(\t\x12\x44\n\x0b\x63onnections\x18\x02 \x03(\x0b\x32/.google.cloud.bigquery.connection.v1.Connection\"\xdd\x01\n\x17UpdateConnectionRequest\x12\x42\n\x04name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,bigqueryconnection.googleapis.com/Connection\x12H\n\nconnection\x18\x02 \x01(\x0b\x32/.google.cloud.bigquery.connection.v1.ConnectionB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"]\n\x17\x44\x65leteConnectionRequest\x12\x42\n\x04name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,bigqueryconnection.googleapis.com/Connection\"\xb4\x03\n\nConnection\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rfriendly_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12L\n\tcloud_sql\x18\x04 \x01(\x0b\x32\x37.google.cloud.bigquery.connection.v1.CloudSqlPropertiesH\x00\x12\x41\n\x03\x61ws\x18\x08 \x01(\x0b\x32\x32.google.cloud.bigquery.connection.v1.AwsPropertiesH\x00\x12\x1a\n\rcreation_time\x18\x05 \x01(\x03\x42\x03\xe0\x41\x03\x12\x1f\n\x12last_modified_time\x18\x06 \x01(\x03\x42\x03\xe0\x41\x03\x12\x1b\n\x0ehas_credential\x18\x07 \x01(\x08\x42\x03\xe0\x41\x03:s\xea\x41p\n,bigqueryconnection.googleapis.com/Connection\x12@projects/{project}/locations/{location}/connections/{connection}B\x0c\n\nproperties\"\xa9\x02\n\x12\x43loudSqlProperties\x12\x13\n\x0binstance_id\x18\x01 \x01(\t\x12\x10\n\x08\x64\x61tabase\x18\x02 \x01(\t\x12R\n\x04type\x18\x03 \x01(\x0e\x32\x44.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType\x12P\n\ncredential\x18\x04 \x01(\x0b\x32\x37.google.cloud.bigquery.connection.v1.CloudSqlCredentialB\x03\xe0\x41\x04\"F\n\x0c\x44\x61tabaseType\x12\x1d\n\x19\x44\x41TABASE_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08POSTGRES\x10\x01\x12\t\n\x05MYSQL\x10\x02\"8\n\x12\x43loudSqlCredential\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"\x80\x01\n\rAwsProperties\x12V\n\x12\x63ross_account_role\x18\x02 \x01(\x0b\x32\x38.google.cloud.bigquery.connection.v1.AwsCrossAccountRoleH\x00\x42\x17\n\x15\x61uthentication_method\"^\n\x13\x41wsCrossAccountRole\x12\x13\n\x0biam_role_id\x18\x01 \x01(\t\x12\x18\n\x0biam_user_id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x18\n\x0b\x65xternal_id\x18\x03 \x01(\tB\x03\xe0\x41\x03\x32\xcc\r\n\x11\x43onnectionService\x12\xe8\x01\n\x10\x43reateConnection\x12<.google.cloud.bigquery.connection.v1.CreateConnectionRequest\x1a/.google.cloud.bigquery.connection.v1.Connection\"e\x82\xd3\xe4\x93\x02=\"//v1/{parent=projects/*/locations/*}/connections:\nconnection\xda\x41\x1fparent,connection,connection_id\x12\xbb\x01\n\rGetConnection\x12\x39.google.cloud.bigquery.connection.v1.GetConnectionRequest\x1a/.google.cloud.bigquery.connection.v1.Connection\">\x82\xd3\xe4\x93\x02\x31\x12//v1/{name=projects/*/locations/*/connections/*}\xda\x41\x04name\x12\xce\x01\n\x0fListConnections\x12;.google.cloud.bigquery.connection.v1.ListConnectionsRequest\x1a<.google.cloud.bigquery.connection.v1.ListConnectionsResponse\"@\x82\xd3\xe4\x93\x02\x31\x12//v1/{parent=projects/*/locations/*}/connections\xda\x41\x06parent\x12\xe4\x01\n\x10UpdateConnection\x12<.google.cloud.bigquery.connection.v1.UpdateConnectionRequest\x1a/.google.cloud.bigquery.connection.v1.Connection\"a\x82\xd3\xe4\x93\x02=2//v1/{name=projects/*/locations/*/connections/*}:\nconnection\xda\x41\x1bname,connection,update_mask\x12\xa8\x01\n\x10\x44\x65leteConnection\x12<.google.cloud.bigquery.connection.v1.DeleteConnectionRequest\x1a\x16.google.protobuf.Empty\">\x82\xd3\xe4\x93\x02\x31*//v1/{name=projects/*/locations/*/connections/*}\xda\x41\x04name\x12\xa9\x01\n\x0cGetIamPolicy\x12\".google.iam.v1.GetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"^\x82\xd3\xe4\x93\x02\x45\"@/v1/{resource=projects/*/locations/*/connections/*}:getIamPolicy:\x01*\xda\x41\x10resource,options\x12\xa8\x01\n\x0cSetIamPolicy\x12\".google.iam.v1.SetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"]\x82\xd3\xe4\x93\x02\x45\"@/v1/{resource=projects/*/locations/*/connections/*}:setIamPolicy:\x01*\xda\x41\x0fresource,policy\x12\xd3\x01\n\x12TestIamPermissions\x12(.google.iam.v1.TestIamPermissionsRequest\x1a).google.iam.v1.TestIamPermissionsResponse\"h\x82\xd3\xe4\x93\x02K\"F/v1/{resource=projects/*/locations/*/connections/*}:testIamPermissions:\x01*\xda\x41\x14resource,permissions\x1a~\xca\x41!bigqueryconnection.googleapis.com\xd2\x41Whttps://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/cloud-platformB\xc6\x01\n\'com.google.cloud.bigquery.connection.v1P\x01ZMgoogle.golang.org/genproto/googleapis/cloud/bigquery/connection/v1;connection\xaa\x02#Google.Cloud.BigQuery.Connection.V1\xca\x02#Google\\Cloud\\BigQuery\\Connection\\V1b\x06proto3'
+  serialized_pb=b'\n4google/cloud/bigquery/connection/v1/connection.proto\x12#google.cloud.bigquery.connection.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/iam/v1/iam_policy.proto\x1a\x1agoogle/iam/v1/policy.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xba\x01\n\x17\x43reateConnectionRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x1a\n\rconnection_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12H\n\nconnection\x18\x03 \x01(\x0b\x32/.google.cloud.bigquery.connection.v1.ConnectionB\x03\xe0\x41\x02\"Z\n\x14GetConnectionRequest\x12\x42\n\x04name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,bigqueryconnection.googleapis.com/Connection\"\x7f\n\x16ListConnectionsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x16\n\tpage_size\x18\x04 \x01(\x05\x42\x03\xe0\x41\x02\x12\x12\n\npage_token\x18\x03 \x01(\t\"x\n\x17ListConnectionsResponse\x12\x17\n\x0fnext_page_token\x18\x01 \x01(\t\x12\x44\n\x0b\x63onnections\x18\x02 \x03(\x0b\x32/.google.cloud.bigquery.connection.v1.Connection\"\xdd\x01\n\x17UpdateConnectionRequest\x12\x42\n\x04name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,bigqueryconnection.googleapis.com/Connection\x12H\n\nconnection\x18\x02 \x01(\x0b\x32/.google.cloud.bigquery.connection.v1.ConnectionB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"]\n\x17\x44\x65leteConnectionRequest\x12\x42\n\x04name\x18\x01 \x01(\tB4\xe0\x41\x02\xfa\x41.\n,bigqueryconnection.googleapis.com/Connection\"\x8a\x04\n\nConnection\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rfriendly_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12L\n\tcloud_sql\x18\x04 \x01(\x0b\x32\x37.google.cloud.bigquery.connection.v1.CloudSqlPropertiesH\x00\x12\x41\n\x03\x61ws\x18\x08 \x01(\x0b\x32\x32.google.cloud.bigquery.connection.v1.AwsPropertiesH\x00\x12T\n\rcloud_spanner\x18\x15 \x01(\x0b\x32;.google.cloud.bigquery.connection.v1.CloudSpannerPropertiesH\x00\x12\x1a\n\rcreation_time\x18\x05 \x01(\x03\x42\x03\xe0\x41\x03\x12\x1f\n\x12last_modified_time\x18\x06 \x01(\x03\x42\x03\xe0\x41\x03\x12\x1b\n\x0ehas_credential\x18\x07 \x01(\x08\x42\x03\xe0\x41\x03:s\xea\x41p\n,bigqueryconnection.googleapis.com/Connection\x12@projects/{project}/locations/{location}/connections/{connection}B\x0c\n\nproperties\"\xa9\x02\n\x12\x43loudSqlProperties\x12\x13\n\x0binstance_id\x18\x01 \x01(\t\x12\x10\n\x08\x64\x61tabase\x18\x02 \x01(\t\x12R\n\x04type\x18\x03 \x01(\x0e\x32\x44.google.cloud.bigquery.connection.v1.CloudSqlProperties.DatabaseType\x12P\n\ncredential\x18\x04 \x01(\x0b\x32\x37.google.cloud.bigquery.connection.v1.CloudSqlCredentialB\x03\xe0\x41\x04\"F\n\x0c\x44\x61tabaseType\x12\x1d\n\x19\x44\x41TABASE_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08POSTGRES\x10\x01\x12\t\n\x05MYSQL\x10\x02\"8\n\x12\x43loudSqlCredential\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"C\n\x16\x43loudSpannerProperties\x12\x10\n\x08\x64\x61tabase\x18\x01 \x01(\t\x12\x17\n\x0fuse_parallelism\x18\x02 \x01(\x08\"\xcb\x01\n\rAwsProperties\x12V\n\x12\x63ross_account_role\x18\x02 \x01(\x0b\x32\x38.google.cloud.bigquery.connection.v1.AwsCrossAccountRoleH\x00\x12I\n\x0b\x61\x63\x63\x65ss_role\x18\x03 \x01(\x0b\x32\x32.google.cloud.bigquery.connection.v1.AwsAccessRoleH\x00\x42\x17\n\x15\x61uthentication_method\"^\n\x13\x41wsCrossAccountRole\x12\x13\n\x0biam_role_id\x18\x01 \x01(\t\x12\x18\n\x0biam_user_id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x18\n\x0b\x65xternal_id\x18\x03 \x01(\tB\x03\xe0\x41\x03\"6\n\rAwsAccessRole\x12\x13\n\x0biam_role_id\x18\x01 \x01(\t\x12\x10\n\x08identity\x18\x02 \x01(\t2\xcc\r\n\x11\x43onnectionService\x12\xe8\x01\n\x10\x43reateConnection\x12<.google.cloud.bigquery.connection.v1.CreateConnectionRequest\x1a/.google.cloud.bigquery.connection.v1.Connection\"e\x82\xd3\xe4\x93\x02=\"//v1/{parent=projects/*/locations/*}/connections:\nconnection\xda\x41\x1fparent,connection,connection_id\x12\xbb\x01\n\rGetConnection\x12\x39.google.cloud.bigquery.connection.v1.GetConnectionRequest\x1a/.google.cloud.bigquery.connection.v1.Connection\">\x82\xd3\xe4\x93\x02\x31\x12//v1/{name=projects/*/locations/*/connections/*}\xda\x41\x04name\x12\xce\x01\n\x0fListConnections\x12;.google.cloud.bigquery.connection.v1.ListConnectionsRequest\x1a<.google.cloud.bigquery.connection.v1.ListConnectionsResponse\"@\x82\xd3\xe4\x93\x02\x31\x12//v1/{parent=projects/*/locations/*}/connections\xda\x41\x06parent\x12\xe4\x01\n\x10UpdateConnection\x12<.google.cloud.bigquery.connection.v1.UpdateConnectionRequest\x1a/.google.cloud.bigquery.connection.v1.Connection\"a\x82\xd3\xe4\x93\x02=2//v1/{name=projects/*/locations/*/connections/*}:\nconnection\xda\x41\x1bname,connection,update_mask\x12\xa8\x01\n\x10\x44\x65leteConnection\x12<.google.cloud.bigquery.connection.v1.DeleteConnectionRequest\x1a\x16.google.protobuf.Empty\">\x82\xd3\xe4\x93\x02\x31*//v1/{name=projects/*/locations/*/connections/*}\xda\x41\x04name\x12\xa9\x01\n\x0cGetIamPolicy\x12\".google.iam.v1.GetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"^\x82\xd3\xe4\x93\x02\x45\"@/v1/{resource=projects/*/locations/*/connections/*}:getIamPolicy:\x01*\xda\x41\x10resource,options\x12\xa8\x01\n\x0cSetIamPolicy\x12\".google.iam.v1.SetIamPolicyRequest\x1a\x15.google.iam.v1.Policy\"]\x82\xd3\xe4\x93\x02\x45\"@/v1/{resource=projects/*/locations/*/connections/*}:setIamPolicy:\x01*\xda\x41\x0fresource,policy\x12\xd3\x01\n\x12TestIamPermissions\x12(.google.iam.v1.TestIamPermissionsRequest\x1a).google.iam.v1.TestIamPermissionsResponse\"h\x82\xd3\xe4\x93\x02K\"F/v1/{resource=projects/*/locations/*/connections/*}:testIamPermissions:\x01*\xda\x41\x14resource,permissions\x1a~\xca\x41!bigqueryconnection.googleapis.com\xd2\x41Whttps://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/cloud-platformB\xc6\x01\n\'com.google.cloud.bigquery.connection.v1P\x01ZMgoogle.golang.org/genproto/googleapis/cloud/bigquery/connection/v1;connection\xaa\x02#Google.Cloud.BigQuery.Connection.V1\xca\x02#Google\\Cloud\\BigQuery\\Connection\\V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_iam_dot_v1_dot_iam__policy__pb2.DESCRIPTOR,google_dot_iam_dot_v1_dot_policy__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -59,8 +59,8 @@ _CLOUDSQLPROPERTIES_DATABASETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1881,
-  serialized_end=1951,
+  serialized_start=1967,
+  serialized_end=2037,
 )
 _sym_db.RegisterEnumDescriptor(_CLOUDSQLPROPERTIES_DATABASETYPE)
 
@@ -350,21 +350,28 @@ _CONNECTION = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='creation_time', full_name='google.cloud.bigquery.connection.v1.Connection.creation_time', index=5,
+      name='cloud_spanner', full_name='google.cloud.bigquery.connection.v1.Connection.cloud_spanner', index=5,
+      number=21, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='creation_time', full_name='google.cloud.bigquery.connection.v1.Connection.creation_time', index=6,
       number=5, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='last_modified_time', full_name='google.cloud.bigquery.connection.v1.Connection.last_modified_time', index=6,
+      name='last_modified_time', full_name='google.cloud.bigquery.connection.v1.Connection.last_modified_time', index=7,
       number=6, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='has_credential', full_name='google.cloud.bigquery.connection.v1.Connection.has_credential', index=7,
+      name='has_credential', full_name='google.cloud.bigquery.connection.v1.Connection.has_credential', index=8,
       number=7, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
@@ -388,7 +395,7 @@ _CONNECTION = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=1215,
-  serialized_end=1651,
+  serialized_end=1737,
 )
 
 
@@ -441,8 +448,8 @@ _CLOUDSQLPROPERTIES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1654,
-  serialized_end=1951,
+  serialized_start=1740,
+  serialized_end=2037,
 )
 
 
@@ -480,8 +487,47 @@ _CLOUDSQLCREDENTIAL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1953,
-  serialized_end=2009,
+  serialized_start=2039,
+  serialized_end=2095,
+)
+
+
+_CLOUDSPANNERPROPERTIES = _descriptor.Descriptor(
+  name='CloudSpannerProperties',
+  full_name='google.cloud.bigquery.connection.v1.CloudSpannerProperties',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='database', full_name='google.cloud.bigquery.connection.v1.CloudSpannerProperties.database', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='use_parallelism', full_name='google.cloud.bigquery.connection.v1.CloudSpannerProperties.use_parallelism', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2097,
+  serialized_end=2164,
 )
 
 
@@ -496,6 +542,13 @@ _AWSPROPERTIES = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='cross_account_role', full_name='google.cloud.bigquery.connection.v1.AwsProperties.cross_account_role', index=0,
       number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='access_role', full_name='google.cloud.bigquery.connection.v1.AwsProperties.access_role', index=1,
+      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -517,8 +570,8 @@ _AWSPROPERTIES = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2012,
-  serialized_end=2140,
+  serialized_start=2167,
+  serialized_end=2370,
 )
 
 
@@ -563,8 +616,47 @@ _AWSCROSSACCOUNTROLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2142,
-  serialized_end=2236,
+  serialized_start=2372,
+  serialized_end=2466,
+)
+
+
+_AWSACCESSROLE = _descriptor.Descriptor(
+  name='AwsAccessRole',
+  full_name='google.cloud.bigquery.connection.v1.AwsAccessRole',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='iam_role_id', full_name='google.cloud.bigquery.connection.v1.AwsAccessRole.iam_role_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='identity', full_name='google.cloud.bigquery.connection.v1.AwsAccessRole.identity', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2468,
+  serialized_end=2522,
 )
 
 _CREATECONNECTIONREQUEST.fields_by_name['connection'].message_type = _CONNECTION
@@ -573,19 +665,27 @@ _UPDATECONNECTIONREQUEST.fields_by_name['connection'].message_type = _CONNECTION
 _UPDATECONNECTIONREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
 _CONNECTION.fields_by_name['cloud_sql'].message_type = _CLOUDSQLPROPERTIES
 _CONNECTION.fields_by_name['aws'].message_type = _AWSPROPERTIES
+_CONNECTION.fields_by_name['cloud_spanner'].message_type = _CLOUDSPANNERPROPERTIES
 _CONNECTION.oneofs_by_name['properties'].fields.append(
   _CONNECTION.fields_by_name['cloud_sql'])
 _CONNECTION.fields_by_name['cloud_sql'].containing_oneof = _CONNECTION.oneofs_by_name['properties']
 _CONNECTION.oneofs_by_name['properties'].fields.append(
   _CONNECTION.fields_by_name['aws'])
 _CONNECTION.fields_by_name['aws'].containing_oneof = _CONNECTION.oneofs_by_name['properties']
+_CONNECTION.oneofs_by_name['properties'].fields.append(
+  _CONNECTION.fields_by_name['cloud_spanner'])
+_CONNECTION.fields_by_name['cloud_spanner'].containing_oneof = _CONNECTION.oneofs_by_name['properties']
 _CLOUDSQLPROPERTIES.fields_by_name['type'].enum_type = _CLOUDSQLPROPERTIES_DATABASETYPE
 _CLOUDSQLPROPERTIES.fields_by_name['credential'].message_type = _CLOUDSQLCREDENTIAL
 _CLOUDSQLPROPERTIES_DATABASETYPE.containing_type = _CLOUDSQLPROPERTIES
 _AWSPROPERTIES.fields_by_name['cross_account_role'].message_type = _AWSCROSSACCOUNTROLE
+_AWSPROPERTIES.fields_by_name['access_role'].message_type = _AWSACCESSROLE
 _AWSPROPERTIES.oneofs_by_name['authentication_method'].fields.append(
   _AWSPROPERTIES.fields_by_name['cross_account_role'])
 _AWSPROPERTIES.fields_by_name['cross_account_role'].containing_oneof = _AWSPROPERTIES.oneofs_by_name['authentication_method']
+_AWSPROPERTIES.oneofs_by_name['authentication_method'].fields.append(
+  _AWSPROPERTIES.fields_by_name['access_role'])
+_AWSPROPERTIES.fields_by_name['access_role'].containing_oneof = _AWSPROPERTIES.oneofs_by_name['authentication_method']
 DESCRIPTOR.message_types_by_name['CreateConnectionRequest'] = _CREATECONNECTIONREQUEST
 DESCRIPTOR.message_types_by_name['GetConnectionRequest'] = _GETCONNECTIONREQUEST
 DESCRIPTOR.message_types_by_name['ListConnectionsRequest'] = _LISTCONNECTIONSREQUEST
@@ -595,8 +695,10 @@ DESCRIPTOR.message_types_by_name['DeleteConnectionRequest'] = _DELETECONNECTIONR
 DESCRIPTOR.message_types_by_name['Connection'] = _CONNECTION
 DESCRIPTOR.message_types_by_name['CloudSqlProperties'] = _CLOUDSQLPROPERTIES
 DESCRIPTOR.message_types_by_name['CloudSqlCredential'] = _CLOUDSQLCREDENTIAL
+DESCRIPTOR.message_types_by_name['CloudSpannerProperties'] = _CLOUDSPANNERPROPERTIES
 DESCRIPTOR.message_types_by_name['AwsProperties'] = _AWSPROPERTIES
 DESCRIPTOR.message_types_by_name['AwsCrossAccountRole'] = _AWSCROSSACCOUNTROLE
+DESCRIPTOR.message_types_by_name['AwsAccessRole'] = _AWSACCESSROLE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateConnectionRequest = _reflection.GeneratedProtocolMessageType('CreateConnectionRequest', (_message.Message,), {
@@ -662,6 +764,13 @@ CloudSqlCredential = _reflection.GeneratedProtocolMessageType('CloudSqlCredentia
   })
 _sym_db.RegisterMessage(CloudSqlCredential)
 
+CloudSpannerProperties = _reflection.GeneratedProtocolMessageType('CloudSpannerProperties', (_message.Message,), {
+  'DESCRIPTOR' : _CLOUDSPANNERPROPERTIES,
+  '__module__' : 'google.cloud.bigquery.connection.v1.connection_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.connection.v1.CloudSpannerProperties)
+  })
+_sym_db.RegisterMessage(CloudSpannerProperties)
+
 AwsProperties = _reflection.GeneratedProtocolMessageType('AwsProperties', (_message.Message,), {
   'DESCRIPTOR' : _AWSPROPERTIES,
   '__module__' : 'google.cloud.bigquery.connection.v1.connection_pb2'
@@ -675,6 +784,13 @@ AwsCrossAccountRole = _reflection.GeneratedProtocolMessageType('AwsCrossAccountR
   # @@protoc_insertion_point(class_scope:google.cloud.bigquery.connection.v1.AwsCrossAccountRole)
   })
 _sym_db.RegisterMessage(AwsCrossAccountRole)
+
+AwsAccessRole = _reflection.GeneratedProtocolMessageType('AwsAccessRole', (_message.Message,), {
+  'DESCRIPTOR' : _AWSACCESSROLE,
+  '__module__' : 'google.cloud.bigquery.connection.v1.connection_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.connection.v1.AwsAccessRole)
+  })
+_sym_db.RegisterMessage(AwsAccessRole)
 
 
 DESCRIPTOR._options = None
@@ -703,8 +819,8 @@ _CONNECTIONSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A!bigqueryconnection.googleapis.com\322AWhttps://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=2239,
-  serialized_end=3979,
+  serialized_start=2525,
+  serialized_end=4265,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateConnection',

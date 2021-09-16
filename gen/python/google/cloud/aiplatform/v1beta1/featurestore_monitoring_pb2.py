@@ -19,9 +19,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1beta1/featurestore_monitoring.proto',
   package='google.cloud.aiplatform.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\033FeaturestoreMonitoringProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
+  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\033FeaturestoreMonitoringProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\252\002\037Google.Cloud.AIPlatform.V1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1\352\002\"Google::Cloud::AIPlatform::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n=google/cloud/aiplatform/v1beta1/featurestore_monitoring.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/api/annotations.proto\"\xe7\x01\n\x1c\x46\x65\x61turestoreMonitoringConfig\x12i\n\x11snapshot_analysis\x18\x01 \x01(\x0b\x32N.google.cloud.aiplatform.v1beta1.FeaturestoreMonitoringConfig.SnapshotAnalysis\x1a\\\n\x10SnapshotAnalysis\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\x12\x36\n\x13monitoring_interval\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x8f\x01\n#com.google.cloud.aiplatform.v1beta1B\x1b\x46\x65\x61turestoreMonitoringProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n=google/cloud/aiplatform/v1beta1/featurestore_monitoring.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1egoogle/protobuf/duration.proto\x1a\x1cgoogle/api/annotations.proto\"\x8e\x02\n\x1c\x46\x65\x61turestoreMonitoringConfig\x12i\n\x11snapshot_analysis\x18\x01 \x01(\x0b\x32N.google.cloud.aiplatform.v1beta1.FeaturestoreMonitoringConfig.SnapshotAnalysis\x1a\x82\x01\n\x10SnapshotAnalysis\x12\x10\n\x08\x64isabled\x18\x01 \x01(\x08\x12:\n\x13monitoring_interval\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02\x18\x01\x12 \n\x18monitoring_interval_days\x18\x03 \x01(\x05\x42\xf8\x01\n#com.google.cloud.aiplatform.v1beta1B\x1b\x46\x65\x61turestoreMonitoringProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -49,6 +49,13 @@ _FEATURESTOREMONITORINGCONFIG_SNAPSHOTANALYSIS = _descriptor.Descriptor(
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='monitoring_interval_days', full_name='google.cloud.aiplatform.v1beta1.FeaturestoreMonitoringConfig.SnapshotAnalysis.monitoring_interval_days', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
@@ -62,8 +69,8 @@ _FEATURESTOREMONITORINGCONFIG_SNAPSHOTANALYSIS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=300,
-  serialized_end=392,
+  serialized_start=301,
+  serialized_end=431,
 )
 
 _FEATURESTOREMONITORINGCONFIG = _descriptor.Descriptor(
@@ -94,7 +101,7 @@ _FEATURESTOREMONITORINGCONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=161,
-  serialized_end=392,
+  serialized_end=431,
 )
 
 _FEATURESTOREMONITORINGCONFIG_SNAPSHOTANALYSIS.fields_by_name['monitoring_interval'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
@@ -120,4 +127,5 @@ _sym_db.RegisterMessage(FeaturestoreMonitoringConfig.SnapshotAnalysis)
 
 
 DESCRIPTOR._options = None
+_FEATURESTOREMONITORINGCONFIG_SNAPSHOTANALYSIS.fields_by_name['monitoring_interval']._options = None
 # @@protoc_insertion_point(module_scope)

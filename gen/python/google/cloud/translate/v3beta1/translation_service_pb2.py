@@ -17,6 +17,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -25,9 +26,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\"com.google.cloud.translate.v3beta1B\027TranslationServiceProtoP\001ZGgoogle.golang.org/genproto/googleapis/cloud/translate/v3beta1;translate\370\001\001\252\002\036Google.Cloud.Translate.V3Beta1\312\002\036Google\\Cloud\\Translate\\V3beta1\352\002!Google::Cloud::Translate::V3beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n8google/cloud/translate/v3beta1/translation_service.proto\x12 google.cloud.translation.v3beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"N\n\x1bTranslateTextGlossaryConfig\x12\x15\n\x08glossary\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x0bignore_case\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\"\xbf\x03\n\x14TranslateTextRequest\x12\x15\n\x08\x63ontents\x18\x01 \x03(\tB\x03\xe0\x41\x02\x12\x16\n\tmime_type\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12!\n\x14source_language_code\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12!\n\x14target_language_code\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12\x39\n\x06parent\x18\x08 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x12\n\x05model\x18\x06 \x01(\tB\x03\xe0\x41\x01\x12[\n\x0fglossary_config\x18\x07 \x01(\x0b\x32=.google.cloud.translation.v3beta1.TranslateTextGlossaryConfigB\x03\xe0\x41\x01\x12W\n\x06labels\x18\n \x03(\x0b\x32\x42.google.cloud.translation.v3beta1.TranslateTextRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xaa\x01\n\x15TranslateTextResponse\x12\x43\n\x0ctranslations\x18\x01 \x03(\x0b\x32-.google.cloud.translation.v3beta1.Translation\x12L\n\x15glossary_translations\x18\x03 \x03(\x0b\x32-.google.cloud.translation.v3beta1.Translation\"\xad\x01\n\x0bTranslation\x12\x17\n\x0ftranslated_text\x18\x01 \x01(\t\x12\r\n\x05model\x18\x02 \x01(\t\x12\x1e\n\x16\x64\x65tected_language_code\x18\x04 \x01(\t\x12V\n\x0fglossary_config\x18\x03 \x01(\x0b\x32=.google.cloud.translation.v3beta1.TranslateTextGlossaryConfig\"\xa4\x02\n\x15\x44\x65tectLanguageRequest\x12\x39\n\x06parent\x18\x05 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x12\n\x05model\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x11\n\x07\x63ontent\x18\x01 \x01(\tH\x00\x12\x16\n\tmime_type\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12X\n\x06labels\x18\x06 \x03(\x0b\x32\x43.google.cloud.translation.v3beta1.DetectLanguageRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x08\n\x06source\"=\n\x10\x44\x65tectedLanguage\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\"_\n\x16\x44\x65tectLanguageResponse\x12\x45\n\tlanguages\x18\x01 \x03(\x0b\x32\x32.google.cloud.translation.v3beta1.DetectedLanguage\"\x91\x01\n\x1cGetSupportedLanguagesRequest\x12\x39\n\x06parent\x18\x03 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\"\n\x15\x64isplay_language_code\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x12\n\x05model\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\\\n\x12SupportedLanguages\x12\x46\n\tlanguages\x18\x01 \x03(\x0b\x32\x33.google.cloud.translation.v3beta1.SupportedLanguage\"p\n\x11SupportedLanguage\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x16\n\x0esupport_source\x18\x03 \x01(\x08\x12\x16\n\x0esupport_target\x18\x04 \x01(\x08\"#\n\tGcsSource\x12\x16\n\tinput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\"r\n\x0bInputConfig\x12\x16\n\tmime_type\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x41\n\ngcs_source\x18\x02 \x01(\x0b\x32+.google.cloud.translation.v3beta1.GcsSourceH\x00\x42\x08\n\x06source\"0\n\x0eGcsDestination\x12\x1e\n\x11output_uri_prefix\x18\x01 \x01(\tB\x03\xe0\x41\x02\"j\n\x0cOutputConfig\x12K\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32\x30.google.cloud.translation.v3beta1.GcsDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\x88\x01\n\x13\x44ocumentInputConfig\x12\x11\n\x07\x63ontent\x18\x01 \x01(\x0cH\x00\x12\x41\n\ngcs_source\x18\x02 \x01(\x0b\x32+.google.cloud.translation.v3beta1.GcsSourceH\x00\x12\x11\n\tmime_type\x18\x04 \x01(\tB\x08\n\x06source\"\x8f\x01\n\x14\x44ocumentOutputConfig\x12P\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32\x30.google.cloud.translation.v3beta1.GcsDestinationB\x03\xe0\x41\x01H\x00\x12\x16\n\tmime_type\x18\x03 \x01(\tB\x03\xe0\x41\x01\x42\r\n\x0b\x64\x65stination\"\xaa\x04\n\x18TranslateDocumentRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12!\n\x14source_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12!\n\x14target_language_code\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12Y\n\x15\x64ocument_input_config\x18\x04 \x01(\x0b\x32\x35.google.cloud.translation.v3beta1.DocumentInputConfigB\x03\xe0\x41\x02\x12[\n\x16\x64ocument_output_config\x18\x05 \x01(\x0b\x32\x36.google.cloud.translation.v3beta1.DocumentOutputConfigB\x03\xe0\x41\x01\x12\x12\n\x05model\x18\x06 \x01(\tB\x03\xe0\x41\x01\x12[\n\x0fglossary_config\x18\x07 \x01(\x0b\x32=.google.cloud.translation.v3beta1.TranslateTextGlossaryConfigB\x03\xe0\x41\x01\x12[\n\x06labels\x18\x08 \x03(\x0b\x32\x46.google.cloud.translation.v3beta1.TranslateDocumentRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"e\n\x13\x44ocumentTranslation\x12\x1b\n\x13\x62yte_stream_outputs\x18\x01 \x03(\x0c\x12\x11\n\tmime_type\x18\x02 \x01(\t\x12\x1e\n\x16\x64\x65tected_language_code\x18\x03 \x01(\t\"\xb5\x02\n\x19TranslateDocumentResponse\x12S\n\x14\x64ocument_translation\x18\x01 \x01(\x0b\x32\x35.google.cloud.translation.v3beta1.DocumentTranslation\x12\\\n\x1dglossary_document_translation\x18\x02 \x01(\x0b\x32\x35.google.cloud.translation.v3beta1.DocumentTranslation\x12\r\n\x05model\x18\x03 \x01(\t\x12V\n\x0fglossary_config\x18\x04 \x01(\x0b\x32=.google.cloud.translation.v3beta1.TranslateTextGlossaryConfig\"\xa6\x06\n\x19\x42\x61tchTranslateTextRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12!\n\x14source_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\"\n\x15target_language_codes\x18\x03 \x03(\tB\x03\xe0\x41\x02\x12\\\n\x06models\x18\x04 \x03(\x0b\x32G.google.cloud.translation.v3beta1.BatchTranslateTextRequest.ModelsEntryB\x03\xe0\x41\x01\x12I\n\rinput_configs\x18\x05 \x03(\x0b\x32-.google.cloud.translation.v3beta1.InputConfigB\x03\xe0\x41\x02\x12J\n\routput_config\x18\x06 \x01(\x0b\x32..google.cloud.translation.v3beta1.OutputConfigB\x03\xe0\x41\x02\x12\x64\n\nglossaries\x18\x07 \x03(\x0b\x32K.google.cloud.translation.v3beta1.BatchTranslateTextRequest.GlossariesEntryB\x03\xe0\x41\x01\x12\\\n\x06labels\x18\t \x03(\x0b\x32G.google.cloud.translation.v3beta1.BatchTranslateTextRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bModelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1ap\n\x0fGlossariesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12L\n\x05value\x18\x02 \x01(\x0b\x32=.google.cloud.translation.v3beta1.TranslateTextGlossaryConfig:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd3\x02\n\x16\x42\x61tchTranslateMetadata\x12M\n\x05state\x18\x01 \x01(\x0e\x32>.google.cloud.translation.v3beta1.BatchTranslateMetadata.State\x12\x1d\n\x15translated_characters\x18\x02 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x03 \x01(\x03\x12\x18\n\x10total_characters\x18\x04 \x01(\x03\x12/\n\x0bsubmit_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\"\xcb\x01\n\x16\x42\x61tchTranslateResponse\x12\x18\n\x10total_characters\x18\x01 \x01(\x03\x12\x1d\n\x15translated_characters\x18\x02 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x03 \x01(\x03\x12/\n\x0bsubmit_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"b\n\x13GlossaryInputConfig\x12\x41\n\ngcs_source\x18\x01 \x01(\x0b\x32+.google.cloud.translation.v3beta1.GcsSourceH\x00\x42\x08\n\x06source\"\x8e\x05\n\x08Glossary\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12T\n\rlanguage_pair\x18\x03 \x01(\x0b\x32;.google.cloud.translation.v3beta1.Glossary.LanguageCodePairH\x00\x12Y\n\x12language_codes_set\x18\x04 \x01(\x0b\x32;.google.cloud.translation.v3beta1.Glossary.LanguageCodesSetH\x00\x12K\n\x0cinput_config\x18\x05 \x01(\x0b\x32\x35.google.cloud.translation.v3beta1.GlossaryInputConfig\x12\x18\n\x0b\x65ntry_count\x18\x06 \x01(\x05\x42\x03\xe0\x41\x03\x12\x34\n\x0bsubmit_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1aN\n\x10LanguageCodePair\x12\x1c\n\x14source_language_code\x18\x01 \x01(\t\x12\x1c\n\x14target_language_code\x18\x02 \x01(\t\x1a*\n\x10LanguageCodesSet\x12\x16\n\x0elanguage_codes\x18\x01 \x03(\t:e\xea\x41\x62\n!translate.googleapis.com/Glossary\x12=projects/{project}/locations/{location}/glossaries/{glossary}B\x0b\n\tlanguages\"\x95\x01\n\x15\x43reateGlossaryRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x41\n\x08glossary\x18\x02 \x01(\x0b\x32*.google.cloud.translation.v3beta1.GlossaryB\x03\xe0\x41\x02\"M\n\x12GetGlossaryRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!translate.googleapis.com/Glossary\"P\n\x15\x44\x65leteGlossaryRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!translate.googleapis.com/Glossary\"\x98\x01\n\x15ListGlossariesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\"q\n\x16ListGlossariesResponse\x12>\n\nglossaries\x18\x01 \x03(\x0b\x32*.google.cloud.translation.v3beta1.Glossary\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x8d\x02\n\x16\x43reateGlossaryMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12M\n\x05state\x18\x02 \x01(\x0e\x32>.google.cloud.translation.v3beta1.CreateGlossaryMetadata.State\x12/\n\x0bsubmit_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\"\x8d\x02\n\x16\x44\x65leteGlossaryMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12M\n\x05state\x18\x02 \x01(\x0e\x32>.google.cloud.translation.v3beta1.DeleteGlossaryMetadata.State\x12/\n\x0bsubmit_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\"\x85\x01\n\x16\x44\x65leteGlossaryResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12/\n\x0bsubmit_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x99\x05\n\x1d\x42\x61tchTranslateDocumentRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12!\n\x14source_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\"\n\x15target_language_codes\x18\x03 \x03(\tB\x03\xe0\x41\x02\x12V\n\rinput_configs\x18\x04 \x03(\x0b\x32:.google.cloud.translation.v3beta1.BatchDocumentInputConfigB\x03\xe0\x41\x02\x12W\n\routput_config\x18\x05 \x01(\x0b\x32;.google.cloud.translation.v3beta1.BatchDocumentOutputConfigB\x03\xe0\x41\x02\x12`\n\x06models\x18\x06 \x03(\x0b\x32K.google.cloud.translation.v3beta1.BatchTranslateDocumentRequest.ModelsEntryB\x03\xe0\x41\x01\x12h\n\nglossaries\x18\x07 \x03(\x0b\x32O.google.cloud.translation.v3beta1.BatchTranslateDocumentRequest.GlossariesEntryB\x03\xe0\x41\x01\x1a-\n\x0bModelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1ap\n\x0fGlossariesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12L\n\x05value\x18\x02 \x01(\x0b\x32=.google.cloud.translation.v3beta1.TranslateTextGlossaryConfig:\x02\x38\x01\"g\n\x18\x42\x61tchDocumentInputConfig\x12\x41\n\ngcs_source\x18\x01 \x01(\x0b\x32+.google.cloud.translation.v3beta1.GcsSourceH\x00\x42\x08\n\x06source\"w\n\x19\x42\x61tchDocumentOutputConfig\x12K\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32\x30.google.cloud.translation.v3beta1.GcsDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\xd9\x02\n\x1e\x42\x61tchTranslateDocumentResponse\x12\x13\n\x0btotal_pages\x18\x01 \x01(\x03\x12\x18\n\x10translated_pages\x18\x02 \x01(\x03\x12\x14\n\x0c\x66\x61iled_pages\x18\x03 \x01(\x03\x12\x1c\n\x14total_billable_pages\x18\x04 \x01(\x03\x12\x18\n\x10total_characters\x18\x05 \x01(\x03\x12\x1d\n\x15translated_characters\x18\x06 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x07 \x01(\x03\x12!\n\x19total_billable_characters\x18\x08 \x01(\x03\x12/\n\x0bsubmit_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xe9\x03\n\x1e\x42\x61tchTranslateDocumentMetadata\x12U\n\x05state\x18\x01 \x01(\x0e\x32\x46.google.cloud.translation.v3beta1.BatchTranslateDocumentMetadata.State\x12\x13\n\x0btotal_pages\x18\x02 \x01(\x03\x12\x18\n\x10translated_pages\x18\x03 \x01(\x03\x12\x14\n\x0c\x66\x61iled_pages\x18\x04 \x01(\x03\x12\x1c\n\x14total_billable_pages\x18\x05 \x01(\x03\x12\x18\n\x10total_characters\x18\x06 \x01(\x03\x12\x1d\n\x15translated_characters\x18\x07 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x08 \x01(\x03\x12!\n\x19total_billable_characters\x18\t \x01(\x03\x12/\n\x0bsubmit_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\x32\xf2\x13\n\x12TranslationService\x12\xf4\x01\n\rTranslateText\x12\x36.google.cloud.translation.v3beta1.TranslateTextRequest\x1a\x37.google.cloud.translation.v3beta1.TranslateTextResponse\"r\x82\xd3\xe4\x93\x02l\"6/v3beta1/{parent=projects/*/locations/*}:translateText:\x01*Z/\"*/v3beta1/{parent=projects/*}:translateText:\x01*\x12\x93\x02\n\x0e\x44\x65tectLanguage\x12\x37.google.cloud.translation.v3beta1.DetectLanguageRequest\x1a\x38.google.cloud.translation.v3beta1.DetectLanguageResponse\"\x8d\x01\x82\xd3\xe4\x93\x02n\"7/v3beta1/{parent=projects/*/locations/*}:detectLanguage:\x01*Z0\"+/v3beta1/{parent=projects/*}:detectLanguage:\x01*\xda\x41\x16parent,model,mime_type\x12\xab\x02\n\x15GetSupportedLanguages\x12>.google.cloud.translation.v3beta1.GetSupportedLanguagesRequest\x1a\x34.google.cloud.translation.v3beta1.SupportedLanguages\"\x9b\x01\x82\xd3\xe4\x93\x02p\x12;/v3beta1/{parent=projects/*/locations/*}/supportedLanguagesZ1\x12//v3beta1/{parent=projects/*}/supportedLanguages\xda\x41\"parent,display_language_code,model\x12\xd3\x01\n\x11TranslateDocument\x12:.google.cloud.translation.v3beta1.TranslateDocumentRequest\x1a;.google.cloud.translation.v3beta1.TranslateDocumentResponse\"E\x82\xd3\xe4\x93\x02?\":/v3beta1/{parent=projects/*/locations/*}:translateDocument:\x01*\x12\xeb\x01\n\x12\x42\x61tchTranslateText\x12;.google.cloud.translation.v3beta1.BatchTranslateTextRequest\x1a\x1d.google.longrunning.Operation\"y\x82\xd3\xe4\x93\x02@\";/v3beta1/{parent=projects/*/locations/*}:batchTranslateText:\x01*\xca\x41\x30\n\x16\x42\x61tchTranslateResponse\x12\x16\x42\x61tchTranslateMetadata\x12\x88\x02\n\x16\x42\x61tchTranslateDocument\x12?.google.cloud.translation.v3beta1.BatchTranslateDocumentRequest\x1a\x1d.google.longrunning.Operation\"\x8d\x01\x82\xd3\xe4\x93\x02\x44\"?/v3beta1/{parent=projects/*/locations/*}:batchTranslateDocument:\x01*\xca\x41@\n\x1e\x42\x61tchTranslateDocumentResponse\x12\x1e\x42\x61tchTranslateDocumentMetadata\x12\xe6\x01\n\x0e\x43reateGlossary\x12\x37.google.cloud.translation.v3beta1.CreateGlossaryRequest\x1a\x1d.google.longrunning.Operation\"|\x82\xd3\xe4\x93\x02?\"3/v3beta1/{parent=projects/*/locations/*}/glossaries:\x08glossary\xda\x41\x0fparent,glossary\xca\x41\"\n\x08Glossary\x12\x16\x43reateGlossaryMetadata\x12\xd0\x01\n\x0eListGlossaries\x12\x37.google.cloud.translation.v3beta1.ListGlossariesRequest\x1a\x38.google.cloud.translation.v3beta1.ListGlossariesResponse\"K\x82\xd3\xe4\x93\x02\x35\x12\x33/v3beta1/{parent=projects/*/locations/*}/glossaries\xda\x41\rparent,filter\x12\xb3\x01\n\x0bGetGlossary\x12\x34.google.cloud.translation.v3beta1.GetGlossaryRequest\x1a*.google.cloud.translation.v3beta1.Glossary\"B\x82\xd3\xe4\x93\x02\x35\x12\x33/v3beta1/{name=projects/*/locations/*/glossaries/*}\xda\x41\x04name\x12\xdf\x01\n\x0e\x44\x65leteGlossary\x12\x37.google.cloud.translation.v3beta1.DeleteGlossaryRequest\x1a\x1d.google.longrunning.Operation\"u\x82\xd3\xe4\x93\x02\x35*3/v3beta1/{name=projects/*/locations/*/glossaries/*}\xda\x41\x04name\xca\x41\x30\n\x16\x44\x65leteGlossaryResponse\x12\x16\x44\x65leteGlossaryMetadata\x1a~\xca\x41\x18translate.googleapis.com\xd2\x41`https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-translationB\xf1\x01\n\"com.google.cloud.translate.v3beta1B\x17TranslationServiceProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/translate/v3beta1;translate\xf8\x01\x01\xaa\x02\x1eGoogle.Cloud.Translate.V3Beta1\xca\x02\x1eGoogle\\Cloud\\Translate\\V3beta1\xea\x02!Google::Cloud::Translate::V3beta1b\x06proto3'
+  serialized_pb=b'\n8google/cloud/translate/v3beta1/translation_service.proto\x12 google.cloud.translation.v3beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"N\n\x1bTranslateTextGlossaryConfig\x12\x15\n\x08glossary\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x0bignore_case\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\"\xbf\x03\n\x14TranslateTextRequest\x12\x15\n\x08\x63ontents\x18\x01 \x03(\tB\x03\xe0\x41\x02\x12\x16\n\tmime_type\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12!\n\x14source_language_code\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12!\n\x14target_language_code\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12\x39\n\x06parent\x18\x08 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x12\n\x05model\x18\x06 \x01(\tB\x03\xe0\x41\x01\x12[\n\x0fglossary_config\x18\x07 \x01(\x0b\x32=.google.cloud.translation.v3beta1.TranslateTextGlossaryConfigB\x03\xe0\x41\x01\x12W\n\x06labels\x18\n \x03(\x0b\x32\x42.google.cloud.translation.v3beta1.TranslateTextRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xaa\x01\n\x15TranslateTextResponse\x12\x43\n\x0ctranslations\x18\x01 \x03(\x0b\x32-.google.cloud.translation.v3beta1.Translation\x12L\n\x15glossary_translations\x18\x03 \x03(\x0b\x32-.google.cloud.translation.v3beta1.Translation\"\xad\x01\n\x0bTranslation\x12\x17\n\x0ftranslated_text\x18\x01 \x01(\t\x12\r\n\x05model\x18\x02 \x01(\t\x12\x1e\n\x16\x64\x65tected_language_code\x18\x04 \x01(\t\x12V\n\x0fglossary_config\x18\x03 \x01(\x0b\x32=.google.cloud.translation.v3beta1.TranslateTextGlossaryConfig\"\xa4\x02\n\x15\x44\x65tectLanguageRequest\x12\x39\n\x06parent\x18\x05 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x12\n\x05model\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x11\n\x07\x63ontent\x18\x01 \x01(\tH\x00\x12\x16\n\tmime_type\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12X\n\x06labels\x18\x06 \x03(\x0b\x32\x43.google.cloud.translation.v3beta1.DetectLanguageRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x08\n\x06source\"=\n\x10\x44\x65tectedLanguage\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\"_\n\x16\x44\x65tectLanguageResponse\x12\x45\n\tlanguages\x18\x01 \x03(\x0b\x32\x32.google.cloud.translation.v3beta1.DetectedLanguage\"\x91\x01\n\x1cGetSupportedLanguagesRequest\x12\x39\n\x06parent\x18\x03 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\"\n\x15\x64isplay_language_code\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x12\n\x05model\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\\\n\x12SupportedLanguages\x12\x46\n\tlanguages\x18\x01 \x03(\x0b\x32\x33.google.cloud.translation.v3beta1.SupportedLanguage\"p\n\x11SupportedLanguage\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x16\n\x0esupport_source\x18\x03 \x01(\x08\x12\x16\n\x0esupport_target\x18\x04 \x01(\x08\"#\n\tGcsSource\x12\x16\n\tinput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\"r\n\x0bInputConfig\x12\x16\n\tmime_type\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x41\n\ngcs_source\x18\x02 \x01(\x0b\x32+.google.cloud.translation.v3beta1.GcsSourceH\x00\x42\x08\n\x06source\"0\n\x0eGcsDestination\x12\x1e\n\x11output_uri_prefix\x18\x01 \x01(\tB\x03\xe0\x41\x02\"j\n\x0cOutputConfig\x12K\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32\x30.google.cloud.translation.v3beta1.GcsDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\x88\x01\n\x13\x44ocumentInputConfig\x12\x11\n\x07\x63ontent\x18\x01 \x01(\x0cH\x00\x12\x41\n\ngcs_source\x18\x02 \x01(\x0b\x32+.google.cloud.translation.v3beta1.GcsSourceH\x00\x12\x11\n\tmime_type\x18\x04 \x01(\tB\x08\n\x06source\"\x8f\x01\n\x14\x44ocumentOutputConfig\x12P\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32\x30.google.cloud.translation.v3beta1.GcsDestinationB\x03\xe0\x41\x01H\x00\x12\x16\n\tmime_type\x18\x03 \x01(\tB\x03\xe0\x41\x01\x42\r\n\x0b\x64\x65stination\"\xaa\x04\n\x18TranslateDocumentRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12!\n\x14source_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12!\n\x14target_language_code\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12Y\n\x15\x64ocument_input_config\x18\x04 \x01(\x0b\x32\x35.google.cloud.translation.v3beta1.DocumentInputConfigB\x03\xe0\x41\x02\x12[\n\x16\x64ocument_output_config\x18\x05 \x01(\x0b\x32\x36.google.cloud.translation.v3beta1.DocumentOutputConfigB\x03\xe0\x41\x01\x12\x12\n\x05model\x18\x06 \x01(\tB\x03\xe0\x41\x01\x12[\n\x0fglossary_config\x18\x07 \x01(\x0b\x32=.google.cloud.translation.v3beta1.TranslateTextGlossaryConfigB\x03\xe0\x41\x01\x12[\n\x06labels\x18\x08 \x03(\x0b\x32\x46.google.cloud.translation.v3beta1.TranslateDocumentRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"e\n\x13\x44ocumentTranslation\x12\x1b\n\x13\x62yte_stream_outputs\x18\x01 \x03(\x0c\x12\x11\n\tmime_type\x18\x02 \x01(\t\x12\x1e\n\x16\x64\x65tected_language_code\x18\x03 \x01(\t\"\xb5\x02\n\x19TranslateDocumentResponse\x12S\n\x14\x64ocument_translation\x18\x01 \x01(\x0b\x32\x35.google.cloud.translation.v3beta1.DocumentTranslation\x12\\\n\x1dglossary_document_translation\x18\x02 \x01(\x0b\x32\x35.google.cloud.translation.v3beta1.DocumentTranslation\x12\r\n\x05model\x18\x03 \x01(\t\x12V\n\x0fglossary_config\x18\x04 \x01(\x0b\x32=.google.cloud.translation.v3beta1.TranslateTextGlossaryConfig\"\xa6\x06\n\x19\x42\x61tchTranslateTextRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12!\n\x14source_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\"\n\x15target_language_codes\x18\x03 \x03(\tB\x03\xe0\x41\x02\x12\\\n\x06models\x18\x04 \x03(\x0b\x32G.google.cloud.translation.v3beta1.BatchTranslateTextRequest.ModelsEntryB\x03\xe0\x41\x01\x12I\n\rinput_configs\x18\x05 \x03(\x0b\x32-.google.cloud.translation.v3beta1.InputConfigB\x03\xe0\x41\x02\x12J\n\routput_config\x18\x06 \x01(\x0b\x32..google.cloud.translation.v3beta1.OutputConfigB\x03\xe0\x41\x02\x12\x64\n\nglossaries\x18\x07 \x03(\x0b\x32K.google.cloud.translation.v3beta1.BatchTranslateTextRequest.GlossariesEntryB\x03\xe0\x41\x01\x12\\\n\x06labels\x18\t \x03(\x0b\x32G.google.cloud.translation.v3beta1.BatchTranslateTextRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bModelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1ap\n\x0fGlossariesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12L\n\x05value\x18\x02 \x01(\x0b\x32=.google.cloud.translation.v3beta1.TranslateTextGlossaryConfig:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd3\x02\n\x16\x42\x61tchTranslateMetadata\x12M\n\x05state\x18\x01 \x01(\x0e\x32>.google.cloud.translation.v3beta1.BatchTranslateMetadata.State\x12\x1d\n\x15translated_characters\x18\x02 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x03 \x01(\x03\x12\x18\n\x10total_characters\x18\x04 \x01(\x03\x12/\n\x0bsubmit_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\"\xcb\x01\n\x16\x42\x61tchTranslateResponse\x12\x18\n\x10total_characters\x18\x01 \x01(\x03\x12\x1d\n\x15translated_characters\x18\x02 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x03 \x01(\x03\x12/\n\x0bsubmit_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"b\n\x13GlossaryInputConfig\x12\x41\n\ngcs_source\x18\x01 \x01(\x0b\x32+.google.cloud.translation.v3beta1.GcsSourceH\x00\x42\x08\n\x06source\"\x8e\x05\n\x08Glossary\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12T\n\rlanguage_pair\x18\x03 \x01(\x0b\x32;.google.cloud.translation.v3beta1.Glossary.LanguageCodePairH\x00\x12Y\n\x12language_codes_set\x18\x04 \x01(\x0b\x32;.google.cloud.translation.v3beta1.Glossary.LanguageCodesSetH\x00\x12K\n\x0cinput_config\x18\x05 \x01(\x0b\x32\x35.google.cloud.translation.v3beta1.GlossaryInputConfig\x12\x18\n\x0b\x65ntry_count\x18\x06 \x01(\x05\x42\x03\xe0\x41\x03\x12\x34\n\x0bsubmit_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1aN\n\x10LanguageCodePair\x12\x1c\n\x14source_language_code\x18\x01 \x01(\t\x12\x1c\n\x14target_language_code\x18\x02 \x01(\t\x1a*\n\x10LanguageCodesSet\x12\x16\n\x0elanguage_codes\x18\x01 \x03(\t:e\xea\x41\x62\n!translate.googleapis.com/Glossary\x12=projects/{project}/locations/{location}/glossaries/{glossary}B\x0b\n\tlanguages\"\x95\x01\n\x15\x43reateGlossaryRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x41\n\x08glossary\x18\x02 \x01(\x0b\x32*.google.cloud.translation.v3beta1.GlossaryB\x03\xe0\x41\x02\"M\n\x12GetGlossaryRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!translate.googleapis.com/Glossary\"P\n\x15\x44\x65leteGlossaryRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!translate.googleapis.com/Glossary\"\x98\x01\n\x15ListGlossariesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\"q\n\x16ListGlossariesResponse\x12>\n\nglossaries\x18\x01 \x03(\x0b\x32*.google.cloud.translation.v3beta1.Glossary\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x8d\x02\n\x16\x43reateGlossaryMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12M\n\x05state\x18\x02 \x01(\x0e\x32>.google.cloud.translation.v3beta1.CreateGlossaryMetadata.State\x12/\n\x0bsubmit_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\"\x8d\x02\n\x16\x44\x65leteGlossaryMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12M\n\x05state\x18\x02 \x01(\x0e\x32>.google.cloud.translation.v3beta1.DeleteGlossaryMetadata.State\x12/\n\x0bsubmit_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\"\x85\x01\n\x16\x44\x65leteGlossaryResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12/\n\x0bsubmit_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xf2\x06\n\x1d\x42\x61tchTranslateDocumentRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12!\n\x14source_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\"\n\x15target_language_codes\x18\x03 \x03(\tB\x03\xe0\x41\x02\x12V\n\rinput_configs\x18\x04 \x03(\x0b\x32:.google.cloud.translation.v3beta1.BatchDocumentInputConfigB\x03\xe0\x41\x02\x12W\n\routput_config\x18\x05 \x01(\x0b\x32;.google.cloud.translation.v3beta1.BatchDocumentOutputConfigB\x03\xe0\x41\x02\x12`\n\x06models\x18\x06 \x03(\x0b\x32K.google.cloud.translation.v3beta1.BatchTranslateDocumentRequest.ModelsEntryB\x03\xe0\x41\x01\x12h\n\nglossaries\x18\x07 \x03(\x0b\x32O.google.cloud.translation.v3beta1.BatchTranslateDocumentRequest.GlossariesEntryB\x03\xe0\x41\x01\x12w\n\x12\x66ormat_conversions\x18\x08 \x03(\x0b\x32V.google.cloud.translation.v3beta1.BatchTranslateDocumentRequest.FormatConversionsEntryB\x03\xe0\x41\x01\x1a-\n\x0bModelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1ap\n\x0fGlossariesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12L\n\x05value\x18\x02 \x01(\x0b\x32=.google.cloud.translation.v3beta1.TranslateTextGlossaryConfig:\x02\x38\x01\x1a\x38\n\x16\x46ormatConversionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"g\n\x18\x42\x61tchDocumentInputConfig\x12\x41\n\ngcs_source\x18\x01 \x01(\x0b\x32+.google.cloud.translation.v3beta1.GcsSourceH\x00\x42\x08\n\x06source\"w\n\x19\x42\x61tchDocumentOutputConfig\x12K\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32\x30.google.cloud.translation.v3beta1.GcsDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\xd9\x02\n\x1e\x42\x61tchTranslateDocumentResponse\x12\x13\n\x0btotal_pages\x18\x01 \x01(\x03\x12\x18\n\x10translated_pages\x18\x02 \x01(\x03\x12\x14\n\x0c\x66\x61iled_pages\x18\x03 \x01(\x03\x12\x1c\n\x14total_billable_pages\x18\x04 \x01(\x03\x12\x18\n\x10total_characters\x18\x05 \x01(\x03\x12\x1d\n\x15translated_characters\x18\x06 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x07 \x01(\x03\x12!\n\x19total_billable_characters\x18\x08 \x01(\x03\x12/\n\x0bsubmit_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xe9\x03\n\x1e\x42\x61tchTranslateDocumentMetadata\x12U\n\x05state\x18\x01 \x01(\x0e\x32\x46.google.cloud.translation.v3beta1.BatchTranslateDocumentMetadata.State\x12\x13\n\x0btotal_pages\x18\x02 \x01(\x03\x12\x18\n\x10translated_pages\x18\x03 \x01(\x03\x12\x14\n\x0c\x66\x61iled_pages\x18\x04 \x01(\x03\x12\x1c\n\x14total_billable_pages\x18\x05 \x01(\x03\x12\x18\n\x10total_characters\x18\x06 \x01(\x03\x12\x1d\n\x15translated_characters\x18\x07 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x08 \x01(\x03\x12!\n\x19total_billable_characters\x18\t \x01(\x03\x12/\n\x0bsubmit_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\x32\xf2\x13\n\x12TranslationService\x12\xf4\x01\n\rTranslateText\x12\x36.google.cloud.translation.v3beta1.TranslateTextRequest\x1a\x37.google.cloud.translation.v3beta1.TranslateTextResponse\"r\x82\xd3\xe4\x93\x02l\"6/v3beta1/{parent=projects/*/locations/*}:translateText:\x01*Z/\"*/v3beta1/{parent=projects/*}:translateText:\x01*\x12\x93\x02\n\x0e\x44\x65tectLanguage\x12\x37.google.cloud.translation.v3beta1.DetectLanguageRequest\x1a\x38.google.cloud.translation.v3beta1.DetectLanguageResponse\"\x8d\x01\x82\xd3\xe4\x93\x02n\"7/v3beta1/{parent=projects/*/locations/*}:detectLanguage:\x01*Z0\"+/v3beta1/{parent=projects/*}:detectLanguage:\x01*\xda\x41\x16parent,model,mime_type\x12\xab\x02\n\x15GetSupportedLanguages\x12>.google.cloud.translation.v3beta1.GetSupportedLanguagesRequest\x1a\x34.google.cloud.translation.v3beta1.SupportedLanguages\"\x9b\x01\x82\xd3\xe4\x93\x02p\x12;/v3beta1/{parent=projects/*/locations/*}/supportedLanguagesZ1\x12//v3beta1/{parent=projects/*}/supportedLanguages\xda\x41\"parent,display_language_code,model\x12\xd3\x01\n\x11TranslateDocument\x12:.google.cloud.translation.v3beta1.TranslateDocumentRequest\x1a;.google.cloud.translation.v3beta1.TranslateDocumentResponse\"E\x82\xd3\xe4\x93\x02?\":/v3beta1/{parent=projects/*/locations/*}:translateDocument:\x01*\x12\xeb\x01\n\x12\x42\x61tchTranslateText\x12;.google.cloud.translation.v3beta1.BatchTranslateTextRequest\x1a\x1d.google.longrunning.Operation\"y\x82\xd3\xe4\x93\x02@\";/v3beta1/{parent=projects/*/locations/*}:batchTranslateText:\x01*\xca\x41\x30\n\x16\x42\x61tchTranslateResponse\x12\x16\x42\x61tchTranslateMetadata\x12\x88\x02\n\x16\x42\x61tchTranslateDocument\x12?.google.cloud.translation.v3beta1.BatchTranslateDocumentRequest\x1a\x1d.google.longrunning.Operation\"\x8d\x01\x82\xd3\xe4\x93\x02\x44\"?/v3beta1/{parent=projects/*/locations/*}:batchTranslateDocument:\x01*\xca\x41@\n\x1e\x42\x61tchTranslateDocumentResponse\x12\x1e\x42\x61tchTranslateDocumentMetadata\x12\xe6\x01\n\x0e\x43reateGlossary\x12\x37.google.cloud.translation.v3beta1.CreateGlossaryRequest\x1a\x1d.google.longrunning.Operation\"|\x82\xd3\xe4\x93\x02?\"3/v3beta1/{parent=projects/*/locations/*}/glossaries:\x08glossary\xda\x41\x0fparent,glossary\xca\x41\"\n\x08Glossary\x12\x16\x43reateGlossaryMetadata\x12\xd0\x01\n\x0eListGlossaries\x12\x37.google.cloud.translation.v3beta1.ListGlossariesRequest\x1a\x38.google.cloud.translation.v3beta1.ListGlossariesResponse\"K\x82\xd3\xe4\x93\x02\x35\x12\x33/v3beta1/{parent=projects/*/locations/*}/glossaries\xda\x41\rparent,filter\x12\xb3\x01\n\x0bGetGlossary\x12\x34.google.cloud.translation.v3beta1.GetGlossaryRequest\x1a*.google.cloud.translation.v3beta1.Glossary\"B\x82\xd3\xe4\x93\x02\x35\x12\x33/v3beta1/{name=projects/*/locations/*/glossaries/*}\xda\x41\x04name\x12\xdf\x01\n\x0e\x44\x65leteGlossary\x12\x37.google.cloud.translation.v3beta1.DeleteGlossaryRequest\x1a\x1d.google.longrunning.Operation\"u\x82\xd3\xe4\x93\x02\x35*3/v3beta1/{name=projects/*/locations/*/glossaries/*}\xda\x41\x04name\xca\x41\x30\n\x16\x44\x65leteGlossaryResponse\x12\x16\x44\x65leteGlossaryMetadata\x1a~\xca\x41\x18translate.googleapis.com\xd2\x41`https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-translationB\xf1\x01\n\"com.google.cloud.translate.v3beta1B\x17TranslationServiceProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/translate/v3beta1;translate\xf8\x01\x01\xaa\x02\x1eGoogle.Cloud.Translate.V3Beta1\xca\x02\x1eGoogle\\Cloud\\Translate\\V3beta1\xea\x02!Google::Cloud::Translate::V3beta1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
 
 
@@ -71,8 +72,8 @@ _BATCHTRANSLATEMETADATA_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4585,
-  serialized_end=4686,
+  serialized_start=4610,
+  serialized_end=4711,
 )
 _sym_db.RegisterEnumDescriptor(_BATCHTRANSLATEMETADATA_STATE)
 
@@ -116,8 +117,8 @@ _CREATEGLOSSARYMETADATA_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4585,
-  serialized_end=4686,
+  serialized_start=4610,
+  serialized_end=4711,
 )
 _sym_db.RegisterEnumDescriptor(_CREATEGLOSSARYMETADATA_STATE)
 
@@ -161,8 +162,8 @@ _DELETEGLOSSARYMETADATA_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4585,
-  serialized_end=4686,
+  serialized_start=4610,
+  serialized_end=4711,
 )
 _sym_db.RegisterEnumDescriptor(_DELETEGLOSSARYMETADATA_STATE)
 
@@ -206,8 +207,8 @@ _BATCHTRANSLATEDOCUMENTMETADATA_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4585,
-  serialized_end=4686,
+  serialized_start=4610,
+  serialized_end=4711,
 )
 _sym_db.RegisterEnumDescriptor(_BATCHTRANSLATEDOCUMENTMETADATA_STATE)
 
@@ -246,8 +247,8 @@ _TRANSLATETEXTGLOSSARYCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=279,
-  serialized_end=357,
+  serialized_start=304,
+  serialized_end=382,
 )
 
 
@@ -285,8 +286,8 @@ _TRANSLATETEXTREQUEST_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=762,
-  serialized_end=807,
+  serialized_start=787,
+  serialized_end=832,
 )
 
 _TRANSLATETEXTREQUEST = _descriptor.Descriptor(
@@ -365,8 +366,8 @@ _TRANSLATETEXTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=360,
-  serialized_end=807,
+  serialized_start=385,
+  serialized_end=832,
 )
 
 
@@ -404,8 +405,8 @@ _TRANSLATETEXTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=810,
-  serialized_end=980,
+  serialized_start=835,
+  serialized_end=1005,
 )
 
 
@@ -457,8 +458,8 @@ _TRANSLATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=983,
-  serialized_end=1156,
+  serialized_start=1008,
+  serialized_end=1181,
 )
 
 
@@ -496,8 +497,8 @@ _DETECTLANGUAGEREQUEST_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=762,
-  serialized_end=807,
+  serialized_start=787,
+  serialized_end=832,
 )
 
 _DETECTLANGUAGEREQUEST = _descriptor.Descriptor(
@@ -560,8 +561,8 @@ _DETECTLANGUAGEREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1159,
-  serialized_end=1451,
+  serialized_start=1184,
+  serialized_end=1476,
 )
 
 
@@ -599,8 +600,8 @@ _DETECTEDLANGUAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1453,
-  serialized_end=1514,
+  serialized_start=1478,
+  serialized_end=1539,
 )
 
 
@@ -631,8 +632,8 @@ _DETECTLANGUAGERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1516,
-  serialized_end=1611,
+  serialized_start=1541,
+  serialized_end=1636,
 )
 
 
@@ -677,8 +678,8 @@ _GETSUPPORTEDLANGUAGESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1614,
-  serialized_end=1759,
+  serialized_start=1639,
+  serialized_end=1784,
 )
 
 
@@ -709,8 +710,8 @@ _SUPPORTEDLANGUAGES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1761,
-  serialized_end=1853,
+  serialized_start=1786,
+  serialized_end=1878,
 )
 
 
@@ -762,8 +763,8 @@ _SUPPORTEDLANGUAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1855,
-  serialized_end=1967,
+  serialized_start=1880,
+  serialized_end=1992,
 )
 
 
@@ -794,8 +795,8 @@ _GCSSOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1969,
-  serialized_end=2004,
+  serialized_start=1994,
+  serialized_end=2029,
 )
 
 
@@ -838,8 +839,8 @@ _INPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2006,
-  serialized_end=2120,
+  serialized_start=2031,
+  serialized_end=2145,
 )
 
 
@@ -870,8 +871,8 @@ _GCSDESTINATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2122,
-  serialized_end=2170,
+  serialized_start=2147,
+  serialized_end=2195,
 )
 
 
@@ -907,8 +908,8 @@ _OUTPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2172,
-  serialized_end=2278,
+  serialized_start=2197,
+  serialized_end=2303,
 )
 
 
@@ -958,8 +959,8 @@ _DOCUMENTINPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2281,
-  serialized_end=2417,
+  serialized_start=2306,
+  serialized_end=2442,
 )
 
 
@@ -1002,8 +1003,8 @@ _DOCUMENTOUTPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2420,
-  serialized_end=2563,
+  serialized_start=2445,
+  serialized_end=2588,
 )
 
 
@@ -1041,8 +1042,8 @@ _TRANSLATEDOCUMENTREQUEST_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=762,
-  serialized_end=807,
+  serialized_start=787,
+  serialized_end=832,
 )
 
 _TRANSLATEDOCUMENTREQUEST = _descriptor.Descriptor(
@@ -1121,8 +1122,8 @@ _TRANSLATEDOCUMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2566,
-  serialized_end=3120,
+  serialized_start=2591,
+  serialized_end=3145,
 )
 
 
@@ -1167,8 +1168,8 @@ _DOCUMENTTRANSLATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3122,
-  serialized_end=3223,
+  serialized_start=3147,
+  serialized_end=3248,
 )
 
 
@@ -1220,8 +1221,8 @@ _TRANSLATEDOCUMENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3226,
-  serialized_end=3535,
+  serialized_start=3251,
+  serialized_end=3560,
 )
 
 
@@ -1259,8 +1260,8 @@ _BATCHTRANSLATETEXTREQUEST_MODELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4138,
-  serialized_end=4183,
+  serialized_start=4163,
+  serialized_end=4208,
 )
 
 _BATCHTRANSLATETEXTREQUEST_GLOSSARIESENTRY = _descriptor.Descriptor(
@@ -1297,8 +1298,8 @@ _BATCHTRANSLATETEXTREQUEST_GLOSSARIESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4185,
-  serialized_end=4297,
+  serialized_start=4210,
+  serialized_end=4322,
 )
 
 _BATCHTRANSLATETEXTREQUEST_LABELSENTRY = _descriptor.Descriptor(
@@ -1335,8 +1336,8 @@ _BATCHTRANSLATETEXTREQUEST_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=762,
-  serialized_end=807,
+  serialized_start=787,
+  serialized_end=832,
 )
 
 _BATCHTRANSLATETEXTREQUEST = _descriptor.Descriptor(
@@ -1415,8 +1416,8 @@ _BATCHTRANSLATETEXTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3538,
-  serialized_end=4344,
+  serialized_start=3563,
+  serialized_end=4369,
 )
 
 
@@ -1476,8 +1477,8 @@ _BATCHTRANSLATEMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4347,
-  serialized_end=4686,
+  serialized_start=4372,
+  serialized_end=4711,
 )
 
 
@@ -1536,8 +1537,8 @@ _BATCHTRANSLATERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4689,
-  serialized_end=4892,
+  serialized_start=4714,
+  serialized_end=4917,
 )
 
 
@@ -1573,8 +1574,8 @@ _GLOSSARYINPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4894,
-  serialized_end=4992,
+  serialized_start=4919,
+  serialized_end=5017,
 )
 
 
@@ -1612,8 +1613,8 @@ _GLOSSARY_LANGUAGECODEPAIR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5411,
-  serialized_end=5489,
+  serialized_start=5436,
+  serialized_end=5514,
 )
 
 _GLOSSARY_LANGUAGECODESSET = _descriptor.Descriptor(
@@ -1643,8 +1644,8 @@ _GLOSSARY_LANGUAGECODESSET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5491,
-  serialized_end=5533,
+  serialized_start=5516,
+  serialized_end=5558,
 )
 
 _GLOSSARY = _descriptor.Descriptor(
@@ -1721,8 +1722,8 @@ _GLOSSARY = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4995,
-  serialized_end=5649,
+  serialized_start=5020,
+  serialized_end=5674,
 )
 
 
@@ -1760,8 +1761,8 @@ _CREATEGLOSSARYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5652,
-  serialized_end=5801,
+  serialized_start=5677,
+  serialized_end=5826,
 )
 
 
@@ -1792,8 +1793,8 @@ _GETGLOSSARYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5803,
-  serialized_end=5880,
+  serialized_start=5828,
+  serialized_end=5905,
 )
 
 
@@ -1824,8 +1825,8 @@ _DELETEGLOSSARYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5882,
-  serialized_end=5962,
+  serialized_start=5907,
+  serialized_end=5987,
 )
 
 
@@ -1877,8 +1878,8 @@ _LISTGLOSSARIESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5965,
-  serialized_end=6117,
+  serialized_start=5990,
+  serialized_end=6142,
 )
 
 
@@ -1916,8 +1917,8 @@ _LISTGLOSSARIESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6119,
-  serialized_end=6232,
+  serialized_start=6144,
+  serialized_end=6257,
 )
 
 
@@ -1963,8 +1964,8 @@ _CREATEGLOSSARYMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6235,
-  serialized_end=6504,
+  serialized_start=6260,
+  serialized_end=6529,
 )
 
 
@@ -2010,8 +2011,8 @@ _DELETEGLOSSARYMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6507,
-  serialized_end=6776,
+  serialized_start=6532,
+  serialized_end=6801,
 )
 
 
@@ -2056,8 +2057,8 @@ _DELETEGLOSSARYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6779,
-  serialized_end=6912,
+  serialized_start=6804,
+  serialized_end=6937,
 )
 
 
@@ -2095,8 +2096,8 @@ _BATCHTRANSLATEDOCUMENTREQUEST_MODELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4138,
-  serialized_end=4183,
+  serialized_start=4163,
+  serialized_end=4208,
 )
 
 _BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY = _descriptor.Descriptor(
@@ -2133,8 +2134,46 @@ _BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4185,
-  serialized_end=4297,
+  serialized_start=4210,
+  serialized_end=4322,
+)
+
+_BATCHTRANSLATEDOCUMENTREQUEST_FORMATCONVERSIONSENTRY = _descriptor.Descriptor(
+  name='FormatConversionsEntry',
+  full_name='google.cloud.translation.v3beta1.BatchTranslateDocumentRequest.FormatConversionsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.cloud.translation.v3beta1.BatchTranslateDocumentRequest.FormatConversionsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.cloud.translation.v3beta1.BatchTranslateDocumentRequest.FormatConversionsEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7766,
+  serialized_end=7822,
 )
 
 _BATCHTRANSLATEDOCUMENTREQUEST = _descriptor.Descriptor(
@@ -2151,7 +2190,7 @@ _BATCHTRANSLATEDOCUMENTREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='source_language_code', full_name='google.cloud.translation.v3beta1.BatchTranslateDocumentRequest.source_language_code', index=1,
       number=2, type=9, cpp_type=9, label=1,
@@ -2194,10 +2233,17 @@ _BATCHTRANSLATEDOCUMENTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='format_conversions', full_name='google.cloud.translation.v3beta1.BatchTranslateDocumentRequest.format_conversions', index=7,
+      number=8, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_BATCHTRANSLATEDOCUMENTREQUEST_MODELSENTRY, _BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY, ],
+  nested_types=[_BATCHTRANSLATEDOCUMENTREQUEST_MODELSENTRY, _BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY, _BATCHTRANSLATEDOCUMENTREQUEST_FORMATCONVERSIONSENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -2206,8 +2252,8 @@ _BATCHTRANSLATEDOCUMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6915,
-  serialized_end=7580,
+  serialized_start=6940,
+  serialized_end=7822,
 )
 
 
@@ -2243,8 +2289,8 @@ _BATCHDOCUMENTINPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=7582,
-  serialized_end=7685,
+  serialized_start=7824,
+  serialized_end=7927,
 )
 
 
@@ -2280,8 +2326,8 @@ _BATCHDOCUMENTOUTPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=7687,
-  serialized_end=7806,
+  serialized_start=7929,
+  serialized_end=8048,
 )
 
 
@@ -2375,8 +2421,8 @@ _BATCHTRANSLATEDOCUMENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7809,
-  serialized_end=8154,
+  serialized_start=8051,
+  serialized_end=8396,
 )
 
 
@@ -2471,8 +2517,8 @@ _BATCHTRANSLATEDOCUMENTMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8157,
-  serialized_end=8646,
+  serialized_start=8399,
+  serialized_end=8888,
 )
 
 _TRANSLATETEXTREQUEST_LABELSENTRY.containing_type = _TRANSLATETEXTREQUEST
@@ -2559,10 +2605,12 @@ _DELETEGLOSSARYRESPONSE.fields_by_name['end_time'].message_type = google_dot_pro
 _BATCHTRANSLATEDOCUMENTREQUEST_MODELSENTRY.containing_type = _BATCHTRANSLATEDOCUMENTREQUEST
 _BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY.fields_by_name['value'].message_type = _TRANSLATETEXTGLOSSARYCONFIG
 _BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY.containing_type = _BATCHTRANSLATEDOCUMENTREQUEST
+_BATCHTRANSLATEDOCUMENTREQUEST_FORMATCONVERSIONSENTRY.containing_type = _BATCHTRANSLATEDOCUMENTREQUEST
 _BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['input_configs'].message_type = _BATCHDOCUMENTINPUTCONFIG
 _BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['output_config'].message_type = _BATCHDOCUMENTOUTPUTCONFIG
 _BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['models'].message_type = _BATCHTRANSLATEDOCUMENTREQUEST_MODELSENTRY
 _BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['glossaries'].message_type = _BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['format_conversions'].message_type = _BATCHTRANSLATEDOCUMENTREQUEST_FORMATCONVERSIONSENTRY
 _BATCHDOCUMENTINPUTCONFIG.fields_by_name['gcs_source'].message_type = _GCSSOURCE
 _BATCHDOCUMENTINPUTCONFIG.oneofs_by_name['source'].fields.append(
   _BATCHDOCUMENTINPUTCONFIG.fields_by_name['gcs_source'])
@@ -2918,6 +2966,13 @@ BatchTranslateDocumentRequest = _reflection.GeneratedProtocolMessageType('BatchT
     # @@protoc_insertion_point(class_scope:google.cloud.translation.v3beta1.BatchTranslateDocumentRequest.GlossariesEntry)
     })
   ,
+
+  'FormatConversionsEntry' : _reflection.GeneratedProtocolMessageType('FormatConversionsEntry', (_message.Message,), {
+    'DESCRIPTOR' : _BATCHTRANSLATEDOCUMENTREQUEST_FORMATCONVERSIONSENTRY,
+    '__module__' : 'google.cloud.translate.v3beta1.translation_service_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.translation.v3beta1.BatchTranslateDocumentRequest.FormatConversionsEntry)
+    })
+  ,
   'DESCRIPTOR' : _BATCHTRANSLATEDOCUMENTREQUEST,
   '__module__' : 'google.cloud.translate.v3beta1.translation_service_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.translation.v3beta1.BatchTranslateDocumentRequest)
@@ -2925,6 +2980,7 @@ BatchTranslateDocumentRequest = _reflection.GeneratedProtocolMessageType('BatchT
 _sym_db.RegisterMessage(BatchTranslateDocumentRequest)
 _sym_db.RegisterMessage(BatchTranslateDocumentRequest.ModelsEntry)
 _sym_db.RegisterMessage(BatchTranslateDocumentRequest.GlossariesEntry)
+_sym_db.RegisterMessage(BatchTranslateDocumentRequest.FormatConversionsEntry)
 
 BatchDocumentInputConfig = _reflection.GeneratedProtocolMessageType('BatchDocumentInputConfig', (_message.Message,), {
   'DESCRIPTOR' : _BATCHDOCUMENTINPUTCONFIG,
@@ -3015,6 +3071,7 @@ _LISTGLOSSARIESREQUEST.fields_by_name['page_token']._options = None
 _LISTGLOSSARIESREQUEST.fields_by_name['filter']._options = None
 _BATCHTRANSLATEDOCUMENTREQUEST_MODELSENTRY._options = None
 _BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY._options = None
+_BATCHTRANSLATEDOCUMENTREQUEST_FORMATCONVERSIONSENTRY._options = None
 _BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['parent']._options = None
 _BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['source_language_code']._options = None
 _BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['target_language_codes']._options = None
@@ -3022,6 +3079,7 @@ _BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['input_configs']._options = None
 _BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['output_config']._options = None
 _BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['models']._options = None
 _BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['glossaries']._options = None
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['format_conversions']._options = None
 
 _TRANSLATIONSERVICE = _descriptor.ServiceDescriptor(
   name='TranslationService',
@@ -3030,8 +3088,8 @@ _TRANSLATIONSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\030translate.googleapis.com\322A`https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-translation',
   create_key=_descriptor._internal_create_key,
-  serialized_start=8649,
-  serialized_end=11195,
+  serialized_start=8891,
+  serialized_end=11437,
   methods=[
   _descriptor.MethodDescriptor(
     name='TranslateText',

@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n>io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3B\nRouteProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n<envoy/extensions/filters/network/thrift_proxy/v3/route.proto\x12\x30\x65nvoy.extensions.filters.network.thrift_proxy.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a,envoy/config/route/v3/route_components.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xb8\x01\n\x12RouteConfiguration\x12\x0c\n\x04name\x18\x01 \x01(\t\x12G\n\x06routes\x18\x02 \x03(\x0b\x32\x37.envoy.extensions.filters.network.thrift_proxy.v3.Route:K\x9a\xc5\x88\x1e\x46\nDenvoy.config.filter.network.thrift_proxy.v2alpha1.RouteConfiguration\"\xf6\x01\n\x05Route\x12U\n\x05match\x18\x01 \x01(\x0b\x32<.envoy.extensions.filters.network.thrift_proxy.v3.RouteMatchB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12V\n\x05route\x18\x02 \x01(\x0b\x32=.envoy.extensions.filters.network.thrift_proxy.v3.RouteActionB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:>\x9a\xc5\x88\x1e\x39\n7envoy.config.filter.network.thrift_proxy.v2alpha1.Route\"\xdf\x01\n\nRouteMatch\x12\x15\n\x0bmethod_name\x18\x01 \x01(\tH\x00\x12\x16\n\x0cservice_name\x18\x02 \x01(\tH\x00\x12\x0e\n\x06invert\x18\x03 \x01(\x08\x12\x35\n\x07headers\x18\x04 \x03(\x0b\x32$.envoy.config.route.v3.HeaderMatcher:C\x9a\xc5\x88\x1e>\n<envoy.config.filter.network.thrift_proxy.v2alpha1.RouteMatchB\x16\n\x0fmatch_specifier\x12\x03\xf8\x42\x01\"\x9d\x03\n\x0bRouteAction\x12\x1a\n\x07\x63luster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12^\n\x11weighted_clusters\x18\x02 \x01(\x0b\x32\x41.envoy.extensions.filters.network.thrift_proxy.v3.WeightedClusterH\x00\x12\'\n\x0e\x63luster_header\x18\x06 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x02\xc8\x01\x00H\x00\x12\x36\n\x0emetadata_match\x18\x03 \x01(\x0b\x32\x1e.envoy.config.core.v3.Metadata\x12\x35\n\x0brate_limits\x18\x04 \x03(\x0b\x32 .envoy.config.route.v3.RateLimit\x12\x1a\n\x12strip_service_name\x18\x05 \x01(\x08:D\x9a\xc5\x88\x1e?\n=envoy.config.filter.network.thrift_proxy.v2alpha1.RouteActionB\x18\n\x11\x63luster_specifier\x12\x03\xf8\x42\x01\"\xb8\x03\n\x0fWeightedCluster\x12k\n\x08\x63lusters\x18\x01 \x03(\x0b\x32O.envoy.extensions.filters.network.thrift_proxy.v3.WeightedCluster.ClusterWeightB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\xed\x01\n\rClusterWeight\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x35\n\x06weight\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12\x36\n\x0emetadata_match\x18\x03 \x01(\x0b\x32\x1e.envoy.config.core.v3.Metadata:V\x9a\xc5\x88\x1eQ\nOenvoy.config.filter.network.thrift_proxy.v2alpha1.WeightedCluster.ClusterWeight:H\x9a\xc5\x88\x1e\x43\nAenvoy.config.filter.network.thrift_proxy.v2alpha1.WeightedClusterBV\n>io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3B\nRouteProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n<envoy/extensions/filters/network/thrift_proxy/v3/route.proto\x12\x30\x65nvoy.extensions.filters.network.thrift_proxy.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a,envoy/config/route/v3/route_components.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xb8\x01\n\x12RouteConfiguration\x12\x0c\n\x04name\x18\x01 \x01(\t\x12G\n\x06routes\x18\x02 \x03(\x0b\x32\x37.envoy.extensions.filters.network.thrift_proxy.v3.Route:K\x9a\xc5\x88\x1e\x46\nDenvoy.config.filter.network.thrift_proxy.v2alpha1.RouteConfiguration\"\xf6\x01\n\x05Route\x12U\n\x05match\x18\x01 \x01(\x0b\x32<.envoy.extensions.filters.network.thrift_proxy.v3.RouteMatchB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12V\n\x05route\x18\x02 \x01(\x0b\x32=.envoy.extensions.filters.network.thrift_proxy.v3.RouteActionB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:>\x9a\xc5\x88\x1e\x39\n7envoy.config.filter.network.thrift_proxy.v2alpha1.Route\"\xdf\x01\n\nRouteMatch\x12\x15\n\x0bmethod_name\x18\x01 \x01(\tH\x00\x12\x16\n\x0cservice_name\x18\x02 \x01(\tH\x00\x12\x0e\n\x06invert\x18\x03 \x01(\x08\x12\x35\n\x07headers\x18\x04 \x03(\x0b\x32$.envoy.config.route.v3.HeaderMatcher:C\x9a\xc5\x88\x1e>\n<envoy.config.filter.network.thrift_proxy.v2alpha1.RouteMatchB\x16\n\x0fmatch_specifier\x12\x03\xf8\x42\x01\"\x8c\x05\n\x0bRouteAction\x12\x1a\n\x07\x63luster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01H\x00\x12^\n\x11weighted_clusters\x18\x02 \x01(\x0b\x32\x41.envoy.extensions.filters.network.thrift_proxy.v3.WeightedClusterH\x00\x12\'\n\x0e\x63luster_header\x18\x06 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x02\xc8\x01\x00H\x00\x12\x36\n\x0emetadata_match\x18\x03 \x01(\x0b\x32\x1e.envoy.config.core.v3.Metadata\x12\x35\n\x0brate_limits\x18\x04 \x03(\x0b\x32 .envoy.config.route.v3.RateLimit\x12\x1a\n\x12strip_service_name\x18\x05 \x01(\x08\x12r\n\x17request_mirror_policies\x18\x07 \x03(\x0b\x32Q.envoy.extensions.filters.network.thrift_proxy.v3.RouteAction.RequestMirrorPolicy\x1ay\n\x13RequestMirrorPolicy\x12\x18\n\x07\x63luster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12H\n\x10runtime_fraction\x18\x02 \x01(\x0b\x32..envoy.config.core.v3.RuntimeFractionalPercent:D\x9a\xc5\x88\x1e?\n=envoy.config.filter.network.thrift_proxy.v2alpha1.RouteActionB\x18\n\x11\x63luster_specifier\x12\x03\xf8\x42\x01\"\xb8\x03\n\x0fWeightedCluster\x12k\n\x08\x63lusters\x18\x01 \x03(\x0b\x32O.envoy.extensions.filters.network.thrift_proxy.v3.WeightedCluster.ClusterWeightB\x08\xfa\x42\x05\x92\x01\x02\x08\x01\x1a\xed\x01\n\rClusterWeight\x12\x15\n\x04name\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x35\n\x06weight\x18\x02 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x01\x12\x36\n\x0emetadata_match\x18\x03 \x01(\x0b\x32\x1e.envoy.config.core.v3.Metadata:V\x9a\xc5\x88\x1eQ\nOenvoy.config.filter.network.thrift_proxy.v2alpha1.WeightedCluster.ClusterWeight:H\x9a\xc5\x88\x1e\x43\nAenvoy.config.filter.network.thrift_proxy.v2alpha1.WeightedClusterBV\n>io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3B\nRouteProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
   dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
@@ -168,6 +168,44 @@ _ROUTEMATCH = _descriptor.Descriptor(
 )
 
 
+_ROUTEACTION_REQUESTMIRRORPOLICY = _descriptor.Descriptor(
+  name='RequestMirrorPolicy',
+  full_name='envoy.extensions.filters.network.thrift_proxy.v3.RouteAction.RequestMirrorPolicy',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='cluster', full_name='envoy.extensions.filters.network.thrift_proxy.v3.RouteAction.RequestMirrorPolicy.cluster', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372B\004r\002\020\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='runtime_fraction', full_name='envoy.extensions.filters.network.thrift_proxy.v3.RouteAction.RequestMirrorPolicy.runtime_fraction', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1414,
+  serialized_end=1535,
+)
+
 _ROUTEACTION = _descriptor.Descriptor(
   name='RouteAction',
   full_name='envoy.extensions.filters.network.thrift_proxy.v3.RouteAction',
@@ -218,10 +256,17 @@ _ROUTEACTION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='request_mirror_policies', full_name='envoy.extensions.filters.network.thrift_proxy.v3.RouteAction.request_mirror_policies', index=6,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_ROUTEACTION_REQUESTMIRRORPOLICY, ],
   enum_types=[
   ],
   serialized_options=b'\232\305\210\036?\n=envoy.config.filter.network.thrift_proxy.v2alpha1.RouteAction',
@@ -236,7 +281,7 @@ _ROUTEACTION = _descriptor.Descriptor(
     fields=[], serialized_options=b'\370B\001'),
   ],
   serialized_start=979,
-  serialized_end=1392,
+  serialized_end=1631,
 )
 
 
@@ -281,8 +326,8 @@ _WEIGHTEDCLUSTER_CLUSTERWEIGHT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1524,
-  serialized_end=1761,
+  serialized_start=1763,
+  serialized_end=2000,
 )
 
 _WEIGHTEDCLUSTER = _descriptor.Descriptor(
@@ -312,8 +357,8 @@ _WEIGHTEDCLUSTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1395,
-  serialized_end=1835,
+  serialized_start=1634,
+  serialized_end=2074,
 )
 
 _ROUTECONFIGURATION.fields_by_name['routes'].message_type = _ROUTE
@@ -326,9 +371,12 @@ _ROUTEMATCH.fields_by_name['method_name'].containing_oneof = _ROUTEMATCH.oneofs_
 _ROUTEMATCH.oneofs_by_name['match_specifier'].fields.append(
   _ROUTEMATCH.fields_by_name['service_name'])
 _ROUTEMATCH.fields_by_name['service_name'].containing_oneof = _ROUTEMATCH.oneofs_by_name['match_specifier']
+_ROUTEACTION_REQUESTMIRRORPOLICY.fields_by_name['runtime_fraction'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._RUNTIMEFRACTIONALPERCENT
+_ROUTEACTION_REQUESTMIRRORPOLICY.containing_type = _ROUTEACTION
 _ROUTEACTION.fields_by_name['weighted_clusters'].message_type = _WEIGHTEDCLUSTER
 _ROUTEACTION.fields_by_name['metadata_match'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._METADATA
 _ROUTEACTION.fields_by_name['rate_limits'].message_type = envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2._RATELIMIT
+_ROUTEACTION.fields_by_name['request_mirror_policies'].message_type = _ROUTEACTION_REQUESTMIRRORPOLICY
 _ROUTEACTION.oneofs_by_name['cluster_specifier'].fields.append(
   _ROUTEACTION.fields_by_name['cluster'])
 _ROUTEACTION.fields_by_name['cluster'].containing_oneof = _ROUTEACTION.oneofs_by_name['cluster_specifier']
@@ -371,11 +419,19 @@ RouteMatch = _reflection.GeneratedProtocolMessageType('RouteMatch', (_message.Me
 _sym_db.RegisterMessage(RouteMatch)
 
 RouteAction = _reflection.GeneratedProtocolMessageType('RouteAction', (_message.Message,), {
+
+  'RequestMirrorPolicy' : _reflection.GeneratedProtocolMessageType('RequestMirrorPolicy', (_message.Message,), {
+    'DESCRIPTOR' : _ROUTEACTION_REQUESTMIRRORPOLICY,
+    '__module__' : 'envoy.extensions.filters.network.thrift_proxy.v3.route_pb2'
+    # @@protoc_insertion_point(class_scope:envoy.extensions.filters.network.thrift_proxy.v3.RouteAction.RequestMirrorPolicy)
+    })
+  ,
   'DESCRIPTOR' : _ROUTEACTION,
   '__module__' : 'envoy.extensions.filters.network.thrift_proxy.v3.route_pb2'
   # @@protoc_insertion_point(class_scope:envoy.extensions.filters.network.thrift_proxy.v3.RouteAction)
   })
 _sym_db.RegisterMessage(RouteAction)
+_sym_db.RegisterMessage(RouteAction.RequestMirrorPolicy)
 
 WeightedCluster = _reflection.GeneratedProtocolMessageType('WeightedCluster', (_message.Message,), {
 
@@ -400,6 +456,7 @@ _ROUTE.fields_by_name['route']._options = None
 _ROUTE._options = None
 _ROUTEMATCH.oneofs_by_name['match_specifier']._options = None
 _ROUTEMATCH._options = None
+_ROUTEACTION_REQUESTMIRRORPOLICY.fields_by_name['cluster']._options = None
 _ROUTEACTION.oneofs_by_name['cluster_specifier']._options = None
 _ROUTEACTION.fields_by_name['cluster']._options = None
 _ROUTEACTION.fields_by_name['cluster_header']._options = None

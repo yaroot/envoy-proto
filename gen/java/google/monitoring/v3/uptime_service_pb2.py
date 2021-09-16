@@ -15,6 +15,7 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.monitoring.v3 import uptime_pb2 as google_dot_monitoring_dot_v3_dot_uptime__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
@@ -27,9 +28,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\030com.google.monitoring.v3B\022UptimeServiceProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)google/monitoring/v3/uptime_service.proto\x12\x14google.monitoring.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a!google/monitoring/v3/uptime.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\x8b\x01\n\x1dListUptimeCheckConfigsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+monitoring.googleapis.com/UptimeCheckConfig\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"\x94\x01\n\x1eListUptimeCheckConfigsResponse\x12\x45\n\x14uptime_check_configs\x18\x01 \x03(\x0b\x32\'.google.monitoring.v3.UptimeCheckConfig\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x12\n\ntotal_size\x18\x03 \x01(\x05\"`\n\x1bGetUptimeCheckConfigRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+monitoring.googleapis.com/UptimeCheckConfig\"\xb0\x01\n\x1e\x43reateUptimeCheckConfigRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+monitoring.googleapis.com/UptimeCheckConfig\x12I\n\x13uptime_check_config\x18\x02 \x01(\x0b\x32\'.google.monitoring.v3.UptimeCheckConfigB\x03\xe0\x41\x02\"\x9c\x01\n\x1eUpdateUptimeCheckConfigRequest\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12I\n\x13uptime_check_config\x18\x03 \x01(\x0b\x32\'.google.monitoring.v3.UptimeCheckConfigB\x03\xe0\x41\x02\"c\n\x1e\x44\x65leteUptimeCheckConfigRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+monitoring.googleapis.com/UptimeCheckConfig\"B\n\x19ListUptimeCheckIpsRequest\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"t\n\x1aListUptimeCheckIpsResponse\x12=\n\x10uptime_check_ips\x18\x01 \x03(\x0b\x32#.google.monitoring.v3.UptimeCheckIp\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xbd\n\n\x12UptimeCheckService\x12\xc0\x01\n\x16ListUptimeCheckConfigs\x12\x33.google.monitoring.v3.ListUptimeCheckConfigsRequest\x1a\x34.google.monitoring.v3.ListUptimeCheckConfigsResponse\";\x82\xd3\xe4\x93\x02,\x12*/v3/{parent=projects/*}/uptimeCheckConfigs\xda\x41\x06parent\x12\xad\x01\n\x14GetUptimeCheckConfig\x12\x31.google.monitoring.v3.GetUptimeCheckConfigRequest\x1a\'.google.monitoring.v3.UptimeCheckConfig\"9\x82\xd3\xe4\x93\x02,\x12*/v3/{name=projects/*/uptimeCheckConfigs/*}\xda\x41\x04name\x12\xde\x01\n\x17\x43reateUptimeCheckConfig\x12\x34.google.monitoring.v3.CreateUptimeCheckConfigRequest\x1a\'.google.monitoring.v3.UptimeCheckConfig\"d\x82\xd3\xe4\x93\x02\x41\"*/v3/{parent=projects/*}/uptimeCheckConfigs:\x13uptime_check_config\xda\x41\x1aparent,uptime_check_config\x12\xeb\x01\n\x17UpdateUptimeCheckConfig\x12\x34.google.monitoring.v3.UpdateUptimeCheckConfigRequest\x1a\'.google.monitoring.v3.UptimeCheckConfig\"q\x82\xd3\xe4\x93\x02U2>/v3/{uptime_check_config.name=projects/*/uptimeCheckConfigs/*}:\x13uptime_check_config\xda\x41\x13uptime_check_config\x12\xa2\x01\n\x17\x44\x65leteUptimeCheckConfig\x12\x34.google.monitoring.v3.DeleteUptimeCheckConfigRequest\x1a\x16.google.protobuf.Empty\"9\x82\xd3\xe4\x93\x02,**/v3/{name=projects/*/uptimeCheckConfigs/*}\xda\x41\x04name\x12\x93\x01\n\x12ListUptimeCheckIps\x12/.google.monitoring.v3.ListUptimeCheckIpsRequest\x1a\x30.google.monitoring.v3.ListUptimeCheckIpsResponse\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/v3/uptimeCheckIps\x1a\xa9\x01\xca\x41\x19monitoring.googleapis.com\xd2\x41\x89\x01https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/monitoring.readB\xca\x01\n\x18\x63om.google.monitoring.v3B\x12UptimeServiceProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3'
+  serialized_pb=b'\n)google/monitoring/v3/uptime_service.proto\x12\x14google.monitoring.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a!google/monitoring/v3/uptime.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\x8b\x01\n\x1dListUptimeCheckConfigsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+monitoring.googleapis.com/UptimeCheckConfig\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"\x94\x01\n\x1eListUptimeCheckConfigsResponse\x12\x45\n\x14uptime_check_configs\x18\x01 \x03(\x0b\x32\'.google.monitoring.v3.UptimeCheckConfig\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x12\n\ntotal_size\x18\x03 \x01(\x05\"`\n\x1bGetUptimeCheckConfigRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+monitoring.googleapis.com/UptimeCheckConfig\"\xb0\x01\n\x1e\x43reateUptimeCheckConfigRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+monitoring.googleapis.com/UptimeCheckConfig\x12I\n\x13uptime_check_config\x18\x02 \x01(\x0b\x32\'.google.monitoring.v3.UptimeCheckConfigB\x03\xe0\x41\x02\"\x9c\x01\n\x1eUpdateUptimeCheckConfigRequest\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12I\n\x13uptime_check_config\x18\x03 \x01(\x0b\x32\'.google.monitoring.v3.UptimeCheckConfigB\x03\xe0\x41\x02\"c\n\x1e\x44\x65leteUptimeCheckConfigRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+monitoring.googleapis.com/UptimeCheckConfig\"B\n\x19ListUptimeCheckIpsRequest\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"t\n\x1aListUptimeCheckIpsResponse\x12=\n\x10uptime_check_ips\x18\x01 \x03(\x0b\x32#.google.monitoring.v3.UptimeCheckIp\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xbd\n\n\x12UptimeCheckService\x12\xc0\x01\n\x16ListUptimeCheckConfigs\x12\x33.google.monitoring.v3.ListUptimeCheckConfigsRequest\x1a\x34.google.monitoring.v3.ListUptimeCheckConfigsResponse\";\x82\xd3\xe4\x93\x02,\x12*/v3/{parent=projects/*}/uptimeCheckConfigs\xda\x41\x06parent\x12\xad\x01\n\x14GetUptimeCheckConfig\x12\x31.google.monitoring.v3.GetUptimeCheckConfigRequest\x1a\'.google.monitoring.v3.UptimeCheckConfig\"9\x82\xd3\xe4\x93\x02,\x12*/v3/{name=projects/*/uptimeCheckConfigs/*}\xda\x41\x04name\x12\xde\x01\n\x17\x43reateUptimeCheckConfig\x12\x34.google.monitoring.v3.CreateUptimeCheckConfigRequest\x1a\'.google.monitoring.v3.UptimeCheckConfig\"d\x82\xd3\xe4\x93\x02\x41\"*/v3/{parent=projects/*}/uptimeCheckConfigs:\x13uptime_check_config\xda\x41\x1aparent,uptime_check_config\x12\xeb\x01\n\x17UpdateUptimeCheckConfig\x12\x34.google.monitoring.v3.UpdateUptimeCheckConfigRequest\x1a\'.google.monitoring.v3.UptimeCheckConfig\"q\x82\xd3\xe4\x93\x02U2>/v3/{uptime_check_config.name=projects/*/uptimeCheckConfigs/*}:\x13uptime_check_config\xda\x41\x13uptime_check_config\x12\xa2\x01\n\x17\x44\x65leteUptimeCheckConfig\x12\x34.google.monitoring.v3.DeleteUptimeCheckConfigRequest\x1a\x16.google.protobuf.Empty\"9\x82\xd3\xe4\x93\x02,**/v3/{name=projects/*/uptimeCheckConfigs/*}\xda\x41\x04name\x12\x93\x01\n\x12ListUptimeCheckIps\x12/.google.monitoring.v3.ListUptimeCheckIpsRequest\x1a\x30.google.monitoring.v3.ListUptimeCheckIpsResponse\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/v3/uptimeCheckIps\x1a\xa9\x01\xca\x41\x19monitoring.googleapis.com\xd2\x41\x89\x01https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/monitoring.readB\xca\x01\n\x18\x63om.google.monitoring.v3B\x12UptimeServiceProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_monitoring_dot_v3_dot_uptime__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_monitoring_dot_v3_dot_uptime__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
 
 
 
@@ -75,8 +76,8 @@ _LISTUPTIMECHECKCONFIGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=313,
-  serialized_end=452,
+  serialized_start=350,
+  serialized_end=489,
 )
 
 
@@ -121,8 +122,8 @@ _LISTUPTIMECHECKCONFIGSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=455,
-  serialized_end=603,
+  serialized_start=492,
+  serialized_end=640,
 )
 
 
@@ -153,8 +154,8 @@ _GETUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=605,
-  serialized_end=701,
+  serialized_start=642,
+  serialized_end=738,
 )
 
 
@@ -192,8 +193,8 @@ _CREATEUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=704,
-  serialized_end=880,
+  serialized_start=741,
+  serialized_end=917,
 )
 
 
@@ -231,8 +232,8 @@ _UPDATEUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=883,
-  serialized_end=1039,
+  serialized_start=920,
+  serialized_end=1076,
 )
 
 
@@ -263,8 +264,8 @@ _DELETEUPTIMECHECKCONFIGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1041,
-  serialized_end=1140,
+  serialized_start=1078,
+  serialized_end=1177,
 )
 
 
@@ -302,8 +303,8 @@ _LISTUPTIMECHECKIPSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1142,
-  serialized_end=1208,
+  serialized_start=1179,
+  serialized_end=1245,
 )
 
 
@@ -341,8 +342,8 @@ _LISTUPTIMECHECKIPSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1210,
-  serialized_end=1326,
+  serialized_start=1247,
+  serialized_end=1363,
 )
 
 _LISTUPTIMECHECKCONFIGSRESPONSE.fields_by_name['uptime_check_configs'].message_type = google_dot_monitoring_dot_v3_dot_uptime__pb2._UPTIMECHECKCONFIG
@@ -432,8 +433,8 @@ _UPTIMECHECKSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031monitoring.googleapis.com\322A\211\001https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/monitoring,https://www.googleapis.com/auth/monitoring.read',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1329,
-  serialized_end=2670,
+  serialized_start=1366,
+  serialized_end=2707,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListUptimeCheckConfigs',

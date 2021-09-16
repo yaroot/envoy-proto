@@ -30,7 +30,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n%com.google.ads.googleads.v8.resourcesB\025ConversionActionProtoP\001ZJgoogle.golang.org/genproto/googleapis/ads/googleads/v8/resources;resources\242\002\003GAA\252\002!Google.Ads.GoogleAds.V8.Resources\312\002!Google\\Ads\\GoogleAds\\V8\\Resources\352\002%Google::Ads::GoogleAds::V8::Resources',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n9google/ads/googleads/v8/resources/conversion_action.proto\x12!google.ads.googleads.v8.resources\x1a\x30google/ads/googleads/v8/common/tag_snippet.proto\x1a\x35google/ads/googleads/v8/enums/attribution_model.proto\x1a>google/ads/googleads/v8/enums/conversion_action_category.proto\x1a\x43google/ads/googleads/v8/enums/conversion_action_counting_type.proto\x1a<google/ads/googleads/v8/enums/conversion_action_status.proto\x1a:google/ads/googleads/v8/enums/conversion_action_type.proto\x1a<google/ads/googleads/v8/enums/data_driven_model_status.proto\x1a\x35google/ads/googleads/v8/enums/mobile_app_vendor.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\xdc\x12\n\x10\x43onversionAction\x12H\n\rresource_name\x18\x01 \x01(\tB1\xe0\x41\x05\xfa\x41+\n)googleads.googleapis.com/ConversionAction\x12\x14\n\x02id\x18\x15 \x01(\x03\x42\x03\xe0\x41\x03H\x00\x88\x01\x01\x12\x11\n\x04name\x18\x16 \x01(\tH\x01\x88\x01\x01\x12`\n\x06status\x18\x04 \x01(\x0e\x32P.google.ads.googleads.v8.enums.ConversionActionStatusEnum.ConversionActionStatus\x12_\n\x04type\x18\x05 \x01(\x0e\x32L.google.ads.googleads.v8.enums.ConversionActionTypeEnum.ConversionActionTypeB\x03\xe0\x41\x05\x12\x66\n\x08\x63\x61tegory\x18\x06 \x01(\x0e\x32T.google.ads.googleads.v8.enums.ConversionActionCategoryEnum.ConversionActionCategory\x12\x46\n\x0eowner_customer\x18\x17 \x01(\tB)\xe0\x41\x03\xfa\x41#\n!googleads.googleapis.com/CustomerH\x02\x88\x01\x01\x12*\n\x1dinclude_in_conversions_metric\x18\x18 \x01(\x08H\x03\x88\x01\x01\x12/\n\"click_through_lookback_window_days\x18\x19 \x01(\x03H\x04\x88\x01\x01\x12.\n!view_through_lookback_window_days\x18\x1a \x01(\x03H\x05\x88\x01\x01\x12Y\n\x0evalue_settings\x18\x0b \x01(\x0b\x32\x41.google.ads.googleads.v8.resources.ConversionAction.ValueSettings\x12s\n\rcounting_type\x18\x0c \x01(\x0e\x32\\.google.ads.googleads.v8.enums.ConversionActionCountingTypeEnum.ConversionActionCountingType\x12p\n\x1a\x61ttribution_model_settings\x18\r \x01(\x0b\x32L.google.ads.googleads.v8.resources.ConversionAction.AttributionModelSettings\x12\x45\n\x0ctag_snippets\x18\x0e \x03(\x0b\x32*.google.ads.googleads.v8.common.TagSnippetB\x03\xe0\x41\x03\x12(\n\x1bphone_call_duration_seconds\x18\x1b \x01(\x03H\x06\x88\x01\x01\x12\x13\n\x06\x61pp_id\x18\x1c \x01(\tH\x07\x88\x01\x01\x12\x62\n\x11mobile_app_vendor\x18\x11 \x01(\x0e\x32\x42.google.ads.googleads.v8.enums.MobileAppVendorEnum.MobileAppVendorB\x03\xe0\x41\x03\x12\x64\n\x11\x66irebase_settings\x18\x12 \x01(\x0b\x32\x44.google.ads.googleads.v8.resources.ConversionAction.FirebaseSettingsB\x03\xe0\x41\x03\x12\x83\x01\n\"third_party_app_analytics_settings\x18\x13 \x01(\x0b\x32R.google.ads.googleads.v8.resources.ConversionAction.ThirdPartyAppAnalyticsSettingsB\x03\xe0\x41\x03\x1a\xf2\x01\n\x18\x41ttributionModelSettings\x12_\n\x11\x61ttribution_model\x18\x01 \x01(\x0e\x32\x44.google.ads.googleads.v8.enums.AttributionModelEnum.AttributionModel\x12u\n\x18\x64\x61ta_driven_model_status\x18\x02 \x01(\x0e\x32N.google.ads.googleads.v8.enums.DataDrivenModelStatusEnum.DataDrivenModelStatusB\x03\xe0\x41\x03\x1a\xbf\x01\n\rValueSettings\x12\x1a\n\rdefault_value\x18\x04 \x01(\x01H\x00\x88\x01\x01\x12\"\n\x15\x64\x65\x66\x61ult_currency_code\x18\x05 \x01(\tH\x01\x88\x01\x01\x12%\n\x18\x61lways_use_default_value\x18\x06 \x01(\x08H\x02\x88\x01\x01\x42\x10\n\x0e_default_valueB\x18\n\x16_default_currency_codeB\x1b\n\x19_always_use_default_value\x1ai\n\x1eThirdPartyAppAnalyticsSettings\x12\x1c\n\nevent_name\x18\x02 \x01(\tB\x03\xe0\x41\x03H\x00\x88\x01\x01\x12\x1a\n\rprovider_name\x18\x03 \x01(\tB\x03\xe0\x41\x03\x42\r\n\x0b_event_name\x1al\n\x10\x46irebaseSettings\x12\x1c\n\nevent_name\x18\x03 \x01(\tB\x03\xe0\x41\x03H\x00\x88\x01\x01\x12\x1c\n\nproject_id\x18\x04 \x01(\tB\x03\xe0\x41\x03H\x01\x88\x01\x01\x42\r\n\x0b_event_nameB\r\n\x0b_project_id:p\xea\x41m\n)googleads.googleapis.com/ConversionAction\x12@customers/{customer_id}/conversionActions/{conversion_action_id}B\x05\n\x03_idB\x07\n\x05_nameB\x11\n\x0f_owner_customerB \n\x1e_include_in_conversions_metricB%\n#_click_through_lookback_window_daysB$\n\"_view_through_lookback_window_daysB\x1e\n\x1c_phone_call_duration_secondsB\t\n\x07_app_idB\x82\x02\n%com.google.ads.googleads.v8.resourcesB\x15\x43onversionActionProtoP\x01ZJgoogle.golang.org/genproto/googleapis/ads/googleads/v8/resources;resources\xa2\x02\x03GAA\xaa\x02!Google.Ads.GoogleAds.V8.Resources\xca\x02!Google\\Ads\\GoogleAds\\V8\\Resources\xea\x02%Google::Ads::GoogleAds::V8::Resourcesb\x06proto3'
+  serialized_pb=b'\n9google/ads/googleads/v8/resources/conversion_action.proto\x12!google.ads.googleads.v8.resources\x1a\x30google/ads/googleads/v8/common/tag_snippet.proto\x1a\x35google/ads/googleads/v8/enums/attribution_model.proto\x1a>google/ads/googleads/v8/enums/conversion_action_category.proto\x1a\x43google/ads/googleads/v8/enums/conversion_action_counting_type.proto\x1a<google/ads/googleads/v8/enums/conversion_action_status.proto\x1a:google/ads/googleads/v8/enums/conversion_action_type.proto\x1a<google/ads/googleads/v8/enums/data_driven_model_status.proto\x1a\x35google/ads/googleads/v8/enums/mobile_app_vendor.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\xdc\x12\n\x10\x43onversionAction\x12H\n\rresource_name\x18\x01 \x01(\tB1\xe0\x41\x05\xfa\x41+\n)googleads.googleapis.com/ConversionAction\x12\x14\n\x02id\x18\x15 \x01(\x03\x42\x03\xe0\x41\x03H\x00\x88\x01\x01\x12\x11\n\x04name\x18\x16 \x01(\tH\x01\x88\x01\x01\x12`\n\x06status\x18\x04 \x01(\x0e\x32P.google.ads.googleads.v8.enums.ConversionActionStatusEnum.ConversionActionStatus\x12_\n\x04type\x18\x05 \x01(\x0e\x32L.google.ads.googleads.v8.enums.ConversionActionTypeEnum.ConversionActionTypeB\x03\xe0\x41\x05\x12\x66\n\x08\x63\x61tegory\x18\x06 \x01(\x0e\x32T.google.ads.googleads.v8.enums.ConversionActionCategoryEnum.ConversionActionCategory\x12\x46\n\x0eowner_customer\x18\x17 \x01(\tB)\xe0\x41\x03\xfa\x41#\n!googleads.googleapis.com/CustomerH\x02\x88\x01\x01\x12*\n\x1dinclude_in_conversions_metric\x18\x18 \x01(\x08H\x03\x88\x01\x01\x12/\n\"click_through_lookback_window_days\x18\x19 \x01(\x03H\x04\x88\x01\x01\x12.\n!view_through_lookback_window_days\x18\x1a \x01(\x03H\x05\x88\x01\x01\x12Y\n\x0evalue_settings\x18\x0b \x01(\x0b\x32\x41.google.ads.googleads.v8.resources.ConversionAction.ValueSettings\x12s\n\rcounting_type\x18\x0c \x01(\x0e\x32\\.google.ads.googleads.v8.enums.ConversionActionCountingTypeEnum.ConversionActionCountingType\x12p\n\x1a\x61ttribution_model_settings\x18\r \x01(\x0b\x32L.google.ads.googleads.v8.resources.ConversionAction.AttributionModelSettings\x12\x45\n\x0ctag_snippets\x18\x0e \x03(\x0b\x32*.google.ads.googleads.v8.common.TagSnippetB\x03\xe0\x41\x03\x12(\n\x1bphone_call_duration_seconds\x18\x1b \x01(\x03H\x06\x88\x01\x01\x12\x13\n\x06\x61pp_id\x18\x1c \x01(\tH\x07\x88\x01\x01\x12\x62\n\x11mobile_app_vendor\x18\x11 \x01(\x0e\x32\x42.google.ads.googleads.v8.enums.MobileAppVendorEnum.MobileAppVendorB\x03\xe0\x41\x03\x12\x64\n\x11\x66irebase_settings\x18\x12 \x01(\x0b\x32\x44.google.ads.googleads.v8.resources.ConversionAction.FirebaseSettingsB\x03\xe0\x41\x03\x12\x83\x01\n\"third_party_app_analytics_settings\x18\x13 \x01(\x0b\x32R.google.ads.googleads.v8.resources.ConversionAction.ThirdPartyAppAnalyticsSettingsB\x03\xe0\x41\x03\x1a\xf2\x01\n\x18\x41ttributionModelSettings\x12_\n\x11\x61ttribution_model\x18\x01 \x01(\x0e\x32\x44.google.ads.googleads.v8.enums.AttributionModelEnum.AttributionModel\x12u\n\x18\x64\x61ta_driven_model_status\x18\x02 \x01(\x0e\x32N.google.ads.googleads.v8.enums.DataDrivenModelStatusEnum.DataDrivenModelStatusB\x03\xe0\x41\x03\x1a\xbf\x01\n\rValueSettings\x12\x1a\n\rdefault_value\x18\x04 \x01(\x01H\x00\x88\x01\x01\x12\"\n\x15\x64\x65\x66\x61ult_currency_code\x18\x05 \x01(\tH\x01\x88\x01\x01\x12%\n\x18\x61lways_use_default_value\x18\x06 \x01(\x08H\x02\x88\x01\x01\x42\x10\n\x0e_default_valueB\x18\n\x16_default_currency_codeB\x1b\n\x19_always_use_default_value\x1al\n\x10\x46irebaseSettings\x12\x1c\n\nevent_name\x18\x03 \x01(\tB\x03\xe0\x41\x03H\x00\x88\x01\x01\x12\x1c\n\nproject_id\x18\x04 \x01(\tB\x03\xe0\x41\x03H\x01\x88\x01\x01\x42\r\n\x0b_event_nameB\r\n\x0b_project_id\x1ai\n\x1eThirdPartyAppAnalyticsSettings\x12\x1c\n\nevent_name\x18\x02 \x01(\tB\x03\xe0\x41\x03H\x00\x88\x01\x01\x12\x1a\n\rprovider_name\x18\x03 \x01(\tB\x03\xe0\x41\x03\x42\r\n\x0b_event_name:p\xea\x41m\n)googleads.googleapis.com/ConversionAction\x12@customers/{customer_id}/conversionActions/{conversion_action_id}B\x05\n\x03_idB\x07\n\x05_nameB\x11\n\x0f_owner_customerB \n\x1e_include_in_conversions_metricB%\n#_click_through_lookback_window_daysB$\n\"_view_through_lookback_window_daysB\x1e\n\x1c_phone_call_duration_secondsB\t\n\x07_app_idB\x82\x02\n%com.google.ads.googleads.v8.resourcesB\x15\x43onversionActionProtoP\x01ZJgoogle.golang.org/genproto/googleapis/ads/googleads/v8/resources;resources\xa2\x02\x03GAA\xaa\x02!Google.Ads.GoogleAds.V8.Resources\xca\x02!Google\\Ads\\GoogleAds\\V8\\Resources\xea\x02%Google::Ads::GoogleAds::V8::Resourcesb\x06proto3'
   ,
   dependencies=[google_dot_ads_dot_googleads_dot_v8_dot_common_dot_tag__snippet__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_attribution__model__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_conversion__action__category__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_conversion__action__counting__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_conversion__action__status__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_conversion__action__type__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_data__driven__model__status__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_mobile__app__vendor__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -135,49 +135,6 @@ _CONVERSIONACTION_VALUESETTINGS = _descriptor.Descriptor(
   serialized_end=2540,
 )
 
-_CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS = _descriptor.Descriptor(
-  name='ThirdPartyAppAnalyticsSettings',
-  full_name='google.ads.googleads.v8.resources.ConversionAction.ThirdPartyAppAnalyticsSettings',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='event_name', full_name='google.ads.googleads.v8.resources.ConversionAction.ThirdPartyAppAnalyticsSettings.event_name', index=0,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='provider_name', full_name='google.ads.googleads.v8.resources.ConversionAction.ThirdPartyAppAnalyticsSettings.provider_name', index=1,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-    _descriptor.OneofDescriptor(
-      name='_event_name', full_name='google.ads.googleads.v8.resources.ConversionAction.ThirdPartyAppAnalyticsSettings._event_name',
-      index=0, containing_type=None,
-      create_key=_descriptor._internal_create_key,
-    fields=[]),
-  ],
-  serialized_start=2542,
-  serialized_end=2647,
-)
-
 _CONVERSIONACTION_FIREBASESETTINGS = _descriptor.Descriptor(
   name='FirebaseSettings',
   full_name='google.ads.googleads.v8.resources.ConversionAction.FirebaseSettings',
@@ -222,7 +179,50 @@ _CONVERSIONACTION_FIREBASESETTINGS = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2649,
+  serialized_start=2542,
+  serialized_end=2650,
+)
+
+_CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS = _descriptor.Descriptor(
+  name='ThirdPartyAppAnalyticsSettings',
+  full_name='google.ads.googleads.v8.resources.ConversionAction.ThirdPartyAppAnalyticsSettings',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='event_name', full_name='google.ads.googleads.v8.resources.ConversionAction.ThirdPartyAppAnalyticsSettings.event_name', index=0,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='provider_name', full_name='google.ads.googleads.v8.resources.ConversionAction.ThirdPartyAppAnalyticsSettings.provider_name', index=1,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='_event_name', full_name='google.ads.googleads.v8.resources.ConversionAction.ThirdPartyAppAnalyticsSettings._event_name',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2652,
   serialized_end=2757,
 )
 
@@ -370,7 +370,7 @@ _CONVERSIONACTION = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_CONVERSIONACTION_ATTRIBUTIONMODELSETTINGS, _CONVERSIONACTION_VALUESETTINGS, _CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS, _CONVERSIONACTION_FIREBASESETTINGS, ],
+  nested_types=[_CONVERSIONACTION_ATTRIBUTIONMODELSETTINGS, _CONVERSIONACTION_VALUESETTINGS, _CONVERSIONACTION_FIREBASESETTINGS, _CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS, ],
   enum_types=[
   ],
   serialized_options=b'\352Am\n)googleads.googleapis.com/ConversionAction\022@customers/{customer_id}/conversionActions/{conversion_action_id}',
@@ -436,10 +436,6 @@ _CONVERSIONACTION_VALUESETTINGS.fields_by_name['default_currency_code'].containi
 _CONVERSIONACTION_VALUESETTINGS.oneofs_by_name['_always_use_default_value'].fields.append(
   _CONVERSIONACTION_VALUESETTINGS.fields_by_name['always_use_default_value'])
 _CONVERSIONACTION_VALUESETTINGS.fields_by_name['always_use_default_value'].containing_oneof = _CONVERSIONACTION_VALUESETTINGS.oneofs_by_name['_always_use_default_value']
-_CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.containing_type = _CONVERSIONACTION
-_CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.oneofs_by_name['_event_name'].fields.append(
-  _CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.fields_by_name['event_name'])
-_CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.fields_by_name['event_name'].containing_oneof = _CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.oneofs_by_name['_event_name']
 _CONVERSIONACTION_FIREBASESETTINGS.containing_type = _CONVERSIONACTION
 _CONVERSIONACTION_FIREBASESETTINGS.oneofs_by_name['_event_name'].fields.append(
   _CONVERSIONACTION_FIREBASESETTINGS.fields_by_name['event_name'])
@@ -447,6 +443,10 @@ _CONVERSIONACTION_FIREBASESETTINGS.fields_by_name['event_name'].containing_oneof
 _CONVERSIONACTION_FIREBASESETTINGS.oneofs_by_name['_project_id'].fields.append(
   _CONVERSIONACTION_FIREBASESETTINGS.fields_by_name['project_id'])
 _CONVERSIONACTION_FIREBASESETTINGS.fields_by_name['project_id'].containing_oneof = _CONVERSIONACTION_FIREBASESETTINGS.oneofs_by_name['_project_id']
+_CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.containing_type = _CONVERSIONACTION
+_CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.oneofs_by_name['_event_name'].fields.append(
+  _CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.fields_by_name['event_name'])
+_CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.fields_by_name['event_name'].containing_oneof = _CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.oneofs_by_name['_event_name']
 _CONVERSIONACTION.fields_by_name['status'].enum_type = google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_conversion__action__status__pb2._CONVERSIONACTIONSTATUSENUM_CONVERSIONACTIONSTATUS
 _CONVERSIONACTION.fields_by_name['type'].enum_type = google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_conversion__action__type__pb2._CONVERSIONACTIONTYPEENUM_CONVERSIONACTIONTYPE
 _CONVERSIONACTION.fields_by_name['category'].enum_type = google_dot_ads_dot_googleads_dot_v8_dot_enums_dot_conversion__action__category__pb2._CONVERSIONACTIONCATEGORYENUM_CONVERSIONACTIONCATEGORY
@@ -500,17 +500,17 @@ ConversionAction = _reflection.GeneratedProtocolMessageType('ConversionAction', 
     })
   ,
 
-  'ThirdPartyAppAnalyticsSettings' : _reflection.GeneratedProtocolMessageType('ThirdPartyAppAnalyticsSettings', (_message.Message,), {
-    'DESCRIPTOR' : _CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS,
-    '__module__' : 'google.ads.googleads.v8.resources.conversion_action_pb2'
-    # @@protoc_insertion_point(class_scope:google.ads.googleads.v8.resources.ConversionAction.ThirdPartyAppAnalyticsSettings)
-    })
-  ,
-
   'FirebaseSettings' : _reflection.GeneratedProtocolMessageType('FirebaseSettings', (_message.Message,), {
     'DESCRIPTOR' : _CONVERSIONACTION_FIREBASESETTINGS,
     '__module__' : 'google.ads.googleads.v8.resources.conversion_action_pb2'
     # @@protoc_insertion_point(class_scope:google.ads.googleads.v8.resources.ConversionAction.FirebaseSettings)
+    })
+  ,
+
+  'ThirdPartyAppAnalyticsSettings' : _reflection.GeneratedProtocolMessageType('ThirdPartyAppAnalyticsSettings', (_message.Message,), {
+    'DESCRIPTOR' : _CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS,
+    '__module__' : 'google.ads.googleads.v8.resources.conversion_action_pb2'
+    # @@protoc_insertion_point(class_scope:google.ads.googleads.v8.resources.ConversionAction.ThirdPartyAppAnalyticsSettings)
     })
   ,
   'DESCRIPTOR' : _CONVERSIONACTION,
@@ -520,16 +520,16 @@ ConversionAction = _reflection.GeneratedProtocolMessageType('ConversionAction', 
 _sym_db.RegisterMessage(ConversionAction)
 _sym_db.RegisterMessage(ConversionAction.AttributionModelSettings)
 _sym_db.RegisterMessage(ConversionAction.ValueSettings)
-_sym_db.RegisterMessage(ConversionAction.ThirdPartyAppAnalyticsSettings)
 _sym_db.RegisterMessage(ConversionAction.FirebaseSettings)
+_sym_db.RegisterMessage(ConversionAction.ThirdPartyAppAnalyticsSettings)
 
 
 DESCRIPTOR._options = None
 _CONVERSIONACTION_ATTRIBUTIONMODELSETTINGS.fields_by_name['data_driven_model_status']._options = None
-_CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.fields_by_name['event_name']._options = None
-_CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.fields_by_name['provider_name']._options = None
 _CONVERSIONACTION_FIREBASESETTINGS.fields_by_name['event_name']._options = None
 _CONVERSIONACTION_FIREBASESETTINGS.fields_by_name['project_id']._options = None
+_CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.fields_by_name['event_name']._options = None
+_CONVERSIONACTION_THIRDPARTYAPPANALYTICSSETTINGS.fields_by_name['provider_name']._options = None
 _CONVERSIONACTION.fields_by_name['resource_name']._options = None
 _CONVERSIONACTION.fields_by_name['id']._options = None
 _CONVERSIONACTION.fields_by_name['type']._options = None

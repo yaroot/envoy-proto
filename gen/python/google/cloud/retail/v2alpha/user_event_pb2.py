@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\037com.google.cloud.retail.v2alphaB\016UserEventProtoP\001ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\242\002\006RETAIL\252\002\033Google.Cloud.Retail.V2Alpha\312\002\033Google\\Cloud\\Retail\\V2alpha\352\002\036Google::Cloud::Retail::V2alpha',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,google/cloud/retail/v2alpha/user_event.proto\x12\x1bgoogle.cloud.retail.v2alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a(google/cloud/retail/v2alpha/common.proto\x1a)google/cloud/retail/v2alpha/product.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\x95\x05\n\tUserEvent\x12\x17\n\nevent_type\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nvisitor_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12.\n\nevent_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\x0e\x65xperiment_ids\x18\x04 \x03(\t\x12\x19\n\x11\x61ttribution_token\x18\x05 \x01(\t\x12\x43\n\x0fproduct_details\x18\x06 \x03(\x0b\x32*.google.cloud.retail.v2alpha.ProductDetail\x12J\n\nattributes\x18\x07 \x03(\x0b\x32\x36.google.cloud.retail.v2alpha.UserEvent.AttributesEntry\x12\x0f\n\x07\x63\x61rt_id\x18\x08 \x01(\t\x12N\n\x14purchase_transaction\x18\t \x01(\x0b\x32\x30.google.cloud.retail.v2alpha.PurchaseTransaction\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12\x17\n\x0fpage_categories\x18\x0b \x03(\t\x12\x38\n\tuser_info\x18\x0c \x01(\x0b\x32%.google.cloud.retail.v2alpha.UserInfo\x12\x0b\n\x03uri\x18\r \x01(\t\x12\x14\n\x0creferrer_uri\x18\x0e \x01(\t\x12\x14\n\x0cpage_view_id\x18\x0f \x01(\t\x1a_\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12;\n\x05value\x18\x02 \x01(\x0b\x32,.google.cloud.retail.v2alpha.CustomAttribute:\x02\x38\x01\"z\n\rProductDetail\x12:\n\x07product\x18\x01 \x01(\x0b\x32$.google.cloud.retail.v2alpha.ProductB\x03\xe0\x41\x02\x12-\n\x08quantity\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\"n\n\x13PurchaseTransaction\x12\n\n\x02id\x18\x01 \x01(\t\x12\x14\n\x07revenue\x18\x02 \x01(\x02\x42\x03\xe0\x41\x02\x12\x0b\n\x03tax\x18\x03 \x01(\x02\x12\x0c\n\x04\x63ost\x18\x04 \x01(\x02\x12\x1a\n\rcurrency_code\x18\x05 \x01(\tB\x03\xe0\x41\x02\x42\xdc\x01\n\x1f\x63om.google.cloud.retail.v2alphaB\x0eUserEventProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\xa2\x02\x06RETAIL\xaa\x02\x1bGoogle.Cloud.Retail.V2Alpha\xca\x02\x1bGoogle\\Cloud\\Retail\\V2alpha\xea\x02\x1eGoogle::Cloud::Retail::V2alphab\x06proto3'
+  serialized_pb=b'\n,google/cloud/retail/v2alpha/user_event.proto\x12\x1bgoogle.cloud.retail.v2alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a(google/cloud/retail/v2alpha/common.proto\x1a)google/cloud/retail/v2alpha/product.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xa5\x06\n\tUserEvent\x12\x17\n\nevent_type\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nvisitor_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\nsession_id\x18\x15 \x01(\t\x12.\n\nevent_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\x0e\x65xperiment_ids\x18\x04 \x03(\t\x12\x19\n\x11\x61ttribution_token\x18\x05 \x01(\t\x12\x43\n\x0fproduct_details\x18\x06 \x03(\x0b\x32*.google.cloud.retail.v2alpha.ProductDetail\x12H\n\x11\x63ompletion_detail\x18\x16 \x01(\x0b\x32-.google.cloud.retail.v2alpha.CompletionDetail\x12J\n\nattributes\x18\x07 \x03(\x0b\x32\x36.google.cloud.retail.v2alpha.UserEvent.AttributesEntry\x12\x0f\n\x07\x63\x61rt_id\x18\x08 \x01(\t\x12N\n\x14purchase_transaction\x18\t \x01(\x0b\x32\x30.google.cloud.retail.v2alpha.PurchaseTransaction\x12\x14\n\x0csearch_query\x18\n \x01(\t\x12\x0e\n\x06\x66ilter\x18\x10 \x01(\t\x12\x10\n\x08order_by\x18\x11 \x01(\t\x12\x0e\n\x06offset\x18\x12 \x01(\x05\x12\x17\n\x0fpage_categories\x18\x0b \x03(\t\x12\x38\n\tuser_info\x18\x0c \x01(\x0b\x32%.google.cloud.retail.v2alpha.UserInfo\x12\x0b\n\x03uri\x18\r \x01(\t\x12\x14\n\x0creferrer_uri\x18\x0e \x01(\t\x12\x14\n\x0cpage_view_id\x18\x0f \x01(\t\x1a_\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12;\n\x05value\x18\x02 \x01(\x0b\x32,.google.cloud.retail.v2alpha.CustomAttribute:\x02\x38\x01\"z\n\rProductDetail\x12:\n\x07product\x18\x01 \x01(\x0b\x32$.google.cloud.retail.v2alpha.ProductB\x03\xe0\x41\x02\x12-\n\x08quantity\x18\x02 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\"p\n\x10\x43ompletionDetail\x12$\n\x1c\x63ompletion_attribution_token\x18\x01 \x01(\t\x12\x1b\n\x13selected_suggestion\x18\x02 \x01(\t\x12\x19\n\x11selected_position\x18\x03 \x01(\x05\"n\n\x13PurchaseTransaction\x12\n\n\x02id\x18\x01 \x01(\t\x12\x14\n\x07revenue\x18\x02 \x01(\x02\x42\x03\xe0\x41\x02\x12\x0b\n\x03tax\x18\x03 \x01(\x02\x12\x0c\n\x04\x63ost\x18\x04 \x01(\x02\x12\x1a\n\rcurrency_code\x18\x05 \x01(\tB\x03\xe0\x41\x02\x42\xdc\x01\n\x1f\x63om.google.cloud.retail.v2alphaB\x0eUserEventProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/retail/v2alpha;retail\xa2\x02\x06RETAIL\xaa\x02\x1bGoogle.Cloud.Retail.V2Alpha\xca\x02\x1bGoogle\\Cloud\\Retail\\V2alpha\xea\x02\x1eGoogle::Cloud::Retail::V2alphab\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2alpha_dot_common__pb2.DESCRIPTOR,google_dot_cloud_dot_retail_dot_v2alpha_dot_product__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -66,8 +66,8 @@ _USEREVENT_ATTRIBUTESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=857,
-  serialized_end=952,
+  serialized_start=1001,
+  serialized_end=1096,
 )
 
 _USEREVENT = _descriptor.Descriptor(
@@ -93,91 +93,126 @@ _USEREVENT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='event_time', full_name='google.cloud.retail.v2alpha.UserEvent.event_time', index=2,
+      name='session_id', full_name='google.cloud.retail.v2alpha.UserEvent.session_id', index=2,
+      number=21, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='event_time', full_name='google.cloud.retail.v2alpha.UserEvent.event_time', index=3,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='experiment_ids', full_name='google.cloud.retail.v2alpha.UserEvent.experiment_ids', index=3,
+      name='experiment_ids', full_name='google.cloud.retail.v2alpha.UserEvent.experiment_ids', index=4,
       number=4, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='attribution_token', full_name='google.cloud.retail.v2alpha.UserEvent.attribution_token', index=4,
+      name='attribution_token', full_name='google.cloud.retail.v2alpha.UserEvent.attribution_token', index=5,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='product_details', full_name='google.cloud.retail.v2alpha.UserEvent.product_details', index=5,
+      name='product_details', full_name='google.cloud.retail.v2alpha.UserEvent.product_details', index=6,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='attributes', full_name='google.cloud.retail.v2alpha.UserEvent.attributes', index=6,
+      name='completion_detail', full_name='google.cloud.retail.v2alpha.UserEvent.completion_detail', index=7,
+      number=22, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='attributes', full_name='google.cloud.retail.v2alpha.UserEvent.attributes', index=8,
       number=7, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='cart_id', full_name='google.cloud.retail.v2alpha.UserEvent.cart_id', index=7,
+      name='cart_id', full_name='google.cloud.retail.v2alpha.UserEvent.cart_id', index=9,
       number=8, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='purchase_transaction', full_name='google.cloud.retail.v2alpha.UserEvent.purchase_transaction', index=8,
+      name='purchase_transaction', full_name='google.cloud.retail.v2alpha.UserEvent.purchase_transaction', index=10,
       number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='search_query', full_name='google.cloud.retail.v2alpha.UserEvent.search_query', index=9,
+      name='search_query', full_name='google.cloud.retail.v2alpha.UserEvent.search_query', index=11,
       number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='page_categories', full_name='google.cloud.retail.v2alpha.UserEvent.page_categories', index=10,
+      name='filter', full_name='google.cloud.retail.v2alpha.UserEvent.filter', index=12,
+      number=16, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='order_by', full_name='google.cloud.retail.v2alpha.UserEvent.order_by', index=13,
+      number=17, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='offset', full_name='google.cloud.retail.v2alpha.UserEvent.offset', index=14,
+      number=18, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_categories', full_name='google.cloud.retail.v2alpha.UserEvent.page_categories', index=15,
       number=11, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='user_info', full_name='google.cloud.retail.v2alpha.UserEvent.user_info', index=11,
+      name='user_info', full_name='google.cloud.retail.v2alpha.UserEvent.user_info', index=16,
       number=12, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='uri', full_name='google.cloud.retail.v2alpha.UserEvent.uri', index=12,
+      name='uri', full_name='google.cloud.retail.v2alpha.UserEvent.uri', index=17,
       number=13, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='referrer_uri', full_name='google.cloud.retail.v2alpha.UserEvent.referrer_uri', index=13,
+      name='referrer_uri', full_name='google.cloud.retail.v2alpha.UserEvent.referrer_uri', index=18,
       number=14, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='page_view_id', full_name='google.cloud.retail.v2alpha.UserEvent.page_view_id', index=14,
+      name='page_view_id', full_name='google.cloud.retail.v2alpha.UserEvent.page_view_id', index=19,
       number=15, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -196,7 +231,7 @@ _USEREVENT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=291,
-  serialized_end=952,
+  serialized_end=1096,
 )
 
 
@@ -234,8 +269,54 @@ _PRODUCTDETAIL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=954,
-  serialized_end=1076,
+  serialized_start=1098,
+  serialized_end=1220,
+)
+
+
+_COMPLETIONDETAIL = _descriptor.Descriptor(
+  name='CompletionDetail',
+  full_name='google.cloud.retail.v2alpha.CompletionDetail',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='completion_attribution_token', full_name='google.cloud.retail.v2alpha.CompletionDetail.completion_attribution_token', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='selected_suggestion', full_name='google.cloud.retail.v2alpha.CompletionDetail.selected_suggestion', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='selected_position', full_name='google.cloud.retail.v2alpha.CompletionDetail.selected_position', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1222,
+  serialized_end=1334,
 )
 
 
@@ -294,14 +375,15 @@ _PURCHASETRANSACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1078,
-  serialized_end=1188,
+  serialized_start=1336,
+  serialized_end=1446,
 )
 
 _USEREVENT_ATTRIBUTESENTRY.fields_by_name['value'].message_type = google_dot_cloud_dot_retail_dot_v2alpha_dot_common__pb2._CUSTOMATTRIBUTE
 _USEREVENT_ATTRIBUTESENTRY.containing_type = _USEREVENT
 _USEREVENT.fields_by_name['event_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _USEREVENT.fields_by_name['product_details'].message_type = _PRODUCTDETAIL
+_USEREVENT.fields_by_name['completion_detail'].message_type = _COMPLETIONDETAIL
 _USEREVENT.fields_by_name['attributes'].message_type = _USEREVENT_ATTRIBUTESENTRY
 _USEREVENT.fields_by_name['purchase_transaction'].message_type = _PURCHASETRANSACTION
 _USEREVENT.fields_by_name['user_info'].message_type = google_dot_cloud_dot_retail_dot_v2alpha_dot_common__pb2._USERINFO
@@ -309,6 +391,7 @@ _PRODUCTDETAIL.fields_by_name['product'].message_type = google_dot_cloud_dot_ret
 _PRODUCTDETAIL.fields_by_name['quantity'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT32VALUE
 DESCRIPTOR.message_types_by_name['UserEvent'] = _USEREVENT
 DESCRIPTOR.message_types_by_name['ProductDetail'] = _PRODUCTDETAIL
+DESCRIPTOR.message_types_by_name['CompletionDetail'] = _COMPLETIONDETAIL
 DESCRIPTOR.message_types_by_name['PurchaseTransaction'] = _PURCHASETRANSACTION
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -333,6 +416,13 @@ ProductDetail = _reflection.GeneratedProtocolMessageType('ProductDetail', (_mess
   # @@protoc_insertion_point(class_scope:google.cloud.retail.v2alpha.ProductDetail)
   })
 _sym_db.RegisterMessage(ProductDetail)
+
+CompletionDetail = _reflection.GeneratedProtocolMessageType('CompletionDetail', (_message.Message,), {
+  'DESCRIPTOR' : _COMPLETIONDETAIL,
+  '__module__' : 'google.cloud.retail.v2alpha.user_event_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.retail.v2alpha.CompletionDetail)
+  })
+_sym_db.RegisterMessage(CompletionDetail)
 
 PurchaseTransaction = _reflection.GeneratedProtocolMessageType('PurchaseTransaction', (_message.Message,), {
   'DESCRIPTOR' : _PURCHASETRANSACTION,

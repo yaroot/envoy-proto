@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.ads.googleads.v8.common import ad_type_infos_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_common_dot_ad__type__infos__pb2
 from google.ads.googleads.v8.common import criteria_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_common_dot_criteria__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
@@ -24,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v8.servicesB SmartCampaignSuggestServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v8/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V8.Services\312\002 Google\\Ads\\GoogleAds\\V8\\Services\352\002$Google::Ads::GoogleAds::V8::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\nEgoogle/ads/googleads/v8/services/smart_campaign_suggest_service.proto\x12 google.ads.googleads.v8.services\x1a-google/ads/googleads/v8/common/criteria.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x17google/api/client.proto\"\xf5\x01\n(SuggestSmartCampaignBudgetOptionsRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12=\n\x08\x63\x61mpaign\x18\x02 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!googleads.googleapis.com/CampaignH\x00\x12]\n\x0fsuggestion_info\x18\x03 \x01(\x0b\x32=.google.ads.googleads.v8.services.SmartCampaignSuggestionInfoB\x03\xe0\x41\x02H\x00\x42\x11\n\x0fsuggestion_data\"\xa5\x04\n\x1bSmartCampaignSuggestionInfo\x12\x16\n\tfinal_url\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12!\n\x14\x62usiness_location_id\x18\x02 \x01(\x03\x42\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12I\n\x0c\x61\x64_schedules\x18\x06 \x03(\x0b\x32..google.ads.googleads.v8.common.AdScheduleInfoB\x03\xe0\x41\x01\x12M\n\x0ekeyword_themes\x18\x07 \x03(\x0b\x32\x30.google.ads.googleads.v8.common.KeywordThemeInfoB\x03\xe0\x41\x01\x12h\n\rlocation_list\x18\x04 \x01(\x0b\x32J.google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.LocationListB\x03\xe0\x41\x01H\x00\x12G\n\tproximity\x18\x05 \x01(\x0b\x32-.google.ads.googleads.v8.common.ProximityInfoB\x03\xe0\x41\x01H\x00\x1aT\n\x0cLocationList\x12\x44\n\tlocations\x18\x01 \x03(\x0b\x32,.google.ads.googleads.v8.common.LocationInfoB\x03\xe0\x41\x02\x42\x0c\n\ngeo_target\"\xfb\x04\n)SuggestSmartCampaignBudgetOptionsResponse\x12o\n\x03low\x18\x01 \x01(\x0b\x32X.google.ads.googleads.v8.services.SuggestSmartCampaignBudgetOptionsResponse.BudgetOptionB\x03\xe0\x41\x01H\x00\x88\x01\x01\x12w\n\x0brecommended\x18\x02 \x01(\x0b\x32X.google.ads.googleads.v8.services.SuggestSmartCampaignBudgetOptionsResponse.BudgetOptionB\x03\xe0\x41\x01H\x01\x88\x01\x01\x12p\n\x04high\x18\x03 \x01(\x0b\x32X.google.ads.googleads.v8.services.SuggestSmartCampaignBudgetOptionsResponse.BudgetOptionB\x03\xe0\x41\x01H\x02\x88\x01\x01\x1a=\n\x07Metrics\x12\x18\n\x10min_daily_clicks\x18\x01 \x01(\x03\x12\x18\n\x10max_daily_clicks\x18\x02 \x01(\x03\x1a\x91\x01\n\x0c\x42udgetOption\x12\x1b\n\x13\x64\x61ily_amount_micros\x18\x01 \x01(\x03\x12\x64\n\x07metrics\x18\x02 \x01(\x0b\x32S.google.ads.googleads.v8.services.SuggestSmartCampaignBudgetOptionsResponse.MetricsB\x06\n\x04_lowB\x0e\n\x0c_recommendedB\x07\n\x05_high2\xef\x02\n\x1bSmartCampaignSuggestService\x12\x88\x02\n!SuggestSmartCampaignBudgetOptions\x12J.google.ads.googleads.v8.services.SuggestSmartCampaignBudgetOptionsRequest\x1aK.google.ads.googleads.v8.services.SuggestSmartCampaignBudgetOptionsResponse\"J\x82\xd3\xe4\x93\x02\x44\"?/v8/customers/{customer_id=*}:suggestSmartCampaignBudgetOptions:\x01*\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x87\x02\n$com.google.ads.googleads.v8.servicesB SmartCampaignSuggestServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v8/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V8.Services\xca\x02 Google\\Ads\\GoogleAds\\V8\\Services\xea\x02$Google::Ads::GoogleAds::V8::Servicesb\x06proto3'
+  serialized_pb=b'\nEgoogle/ads/googleads/v8/services/smart_campaign_suggest_service.proto\x12 google.ads.googleads.v8.services\x1a\x32google/ads/googleads/v8/common/ad_type_infos.proto\x1a-google/ads/googleads/v8/common/criteria.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x17google/api/client.proto\"\xf5\x01\n(SuggestSmartCampaignBudgetOptionsRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12=\n\x08\x63\x61mpaign\x18\x02 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!googleads.googleapis.com/CampaignH\x00\x12]\n\x0fsuggestion_info\x18\x03 \x01(\x0b\x32=.google.ads.googleads.v8.services.SmartCampaignSuggestionInfoB\x03\xe0\x41\x02H\x00\x42\x11\n\x0fsuggestion_data\"\xda\x05\n\x1bSmartCampaignSuggestionInfo\x12\x16\n\tfinal_url\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12I\n\x0c\x61\x64_schedules\x18\x06 \x03(\x0b\x32..google.ads.googleads.v8.common.AdScheduleInfoB\x03\xe0\x41\x01\x12M\n\x0ekeyword_themes\x18\x07 \x03(\x0b\x32\x30.google.ads.googleads.v8.common.KeywordThemeInfoB\x03\xe0\x41\x01\x12n\n\x10\x62usiness_context\x18\x08 \x01(\x0b\x32M.google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.BusinessContextB\x03\xe0\x41\x01H\x00\x12#\n\x14\x62usiness_location_id\x18\x02 \x01(\x03\x42\x03\xe0\x41\x01H\x00\x12h\n\rlocation_list\x18\x04 \x01(\x0b\x32J.google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.LocationListB\x03\xe0\x41\x01H\x01\x12G\n\tproximity\x18\x05 \x01(\x0b\x32-.google.ads.googleads.v8.common.ProximityInfoB\x03\xe0\x41\x01H\x01\x1aT\n\x0cLocationList\x12\x44\n\tlocations\x18\x01 \x03(\x0b\x32,.google.ads.googleads.v8.common.LocationInfoB\x03\xe0\x41\x02\x1a-\n\x0f\x42usinessContext\x12\x1a\n\rbusiness_name\x18\x01 \x01(\tB\x03\xe0\x41\x01\x42\x12\n\x10\x62usiness_settingB\x0c\n\ngeo_target\"\xfb\x04\n)SuggestSmartCampaignBudgetOptionsResponse\x12o\n\x03low\x18\x01 \x01(\x0b\x32X.google.ads.googleads.v8.services.SuggestSmartCampaignBudgetOptionsResponse.BudgetOptionB\x03\xe0\x41\x01H\x00\x88\x01\x01\x12w\n\x0brecommended\x18\x02 \x01(\x0b\x32X.google.ads.googleads.v8.services.SuggestSmartCampaignBudgetOptionsResponse.BudgetOptionB\x03\xe0\x41\x01H\x01\x88\x01\x01\x12p\n\x04high\x18\x03 \x01(\x0b\x32X.google.ads.googleads.v8.services.SuggestSmartCampaignBudgetOptionsResponse.BudgetOptionB\x03\xe0\x41\x01H\x02\x88\x01\x01\x1a=\n\x07Metrics\x12\x18\n\x10min_daily_clicks\x18\x01 \x01(\x03\x12\x18\n\x10max_daily_clicks\x18\x02 \x01(\x03\x1a\x91\x01\n\x0c\x42udgetOption\x12\x1b\n\x13\x64\x61ily_amount_micros\x18\x01 \x01(\x03\x12\x64\n\x07metrics\x18\x02 \x01(\x0b\x32S.google.ads.googleads.v8.services.SuggestSmartCampaignBudgetOptionsResponse.MetricsB\x06\n\x04_lowB\x0e\n\x0c_recommendedB\x07\n\x05_high\"\x96\x01\n\x1dSuggestSmartCampaignAdRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12[\n\x0fsuggestion_info\x18\x02 \x01(\x0b\x32=.google.ads.googleads.v8.services.SmartCampaignSuggestionInfoB\x03\xe0\x41\x02\"k\n\x1eSuggestSmartCampaignAdResponse\x12I\n\x07\x61\x64_info\x18\x01 \x01(\x0b\x32\x33.google.ads.googleads.v8.common.SmartCampaignAdInfoB\x03\xe0\x41\x01\x32\xce\x04\n\x1bSmartCampaignSuggestService\x12\x88\x02\n!SuggestSmartCampaignBudgetOptions\x12J.google.ads.googleads.v8.services.SuggestSmartCampaignBudgetOptionsRequest\x1aK.google.ads.googleads.v8.services.SuggestSmartCampaignBudgetOptionsResponse\"J\x82\xd3\xe4\x93\x02\x44\"?/v8/customers/{customer_id=*}:suggestSmartCampaignBudgetOptions:\x01*\x12\xdc\x01\n\x16SuggestSmartCampaignAd\x12?.google.ads.googleads.v8.services.SuggestSmartCampaignAdRequest\x1a@.google.ads.googleads.v8.services.SuggestSmartCampaignAdResponse\"?\x82\xd3\xe4\x93\x02\x39\"4/v8/customers/{customer_id=*}:suggestSmartCampaignAd:\x01*\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x87\x02\n$com.google.ads.googleads.v8.servicesB SmartCampaignSuggestServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v8/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V8.Services\xca\x02 Google\\Ads\\GoogleAds\\V8\\Services\xea\x02$Google::Ads::GoogleAds::V8::Servicesb\x06proto3'
   ,
-  dependencies=[google_dot_ads_dot_googleads_dot_v8_dot_common_dot_criteria__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_ads_dot_googleads_dot_v8_dot_common_dot_ad__type__infos__pb2.DESCRIPTOR,google_dot_ads_dot_googleads_dot_v8_dot_common_dot_criteria__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,])
 
 
 
@@ -77,8 +78,8 @@ _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=270,
-  serialized_end=515,
+  serialized_start=322,
+  serialized_end=567,
 )
 
 
@@ -109,8 +110,39 @@ _SMARTCAMPAIGNSUGGESTIONINFO_LOCATIONLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=969,
-  serialized_end=1053,
+  serialized_start=1135,
+  serialized_end=1219,
+)
+
+_SMARTCAMPAIGNSUGGESTIONINFO_BUSINESSCONTEXT = _descriptor.Descriptor(
+  name='BusinessContext',
+  full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.BusinessContext',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='business_name', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.BusinessContext.business_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1221,
+  serialized_end=1266,
 )
 
 _SMARTCAMPAIGNSUGGESTIONINFO = _descriptor.Descriptor(
@@ -129,42 +161,49 @@ _SMARTCAMPAIGNSUGGESTIONINFO = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='business_location_id', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.business_location_id', index=1,
-      number=2, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='language_code', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.language_code', index=2,
+      name='language_code', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.language_code', index=1,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ad_schedules', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.ad_schedules', index=3,
+      name='ad_schedules', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.ad_schedules', index=2,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='keyword_themes', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.keyword_themes', index=4,
+      name='keyword_themes', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.keyword_themes', index=3,
       number=7, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='location_list', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.location_list', index=5,
+      name='business_context', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.business_context', index=4,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='business_location_id', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.business_location_id', index=5,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='location_list', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.location_list', index=6,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='proximity', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.proximity', index=6,
+      name='proximity', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.proximity', index=7,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -173,7 +212,7 @@ _SMARTCAMPAIGNSUGGESTIONINFO = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_SMARTCAMPAIGNSUGGESTIONINFO_LOCATIONLIST, ],
+  nested_types=[_SMARTCAMPAIGNSUGGESTIONINFO_LOCATIONLIST, _SMARTCAMPAIGNSUGGESTIONINFO_BUSINESSCONTEXT, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -182,13 +221,18 @@ _SMARTCAMPAIGNSUGGESTIONINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='geo_target', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.geo_target',
+      name='business_setting', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.business_setting',
       index=0, containing_type=None,
       create_key=_descriptor._internal_create_key,
     fields=[]),
+    _descriptor.OneofDescriptor(
+      name='geo_target', full_name='google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.geo_target',
+      index=1, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
   ],
-  serialized_start=518,
-  serialized_end=1067,
+  serialized_start=570,
+  serialized_end=1300,
 )
 
 
@@ -226,8 +270,8 @@ _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE_METRICS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1463,
-  serialized_end=1524,
+  serialized_start=1696,
+  serialized_end=1757,
 )
 
 _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE_BUDGETOPTION = _descriptor.Descriptor(
@@ -264,8 +308,8 @@ _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE_BUDGETOPTION = _descriptor.Descriptor
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1527,
-  serialized_end=1672,
+  serialized_start=1760,
+  serialized_end=1905,
 )
 
 _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE = _descriptor.Descriptor(
@@ -324,8 +368,79 @@ _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1070,
-  serialized_end=1705,
+  serialized_start=1303,
+  serialized_end=1938,
+)
+
+
+_SUGGESTSMARTCAMPAIGNADREQUEST = _descriptor.Descriptor(
+  name='SuggestSmartCampaignAdRequest',
+  full_name='google.ads.googleads.v8.services.SuggestSmartCampaignAdRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='customer_id', full_name='google.ads.googleads.v8.services.SuggestSmartCampaignAdRequest.customer_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='suggestion_info', full_name='google.ads.googleads.v8.services.SuggestSmartCampaignAdRequest.suggestion_info', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1941,
+  serialized_end=2091,
+)
+
+
+_SUGGESTSMARTCAMPAIGNADRESPONSE = _descriptor.Descriptor(
+  name='SuggestSmartCampaignAdResponse',
+  full_name='google.ads.googleads.v8.services.SuggestSmartCampaignAdResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='ad_info', full_name='google.ads.googleads.v8.services.SuggestSmartCampaignAdResponse.ad_info', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2093,
+  serialized_end=2200,
 )
 
 _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSREQUEST.fields_by_name['suggestion_info'].message_type = _SMARTCAMPAIGNSUGGESTIONINFO
@@ -337,10 +452,18 @@ _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSREQUEST.oneofs_by_name['suggestion_data'].fiel
 _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSREQUEST.fields_by_name['suggestion_info'].containing_oneof = _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSREQUEST.oneofs_by_name['suggestion_data']
 _SMARTCAMPAIGNSUGGESTIONINFO_LOCATIONLIST.fields_by_name['locations'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_common_dot_criteria__pb2._LOCATIONINFO
 _SMARTCAMPAIGNSUGGESTIONINFO_LOCATIONLIST.containing_type = _SMARTCAMPAIGNSUGGESTIONINFO
+_SMARTCAMPAIGNSUGGESTIONINFO_BUSINESSCONTEXT.containing_type = _SMARTCAMPAIGNSUGGESTIONINFO
 _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['ad_schedules'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_common_dot_criteria__pb2._ADSCHEDULEINFO
 _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['keyword_themes'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_common_dot_criteria__pb2._KEYWORDTHEMEINFO
+_SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['business_context'].message_type = _SMARTCAMPAIGNSUGGESTIONINFO_BUSINESSCONTEXT
 _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['location_list'].message_type = _SMARTCAMPAIGNSUGGESTIONINFO_LOCATIONLIST
 _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['proximity'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_common_dot_criteria__pb2._PROXIMITYINFO
+_SMARTCAMPAIGNSUGGESTIONINFO.oneofs_by_name['business_setting'].fields.append(
+  _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['business_context'])
+_SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['business_context'].containing_oneof = _SMARTCAMPAIGNSUGGESTIONINFO.oneofs_by_name['business_setting']
+_SMARTCAMPAIGNSUGGESTIONINFO.oneofs_by_name['business_setting'].fields.append(
+  _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['business_location_id'])
+_SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['business_location_id'].containing_oneof = _SMARTCAMPAIGNSUGGESTIONINFO.oneofs_by_name['business_setting']
 _SMARTCAMPAIGNSUGGESTIONINFO.oneofs_by_name['geo_target'].fields.append(
   _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['location_list'])
 _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['location_list'].containing_oneof = _SMARTCAMPAIGNSUGGESTIONINFO.oneofs_by_name['geo_target']
@@ -362,9 +485,13 @@ _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE.fields_by_name['recommended'].contain
 _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE.oneofs_by_name['_high'].fields.append(
   _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE.fields_by_name['high'])
 _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE.fields_by_name['high'].containing_oneof = _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE.oneofs_by_name['_high']
+_SUGGESTSMARTCAMPAIGNADREQUEST.fields_by_name['suggestion_info'].message_type = _SMARTCAMPAIGNSUGGESTIONINFO
+_SUGGESTSMARTCAMPAIGNADRESPONSE.fields_by_name['ad_info'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_common_dot_ad__type__infos__pb2._SMARTCAMPAIGNADINFO
 DESCRIPTOR.message_types_by_name['SuggestSmartCampaignBudgetOptionsRequest'] = _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSREQUEST
 DESCRIPTOR.message_types_by_name['SmartCampaignSuggestionInfo'] = _SMARTCAMPAIGNSUGGESTIONINFO
 DESCRIPTOR.message_types_by_name['SuggestSmartCampaignBudgetOptionsResponse'] = _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE
+DESCRIPTOR.message_types_by_name['SuggestSmartCampaignAdRequest'] = _SUGGESTSMARTCAMPAIGNADREQUEST
+DESCRIPTOR.message_types_by_name['SuggestSmartCampaignAdResponse'] = _SUGGESTSMARTCAMPAIGNADRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SuggestSmartCampaignBudgetOptionsRequest = _reflection.GeneratedProtocolMessageType('SuggestSmartCampaignBudgetOptionsRequest', (_message.Message,), {
@@ -382,12 +509,20 @@ SmartCampaignSuggestionInfo = _reflection.GeneratedProtocolMessageType('SmartCam
     # @@protoc_insertion_point(class_scope:google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.LocationList)
     })
   ,
+
+  'BusinessContext' : _reflection.GeneratedProtocolMessageType('BusinessContext', (_message.Message,), {
+    'DESCRIPTOR' : _SMARTCAMPAIGNSUGGESTIONINFO_BUSINESSCONTEXT,
+    '__module__' : 'google.ads.googleads.v8.services.smart_campaign_suggest_service_pb2'
+    # @@protoc_insertion_point(class_scope:google.ads.googleads.v8.services.SmartCampaignSuggestionInfo.BusinessContext)
+    })
+  ,
   'DESCRIPTOR' : _SMARTCAMPAIGNSUGGESTIONINFO,
   '__module__' : 'google.ads.googleads.v8.services.smart_campaign_suggest_service_pb2'
   # @@protoc_insertion_point(class_scope:google.ads.googleads.v8.services.SmartCampaignSuggestionInfo)
   })
 _sym_db.RegisterMessage(SmartCampaignSuggestionInfo)
 _sym_db.RegisterMessage(SmartCampaignSuggestionInfo.LocationList)
+_sym_db.RegisterMessage(SmartCampaignSuggestionInfo.BusinessContext)
 
 SuggestSmartCampaignBudgetOptionsResponse = _reflection.GeneratedProtocolMessageType('SuggestSmartCampaignBudgetOptionsResponse', (_message.Message,), {
 
@@ -412,22 +547,41 @@ _sym_db.RegisterMessage(SuggestSmartCampaignBudgetOptionsResponse)
 _sym_db.RegisterMessage(SuggestSmartCampaignBudgetOptionsResponse.Metrics)
 _sym_db.RegisterMessage(SuggestSmartCampaignBudgetOptionsResponse.BudgetOption)
 
+SuggestSmartCampaignAdRequest = _reflection.GeneratedProtocolMessageType('SuggestSmartCampaignAdRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SUGGESTSMARTCAMPAIGNADREQUEST,
+  '__module__' : 'google.ads.googleads.v8.services.smart_campaign_suggest_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.ads.googleads.v8.services.SuggestSmartCampaignAdRequest)
+  })
+_sym_db.RegisterMessage(SuggestSmartCampaignAdRequest)
+
+SuggestSmartCampaignAdResponse = _reflection.GeneratedProtocolMessageType('SuggestSmartCampaignAdResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SUGGESTSMARTCAMPAIGNADRESPONSE,
+  '__module__' : 'google.ads.googleads.v8.services.smart_campaign_suggest_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.ads.googleads.v8.services.SuggestSmartCampaignAdResponse)
+  })
+_sym_db.RegisterMessage(SuggestSmartCampaignAdResponse)
+
 
 DESCRIPTOR._options = None
 _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSREQUEST.fields_by_name['customer_id']._options = None
 _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSREQUEST.fields_by_name['campaign']._options = None
 _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSREQUEST.fields_by_name['suggestion_info']._options = None
 _SMARTCAMPAIGNSUGGESTIONINFO_LOCATIONLIST.fields_by_name['locations']._options = None
+_SMARTCAMPAIGNSUGGESTIONINFO_BUSINESSCONTEXT.fields_by_name['business_name']._options = None
 _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['final_url']._options = None
-_SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['business_location_id']._options = None
 _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['language_code']._options = None
 _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['ad_schedules']._options = None
 _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['keyword_themes']._options = None
+_SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['business_context']._options = None
+_SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['business_location_id']._options = None
 _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['location_list']._options = None
 _SMARTCAMPAIGNSUGGESTIONINFO.fields_by_name['proximity']._options = None
 _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE.fields_by_name['low']._options = None
 _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE.fields_by_name['recommended']._options = None
 _SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE.fields_by_name['high']._options = None
+_SUGGESTSMARTCAMPAIGNADREQUEST.fields_by_name['customer_id']._options = None
+_SUGGESTSMARTCAMPAIGNADREQUEST.fields_by_name['suggestion_info']._options = None
+_SUGGESTSMARTCAMPAIGNADRESPONSE.fields_by_name['ad_info']._options = None
 
 _SMARTCAMPAIGNSUGGESTSERVICE = _descriptor.ServiceDescriptor(
   name='SmartCampaignSuggestService',
@@ -436,8 +590,8 @@ _SMARTCAMPAIGNSUGGESTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1708,
-  serialized_end=2075,
+  serialized_start=2203,
+  serialized_end=2793,
   methods=[
   _descriptor.MethodDescriptor(
     name='SuggestSmartCampaignBudgetOptions',
@@ -447,6 +601,16 @@ _SMARTCAMPAIGNSUGGESTSERVICE = _descriptor.ServiceDescriptor(
     input_type=_SUGGESTSMARTCAMPAIGNBUDGETOPTIONSREQUEST,
     output_type=_SUGGESTSMARTCAMPAIGNBUDGETOPTIONSRESPONSE,
     serialized_options=b'\202\323\344\223\002D\"?/v8/customers/{customer_id=*}:suggestSmartCampaignBudgetOptions:\001*',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SuggestSmartCampaignAd',
+    full_name='google.ads.googleads.v8.services.SmartCampaignSuggestService.SuggestSmartCampaignAd',
+    index=1,
+    containing_service=None,
+    input_type=_SUGGESTSMARTCAMPAIGNADREQUEST,
+    output_type=_SUGGESTSMARTCAMPAIGNADRESPONSE,
+    serialized_options=b'\202\323\344\223\0029\"4/v8/customers/{customer_id=*}:suggestSmartCampaignAd:\001*',
     create_key=_descriptor._internal_create_key,
   ),
 ])

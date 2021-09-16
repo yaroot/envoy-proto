@@ -27,7 +27,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.cloud.datastream.v1alpha1B\033CloudDatastreamServiceProtoP\001ZJgoogle.golang.org/genproto/googleapis/cloud/datastream/v1alpha1;datastream\252\002 Google.Cloud.Datastream.V1Alpha1\312\002 Google\\Cloud\\Datastream\\V1alpha1\352\002#Google::Cloud::Datastream::V1alpha1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n1google/cloud/datastream/v1alpha1/datastream.proto\x12 google.cloud.datastream.v1alpha1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a;google/cloud/datastream/v1alpha1/datastream_resources.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb3\x03\n DiscoverConnectionProfileRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12R\n\x12\x63onnection_profile\x18\xc8\x01 \x01(\x0b\x32\x33.google.cloud.datastream.v1alpha1.ConnectionProfileH\x00\x12\"\n\x17\x63onnection_profile_name\x18\xc9\x01 \x01(\tH\x00\x12\x13\n\trecursive\x18\x03 \x01(\x08H\x01\x12\x19\n\x0frecursion_depth\x18\x04 \x01(\x05H\x01\x12\x45\n\x0coracle_rdbms\x18\x64 \x01(\x0b\x32-.google.cloud.datastream.v1alpha1.OracleRdbmsH\x02\x12\x43\n\x0bmysql_rdbms\x18\x65 \x01(\x0b\x32,.google.cloud.datastream.v1alpha1.MysqlRdbmsH\x02\x42\x08\n\x06targetB\x07\n\x05\x64\x65pthB\r\n\x0b\x64\x61ta_object\"\xbe\x01\n!DiscoverConnectionProfileResponse\x12\x45\n\x0coracle_rdbms\x18\x64 \x01(\x0b\x32-.google.cloud.datastream.v1alpha1.OracleRdbmsH\x00\x12\x43\n\x0bmysql_rdbms\x18\x65 \x01(\x0b\x32,.google.cloud.datastream.v1alpha1.MysqlRdbmsH\x00\x42\r\n\x0b\x64\x61ta_object\"w\n\x15\x46\x65tchStaticIpsRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"E\n\x16\x46\x65tchStaticIpsResponse\x12\x12\n\nstatic_ips\x18\x01 \x03(\t\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"K\n\x12\x46\x65tchErrorsRequest\x12\x35\n\x06stream\x18\x01 \x01(\tB%\xfa\x41\"\n datastream.googleapis.com/Stream\"N\n\x13\x46\x65tchErrorsResponse\x12\x37\n\x06\x65rrors\x18\x01 \x03(\x0b\x32\'.google.cloud.datastream.v1alpha1.Error\"\xad\x01\n\x1dListConnectionProfilesRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+datastream.googleapis.com/ConnectionProfile\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x10\n\x08order_by\x18\x05 \x01(\t\"\xa0\x01\n\x1eListConnectionProfilesResponse\x12P\n\x13\x63onnection_profiles\x18\x01 \x03(\x0b\x32\x33.google.cloud.datastream.v1alpha1.ConnectionProfile\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"`\n\x1bGetConnectionProfileRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+datastream.googleapis.com/ConnectionProfile\"\xf8\x01\n\x1e\x43reateConnectionProfileRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+datastream.googleapis.com/ConnectionProfile\x12\"\n\x15\x63onnection_profile_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12T\n\x12\x63onnection_profile\x18\x03 \x01(\x0b\x32\x33.google.cloud.datastream.v1alpha1.ConnectionProfileB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xc5\x01\n\x1eUpdateConnectionProfileRequest\x12\x34\n\x0bupdate_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\x12T\n\x12\x63onnection_profile\x18\x02 \x01(\x0b\x32\x33.google.cloud.datastream.v1alpha1.ConnectionProfileB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"|\n\x1e\x44\x65leteConnectionProfileRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+datastream.googleapis.com/ConnectionProfile\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\x97\x01\n\x12ListStreamsRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\x12 datastream.googleapis.com/Stream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x10\n\x08order_by\x18\x05 \x01(\t\"~\n\x13ListStreamsResponse\x12\x39\n\x07streams\x18\x01 \x03(\x0b\x32(.google.cloud.datastream.v1alpha1.Stream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"J\n\x10GetStreamRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n datastream.googleapis.com/Stream\"\xef\x01\n\x13\x43reateStreamRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n datastream.googleapis.com/Stream\x12\x16\n\tstream_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12=\n\x06stream\x18\x03 \x01(\x0b\x32(.google.cloud.datastream.v1alpha1.StreamB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rvalidate_only\x18\x05 \x01(\x08\x42\x03\xe0\x41\x01\x12\x12\n\x05\x66orce\x18\x06 \x01(\x08\x42\x03\xe0\x41\x01\"\xd3\x01\n\x13UpdateStreamRequest\x12\x34\n\x0bupdate_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\x12=\n\x06stream\x18\x02 \x01(\x0b\x32(.google.cloud.datastream.v1alpha1.StreamB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rvalidate_only\x18\x04 \x01(\x08\x42\x03\xe0\x41\x01\x12\x12\n\x05\x66orce\x18\x05 \x01(\x08\x42\x03\xe0\x41\x01\"f\n\x13\x44\x65leteStreamRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n datastream.googleapis.com/Stream\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\xd4\x02\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1b\n\x0estatus_message\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12#\n\x16requested_cancellation\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\x12R\n\x11validation_result\x18\x08 \x01(\x0b\x32\x32.google.cloud.datastream.v1alpha1.ValidationResultB\x03\xe0\x41\x03\"\xee\x01\n\x1e\x43reatePrivateConnectionRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\"\n\x15private_connection_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12T\n\x12private_connection\x18\x03 \x01(\x0b\x32\x33.google.cloud.datastream.v1alpha1.PrivateConnectionB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xa3\x01\n\x1dListPrivateConnectionsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x10\n\x08order_by\x18\x05 \x01(\t\"\xa0\x01\n\x1eListPrivateConnectionsResponse\x12P\n\x13private_connections\x18\x01 \x03(\x0b\x32\x33.google.cloud.datastream.v1alpha1.PrivateConnection\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\x86\x01\n\x1e\x44\x65letePrivateConnectionRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x12\n\x05\x66orce\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\"V\n\x1bGetPrivateConnectionRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\"\xc6\x01\n\x12\x43reateRouteRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+datastream.googleapis.com/PrivateConnection\x12\x15\n\x08route_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12;\n\x05route\x18\x03 \x01(\x0b\x32\'.google.cloud.datastream.v1alpha1.RouteB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xa1\x01\n\x11ListRoutesRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+datastream.googleapis.com/PrivateConnection\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x10\n\x08order_by\x18\x05 \x01(\t\"{\n\x12ListRoutesResponse\x12\x37\n\x06routes\x18\x01 \x03(\x0b\x32\'.google.cloud.datastream.v1alpha1.Route\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"p\n\x12\x44\x65leteRouteRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+datastream.googleapis.com/PrivateConnection\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"T\n\x0fGetRouteRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+datastream.googleapis.com/PrivateConnection2\x93\'\n\nDatastream\x12\xea\x01\n\x16ListConnectionProfiles\x12?.google.cloud.datastream.v1alpha1.ListConnectionProfilesRequest\x1a@.google.cloud.datastream.v1alpha1.ListConnectionProfilesResponse\"M\x82\xd3\xe4\x93\x02>\x12</v1alpha1/{parent=projects/*/locations/*}/connectionProfiles\xda\x41\x06parent\x12\xd7\x01\n\x14GetConnectionProfile\x12=.google.cloud.datastream.v1alpha1.GetConnectionProfileRequest\x1a\x33.google.cloud.datastream.v1alpha1.ConnectionProfile\"K\x82\xd3\xe4\x93\x02>\x12</v1alpha1/{name=projects/*/locations/*/connectionProfiles/*}\xda\x41\x04name\x12\xb0\x02\n\x17\x43reateConnectionProfile\x12@.google.cloud.datastream.v1alpha1.CreateConnectionProfileRequest\x1a\x1d.google.longrunning.Operation\"\xb3\x01\x82\xd3\xe4\x93\x02R\"</v1alpha1/{parent=projects/*/locations/*}/connectionProfiles:\x12\x63onnection_profile\xda\x41/parent,connection_profile,connection_profile_id\xca\x41&\n\x11\x43onnectionProfile\x12\x11OperationMetadata\x12\xb2\x02\n\x17UpdateConnectionProfile\x12@.google.cloud.datastream.v1alpha1.UpdateConnectionProfileRequest\x1a\x1d.google.longrunning.Operation\"\xb5\x01\x82\xd3\xe4\x93\x02\x65\x32O/v1alpha1/{connection_profile.name=projects/*/locations/*/connectionProfiles/*}:\x12\x63onnection_profile\xda\x41\x1e\x63onnection_profile,update_mask\xca\x41&\n\x11\x43onnectionProfile\x12\x11OperationMetadata\x12\xf4\x01\n\x17\x44\x65leteConnectionProfile\x12@.google.cloud.datastream.v1alpha1.DeleteConnectionProfileRequest\x1a\x1d.google.longrunning.Operation\"x\x82\xd3\xe4\x93\x02>*</v1alpha1/{name=projects/*/locations/*/connectionProfiles/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xff\x01\n\x19\x44iscoverConnectionProfile\x12\x42.google.cloud.datastream.v1alpha1.DiscoverConnectionProfileRequest\x1a\x43.google.cloud.datastream.v1alpha1.DiscoverConnectionProfileResponse\"Y\x82\xd3\xe4\x93\x02J\"E/v1alpha1/{parent=projects/*/locations/*}/connectionProfiles:discover:\x01*\xda\x41\x06parent\x12\xbe\x01\n\x0bListStreams\x12\x34.google.cloud.datastream.v1alpha1.ListStreamsRequest\x1a\x35.google.cloud.datastream.v1alpha1.ListStreamsResponse\"B\x82\xd3\xe4\x93\x02\x33\x12\x31/v1alpha1/{parent=projects/*/locations/*}/streams\xda\x41\x06parent\x12\xab\x01\n\tGetStream\x12\x32.google.cloud.datastream.v1alpha1.GetStreamRequest\x1a(.google.cloud.datastream.v1alpha1.Stream\"@\x82\xd3\xe4\x93\x02\x33\x12\x31/v1alpha1/{name=projects/*/locations/*/streams/*}\xda\x41\x04name\x12\xdf\x01\n\x0c\x43reateStream\x12\x35.google.cloud.datastream.v1alpha1.CreateStreamRequest\x1a\x1d.google.longrunning.Operation\"y\x82\xd3\xe4\x93\x02;\"1/v1alpha1/{parent=projects/*/locations/*}/streams:\x06stream\xda\x41\x17parent,stream,stream_id\xca\x41\x1b\n\x06Stream\x12\x11OperationMetadata\x12\xe1\x01\n\x0cUpdateStream\x12\x35.google.cloud.datastream.v1alpha1.UpdateStreamRequest\x1a\x1d.google.longrunning.Operation\"{\x82\xd3\xe4\x93\x02\x42\x32\x38/v1alpha1/{stream.name=projects/*/locations/*/streams/*}:\x06stream\xda\x41\x12stream,update_mask\xca\x41\x1b\n\x06Stream\x12\x11OperationMetadata\x12\xd3\x01\n\x0c\x44\x65leteStream\x12\x35.google.cloud.datastream.v1alpha1.DeleteStreamRequest\x1a\x1d.google.longrunning.Operation\"m\x82\xd3\xe4\x93\x02\x33*1/v1alpha1/{name=projects/*/locations/*/streams/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xd9\x01\n\x0b\x46\x65tchErrors\x12\x34.google.cloud.datastream.v1alpha1.FetchErrorsRequest\x1a\x1d.google.longrunning.Operation\"u\x82\xd3\xe4\x93\x02\x44\"?/v1alpha1/{stream=projects/*/locations/*/streams/*}:fetchErrors:\x01*\xca\x41(\n\x13\x46\x65tchErrorsResponse\x12\x11OperationMetadata\x12\xca\x01\n\x0e\x46\x65tchStaticIps\x12\x37.google.cloud.datastream.v1alpha1.FetchStaticIpsRequest\x1a\x38.google.cloud.datastream.v1alpha1.FetchStaticIpsResponse\"E\x82\xd3\xe4\x93\x02\x38\x12\x36/v1alpha1/{name=projects/*/locations/*}:fetchStaticIps\xda\x41\x04name\x12\xb0\x02\n\x17\x43reatePrivateConnection\x12@.google.cloud.datastream.v1alpha1.CreatePrivateConnectionRequest\x1a\x1d.google.longrunning.Operation\"\xb3\x01\x82\xd3\xe4\x93\x02R\"</v1alpha1/{parent=projects/*/locations/*}/privateConnections:\x12private_connection\xda\x41/parent,private_connection,private_connection_id\xca\x41&\n\x11PrivateConnection\x12\x11OperationMetadata\x12\xd7\x01\n\x14GetPrivateConnection\x12=.google.cloud.datastream.v1alpha1.GetPrivateConnectionRequest\x1a\x33.google.cloud.datastream.v1alpha1.PrivateConnection\"K\x82\xd3\xe4\x93\x02>\x12</v1alpha1/{name=projects/*/locations/*/privateConnections/*}\xda\x41\x04name\x12\xea\x01\n\x16ListPrivateConnections\x12?.google.cloud.datastream.v1alpha1.ListPrivateConnectionsRequest\x1a@.google.cloud.datastream.v1alpha1.ListPrivateConnectionsResponse\"M\x82\xd3\xe4\x93\x02>\x12</v1alpha1/{parent=projects/*/locations/*}/privateConnections\xda\x41\x06parent\x12\xf4\x01\n\x17\x44\x65letePrivateConnection\x12@.google.cloud.datastream.v1alpha1.DeletePrivateConnectionRequest\x1a\x1d.google.longrunning.Operation\"x\x82\xd3\xe4\x93\x02>*</v1alpha1/{name=projects/*/locations/*/privateConnections/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xee\x01\n\x0b\x43reateRoute\x12\x34.google.cloud.datastream.v1alpha1.CreateRouteRequest\x1a\x1d.google.longrunning.Operation\"\x89\x01\x82\xd3\xe4\x93\x02N\"E/v1alpha1/{parent=projects/*/locations/*/privateConnections/*}/routes:\x05route\xda\x41\x15parent,route,route_id\xca\x41\x1a\n\x05Route\x12\x11OperationMetadata\x12\xbc\x01\n\x08GetRoute\x12\x31.google.cloud.datastream.v1alpha1.GetRouteRequest\x1a\'.google.cloud.datastream.v1alpha1.Route\"T\x82\xd3\xe4\x93\x02G\x12\x45/v1alpha1/{name=projects/*/locations/*/privateConnections/*/routes/*}\xda\x41\x04name\x12\xcf\x01\n\nListRoutes\x12\x33.google.cloud.datastream.v1alpha1.ListRoutesRequest\x1a\x34.google.cloud.datastream.v1alpha1.ListRoutesResponse\"V\x82\xd3\xe4\x93\x02G\x12\x45/v1alpha1/{parent=projects/*/locations/*/privateConnections/*}/routes\xda\x41\x06parent\x12\xe6\x01\n\x0b\x44\x65leteRoute\x12\x34.google.cloud.datastream.v1alpha1.DeleteRouteRequest\x1a\x1d.google.longrunning.Operation\"\x81\x01\x82\xd3\xe4\x93\x02G*E/v1alpha1/{name=projects/*/locations/*/privateConnections/*/routes/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x1aM\xca\x41\x19\x64\x61tastream.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xfd\x01\n$com.google.cloud.datastream.v1alpha1B\x1b\x43loudDatastreamServiceProtoP\x01ZJgoogle.golang.org/genproto/googleapis/cloud/datastream/v1alpha1;datastream\xaa\x02 Google.Cloud.Datastream.V1Alpha1\xca\x02 Google\\Cloud\\Datastream\\V1alpha1\xea\x02#Google::Cloud::Datastream::V1alpha1b\x06proto3'
+  serialized_pb=b'\n1google/cloud/datastream/v1alpha1/datastream.proto\x12 google.cloud.datastream.v1alpha1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a;google/cloud/datastream/v1alpha1/datastream_resources.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbd\x03\n DiscoverConnectionProfileRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+datastream.googleapis.com/ConnectionProfile\x12R\n\x12\x63onnection_profile\x18\xc8\x01 \x01(\x0b\x32\x33.google.cloud.datastream.v1alpha1.ConnectionProfileH\x00\x12\"\n\x17\x63onnection_profile_name\x18\xc9\x01 \x01(\tH\x00\x12\x13\n\trecursive\x18\x03 \x01(\x08H\x01\x12\x19\n\x0frecursion_depth\x18\x04 \x01(\x05H\x01\x12\x45\n\x0coracle_rdbms\x18\x64 \x01(\x0b\x32-.google.cloud.datastream.v1alpha1.OracleRdbmsH\x02\x12\x43\n\x0bmysql_rdbms\x18\x65 \x01(\x0b\x32,.google.cloud.datastream.v1alpha1.MysqlRdbmsH\x02\x42\x08\n\x06targetB\x07\n\x05\x64\x65pthB\r\n\x0b\x64\x61ta_object\"\xbe\x01\n!DiscoverConnectionProfileResponse\x12\x45\n\x0coracle_rdbms\x18\x64 \x01(\x0b\x32-.google.cloud.datastream.v1alpha1.OracleRdbmsH\x00\x12\x43\n\x0bmysql_rdbms\x18\x65 \x01(\x0b\x32,.google.cloud.datastream.v1alpha1.MysqlRdbmsH\x00\x42\r\n\x0b\x64\x61ta_object\"w\n\x15\x46\x65tchStaticIpsRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"E\n\x16\x46\x65tchStaticIpsResponse\x12\x12\n\nstatic_ips\x18\x01 \x03(\t\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"K\n\x12\x46\x65tchErrorsRequest\x12\x35\n\x06stream\x18\x01 \x01(\tB%\xfa\x41\"\n datastream.googleapis.com/Stream\"N\n\x13\x46\x65tchErrorsResponse\x12\x37\n\x06\x65rrors\x18\x01 \x03(\x0b\x32\'.google.cloud.datastream.v1alpha1.Error\"\xad\x01\n\x1dListConnectionProfilesRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+datastream.googleapis.com/ConnectionProfile\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x10\n\x08order_by\x18\x05 \x01(\t\"\xa0\x01\n\x1eListConnectionProfilesResponse\x12P\n\x13\x63onnection_profiles\x18\x01 \x03(\x0b\x32\x33.google.cloud.datastream.v1alpha1.ConnectionProfile\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"`\n\x1bGetConnectionProfileRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+datastream.googleapis.com/ConnectionProfile\"\xf8\x01\n\x1e\x43reateConnectionProfileRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+datastream.googleapis.com/ConnectionProfile\x12\"\n\x15\x63onnection_profile_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12T\n\x12\x63onnection_profile\x18\x03 \x01(\x0b\x32\x33.google.cloud.datastream.v1alpha1.ConnectionProfileB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xc5\x01\n\x1eUpdateConnectionProfileRequest\x12\x34\n\x0bupdate_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\x12T\n\x12\x63onnection_profile\x18\x02 \x01(\x0b\x32\x33.google.cloud.datastream.v1alpha1.ConnectionProfileB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"|\n\x1e\x44\x65leteConnectionProfileRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+datastream.googleapis.com/ConnectionProfile\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\x97\x01\n\x12ListStreamsRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\x12 datastream.googleapis.com/Stream\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x10\n\x08order_by\x18\x05 \x01(\t\"~\n\x13ListStreamsResponse\x12\x39\n\x07streams\x18\x01 \x03(\x0b\x32(.google.cloud.datastream.v1alpha1.Stream\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"J\n\x10GetStreamRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n datastream.googleapis.com/Stream\"\xef\x01\n\x13\x43reateStreamRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\x12 datastream.googleapis.com/Stream\x12\x16\n\tstream_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12=\n\x06stream\x18\x03 \x01(\x0b\x32(.google.cloud.datastream.v1alpha1.StreamB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rvalidate_only\x18\x05 \x01(\x08\x42\x03\xe0\x41\x01\x12\x12\n\x05\x66orce\x18\x06 \x01(\x08\x42\x03\xe0\x41\x01\"\xd3\x01\n\x13UpdateStreamRequest\x12\x34\n\x0bupdate_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\x12=\n\x06stream\x18\x02 \x01(\x0b\x32(.google.cloud.datastream.v1alpha1.StreamB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rvalidate_only\x18\x04 \x01(\x08\x42\x03\xe0\x41\x01\x12\x12\n\x05\x66orce\x18\x05 \x01(\x08\x42\x03\xe0\x41\x01\"f\n\x13\x44\x65leteStreamRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n datastream.googleapis.com/Stream\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"\xd4\x02\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1b\n\x0estatus_message\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12#\n\x16requested_cancellation\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\x12R\n\x11validation_result\x18\x08 \x01(\x0b\x32\x32.google.cloud.datastream.v1alpha1.ValidationResultB\x03\xe0\x41\x03\"\xf8\x01\n\x1e\x43reatePrivateConnectionRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+datastream.googleapis.com/PrivateConnection\x12\"\n\x15private_connection_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12T\n\x12private_connection\x18\x03 \x01(\x0b\x32\x33.google.cloud.datastream.v1alpha1.PrivateConnectionB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xad\x01\n\x1dListPrivateConnectionsRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\x12+datastream.googleapis.com/PrivateConnection\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x10\n\x08order_by\x18\x05 \x01(\t\"\xa0\x01\n\x1eListPrivateConnectionsResponse\x12P\n\x13private_connections\x18\x01 \x03(\x0b\x32\x33.google.cloud.datastream.v1alpha1.PrivateConnection\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\x90\x01\n\x1e\x44\x65letePrivateConnectionRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+datastream.googleapis.com/PrivateConnection\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x12\n\x05\x66orce\x18\x03 \x01(\x08\x42\x03\xe0\x41\x01\"`\n\x1bGetPrivateConnectionRequest\x12\x41\n\x04name\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+datastream.googleapis.com/PrivateConnection\"\xba\x01\n\x12\x43reateRouteRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1f\x64\x61tastream.googleapis.com/Route\x12\x15\n\x08route_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12;\n\x05route\x18\x03 \x01(\x0b\x32\'.google.cloud.datastream.v1alpha1.RouteB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\x95\x01\n\x11ListRoutesRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1f\x64\x61tastream.googleapis.com/Route\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x10\n\x08order_by\x18\x05 \x01(\t\"{\n\x12ListRoutesResponse\x12\x37\n\x06routes\x18\x01 \x03(\x0b\x32\'.google.cloud.datastream.v1alpha1.Route\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"d\n\x12\x44\x65leteRouteRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x64\x61tastream.googleapis.com/Route\x12\x17\n\nrequest_id\x18\x02 \x01(\tB\x03\xe0\x41\x01\"H\n\x0fGetRouteRequest\x12\x35\n\x04name\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x64\x61tastream.googleapis.com/Route2\x8a\'\n\nDatastream\x12\xea\x01\n\x16ListConnectionProfiles\x12?.google.cloud.datastream.v1alpha1.ListConnectionProfilesRequest\x1a@.google.cloud.datastream.v1alpha1.ListConnectionProfilesResponse\"M\x82\xd3\xe4\x93\x02>\x12</v1alpha1/{parent=projects/*/locations/*}/connectionProfiles\xda\x41\x06parent\x12\xd7\x01\n\x14GetConnectionProfile\x12=.google.cloud.datastream.v1alpha1.GetConnectionProfileRequest\x1a\x33.google.cloud.datastream.v1alpha1.ConnectionProfile\"K\x82\xd3\xe4\x93\x02>\x12</v1alpha1/{name=projects/*/locations/*/connectionProfiles/*}\xda\x41\x04name\x12\xb0\x02\n\x17\x43reateConnectionProfile\x12@.google.cloud.datastream.v1alpha1.CreateConnectionProfileRequest\x1a\x1d.google.longrunning.Operation\"\xb3\x01\x82\xd3\xe4\x93\x02R\"</v1alpha1/{parent=projects/*/locations/*}/connectionProfiles:\x12\x63onnection_profile\xda\x41/parent,connection_profile,connection_profile_id\xca\x41&\n\x11\x43onnectionProfile\x12\x11OperationMetadata\x12\xb2\x02\n\x17UpdateConnectionProfile\x12@.google.cloud.datastream.v1alpha1.UpdateConnectionProfileRequest\x1a\x1d.google.longrunning.Operation\"\xb5\x01\x82\xd3\xe4\x93\x02\x65\x32O/v1alpha1/{connection_profile.name=projects/*/locations/*/connectionProfiles/*}:\x12\x63onnection_profile\xda\x41\x1e\x63onnection_profile,update_mask\xca\x41&\n\x11\x43onnectionProfile\x12\x11OperationMetadata\x12\xf4\x01\n\x17\x44\x65leteConnectionProfile\x12@.google.cloud.datastream.v1alpha1.DeleteConnectionProfileRequest\x1a\x1d.google.longrunning.Operation\"x\x82\xd3\xe4\x93\x02>*</v1alpha1/{name=projects/*/locations/*/connectionProfiles/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xf6\x01\n\x19\x44iscoverConnectionProfile\x12\x42.google.cloud.datastream.v1alpha1.DiscoverConnectionProfileRequest\x1a\x43.google.cloud.datastream.v1alpha1.DiscoverConnectionProfileResponse\"P\x82\xd3\xe4\x93\x02J\"E/v1alpha1/{parent=projects/*/locations/*}/connectionProfiles:discover:\x01*\x12\xbe\x01\n\x0bListStreams\x12\x34.google.cloud.datastream.v1alpha1.ListStreamsRequest\x1a\x35.google.cloud.datastream.v1alpha1.ListStreamsResponse\"B\x82\xd3\xe4\x93\x02\x33\x12\x31/v1alpha1/{parent=projects/*/locations/*}/streams\xda\x41\x06parent\x12\xab\x01\n\tGetStream\x12\x32.google.cloud.datastream.v1alpha1.GetStreamRequest\x1a(.google.cloud.datastream.v1alpha1.Stream\"@\x82\xd3\xe4\x93\x02\x33\x12\x31/v1alpha1/{name=projects/*/locations/*/streams/*}\xda\x41\x04name\x12\xdf\x01\n\x0c\x43reateStream\x12\x35.google.cloud.datastream.v1alpha1.CreateStreamRequest\x1a\x1d.google.longrunning.Operation\"y\x82\xd3\xe4\x93\x02;\"1/v1alpha1/{parent=projects/*/locations/*}/streams:\x06stream\xda\x41\x17parent,stream,stream_id\xca\x41\x1b\n\x06Stream\x12\x11OperationMetadata\x12\xe1\x01\n\x0cUpdateStream\x12\x35.google.cloud.datastream.v1alpha1.UpdateStreamRequest\x1a\x1d.google.longrunning.Operation\"{\x82\xd3\xe4\x93\x02\x42\x32\x38/v1alpha1/{stream.name=projects/*/locations/*/streams/*}:\x06stream\xda\x41\x12stream,update_mask\xca\x41\x1b\n\x06Stream\x12\x11OperationMetadata\x12\xd3\x01\n\x0c\x44\x65leteStream\x12\x35.google.cloud.datastream.v1alpha1.DeleteStreamRequest\x1a\x1d.google.longrunning.Operation\"m\x82\xd3\xe4\x93\x02\x33*1/v1alpha1/{name=projects/*/locations/*/streams/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xd9\x01\n\x0b\x46\x65tchErrors\x12\x34.google.cloud.datastream.v1alpha1.FetchErrorsRequest\x1a\x1d.google.longrunning.Operation\"u\x82\xd3\xe4\x93\x02\x44\"?/v1alpha1/{stream=projects/*/locations/*/streams/*}:fetchErrors:\x01*\xca\x41(\n\x13\x46\x65tchErrorsResponse\x12\x11OperationMetadata\x12\xca\x01\n\x0e\x46\x65tchStaticIps\x12\x37.google.cloud.datastream.v1alpha1.FetchStaticIpsRequest\x1a\x38.google.cloud.datastream.v1alpha1.FetchStaticIpsResponse\"E\x82\xd3\xe4\x93\x02\x38\x12\x36/v1alpha1/{name=projects/*/locations/*}:fetchStaticIps\xda\x41\x04name\x12\xb0\x02\n\x17\x43reatePrivateConnection\x12@.google.cloud.datastream.v1alpha1.CreatePrivateConnectionRequest\x1a\x1d.google.longrunning.Operation\"\xb3\x01\x82\xd3\xe4\x93\x02R\"</v1alpha1/{parent=projects/*/locations/*}/privateConnections:\x12private_connection\xda\x41/parent,private_connection,private_connection_id\xca\x41&\n\x11PrivateConnection\x12\x11OperationMetadata\x12\xd7\x01\n\x14GetPrivateConnection\x12=.google.cloud.datastream.v1alpha1.GetPrivateConnectionRequest\x1a\x33.google.cloud.datastream.v1alpha1.PrivateConnection\"K\x82\xd3\xe4\x93\x02>\x12</v1alpha1/{name=projects/*/locations/*/privateConnections/*}\xda\x41\x04name\x12\xea\x01\n\x16ListPrivateConnections\x12?.google.cloud.datastream.v1alpha1.ListPrivateConnectionsRequest\x1a@.google.cloud.datastream.v1alpha1.ListPrivateConnectionsResponse\"M\x82\xd3\xe4\x93\x02>\x12</v1alpha1/{parent=projects/*/locations/*}/privateConnections\xda\x41\x06parent\x12\xf4\x01\n\x17\x44\x65letePrivateConnection\x12@.google.cloud.datastream.v1alpha1.DeletePrivateConnectionRequest\x1a\x1d.google.longrunning.Operation\"x\x82\xd3\xe4\x93\x02>*</v1alpha1/{name=projects/*/locations/*/privateConnections/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xee\x01\n\x0b\x43reateRoute\x12\x34.google.cloud.datastream.v1alpha1.CreateRouteRequest\x1a\x1d.google.longrunning.Operation\"\x89\x01\x82\xd3\xe4\x93\x02N\"E/v1alpha1/{parent=projects/*/locations/*/privateConnections/*}/routes:\x05route\xda\x41\x15parent,route,route_id\xca\x41\x1a\n\x05Route\x12\x11OperationMetadata\x12\xbc\x01\n\x08GetRoute\x12\x31.google.cloud.datastream.v1alpha1.GetRouteRequest\x1a\'.google.cloud.datastream.v1alpha1.Route\"T\x82\xd3\xe4\x93\x02G\x12\x45/v1alpha1/{name=projects/*/locations/*/privateConnections/*/routes/*}\xda\x41\x04name\x12\xcf\x01\n\nListRoutes\x12\x33.google.cloud.datastream.v1alpha1.ListRoutesRequest\x1a\x34.google.cloud.datastream.v1alpha1.ListRoutesResponse\"V\x82\xd3\xe4\x93\x02G\x12\x45/v1alpha1/{parent=projects/*/locations/*/privateConnections/*}/routes\xda\x41\x06parent\x12\xe6\x01\n\x0b\x44\x65leteRoute\x12\x34.google.cloud.datastream.v1alpha1.DeleteRouteRequest\x1a\x1d.google.longrunning.Operation\"\x81\x01\x82\xd3\xe4\x93\x02G*E/v1alpha1/{name=projects/*/locations/*/privateConnections/*/routes/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x1aM\xca\x41\x19\x64\x61tastream.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xfd\x01\n$com.google.cloud.datastream.v1alpha1B\x1b\x43loudDatastreamServiceProtoP\x01ZJgoogle.golang.org/genproto/googleapis/cloud/datastream/v1alpha1;datastream\xaa\x02 Google.Cloud.Datastream.V1Alpha1\xca\x02 Google\\Cloud\\Datastream\\V1alpha1\xea\x02#Google::Cloud::Datastream::V1alpha1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_datastream_dot_v1alpha1_dot_datastream__resources__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -48,7 +48,7 @@ _DISCOVERCONNECTIONPROFILEREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A-\022+datastream.googleapis.com/ConnectionProfile', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='connection_profile', full_name='google.cloud.datastream.v1alpha1.DiscoverConnectionProfileRequest.connection_profile', index=1,
       number=200, type=11, cpp_type=10, label=1,
@@ -119,7 +119,7 @@ _DISCOVERCONNECTIONPROFILEREQUEST = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=368,
-  serialized_end=803,
+  serialized_end=813,
 )
 
 
@@ -162,8 +162,8 @@ _DISCOVERCONNECTIONPROFILERESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=806,
-  serialized_end=996,
+  serialized_start=816,
+  serialized_end=1006,
 )
 
 
@@ -208,8 +208,8 @@ _FETCHSTATICIPSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=998,
-  serialized_end=1117,
+  serialized_start=1008,
+  serialized_end=1127,
 )
 
 
@@ -247,8 +247,8 @@ _FETCHSTATICIPSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1119,
-  serialized_end=1188,
+  serialized_start=1129,
+  serialized_end=1198,
 )
 
 
@@ -279,8 +279,8 @@ _FETCHERRORSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1190,
-  serialized_end=1265,
+  serialized_start=1200,
+  serialized_end=1275,
 )
 
 
@@ -311,8 +311,8 @@ _FETCHERRORSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1267,
-  serialized_end=1345,
+  serialized_start=1277,
+  serialized_end=1355,
 )
 
 
@@ -371,8 +371,8 @@ _LISTCONNECTIONPROFILESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1348,
-  serialized_end=1521,
+  serialized_start=1358,
+  serialized_end=1531,
 )
 
 
@@ -417,8 +417,8 @@ _LISTCONNECTIONPROFILESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1524,
-  serialized_end=1684,
+  serialized_start=1534,
+  serialized_end=1694,
 )
 
 
@@ -449,8 +449,8 @@ _GETCONNECTIONPROFILEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1686,
-  serialized_end=1782,
+  serialized_start=1696,
+  serialized_end=1792,
 )
 
 
@@ -468,7 +468,7 @@ _CREATECONNECTIONPROFILEREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A-\n+datastream.googleapis.com/ConnectionProfile', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A-\022+datastream.googleapis.com/ConnectionProfile', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='connection_profile_id', full_name='google.cloud.datastream.v1alpha1.CreateConnectionProfileRequest.connection_profile_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
@@ -502,8 +502,8 @@ _CREATECONNECTIONPROFILEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1785,
-  serialized_end=2033,
+  serialized_start=1795,
+  serialized_end=2043,
 )
 
 
@@ -548,8 +548,8 @@ _UPDATECONNECTIONPROFILEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2036,
-  serialized_end=2233,
+  serialized_start=2046,
+  serialized_end=2243,
 )
 
 
@@ -587,8 +587,8 @@ _DELETECONNECTIONPROFILEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2235,
-  serialized_end=2359,
+  serialized_start=2245,
+  serialized_end=2369,
 )
 
 
@@ -647,8 +647,8 @@ _LISTSTREAMSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2362,
-  serialized_end=2513,
+  serialized_start=2372,
+  serialized_end=2523,
 )
 
 
@@ -693,8 +693,8 @@ _LISTSTREAMSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2515,
-  serialized_end=2641,
+  serialized_start=2525,
+  serialized_end=2651,
 )
 
 
@@ -725,8 +725,8 @@ _GETSTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2643,
-  serialized_end=2717,
+  serialized_start=2653,
+  serialized_end=2727,
 )
 
 
@@ -744,7 +744,7 @@ _CREATESTREAMREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A\"\n datastream.googleapis.com/Stream', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A\"\022 datastream.googleapis.com/Stream', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='stream_id', full_name='google.cloud.datastream.v1alpha1.CreateStreamRequest.stream_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
@@ -792,8 +792,8 @@ _CREATESTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2720,
-  serialized_end=2959,
+  serialized_start=2730,
+  serialized_end=2969,
 )
 
 
@@ -852,8 +852,8 @@ _UPDATESTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2962,
-  serialized_end=3173,
+  serialized_start=2972,
+  serialized_end=3183,
 )
 
 
@@ -891,8 +891,8 @@ _DELETESTREAMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3175,
-  serialized_end=3277,
+  serialized_start=3185,
+  serialized_end=3287,
 )
 
 
@@ -972,8 +972,8 @@ _OPERATIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3280,
-  serialized_end=3620,
+  serialized_start=3290,
+  serialized_end=3630,
 )
 
 
@@ -991,7 +991,7 @@ _CREATEPRIVATECONNECTIONREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A-\022+datastream.googleapis.com/PrivateConnection', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='private_connection_id', full_name='google.cloud.datastream.v1alpha1.CreatePrivateConnectionRequest.private_connection_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
@@ -1025,8 +1025,8 @@ _CREATEPRIVATECONNECTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3623,
-  serialized_end=3861,
+  serialized_start=3633,
+  serialized_end=3881,
 )
 
 
@@ -1044,7 +1044,7 @@ _LISTPRIVATECONNECTIONSREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A-\022+datastream.googleapis.com/PrivateConnection', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='page_size', full_name='google.cloud.datastream.v1alpha1.ListPrivateConnectionsRequest.page_size', index=1,
       number=2, type=5, cpp_type=1, label=1,
@@ -1085,8 +1085,8 @@ _LISTPRIVATECONNECTIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3864,
-  serialized_end=4027,
+  serialized_start=3884,
+  serialized_end=4057,
 )
 
 
@@ -1131,8 +1131,8 @@ _LISTPRIVATECONNECTIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4030,
-  serialized_end=4190,
+  serialized_start=4060,
+  serialized_end=4220,
 )
 
 
@@ -1150,7 +1150,7 @@ _DELETEPRIVATECONNECTIONREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A-\n+datastream.googleapis.com/PrivateConnection', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='request_id', full_name='google.cloud.datastream.v1alpha1.DeletePrivateConnectionRequest.request_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
@@ -1177,8 +1177,8 @@ _DELETEPRIVATECONNECTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4193,
-  serialized_end=4327,
+  serialized_start=4223,
+  serialized_end=4367,
 )
 
 
@@ -1196,7 +1196,7 @@ _GETPRIVATECONNECTIONREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A-\n+datastream.googleapis.com/PrivateConnection', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1209,8 +1209,8 @@ _GETPRIVATECONNECTIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4329,
-  serialized_end=4415,
+  serialized_start=4369,
+  serialized_end=4465,
 )
 
 
@@ -1228,7 +1228,7 @@ _CREATEROUTEREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A-\n+datastream.googleapis.com/PrivateConnection', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A!\022\037datastream.googleapis.com/Route', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='route_id', full_name='google.cloud.datastream.v1alpha1.CreateRouteRequest.route_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
@@ -1262,8 +1262,8 @@ _CREATEROUTEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4418,
-  serialized_end=4616,
+  serialized_start=4468,
+  serialized_end=4654,
 )
 
 
@@ -1281,7 +1281,7 @@ _LISTROUTESREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A-\n+datastream.googleapis.com/PrivateConnection', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A!\022\037datastream.googleapis.com/Route', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='page_size', full_name='google.cloud.datastream.v1alpha1.ListRoutesRequest.page_size', index=1,
       number=2, type=5, cpp_type=1, label=1,
@@ -1322,8 +1322,8 @@ _LISTROUTESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4619,
-  serialized_end=4780,
+  serialized_start=4657,
+  serialized_end=4806,
 )
 
 
@@ -1368,8 +1368,8 @@ _LISTROUTESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4782,
-  serialized_end=4905,
+  serialized_start=4808,
+  serialized_end=4931,
 )
 
 
@@ -1387,7 +1387,7 @@ _DELETEROUTEREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A-\n+datastream.googleapis.com/PrivateConnection', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A!\n\037datastream.googleapis.com/Route', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='request_id', full_name='google.cloud.datastream.v1alpha1.DeleteRouteRequest.request_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
@@ -1407,8 +1407,8 @@ _DELETEROUTEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4907,
-  serialized_end=5019,
+  serialized_start=4933,
+  serialized_end=5033,
 )
 
 
@@ -1426,7 +1426,7 @@ _GETROUTEREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=b'\340A\002\372A-\n+datastream.googleapis.com/PrivateConnection', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002\372A!\n\037datastream.googleapis.com/Route', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1439,8 +1439,8 @@ _GETROUTEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5021,
-  serialized_end=5105,
+  serialized_start=5035,
+  serialized_end=5107,
 )
 
 _DISCOVERCONNECTIONPROFILEREQUEST.fields_by_name['connection_profile'].message_type = google_dot_cloud_dot_datastream_dot_v1alpha1_dot_datastream__resources__pb2._CONNECTIONPROFILE
@@ -1786,8 +1786,8 @@ _DATASTREAM = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031datastream.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=5108,
-  serialized_end=10119,
+  serialized_start=5110,
+  serialized_end=10112,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListConnectionProfiles',
@@ -1846,7 +1846,7 @@ _DATASTREAM = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_DISCOVERCONNECTIONPROFILEREQUEST,
     output_type=_DISCOVERCONNECTIONPROFILERESPONSE,
-    serialized_options=b'\202\323\344\223\002J\"E/v1alpha1/{parent=projects/*/locations/*}/connectionProfiles:discover:\001*\332A\006parent',
+    serialized_options=b'\202\323\344\223\002J\"E/v1alpha1/{parent=projects/*/locations/*}/connectionProfiles:discover:\001*',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(

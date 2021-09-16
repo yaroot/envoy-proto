@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 from envoy.config.core.v3 import base_pb2 as envoy_dot_config_dot_core_dot_v3_dot_base__pb2
 from envoy.config.core.v3 import config_source_pb2 as envoy_dot_config_dot_core_dot_v3_dot_config__source__pb2
+from envoy.config.core.v3 import extension_pb2 as envoy_dot_config_dot_core_dot_v3_dot_extension__pb2
 from envoy.config.route.v3 import route_components_pb2 as envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
@@ -26,9 +27,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n#io.envoyproxy.envoy.config.route.v3B\nRouteProtoP\001\272\200\310\321\006\002\020\002',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n!envoy/config/route/v3/route.proto\x12\x15\x65nvoy.config.route.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a(envoy/config/core/v3/config_source.proto\x1a,envoy/config/route/v3/route_components.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xa4\x05\n\x12RouteConfiguration\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x39\n\rvirtual_hosts\x18\x02 \x03(\x0b\x32\".envoy.config.route.v3.VirtualHost\x12)\n\x04vhds\x18\t \x01(\x0b\x32\x1b.envoy.config.route.v3.Vhds\x12/\n\x15internal_only_headers\x18\x03 \x03(\tB\x10\xfa\x42\r\x92\x01\n\"\x08r\x06\xc0\x01\x01\xc8\x01\x00\x12S\n\x17response_headers_to_add\x18\x04 \x03(\x0b\x32\'.envoy.config.core.v3.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x34\n\x1aresponse_headers_to_remove\x18\x05 \x03(\tB\x10\xfa\x42\r\x92\x01\n\"\x08r\x06\xc0\x01\x01\xc8\x01\x00\x12R\n\x16request_headers_to_add\x18\x06 \x03(\x0b\x32\'.envoy.config.core.v3.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x33\n\x19request_headers_to_remove\x18\x08 \x03(\tB\x10\xfa\x42\r\x92\x01\n\"\x08r\x06\xc0\x01\x01\xc8\x01\x00\x12+\n#most_specific_header_mutations_wins\x18\n \x01(\x08\x12\x35\n\x11validate_clusters\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12I\n#max_direct_response_body_size_bytes\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.UInt32Value:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.api.v2.RouteConfiguration\"e\n\x04Vhds\x12\x43\n\rconfig_source\x18\x01 \x01(\x0b\x32\".envoy.config.core.v3.ConfigSourceB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:\x18\x9a\xc5\x88\x1e\x13\n\x11\x65nvoy.api.v2.VhdsB;\n#io.envoyproxy.envoy.config.route.v3B\nRouteProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
+  serialized_pb=b'\n!envoy/config/route/v3/route.proto\x12\x15\x65nvoy.config.route.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a(envoy/config/core/v3/config_source.proto\x1a$envoy/config/core/v3/extension.proto\x1a,envoy/config/route/v3/route_components.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\xf6\x05\n\x12RouteConfiguration\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x39\n\rvirtual_hosts\x18\x02 \x03(\x0b\x32\".envoy.config.route.v3.VirtualHost\x12)\n\x04vhds\x18\t \x01(\x0b\x32\x1b.envoy.config.route.v3.Vhds\x12/\n\x15internal_only_headers\x18\x03 \x03(\tB\x10\xfa\x42\r\x92\x01\n\"\x08r\x06\xc0\x01\x01\xc8\x01\x00\x12S\n\x17response_headers_to_add\x18\x04 \x03(\x0b\x32\'.envoy.config.core.v3.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x34\n\x1aresponse_headers_to_remove\x18\x05 \x03(\tB\x10\xfa\x42\r\x92\x01\n\"\x08r\x06\xc0\x01\x01\xc8\x01\x00\x12R\n\x16request_headers_to_add\x18\x06 \x03(\x0b\x32\'.envoy.config.core.v3.HeaderValueOptionB\t\xfa\x42\x06\x92\x01\x03\x10\xe8\x07\x12\x33\n\x19request_headers_to_remove\x18\x08 \x03(\tB\x10\xfa\x42\r\x92\x01\n\"\x08r\x06\xc0\x01\x01\xc8\x01\x00\x12+\n#most_specific_header_mutations_wins\x18\n \x01(\x08\x12\x35\n\x11validate_clusters\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12I\n#max_direct_response_body_size_bytes\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.UInt32Value\x12P\n\x19\x63luster_specifier_plugins\x18\x0c \x03(\x0b\x32-.envoy.config.route.v3.ClusterSpecifierPlugin:&\x9a\xc5\x88\x1e!\n\x1f\x65nvoy.api.v2.RouteConfiguration\"W\n\x16\x43lusterSpecifierPlugin\x12=\n\textension\x18\x01 \x01(\x0b\x32*.envoy.config.core.v3.TypedExtensionConfig\"e\n\x04Vhds\x12\x43\n\rconfig_source\x18\x01 \x01(\x0b\x32\".envoy.config.core.v3.ConfigSourceB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01:\x18\x9a\xc5\x88\x1e\x13\n\x11\x65nvoy.api.v2.VhdsB;\n#io.envoyproxy.envoy.config.route.v3B\nRouteProtoP\x01\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3'
   ,
-  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_config__source__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
+  dependencies=[envoy_dot_config_dot_core_dot_v3_dot_base__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_config__source__pb2.DESCRIPTOR,envoy_dot_config_dot_core_dot_v3_dot_extension__pb2.DESCRIPTOR,envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,udpa_dot_annotations_dot_status__pb2.DESCRIPTOR,udpa_dot_annotations_dot_versioning__pb2.DESCRIPTOR,validate_dot_validate__pb2.DESCRIPTOR,])
 
 
 
@@ -118,6 +119,13 @@ _ROUTECONFIGURATION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cluster_specifier_plugins', full_name='envoy.config.route.v3.RouteConfiguration.cluster_specifier_plugins', index=11,
+      number=12, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -130,8 +138,40 @@ _ROUTECONFIGURATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=305,
-  serialized_end=981,
+  serialized_start=343,
+  serialized_end=1101,
+)
+
+
+_CLUSTERSPECIFIERPLUGIN = _descriptor.Descriptor(
+  name='ClusterSpecifierPlugin',
+  full_name='envoy.config.route.v3.ClusterSpecifierPlugin',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='extension', full_name='envoy.config.route.v3.ClusterSpecifierPlugin.extension', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1103,
+  serialized_end=1190,
 )
 
 
@@ -162,8 +202,8 @@ _VHDS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=983,
-  serialized_end=1084,
+  serialized_start=1192,
+  serialized_end=1293,
 )
 
 _ROUTECONFIGURATION.fields_by_name['virtual_hosts'].message_type = envoy_dot_config_dot_route_dot_v3_dot_route__components__pb2._VIRTUALHOST
@@ -172,8 +212,11 @@ _ROUTECONFIGURATION.fields_by_name['response_headers_to_add'].message_type = env
 _ROUTECONFIGURATION.fields_by_name['request_headers_to_add'].message_type = envoy_dot_config_dot_core_dot_v3_dot_base__pb2._HEADERVALUEOPTION
 _ROUTECONFIGURATION.fields_by_name['validate_clusters'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 _ROUTECONFIGURATION.fields_by_name['max_direct_response_body_size_bytes'].message_type = google_dot_protobuf_dot_wrappers__pb2._UINT32VALUE
+_ROUTECONFIGURATION.fields_by_name['cluster_specifier_plugins'].message_type = _CLUSTERSPECIFIERPLUGIN
+_CLUSTERSPECIFIERPLUGIN.fields_by_name['extension'].message_type = envoy_dot_config_dot_core_dot_v3_dot_extension__pb2._TYPEDEXTENSIONCONFIG
 _VHDS.fields_by_name['config_source'].message_type = envoy_dot_config_dot_core_dot_v3_dot_config__source__pb2._CONFIGSOURCE
 DESCRIPTOR.message_types_by_name['RouteConfiguration'] = _ROUTECONFIGURATION
+DESCRIPTOR.message_types_by_name['ClusterSpecifierPlugin'] = _CLUSTERSPECIFIERPLUGIN
 DESCRIPTOR.message_types_by_name['Vhds'] = _VHDS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -183,6 +226,13 @@ RouteConfiguration = _reflection.GeneratedProtocolMessageType('RouteConfiguratio
   # @@protoc_insertion_point(class_scope:envoy.config.route.v3.RouteConfiguration)
   })
 _sym_db.RegisterMessage(RouteConfiguration)
+
+ClusterSpecifierPlugin = _reflection.GeneratedProtocolMessageType('ClusterSpecifierPlugin', (_message.Message,), {
+  'DESCRIPTOR' : _CLUSTERSPECIFIERPLUGIN,
+  '__module__' : 'envoy.config.route.v3.route_pb2'
+  # @@protoc_insertion_point(class_scope:envoy.config.route.v3.ClusterSpecifierPlugin)
+  })
+_sym_db.RegisterMessage(ClusterSpecifierPlugin)
 
 Vhds = _reflection.GeneratedProtocolMessageType('Vhds', (_message.Message,), {
   'DESCRIPTOR' : _VHDS,

@@ -27,7 +27,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n(com.google.cloud.bigquery.reservation.v1B\020ReservationProtoP\001ZOgoogle.golang.org/genproto/googleapis/cloud/bigquery/reservation/v1;reservation\252\002$Google.Cloud.BigQuery.Reservation.V1\312\002$Google\\Cloud\\BigQuery\\Reservation\\V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n6google/cloud/bigquery/reservation/v1/reservation.proto\x12$google.cloud.bigquery.reservation.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xc6\x01\n\x0bReservation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rslot_capacity\x18\x02 \x01(\x03\x12\x19\n\x11ignore_idle_slots\x18\x04 \x01(\x08:w\xea\x41t\n.bigqueryreservation.googleapis.com/Reservation\x12\x42projects/{project}/locations/{location}/reservations/{reservation}\"\xeb\x05\n\x12\x43\x61pacityCommitment\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x12\n\nslot_count\x18\x02 \x01(\x03\x12U\n\x04plan\x18\x03 \x01(\x0e\x32G.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan\x12R\n\x05state\x18\x04 \x01(\x0e\x32>.google.cloud.bigquery.reservation.v1.CapacityCommitment.StateB\x03\xe0\x41\x03\x12<\n\x13\x63ommitment_end_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12/\n\x0e\x66\x61ilure_status\x18\x07 \x01(\x0b\x32\x12.google.rpc.StatusB\x03\xe0\x41\x03\x12]\n\x0crenewal_plan\x18\x08 \x01(\x0e\x32G.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan\"_\n\x0e\x43ommitmentPlan\x12\x1f\n\x1b\x43OMMITMENT_PLAN_UNSPECIFIED\x10\x00\x12\x08\n\x04\x46LEX\x10\x03\x12\t\n\x05TRIAL\x10\x05\x12\x0b\n\x07MONTHLY\x10\x02\x12\n\n\x06\x41NNUAL\x10\x04\"C\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\n\n\x06\x41\x43TIVE\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03:\x8e\x01\xea\x41\x8a\x01\n5bigqueryreservation.googleapis.com/CapacityCommitment\x12Qprojects/{project}/locations/{location}/capacityCommitments/{capacity_commitment}\"\xc2\x01\n\x18\x43reateReservationRequest\x12\x46\n\x06parent\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\x12.bigqueryreservation.googleapis.com/Reservation\x12\x16\n\x0ereservation_id\x18\x02 \x01(\t\x12\x46\n\x0breservation\x18\x03 \x01(\x0b\x32\x31.google.cloud.bigquery.reservation.v1.Reservation\"\x88\x01\n\x17ListReservationsRequest\x12\x46\n\x06parent\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\x12.bigqueryreservation.googleapis.com/Reservation\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"|\n\x18ListReservationsResponse\x12G\n\x0creservations\x18\x01 \x03(\x0b\x32\x31.google.cloud.bigquery.reservation.v1.Reservation\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"]\n\x15GetReservationRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.bigqueryreservation.googleapis.com/Reservation\"`\n\x18\x44\x65leteReservationRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.bigqueryreservation.googleapis.com/Reservation\"\x93\x01\n\x18UpdateReservationRequest\x12\x46\n\x0breservation\x18\x01 \x01(\x0b\x32\x31.google.cloud.bigquery.reservation.v1.Reservation\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\xf5\x01\n\x1f\x43reateCapacityCommitmentRequest\x12M\n\x06parent\x18\x01 \x01(\tB=\xe0\x41\x02\xfa\x41\x37\x12\x35\x62igqueryreservation.googleapis.com/CapacityCommitment\x12U\n\x13\x63\x61pacity_commitment\x18\x02 \x01(\x0b\x32\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\x12,\n$enforce_single_admin_project_per_org\x18\x04 \x01(\x08\"\x96\x01\n\x1eListCapacityCommitmentsRequest\x12M\n\x06parent\x18\x01 \x01(\tB=\xe0\x41\x02\xfa\x41\x37\x12\x35\x62igqueryreservation.googleapis.com/CapacityCommitment\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x92\x01\n\x1fListCapacityCommitmentsResponse\x12V\n\x14\x63\x61pacity_commitments\x18\x01 \x03(\x0b\x32\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"k\n\x1cGetCapacityCommitmentRequest\x12K\n\x04name\x18\x01 \x01(\tB=\xe0\x41\x02\xfa\x41\x37\n5bigqueryreservation.googleapis.com/CapacityCommitment\"n\n\x1f\x44\x65leteCapacityCommitmentRequest\x12K\n\x04name\x18\x01 \x01(\tB=\xe0\x41\x02\xfa\x41\x37\n5bigqueryreservation.googleapis.com/CapacityCommitment\"\xa9\x01\n\x1fUpdateCapacityCommitmentRequest\x12U\n\x13\x63\x61pacity_commitment\x18\x01 \x01(\x0b\x32\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\x81\x01\n\x1eSplitCapacityCommitmentRequest\x12K\n\x04name\x18\x01 \x01(\tB=\xe0\x41\x02\xfa\x41\x37\n5bigqueryreservation.googleapis.com/CapacityCommitment\x12\x12\n\nslot_count\x18\x02 \x01(\x03\"\xb4\x01\n\x1fSplitCapacityCommitmentResponse\x12G\n\x05\x66irst\x18\x01 \x01(\x0b\x32\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\x12H\n\x06second\x18\x02 \x01(\x0b\x32\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\"\x8e\x01\n\x1fMergeCapacityCommitmentsRequest\x12J\n\x06parent\x18\x01 \x01(\tB:\xfa\x41\x37\x12\x35\x62igqueryreservation.googleapis.com/CapacityCommitment\x12\x1f\n\x17\x63\x61pacity_commitment_ids\x18\x02 \x03(\t\"\xd3\x03\n\nAssignment\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x10\n\x08\x61ssignee\x18\x04 \x01(\t\x12J\n\x08job_type\x18\x03 \x01(\x0e\x32\x38.google.cloud.bigquery.reservation.v1.Assignment.JobType\x12J\n\x05state\x18\x06 \x01(\x0e\x32\x36.google.cloud.bigquery.reservation.v1.Assignment.StateB\x03\xe0\x41\x03\"<\n\x07JobType\x12\x18\n\x14JOB_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08PIPELINE\x10\x01\x12\t\n\x05QUERY\x10\x02\"7\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\n\n\x06\x41\x43TIVE\x10\x02:\x90\x01\xea\x41\x8c\x01\n-bigqueryreservation.googleapis.com/Assignment\x12[projects/{project}/locations/{location}/reservations/{reservation}/assignments/{assignment}\"\xa6\x01\n\x17\x43reateAssignmentRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-bigqueryreservation.googleapis.com/Assignment\x12\x44\n\nassignment\x18\x02 \x01(\x0b\x32\x30.google.cloud.bigquery.reservation.v1.Assignment\"\x86\x01\n\x16ListAssignmentsRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-bigqueryreservation.googleapis.com/Assignment\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"y\n\x17ListAssignmentsResponse\x12\x45\n\x0b\x61ssignments\x18\x01 \x03(\x0b\x32\x30.google.cloud.bigquery.reservation.v1.Assignment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"^\n\x17\x44\x65leteAssignmentRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-bigqueryreservation.googleapis.com/Assignment\"\x8b\x01\n\x18SearchAssignmentsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\r\n\x05query\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"{\n\x19SearchAssignmentsResponse\x12\x45\n\x0b\x61ssignments\x18\x01 \x03(\x0b\x32\x30.google.cloud.bigquery.reservation.v1.Assignment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xa8\x01\n\x15MoveAssignmentRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-bigqueryreservation.googleapis.com/Assignment\x12J\n\x0e\x64\x65stination_id\x18\x03 \x01(\tB2\xfa\x41/\x12-bigqueryreservation.googleapis.com/Assignment\"\xcf\x01\n\rBiReservation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x0c\n\x04size\x18\x04 \x01(\x03:l\xea\x41i\n0bigqueryreservation.googleapis.com/BiReservation\x12\x35projects/{project}/locations/{location}/bireservation\"a\n\x17GetBiReservationRequest\x12\x46\n\x04name\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0bigqueryreservation.googleapis.com/BiReservation\"\x9a\x01\n\x1aUpdateBiReservationRequest\x12K\n\x0e\x62i_reservation\x18\x01 \x01(\x0b\x32\x33.google.cloud.bigquery.reservation.v1.BiReservation\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask2\xcf#\n\x12ReservationService\x12\xf1\x01\n\x11\x43reateReservation\x12>.google.cloud.bigquery.reservation.v1.CreateReservationRequest\x1a\x31.google.cloud.bigquery.reservation.v1.Reservation\"i\x82\xd3\xe4\x93\x02?\"0/v1/{parent=projects/*/locations/*}/reservations:\x0breservation\xda\x41!parent,reservation,reservation_id\x12\xd4\x01\n\x10ListReservations\x12=.google.cloud.bigquery.reservation.v1.ListReservationsRequest\x1a>.google.cloud.bigquery.reservation.v1.ListReservationsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{parent=projects/*/locations/*}/reservations\xda\x41\x06parent\x12\xc1\x01\n\x0eGetReservation\x12;.google.cloud.bigquery.reservation.v1.GetReservationRequest\x1a\x31.google.cloud.bigquery.reservation.v1.Reservation\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{name=projects/*/locations/*/reservations/*}\xda\x41\x04name\x12\xac\x01\n\x11\x44\x65leteReservation\x12>.google.cloud.bigquery.reservation.v1.DeleteReservationRequest\x1a\x16.google.protobuf.Empty\"?\x82\xd3\xe4\x93\x02\x32*0/v1/{name=projects/*/locations/*/reservations/*}\xda\x41\x04name\x12\xf3\x01\n\x11UpdateReservation\x12>.google.cloud.bigquery.reservation.v1.UpdateReservationRequest\x1a\x31.google.cloud.bigquery.reservation.v1.Reservation\"k\x82\xd3\xe4\x93\x02K2</v1/{reservation.name=projects/*/locations/*/reservations/*}:\x0breservation\xda\x41\x17reservation,update_mask\x12\x8e\x02\n\x18\x43reateCapacityCommitment\x12\x45.google.cloud.bigquery.reservation.v1.CreateCapacityCommitmentRequest\x1a\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\"q\x82\xd3\xe4\x93\x02N\"7/v1/{parent=projects/*/locations/*}/capacityCommitments:\x13\x63\x61pacity_commitment\xda\x41\x1aparent,capacity_commitment\x12\xf0\x01\n\x17ListCapacityCommitments\x12\x44.google.cloud.bigquery.reservation.v1.ListCapacityCommitmentsRequest\x1a\x45.google.cloud.bigquery.reservation.v1.ListCapacityCommitmentsResponse\"H\x82\xd3\xe4\x93\x02\x39\x12\x37/v1/{parent=projects/*/locations/*}/capacityCommitments\xda\x41\x06parent\x12\xdd\x01\n\x15GetCapacityCommitment\x12\x42.google.cloud.bigquery.reservation.v1.GetCapacityCommitmentRequest\x1a\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\"F\x82\xd3\xe4\x93\x02\x39\x12\x37/v1/{name=projects/*/locations/*/capacityCommitments/*}\xda\x41\x04name\x12\xc1\x01\n\x18\x44\x65leteCapacityCommitment\x12\x45.google.cloud.bigquery.reservation.v1.DeleteCapacityCommitmentRequest\x1a\x16.google.protobuf.Empty\"F\x82\xd3\xe4\x93\x02\x39*7/v1/{name=projects/*/locations/*/capacityCommitments/*}\xda\x41\x04name\x12\xa8\x02\n\x18UpdateCapacityCommitment\x12\x45.google.cloud.bigquery.reservation.v1.UpdateCapacityCommitmentRequest\x1a\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\"\x8a\x01\x82\xd3\xe4\x93\x02\x62\x32K/v1/{capacity_commitment.name=projects/*/locations/*/capacityCommitments/*}:\x13\x63\x61pacity_commitment\xda\x41\x1f\x63\x61pacity_commitment,update_mask\x12\x82\x02\n\x17SplitCapacityCommitment\x12\x44.google.cloud.bigquery.reservation.v1.SplitCapacityCommitmentRequest\x1a\x45.google.cloud.bigquery.reservation.v1.SplitCapacityCommitmentResponse\"Z\x82\xd3\xe4\x93\x02\x42\"=/v1/{name=projects/*/locations/*/capacityCommitments/*}:split:\x01*\xda\x41\x0fname,slot_count\x12\x86\x02\n\x18MergeCapacityCommitments\x12\x45.google.cloud.bigquery.reservation.v1.MergeCapacityCommitmentsRequest\x1a\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\"i\x82\xd3\xe4\x93\x02\x42\"=/v1/{parent=projects/*/locations/*}/capacityCommitments:merge:\x01*\xda\x41\x1eparent,capacity_commitment_ids\x12\xeb\x01\n\x10\x43reateAssignment\x12=.google.cloud.bigquery.reservation.v1.CreateAssignmentRequest\x1a\x30.google.cloud.bigquery.reservation.v1.Assignment\"f\x82\xd3\xe4\x93\x02L\">/v1/{parent=projects/*/locations/*/reservations/*}/assignments:\nassignment\xda\x41\x11parent,assignment\x12\xdf\x01\n\x0fListAssignments\x12<.google.cloud.bigquery.reservation.v1.ListAssignmentsRequest\x1a=.google.cloud.bigquery.reservation.v1.ListAssignmentsResponse\"O\x82\xd3\xe4\x93\x02@\x12>/v1/{parent=projects/*/locations/*/reservations/*}/assignments\xda\x41\x06parent\x12\xb8\x01\n\x10\x44\x65leteAssignment\x12=.google.cloud.bigquery.reservation.v1.DeleteAssignmentRequest\x1a\x16.google.protobuf.Empty\"M\x82\xd3\xe4\x93\x02@*>/v1/{name=projects/*/locations/*/reservations/*/assignments/*}\xda\x41\x04name\x12\xe2\x01\n\x11SearchAssignments\x12>.google.cloud.bigquery.reservation.v1.SearchAssignmentsRequest\x1a?.google.cloud.bigquery.reservation.v1.SearchAssignmentsResponse\"L\x82\xd3\xe4\x93\x02\x37\x12\x35/v1/{parent=projects/*/locations/*}:searchAssignments\xda\x41\x0cparent,query\x12\xe5\x01\n\x0eMoveAssignment\x12;.google.cloud.bigquery.reservation.v1.MoveAssignmentRequest\x1a\x30.google.cloud.bigquery.reservation.v1.Assignment\"d\x82\xd3\xe4\x93\x02H\"C/v1/{name=projects/*/locations/*/reservations/*/assignments/*}:move:\x01*\xda\x41\x13name,destination_id\x12\xc6\x01\n\x10GetBiReservation\x12=.google.cloud.bigquery.reservation.v1.GetBiReservationRequest\x1a\x33.google.cloud.bigquery.reservation.v1.BiReservation\">\x82\xd3\xe4\x93\x02\x31\x12//v1/{name=projects/*/locations/*/biReservation}\xda\x41\x04name\x12\x81\x02\n\x13UpdateBiReservation\x12@.google.cloud.bigquery.reservation.v1.UpdateBiReservationRequest\x1a\x33.google.cloud.bigquery.reservation.v1.BiReservation\"s\x82\xd3\xe4\x93\x02P2>/v1/{bi_reservation.name=projects/*/locations/*/biReservation}:\x0e\x62i_reservation\xda\x41\x1a\x62i_reservation,update_mask\x1a\x7f\xca\x41\"bigqueryreservation.googleapis.com\xd2\x41Whttps://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/cloud-platformB\xdd\x01\n(com.google.cloud.bigquery.reservation.v1B\x10ReservationProtoP\x01ZOgoogle.golang.org/genproto/googleapis/cloud/bigquery/reservation/v1;reservation\xaa\x02$Google.Cloud.BigQuery.Reservation.V1\xca\x02$Google\\Cloud\\BigQuery\\Reservation\\V1b\x06proto3'
+  serialized_pb=b'\n6google/cloud/bigquery/reservation/v1/reservation.proto\x12$google.cloud.bigquery.reservation.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xb4\x02\n\x0bReservation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rslot_capacity\x18\x02 \x01(\x03\x12\x19\n\x11ignore_idle_slots\x18\x04 \x01(\x08\x12\x36\n\rcreation_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03:w\xea\x41t\n.bigqueryreservation.googleapis.com/Reservation\x12\x42projects/{project}/locations/{location}/reservations/{reservation}\"\xab\x06\n\x12\x43\x61pacityCommitment\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x12\n\nslot_count\x18\x02 \x01(\x03\x12U\n\x04plan\x18\x03 \x01(\x0e\x32G.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan\x12R\n\x05state\x18\x04 \x01(\x0e\x32>.google.cloud.bigquery.reservation.v1.CapacityCommitment.StateB\x03\xe0\x41\x03\x12>\n\x15\x63ommitment_start_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12<\n\x13\x63ommitment_end_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12/\n\x0e\x66\x61ilure_status\x18\x07 \x01(\x0b\x32\x12.google.rpc.StatusB\x03\xe0\x41\x03\x12]\n\x0crenewal_plan\x18\x08 \x01(\x0e\x32G.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan\"_\n\x0e\x43ommitmentPlan\x12\x1f\n\x1b\x43OMMITMENT_PLAN_UNSPECIFIED\x10\x00\x12\x08\n\x04\x46LEX\x10\x03\x12\t\n\x05TRIAL\x10\x05\x12\x0b\n\x07MONTHLY\x10\x02\x12\n\n\x06\x41NNUAL\x10\x04\"C\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\n\n\x06\x41\x43TIVE\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03:\x8e\x01\xea\x41\x8a\x01\n5bigqueryreservation.googleapis.com/CapacityCommitment\x12Qprojects/{project}/locations/{location}/capacityCommitments/{capacity_commitment}\"\xc2\x01\n\x18\x43reateReservationRequest\x12\x46\n\x06parent\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\x12.bigqueryreservation.googleapis.com/Reservation\x12\x16\n\x0ereservation_id\x18\x02 \x01(\t\x12\x46\n\x0breservation\x18\x03 \x01(\x0b\x32\x31.google.cloud.bigquery.reservation.v1.Reservation\"\x88\x01\n\x17ListReservationsRequest\x12\x46\n\x06parent\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\x12.bigqueryreservation.googleapis.com/Reservation\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"|\n\x18ListReservationsResponse\x12G\n\x0creservations\x18\x01 \x03(\x0b\x32\x31.google.cloud.bigquery.reservation.v1.Reservation\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"]\n\x15GetReservationRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.bigqueryreservation.googleapis.com/Reservation\"`\n\x18\x44\x65leteReservationRequest\x12\x44\n\x04name\x18\x01 \x01(\tB6\xe0\x41\x02\xfa\x41\x30\n.bigqueryreservation.googleapis.com/Reservation\"\x93\x01\n\x18UpdateReservationRequest\x12\x46\n\x0breservation\x18\x01 \x01(\x0b\x32\x31.google.cloud.bigquery.reservation.v1.Reservation\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\x95\x02\n\x1f\x43reateCapacityCommitmentRequest\x12M\n\x06parent\x18\x01 \x01(\tB=\xe0\x41\x02\xfa\x41\x37\x12\x35\x62igqueryreservation.googleapis.com/CapacityCommitment\x12U\n\x13\x63\x61pacity_commitment\x18\x02 \x01(\x0b\x32\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\x12,\n$enforce_single_admin_project_per_org\x18\x04 \x01(\x08\x12\x1e\n\x16\x63\x61pacity_commitment_id\x18\x05 \x01(\t\"\x96\x01\n\x1eListCapacityCommitmentsRequest\x12M\n\x06parent\x18\x01 \x01(\tB=\xe0\x41\x02\xfa\x41\x37\x12\x35\x62igqueryreservation.googleapis.com/CapacityCommitment\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x92\x01\n\x1fListCapacityCommitmentsResponse\x12V\n\x14\x63\x61pacity_commitments\x18\x01 \x03(\x0b\x32\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"k\n\x1cGetCapacityCommitmentRequest\x12K\n\x04name\x18\x01 \x01(\tB=\xe0\x41\x02\xfa\x41\x37\n5bigqueryreservation.googleapis.com/CapacityCommitment\"}\n\x1f\x44\x65leteCapacityCommitmentRequest\x12K\n\x04name\x18\x01 \x01(\tB=\xe0\x41\x02\xfa\x41\x37\n5bigqueryreservation.googleapis.com/CapacityCommitment\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\"\xa9\x01\n\x1fUpdateCapacityCommitmentRequest\x12U\n\x13\x63\x61pacity_commitment\x18\x01 \x01(\x0b\x32\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"\x81\x01\n\x1eSplitCapacityCommitmentRequest\x12K\n\x04name\x18\x01 \x01(\tB=\xe0\x41\x02\xfa\x41\x37\n5bigqueryreservation.googleapis.com/CapacityCommitment\x12\x12\n\nslot_count\x18\x02 \x01(\x03\"\xb4\x01\n\x1fSplitCapacityCommitmentResponse\x12G\n\x05\x66irst\x18\x01 \x01(\x0b\x32\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\x12H\n\x06second\x18\x02 \x01(\x0b\x32\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\"\x8e\x01\n\x1fMergeCapacityCommitmentsRequest\x12J\n\x06parent\x18\x01 \x01(\tB:\xfa\x41\x37\x12\x35\x62igqueryreservation.googleapis.com/CapacityCommitment\x12\x1f\n\x17\x63\x61pacity_commitment_ids\x18\x02 \x03(\t\"\xe4\x03\n\nAssignment\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x10\n\x08\x61ssignee\x18\x04 \x01(\t\x12J\n\x08job_type\x18\x03 \x01(\x0e\x32\x38.google.cloud.bigquery.reservation.v1.Assignment.JobType\x12J\n\x05state\x18\x06 \x01(\x0e\x32\x36.google.cloud.bigquery.reservation.v1.Assignment.StateB\x03\xe0\x41\x03\"M\n\x07JobType\x12\x18\n\x14JOB_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08PIPELINE\x10\x01\x12\t\n\x05QUERY\x10\x02\x12\x0f\n\x0bML_EXTERNAL\x10\x03\"7\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\n\n\x06\x41\x43TIVE\x10\x02:\x90\x01\xea\x41\x8c\x01\n-bigqueryreservation.googleapis.com/Assignment\x12[projects/{project}/locations/{location}/reservations/{reservation}/assignments/{assignment}\"\xbd\x01\n\x17\x43reateAssignmentRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-bigqueryreservation.googleapis.com/Assignment\x12\x44\n\nassignment\x18\x02 \x01(\x0b\x32\x30.google.cloud.bigquery.reservation.v1.Assignment\x12\x15\n\rassignment_id\x18\x04 \x01(\t\"\x86\x01\n\x16ListAssignmentsRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-bigqueryreservation.googleapis.com/Assignment\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"y\n\x17ListAssignmentsResponse\x12\x45\n\x0b\x61ssignments\x18\x01 \x03(\x0b\x32\x30.google.cloud.bigquery.reservation.v1.Assignment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"^\n\x17\x44\x65leteAssignmentRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-bigqueryreservation.googleapis.com/Assignment\"\x8b\x01\n\x18SearchAssignmentsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\r\n\x05query\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"\x8e\x01\n\x1bSearchAllAssignmentsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\r\n\x05query\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"{\n\x19SearchAssignmentsResponse\x12\x45\n\x0b\x61ssignments\x18\x01 \x03(\x0b\x32\x30.google.cloud.bigquery.reservation.v1.Assignment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"~\n\x1cSearchAllAssignmentsResponse\x12\x45\n\x0b\x61ssignments\x18\x01 \x03(\x0b\x32\x30.google.cloud.bigquery.reservation.v1.Assignment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xa8\x01\n\x15MoveAssignmentRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-bigqueryreservation.googleapis.com/Assignment\x12J\n\x0e\x64\x65stination_id\x18\x03 \x01(\tB2\xfa\x41/\x12-bigqueryreservation.googleapis.com/Assignment\"\xcf\x01\n\rBiReservation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x0c\n\x04size\x18\x04 \x01(\x03:l\xea\x41i\n0bigqueryreservation.googleapis.com/BiReservation\x12\x35projects/{project}/locations/{location}/biReservation\"a\n\x17GetBiReservationRequest\x12\x46\n\x04name\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0bigqueryreservation.googleapis.com/BiReservation\"\x9a\x01\n\x1aUpdateBiReservationRequest\x12K\n\x0e\x62i_reservation\x18\x01 \x01(\x0b\x32\x33.google.cloud.bigquery.reservation.v1.BiReservation\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask2\xc3%\n\x12ReservationService\x12\xf1\x01\n\x11\x43reateReservation\x12>.google.cloud.bigquery.reservation.v1.CreateReservationRequest\x1a\x31.google.cloud.bigquery.reservation.v1.Reservation\"i\x82\xd3\xe4\x93\x02?\"0/v1/{parent=projects/*/locations/*}/reservations:\x0breservation\xda\x41!parent,reservation,reservation_id\x12\xd4\x01\n\x10ListReservations\x12=.google.cloud.bigquery.reservation.v1.ListReservationsRequest\x1a>.google.cloud.bigquery.reservation.v1.ListReservationsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{parent=projects/*/locations/*}/reservations\xda\x41\x06parent\x12\xc1\x01\n\x0eGetReservation\x12;.google.cloud.bigquery.reservation.v1.GetReservationRequest\x1a\x31.google.cloud.bigquery.reservation.v1.Reservation\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{name=projects/*/locations/*/reservations/*}\xda\x41\x04name\x12\xac\x01\n\x11\x44\x65leteReservation\x12>.google.cloud.bigquery.reservation.v1.DeleteReservationRequest\x1a\x16.google.protobuf.Empty\"?\x82\xd3\xe4\x93\x02\x32*0/v1/{name=projects/*/locations/*/reservations/*}\xda\x41\x04name\x12\xf3\x01\n\x11UpdateReservation\x12>.google.cloud.bigquery.reservation.v1.UpdateReservationRequest\x1a\x31.google.cloud.bigquery.reservation.v1.Reservation\"k\x82\xd3\xe4\x93\x02K2</v1/{reservation.name=projects/*/locations/*/reservations/*}:\x0breservation\xda\x41\x17reservation,update_mask\x12\x8e\x02\n\x18\x43reateCapacityCommitment\x12\x45.google.cloud.bigquery.reservation.v1.CreateCapacityCommitmentRequest\x1a\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\"q\x82\xd3\xe4\x93\x02N\"7/v1/{parent=projects/*/locations/*}/capacityCommitments:\x13\x63\x61pacity_commitment\xda\x41\x1aparent,capacity_commitment\x12\xf0\x01\n\x17ListCapacityCommitments\x12\x44.google.cloud.bigquery.reservation.v1.ListCapacityCommitmentsRequest\x1a\x45.google.cloud.bigquery.reservation.v1.ListCapacityCommitmentsResponse\"H\x82\xd3\xe4\x93\x02\x39\x12\x37/v1/{parent=projects/*/locations/*}/capacityCommitments\xda\x41\x06parent\x12\xdd\x01\n\x15GetCapacityCommitment\x12\x42.google.cloud.bigquery.reservation.v1.GetCapacityCommitmentRequest\x1a\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\"F\x82\xd3\xe4\x93\x02\x39\x12\x37/v1/{name=projects/*/locations/*/capacityCommitments/*}\xda\x41\x04name\x12\xc1\x01\n\x18\x44\x65leteCapacityCommitment\x12\x45.google.cloud.bigquery.reservation.v1.DeleteCapacityCommitmentRequest\x1a\x16.google.protobuf.Empty\"F\x82\xd3\xe4\x93\x02\x39*7/v1/{name=projects/*/locations/*/capacityCommitments/*}\xda\x41\x04name\x12\xa8\x02\n\x18UpdateCapacityCommitment\x12\x45.google.cloud.bigquery.reservation.v1.UpdateCapacityCommitmentRequest\x1a\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\"\x8a\x01\x82\xd3\xe4\x93\x02\x62\x32K/v1/{capacity_commitment.name=projects/*/locations/*/capacityCommitments/*}:\x13\x63\x61pacity_commitment\xda\x41\x1f\x63\x61pacity_commitment,update_mask\x12\x82\x02\n\x17SplitCapacityCommitment\x12\x44.google.cloud.bigquery.reservation.v1.SplitCapacityCommitmentRequest\x1a\x45.google.cloud.bigquery.reservation.v1.SplitCapacityCommitmentResponse\"Z\x82\xd3\xe4\x93\x02\x42\"=/v1/{name=projects/*/locations/*/capacityCommitments/*}:split:\x01*\xda\x41\x0fname,slot_count\x12\x86\x02\n\x18MergeCapacityCommitments\x12\x45.google.cloud.bigquery.reservation.v1.MergeCapacityCommitmentsRequest\x1a\x38.google.cloud.bigquery.reservation.v1.CapacityCommitment\"i\x82\xd3\xe4\x93\x02\x42\"=/v1/{parent=projects/*/locations/*}/capacityCommitments:merge:\x01*\xda\x41\x1eparent,capacity_commitment_ids\x12\xeb\x01\n\x10\x43reateAssignment\x12=.google.cloud.bigquery.reservation.v1.CreateAssignmentRequest\x1a\x30.google.cloud.bigquery.reservation.v1.Assignment\"f\x82\xd3\xe4\x93\x02L\">/v1/{parent=projects/*/locations/*/reservations/*}/assignments:\nassignment\xda\x41\x11parent,assignment\x12\xdf\x01\n\x0fListAssignments\x12<.google.cloud.bigquery.reservation.v1.ListAssignmentsRequest\x1a=.google.cloud.bigquery.reservation.v1.ListAssignmentsResponse\"O\x82\xd3\xe4\x93\x02@\x12>/v1/{parent=projects/*/locations/*/reservations/*}/assignments\xda\x41\x06parent\x12\xb8\x01\n\x10\x44\x65leteAssignment\x12=.google.cloud.bigquery.reservation.v1.DeleteAssignmentRequest\x1a\x16.google.protobuf.Empty\"M\x82\xd3\xe4\x93\x02@*>/v1/{name=projects/*/locations/*/reservations/*/assignments/*}\xda\x41\x04name\x12\xe5\x01\n\x11SearchAssignments\x12>.google.cloud.bigquery.reservation.v1.SearchAssignmentsRequest\x1a?.google.cloud.bigquery.reservation.v1.SearchAssignmentsResponse\"O\x88\x02\x01\x82\xd3\xe4\x93\x02\x37\x12\x35/v1/{parent=projects/*/locations/*}:searchAssignments\xda\x41\x0cparent,query\x12\xee\x01\n\x14SearchAllAssignments\x12\x41.google.cloud.bigquery.reservation.v1.SearchAllAssignmentsRequest\x1a\x42.google.cloud.bigquery.reservation.v1.SearchAllAssignmentsResponse\"O\x82\xd3\xe4\x93\x02:\x12\x38/v1/{parent=projects/*/locations/*}:searchAllAssignments\xda\x41\x0cparent,query\x12\xe5\x01\n\x0eMoveAssignment\x12;.google.cloud.bigquery.reservation.v1.MoveAssignmentRequest\x1a\x30.google.cloud.bigquery.reservation.v1.Assignment\"d\x82\xd3\xe4\x93\x02H\"C/v1/{name=projects/*/locations/*/reservations/*/assignments/*}:move:\x01*\xda\x41\x13name,destination_id\x12\xc6\x01\n\x10GetBiReservation\x12=.google.cloud.bigquery.reservation.v1.GetBiReservationRequest\x1a\x33.google.cloud.bigquery.reservation.v1.BiReservation\">\x82\xd3\xe4\x93\x02\x31\x12//v1/{name=projects/*/locations/*/biReservation}\xda\x41\x04name\x12\x81\x02\n\x13UpdateBiReservation\x12@.google.cloud.bigquery.reservation.v1.UpdateBiReservationRequest\x1a\x33.google.cloud.bigquery.reservation.v1.BiReservation\"s\x82\xd3\xe4\x93\x02P2>/v1/{bi_reservation.name=projects/*/locations/*/biReservation}:\x0e\x62i_reservation\xda\x41\x1a\x62i_reservation,update_mask\x1a\x7f\xca\x41\"bigqueryreservation.googleapis.com\xd2\x41Whttps://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/cloud-platformB\xdd\x01\n(com.google.cloud.bigquery.reservation.v1B\x10ReservationProtoP\x01ZOgoogle.golang.org/genproto/googleapis/cloud/bigquery/reservation/v1;reservation\xaa\x02$Google.Cloud.BigQuery.Reservation.V1\xca\x02$Google\\Cloud\\BigQuery\\Reservation\\V1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
@@ -68,8 +68,8 @@ _CAPACITYCOMMITMENT_COMMITMENTPLAN = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=972,
-  serialized_end=1067,
+  serialized_start=1146,
+  serialized_end=1241,
 )
 _sym_db.RegisterEnumDescriptor(_CAPACITYCOMMITMENT_COMMITMENTPLAN)
 
@@ -103,8 +103,8 @@ _CAPACITYCOMMITMENT_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1069,
-  serialized_end=1136,
+  serialized_start=1243,
+  serialized_end=1310,
 )
 _sym_db.RegisterEnumDescriptor(_CAPACITYCOMMITMENT_STATE)
 
@@ -130,11 +130,16 @@ _ASSIGNMENT_JOBTYPE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ML_EXTERNAL', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3695,
-  serialized_end=3755,
+  serialized_start=3916,
+  serialized_end=3993,
 )
 _sym_db.RegisterEnumDescriptor(_ASSIGNMENT_JOBTYPE)
 
@@ -163,8 +168,8 @@ _ASSIGNMENT_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1069,
-  serialized_end=1124,
+  serialized_start=1243,
+  serialized_end=1298,
 )
 _sym_db.RegisterEnumDescriptor(_ASSIGNMENT_STATE)
 
@@ -198,6 +203,20 @@ _RESERVATION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='creation_time', full_name='google.cloud.bigquery.reservation.v1.Reservation.creation_time', index=3,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='update_time', full_name='google.cloud.bigquery.reservation.v1.Reservation.update_time', index=4,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -211,7 +230,7 @@ _RESERVATION = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=333,
-  serialized_end=531,
+  serialized_end=641,
 )
 
 
@@ -252,21 +271,28 @@ _CAPACITYCOMMITMENT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='commitment_end_time', full_name='google.cloud.bigquery.reservation.v1.CapacityCommitment.commitment_end_time', index=4,
+      name='commitment_start_time', full_name='google.cloud.bigquery.reservation.v1.CapacityCommitment.commitment_start_time', index=4,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='commitment_end_time', full_name='google.cloud.bigquery.reservation.v1.CapacityCommitment.commitment_end_time', index=5,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='failure_status', full_name='google.cloud.bigquery.reservation.v1.CapacityCommitment.failure_status', index=5,
+      name='failure_status', full_name='google.cloud.bigquery.reservation.v1.CapacityCommitment.failure_status', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='renewal_plan', full_name='google.cloud.bigquery.reservation.v1.CapacityCommitment.renewal_plan', index=6,
+      name='renewal_plan', full_name='google.cloud.bigquery.reservation.v1.CapacityCommitment.renewal_plan', index=7,
       number=8, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -286,8 +312,8 @@ _CAPACITYCOMMITMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=534,
-  serialized_end=1281,
+  serialized_start=644,
+  serialized_end=1455,
 )
 
 
@@ -332,8 +358,8 @@ _CREATERESERVATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1284,
-  serialized_end=1478,
+  serialized_start=1458,
+  serialized_end=1652,
 )
 
 
@@ -378,8 +404,8 @@ _LISTRESERVATIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1481,
-  serialized_end=1617,
+  serialized_start=1655,
+  serialized_end=1791,
 )
 
 
@@ -417,8 +443,8 @@ _LISTRESERVATIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1619,
-  serialized_end=1743,
+  serialized_start=1793,
+  serialized_end=1917,
 )
 
 
@@ -449,8 +475,8 @@ _GETRESERVATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1745,
-  serialized_end=1838,
+  serialized_start=1919,
+  serialized_end=2012,
 )
 
 
@@ -481,8 +507,8 @@ _DELETERESERVATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1840,
-  serialized_end=1936,
+  serialized_start=2014,
+  serialized_end=2110,
 )
 
 
@@ -520,8 +546,8 @@ _UPDATERESERVATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1939,
-  serialized_end=2086,
+  serialized_start=2113,
+  serialized_end=2260,
 )
 
 
@@ -554,6 +580,13 @@ _CREATECAPACITYCOMMITMENTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='capacity_commitment_id', full_name='google.cloud.bigquery.reservation.v1.CreateCapacityCommitmentRequest.capacity_commitment_id', index=3,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -566,8 +599,8 @@ _CREATECAPACITYCOMMITMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2089,
-  serialized_end=2334,
+  serialized_start=2263,
+  serialized_end=2540,
 )
 
 
@@ -612,8 +645,8 @@ _LISTCAPACITYCOMMITMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2337,
-  serialized_end=2487,
+  serialized_start=2543,
+  serialized_end=2693,
 )
 
 
@@ -651,8 +684,8 @@ _LISTCAPACITYCOMMITMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2490,
-  serialized_end=2636,
+  serialized_start=2696,
+  serialized_end=2842,
 )
 
 
@@ -683,8 +716,8 @@ _GETCAPACITYCOMMITMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2638,
-  serialized_end=2745,
+  serialized_start=2844,
+  serialized_end=2951,
 )
 
 
@@ -703,6 +736,13 @@ _DELETECAPACITYCOMMITMENTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\002\372A7\n5bigqueryreservation.googleapis.com/CapacityCommitment', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='force', full_name='google.cloud.bigquery.reservation.v1.DeleteCapacityCommitmentRequest.force', index=1,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -715,8 +755,8 @@ _DELETECAPACITYCOMMITMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2747,
-  serialized_end=2857,
+  serialized_start=2953,
+  serialized_end=3078,
 )
 
 
@@ -754,8 +794,8 @@ _UPDATECAPACITYCOMMITMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2860,
-  serialized_end=3029,
+  serialized_start=3081,
+  serialized_end=3250,
 )
 
 
@@ -793,8 +833,8 @@ _SPLITCAPACITYCOMMITMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3032,
-  serialized_end=3161,
+  serialized_start=3253,
+  serialized_end=3382,
 )
 
 
@@ -832,8 +872,8 @@ _SPLITCAPACITYCOMMITMENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3164,
-  serialized_end=3344,
+  serialized_start=3385,
+  serialized_end=3565,
 )
 
 
@@ -871,8 +911,8 @@ _MERGECAPACITYCOMMITMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3347,
-  serialized_end=3489,
+  serialized_start=3568,
+  serialized_end=3710,
 )
 
 
@@ -926,8 +966,8 @@ _ASSIGNMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3492,
-  serialized_end=3959,
+  serialized_start=3713,
+  serialized_end=4197,
 )
 
 
@@ -953,6 +993,13 @@ _CREATEASSIGNMENTREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='assignment_id', full_name='google.cloud.bigquery.reservation.v1.CreateAssignmentRequest.assignment_id', index=2,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -965,8 +1012,8 @@ _CREATEASSIGNMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3962,
-  serialized_end=4128,
+  serialized_start=4200,
+  serialized_end=4389,
 )
 
 
@@ -1011,8 +1058,8 @@ _LISTASSIGNMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4131,
-  serialized_end=4265,
+  serialized_start=4392,
+  serialized_end=4526,
 )
 
 
@@ -1050,8 +1097,8 @@ _LISTASSIGNMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4267,
-  serialized_end=4388,
+  serialized_start=4528,
+  serialized_end=4649,
 )
 
 
@@ -1082,8 +1129,8 @@ _DELETEASSIGNMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4390,
-  serialized_end=4484,
+  serialized_start=4651,
+  serialized_end=4745,
 )
 
 
@@ -1135,8 +1182,61 @@ _SEARCHASSIGNMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4487,
-  serialized_end=4626,
+  serialized_start=4748,
+  serialized_end=4887,
+)
+
+
+_SEARCHALLASSIGNMENTSREQUEST = _descriptor.Descriptor(
+  name='SearchAllAssignmentsRequest',
+  full_name='google.cloud.bigquery.reservation.v1.SearchAllAssignmentsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.bigquery.reservation.v1.SearchAllAssignmentsRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='query', full_name='google.cloud.bigquery.reservation.v1.SearchAllAssignmentsRequest.query', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_size', full_name='google.cloud.bigquery.reservation.v1.SearchAllAssignmentsRequest.page_size', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='page_token', full_name='google.cloud.bigquery.reservation.v1.SearchAllAssignmentsRequest.page_token', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4890,
+  serialized_end=5032,
 )
 
 
@@ -1174,8 +1274,47 @@ _SEARCHASSIGNMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4628,
-  serialized_end=4751,
+  serialized_start=5034,
+  serialized_end=5157,
+)
+
+
+_SEARCHALLASSIGNMENTSRESPONSE = _descriptor.Descriptor(
+  name='SearchAllAssignmentsResponse',
+  full_name='google.cloud.bigquery.reservation.v1.SearchAllAssignmentsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='assignments', full_name='google.cloud.bigquery.reservation.v1.SearchAllAssignmentsResponse.assignments', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='next_page_token', full_name='google.cloud.bigquery.reservation.v1.SearchAllAssignmentsResponse.next_page_token', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=5159,
+  serialized_end=5285,
 )
 
 
@@ -1213,8 +1352,8 @@ _MOVEASSIGNMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4754,
-  serialized_end=4922,
+  serialized_start=5288,
+  serialized_end=5456,
 )
 
 
@@ -1253,14 +1392,14 @@ _BIRESERVATION = _descriptor.Descriptor(
   nested_types=[],
   enum_types=[
   ],
-  serialized_options=b'\352Ai\n0bigqueryreservation.googleapis.com/BiReservation\0225projects/{project}/locations/{location}/bireservation',
+  serialized_options=b'\352Ai\n0bigqueryreservation.googleapis.com/BiReservation\0225projects/{project}/locations/{location}/biReservation',
   is_extendable=False,
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4925,
-  serialized_end=5132,
+  serialized_start=5459,
+  serialized_end=5666,
 )
 
 
@@ -1291,8 +1430,8 @@ _GETBIRESERVATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5134,
-  serialized_end=5231,
+  serialized_start=5668,
+  serialized_end=5765,
 )
 
 
@@ -1330,12 +1469,15 @@ _UPDATEBIRESERVATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5234,
-  serialized_end=5388,
+  serialized_start=5768,
+  serialized_end=5922,
 )
 
+_RESERVATION.fields_by_name['creation_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_RESERVATION.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CAPACITYCOMMITMENT.fields_by_name['plan'].enum_type = _CAPACITYCOMMITMENT_COMMITMENTPLAN
 _CAPACITYCOMMITMENT.fields_by_name['state'].enum_type = _CAPACITYCOMMITMENT_STATE
+_CAPACITYCOMMITMENT.fields_by_name['commitment_start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CAPACITYCOMMITMENT.fields_by_name['commitment_end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CAPACITYCOMMITMENT.fields_by_name['failure_status'].message_type = google_dot_rpc_dot_status__pb2._STATUS
 _CAPACITYCOMMITMENT.fields_by_name['renewal_plan'].enum_type = _CAPACITYCOMMITMENT_COMMITMENTPLAN
@@ -1358,6 +1500,7 @@ _ASSIGNMENT_STATE.containing_type = _ASSIGNMENT
 _CREATEASSIGNMENTREQUEST.fields_by_name['assignment'].message_type = _ASSIGNMENT
 _LISTASSIGNMENTSRESPONSE.fields_by_name['assignments'].message_type = _ASSIGNMENT
 _SEARCHASSIGNMENTSRESPONSE.fields_by_name['assignments'].message_type = _ASSIGNMENT
+_SEARCHALLASSIGNMENTSRESPONSE.fields_by_name['assignments'].message_type = _ASSIGNMENT
 _BIRESERVATION.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _UPDATEBIRESERVATIONREQUEST.fields_by_name['bi_reservation'].message_type = _BIRESERVATION
 _UPDATEBIRESERVATIONREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
@@ -1384,7 +1527,9 @@ DESCRIPTOR.message_types_by_name['ListAssignmentsRequest'] = _LISTASSIGNMENTSREQ
 DESCRIPTOR.message_types_by_name['ListAssignmentsResponse'] = _LISTASSIGNMENTSRESPONSE
 DESCRIPTOR.message_types_by_name['DeleteAssignmentRequest'] = _DELETEASSIGNMENTREQUEST
 DESCRIPTOR.message_types_by_name['SearchAssignmentsRequest'] = _SEARCHASSIGNMENTSREQUEST
+DESCRIPTOR.message_types_by_name['SearchAllAssignmentsRequest'] = _SEARCHALLASSIGNMENTSREQUEST
 DESCRIPTOR.message_types_by_name['SearchAssignmentsResponse'] = _SEARCHASSIGNMENTSRESPONSE
+DESCRIPTOR.message_types_by_name['SearchAllAssignmentsResponse'] = _SEARCHALLASSIGNMENTSRESPONSE
 DESCRIPTOR.message_types_by_name['MoveAssignmentRequest'] = _MOVEASSIGNMENTREQUEST
 DESCRIPTOR.message_types_by_name['BiReservation'] = _BIRESERVATION
 DESCRIPTOR.message_types_by_name['GetBiReservationRequest'] = _GETBIRESERVATIONREQUEST
@@ -1552,12 +1697,26 @@ SearchAssignmentsRequest = _reflection.GeneratedProtocolMessageType('SearchAssig
   })
 _sym_db.RegisterMessage(SearchAssignmentsRequest)
 
+SearchAllAssignmentsRequest = _reflection.GeneratedProtocolMessageType('SearchAllAssignmentsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SEARCHALLASSIGNMENTSREQUEST,
+  '__module__' : 'google.cloud.bigquery.reservation.v1.reservation_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.reservation.v1.SearchAllAssignmentsRequest)
+  })
+_sym_db.RegisterMessage(SearchAllAssignmentsRequest)
+
 SearchAssignmentsResponse = _reflection.GeneratedProtocolMessageType('SearchAssignmentsResponse', (_message.Message,), {
   'DESCRIPTOR' : _SEARCHASSIGNMENTSRESPONSE,
   '__module__' : 'google.cloud.bigquery.reservation.v1.reservation_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.bigquery.reservation.v1.SearchAssignmentsResponse)
   })
 _sym_db.RegisterMessage(SearchAssignmentsResponse)
+
+SearchAllAssignmentsResponse = _reflection.GeneratedProtocolMessageType('SearchAllAssignmentsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SEARCHALLASSIGNMENTSRESPONSE,
+  '__module__' : 'google.cloud.bigquery.reservation.v1.reservation_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.bigquery.reservation.v1.SearchAllAssignmentsResponse)
+  })
+_sym_db.RegisterMessage(SearchAllAssignmentsResponse)
 
 MoveAssignmentRequest = _reflection.GeneratedProtocolMessageType('MoveAssignmentRequest', (_message.Message,), {
   'DESCRIPTOR' : _MOVEASSIGNMENTREQUEST,
@@ -1589,9 +1748,12 @@ _sym_db.RegisterMessage(UpdateBiReservationRequest)
 
 
 DESCRIPTOR._options = None
+_RESERVATION.fields_by_name['creation_time']._options = None
+_RESERVATION.fields_by_name['update_time']._options = None
 _RESERVATION._options = None
 _CAPACITYCOMMITMENT.fields_by_name['name']._options = None
 _CAPACITYCOMMITMENT.fields_by_name['state']._options = None
+_CAPACITYCOMMITMENT.fields_by_name['commitment_start_time']._options = None
 _CAPACITYCOMMITMENT.fields_by_name['commitment_end_time']._options = None
 _CAPACITYCOMMITMENT.fields_by_name['failure_status']._options = None
 _CAPACITYCOMMITMENT._options = None
@@ -1612,6 +1774,7 @@ _CREATEASSIGNMENTREQUEST.fields_by_name['parent']._options = None
 _LISTASSIGNMENTSREQUEST.fields_by_name['parent']._options = None
 _DELETEASSIGNMENTREQUEST.fields_by_name['name']._options = None
 _SEARCHASSIGNMENTSREQUEST.fields_by_name['parent']._options = None
+_SEARCHALLASSIGNMENTSREQUEST.fields_by_name['parent']._options = None
 _MOVEASSIGNMENTREQUEST.fields_by_name['name']._options = None
 _MOVEASSIGNMENTREQUEST.fields_by_name['destination_id']._options = None
 _BIRESERVATION.fields_by_name['update_time']._options = None
@@ -1625,8 +1788,8 @@ _RESERVATIONSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\"bigqueryreservation.googleapis.com\322AWhttps://www.googleapis.com/auth/bigquery,https://www.googleapis.com/auth/cloud-platform',
   create_key=_descriptor._internal_create_key,
-  serialized_start=5391,
-  serialized_end=9950,
+  serialized_start=5925,
+  serialized_end=10728,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateReservation',
@@ -1785,13 +1948,23 @@ _RESERVATIONSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_SEARCHASSIGNMENTSREQUEST,
     output_type=_SEARCHASSIGNMENTSRESPONSE,
-    serialized_options=b'\202\323\344\223\0027\0225/v1/{parent=projects/*/locations/*}:searchAssignments\332A\014parent,query',
+    serialized_options=b'\210\002\001\202\323\344\223\0027\0225/v1/{parent=projects/*/locations/*}:searchAssignments\332A\014parent,query',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='SearchAllAssignments',
+    full_name='google.cloud.bigquery.reservation.v1.ReservationService.SearchAllAssignments',
+    index=16,
+    containing_service=None,
+    input_type=_SEARCHALLASSIGNMENTSREQUEST,
+    output_type=_SEARCHALLASSIGNMENTSRESPONSE,
+    serialized_options=b'\202\323\344\223\002:\0228/v1/{parent=projects/*/locations/*}:searchAllAssignments\332A\014parent,query',
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='MoveAssignment',
     full_name='google.cloud.bigquery.reservation.v1.ReservationService.MoveAssignment',
-    index=16,
+    index=17,
     containing_service=None,
     input_type=_MOVEASSIGNMENTREQUEST,
     output_type=_ASSIGNMENT,
@@ -1801,7 +1974,7 @@ _RESERVATIONSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetBiReservation',
     full_name='google.cloud.bigquery.reservation.v1.ReservationService.GetBiReservation',
-    index=17,
+    index=18,
     containing_service=None,
     input_type=_GETBIRESERVATIONREQUEST,
     output_type=_BIRESERVATION,
@@ -1811,7 +1984,7 @@ _RESERVATIONSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateBiReservation',
     full_name='google.cloud.bigquery.reservation.v1.ReservationService.UpdateBiReservation',
-    index=18,
+    index=19,
     containing_service=None,
     input_type=_UPDATEBIRESERVATIONREQUEST,
     output_type=_BIRESERVATION,

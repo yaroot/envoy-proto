@@ -32,7 +32,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\033com.google.cloud.channel.v1B\014ServiceProtoP\001Z>google.golang.org/genproto/googleapis/cloud/channel/v1;channel',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n%google/cloud/channel/v1/service.proto\x12\x17google.cloud.channel.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x33google/cloud/channel/v1/channel_partner_links.proto\x1a$google/cloud/channel/v1/common.proto\x1a\'google/cloud/channel/v1/customers.proto\x1a*google/cloud/channel/v1/entitlements.proto\x1a$google/cloud/channel/v1/offers.proto\x1a&google/cloud/channel/v1/products.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"R\n&CheckCloudIdentityAccountsExistRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x06\x64omain\x18\x02 \x01(\tB\x03\xe0\x41\x02\"z\n\x1c\x43loudIdentityCustomerAccount\x12\x10\n\x08\x65xisting\x18\x01 \x01(\x08\x12\r\n\x05owned\x18\x02 \x01(\x08\x12\x15\n\rcustomer_name\x18\x03 \x01(\t\x12\"\n\x1a\x63ustomer_cloud_identity_id\x18\x04 \x01(\t\"\x81\x01\n\'CheckCloudIdentityAccountsExistResponse\x12V\n\x17\x63loud_identity_accounts\x18\x01 \x03(\x0b\x32\x35.google.cloud.channel.v1.CloudIdentityCustomerAccount\"\\\n\x14ListCustomersRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"f\n\x15ListCustomersResponse\x12\x34\n\tcustomers\x18\x01 \x03(\x0b\x32!.google.cloud.channel.v1.Customer\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"P\n\x12GetCustomerRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\"f\n\x15\x43reateCustomerRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x38\n\x08\x63ustomer\x18\x02 \x01(\x0b\x32!.google.cloud.channel.v1.CustomerB\x03\xe0\x41\x02\"\x82\x01\n\x15UpdateCustomerRequest\x12\x38\n\x08\x63ustomer\x18\x02 \x01(\x0b\x32!.google.cloud.channel.v1.CustomerB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"S\n\x15\x44\x65leteCustomerRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\"\xf1\x01\n\x1dProvisionCloudIdentityRequest\x12>\n\x08\x63ustomer\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\x12G\n\x13\x63loud_identity_info\x18\x02 \x01(\x0b\x32*.google.cloud.channel.v1.CloudIdentityInfo\x12\x30\n\x04user\x18\x03 \x01(\x0b\x32\".google.cloud.channel.v1.AdminUser\x12\x15\n\rvalidate_only\x18\x04 \x01(\x08\"\x88\x01\n\x17ListEntitlementsRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"o\n\x18ListEntitlementsResponse\x12:\n\x0c\x65ntitlements\x18\x01 \x03(\x0b\x32$.google.cloud.channel.v1.Entitlement\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xdb\x01\n\x1bListTransferableSkusRequest\x12\x1b\n\x11\x63loud_identity_id\x18\x04 \x01(\tH\x00\x12\x17\n\rcustomer_name\x18\x07 \x01(\tH\x00\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x12\n\nauth_token\x18\x05 \x01(\t\x12\x15\n\rlanguage_code\x18\x06 \x01(\tB\x1f\n\x1dtransferred_customer_identity\"|\n\x1cListTransferableSkusResponse\x12\x43\n\x11transferable_skus\x18\x01 \x03(\x0b\x32(.google.cloud.channel.v1.TransferableSku\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xdb\x01\n\x1dListTransferableOffersRequest\x12\x1b\n\x11\x63loud_identity_id\x18\x04 \x01(\tH\x00\x12\x17\n\rcustomer_name\x18\x05 \x01(\tH\x00\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x10\n\x03sku\x18\x06 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x07 \x01(\tB\x1f\n\x1dtransferred_customer_identity\"\x82\x01\n\x1eListTransferableOffersResponse\x12G\n\x13transferable_offers\x18\x01 \x03(\x0b\x32*.google.cloud.channel.v1.TransferableOffer\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"B\n\x11TransferableOffer\x12-\n\x05offer\x18\x01 \x01(\x0b\x32\x1e.google.cloud.channel.v1.Offer\"V\n\x15GetEntitlementRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'cloudchannel.googleapis.com/Entitlement\"\xaa\x01\n\x1eListChannelPartnerLinksRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x42\n\x04view\x18\x04 \x01(\x0e\x32/.google.cloud.channel.v1.ChannelPartnerLinkViewB\x03\xe0\x41\x01\"\x86\x01\n\x1fListChannelPartnerLinksResponse\x12J\n\x15\x63hannel_partner_links\x18\x01 \x03(\x0b\x32+.google.cloud.channel.v1.ChannelPartnerLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"u\n\x1cGetChannelPartnerLinkRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x42\n\x04view\x18\x02 \x01(\x0e\x32/.google.cloud.channel.v1.ChannelPartnerLinkViewB\x03\xe0\x41\x01\"\x86\x01\n\x1f\x43reateChannelPartnerLinkRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12N\n\x14\x63hannel_partner_link\x18\x02 \x01(\x0b\x32+.google.cloud.channel.v1.ChannelPartnerLinkB\x03\xe0\x41\x02\"\xba\x01\n\x1fUpdateChannelPartnerLinkRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12N\n\x14\x63hannel_partner_link\x18\x02 \x01(\x0b\x32+.google.cloud.channel.v1.ChannelPartnerLinkB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\xb1\x01\n\x18\x43reateEntitlementRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\x12>\n\x0b\x65ntitlement\x18\x02 \x01(\x0b\x32$.google.cloud.channel.v1.EntitlementB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xa0\x01\n\x1bTransferEntitlementsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12?\n\x0c\x65ntitlements\x18\x02 \x03(\x0b\x32$.google.cloud.channel.v1.EntitlementB\x03\xe0\x41\x02\x12\x12\n\nauth_token\x18\x04 \x01(\t\x12\x17\n\nrequest_id\x18\x06 \x01(\tB\x03\xe0\x41\x01\"Z\n\x1cTransferEntitlementsResponse\x12:\n\x0c\x65ntitlements\x18\x01 \x03(\x0b\x32$.google.cloud.channel.v1.Entitlement\"\x94\x01\n#TransferEntitlementsToGoogleRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12?\n\x0c\x65ntitlements\x18\x02 \x03(\x0b\x32$.google.cloud.channel.v1.EntitlementB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xa2\x01\n\x17\x43hangeParametersRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12;\n\nparameters\x18\x02 \x03(\x0b\x32\".google.cloud.channel.v1.ParameterB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x1e\n\x11purchase_order_id\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\x93\x01\n\x1c\x43hangeRenewalSettingsRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12G\n\x10renewal_settings\x18\x04 \x01(\x0b\x32(.google.cloud.channel.v1.RenewalSettingsB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xd7\x01\n\x12\x43hangeOfferRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x38\n\x05offer\x18\x02 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!cloudchannel.googleapis.com/Offer\x12;\n\nparameters\x18\x03 \x03(\x0b\x32\".google.cloud.channel.v1.ParameterB\x03\xe0\x41\x01\x12\x1e\n\x11purchase_order_id\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12\x17\n\nrequest_id\x18\x06 \x01(\tB\x03\xe0\x41\x01\"E\n\x17StartPaidServiceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"F\n\x18\x43\x61ncelEntitlementRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"G\n\x19SuspendEntitlementRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"H\n\x1a\x41\x63tivateEntitlementRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"Z\n\x12LookupOfferRequest\x12\x44\n\x0b\x65ntitlement\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'cloudchannel.googleapis.com/Entitlement\"x\n\x13ListProductsRequest\x12\x14\n\x07\x61\x63\x63ount\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x04 \x01(\tB\x03\xe0\x41\x01\"c\n\x14ListProductsResponse\x12\x32\n\x08products\x18\x01 \x03(\x0b\x32 .google.cloud.channel.v1.Product\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb1\x01\n\x0fListSkusRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#cloudchannel.googleapis.com/Product\x12\x14\n\x07\x61\x63\x63ount\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x05 \x01(\tB\x03\xe0\x41\x01\"W\n\x10ListSkusResponse\x12*\n\x04skus\x18\x01 \x03(\x0b\x32\x1c.google.cloud.channel.v1.Sku\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x8a\x01\n\x11ListOffersRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x05 \x01(\tB\x03\xe0\x41\x01\"]\n\x12ListOffersResponse\x12.\n\x06offers\x18\x01 \x03(\x0b\x32\x1e.google.cloud.channel.v1.Offer\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb6\x05\n\x1aListPurchasableSkusRequest\x12t\n\x1b\x63reate_entitlement_purchase\x18\x02 \x01(\x0b\x32M.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchaseH\x00\x12h\n\x15\x63hange_offer_purchase\x18\x03 \x01(\x0b\x32G.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchaseH\x00\x12>\n\x08\x63ustomer\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\x12\x16\n\tpage_size\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x06 \x01(\tB\x03\xe0\x41\x01\x1a\x31\n\x19\x43reateEntitlementPurchase\x12\x14\n\x07product\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\xe4\x01\n\x13\x43hangeOfferPurchase\x12\x18\n\x0b\x65ntitlement\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12l\n\x0b\x63hange_type\x18\x02 \x01(\x0e\x32R.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeTypeB\x03\xe0\x41\x02\"E\n\nChangeType\x12\x1b\n\x17\x43HANGE_TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07UPGRADE\x10\x01\x12\r\n\tDOWNGRADE\x10\x02\x42\x11\n\x0fpurchase_option\"y\n\x1bListPurchasableSkusResponse\x12\x41\n\x10purchasable_skus\x18\x01 \x03(\x0b\x32\'.google.cloud.channel.v1.PurchasableSku\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\";\n\x0ePurchasableSku\x12)\n\x03sku\x18\x01 \x01(\x0b\x32\x1c.google.cloud.channel.v1.Sku\"\x98\x04\n\x1cListPurchasableOffersRequest\x12v\n\x1b\x63reate_entitlement_purchase\x18\x02 \x01(\x0b\x32O.google.cloud.channel.v1.ListPurchasableOffersRequest.CreateEntitlementPurchaseH\x00\x12j\n\x15\x63hange_offer_purchase\x18\x03 \x01(\x0b\x32I.google.cloud.channel.v1.ListPurchasableOffersRequest.ChangeOfferPurchaseH\x00\x12>\n\x08\x63ustomer\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\x12\x16\n\tpage_size\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x06 \x01(\tB\x03\xe0\x41\x01\x1a-\n\x19\x43reateEntitlementPurchase\x12\x10\n\x03sku\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x45\n\x13\x43hangeOfferPurchase\x12\x18\n\x0b\x65ntitlement\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07new_sku\x18\x02 \x01(\tB\x03\xe0\x41\x01\x42\x11\n\x0fpurchase_option\"\x7f\n\x1dListPurchasableOffersResponse\x12\x45\n\x12purchasable_offers\x18\x01 \x03(\x0b\x32).google.cloud.channel.v1.PurchasableOffer\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"A\n\x10PurchasableOffer\x12-\n\x05offer\x18\x01 \x01(\x0b\x32\x1e.google.cloud.channel.v1.Offer\"O\n\x19RegisterSubscriberRequest\x12\x14\n\x07\x61\x63\x63ount\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1c\n\x0fservice_account\x18\x02 \x01(\tB\x03\xe0\x41\x02\"+\n\x1aRegisterSubscriberResponse\x12\r\n\x05topic\x18\x01 \x01(\t\"Q\n\x1bUnregisterSubscriberRequest\x12\x14\n\x07\x61\x63\x63ount\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1c\n\x0fservice_account\x18\x02 \x01(\tB\x03\xe0\x41\x02\"-\n\x1cUnregisterSubscriberResponse\x12\r\n\x05topic\x18\x01 \x01(\t\"_\n\x16ListSubscribersRequest\x12\x14\n\x07\x61\x63\x63ount\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"[\n\x17ListSubscribersResponse\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x18\n\x10service_accounts\x18\x02 \x03(\t\x12\x17\n\x0fnext_page_token\x18\x03 \x01(\t2\xb1\x35\n\x13\x43loudChannelService\x12\xd4\x01\n\rListCustomers\x12-.google.cloud.channel.v1.ListCustomersRequest\x1a..google.cloud.channel.v1.ListCustomersResponse\"d\x82\xd3\xe4\x93\x02^\x12!/v1/{parent=accounts/*}/customersZ9\x12\x37/v1/{parent=accounts/*/channelPartnerLinks/*}/customers\x12\xca\x01\n\x0bGetCustomer\x12+.google.cloud.channel.v1.GetCustomerRequest\x1a!.google.cloud.channel.v1.Customer\"k\x82\xd3\xe4\x93\x02^\x12!/v1/{name=accounts/*/customers/*}Z9\x12\x37/v1/{name=accounts/*/channelPartnerLinks/*/customers/*}\xda\x41\x04name\x12\xe8\x01\n\x1f\x43heckCloudIdentityAccountsExist\x12?.google.cloud.channel.v1.CheckCloudIdentityAccountsExistRequest\x1a@.google.cloud.channel.v1.CheckCloudIdentityAccountsExistResponse\"B\x82\xd3\xe4\x93\x02<\"7/v1/{parent=accounts/*}:checkCloudIdentityAccountsExist:\x01*\x12\xdd\x01\n\x0e\x43reateCustomer\x12..google.cloud.channel.v1.CreateCustomerRequest\x1a!.google.cloud.channel.v1.Customer\"x\x82\xd3\xe4\x93\x02r\"!/v1/{parent=accounts/*}/customers:\x08\x63ustomerZC\"7/v1/{parent=accounts/*/channelPartnerLinks/*}/customers:\x08\x63ustomer\x12\xf1\x01\n\x0eUpdateCustomer\x12..google.cloud.channel.v1.UpdateCustomerRequest\x1a!.google.cloud.channel.v1.Customer\"\x8b\x01\x82\xd3\xe4\x93\x02\x84\x01\x32*/v1/{customer.name=accounts/*/customers/*}:\x08\x63ustomerZL2@/v1/{customer.name=accounts/*/channelPartnerLinks/*/customers/*}:\x08\x63ustomer\x12\xc5\x01\n\x0e\x44\x65leteCustomer\x12..google.cloud.channel.v1.DeleteCustomerRequest\x1a\x16.google.protobuf.Empty\"k\x82\xd3\xe4\x93\x02^*!/v1/{name=accounts/*/customers/*}Z9*7/v1/{name=accounts/*/channelPartnerLinks/*/customers/*}\xda\x41\x04name\x12\xd8\x01\n\x16ProvisionCloudIdentity\x12\x36.google.cloud.channel.v1.ProvisionCloudIdentityRequest\x1a\x1d.google.longrunning.Operation\"g\x82\xd3\xe4\x93\x02\x41\"</v1/{customer=accounts/*/customers/*}:provisionCloudIdentity:\x01*\xca\x41\x1d\n\x08\x43ustomer\x12\x11OperationMetadata\x12\xb1\x01\n\x10ListEntitlements\x12\x30.google.cloud.channel.v1.ListEntitlementsRequest\x1a\x31.google.cloud.channel.v1.ListEntitlementsResponse\"8\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{parent=accounts/*/customers/*}/entitlements\x12\xbc\x01\n\x14ListTransferableSkus\x12\x34.google.cloud.channel.v1.ListTransferableSkusRequest\x1a\x35.google.cloud.channel.v1.ListTransferableSkusResponse\"7\x82\xd3\xe4\x93\x02\x31\",/v1/{parent=accounts/*}:listTransferableSkus:\x01*\x12\xc4\x01\n\x16ListTransferableOffers\x12\x36.google.cloud.channel.v1.ListTransferableOffersRequest\x1a\x37.google.cloud.channel.v1.ListTransferableOffersResponse\"9\x82\xd3\xe4\x93\x02\x33\"./v1/{parent=accounts/*}:listTransferableOffers:\x01*\x12\xa0\x01\n\x0eGetEntitlement\x12..google.cloud.channel.v1.GetEntitlementRequest\x1a$.google.cloud.channel.v1.Entitlement\"8\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{name=accounts/*/customers/*/entitlements/*}\x12\xc5\x01\n\x11\x43reateEntitlement\x12\x31.google.cloud.channel.v1.CreateEntitlementRequest\x1a\x1d.google.longrunning.Operation\"^\x82\xd3\xe4\x93\x02\x35\"0/v1/{parent=accounts/*/customers/*}/entitlements:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xd4\x01\n\x10\x43hangeParameters\x12\x30.google.cloud.channel.v1.ChangeParametersRequest\x1a\x1d.google.longrunning.Operation\"o\x82\xd3\xe4\x93\x02\x46\"A/v1/{name=accounts/*/customers/*/entitlements/*}:changeParameters:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xe3\x01\n\x15\x43hangeRenewalSettings\x12\x35.google.cloud.channel.v1.ChangeRenewalSettingsRequest\x1a\x1d.google.longrunning.Operation\"t\x82\xd3\xe4\x93\x02K\"F/v1/{name=accounts/*/customers/*/entitlements/*}:changeRenewalSettings:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xc5\x01\n\x0b\x43hangeOffer\x12+.google.cloud.channel.v1.ChangeOfferRequest\x1a\x1d.google.longrunning.Operation\"j\x82\xd3\xe4\x93\x02\x41\"</v1/{name=accounts/*/customers/*/entitlements/*}:changeOffer:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xd4\x01\n\x10StartPaidService\x12\x30.google.cloud.channel.v1.StartPaidServiceRequest\x1a\x1d.google.longrunning.Operation\"o\x82\xd3\xe4\x93\x02\x46\"A/v1/{name=accounts/*/customers/*/entitlements/*}:startPaidService:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xcf\x01\n\x12SuspendEntitlement\x12\x32.google.cloud.channel.v1.SuspendEntitlementRequest\x1a\x1d.google.longrunning.Operation\"f\x82\xd3\xe4\x93\x02=\"8/v1/{name=accounts/*/customers/*/entitlements/*}:suspend:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xd6\x01\n\x11\x43\x61ncelEntitlement\x12\x31.google.cloud.channel.v1.CancelEntitlementRequest\x1a\x1d.google.longrunning.Operation\"o\x82\xd3\xe4\x93\x02<\"7/v1/{name=accounts/*/customers/*/entitlements/*}:cancel:\x01*\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xd2\x01\n\x13\x41\x63tivateEntitlement\x12\x33.google.cloud.channel.v1.ActivateEntitlementRequest\x1a\x1d.google.longrunning.Operation\"g\x82\xd3\xe4\x93\x02>\"9/v1/{name=accounts/*/customers/*/entitlements/*}:activate:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xe4\x01\n\x14TransferEntitlements\x12\x34.google.cloud.channel.v1.TransferEntitlementsRequest\x1a\x1d.google.longrunning.Operation\"w\x82\xd3\xe4\x93\x02=\"8/v1/{parent=accounts/*/customers/*}:transferEntitlements:\x01*\xca\x41\x31\n\x1cTransferEntitlementsResponse\x12\x11OperationMetadata\x12\xf5\x01\n\x1cTransferEntitlementsToGoogle\x12<.google.cloud.channel.v1.TransferEntitlementsToGoogleRequest\x1a\x1d.google.longrunning.Operation\"x\x82\xd3\xe4\x93\x02\x45\"@/v1/{parent=accounts/*/customers/*}:transferEntitlementsToGoogle:\x01*\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xc1\x01\n\x17ListChannelPartnerLinks\x12\x37.google.cloud.channel.v1.ListChannelPartnerLinksRequest\x1a\x38.google.cloud.channel.v1.ListChannelPartnerLinksResponse\"3\x82\xd3\xe4\x93\x02-\x12+/v1/{parent=accounts/*}/channelPartnerLinks\x12\xb0\x01\n\x15GetChannelPartnerLink\x12\x35.google.cloud.channel.v1.GetChannelPartnerLinkRequest\x1a+.google.cloud.channel.v1.ChannelPartnerLink\"3\x82\xd3\xe4\x93\x02-\x12+/v1/{name=accounts/*/channelPartnerLinks/*}\x12\xcc\x01\n\x18\x43reateChannelPartnerLink\x12\x38.google.cloud.channel.v1.CreateChannelPartnerLinkRequest\x1a+.google.cloud.channel.v1.ChannelPartnerLink\"I\x82\xd3\xe4\x93\x02\x43\"+/v1/{parent=accounts/*}/channelPartnerLinks:\x14\x63hannel_partner_link\x12\xb9\x01\n\x18UpdateChannelPartnerLink\x12\x38.google.cloud.channel.v1.UpdateChannelPartnerLinkRequest\x1a+.google.cloud.channel.v1.ChannelPartnerLink\"6\x82\xd3\xe4\x93\x02\x30\x32+/v1/{name=accounts/*/channelPartnerLinks/*}:\x01*\x12\xa7\x01\n\x0bLookupOffer\x12+.google.cloud.channel.v1.LookupOfferRequest\x1a\x1e.google.cloud.channel.v1.Offer\"K\x82\xd3\xe4\x93\x02\x45\x12\x43/v1/{entitlement=accounts/*/customers/*/entitlements/*}:lookupOffer\x12\x81\x01\n\x0cListProducts\x12,.google.cloud.channel.v1.ListProductsRequest\x1a-.google.cloud.channel.v1.ListProductsResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/products\x12\x85\x01\n\x08ListSkus\x12(.google.cloud.channel.v1.ListSkusRequest\x1a).google.cloud.channel.v1.ListSkusResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1/{parent=products/*}/skus\x12\x8d\x01\n\nListOffers\x12*.google.cloud.channel.v1.ListOffersRequest\x1a+.google.cloud.channel.v1.ListOffersResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/v1/{parent=accounts/*}/offers\x12\xc3\x01\n\x13ListPurchasableSkus\x12\x33.google.cloud.channel.v1.ListPurchasableSkusRequest\x1a\x34.google.cloud.channel.v1.ListPurchasableSkusResponse\"A\x82\xd3\xe4\x93\x02;\x12\x39/v1/{customer=accounts/*/customers/*}:listPurchasableSkus\x12\xcb\x01\n\x15ListPurchasableOffers\x12\x35.google.cloud.channel.v1.ListPurchasableOffersRequest\x1a\x36.google.cloud.channel.v1.ListPurchasableOffersResponse\"C\x82\xd3\xe4\x93\x02=\x12;/v1/{customer=accounts/*/customers/*}:listPurchasableOffers\x12\xab\x01\n\x12RegisterSubscriber\x12\x32.google.cloud.channel.v1.RegisterSubscriberRequest\x1a\x33.google.cloud.channel.v1.RegisterSubscriberResponse\",\x82\xd3\xe4\x93\x02&\"!/v1/{account=accounts/*}:register:\x01*\x12\xb3\x01\n\x14UnregisterSubscriber\x12\x34.google.cloud.channel.v1.UnregisterSubscriberRequest\x1a\x35.google.cloud.channel.v1.UnregisterSubscriberResponse\".\x82\xd3\xe4\x93\x02(\"#/v1/{account=accounts/*}:unregister:\x01*\x12\xa6\x01\n\x0fListSubscribers\x12/.google.cloud.channel.v1.ListSubscribersRequest\x1a\x30.google.cloud.channel.v1.ListSubscribersResponse\"0\x82\xd3\xe4\x93\x02*\x12(/v1/{account=accounts/*}:listSubscribers\x1aK\xca\x41\x1b\x63loudchannel.googleapis.com\xd2\x41*https://www.googleapis.com/auth/apps.orderBm\n\x1b\x63om.google.cloud.channel.v1B\x0cServiceProtoP\x01Z>google.golang.org/genproto/googleapis/cloud/channel/v1;channelb\x06proto3'
+  serialized_pb=b'\n%google/cloud/channel/v1/service.proto\x12\x17google.cloud.channel.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x33google/cloud/channel/v1/channel_partner_links.proto\x1a$google/cloud/channel/v1/common.proto\x1a\'google/cloud/channel/v1/customers.proto\x1a*google/cloud/channel/v1/entitlements.proto\x1a$google/cloud/channel/v1/offers.proto\x1a&google/cloud/channel/v1/products.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"R\n&CheckCloudIdentityAccountsExistRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x06\x64omain\x18\x02 \x01(\tB\x03\xe0\x41\x02\"z\n\x1c\x43loudIdentityCustomerAccount\x12\x10\n\x08\x65xisting\x18\x01 \x01(\x08\x12\r\n\x05owned\x18\x02 \x01(\x08\x12\x15\n\rcustomer_name\x18\x03 \x01(\t\x12\"\n\x1a\x63ustomer_cloud_identity_id\x18\x04 \x01(\t\"\x81\x01\n\'CheckCloudIdentityAccountsExistResponse\x12V\n\x17\x63loud_identity_accounts\x18\x01 \x03(\x0b\x32\x35.google.cloud.channel.v1.CloudIdentityCustomerAccount\"\\\n\x14ListCustomersRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"f\n\x15ListCustomersResponse\x12\x34\n\tcustomers\x18\x01 \x03(\x0b\x32!.google.cloud.channel.v1.Customer\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"P\n\x12GetCustomerRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\"f\n\x15\x43reateCustomerRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x38\n\x08\x63ustomer\x18\x02 \x01(\x0b\x32!.google.cloud.channel.v1.CustomerB\x03\xe0\x41\x02\"\x82\x01\n\x15UpdateCustomerRequest\x12\x38\n\x08\x63ustomer\x18\x02 \x01(\x0b\x32!.google.cloud.channel.v1.CustomerB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"S\n\x15\x44\x65leteCustomerRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\"\x96\x02\n\x15ImportCustomerRequest\x12\x15\n\x06\x64omain\x18\x02 \x01(\tB\x03\xe0\x41\x02H\x00\x12 \n\x11\x63loud_identity_id\x18\x03 \x01(\tB\x03\xe0\x41\x02H\x00\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nauth_token\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12 \n\x13overwrite_if_exists\x18\x05 \x01(\x08\x42\x03\xe0\x41\x02\x12\x1f\n\x12\x63hannel_partner_id\x18\x06 \x01(\tB\x03\xe0\x41\x01\x12>\n\x08\x63ustomer\x18\x07 \x01(\tB,\xe0\x41\x01\xfa\x41&\n$cloudchannel.googleapis.com/CustomerB\x13\n\x11\x63ustomer_identity\"\xf1\x01\n\x1dProvisionCloudIdentityRequest\x12>\n\x08\x63ustomer\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\x12G\n\x13\x63loud_identity_info\x18\x02 \x01(\x0b\x32*.google.cloud.channel.v1.CloudIdentityInfo\x12\x30\n\x04user\x18\x03 \x01(\x0b\x32\".google.cloud.channel.v1.AdminUser\x12\x15\n\rvalidate_only\x18\x04 \x01(\x08\"\x88\x01\n\x17ListEntitlementsRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"o\n\x18ListEntitlementsResponse\x12:\n\x0c\x65ntitlements\x18\x01 \x03(\x0b\x32$.google.cloud.channel.v1.Entitlement\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xdb\x01\n\x1bListTransferableSkusRequest\x12\x1b\n\x11\x63loud_identity_id\x18\x04 \x01(\tH\x00\x12\x17\n\rcustomer_name\x18\x07 \x01(\tH\x00\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x12\n\nauth_token\x18\x05 \x01(\t\x12\x15\n\rlanguage_code\x18\x06 \x01(\tB\x1f\n\x1dtransferred_customer_identity\"|\n\x1cListTransferableSkusResponse\x12\x43\n\x11transferable_skus\x18\x01 \x03(\x0b\x32(.google.cloud.channel.v1.TransferableSku\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xdb\x01\n\x1dListTransferableOffersRequest\x12\x1b\n\x11\x63loud_identity_id\x18\x04 \x01(\tH\x00\x12\x17\n\rcustomer_name\x18\x05 \x01(\tH\x00\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x10\n\x03sku\x18\x06 \x01(\tB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x07 \x01(\tB\x1f\n\x1dtransferred_customer_identity\"\x82\x01\n\x1eListTransferableOffersResponse\x12G\n\x13transferable_offers\x18\x01 \x03(\x0b\x32*.google.cloud.channel.v1.TransferableOffer\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"B\n\x11TransferableOffer\x12-\n\x05offer\x18\x01 \x01(\x0b\x32\x1e.google.cloud.channel.v1.Offer\"V\n\x15GetEntitlementRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'cloudchannel.googleapis.com/Entitlement\"\xaa\x01\n\x1eListChannelPartnerLinksRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x42\n\x04view\x18\x04 \x01(\x0e\x32/.google.cloud.channel.v1.ChannelPartnerLinkViewB\x03\xe0\x41\x01\"\x86\x01\n\x1fListChannelPartnerLinksResponse\x12J\n\x15\x63hannel_partner_links\x18\x01 \x03(\x0b\x32+.google.cloud.channel.v1.ChannelPartnerLink\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"u\n\x1cGetChannelPartnerLinkRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x42\n\x04view\x18\x02 \x01(\x0e\x32/.google.cloud.channel.v1.ChannelPartnerLinkViewB\x03\xe0\x41\x01\"\x86\x01\n\x1f\x43reateChannelPartnerLinkRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12N\n\x14\x63hannel_partner_link\x18\x02 \x01(\x0b\x32+.google.cloud.channel.v1.ChannelPartnerLinkB\x03\xe0\x41\x02\"\xba\x01\n\x1fUpdateChannelPartnerLinkRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12N\n\x14\x63hannel_partner_link\x18\x02 \x01(\x0b\x32+.google.cloud.channel.v1.ChannelPartnerLinkB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\xb1\x01\n\x18\x43reateEntitlementRequest\x12<\n\x06parent\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\x12>\n\x0b\x65ntitlement\x18\x02 \x01(\x0b\x32$.google.cloud.channel.v1.EntitlementB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xa0\x01\n\x1bTransferEntitlementsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12?\n\x0c\x65ntitlements\x18\x02 \x03(\x0b\x32$.google.cloud.channel.v1.EntitlementB\x03\xe0\x41\x02\x12\x12\n\nauth_token\x18\x04 \x01(\t\x12\x17\n\nrequest_id\x18\x06 \x01(\tB\x03\xe0\x41\x01\"Z\n\x1cTransferEntitlementsResponse\x12:\n\x0c\x65ntitlements\x18\x01 \x03(\x0b\x32$.google.cloud.channel.v1.Entitlement\"\x94\x01\n#TransferEntitlementsToGoogleRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12?\n\x0c\x65ntitlements\x18\x02 \x03(\x0b\x32$.google.cloud.channel.v1.EntitlementB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xa2\x01\n\x17\x43hangeParametersRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12;\n\nparameters\x18\x02 \x03(\x0b\x32\".google.cloud.channel.v1.ParameterB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x1e\n\x11purchase_order_id\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\x93\x01\n\x1c\x43hangeRenewalSettingsRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12G\n\x10renewal_settings\x18\x04 \x01(\x0b\x32(.google.cloud.channel.v1.RenewalSettingsB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xd7\x01\n\x12\x43hangeOfferRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x38\n\x05offer\x18\x02 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!cloudchannel.googleapis.com/Offer\x12;\n\nparameters\x18\x03 \x03(\x0b\x32\".google.cloud.channel.v1.ParameterB\x03\xe0\x41\x01\x12\x1e\n\x11purchase_order_id\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12\x17\n\nrequest_id\x18\x06 \x01(\tB\x03\xe0\x41\x01\"E\n\x17StartPaidServiceRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"F\n\x18\x43\x61ncelEntitlementRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"G\n\x19SuspendEntitlementRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"H\n\x1a\x41\x63tivateEntitlementRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"Z\n\x12LookupOfferRequest\x12\x44\n\x0b\x65ntitlement\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'cloudchannel.googleapis.com/Entitlement\"x\n\x13ListProductsRequest\x12\x14\n\x07\x61\x63\x63ount\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x04 \x01(\tB\x03\xe0\x41\x01\"c\n\x14ListProductsResponse\x12\x32\n\x08products\x18\x01 \x03(\x0b\x32 .google.cloud.channel.v1.Product\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb1\x01\n\x0fListSkusRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#cloudchannel.googleapis.com/Product\x12\x14\n\x07\x61\x63\x63ount\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x05 \x01(\tB\x03\xe0\x41\x01\"W\n\x10ListSkusResponse\x12*\n\x04skus\x18\x01 \x03(\x0b\x32\x1c.google.cloud.channel.v1.Sku\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x8a\x01\n\x11ListOffersRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x05 \x01(\tB\x03\xe0\x41\x01\"]\n\x12ListOffersResponse\x12.\n\x06offers\x18\x01 \x03(\x0b\x32\x1e.google.cloud.channel.v1.Offer\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xb6\x05\n\x1aListPurchasableSkusRequest\x12t\n\x1b\x63reate_entitlement_purchase\x18\x02 \x01(\x0b\x32M.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchaseH\x00\x12h\n\x15\x63hange_offer_purchase\x18\x03 \x01(\x0b\x32G.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchaseH\x00\x12>\n\x08\x63ustomer\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\x12\x16\n\tpage_size\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x06 \x01(\tB\x03\xe0\x41\x01\x1a\x31\n\x19\x43reateEntitlementPurchase\x12\x14\n\x07product\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\xe4\x01\n\x13\x43hangeOfferPurchase\x12\x18\n\x0b\x65ntitlement\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12l\n\x0b\x63hange_type\x18\x02 \x01(\x0e\x32R.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeTypeB\x03\xe0\x41\x02\"E\n\nChangeType\x12\x1b\n\x17\x43HANGE_TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07UPGRADE\x10\x01\x12\r\n\tDOWNGRADE\x10\x02\x42\x11\n\x0fpurchase_option\"y\n\x1bListPurchasableSkusResponse\x12\x41\n\x10purchasable_skus\x18\x01 \x03(\x0b\x32\'.google.cloud.channel.v1.PurchasableSku\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\";\n\x0ePurchasableSku\x12)\n\x03sku\x18\x01 \x01(\x0b\x32\x1c.google.cloud.channel.v1.Sku\"\x98\x04\n\x1cListPurchasableOffersRequest\x12v\n\x1b\x63reate_entitlement_purchase\x18\x02 \x01(\x0b\x32O.google.cloud.channel.v1.ListPurchasableOffersRequest.CreateEntitlementPurchaseH\x00\x12j\n\x15\x63hange_offer_purchase\x18\x03 \x01(\x0b\x32I.google.cloud.channel.v1.ListPurchasableOffersRequest.ChangeOfferPurchaseH\x00\x12>\n\x08\x63ustomer\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$cloudchannel.googleapis.com/Customer\x12\x16\n\tpage_size\x18\x04 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12\x1a\n\rlanguage_code\x18\x06 \x01(\tB\x03\xe0\x41\x01\x1a-\n\x19\x43reateEntitlementPurchase\x12\x10\n\x03sku\x18\x01 \x01(\tB\x03\xe0\x41\x02\x1a\x45\n\x13\x43hangeOfferPurchase\x12\x18\n\x0b\x65ntitlement\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07new_sku\x18\x02 \x01(\tB\x03\xe0\x41\x01\x42\x11\n\x0fpurchase_option\"\x7f\n\x1dListPurchasableOffersResponse\x12\x45\n\x12purchasable_offers\x18\x01 \x03(\x0b\x32).google.cloud.channel.v1.PurchasableOffer\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"A\n\x10PurchasableOffer\x12-\n\x05offer\x18\x01 \x01(\x0b\x32\x1e.google.cloud.channel.v1.Offer\"O\n\x19RegisterSubscriberRequest\x12\x14\n\x07\x61\x63\x63ount\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1c\n\x0fservice_account\x18\x02 \x01(\tB\x03\xe0\x41\x02\"+\n\x1aRegisterSubscriberResponse\x12\r\n\x05topic\x18\x01 \x01(\t\"Q\n\x1bUnregisterSubscriberRequest\x12\x14\n\x07\x61\x63\x63ount\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x1c\n\x0fservice_account\x18\x02 \x01(\tB\x03\xe0\x41\x02\"-\n\x1cUnregisterSubscriberResponse\x12\r\n\x05topic\x18\x01 \x01(\t\"_\n\x16ListSubscribersRequest\x12\x14\n\x07\x61\x63\x63ount\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\"[\n\x17ListSubscribersResponse\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x18\n\x10service_accounts\x18\x02 \x03(\t\x12\x17\n\x0fnext_page_token\x18\x03 \x01(\t2\x91\x37\n\x13\x43loudChannelService\x12\xd4\x01\n\rListCustomers\x12-.google.cloud.channel.v1.ListCustomersRequest\x1a..google.cloud.channel.v1.ListCustomersResponse\"d\x82\xd3\xe4\x93\x02^\x12!/v1/{parent=accounts/*}/customersZ9\x12\x37/v1/{parent=accounts/*/channelPartnerLinks/*}/customers\x12\xca\x01\n\x0bGetCustomer\x12+.google.cloud.channel.v1.GetCustomerRequest\x1a!.google.cloud.channel.v1.Customer\"k\x82\xd3\xe4\x93\x02^\x12!/v1/{name=accounts/*/customers/*}Z9\x12\x37/v1/{name=accounts/*/channelPartnerLinks/*/customers/*}\xda\x41\x04name\x12\xe8\x01\n\x1f\x43heckCloudIdentityAccountsExist\x12?.google.cloud.channel.v1.CheckCloudIdentityAccountsExistRequest\x1a@.google.cloud.channel.v1.CheckCloudIdentityAccountsExistResponse\"B\x82\xd3\xe4\x93\x02<\"7/v1/{parent=accounts/*}:checkCloudIdentityAccountsExist:\x01*\x12\xdd\x01\n\x0e\x43reateCustomer\x12..google.cloud.channel.v1.CreateCustomerRequest\x1a!.google.cloud.channel.v1.Customer\"x\x82\xd3\xe4\x93\x02r\"!/v1/{parent=accounts/*}/customers:\x08\x63ustomerZC\"7/v1/{parent=accounts/*/channelPartnerLinks/*}/customers:\x08\x63ustomer\x12\xf1\x01\n\x0eUpdateCustomer\x12..google.cloud.channel.v1.UpdateCustomerRequest\x1a!.google.cloud.channel.v1.Customer\"\x8b\x01\x82\xd3\xe4\x93\x02\x84\x01\x32*/v1/{customer.name=accounts/*/customers/*}:\x08\x63ustomerZL2@/v1/{customer.name=accounts/*/channelPartnerLinks/*/customers/*}:\x08\x63ustomer\x12\xc5\x01\n\x0e\x44\x65leteCustomer\x12..google.cloud.channel.v1.DeleteCustomerRequest\x1a\x16.google.protobuf.Empty\"k\x82\xd3\xe4\x93\x02^*!/v1/{name=accounts/*/customers/*}Z9*7/v1/{name=accounts/*/channelPartnerLinks/*/customers/*}\xda\x41\x04name\x12\xdd\x01\n\x0eImportCustomer\x12..google.cloud.channel.v1.ImportCustomerRequest\x1a!.google.cloud.channel.v1.Customer\"x\x82\xd3\xe4\x93\x02r\"(/v1/{parent=accounts/*}/customers:import:\x01*ZC\">/v1/{parent=accounts/*/channelPartnerLinks/*}/customers:import:\x01*\x12\xd8\x01\n\x16ProvisionCloudIdentity\x12\x36.google.cloud.channel.v1.ProvisionCloudIdentityRequest\x1a\x1d.google.longrunning.Operation\"g\x82\xd3\xe4\x93\x02\x41\"</v1/{customer=accounts/*/customers/*}:provisionCloudIdentity:\x01*\xca\x41\x1d\n\x08\x43ustomer\x12\x11OperationMetadata\x12\xb1\x01\n\x10ListEntitlements\x12\x30.google.cloud.channel.v1.ListEntitlementsRequest\x1a\x31.google.cloud.channel.v1.ListEntitlementsResponse\"8\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{parent=accounts/*/customers/*}/entitlements\x12\xbc\x01\n\x14ListTransferableSkus\x12\x34.google.cloud.channel.v1.ListTransferableSkusRequest\x1a\x35.google.cloud.channel.v1.ListTransferableSkusResponse\"7\x82\xd3\xe4\x93\x02\x31\",/v1/{parent=accounts/*}:listTransferableSkus:\x01*\x12\xc4\x01\n\x16ListTransferableOffers\x12\x36.google.cloud.channel.v1.ListTransferableOffersRequest\x1a\x37.google.cloud.channel.v1.ListTransferableOffersResponse\"9\x82\xd3\xe4\x93\x02\x33\"./v1/{parent=accounts/*}:listTransferableOffers:\x01*\x12\xa0\x01\n\x0eGetEntitlement\x12..google.cloud.channel.v1.GetEntitlementRequest\x1a$.google.cloud.channel.v1.Entitlement\"8\x82\xd3\xe4\x93\x02\x32\x12\x30/v1/{name=accounts/*/customers/*/entitlements/*}\x12\xc5\x01\n\x11\x43reateEntitlement\x12\x31.google.cloud.channel.v1.CreateEntitlementRequest\x1a\x1d.google.longrunning.Operation\"^\x82\xd3\xe4\x93\x02\x35\"0/v1/{parent=accounts/*/customers/*}/entitlements:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xd4\x01\n\x10\x43hangeParameters\x12\x30.google.cloud.channel.v1.ChangeParametersRequest\x1a\x1d.google.longrunning.Operation\"o\x82\xd3\xe4\x93\x02\x46\"A/v1/{name=accounts/*/customers/*/entitlements/*}:changeParameters:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xe3\x01\n\x15\x43hangeRenewalSettings\x12\x35.google.cloud.channel.v1.ChangeRenewalSettingsRequest\x1a\x1d.google.longrunning.Operation\"t\x82\xd3\xe4\x93\x02K\"F/v1/{name=accounts/*/customers/*/entitlements/*}:changeRenewalSettings:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xc5\x01\n\x0b\x43hangeOffer\x12+.google.cloud.channel.v1.ChangeOfferRequest\x1a\x1d.google.longrunning.Operation\"j\x82\xd3\xe4\x93\x02\x41\"</v1/{name=accounts/*/customers/*/entitlements/*}:changeOffer:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xd4\x01\n\x10StartPaidService\x12\x30.google.cloud.channel.v1.StartPaidServiceRequest\x1a\x1d.google.longrunning.Operation\"o\x82\xd3\xe4\x93\x02\x46\"A/v1/{name=accounts/*/customers/*/entitlements/*}:startPaidService:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xcf\x01\n\x12SuspendEntitlement\x12\x32.google.cloud.channel.v1.SuspendEntitlementRequest\x1a\x1d.google.longrunning.Operation\"f\x82\xd3\xe4\x93\x02=\"8/v1/{name=accounts/*/customers/*/entitlements/*}:suspend:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xd6\x01\n\x11\x43\x61ncelEntitlement\x12\x31.google.cloud.channel.v1.CancelEntitlementRequest\x1a\x1d.google.longrunning.Operation\"o\x82\xd3\xe4\x93\x02<\"7/v1/{name=accounts/*/customers/*/entitlements/*}:cancel:\x01*\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xd2\x01\n\x13\x41\x63tivateEntitlement\x12\x33.google.cloud.channel.v1.ActivateEntitlementRequest\x1a\x1d.google.longrunning.Operation\"g\x82\xd3\xe4\x93\x02>\"9/v1/{name=accounts/*/customers/*/entitlements/*}:activate:\x01*\xca\x41 \n\x0b\x45ntitlement\x12\x11OperationMetadata\x12\xe4\x01\n\x14TransferEntitlements\x12\x34.google.cloud.channel.v1.TransferEntitlementsRequest\x1a\x1d.google.longrunning.Operation\"w\x82\xd3\xe4\x93\x02=\"8/v1/{parent=accounts/*/customers/*}:transferEntitlements:\x01*\xca\x41\x31\n\x1cTransferEntitlementsResponse\x12\x11OperationMetadata\x12\xf5\x01\n\x1cTransferEntitlementsToGoogle\x12<.google.cloud.channel.v1.TransferEntitlementsToGoogleRequest\x1a\x1d.google.longrunning.Operation\"x\x82\xd3\xe4\x93\x02\x45\"@/v1/{parent=accounts/*/customers/*}:transferEntitlementsToGoogle:\x01*\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xc1\x01\n\x17ListChannelPartnerLinks\x12\x37.google.cloud.channel.v1.ListChannelPartnerLinksRequest\x1a\x38.google.cloud.channel.v1.ListChannelPartnerLinksResponse\"3\x82\xd3\xe4\x93\x02-\x12+/v1/{parent=accounts/*}/channelPartnerLinks\x12\xb0\x01\n\x15GetChannelPartnerLink\x12\x35.google.cloud.channel.v1.GetChannelPartnerLinkRequest\x1a+.google.cloud.channel.v1.ChannelPartnerLink\"3\x82\xd3\xe4\x93\x02-\x12+/v1/{name=accounts/*/channelPartnerLinks/*}\x12\xcc\x01\n\x18\x43reateChannelPartnerLink\x12\x38.google.cloud.channel.v1.CreateChannelPartnerLinkRequest\x1a+.google.cloud.channel.v1.ChannelPartnerLink\"I\x82\xd3\xe4\x93\x02\x43\"+/v1/{parent=accounts/*}/channelPartnerLinks:\x14\x63hannel_partner_link\x12\xb9\x01\n\x18UpdateChannelPartnerLink\x12\x38.google.cloud.channel.v1.UpdateChannelPartnerLinkRequest\x1a+.google.cloud.channel.v1.ChannelPartnerLink\"6\x82\xd3\xe4\x93\x02\x30\x32+/v1/{name=accounts/*/channelPartnerLinks/*}:\x01*\x12\xa7\x01\n\x0bLookupOffer\x12+.google.cloud.channel.v1.LookupOfferRequest\x1a\x1e.google.cloud.channel.v1.Offer\"K\x82\xd3\xe4\x93\x02\x45\x12\x43/v1/{entitlement=accounts/*/customers/*/entitlements/*}:lookupOffer\x12\x81\x01\n\x0cListProducts\x12,.google.cloud.channel.v1.ListProductsRequest\x1a-.google.cloud.channel.v1.ListProductsResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/products\x12\x85\x01\n\x08ListSkus\x12(.google.cloud.channel.v1.ListSkusRequest\x1a).google.cloud.channel.v1.ListSkusResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1/{parent=products/*}/skus\x12\x8d\x01\n\nListOffers\x12*.google.cloud.channel.v1.ListOffersRequest\x1a+.google.cloud.channel.v1.ListOffersResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/v1/{parent=accounts/*}/offers\x12\xc3\x01\n\x13ListPurchasableSkus\x12\x33.google.cloud.channel.v1.ListPurchasableSkusRequest\x1a\x34.google.cloud.channel.v1.ListPurchasableSkusResponse\"A\x82\xd3\xe4\x93\x02;\x12\x39/v1/{customer=accounts/*/customers/*}:listPurchasableSkus\x12\xcb\x01\n\x15ListPurchasableOffers\x12\x35.google.cloud.channel.v1.ListPurchasableOffersRequest\x1a\x36.google.cloud.channel.v1.ListPurchasableOffersResponse\"C\x82\xd3\xe4\x93\x02=\x12;/v1/{customer=accounts/*/customers/*}:listPurchasableOffers\x12\xab\x01\n\x12RegisterSubscriber\x12\x32.google.cloud.channel.v1.RegisterSubscriberRequest\x1a\x33.google.cloud.channel.v1.RegisterSubscriberResponse\",\x82\xd3\xe4\x93\x02&\"!/v1/{account=accounts/*}:register:\x01*\x12\xb3\x01\n\x14UnregisterSubscriber\x12\x34.google.cloud.channel.v1.UnregisterSubscriberRequest\x1a\x35.google.cloud.channel.v1.UnregisterSubscriberResponse\".\x82\xd3\xe4\x93\x02(\"#/v1/{account=accounts/*}:unregister:\x01*\x12\xa6\x01\n\x0fListSubscribers\x12/.google.cloud.channel.v1.ListSubscribersRequest\x1a\x30.google.cloud.channel.v1.ListSubscribersResponse\"0\x82\xd3\xe4\x93\x02*\x12(/v1/{account=accounts/*}:listSubscribers\x1aK\xca\x41\x1b\x63loudchannel.googleapis.com\xd2\x41*https://www.googleapis.com/auth/apps.orderBm\n\x1b\x63om.google.cloud.channel.v1B\x0cServiceProtoP\x01Z>google.golang.org/genproto/googleapis/cloud/channel/v1;channelb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_channel_dot_v1_dot_channel__partner__links__pb2.DESCRIPTOR,google_dot_cloud_dot_channel_dot_v1_dot_common__pb2.DESCRIPTOR,google_dot_cloud_dot_channel_dot_v1_dot_customers__pb2.DESCRIPTOR,google_dot_cloud_dot_channel_dot_v1_dot_entitlements__pb2.DESCRIPTOR,google_dot_cloud_dot_channel_dot_v1_dot_offers__pb2.DESCRIPTOR,google_dot_cloud_dot_channel_dot_v1_dot_products__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,])
 
@@ -63,8 +63,8 @@ _LISTPURCHASABLESKUSREQUEST_CHANGEOFFERPURCHASE_CHANGETYPE = _descriptor.EnumDes
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6423,
-  serialized_end=6492,
+  serialized_start=6704,
+  serialized_end=6773,
 )
 _sym_db.RegisterEnumDescriptor(_LISTPURCHASABLESKUSREQUEST_CHANGEOFFERPURCHASE_CHANGETYPE)
 
@@ -420,6 +420,85 @@ _DELETECUSTOMERREQUEST = _descriptor.Descriptor(
 )
 
 
+_IMPORTCUSTOMERREQUEST = _descriptor.Descriptor(
+  name='ImportCustomerRequest',
+  full_name='google.cloud.channel.v1.ImportCustomerRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='domain', full_name='google.cloud.channel.v1.ImportCustomerRequest.domain', index=0,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='cloud_identity_id', full_name='google.cloud.channel.v1.ImportCustomerRequest.cloud_identity_id', index=1,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.channel.v1.ImportCustomerRequest.parent', index=2,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='auth_token', full_name='google.cloud.channel.v1.ImportCustomerRequest.auth_token', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='overwrite_if_exists', full_name='google.cloud.channel.v1.ImportCustomerRequest.overwrite_if_exists', index=4,
+      number=5, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='channel_partner_id', full_name='google.cloud.channel.v1.ImportCustomerRequest.channel_partner_id', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='customer', full_name='google.cloud.channel.v1.ImportCustomerRequest.customer', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001\372A&\n$cloudchannel.googleapis.com/Customer', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='customer_identity', full_name='google.cloud.channel.v1.ImportCustomerRequest.customer_identity',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=1478,
+  serialized_end=1756,
+)
+
+
 _PROVISIONCLOUDIDENTITYREQUEST = _descriptor.Descriptor(
   name='ProvisionCloudIdentityRequest',
   full_name='google.cloud.channel.v1.ProvisionCloudIdentityRequest',
@@ -468,8 +547,8 @@ _PROVISIONCLOUDIDENTITYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1478,
-  serialized_end=1719,
+  serialized_start=1759,
+  serialized_end=2000,
 )
 
 
@@ -514,8 +593,8 @@ _LISTENTITLEMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1722,
-  serialized_end=1858,
+  serialized_start=2003,
+  serialized_end=2139,
 )
 
 
@@ -553,8 +632,8 @@ _LISTENTITLEMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1860,
-  serialized_end=1971,
+  serialized_start=2141,
+  serialized_end=2252,
 )
 
 
@@ -632,8 +711,8 @@ _LISTTRANSFERABLESKUSREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1974,
-  serialized_end=2193,
+  serialized_start=2255,
+  serialized_end=2474,
 )
 
 
@@ -671,8 +750,8 @@ _LISTTRANSFERABLESKUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2195,
-  serialized_end=2319,
+  serialized_start=2476,
+  serialized_end=2600,
 )
 
 
@@ -750,8 +829,8 @@ _LISTTRANSFERABLEOFFERSREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2322,
-  serialized_end=2541,
+  serialized_start=2603,
+  serialized_end=2822,
 )
 
 
@@ -789,8 +868,8 @@ _LISTTRANSFERABLEOFFERSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2544,
-  serialized_end=2674,
+  serialized_start=2825,
+  serialized_end=2955,
 )
 
 
@@ -821,8 +900,8 @@ _TRANSFERABLEOFFER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2676,
-  serialized_end=2742,
+  serialized_start=2957,
+  serialized_end=3023,
 )
 
 
@@ -853,8 +932,8 @@ _GETENTITLEMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2744,
-  serialized_end=2830,
+  serialized_start=3025,
+  serialized_end=3111,
 )
 
 
@@ -906,8 +985,8 @@ _LISTCHANNELPARTNERLINKSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2833,
-  serialized_end=3003,
+  serialized_start=3114,
+  serialized_end=3284,
 )
 
 
@@ -945,8 +1024,8 @@ _LISTCHANNELPARTNERLINKSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3006,
-  serialized_end=3140,
+  serialized_start=3287,
+  serialized_end=3421,
 )
 
 
@@ -984,8 +1063,8 @@ _GETCHANNELPARTNERLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3142,
-  serialized_end=3259,
+  serialized_start=3423,
+  serialized_end=3540,
 )
 
 
@@ -1023,8 +1102,8 @@ _CREATECHANNELPARTNERLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3262,
-  serialized_end=3396,
+  serialized_start=3543,
+  serialized_end=3677,
 )
 
 
@@ -1069,8 +1148,8 @@ _UPDATECHANNELPARTNERLINKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3399,
-  serialized_end=3585,
+  serialized_start=3680,
+  serialized_end=3866,
 )
 
 
@@ -1115,8 +1194,8 @@ _CREATEENTITLEMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3588,
-  serialized_end=3765,
+  serialized_start=3869,
+  serialized_end=4046,
 )
 
 
@@ -1168,8 +1247,8 @@ _TRANSFERENTITLEMENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3768,
-  serialized_end=3928,
+  serialized_start=4049,
+  serialized_end=4209,
 )
 
 
@@ -1200,8 +1279,8 @@ _TRANSFERENTITLEMENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3930,
-  serialized_end=4020,
+  serialized_start=4211,
+  serialized_end=4301,
 )
 
 
@@ -1246,8 +1325,8 @@ _TRANSFERENTITLEMENTSTOGOOGLEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4023,
-  serialized_end=4171,
+  serialized_start=4304,
+  serialized_end=4452,
 )
 
 
@@ -1299,8 +1378,8 @@ _CHANGEPARAMETERSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4174,
-  serialized_end=4336,
+  serialized_start=4455,
+  serialized_end=4617,
 )
 
 
@@ -1345,8 +1424,8 @@ _CHANGERENEWALSETTINGSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4339,
-  serialized_end=4486,
+  serialized_start=4620,
+  serialized_end=4767,
 )
 
 
@@ -1405,8 +1484,8 @@ _CHANGEOFFERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4489,
-  serialized_end=4704,
+  serialized_start=4770,
+  serialized_end=4985,
 )
 
 
@@ -1444,8 +1523,8 @@ _STARTPAIDSERVICEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4706,
-  serialized_end=4775,
+  serialized_start=4987,
+  serialized_end=5056,
 )
 
 
@@ -1483,8 +1562,8 @@ _CANCELENTITLEMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4777,
-  serialized_end=4847,
+  serialized_start=5058,
+  serialized_end=5128,
 )
 
 
@@ -1522,8 +1601,8 @@ _SUSPENDENTITLEMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4849,
-  serialized_end=4920,
+  serialized_start=5130,
+  serialized_end=5201,
 )
 
 
@@ -1561,8 +1640,8 @@ _ACTIVATEENTITLEMENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4922,
-  serialized_end=4994,
+  serialized_start=5203,
+  serialized_end=5275,
 )
 
 
@@ -1593,8 +1672,8 @@ _LOOKUPOFFERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4996,
-  serialized_end=5086,
+  serialized_start=5277,
+  serialized_end=5367,
 )
 
 
@@ -1646,8 +1725,8 @@ _LISTPRODUCTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5088,
-  serialized_end=5208,
+  serialized_start=5369,
+  serialized_end=5489,
 )
 
 
@@ -1685,8 +1764,8 @@ _LISTPRODUCTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5210,
-  serialized_end=5309,
+  serialized_start=5491,
+  serialized_end=5590,
 )
 
 
@@ -1745,8 +1824,8 @@ _LISTSKUSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5312,
-  serialized_end=5489,
+  serialized_start=5593,
+  serialized_end=5770,
 )
 
 
@@ -1784,8 +1863,8 @@ _LISTSKUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5491,
-  serialized_end=5578,
+  serialized_start=5772,
+  serialized_end=5859,
 )
 
 
@@ -1844,8 +1923,8 @@ _LISTOFFERSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5581,
-  serialized_end=5719,
+  serialized_start=5862,
+  serialized_end=6000,
 )
 
 
@@ -1883,8 +1962,8 @@ _LISTOFFERSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5721,
-  serialized_end=5814,
+  serialized_start=6002,
+  serialized_end=6095,
 )
 
 
@@ -1915,8 +1994,8 @@ _LISTPURCHASABLESKUSREQUEST_CREATEENTITLEMENTPURCHASE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6212,
-  serialized_end=6261,
+  serialized_start=6493,
+  serialized_end=6542,
 )
 
 _LISTPURCHASABLESKUSREQUEST_CHANGEOFFERPURCHASE = _descriptor.Descriptor(
@@ -1954,8 +2033,8 @@ _LISTPURCHASABLESKUSREQUEST_CHANGEOFFERPURCHASE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6264,
-  serialized_end=6492,
+  serialized_start=6545,
+  serialized_end=6773,
 )
 
 _LISTPURCHASABLESKUSREQUEST = _descriptor.Descriptor(
@@ -2025,8 +2104,8 @@ _LISTPURCHASABLESKUSREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=5817,
-  serialized_end=6511,
+  serialized_start=6098,
+  serialized_end=6792,
 )
 
 
@@ -2064,8 +2143,8 @@ _LISTPURCHASABLESKUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6513,
-  serialized_end=6634,
+  serialized_start=6794,
+  serialized_end=6915,
 )
 
 
@@ -2096,8 +2175,8 @@ _PURCHASABLESKU = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6636,
-  serialized_end=6695,
+  serialized_start=6917,
+  serialized_end=6976,
 )
 
 
@@ -2128,8 +2207,8 @@ _LISTPURCHASABLEOFFERSREQUEST_CREATEENTITLEMENTPURCHASE = _descriptor.Descriptor
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7099,
-  serialized_end=7144,
+  serialized_start=7380,
+  serialized_end=7425,
 )
 
 _LISTPURCHASABLEOFFERSREQUEST_CHANGEOFFERPURCHASE = _descriptor.Descriptor(
@@ -2166,8 +2245,8 @@ _LISTPURCHASABLEOFFERSREQUEST_CHANGEOFFERPURCHASE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7146,
-  serialized_end=7215,
+  serialized_start=7427,
+  serialized_end=7496,
 )
 
 _LISTPURCHASABLEOFFERSREQUEST = _descriptor.Descriptor(
@@ -2237,8 +2316,8 @@ _LISTPURCHASABLEOFFERSREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=6698,
-  serialized_end=7234,
+  serialized_start=6979,
+  serialized_end=7515,
 )
 
 
@@ -2276,8 +2355,8 @@ _LISTPURCHASABLEOFFERSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7236,
-  serialized_end=7363,
+  serialized_start=7517,
+  serialized_end=7644,
 )
 
 
@@ -2308,8 +2387,8 @@ _PURCHASABLEOFFER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7365,
-  serialized_end=7430,
+  serialized_start=7646,
+  serialized_end=7711,
 )
 
 
@@ -2347,8 +2426,8 @@ _REGISTERSUBSCRIBERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7432,
-  serialized_end=7511,
+  serialized_start=7713,
+  serialized_end=7792,
 )
 
 
@@ -2379,8 +2458,8 @@ _REGISTERSUBSCRIBERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7513,
-  serialized_end=7556,
+  serialized_start=7794,
+  serialized_end=7837,
 )
 
 
@@ -2418,8 +2497,8 @@ _UNREGISTERSUBSCRIBERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7558,
-  serialized_end=7639,
+  serialized_start=7839,
+  serialized_end=7920,
 )
 
 
@@ -2450,8 +2529,8 @@ _UNREGISTERSUBSCRIBERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7641,
-  serialized_end=7686,
+  serialized_start=7922,
+  serialized_end=7967,
 )
 
 
@@ -2496,8 +2575,8 @@ _LISTSUBSCRIBERSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7688,
-  serialized_end=7783,
+  serialized_start=7969,
+  serialized_end=8064,
 )
 
 
@@ -2542,8 +2621,8 @@ _LISTSUBSCRIBERSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7785,
-  serialized_end=7876,
+  serialized_start=8066,
+  serialized_end=8157,
 )
 
 _CHECKCLOUDIDENTITYACCOUNTSEXISTRESPONSE.fields_by_name['cloud_identity_accounts'].message_type = _CLOUDIDENTITYCUSTOMERACCOUNT
@@ -2551,6 +2630,12 @@ _LISTCUSTOMERSRESPONSE.fields_by_name['customers'].message_type = google_dot_clo
 _CREATECUSTOMERREQUEST.fields_by_name['customer'].message_type = google_dot_cloud_dot_channel_dot_v1_dot_customers__pb2._CUSTOMER
 _UPDATECUSTOMERREQUEST.fields_by_name['customer'].message_type = google_dot_cloud_dot_channel_dot_v1_dot_customers__pb2._CUSTOMER
 _UPDATECUSTOMERREQUEST.fields_by_name['update_mask'].message_type = google_dot_protobuf_dot_field__mask__pb2._FIELDMASK
+_IMPORTCUSTOMERREQUEST.oneofs_by_name['customer_identity'].fields.append(
+  _IMPORTCUSTOMERREQUEST.fields_by_name['domain'])
+_IMPORTCUSTOMERREQUEST.fields_by_name['domain'].containing_oneof = _IMPORTCUSTOMERREQUEST.oneofs_by_name['customer_identity']
+_IMPORTCUSTOMERREQUEST.oneofs_by_name['customer_identity'].fields.append(
+  _IMPORTCUSTOMERREQUEST.fields_by_name['cloud_identity_id'])
+_IMPORTCUSTOMERREQUEST.fields_by_name['cloud_identity_id'].containing_oneof = _IMPORTCUSTOMERREQUEST.oneofs_by_name['customer_identity']
 _PROVISIONCLOUDIDENTITYREQUEST.fields_by_name['cloud_identity_info'].message_type = google_dot_cloud_dot_channel_dot_v1_dot_common__pb2._CLOUDIDENTITYINFO
 _PROVISIONCLOUDIDENTITYREQUEST.fields_by_name['user'].message_type = google_dot_cloud_dot_channel_dot_v1_dot_common__pb2._ADMINUSER
 _LISTENTITLEMENTSRESPONSE.fields_by_name['entitlements'].message_type = google_dot_cloud_dot_channel_dot_v1_dot_entitlements__pb2._ENTITLEMENT
@@ -2620,6 +2705,7 @@ DESCRIPTOR.message_types_by_name['GetCustomerRequest'] = _GETCUSTOMERREQUEST
 DESCRIPTOR.message_types_by_name['CreateCustomerRequest'] = _CREATECUSTOMERREQUEST
 DESCRIPTOR.message_types_by_name['UpdateCustomerRequest'] = _UPDATECUSTOMERREQUEST
 DESCRIPTOR.message_types_by_name['DeleteCustomerRequest'] = _DELETECUSTOMERREQUEST
+DESCRIPTOR.message_types_by_name['ImportCustomerRequest'] = _IMPORTCUSTOMERREQUEST
 DESCRIPTOR.message_types_by_name['ProvisionCloudIdentityRequest'] = _PROVISIONCLOUDIDENTITYREQUEST
 DESCRIPTOR.message_types_by_name['ListEntitlementsRequest'] = _LISTENTITLEMENTSREQUEST
 DESCRIPTOR.message_types_by_name['ListEntitlementsResponse'] = _LISTENTITLEMENTSRESPONSE
@@ -2728,6 +2814,13 @@ DeleteCustomerRequest = _reflection.GeneratedProtocolMessageType('DeleteCustomer
   # @@protoc_insertion_point(class_scope:google.cloud.channel.v1.DeleteCustomerRequest)
   })
 _sym_db.RegisterMessage(DeleteCustomerRequest)
+
+ImportCustomerRequest = _reflection.GeneratedProtocolMessageType('ImportCustomerRequest', (_message.Message,), {
+  'DESCRIPTOR' : _IMPORTCUSTOMERREQUEST,
+  '__module__' : 'google.cloud.channel.v1.service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.channel.v1.ImportCustomerRequest)
+  })
+_sym_db.RegisterMessage(ImportCustomerRequest)
 
 ProvisionCloudIdentityRequest = _reflection.GeneratedProtocolMessageType('ProvisionCloudIdentityRequest', (_message.Message,), {
   'DESCRIPTOR' : _PROVISIONCLOUDIDENTITYREQUEST,
@@ -3081,6 +3174,13 @@ _CREATECUSTOMERREQUEST.fields_by_name['parent']._options = None
 _CREATECUSTOMERREQUEST.fields_by_name['customer']._options = None
 _UPDATECUSTOMERREQUEST.fields_by_name['customer']._options = None
 _DELETECUSTOMERREQUEST.fields_by_name['name']._options = None
+_IMPORTCUSTOMERREQUEST.fields_by_name['domain']._options = None
+_IMPORTCUSTOMERREQUEST.fields_by_name['cloud_identity_id']._options = None
+_IMPORTCUSTOMERREQUEST.fields_by_name['parent']._options = None
+_IMPORTCUSTOMERREQUEST.fields_by_name['auth_token']._options = None
+_IMPORTCUSTOMERREQUEST.fields_by_name['overwrite_if_exists']._options = None
+_IMPORTCUSTOMERREQUEST.fields_by_name['channel_partner_id']._options = None
+_IMPORTCUSTOMERREQUEST.fields_by_name['customer']._options = None
 _PROVISIONCLOUDIDENTITYREQUEST.fields_by_name['customer']._options = None
 _LISTENTITLEMENTSREQUEST.fields_by_name['parent']._options = None
 _LISTENTITLEMENTSREQUEST.fields_by_name['page_size']._options = None
@@ -3173,8 +3273,8 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\033cloudchannel.googleapis.com\322A*https://www.googleapis.com/auth/apps.order',
   create_key=_descriptor._internal_create_key,
-  serialized_start=7879,
-  serialized_end=14712,
+  serialized_start=8160,
+  serialized_end=15217,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListCustomers',
@@ -3237,9 +3337,19 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='ImportCustomer',
+    full_name='google.cloud.channel.v1.CloudChannelService.ImportCustomer',
+    index=6,
+    containing_service=None,
+    input_type=_IMPORTCUSTOMERREQUEST,
+    output_type=google_dot_cloud_dot_channel_dot_v1_dot_customers__pb2._CUSTOMER,
+    serialized_options=b'\202\323\344\223\002r\"(/v1/{parent=accounts/*}/customers:import:\001*ZC\">/v1/{parent=accounts/*/channelPartnerLinks/*}/customers:import:\001*',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='ProvisionCloudIdentity',
     full_name='google.cloud.channel.v1.CloudChannelService.ProvisionCloudIdentity',
-    index=6,
+    index=7,
     containing_service=None,
     input_type=_PROVISIONCLOUDIDENTITYREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -3249,7 +3359,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListEntitlements',
     full_name='google.cloud.channel.v1.CloudChannelService.ListEntitlements',
-    index=7,
+    index=8,
     containing_service=None,
     input_type=_LISTENTITLEMENTSREQUEST,
     output_type=_LISTENTITLEMENTSRESPONSE,
@@ -3259,7 +3369,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListTransferableSkus',
     full_name='google.cloud.channel.v1.CloudChannelService.ListTransferableSkus',
-    index=8,
+    index=9,
     containing_service=None,
     input_type=_LISTTRANSFERABLESKUSREQUEST,
     output_type=_LISTTRANSFERABLESKUSRESPONSE,
@@ -3269,7 +3379,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListTransferableOffers',
     full_name='google.cloud.channel.v1.CloudChannelService.ListTransferableOffers',
-    index=9,
+    index=10,
     containing_service=None,
     input_type=_LISTTRANSFERABLEOFFERSREQUEST,
     output_type=_LISTTRANSFERABLEOFFERSRESPONSE,
@@ -3279,7 +3389,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetEntitlement',
     full_name='google.cloud.channel.v1.CloudChannelService.GetEntitlement',
-    index=10,
+    index=11,
     containing_service=None,
     input_type=_GETENTITLEMENTREQUEST,
     output_type=google_dot_cloud_dot_channel_dot_v1_dot_entitlements__pb2._ENTITLEMENT,
@@ -3289,7 +3399,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateEntitlement',
     full_name='google.cloud.channel.v1.CloudChannelService.CreateEntitlement',
-    index=11,
+    index=12,
     containing_service=None,
     input_type=_CREATEENTITLEMENTREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -3299,7 +3409,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ChangeParameters',
     full_name='google.cloud.channel.v1.CloudChannelService.ChangeParameters',
-    index=12,
+    index=13,
     containing_service=None,
     input_type=_CHANGEPARAMETERSREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -3309,7 +3419,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ChangeRenewalSettings',
     full_name='google.cloud.channel.v1.CloudChannelService.ChangeRenewalSettings',
-    index=13,
+    index=14,
     containing_service=None,
     input_type=_CHANGERENEWALSETTINGSREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -3319,7 +3429,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ChangeOffer',
     full_name='google.cloud.channel.v1.CloudChannelService.ChangeOffer',
-    index=14,
+    index=15,
     containing_service=None,
     input_type=_CHANGEOFFERREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -3329,7 +3439,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='StartPaidService',
     full_name='google.cloud.channel.v1.CloudChannelService.StartPaidService',
-    index=15,
+    index=16,
     containing_service=None,
     input_type=_STARTPAIDSERVICEREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -3339,7 +3449,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='SuspendEntitlement',
     full_name='google.cloud.channel.v1.CloudChannelService.SuspendEntitlement',
-    index=16,
+    index=17,
     containing_service=None,
     input_type=_SUSPENDENTITLEMENTREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -3349,7 +3459,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CancelEntitlement',
     full_name='google.cloud.channel.v1.CloudChannelService.CancelEntitlement',
-    index=17,
+    index=18,
     containing_service=None,
     input_type=_CANCELENTITLEMENTREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -3359,7 +3469,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ActivateEntitlement',
     full_name='google.cloud.channel.v1.CloudChannelService.ActivateEntitlement',
-    index=18,
+    index=19,
     containing_service=None,
     input_type=_ACTIVATEENTITLEMENTREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -3369,7 +3479,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='TransferEntitlements',
     full_name='google.cloud.channel.v1.CloudChannelService.TransferEntitlements',
-    index=19,
+    index=20,
     containing_service=None,
     input_type=_TRANSFERENTITLEMENTSREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -3379,7 +3489,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='TransferEntitlementsToGoogle',
     full_name='google.cloud.channel.v1.CloudChannelService.TransferEntitlementsToGoogle',
-    index=20,
+    index=21,
     containing_service=None,
     input_type=_TRANSFERENTITLEMENTSTOGOOGLEREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -3389,7 +3499,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListChannelPartnerLinks',
     full_name='google.cloud.channel.v1.CloudChannelService.ListChannelPartnerLinks',
-    index=21,
+    index=22,
     containing_service=None,
     input_type=_LISTCHANNELPARTNERLINKSREQUEST,
     output_type=_LISTCHANNELPARTNERLINKSRESPONSE,
@@ -3399,7 +3509,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetChannelPartnerLink',
     full_name='google.cloud.channel.v1.CloudChannelService.GetChannelPartnerLink',
-    index=22,
+    index=23,
     containing_service=None,
     input_type=_GETCHANNELPARTNERLINKREQUEST,
     output_type=google_dot_cloud_dot_channel_dot_v1_dot_channel__partner__links__pb2._CHANNELPARTNERLINK,
@@ -3409,7 +3519,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='CreateChannelPartnerLink',
     full_name='google.cloud.channel.v1.CloudChannelService.CreateChannelPartnerLink',
-    index=23,
+    index=24,
     containing_service=None,
     input_type=_CREATECHANNELPARTNERLINKREQUEST,
     output_type=google_dot_cloud_dot_channel_dot_v1_dot_channel__partner__links__pb2._CHANNELPARTNERLINK,
@@ -3419,7 +3529,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateChannelPartnerLink',
     full_name='google.cloud.channel.v1.CloudChannelService.UpdateChannelPartnerLink',
-    index=24,
+    index=25,
     containing_service=None,
     input_type=_UPDATECHANNELPARTNERLINKREQUEST,
     output_type=google_dot_cloud_dot_channel_dot_v1_dot_channel__partner__links__pb2._CHANNELPARTNERLINK,
@@ -3429,7 +3539,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='LookupOffer',
     full_name='google.cloud.channel.v1.CloudChannelService.LookupOffer',
-    index=25,
+    index=26,
     containing_service=None,
     input_type=_LOOKUPOFFERREQUEST,
     output_type=google_dot_cloud_dot_channel_dot_v1_dot_offers__pb2._OFFER,
@@ -3439,7 +3549,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListProducts',
     full_name='google.cloud.channel.v1.CloudChannelService.ListProducts',
-    index=26,
+    index=27,
     containing_service=None,
     input_type=_LISTPRODUCTSREQUEST,
     output_type=_LISTPRODUCTSRESPONSE,
@@ -3449,7 +3559,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListSkus',
     full_name='google.cloud.channel.v1.CloudChannelService.ListSkus',
-    index=27,
+    index=28,
     containing_service=None,
     input_type=_LISTSKUSREQUEST,
     output_type=_LISTSKUSRESPONSE,
@@ -3459,7 +3569,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListOffers',
     full_name='google.cloud.channel.v1.CloudChannelService.ListOffers',
-    index=28,
+    index=29,
     containing_service=None,
     input_type=_LISTOFFERSREQUEST,
     output_type=_LISTOFFERSRESPONSE,
@@ -3469,7 +3579,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListPurchasableSkus',
     full_name='google.cloud.channel.v1.CloudChannelService.ListPurchasableSkus',
-    index=29,
+    index=30,
     containing_service=None,
     input_type=_LISTPURCHASABLESKUSREQUEST,
     output_type=_LISTPURCHASABLESKUSRESPONSE,
@@ -3479,7 +3589,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListPurchasableOffers',
     full_name='google.cloud.channel.v1.CloudChannelService.ListPurchasableOffers',
-    index=30,
+    index=31,
     containing_service=None,
     input_type=_LISTPURCHASABLEOFFERSREQUEST,
     output_type=_LISTPURCHASABLEOFFERSRESPONSE,
@@ -3489,7 +3599,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='RegisterSubscriber',
     full_name='google.cloud.channel.v1.CloudChannelService.RegisterSubscriber',
-    index=31,
+    index=32,
     containing_service=None,
     input_type=_REGISTERSUBSCRIBERREQUEST,
     output_type=_REGISTERSUBSCRIBERRESPONSE,
@@ -3499,7 +3609,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UnregisterSubscriber',
     full_name='google.cloud.channel.v1.CloudChannelService.UnregisterSubscriber',
-    index=32,
+    index=33,
     containing_service=None,
     input_type=_UNREGISTERSUBSCRIBERREQUEST,
     output_type=_UNREGISTERSUBSCRIBERRESPONSE,
@@ -3509,7 +3619,7 @@ _CLOUDCHANNELSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListSubscribers',
     full_name='google.cloud.channel.v1.CloudChannelService.ListSubscribers',
-    index=33,
+    index=34,
     containing_service=None,
     input_type=_LISTSUBSCRIBERSREQUEST,
     output_type=_LISTSUBSCRIBERSRESPONSE,

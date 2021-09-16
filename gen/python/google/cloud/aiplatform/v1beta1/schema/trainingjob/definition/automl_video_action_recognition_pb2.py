@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB!AutoMLVideoActionRecognitionProtoP\001Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definition',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\ncgoogle/cloud/aiplatform/v1beta1/schema/trainingjob/definition/automl_video_action_recognition.proto\x12=google.cloud.aiplatform.v1beta1.schema.trainingjob.definition\x1a\x1cgoogle/api/annotations.proto\"\x91\x01\n\x1c\x41utoMlVideoActionRecognition\x12q\n\x06inputs\x18\x01 \x01(\x0b\x32\x61.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlVideoActionRecognitionInputs\"\xf1\x01\n\"AutoMlVideoActionRecognitionInputs\x12\x7f\n\nmodel_type\x18\x01 \x01(\x0e\x32k.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlVideoActionRecognitionInputs.ModelType\"J\n\tModelType\x12\x1a\n\x16MODEL_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05\x43LOUD\x10\x01\x12\x16\n\x12MOBILE_VERSATILE_1\x10\x02\x42\xd1\x01\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB!AutoMLVideoActionRecognitionProtoP\x01Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definitionb\x06proto3'
+  serialized_pb=b'\ncgoogle/cloud/aiplatform/v1beta1/schema/trainingjob/definition/automl_video_action_recognition.proto\x12=google.cloud.aiplatform.v1beta1.schema.trainingjob.definition\x1a\x1cgoogle/api/annotations.proto\"\x91\x01\n\x1c\x41utoMlVideoActionRecognition\x12q\n\x06inputs\x18\x01 \x01(\x0b\x32\x61.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlVideoActionRecognitionInputs\"\xaf\x02\n\"AutoMlVideoActionRecognitionInputs\x12\x7f\n\nmodel_type\x18\x01 \x01(\x0e\x32k.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlVideoActionRecognitionInputs.ModelType\"\x87\x01\n\tModelType\x12\x1a\n\x16MODEL_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05\x43LOUD\x10\x01\x12\x16\n\x12MOBILE_VERSATILE_1\x10\x02\x12\x1d\n\x19MOBILE_JETSON_VERSATILE_1\x10\x03\x12\x1c\n\x18MOBILE_CORAL_VERSATILE_1\x10\x04\x42\xd1\x01\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB!AutoMLVideoActionRecognitionProtoP\x01Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definitionb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
@@ -48,11 +48,21 @@ _AUTOMLVIDEOACTIONRECOGNITIONINPUTS_MODELTYPE = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='MOBILE_JETSON_VERSATILE_1', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='MOBILE_CORAL_VERSATILE_1', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=512,
-  serialized_end=586,
+  serialized_start=513,
+  serialized_end=648,
 )
 _sym_db.RegisterEnumDescriptor(_AUTOMLVIDEOACTIONRECOGNITIONINPUTS_MODELTYPE)
 
@@ -118,7 +128,7 @@ _AUTOMLVIDEOACTIONRECOGNITIONINPUTS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=345,
-  serialized_end=586,
+  serialized_end=648,
 )
 
 _AUTOMLVIDEOACTIONRECOGNITION.fields_by_name['inputs'].message_type = _AUTOMLVIDEOACTIONRECOGNITIONINPUTS

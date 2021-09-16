@@ -15,7 +15,12 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.dialogflow.cx.v3beta1 import entity_type_pb2 as google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_entity__type__pb2
 from google.cloud.dialogflow.cx.v3beta1 import flow_pb2 as google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_flow__pb2
+from google.cloud.dialogflow.cx.v3beta1 import intent_pb2 as google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_intent__pb2
+from google.cloud.dialogflow.cx.v3beta1 import page_pb2 as google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_page__pb2
+from google.cloud.dialogflow.cx.v3beta1 import transition_route_group_pb2 as google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_transition__route__group__pb2
+from google.cloud.dialogflow.cx.v3beta1 import webhook_pb2 as google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_webhook__pb2
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
@@ -26,11 +31,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/dialogflow/cx/v3beta1/version.proto',
   package='google.cloud.dialogflow.cx.v3beta1',
   syntax='proto3',
-  serialized_options=b'\n&com.google.cloud.dialogflow.cx.v3beta1B\014VersionProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\370\001\001\242\002\002DF\252\002\"Google.Cloud.Dialogflow.Cx.V3Beta1',
+  serialized_options=b'\n&com.google.cloud.dialogflow.cx.v3beta1B\014VersionProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\370\001\001\242\002\002DF\252\002\"Google.Cloud.Dialogflow.Cx.V3Beta1\352\002&Google::Cloud::Dialogflow::CX::V3beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n0google/cloud/dialogflow/cx/v3beta1/version.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a-google/cloud/dialogflow/cx/v3beta1/flow.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"Y\n\x1e\x43reateVersionOperationMetadata\x12\x37\n\x07version\x18\x01 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Version\"\xd8\x03\n\x07Version\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12J\n\x0cnlu_settings\x18\x04 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.NluSettingsB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x45\n\x05state\x18\x06 \x01(\x0e\x32\x31.google.cloud.dialogflow.cx.v3beta1.Version.StateB\x03\xe0\x41\x03\"F\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03:~\xea\x41{\n!dialogflow.googleapis.com/Version\x12Vprojects/{project}/locations/{location}/agents/{agent}/flows/{flow}/versions/{version}\"w\n\x13ListVersionsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!dialogflow.googleapis.com/Version\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"n\n\x14ListVersionsResponse\x12=\n\x08versions\x18\x01 \x03(\x0b\x32+.google.cloud.dialogflow.cx.v3beta1.Version\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"L\n\x11GetVersionRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Version\"\x94\x01\n\x14\x43reateVersionRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!dialogflow.googleapis.com/Version\x12\x41\n\x07version\x18\x02 \x01(\x0b\x32+.google.cloud.dialogflow.cx.v3beta1.VersionB\x03\xe0\x41\x02\"\x8f\x01\n\x14UpdateVersionRequest\x12\x41\n\x07version\x18\x01 \x01(\x0b\x32+.google.cloud.dialogflow.cx.v3beta1.VersionB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"O\n\x14\x44\x65leteVersionRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Version\"u\n\x12LoadVersionRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Version\x12&\n\x1e\x61llow_override_agent_resources\x18\x02 \x01(\x08\x32\xb9\x0b\n\x08Versions\x12\xd6\x01\n\x0cListVersions\x12\x37.google.cloud.dialogflow.cx.v3beta1.ListVersionsRequest\x1a\x38.google.cloud.dialogflow.cx.v3beta1.ListVersionsResponse\"S\x82\xd3\xe4\x93\x02\x44\x12\x42/v3beta1/{parent=projects/*/locations/*/agents/*/flows/*}/versions\xda\x41\x06parent\x12\xc3\x01\n\nGetVersion\x12\x35.google.cloud.dialogflow.cx.v3beta1.GetVersionRequest\x1a+.google.cloud.dialogflow.cx.v3beta1.Version\"Q\x82\xd3\xe4\x93\x02\x44\x12\x42/v3beta1/{name=projects/*/locations/*/agents/*/flows/*/versions/*}\xda\x41\x04name\x12\xfb\x01\n\rCreateVersion\x12\x38.google.cloud.dialogflow.cx.v3beta1.CreateVersionRequest\x1a\x1d.google.longrunning.Operation\"\x90\x01\x82\xd3\xe4\x93\x02M\"B/v3beta1/{parent=projects/*/locations/*/agents/*/flows/*}/versions:\x07version\xda\x41\x0eparent,version\xca\x41)\n\x07Version\x12\x1e\x43reateVersionOperationMetadata\x12\xe9\x01\n\rUpdateVersion\x12\x38.google.cloud.dialogflow.cx.v3beta1.UpdateVersionRequest\x1a+.google.cloud.dialogflow.cx.v3beta1.Version\"q\x82\xd3\xe4\x93\x02U2J/v3beta1/{version.name=projects/*/locations/*/agents/*/flows/*/versions/*}:\x07version\xda\x41\x13version,update_mask\x12\xb4\x01\n\rDeleteVersion\x12\x38.google.cloud.dialogflow.cx.v3beta1.DeleteVersionRequest\x1a\x16.google.protobuf.Empty\"Q\x82\xd3\xe4\x93\x02\x44*B/v3beta1/{name=projects/*/locations/*/agents/*/flows/*/versions/*}\xda\x41\x04name\x12\xf2\x01\n\x0bLoadVersion\x12\x36.google.cloud.dialogflow.cx.v3beta1.LoadVersionRequest\x1a\x1d.google.longrunning.Operation\"\x8b\x01\x82\xd3\xe4\x93\x02L\"G/v3beta1/{name=projects/*/locations/*/agents/*/flows/*/versions/*}:load:\x01*\xda\x41\x04name\xca\x41/\n\x15google.protobuf.Empty\x12\x16google.protobuf.Struct\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xab\x01\n&com.google.cloud.dialogflow.cx.v3beta1B\x0cVersionProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1b\x06proto3'
+  serialized_pb=b'\n0google/cloud/dialogflow/cx/v3beta1/version.proto\x12\"google.cloud.dialogflow.cx.v3beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x34google/cloud/dialogflow/cx/v3beta1/entity_type.proto\x1a-google/cloud/dialogflow/cx/v3beta1/flow.proto\x1a/google/cloud/dialogflow/cx/v3beta1/intent.proto\x1a-google/cloud/dialogflow/cx/v3beta1/page.proto\x1a?google/cloud/dialogflow/cx/v3beta1/transition_route_group.proto\x1a\x30google/cloud/dialogflow/cx/v3beta1/webhook.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"Y\n\x1e\x43reateVersionOperationMetadata\x12\x37\n\x07version\x18\x01 \x01(\tB&\xfa\x41#\n!dialogflow.googleapis.com/Version\"\xd8\x03\n\x07Version\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12J\n\x0cnlu_settings\x18\x04 \x01(\x0b\x32/.google.cloud.dialogflow.cx.v3beta1.NluSettingsB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x45\n\x05state\x18\x06 \x01(\x0e\x32\x31.google.cloud.dialogflow.cx.v3beta1.Version.StateB\x03\xe0\x41\x03\"F\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03:~\xea\x41{\n!dialogflow.googleapis.com/Version\x12Vprojects/{project}/locations/{location}/agents/{agent}/flows/{flow}/versions/{version}\"w\n\x13ListVersionsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!dialogflow.googleapis.com/Version\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"n\n\x14ListVersionsResponse\x12=\n\x08versions\x18\x01 \x03(\x0b\x32+.google.cloud.dialogflow.cx.v3beta1.Version\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"L\n\x11GetVersionRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Version\"\x94\x01\n\x14\x43reateVersionRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!dialogflow.googleapis.com/Version\x12\x41\n\x07version\x18\x02 \x01(\x0b\x32+.google.cloud.dialogflow.cx.v3beta1.VersionB\x03\xe0\x41\x02\"\x8f\x01\n\x14UpdateVersionRequest\x12\x41\n\x07version\x18\x01 \x01(\x0b\x32+.google.cloud.dialogflow.cx.v3beta1.VersionB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"O\n\x14\x44\x65leteVersionRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Version\"u\n\x12LoadVersionRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dialogflow.googleapis.com/Version\x12&\n\x1e\x61llow_override_agent_resources\x18\x02 \x01(\x08\x32\xb9\x0b\n\x08Versions\x12\xd6\x01\n\x0cListVersions\x12\x37.google.cloud.dialogflow.cx.v3beta1.ListVersionsRequest\x1a\x38.google.cloud.dialogflow.cx.v3beta1.ListVersionsResponse\"S\x82\xd3\xe4\x93\x02\x44\x12\x42/v3beta1/{parent=projects/*/locations/*/agents/*/flows/*}/versions\xda\x41\x06parent\x12\xc3\x01\n\nGetVersion\x12\x35.google.cloud.dialogflow.cx.v3beta1.GetVersionRequest\x1a+.google.cloud.dialogflow.cx.v3beta1.Version\"Q\x82\xd3\xe4\x93\x02\x44\x12\x42/v3beta1/{name=projects/*/locations/*/agents/*/flows/*/versions/*}\xda\x41\x04name\x12\xfb\x01\n\rCreateVersion\x12\x38.google.cloud.dialogflow.cx.v3beta1.CreateVersionRequest\x1a\x1d.google.longrunning.Operation\"\x90\x01\x82\xd3\xe4\x93\x02M\"B/v3beta1/{parent=projects/*/locations/*/agents/*/flows/*}/versions:\x07version\xda\x41\x0eparent,version\xca\x41)\n\x07Version\x12\x1e\x43reateVersionOperationMetadata\x12\xe9\x01\n\rUpdateVersion\x12\x38.google.cloud.dialogflow.cx.v3beta1.UpdateVersionRequest\x1a+.google.cloud.dialogflow.cx.v3beta1.Version\"q\x82\xd3\xe4\x93\x02U2J/v3beta1/{version.name=projects/*/locations/*/agents/*/flows/*/versions/*}:\x07version\xda\x41\x13version,update_mask\x12\xb4\x01\n\rDeleteVersion\x12\x38.google.cloud.dialogflow.cx.v3beta1.DeleteVersionRequest\x1a\x16.google.protobuf.Empty\"Q\x82\xd3\xe4\x93\x02\x44*B/v3beta1/{name=projects/*/locations/*/agents/*/flows/*/versions/*}\xda\x41\x04name\x12\xf2\x01\n\x0bLoadVersion\x12\x36.google.cloud.dialogflow.cx.v3beta1.LoadVersionRequest\x1a\x1d.google.longrunning.Operation\"\x8b\x01\x82\xd3\xe4\x93\x02L\"G/v3beta1/{name=projects/*/locations/*/agents/*/flows/*/versions/*}:load:\x01*\xda\x41\x04name\xca\x41/\n\x15google.protobuf.Empty\x12\x16google.protobuf.Struct\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xd4\x01\n&com.google.cloud.dialogflow.cx.v3beta1B\x0cVersionProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3beta1;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\"Google.Cloud.Dialogflow.Cx.V3Beta1\xea\x02&Google::Cloud::Dialogflow::CX::V3beta1b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_flow__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_entity__type__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_flow__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_intent__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_page__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_transition__route__group__pb2.DESCRIPTOR,google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_webhook__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
 
@@ -64,8 +69,8 @@ _VERSION_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=749,
-  serialized_end=819,
+  serialized_start=1014,
+  serialized_end=1084,
 )
 _sym_db.RegisterEnumDescriptor(_VERSION_STATE)
 
@@ -97,8 +102,8 @@ _CREATEVERSIONOPERATIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=383,
-  serialized_end=472,
+  serialized_start=648,
+  serialized_end=737,
 )
 
 
@@ -165,8 +170,8 @@ _VERSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=475,
-  serialized_end=947,
+  serialized_start=740,
+  serialized_end=1212,
 )
 
 
@@ -211,8 +216,8 @@ _LISTVERSIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=949,
-  serialized_end=1068,
+  serialized_start=1214,
+  serialized_end=1333,
 )
 
 
@@ -250,8 +255,8 @@ _LISTVERSIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1070,
-  serialized_end=1180,
+  serialized_start=1335,
+  serialized_end=1445,
 )
 
 
@@ -282,8 +287,8 @@ _GETVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1182,
-  serialized_end=1258,
+  serialized_start=1447,
+  serialized_end=1523,
 )
 
 
@@ -321,8 +326,8 @@ _CREATEVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1261,
-  serialized_end=1409,
+  serialized_start=1526,
+  serialized_end=1674,
 )
 
 
@@ -360,8 +365,8 @@ _UPDATEVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1412,
-  serialized_end=1555,
+  serialized_start=1677,
+  serialized_end=1820,
 )
 
 
@@ -392,8 +397,8 @@ _DELETEVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1557,
-  serialized_end=1636,
+  serialized_start=1822,
+  serialized_end=1901,
 )
 
 
@@ -431,8 +436,8 @@ _LOADVERSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1638,
-  serialized_end=1755,
+  serialized_start=1903,
+  serialized_end=2020,
 )
 
 _VERSION.fields_by_name['nlu_settings'].message_type = google_dot_cloud_dot_dialogflow_dot_cx_dot_v3beta1_dot_flow__pb2._NLUSETTINGS
@@ -541,8 +546,8 @@ _VERSIONS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1758,
-  serialized_end=3223,
+  serialized_start=2023,
+  serialized_end=3488,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListVersions',

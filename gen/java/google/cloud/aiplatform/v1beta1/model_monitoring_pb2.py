@@ -20,13 +20,43 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/aiplatform/v1beta1/model_monitoring.proto',
   package='google.cloud.aiplatform.v1beta1',
   syntax='proto3',
-  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\024ModelMonitoringProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform',
+  serialized_options=b'\n#com.google.cloud.aiplatform.v1beta1B\024ModelMonitoringProtoP\001ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\252\002\037Google.Cloud.AIPlatform.V1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1\352\002\"Google::Cloud::AIPlatform::V1beta1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n6google/cloud/aiplatform/v1beta1/model_monitoring.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x19google/api/resource.proto\x1a(google/cloud/aiplatform/v1beta1/io.proto\x1a\x1cgoogle/api/annotations.proto\"\xe4\n\n\x1eModelMonitoringObjectiveConfig\x12i\n\x10training_dataset\x18\x01 \x01(\x0b\x32O.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingDataset\x12\x98\x01\n)training_prediction_skew_detection_config\x18\x02 \x01(\x0b\x32\x65.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig\x12\x89\x01\n!prediction_drift_detection_config\x18\x03 \x01(\x0b\x32^.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig\x1a\xea\x02\n\x0fTrainingDataset\x12\x39\n\x07\x64\x61taset\x18\x03 \x01(\tB&\xfa\x41#\n!aiplatform.googleapis.com/DatasetH\x00\x12@\n\ngcs_source\x18\x04 \x01(\x0b\x32*.google.cloud.aiplatform.v1beta1.GcsSourceH\x00\x12J\n\x0f\x62igquery_source\x18\x05 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.BigQuerySourceH\x00\x12\x13\n\x0b\x64\x61ta_format\x18\x02 \x01(\t\x12\x14\n\x0ctarget_field\x18\x06 \x01(\t\x12T\n\x19logging_sampling_strategy\x18\x07 \x01(\x0b\x32\x31.google.cloud.aiplatform.v1beta1.SamplingStrategyB\r\n\x0b\x64\x61ta_source\x1a\xa5\x02\n%TrainingPredictionSkewDetectionConfig\x12\x92\x01\n\x0fskew_thresholds\x18\x01 \x03(\x0b\x32y.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.SkewThresholdsEntry\x1ag\n\x13SkewThresholdsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.ThresholdConfig:\x02\x38\x01\x1a\x9a\x02\n\x1ePredictionDriftDetectionConfig\x12\x8d\x01\n\x10\x64rift_thresholds\x18\x01 \x03(\x0b\x32s.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.DriftThresholdsEntry\x1ah\n\x14\x44riftThresholdsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.ThresholdConfig:\x02\x38\x01\"\xba\x01\n\x1aModelMonitoringAlertConfig\x12j\n\x12\x65mail_alert_config\x18\x01 \x01(\x0b\x32L.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig.EmailAlertConfigH\x00\x1a\'\n\x10\x45mailAlertConfig\x12\x13\n\x0buser_emails\x18\x01 \x03(\tB\x07\n\x05\x61lert\"/\n\x0fThresholdConfig\x12\x0f\n\x05value\x18\x01 \x01(\x01H\x00\x42\x0b\n\tthreshold\"\xa1\x01\n\x10SamplingStrategy\x12\x62\n\x14random_sample_config\x18\x01 \x01(\x0b\x32\x44.google.cloud.aiplatform.v1beta1.SamplingStrategy.RandomSampleConfig\x1a)\n\x12RandomSampleConfig\x12\x13\n\x0bsample_rate\x18\x01 \x01(\x01\x42\x88\x01\n#com.google.cloud.aiplatform.v1beta1B\x14ModelMonitoringProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatformb\x06proto3'
+  serialized_pb=b'\n6google/cloud/aiplatform/v1beta1/model_monitoring.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x19google/api/resource.proto\x1a(google/cloud/aiplatform/v1beta1/io.proto\x1a\x1cgoogle/api/annotations.proto\"\x85\x15\n\x1eModelMonitoringObjectiveConfig\x12i\n\x10training_dataset\x18\x01 \x01(\x0b\x32O.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingDataset\x12\x98\x01\n)training_prediction_skew_detection_config\x18\x02 \x01(\x0b\x32\x65.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig\x12\x89\x01\n!prediction_drift_detection_config\x18\x03 \x01(\x0b\x32^.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig\x12m\n\x12\x65xplanation_config\x18\x05 \x01(\x0b\x32Q.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig\x1a\xea\x02\n\x0fTrainingDataset\x12\x39\n\x07\x64\x61taset\x18\x03 \x01(\tB&\xfa\x41#\n!aiplatform.googleapis.com/DatasetH\x00\x12@\n\ngcs_source\x18\x04 \x01(\x0b\x32*.google.cloud.aiplatform.v1beta1.GcsSourceH\x00\x12J\n\x0f\x62igquery_source\x18\x05 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.BigQuerySourceH\x00\x12\x13\n\x0b\x64\x61ta_format\x18\x02 \x01(\t\x12\x14\n\x0ctarget_field\x18\x06 \x01(\t\x12T\n\x19logging_sampling_strategy\x18\x07 \x01(\x0b\x32\x31.google.cloud.aiplatform.v1beta1.SamplingStrategyB\r\n\x0b\x64\x61ta_source\x1a\xd6\x04\n%TrainingPredictionSkewDetectionConfig\x12\x92\x01\n\x0fskew_thresholds\x18\x01 \x03(\x0b\x32y.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.SkewThresholdsEntry\x12\xb5\x01\n!attribution_score_skew_thresholds\x18\x02 \x03(\x0b\x32\x89\x01.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.AttributionScoreSkewThresholdsEntry\x1ag\n\x13SkewThresholdsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.ThresholdConfig:\x02\x38\x01\x1aw\n#AttributionScoreSkewThresholdsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.ThresholdConfig:\x02\x38\x01\x1a\xc7\x04\n\x1ePredictionDriftDetectionConfig\x12\x8d\x01\n\x10\x64rift_thresholds\x18\x01 \x03(\x0b\x32s.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.DriftThresholdsEntry\x12\xb0\x01\n\"attribution_score_drift_thresholds\x18\x02 \x03(\x0b\x32\x83\x01.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.AttributionScoreDriftThresholdsEntry\x1ah\n\x14\x44riftThresholdsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.ThresholdConfig:\x02\x38\x01\x1ax\n$AttributionScoreDriftThresholdsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12?\n\x05value\x18\x02 \x01(\x0b\x32\x30.google.cloud.aiplatform.v1beta1.ThresholdConfig:\x02\x38\x01\x1a\xd1\x04\n\x11\x45xplanationConfig\x12!\n\x19\x65nable_feature_attributes\x18\x01 \x01(\x08\x12\x83\x01\n\x14\x65xplanation_baseline\x18\x02 \x01(\x0b\x32\x65.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline\x1a\x92\x03\n\x13\x45xplanationBaseline\x12>\n\x03gcs\x18\x02 \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.GcsDestinationH\x00\x12H\n\x08\x62igquery\x18\x03 \x01(\x0b\x32\x34.google.cloud.aiplatform.v1beta1.BigQueryDestinationH\x00\x12\x91\x01\n\x11prediction_format\x18\x01 \x01(\x0e\x32v.google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat\"N\n\x10PredictionFormat\x12!\n\x1dPREDICTION_FORMAT_UNSPECIFIED\x10\x00\x12\t\n\x05JSONL\x10\x02\x12\x0c\n\x08\x42IGQUERY\x10\x03\x42\r\n\x0b\x64\x65stination\"\xba\x01\n\x1aModelMonitoringAlertConfig\x12j\n\x12\x65mail_alert_config\x18\x01 \x01(\x0b\x32L.google.cloud.aiplatform.v1beta1.ModelMonitoringAlertConfig.EmailAlertConfigH\x00\x1a\'\n\x10\x45mailAlertConfig\x12\x13\n\x0buser_emails\x18\x01 \x03(\tB\x07\n\x05\x61lert\"/\n\x0fThresholdConfig\x12\x0f\n\x05value\x18\x01 \x01(\x01H\x00\x42\x0b\n\tthreshold\"\xa1\x01\n\x10SamplingStrategy\x12\x62\n\x14random_sample_config\x18\x01 \x01(\x0b\x32\x44.google.cloud.aiplatform.v1beta1.SamplingStrategy.RandomSampleConfig\x1a)\n\x12RandomSampleConfig\x12\x13\n\x0bsample_rate\x18\x01 \x01(\x01\x42\xf1\x01\n#com.google.cloud.aiplatform.v1beta1B\x14ModelMonitoringProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_io__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
+
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE_PREDICTIONFORMAT = _descriptor.EnumDescriptor(
+  name='PredictionFormat',
+  full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.PredictionFormat',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='PREDICTION_FORMAT_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='JSONL', index=1, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='BIGQUERY', index=2, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2791,
+  serialized_end=2869,
+)
+_sym_db.RegisterEnumDescriptor(_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE_PREDICTIONFORMAT)
 
 
 _MODELMONITORINGOBJECTIVECONFIG_TRAININGDATASET = _descriptor.Descriptor(
@@ -96,8 +126,8 @@ _MODELMONITORINGOBJECTIVECONFIG_TRAININGDATASET = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=628,
-  serialized_end=990,
+  serialized_start=739,
+  serialized_end=1101,
 )
 
 _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_SKEWTHRESHOLDSENTRY = _descriptor.Descriptor(
@@ -134,8 +164,46 @@ _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_SKEWTHRESH
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1183,
-  serialized_end=1286,
+  serialized_start=1478,
+  serialized_end=1581,
+)
+
+_MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_ATTRIBUTIONSCORESKEWTHRESHOLDSENTRY = _descriptor.Descriptor(
+  name='AttributionScoreSkewThresholdsEntry',
+  full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.AttributionScoreSkewThresholdsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.AttributionScoreSkewThresholdsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.AttributionScoreSkewThresholdsEntry.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1583,
+  serialized_end=1702,
 )
 
 _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG = _descriptor.Descriptor(
@@ -153,10 +221,17 @@ _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG = _descrip
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='attribution_score_skew_thresholds', full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.attribution_score_skew_thresholds', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_SKEWTHRESHOLDSENTRY, ],
+  nested_types=[_MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_SKEWTHRESHOLDSENTRY, _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_ATTRIBUTIONSCORESKEWTHRESHOLDSENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -165,8 +240,8 @@ _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG = _descrip
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=993,
-  serialized_end=1286,
+  serialized_start=1104,
+  serialized_end=1702,
 )
 
 _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_DRIFTTHRESHOLDSENTRY = _descriptor.Descriptor(
@@ -203,8 +278,46 @@ _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_DRIFTTHRESHOLDSEN
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1467,
-  serialized_end=1571,
+  serialized_start=2062,
+  serialized_end=2166,
+)
+
+_MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_ATTRIBUTIONSCOREDRIFTTHRESHOLDSENTRY = _descriptor.Descriptor(
+  name='AttributionScoreDriftThresholdsEntry',
+  full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.AttributionScoreDriftThresholdsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.AttributionScoreDriftThresholdsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.AttributionScoreDriftThresholdsEntry.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2168,
+  serialized_end=2288,
 )
 
 _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG = _descriptor.Descriptor(
@@ -222,10 +335,17 @@ _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG = _descriptor.Des
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='attribution_score_drift_thresholds', full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.attribution_score_drift_thresholds', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_DRIFTTHRESHOLDSENTRY, ],
+  nested_types=[_MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_DRIFTTHRESHOLDSENTRY, _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_ATTRIBUTIONSCOREDRIFTTHRESHOLDSENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -234,8 +354,97 @@ _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG = _descriptor.Des
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1289,
-  serialized_end=1571,
+  serialized_start=1705,
+  serialized_end=2288,
+)
+
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE = _descriptor.Descriptor(
+  name='ExplanationBaseline',
+  full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='gcs', full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.gcs', index=0,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='bigquery', full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.bigquery', index=1,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='prediction_format', full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.prediction_format', index=2,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE_PREDICTIONFORMAT,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='destination', full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline.destination',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2482,
+  serialized_end=2884,
+)
+
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG = _descriptor.Descriptor(
+  name='ExplanationConfig',
+  full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='enable_feature_attributes', full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.enable_feature_attributes', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='explanation_baseline', full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.explanation_baseline', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2291,
+  serialized_end=2884,
 )
 
 _MODELMONITORINGOBJECTIVECONFIG = _descriptor.Descriptor(
@@ -267,10 +476,17 @@ _MODELMONITORINGOBJECTIVECONFIG = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='explanation_config', full_name='google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.explanation_config', index=3,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
-  nested_types=[_MODELMONITORINGOBJECTIVECONFIG_TRAININGDATASET, _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG, _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG, ],
+  nested_types=[_MODELMONITORINGOBJECTIVECONFIG_TRAININGDATASET, _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG, _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG, _MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -280,7 +496,7 @@ _MODELMONITORINGOBJECTIVECONFIG = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=191,
-  serialized_end=1571,
+  serialized_end=2884,
 )
 
 
@@ -311,8 +527,8 @@ _MODELMONITORINGALERTCONFIG_EMAILALERTCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1712,
-  serialized_end=1751,
+  serialized_start=3025,
+  serialized_end=3064,
 )
 
 _MODELMONITORINGALERTCONFIG = _descriptor.Descriptor(
@@ -347,8 +563,8 @@ _MODELMONITORINGALERTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1574,
-  serialized_end=1760,
+  serialized_start=2887,
+  serialized_end=3073,
 )
 
 
@@ -384,8 +600,8 @@ _THRESHOLDCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1762,
-  serialized_end=1809,
+  serialized_start=3075,
+  serialized_end=3122,
 )
 
 
@@ -416,8 +632,8 @@ _SAMPLINGSTRATEGY_RANDOMSAMPLECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1932,
-  serialized_end=1973,
+  serialized_start=3245,
+  serialized_end=3286,
 )
 
 _SAMPLINGSTRATEGY = _descriptor.Descriptor(
@@ -447,8 +663,8 @@ _SAMPLINGSTRATEGY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1812,
-  serialized_end=1973,
+  serialized_start=3125,
+  serialized_end=3286,
 )
 
 _MODELMONITORINGOBJECTIVECONFIG_TRAININGDATASET.fields_by_name['gcs_source'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_io__pb2._GCSSOURCE
@@ -466,15 +682,35 @@ _MODELMONITORINGOBJECTIVECONFIG_TRAININGDATASET.oneofs_by_name['data_source'].fi
 _MODELMONITORINGOBJECTIVECONFIG_TRAININGDATASET.fields_by_name['bigquery_source'].containing_oneof = _MODELMONITORINGOBJECTIVECONFIG_TRAININGDATASET.oneofs_by_name['data_source']
 _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_SKEWTHRESHOLDSENTRY.fields_by_name['value'].message_type = _THRESHOLDCONFIG
 _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_SKEWTHRESHOLDSENTRY.containing_type = _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG
+_MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_ATTRIBUTIONSCORESKEWTHRESHOLDSENTRY.fields_by_name['value'].message_type = _THRESHOLDCONFIG
+_MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_ATTRIBUTIONSCORESKEWTHRESHOLDSENTRY.containing_type = _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG
 _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG.fields_by_name['skew_thresholds'].message_type = _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_SKEWTHRESHOLDSENTRY
+_MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG.fields_by_name['attribution_score_skew_thresholds'].message_type = _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_ATTRIBUTIONSCORESKEWTHRESHOLDSENTRY
 _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG.containing_type = _MODELMONITORINGOBJECTIVECONFIG
 _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_DRIFTTHRESHOLDSENTRY.fields_by_name['value'].message_type = _THRESHOLDCONFIG
 _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_DRIFTTHRESHOLDSENTRY.containing_type = _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG
+_MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_ATTRIBUTIONSCOREDRIFTTHRESHOLDSENTRY.fields_by_name['value'].message_type = _THRESHOLDCONFIG
+_MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_ATTRIBUTIONSCOREDRIFTTHRESHOLDSENTRY.containing_type = _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG
 _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG.fields_by_name['drift_thresholds'].message_type = _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_DRIFTTHRESHOLDSENTRY
+_MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG.fields_by_name['attribution_score_drift_thresholds'].message_type = _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_ATTRIBUTIONSCOREDRIFTTHRESHOLDSENTRY
 _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG.containing_type = _MODELMONITORINGOBJECTIVECONFIG
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE.fields_by_name['gcs'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_io__pb2._GCSDESTINATION
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE.fields_by_name['bigquery'].message_type = google_dot_cloud_dot_aiplatform_dot_v1beta1_dot_io__pb2._BIGQUERYDESTINATION
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE.fields_by_name['prediction_format'].enum_type = _MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE_PREDICTIONFORMAT
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE.containing_type = _MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE_PREDICTIONFORMAT.containing_type = _MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE.oneofs_by_name['destination'].fields.append(
+  _MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE.fields_by_name['gcs'])
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE.fields_by_name['gcs'].containing_oneof = _MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE.oneofs_by_name['destination']
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE.oneofs_by_name['destination'].fields.append(
+  _MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE.fields_by_name['bigquery'])
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE.fields_by_name['bigquery'].containing_oneof = _MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE.oneofs_by_name['destination']
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG.fields_by_name['explanation_baseline'].message_type = _MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE
+_MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG.containing_type = _MODELMONITORINGOBJECTIVECONFIG
 _MODELMONITORINGOBJECTIVECONFIG.fields_by_name['training_dataset'].message_type = _MODELMONITORINGOBJECTIVECONFIG_TRAININGDATASET
 _MODELMONITORINGOBJECTIVECONFIG.fields_by_name['training_prediction_skew_detection_config'].message_type = _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG
 _MODELMONITORINGOBJECTIVECONFIG.fields_by_name['prediction_drift_detection_config'].message_type = _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG
+_MODELMONITORINGOBJECTIVECONFIG.fields_by_name['explanation_config'].message_type = _MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG
 _MODELMONITORINGALERTCONFIG_EMAILALERTCONFIG.containing_type = _MODELMONITORINGALERTCONFIG
 _MODELMONITORINGALERTCONFIG.fields_by_name['email_alert_config'].message_type = _MODELMONITORINGALERTCONFIG_EMAILALERTCONFIG
 _MODELMONITORINGALERTCONFIG.oneofs_by_name['alert'].fields.append(
@@ -508,6 +744,13 @@ ModelMonitoringObjectiveConfig = _reflection.GeneratedProtocolMessageType('Model
       # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.SkewThresholdsEntry)
       })
     ,
+
+    'AttributionScoreSkewThresholdsEntry' : _reflection.GeneratedProtocolMessageType('AttributionScoreSkewThresholdsEntry', (_message.Message,), {
+      'DESCRIPTOR' : _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_ATTRIBUTIONSCORESKEWTHRESHOLDSENTRY,
+      '__module__' : 'google.cloud.aiplatform.v1beta1.model_monitoring_pb2'
+      # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.AttributionScoreSkewThresholdsEntry)
+      })
+    ,
     'DESCRIPTOR' : _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG,
     '__module__' : 'google.cloud.aiplatform.v1beta1.model_monitoring_pb2'
     # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig)
@@ -522,9 +765,30 @@ ModelMonitoringObjectiveConfig = _reflection.GeneratedProtocolMessageType('Model
       # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.DriftThresholdsEntry)
       })
     ,
+
+    'AttributionScoreDriftThresholdsEntry' : _reflection.GeneratedProtocolMessageType('AttributionScoreDriftThresholdsEntry', (_message.Message,), {
+      'DESCRIPTOR' : _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_ATTRIBUTIONSCOREDRIFTTHRESHOLDSENTRY,
+      '__module__' : 'google.cloud.aiplatform.v1beta1.model_monitoring_pb2'
+      # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.AttributionScoreDriftThresholdsEntry)
+      })
+    ,
     'DESCRIPTOR' : _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG,
     '__module__' : 'google.cloud.aiplatform.v1beta1.model_monitoring_pb2'
     # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig)
+    })
+  ,
+
+  'ExplanationConfig' : _reflection.GeneratedProtocolMessageType('ExplanationConfig', (_message.Message,), {
+
+    'ExplanationBaseline' : _reflection.GeneratedProtocolMessageType('ExplanationBaseline', (_message.Message,), {
+      'DESCRIPTOR' : _MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG_EXPLANATIONBASELINE,
+      '__module__' : 'google.cloud.aiplatform.v1beta1.model_monitoring_pb2'
+      # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline)
+      })
+    ,
+    'DESCRIPTOR' : _MODELMONITORINGOBJECTIVECONFIG_EXPLANATIONCONFIG,
+    '__module__' : 'google.cloud.aiplatform.v1beta1.model_monitoring_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.ModelMonitoringObjectiveConfig.ExplanationConfig)
     })
   ,
   'DESCRIPTOR' : _MODELMONITORINGOBJECTIVECONFIG,
@@ -535,8 +799,12 @@ _sym_db.RegisterMessage(ModelMonitoringObjectiveConfig)
 _sym_db.RegisterMessage(ModelMonitoringObjectiveConfig.TrainingDataset)
 _sym_db.RegisterMessage(ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig)
 _sym_db.RegisterMessage(ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.SkewThresholdsEntry)
+_sym_db.RegisterMessage(ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.AttributionScoreSkewThresholdsEntry)
 _sym_db.RegisterMessage(ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig)
 _sym_db.RegisterMessage(ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.DriftThresholdsEntry)
+_sym_db.RegisterMessage(ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.AttributionScoreDriftThresholdsEntry)
+_sym_db.RegisterMessage(ModelMonitoringObjectiveConfig.ExplanationConfig)
+_sym_db.RegisterMessage(ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline)
 
 ModelMonitoringAlertConfig = _reflection.GeneratedProtocolMessageType('ModelMonitoringAlertConfig', (_message.Message,), {
 
@@ -579,5 +847,7 @@ _sym_db.RegisterMessage(SamplingStrategy.RandomSampleConfig)
 DESCRIPTOR._options = None
 _MODELMONITORINGOBJECTIVECONFIG_TRAININGDATASET.fields_by_name['dataset']._options = None
 _MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_SKEWTHRESHOLDSENTRY._options = None
+_MODELMONITORINGOBJECTIVECONFIG_TRAININGPREDICTIONSKEWDETECTIONCONFIG_ATTRIBUTIONSCORESKEWTHRESHOLDSENTRY._options = None
 _MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_DRIFTTHRESHOLDSENTRY._options = None
+_MODELMONITORINGOBJECTIVECONFIG_PREDICTIONDRIFTDETECTIONCONFIG_ATTRIBUTIONSCOREDRIFTTHRESHOLDSENTRY._options = None
 # @@protoc_insertion_point(module_scope)

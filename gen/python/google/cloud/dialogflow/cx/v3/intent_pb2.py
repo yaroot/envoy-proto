@@ -16,6 +16,7 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
@@ -25,11 +26,11 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/dialogflow/cx/v3/intent.proto',
   package='google.cloud.dialogflow.cx.v3',
   syntax='proto3',
-  serialized_options=b'\n!com.google.cloud.dialogflow.cx.v3B\013IntentProtoP\001Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\370\001\001\242\002\002DF\252\002\035Google.Cloud.Dialogflow.Cx.V3',
+  serialized_options=b'\n!com.google.cloud.dialogflow.cx.v3B\013IntentProtoP\001Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\370\001\001\242\002\002DF\252\002\035Google.Cloud.Dialogflow.Cx.V3\352\002!Google::Cloud::Dialogflow::CX::V3',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n*google/cloud/dialogflow/cx/v3/intent.proto\x12\x1dgoogle.cloud.dialogflow.cx.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9c\x06\n\x06Intent\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12N\n\x10training_phrases\x18\x03 \x03(\x0b\x32\x34.google.cloud.dialogflow.cx.v3.Intent.TrainingPhrase\x12\x43\n\nparameters\x18\x04 \x03(\x0b\x32/.google.cloud.dialogflow.cx.v3.Intent.Parameter\x12\x10\n\x08priority\x18\x05 \x01(\x05\x12\x13\n\x0bis_fallback\x18\x06 \x01(\x08\x12\x41\n\x06labels\x18\x07 \x03(\x0b\x32\x31.google.cloud.dialogflow.cx.v3.Intent.LabelsEntry\x12\x13\n\x0b\x64\x65scription\x18\x08 \x01(\t\x1a\xb2\x01\n\x0eTrainingPhrase\x12\n\n\x02id\x18\x01 \x01(\t\x12M\n\x05parts\x18\x02 \x03(\x0b\x32\x39.google.cloud.dialogflow.cx.v3.Intent.TrainingPhrase.PartB\x03\xe0\x41\x02\x12\x14\n\x0crepeat_count\x18\x03 \x01(\x05\x1a/\n\x04Part\x12\x11\n\x04text\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0cparameter_id\x18\x02 \x01(\t\x1a\x80\x01\n\tParameter\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x41\n\x0b\x65ntity_type\x18\x02 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\x12\x0f\n\x07is_list\x18\x03 \x01(\x08\x12\x0e\n\x06redact\x18\x04 \x01(\x08\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:n\xea\x41k\n dialogflow.googleapis.com/Intent\x12Gprojects/{project}/locations/{location}/agents/{agent}/intents/{intent}\"\xcc\x01\n\x12ListIntentsRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\x12 dialogflow.googleapis.com/Intent\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\x12>\n\x0bintent_view\x18\x05 \x01(\x0e\x32).google.cloud.dialogflow.cx.v3.IntentView\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"f\n\x13ListIntentsResponse\x12\x36\n\x07intents\x18\x01 \x03(\x0b\x32%.google.cloud.dialogflow.cx.v3.Intent\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"a\n\x10GetIntentRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n dialogflow.googleapis.com/Intent\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\"\xa2\x01\n\x13\x43reateIntentRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\x12 dialogflow.googleapis.com/Intent\x12:\n\x06intent\x18\x02 \x01(\x0b\x32%.google.cloud.dialogflow.cx.v3.IntentB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x03 \x01(\t\"\x99\x01\n\x13UpdateIntentRequest\x12:\n\x06intent\x18\x01 \x01(\x0b\x32%.google.cloud.dialogflow.cx.v3.IntentB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"M\n\x13\x44\x65leteIntentRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n dialogflow.googleapis.com/Intent*X\n\nIntentView\x12\x1b\n\x17INTENT_VIEW_UNSPECIFIED\x10\x00\x12\x17\n\x13INTENT_VIEW_PARTIAL\x10\x01\x12\x14\n\x10INTENT_VIEW_FULL\x10\x02\x32\x9e\x08\n\x07Intents\x12\xbb\x01\n\x0bListIntents\x12\x31.google.cloud.dialogflow.cx.v3.ListIntentsRequest\x1a\x32.google.cloud.dialogflow.cx.v3.ListIntentsResponse\"E\x82\xd3\xe4\x93\x02\x36\x12\x34/v3/{parent=projects/*/locations/*/agents/*}/intents\xda\x41\x06parent\x12\xa8\x01\n\tGetIntent\x12/.google.cloud.dialogflow.cx.v3.GetIntentRequest\x1a%.google.cloud.dialogflow.cx.v3.Intent\"C\x82\xd3\xe4\x93\x02\x36\x12\x34/v3/{name=projects/*/locations/*/agents/*/intents/*}\xda\x41\x04name\x12\xbf\x01\n\x0c\x43reateIntent\x12\x32.google.cloud.dialogflow.cx.v3.CreateIntentRequest\x1a%.google.cloud.dialogflow.cx.v3.Intent\"T\x82\xd3\xe4\x93\x02>\"4/v3/{parent=projects/*/locations/*/agents/*}/intents:\x06intent\xda\x41\rparent,intent\x12\xcb\x01\n\x0cUpdateIntent\x12\x32.google.cloud.dialogflow.cx.v3.UpdateIntentRequest\x1a%.google.cloud.dialogflow.cx.v3.Intent\"`\x82\xd3\xe4\x93\x02\x45\x32;/v3/{intent.name=projects/*/locations/*/agents/*/intents/*}:\x06intent\xda\x41\x12intent,update_mask\x12\x9f\x01\n\x0c\x44\x65leteIntent\x12\x32.google.cloud.dialogflow.cx.v3.DeleteIntentRequest\x1a\x16.google.protobuf.Empty\"C\x82\xd3\xe4\x93\x02\x36*4/v3/{name=projects/*/locations/*/agents/*/intents/*}\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\x9b\x01\n!com.google.cloud.dialogflow.cx.v3B\x0bIntentProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1dGoogle.Cloud.Dialogflow.Cx.V3b\x06proto3'
+  serialized_pb=b'\n*google/cloud/dialogflow/cx/v3/intent.proto\x12\x1dgoogle.cloud.dialogflow.cx.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9c\x06\n\x06Intent\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12N\n\x10training_phrases\x18\x03 \x03(\x0b\x32\x34.google.cloud.dialogflow.cx.v3.Intent.TrainingPhrase\x12\x43\n\nparameters\x18\x04 \x03(\x0b\x32/.google.cloud.dialogflow.cx.v3.Intent.Parameter\x12\x10\n\x08priority\x18\x05 \x01(\x05\x12\x13\n\x0bis_fallback\x18\x06 \x01(\x08\x12\x41\n\x06labels\x18\x07 \x03(\x0b\x32\x31.google.cloud.dialogflow.cx.v3.Intent.LabelsEntry\x12\x13\n\x0b\x64\x65scription\x18\x08 \x01(\t\x1a\xb2\x01\n\x0eTrainingPhrase\x12\n\n\x02id\x18\x01 \x01(\t\x12M\n\x05parts\x18\x02 \x03(\x0b\x32\x39.google.cloud.dialogflow.cx.v3.Intent.TrainingPhrase.PartB\x03\xe0\x41\x02\x12\x14\n\x0crepeat_count\x18\x03 \x01(\x05\x1a/\n\x04Part\x12\x11\n\x04text\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x0cparameter_id\x18\x02 \x01(\t\x1a\x80\x01\n\tParameter\x12\x0f\n\x02id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x41\n\x0b\x65ntity_type\x18\x02 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$dialogflow.googleapis.com/EntityType\x12\x0f\n\x07is_list\x18\x03 \x01(\x08\x12\x0e\n\x06redact\x18\x04 \x01(\x08\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:n\xea\x41k\n dialogflow.googleapis.com/Intent\x12Gprojects/{project}/locations/{location}/agents/{agent}/intents/{intent}\"\xcc\x01\n\x12ListIntentsRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\x12 dialogflow.googleapis.com/Intent\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\x12>\n\x0bintent_view\x18\x05 \x01(\x0e\x32).google.cloud.dialogflow.cx.v3.IntentView\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\"f\n\x13ListIntentsResponse\x12\x36\n\x07intents\x18\x01 \x03(\x0b\x32%.google.cloud.dialogflow.cx.v3.Intent\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"a\n\x10GetIntentRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n dialogflow.googleapis.com/Intent\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\"\xa2\x01\n\x13\x43reateIntentRequest\x12\x38\n\x06parent\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\x12 dialogflow.googleapis.com/Intent\x12:\n\x06intent\x18\x02 \x01(\x0b\x32%.google.cloud.dialogflow.cx.v3.IntentB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x03 \x01(\t\"\x99\x01\n\x13UpdateIntentRequest\x12:\n\x06intent\x18\x01 \x01(\x0b\x32%.google.cloud.dialogflow.cx.v3.IntentB\x03\xe0\x41\x02\x12\x15\n\rlanguage_code\x18\x02 \x01(\t\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\"M\n\x13\x44\x65leteIntentRequest\x12\x36\n\x04name\x18\x01 \x01(\tB(\xe0\x41\x02\xfa\x41\"\n dialogflow.googleapis.com/Intent*X\n\nIntentView\x12\x1b\n\x17INTENT_VIEW_UNSPECIFIED\x10\x00\x12\x17\n\x13INTENT_VIEW_PARTIAL\x10\x01\x12\x14\n\x10INTENT_VIEW_FULL\x10\x02\x32\x9e\x08\n\x07Intents\x12\xbb\x01\n\x0bListIntents\x12\x31.google.cloud.dialogflow.cx.v3.ListIntentsRequest\x1a\x32.google.cloud.dialogflow.cx.v3.ListIntentsResponse\"E\x82\xd3\xe4\x93\x02\x36\x12\x34/v3/{parent=projects/*/locations/*/agents/*}/intents\xda\x41\x06parent\x12\xa8\x01\n\tGetIntent\x12/.google.cloud.dialogflow.cx.v3.GetIntentRequest\x1a%.google.cloud.dialogflow.cx.v3.Intent\"C\x82\xd3\xe4\x93\x02\x36\x12\x34/v3/{name=projects/*/locations/*/agents/*/intents/*}\xda\x41\x04name\x12\xbf\x01\n\x0c\x43reateIntent\x12\x32.google.cloud.dialogflow.cx.v3.CreateIntentRequest\x1a%.google.cloud.dialogflow.cx.v3.Intent\"T\x82\xd3\xe4\x93\x02>\"4/v3/{parent=projects/*/locations/*/agents/*}/intents:\x06intent\xda\x41\rparent,intent\x12\xcb\x01\n\x0cUpdateIntent\x12\x32.google.cloud.dialogflow.cx.v3.UpdateIntentRequest\x1a%.google.cloud.dialogflow.cx.v3.Intent\"`\x82\xd3\xe4\x93\x02\x45\x32;/v3/{intent.name=projects/*/locations/*/agents/*/intents/*}:\x06intent\xda\x41\x12intent,update_mask\x12\x9f\x01\n\x0c\x44\x65leteIntent\x12\x32.google.cloud.dialogflow.cx.v3.DeleteIntentRequest\x1a\x16.google.protobuf.Empty\"C\x82\xd3\xe4\x93\x02\x36*4/v3/{name=projects/*/locations/*/agents/*/intents/*}\xda\x41\x04name\x1ax\xca\x41\x19\x64ialogflow.googleapis.com\xd2\x41Yhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflowB\xbf\x01\n!com.google.cloud.dialogflow.cx.v3B\x0bIntentProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/dialogflow/cx/v3;cx\xf8\x01\x01\xa2\x02\x02\x44\x46\xaa\x02\x1dGoogle.Cloud.Dialogflow.Cx.V3\xea\x02!Google::Cloud::Dialogflow::CX::V3b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_field__mask__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 _INTENTVIEW = _descriptor.EnumDescriptor(
   name='IntentView',
@@ -56,8 +57,8 @@ _INTENTVIEW = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1897,
-  serialized_end=1985,
+  serialized_start=1934,
+  serialized_end=2022,
 )
 _sym_db.RegisterEnumDescriptor(_INTENTVIEW)
 
@@ -102,8 +103,8 @@ _INTENT_TRAININGPHRASE_PART = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=748,
-  serialized_end=795,
+  serialized_start=785,
+  serialized_end=832,
 )
 
 _INTENT_TRAININGPHRASE = _descriptor.Descriptor(
@@ -147,8 +148,8 @@ _INTENT_TRAININGPHRASE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=617,
-  serialized_end=795,
+  serialized_start=654,
+  serialized_end=832,
 )
 
 _INTENT_PARAMETER = _descriptor.Descriptor(
@@ -199,8 +200,8 @@ _INTENT_PARAMETER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=798,
-  serialized_end=926,
+  serialized_start=835,
+  serialized_end=963,
 )
 
 _INTENT_LABELSENTRY = _descriptor.Descriptor(
@@ -237,8 +238,8 @@ _INTENT_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=928,
-  serialized_end=973,
+  serialized_start=965,
+  serialized_end=1010,
 )
 
 _INTENT = _descriptor.Descriptor(
@@ -317,8 +318,8 @@ _INTENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=289,
-  serialized_end=1085,
+  serialized_start=326,
+  serialized_end=1122,
 )
 
 
@@ -377,8 +378,8 @@ _LISTINTENTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1088,
-  serialized_end=1292,
+  serialized_start=1125,
+  serialized_end=1329,
 )
 
 
@@ -416,8 +417,8 @@ _LISTINTENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1294,
-  serialized_end=1396,
+  serialized_start=1331,
+  serialized_end=1433,
 )
 
 
@@ -455,8 +456,8 @@ _GETINTENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1398,
-  serialized_end=1495,
+  serialized_start=1435,
+  serialized_end=1532,
 )
 
 
@@ -501,8 +502,8 @@ _CREATEINTENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1498,
-  serialized_end=1660,
+  serialized_start=1535,
+  serialized_end=1697,
 )
 
 
@@ -547,8 +548,8 @@ _UPDATEINTENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1663,
-  serialized_end=1816,
+  serialized_start=1700,
+  serialized_end=1853,
 )
 
 
@@ -579,8 +580,8 @@ _DELETEINTENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1818,
-  serialized_end=1895,
+  serialized_start=1855,
+  serialized_end=1932,
 )
 
 _INTENT_TRAININGPHRASE_PART.containing_type = _INTENT_TRAININGPHRASE
@@ -710,8 +711,8 @@ _INTENTS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\031dialogflow.googleapis.com\322AYhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/dialogflow',
   create_key=_descriptor._internal_create_key,
-  serialized_start=1988,
-  serialized_end=3042,
+  serialized_start=2025,
+  serialized_end=3079,
   methods=[
   _descriptor.MethodDescriptor(
     name='ListIntents',

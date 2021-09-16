@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\035com.google.datastore.admin.v1B\016MigrationProtoP\001Z>google.golang.org/genproto/googleapis/datastore/admin/v1;admin\252\002\037Google.Cloud.Datastore.Admin.V1\312\002\037Google\\Cloud\\Datastore\\Admin\\V1\352\002#Google::Cloud::Datastore::Admin::V1',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n)google/datastore/admin/v1/migration.proto\x12\x19google.datastore.admin.v1\"O\n\x13MigrationStateEvent\x12\x38\n\x05state\x18\x01 \x01(\x0e\x32).google.datastore.admin.v1.MigrationState\"P\n\x16MigrationProgressEvent\x12\x36\n\x04step\x18\x01 \x01(\x0e\x32(.google.datastore.admin.v1.MigrationStep*X\n\x0eMigrationState\x12\x1f\n\x1bMIGRATION_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\x0c\n\x08\x43OMPLETE\x10\x03*\xb6\x01\n\rMigrationStep\x12\x1e\n\x1aMIGRATION_STEP_UNSPECIFIED\x10\x00\x12\t\n\x05START\x10\x01\x12\x13\n\x0f\x43OPY_AND_VERIFY\x10\x02\x12(\n$REDIRECT_EVENTUALLY_CONSISTENT_READS\x10\x03\x12&\n\"REDIRECT_STRONGLY_CONSISTENT_READS\x10\x04\x12\x13\n\x0fREDIRECT_WRITES\x10\x05\x42\xdb\x01\n\x1d\x63om.google.datastore.admin.v1B\x0eMigrationProtoP\x01Z>google.golang.org/genproto/googleapis/datastore/admin/v1;admin\xaa\x02\x1fGoogle.Cloud.Datastore.Admin.V1\xca\x02\x1fGoogle\\Cloud\\Datastore\\Admin\\V1\xea\x02#Google::Cloud::Datastore::Admin::V1b\x06proto3'
+  serialized_pb=b'\n)google/datastore/admin/v1/migration.proto\x12\x19google.datastore.admin.v1\"O\n\x13MigrationStateEvent\x12\x38\n\x05state\x18\x01 \x01(\x0e\x32).google.datastore.admin.v1.MigrationState\"\xfe\x04\n\x16MigrationProgressEvent\x12\x36\n\x04step\x18\x01 \x01(\x0e\x32(.google.datastore.admin.v1.MigrationStep\x12\x64\n\x14prepare_step_details\x18\x02 \x01(\x0b\x32\x44.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetailsH\x00\x12s\n\x1credirect_writes_step_details\x18\x03 \x01(\x0b\x32K.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetailsH\x00\x1aq\n\x12PrepareStepDetails\x12[\n\x10\x63oncurrency_mode\x18\x01 \x01(\x0e\x32\x41.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode\x1ax\n\x19RedirectWritesStepDetails\x12[\n\x10\x63oncurrency_mode\x18\x01 \x01(\x0e\x32\x41.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode\"T\n\x0f\x43oncurrencyMode\x12 \n\x1c\x43ONCURRENCY_MODE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bPESSIMISTIC\x10\x01\x12\x0e\n\nOPTIMISTIC\x10\x02\x42\x0e\n\x0cstep_details*X\n\x0eMigrationState\x12\x1f\n\x1bMIGRATION_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\x0c\n\x08\x43OMPLETE\x10\x03*\xe3\x01\n\rMigrationStep\x12\x1e\n\x1aMIGRATION_STEP_UNSPECIFIED\x10\x00\x12\x0b\n\x07PREPARE\x10\x06\x12\t\n\x05START\x10\x01\x12\x1e\n\x1a\x41PPLY_WRITES_SYNCHRONOUSLY\x10\x07\x12\x13\n\x0f\x43OPY_AND_VERIFY\x10\x02\x12(\n$REDIRECT_EVENTUALLY_CONSISTENT_READS\x10\x03\x12&\n\"REDIRECT_STRONGLY_CONSISTENT_READS\x10\x04\x12\x13\n\x0fREDIRECT_WRITES\x10\x05\x42\xdb\x01\n\x1d\x63om.google.datastore.admin.v1B\x0eMigrationProtoP\x01Z>google.golang.org/genproto/googleapis/datastore/admin/v1;admin\xaa\x02\x1fGoogle.Cloud.Datastore.Admin.V1\xca\x02\x1fGoogle\\Cloud\\Datastore\\Admin\\V1\xea\x02#Google::Cloud::Datastore::Admin::V1b\x06proto3'
 )
 
 _MIGRATIONSTATE = _descriptor.EnumDescriptor(
@@ -53,8 +53,8 @@ _MIGRATIONSTATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=235,
-  serialized_end=323,
+  serialized_start=794,
+  serialized_end=882,
 )
 _sym_db.RegisterEnumDescriptor(_MIGRATIONSTATE)
 
@@ -72,35 +72,45 @@ _MIGRATIONSTEP = _descriptor.EnumDescriptor(
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='START', index=1, number=1,
+      name='PREPARE', index=1, number=6,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='COPY_AND_VERIFY', index=2, number=2,
+      name='START', index=2, number=1,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='REDIRECT_EVENTUALLY_CONSISTENT_READS', index=3, number=3,
+      name='APPLY_WRITES_SYNCHRONOUSLY', index=3, number=7,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='REDIRECT_STRONGLY_CONSISTENT_READS', index=4, number=4,
+      name='COPY_AND_VERIFY', index=4, number=2,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='REDIRECT_WRITES', index=5, number=5,
+      name='REDIRECT_EVENTUALLY_CONSISTENT_READS', index=5, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='REDIRECT_STRONGLY_CONSISTENT_READS', index=6, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='REDIRECT_WRITES', index=7, number=5,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=326,
-  serialized_end=508,
+  serialized_start=885,
+  serialized_end=1112,
 )
 _sym_db.RegisterEnumDescriptor(_MIGRATIONSTEP)
 
@@ -110,12 +120,44 @@ RUNNING = 1
 PAUSED = 2
 COMPLETE = 3
 MIGRATION_STEP_UNSPECIFIED = 0
+PREPARE = 6
 START = 1
+APPLY_WRITES_SYNCHRONOUSLY = 7
 COPY_AND_VERIFY = 2
 REDIRECT_EVENTUALLY_CONSISTENT_READS = 3
 REDIRECT_STRONGLY_CONSISTENT_READS = 4
 REDIRECT_WRITES = 5
 
+
+_MIGRATIONPROGRESSEVENT_CONCURRENCYMODE = _descriptor.EnumDescriptor(
+  name='ConcurrencyMode',
+  full_name='google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='CONCURRENCY_MODE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PESSIMISTIC', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='OPTIMISTIC', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=692,
+  serialized_end=776,
+)
+_sym_db.RegisterEnumDescriptor(_MIGRATIONPROGRESSEVENT_CONCURRENCYMODE)
 
 
 _MIGRATIONSTATEEVENT = _descriptor.Descriptor(
@@ -150,16 +192,16 @@ _MIGRATIONSTATEEVENT = _descriptor.Descriptor(
 )
 
 
-_MIGRATIONPROGRESSEVENT = _descriptor.Descriptor(
-  name='MigrationProgressEvent',
-  full_name='google.datastore.admin.v1.MigrationProgressEvent',
+_MIGRATIONPROGRESSEVENT_PREPARESTEPDETAILS = _descriptor.Descriptor(
+  name='PrepareStepDetails',
+  full_name='google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='step', full_name='google.datastore.admin.v1.MigrationProgressEvent.step', index=0,
+      name='concurrency_mode', full_name='google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails.concurrency_mode', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -177,12 +219,107 @@ _MIGRATIONPROGRESSEVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=153,
-  serialized_end=233,
+  serialized_start=455,
+  serialized_end=568,
+)
+
+_MIGRATIONPROGRESSEVENT_REDIRECTWRITESSTEPDETAILS = _descriptor.Descriptor(
+  name='RedirectWritesStepDetails',
+  full_name='google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='concurrency_mode', full_name='google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails.concurrency_mode', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=570,
+  serialized_end=690,
+)
+
+_MIGRATIONPROGRESSEVENT = _descriptor.Descriptor(
+  name='MigrationProgressEvent',
+  full_name='google.datastore.admin.v1.MigrationProgressEvent',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='step', full_name='google.datastore.admin.v1.MigrationProgressEvent.step', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='prepare_step_details', full_name='google.datastore.admin.v1.MigrationProgressEvent.prepare_step_details', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='redirect_writes_step_details', full_name='google.datastore.admin.v1.MigrationProgressEvent.redirect_writes_step_details', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_MIGRATIONPROGRESSEVENT_PREPARESTEPDETAILS, _MIGRATIONPROGRESSEVENT_REDIRECTWRITESSTEPDETAILS, ],
+  enum_types=[
+    _MIGRATIONPROGRESSEVENT_CONCURRENCYMODE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='step_details', full_name='google.datastore.admin.v1.MigrationProgressEvent.step_details',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=154,
+  serialized_end=792,
 )
 
 _MIGRATIONSTATEEVENT.fields_by_name['state'].enum_type = _MIGRATIONSTATE
+_MIGRATIONPROGRESSEVENT_PREPARESTEPDETAILS.fields_by_name['concurrency_mode'].enum_type = _MIGRATIONPROGRESSEVENT_CONCURRENCYMODE
+_MIGRATIONPROGRESSEVENT_PREPARESTEPDETAILS.containing_type = _MIGRATIONPROGRESSEVENT
+_MIGRATIONPROGRESSEVENT_REDIRECTWRITESSTEPDETAILS.fields_by_name['concurrency_mode'].enum_type = _MIGRATIONPROGRESSEVENT_CONCURRENCYMODE
+_MIGRATIONPROGRESSEVENT_REDIRECTWRITESSTEPDETAILS.containing_type = _MIGRATIONPROGRESSEVENT
 _MIGRATIONPROGRESSEVENT.fields_by_name['step'].enum_type = _MIGRATIONSTEP
+_MIGRATIONPROGRESSEVENT.fields_by_name['prepare_step_details'].message_type = _MIGRATIONPROGRESSEVENT_PREPARESTEPDETAILS
+_MIGRATIONPROGRESSEVENT.fields_by_name['redirect_writes_step_details'].message_type = _MIGRATIONPROGRESSEVENT_REDIRECTWRITESSTEPDETAILS
+_MIGRATIONPROGRESSEVENT_CONCURRENCYMODE.containing_type = _MIGRATIONPROGRESSEVENT
+_MIGRATIONPROGRESSEVENT.oneofs_by_name['step_details'].fields.append(
+  _MIGRATIONPROGRESSEVENT.fields_by_name['prepare_step_details'])
+_MIGRATIONPROGRESSEVENT.fields_by_name['prepare_step_details'].containing_oneof = _MIGRATIONPROGRESSEVENT.oneofs_by_name['step_details']
+_MIGRATIONPROGRESSEVENT.oneofs_by_name['step_details'].fields.append(
+  _MIGRATIONPROGRESSEVENT.fields_by_name['redirect_writes_step_details'])
+_MIGRATIONPROGRESSEVENT.fields_by_name['redirect_writes_step_details'].containing_oneof = _MIGRATIONPROGRESSEVENT.oneofs_by_name['step_details']
 DESCRIPTOR.message_types_by_name['MigrationStateEvent'] = _MIGRATIONSTATEEVENT
 DESCRIPTOR.message_types_by_name['MigrationProgressEvent'] = _MIGRATIONPROGRESSEVENT
 DESCRIPTOR.enum_types_by_name['MigrationState'] = _MIGRATIONSTATE
@@ -197,11 +334,27 @@ MigrationStateEvent = _reflection.GeneratedProtocolMessageType('MigrationStateEv
 _sym_db.RegisterMessage(MigrationStateEvent)
 
 MigrationProgressEvent = _reflection.GeneratedProtocolMessageType('MigrationProgressEvent', (_message.Message,), {
+
+  'PrepareStepDetails' : _reflection.GeneratedProtocolMessageType('PrepareStepDetails', (_message.Message,), {
+    'DESCRIPTOR' : _MIGRATIONPROGRESSEVENT_PREPARESTEPDETAILS,
+    '__module__' : 'google.datastore.admin.v1.migration_pb2'
+    # @@protoc_insertion_point(class_scope:google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails)
+    })
+  ,
+
+  'RedirectWritesStepDetails' : _reflection.GeneratedProtocolMessageType('RedirectWritesStepDetails', (_message.Message,), {
+    'DESCRIPTOR' : _MIGRATIONPROGRESSEVENT_REDIRECTWRITESSTEPDETAILS,
+    '__module__' : 'google.datastore.admin.v1.migration_pb2'
+    # @@protoc_insertion_point(class_scope:google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails)
+    })
+  ,
   'DESCRIPTOR' : _MIGRATIONPROGRESSEVENT,
   '__module__' : 'google.datastore.admin.v1.migration_pb2'
   # @@protoc_insertion_point(class_scope:google.datastore.admin.v1.MigrationProgressEvent)
   })
 _sym_db.RegisterMessage(MigrationProgressEvent)
+_sym_db.RegisterMessage(MigrationProgressEvent.PrepareStepDetails)
+_sym_db.RegisterMessage(MigrationProgressEvent.RedirectWritesStepDetails)
 
 
 DESCRIPTOR._options = None

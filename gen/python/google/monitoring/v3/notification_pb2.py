@@ -14,7 +14,6 @@ _sym_db = _symbol_database.Default()
 from google.api import label_pb2 as google_dot_api_dot_label__pb2
 from google.api import launch_stage_pb2 as google_dot_api_dot_launch__stage__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
-from google.monitoring.v3 import common_pb2 as google_dot_monitoring_dot_v3_dot_common__pb2
 from google.monitoring.v3 import mutation_record_pb2 as google_dot_monitoring_dot_v3_dot_mutation__record__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
@@ -25,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\030com.google.monitoring.v3B\021NotificationProtoP\001Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\252\002\032Google.Cloud.Monitoring.V3\312\002\032Google\\Cloud\\Monitoring\\V3\352\002\035Google::Cloud::Monitoring::V3',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\'google/monitoring/v3/notification.proto\x12\x14google.monitoring.v3\x1a\x16google/api/label.proto\x1a\x1dgoogle/api/launch_stage.proto\x1a\x19google/api/resource.proto\x1a!google/monitoring/v3/common.proto\x1a*google/monitoring/v3/mutation_record.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xa5\x04\n\x1dNotificationChannelDescriptor\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12+\n\x06labels\x18\x04 \x03(\x0b\x32\x1b.google.api.LabelDescriptor\x12>\n\x0fsupported_tiers\x18\x05 \x03(\x0e\x32!.google.monitoring.v3.ServiceTierB\x02\x18\x01\x12-\n\x0claunch_stage\x18\x07 \x01(\x0e\x32\x17.google.api.LaunchStage:\xa0\x02\xea\x41\x9c\x02\n7monitoring.googleapis.com/NotificationChannelDescriptor\x12\x46projects/{project}/notificationChannelDescriptors/{channel_descriptor}\x12Porganizations/{organization}/notificationChannelDescriptors/{channel_descriptor}\x12\x44\x66olders/{folder}/notificationChannelDescriptors/{channel_descriptor}\x12\x01*\"\xb6\x07\n\x13NotificationChannel\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x45\n\x06labels\x18\x05 \x03(\x0b\x32\x35.google.monitoring.v3.NotificationChannel.LabelsEntry\x12N\n\x0buser_labels\x18\x08 \x03(\x0b\x32\x39.google.monitoring.v3.NotificationChannel.UserLabelsEntry\x12Y\n\x13verification_status\x18\t \x01(\x0e\x32<.google.monitoring.v3.NotificationChannel.VerificationStatus\x12+\n\x07\x65nabled\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12=\n\x0f\x63reation_record\x18\x0c \x01(\x0b\x32$.google.monitoring.v3.MutationRecord\x12>\n\x10mutation_records\x18\r \x03(\x0b\x32$.google.monitoring.v3.MutationRecord\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x31\n\x0fUserLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"W\n\x12VerificationStatus\x12#\n\x1fVERIFICATION_STATUS_UNSPECIFIED\x10\x00\x12\x0e\n\nUNVERIFIED\x10\x01\x12\x0c\n\x08VERIFIED\x10\x02:\xfe\x01\xea\x41\xfa\x01\n-monitoring.googleapis.com/NotificationChannel\x12>projects/{project}/notificationChannels/{notification_channel}\x12Horganizations/{organization}/notificationChannels/{notification_channel}\x12<folders/{folder}/notificationChannels/{notification_channel}\x12\x01*B\xc9\x01\n\x18\x63om.google.monitoring.v3B\x11NotificationProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3'
+  serialized_pb=b'\n\'google/monitoring/v3/notification.proto\x12\x14google.monitoring.v3\x1a\x16google/api/label.proto\x1a\x1dgoogle/api/launch_stage.proto\x1a\x19google/api/resource.proto\x1a*google/monitoring/v3/mutation_record.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xe5\x03\n\x1dNotificationChannelDescriptor\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12+\n\x06labels\x18\x04 \x03(\x0b\x32\x1b.google.api.LabelDescriptor\x12-\n\x0claunch_stage\x18\x07 \x01(\x0e\x32\x17.google.api.LaunchStage:\xa0\x02\xea\x41\x9c\x02\n7monitoring.googleapis.com/NotificationChannelDescriptor\x12\x46projects/{project}/notificationChannelDescriptors/{channel_descriptor}\x12Porganizations/{organization}/notificationChannelDescriptors/{channel_descriptor}\x12\x44\x66olders/{folder}/notificationChannelDescriptors/{channel_descriptor}\x12\x01*\"\xb6\x07\n\x13NotificationChannel\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x06 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x45\n\x06labels\x18\x05 \x03(\x0b\x32\x35.google.monitoring.v3.NotificationChannel.LabelsEntry\x12N\n\x0buser_labels\x18\x08 \x03(\x0b\x32\x39.google.monitoring.v3.NotificationChannel.UserLabelsEntry\x12Y\n\x13verification_status\x18\t \x01(\x0e\x32<.google.monitoring.v3.NotificationChannel.VerificationStatus\x12+\n\x07\x65nabled\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.BoolValue\x12=\n\x0f\x63reation_record\x18\x0c \x01(\x0b\x32$.google.monitoring.v3.MutationRecord\x12>\n\x10mutation_records\x18\r \x03(\x0b\x32$.google.monitoring.v3.MutationRecord\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x31\n\x0fUserLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"W\n\x12VerificationStatus\x12#\n\x1fVERIFICATION_STATUS_UNSPECIFIED\x10\x00\x12\x0e\n\nUNVERIFIED\x10\x01\x12\x0c\n\x08VERIFIED\x10\x02:\xfe\x01\xea\x41\xfa\x01\n-monitoring.googleapis.com/NotificationChannel\x12>projects/{project}/notificationChannels/{notification_channel}\x12Horganizations/{organization}/notificationChannels/{notification_channel}\x12<folders/{folder}/notificationChannels/{notification_channel}\x12\x01*B\xc9\x01\n\x18\x63om.google.monitoring.v3B\x11NotificationProtoP\x01Z>google.golang.org/genproto/googleapis/monitoring/v3;monitoring\xaa\x02\x1aGoogle.Cloud.Monitoring.V3\xca\x02\x1aGoogle\\Cloud\\Monitoring\\V3\xea\x02\x1dGoogle::Cloud::Monitoring::V3b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_label__pb2.DESCRIPTOR,google_dot_api_dot_launch__stage__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_monitoring_dot_v3_dot_common__pb2.DESCRIPTOR,google_dot_monitoring_dot_v3_dot_mutation__record__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_label__pb2.DESCRIPTOR,google_dot_api_dot_launch__stage__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_monitoring_dot_v3_dot_mutation__record__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
 
 
@@ -56,8 +55,8 @@ _NOTIFICATIONCHANNEL_VERIFICATIONSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1417,
-  serialized_end=1504,
+  serialized_start=1318,
+  serialized_end=1405,
 )
 _sym_db.RegisterEnumDescriptor(_NOTIFICATIONCHANNEL_VERIFICATIONSTATUS)
 
@@ -106,14 +105,7 @@ _NOTIFICATIONCHANNELDESCRIPTOR = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='supported_tiers', full_name='google.monitoring.v3.NotificationChannelDescriptor.supported_tiers', index=5,
-      number=5, type=14, cpp_type=8, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='launch_stage', full_name='google.monitoring.v3.NotificationChannelDescriptor.launch_stage', index=6,
+      name='launch_stage', full_name='google.monitoring.v3.NotificationChannelDescriptor.launch_stage', index=5,
       number=7, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -131,8 +123,8 @@ _NOTIFICATIONCHANNELDESCRIPTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=259,
-  serialized_end=808,
+  serialized_start=224,
+  serialized_end=709,
 )
 
 
@@ -170,8 +162,8 @@ _NOTIFICATIONCHANNEL_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1319,
-  serialized_end=1364,
+  serialized_start=1220,
+  serialized_end=1265,
 )
 
 _NOTIFICATIONCHANNEL_USERLABELSENTRY = _descriptor.Descriptor(
@@ -208,8 +200,8 @@ _NOTIFICATIONCHANNEL_USERLABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1366,
-  serialized_end=1415,
+  serialized_start=1267,
+  serialized_end=1316,
 )
 
 _NOTIFICATIONCHANNEL = _descriptor.Descriptor(
@@ -303,12 +295,11 @@ _NOTIFICATIONCHANNEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=811,
-  serialized_end=1761,
+  serialized_start=712,
+  serialized_end=1662,
 )
 
 _NOTIFICATIONCHANNELDESCRIPTOR.fields_by_name['labels'].message_type = google_dot_api_dot_label__pb2._LABELDESCRIPTOR
-_NOTIFICATIONCHANNELDESCRIPTOR.fields_by_name['supported_tiers'].enum_type = google_dot_monitoring_dot_v3_dot_common__pb2._SERVICETIER
 _NOTIFICATIONCHANNELDESCRIPTOR.fields_by_name['launch_stage'].enum_type = google_dot_api_dot_launch__stage__pb2._LAUNCHSTAGE
 _NOTIFICATIONCHANNEL_LABELSENTRY.containing_type = _NOTIFICATIONCHANNEL
 _NOTIFICATIONCHANNEL_USERLABELSENTRY.containing_type = _NOTIFICATIONCHANNEL
@@ -355,7 +346,6 @@ _sym_db.RegisterMessage(NotificationChannel.UserLabelsEntry)
 
 
 DESCRIPTOR._options = None
-_NOTIFICATIONCHANNELDESCRIPTOR.fields_by_name['supported_tiers']._options = None
 _NOTIFICATIONCHANNELDESCRIPTOR._options = None
 _NOTIFICATIONCHANNEL_LABELSENTRY._options = None
 _NOTIFICATIONCHANNEL_USERLABELSENTRY._options = None

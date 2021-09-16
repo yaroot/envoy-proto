@@ -22,48 +22,13 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='google/cloud/contactcenterinsights/v1/resources.proto',
   package='google.cloud.contactcenterinsights.v1',
   syntax='proto3',
-  serialized_options=b'\n)com.google.cloud.contactcenterinsights.v1B\016ResourcesProtoP\001ZZgoogle.golang.org/genproto/googleapis/cloud/contactcenterinsights/v1;contactcenterinsights\252\002%Google.Cloud.ContactCenterInsights.V1\312\002%Google\\Cloud\\ContactCenterInsights\\V1\352\002(Google::Cloud::ContactCenterInsights::V1',
+  serialized_options=b'\n)com.google.cloud.contactcenterinsights.v1B\016ResourcesProtoP\001ZZgoogle.golang.org/genproto/googleapis/cloud/contactcenterinsights/v1;contactcenterinsights\252\002%Google.Cloud.ContactCenterInsights.V1\312\002%Google\\Cloud\\ContactCenterInsights\\V1\352\002(Google::Cloud::ContactCenterInsights::V1\352A\324\001\n%dialogflow.googleapis.com/Participant\022Jprojects/{project}/conversations/{conversation}/participants/{participant}\022_projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant}',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n5google/cloud/contactcenterinsights/v1/resources.proto\x12%google.cloud.contactcenterinsights.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xcd\x12\n\x0c\x43onversation\x12Y\n\rcall_metadata\x18\x07 \x01(\x0b\x32@.google.cloud.contactcenterinsights.v1.Conversation.CallMetadataH\x00\x12\x31\n\x0b\x65xpire_time\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01\x12-\n\x03ttl\x18\x10 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x04H\x01\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12R\n\x0b\x64\x61ta_source\x18\x02 \x01(\x0b\x32=.google.cloud.contactcenterinsights.v1.ConversationDataSource\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12.\n\nstart_time\x18\x11 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x15\n\rlanguage_code\x18\x0e \x01(\t\x12\x10\n\x08\x61gent_id\x18\x05 \x01(\t\x12O\n\x06labels\x18\x06 \x03(\x0b\x32?.google.cloud.contactcenterinsights.v1.Conversation.LabelsEntry\x12W\n\ntranscript\x18\x08 \x01(\x0b\x32>.google.cloud.contactcenterinsights.v1.Conversation.TranscriptB\x03\xe0\x41\x03\x12O\n\x06medium\x18\t \x01(\x0e\x32:.google.cloud.contactcenterinsights.v1.Conversation.MediumB\x03\xe0\x41\x05\x12\x30\n\x08\x64uration\x18\n \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x03\x12\x17\n\nturn_count\x18\x0b \x01(\x05\x42\x03\xe0\x41\x03\x12M\n\x0flatest_analysis\x18\x0c \x01(\x0b\x32/.google.cloud.contactcenterinsights.v1.AnalysisB\x03\xe0\x41\x03\x12Z\n\x13runtime_annotations\x18\r \x03(\x0b\x32\x38.google.cloud.contactcenterinsights.v1.RuntimeAnnotationB\x03\xe0\x41\x03\x12k\n\x12\x64ialogflow_intents\x18\x12 \x03(\x0b\x32J.google.cloud.contactcenterinsights.v1.Conversation.DialogflowIntentsEntryB\x03\xe0\x41\x03\x1a?\n\x0c\x43\x61llMetadata\x12\x18\n\x10\x63ustomer_channel\x18\x01 \x01(\x05\x12\x15\n\ragent_channel\x18\x02 \x01(\x05\x1a\xbe\x06\n\nTranscript\x12m\n\x13transcript_segments\x18\x01 \x03(\x0b\x32P.google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment\x1a\xc0\x05\n\x11TranscriptSegment\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12h\n\x05words\x18\x03 \x03(\x0b\x32Y.google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment.WordInfo\x12\x15\n\rlanguage_code\x18\x04 \x01(\t\x12\x13\n\x0b\x63hannel_tag\x18\x05 \x01(\x05\x12q\n\x0bparticipant\x18\x08 \x01(\x0b\x32\\.google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment.Participant\x1a\x8c\x01\n\x08WordInfo\x12/\n\x0cstart_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12-\n\nend_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x0c\n\x04word\x18\x03 \x01(\t\x12\x12\n\nconfidence\x18\x04 \x01(\x02\x1a\xf0\x01\n\x0bParticipant\x12\x1e\n\x16\x64ialogflow_participant\x18\x01 \x01(\t\x12o\n\x04role\x18\x02 \x01(\x0e\x32\x61.google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment.Participant.Role\"P\n\x04Role\x12\x14\n\x10ROLE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bHUMAN_AGENT\x10\x01\x12\x13\n\x0f\x41UTOMATED_AGENT\x10\x02\x12\x0c\n\x08\x45ND_USER\x10\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1aq\n\x16\x44ialogflowIntentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x46\n\x05value\x18\x02 \x01(\x0b\x32\x37.google.cloud.contactcenterinsights.v1.DialogflowIntent:\x02\x38\x01\":\n\x06Medium\x12\x16\n\x12MEDIUM_UNSPECIFIED\x10\x00\x12\x0e\n\nPHONE_CALL\x10\x01\x12\x08\n\x04\x43HAT\x10\x02:|\xea\x41y\n1contactcenterinsights.googleapis.com/Conversation\x12\x44projects/{project}/locations/{location}/conversations/{conversation}B\n\n\x08metadataB\x0c\n\nexpiration\"\xef\x02\n\x08\x41nalysis\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x35\n\x0crequest_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12S\n\x0f\x61nalysis_result\x18\x07 \x01(\x0b\x32\x35.google.cloud.contactcenterinsights.v1.AnalysisResultB\x03\xe0\x41\x03:\x8d\x01\xea\x41\x89\x01\n-contactcenterinsights.googleapis.com/Analysis\x12Xprojects/{project}/locations/{location}/conversations/{conversation}/analyses/{analysis}\"\xc0\x01\n\x16\x43onversationDataSource\x12\x46\n\ngcs_source\x18\x01 \x01(\x0b\x32\x30.google.cloud.contactcenterinsights.v1.GcsSourceH\x00\x12T\n\x11\x64ialogflow_source\x18\x03 \x01(\x0b\x32\x37.google.cloud.contactcenterinsights.v1.DialogflowSourceH\x00\x42\x08\n\x06source\";\n\tGcsSource\x12\x11\n\taudio_uri\x18\x01 \x01(\t\x12\x1b\n\x0etranscript_uri\x18\x02 \x01(\tB\x03\xe0\x41\x05\"K\n\x10\x44ialogflowSource\x12$\n\x17\x64ialogflow_conversation\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\taudio_uri\x18\x03 \x01(\t\"\xc6\x08\n\x0e\x41nalysisResult\x12l\n\x16\x63\x61ll_analysis_metadata\x18\x02 \x01(\x0b\x32J.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadataH\x00\x12,\n\x08\x65nd_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x8b\x07\n\x14\x43\x61llAnalysisMetadata\x12J\n\x0b\x61nnotations\x18\x02 \x03(\x0b\x32\x35.google.cloud.contactcenterinsights.v1.CallAnnotation\x12j\n\x08\x65ntities\x18\x03 \x03(\x0b\x32X.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata.EntitiesEntry\x12U\n\nsentiments\x18\x04 \x03(\x0b\x32\x41.google.cloud.contactcenterinsights.v1.ConversationLevelSentiment\x12h\n\x07intents\x18\x06 \x03(\x0b\x32W.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata.IntentsEntry\x12w\n\x0fphrase_matchers\x18\x07 \x03(\x0b\x32^.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata.PhraseMatchersEntry\x12S\n\x12issue_model_result\x18\x08 \x01(\x0b\x32\x37.google.cloud.contactcenterinsights.v1.IssueModelResult\x1a^\n\rEntitiesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12<\n\x05value\x18\x02 \x01(\x0b\x32-.google.cloud.contactcenterinsights.v1.Entity:\x02\x38\x01\x1a]\n\x0cIntentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12<\n\x05value\x18\x02 \x01(\x0b\x32-.google.cloud.contactcenterinsights.v1.Intent:\x02\x38\x01\x1am\n\x13PhraseMatchersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x45\n\x05value\x18\x02 \x01(\x0b\x32\x36.google.cloud.contactcenterinsights.v1.PhraseMatchData:\x02\x38\x01\x42\n\n\x08metadata\"o\n\x10IssueModelResult\x12\x13\n\x0bissue_model\x18\x01 \x01(\t\x12\x46\n\x06issues\x18\x02 \x03(\x0b\x32\x36.google.cloud.contactcenterinsights.v1.IssueAssignment\"\x7f\n\x1a\x43onversationLevelSentiment\x12\x13\n\x0b\x63hannel_tag\x18\x01 \x01(\x05\x12L\n\x0esentiment_data\x18\x02 \x01(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.SentimentData\"/\n\x0fIssueAssignment\x12\r\n\x05issue\x18\x01 \x01(\t\x12\r\n\x05score\x18\x02 \x01(\x01\"\xa2\x06\n\x0e\x43\x61llAnnotation\x12T\n\x11interruption_data\x18\n \x01(\x0b\x32\x37.google.cloud.contactcenterinsights.v1.InterruptionDataH\x00\x12N\n\x0esentiment_data\x18\x0b \x01(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.SentimentDataH\x00\x12J\n\x0csilence_data\x18\x0c \x01(\x0b\x32\x32.google.cloud.contactcenterinsights.v1.SilenceDataH\x00\x12\x44\n\thold_data\x18\r \x01(\x0b\x32/.google.cloud.contactcenterinsights.v1.HoldDataH\x00\x12W\n\x13\x65ntity_mention_data\x18\x0f \x01(\x0b\x32\x38.google.cloud.contactcenterinsights.v1.EntityMentionDataH\x00\x12S\n\x11intent_match_data\x18\x10 \x01(\x0b\x32\x36.google.cloud.contactcenterinsights.v1.IntentMatchDataH\x00\x12S\n\x11phrase_match_data\x18\x11 \x01(\x0b\x32\x36.google.cloud.contactcenterinsights.v1.PhraseMatchDataH\x00\x12\x13\n\x0b\x63hannel_tag\x18\x01 \x01(\x05\x12\\\n\x19\x61nnotation_start_boundary\x18\x04 \x01(\x0b\x32\x39.google.cloud.contactcenterinsights.v1.AnnotationBoundary\x12Z\n\x17\x61nnotation_end_boundary\x18\x05 \x01(\x0b\x32\x39.google.cloud.contactcenterinsights.v1.AnnotationBoundaryB\x06\n\x04\x64\x61ta\"\x8f\x01\n\x12\x41nnotationBoundary\x12\x34\n\x0btime_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02\x18\x01H\x00\x12\x14\n\nword_index\x18\x03 \x01(\x05H\x00\x12\x18\n\x10transcript_index\x18\x01 \x01(\x05\x42\x13\n\x11\x64\x65tailed_boundary\"\x80\x04\n\x06\x45ntity\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12@\n\x04type\x18\x02 \x01(\x0e\x32\x32.google.cloud.contactcenterinsights.v1.Entity.Type\x12M\n\x08metadata\x18\x03 \x03(\x0b\x32;.google.cloud.contactcenterinsights.v1.Entity.MetadataEntry\x12\x10\n\x08salience\x18\x04 \x01(\x02\x12G\n\tsentiment\x18\x05 \x01(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.SentimentData\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xc2\x01\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06PERSON\x10\x01\x12\x0c\n\x08LOCATION\x10\x02\x12\x10\n\x0cORGANIZATION\x10\x03\x12\t\n\x05\x45VENT\x10\x04\x12\x0f\n\x0bWORK_OF_ART\x10\x05\x12\x11\n\rCONSUMER_GOOD\x10\x06\x12\t\n\x05OTHER\x10\x07\x12\x10\n\x0cPHONE_NUMBER\x10\t\x12\x0b\n\x07\x41\x44\x44RESS\x10\n\x12\x08\n\x04\x44\x41TE\x10\x0b\x12\n\n\x06NUMBER\x10\x0c\x12\t\n\x05PRICE\x10\r\"*\n\x06Intent\x12\n\n\x02id\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\"?\n\x0fPhraseMatchData\x12\x16\n\x0ephrase_matcher\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\"(\n\x10\x44ialogflowIntent\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\"\x12\n\x10InterruptionData\"\r\n\x0bSilenceData\"\n\n\x08HoldData\"\x8f\x02\n\x11\x45ntityMentionData\x12\x18\n\x10\x65ntity_unique_id\x18\x01 \x01(\t\x12R\n\x04type\x18\x02 \x01(\x0e\x32\x44.google.cloud.contactcenterinsights.v1.EntityMentionData.MentionType\x12G\n\tsentiment\x18\x03 \x01(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.SentimentData\"C\n\x0bMentionType\x12\x1c\n\x18MENTION_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06PROPER\x10\x01\x12\n\n\x06\x43OMMON\x10\x02\"+\n\x0fIntentMatchData\x12\x18\n\x10intent_unique_id\x18\x01 \x01(\t\"1\n\rSentimentData\x12\x11\n\tmagnitude\x18\x01 \x01(\x02\x12\r\n\x05score\x18\x02 \x01(\x02\"\xb0\x04\n\nIssueModel\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12K\n\x05state\x18\x05 \x01(\x0e\x32\x37.google.cloud.contactcenterinsights.v1.IssueModel.StateB\x03\xe0\x41\x03\x12[\n\x0etraining_stats\x18\x07 \x01(\x0b\x32;.google.cloud.contactcenterinsights.v1.IssueModelLabelStatsB\x06\xe0\x41\x03\xe0\x41\x05\"j\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0e\n\nUNDEPLOYED\x10\x01\x12\r\n\tDEPLOYING\x10\x02\x12\x0c\n\x08\x44\x45PLOYED\x10\x03\x12\x0f\n\x0bUNDEPLOYING\x10\x04\x12\x0c\n\x08\x44\x45LETING\x10\x05:w\xea\x41t\n/contactcenterinsights.googleapis.com/IssueModel\x12\x41projects/{project}/locations/{location}/issueModels/{issue_model}\"\xa0\x02\n\x05Issue\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03:\x81\x01\xea\x41~\n*contactcenterinsights.googleapis.com/Issue\x12Pprojects/{project}/locations/{location}/issueModels/{issue_model}/issues/{issue}\"\x85\x03\n\x14IssueModelLabelStats\x12$\n\x1c\x61nalyzed_conversations_count\x18\x01 \x01(\x03\x12(\n unclassified_conversations_count\x18\x02 \x01(\x03\x12`\n\x0bissue_stats\x18\x03 \x03(\x0b\x32K.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStatsEntry\x1a@\n\nIssueStats\x12\r\n\x05issue\x18\x01 \x01(\t\x12#\n\x1blabeled_conversations_count\x18\x02 \x01(\x03\x1ay\n\x0fIssueStatsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12U\n\x05value\x18\x02 \x01(\x0b\x32\x46.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats:\x02\x38\x01\"\x84\x05\n\rPhraseMatcher\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1b\n\x0brevision_id\x18\x02 \x01(\tB\x06\xe0\x41\x05\xe0\x41\x03\x12\x13\n\x0bversion_tag\x18\x03 \x01(\t\x12=\n\x14revision_create_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x14\n\x0c\x64isplay_name\x18\x05 \x01(\t\x12Y\n\x04type\x18\x06 \x01(\x0e\x32\x46.google.cloud.contactcenterinsights.v1.PhraseMatcher.PhraseMatcherTypeB\x03\xe0\x41\x02\x12\x0e\n\x06\x61\x63tive\x18\x07 \x01(\x08\x12]\n\x18phrase_match_rule_groups\x18\x08 \x03(\x0b\x32;.google.cloud.contactcenterinsights.v1.PhraseMatchRuleGroup\x12?\n\x16\x61\x63tivation_update_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\"P\n\x11PhraseMatcherType\x12#\n\x1fPHRASE_MATCHER_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06\x41LL_OF\x10\x01\x12\n\n\x06\x41NY_OF\x10\x02:\x80\x01\xea\x41}\n2contactcenterinsights.googleapis.com/PhraseMatcher\x12Gprojects/{project}/locations/{location}/phraseMatchers/{phrase_matcher}\"\xb5\x02\n\x14PhraseMatchRuleGroup\x12g\n\x04type\x18\x01 \x01(\x0e\x32T.google.cloud.contactcenterinsights.v1.PhraseMatchRuleGroup.PhraseMatchRuleGroupTypeB\x03\xe0\x41\x02\x12R\n\x12phrase_match_rules\x18\x02 \x03(\x0b\x32\x36.google.cloud.contactcenterinsights.v1.PhraseMatchRule\"`\n\x18PhraseMatchRuleGroupType\x12,\n(PHRASE_MATCH_RULE_GROUP_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06\x41LL_OF\x10\x01\x12\n\n\x06\x41NY_OF\x10\x02\"\x84\x01\n\x0fPhraseMatchRule\x12\x12\n\x05query\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0f\n\x07negated\x18\x02 \x01(\x08\x12L\n\x06\x63onfig\x18\x03 \x01(\x0b\x32<.google.cloud.contactcenterinsights.v1.PhraseMatchRuleConfig\"x\n\x15PhraseMatchRuleConfig\x12U\n\x12\x65xact_match_config\x18\x01 \x01(\x0b\x32\x37.google.cloud.contactcenterinsights.v1.ExactMatchConfigH\x00\x42\x08\n\x06\x63onfig\"*\n\x10\x45xactMatchConfig\x12\x16\n\x0e\x63\x61se_sensitive\x18\x01 \x01(\x08\"\x91\x05\n\x08Settings\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x15\n\rlanguage_code\x18\x04 \x01(\t\x12\x33\n\x10\x63onversation_ttl\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12u\n\x1cpubsub_notification_settings\x18\x06 \x03(\x0b\x32O.google.cloud.contactcenterinsights.v1.Settings.PubsubNotificationSettingsEntry\x12W\n\x0f\x61nalysis_config\x18\x07 \x01(\x0b\x32>.google.cloud.contactcenterinsights.v1.Settings.AnalysisConfig\x1a\x41\n\x0e\x41nalysisConfig\x12/\n\'runtime_integration_analysis_percentage\x18\x01 \x01(\x01\x1a\x41\n\x1fPubsubNotificationSettingsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:d\xea\x41\x61\n-contactcenterinsights.googleapis.com/Settings\x12\x30projects/{project}/locations/{location}/settings\"\x98\x06\n\x11RuntimeAnnotation\x12Z\n\x12\x61rticle_suggestion\x18\x06 \x01(\x0b\x32<.google.cloud.contactcenterinsights.v1.ArticleSuggestionDataH\x00\x12J\n\nfaq_answer\x18\x07 \x01(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.FaqAnswerDataH\x00\x12L\n\x0bsmart_reply\x18\x08 \x01(\x0b\x32\x35.google.cloud.contactcenterinsights.v1.SmartReplyDataH\x00\x12\x65\n\x18smart_compose_suggestion\x18\t \x01(\x0b\x32\x41.google.cloud.contactcenterinsights.v1.SmartComposeSuggestionDataH\x00\x12\x62\n\x16\x64ialogflow_interaction\x18\n \x01(\x0b\x32@.google.cloud.contactcenterinsights.v1.DialogflowInteractionDataH\x00\x12\x15\n\rannotation_id\x18\x01 \x01(\t\x12/\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12Q\n\x0estart_boundary\x18\x03 \x01(\x0b\x32\x39.google.cloud.contactcenterinsights.v1.AnnotationBoundary\x12O\n\x0c\x65nd_boundary\x18\x04 \x01(\x0b\x32\x39.google.cloud.contactcenterinsights.v1.AnnotationBoundary\x12N\n\x0f\x61nswer_feedback\x18\x05 \x01(\x0b\x32\x35.google.cloud.contactcenterinsights.v1.AnswerFeedbackB\x06\n\x04\x64\x61ta\"\x89\x02\n\x0e\x41nswerFeedback\x12\x61\n\x11\x63orrectness_level\x18\x01 \x01(\x0e\x32\x46.google.cloud.contactcenterinsights.v1.AnswerFeedback.CorrectnessLevel\x12\x0f\n\x07\x63licked\x18\x02 \x01(\x08\x12\x11\n\tdisplayed\x18\x03 \x01(\x08\"p\n\x10\x43orrectnessLevel\x12!\n\x1d\x43ORRECTNESS_LEVEL_UNSPECIFIED\x10\x00\x12\x0f\n\x0bNOT_CORRECT\x10\x01\x12\x15\n\x11PARTIALLY_CORRECT\x10\x02\x12\x11\n\rFULLY_CORRECT\x10\x03\"\x82\x02\n\x15\x41rticleSuggestionData\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0b\n\x03uri\x18\x02 \x01(\t\x12\x18\n\x10\x63onfidence_score\x18\x03 \x01(\x02\x12\\\n\x08metadata\x18\x04 \x03(\x0b\x32J.google.cloud.contactcenterinsights.v1.ArticleSuggestionData.MetadataEntry\x12\x14\n\x0cquery_record\x18\x05 \x01(\t\x12\x0e\n\x06source\x18\x06 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xf8\x01\n\rFaqAnswerData\x12\x0e\n\x06\x61nswer\x18\x01 \x01(\t\x12\x18\n\x10\x63onfidence_score\x18\x02 \x01(\x02\x12\x10\n\x08question\x18\x03 \x01(\t\x12T\n\x08metadata\x18\x04 \x03(\x0b\x32\x42.google.cloud.contactcenterinsights.v1.FaqAnswerData.MetadataEntry\x12\x14\n\x0cquery_record\x18\x05 \x01(\t\x12\x0e\n\x06source\x18\x06 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd7\x01\n\x0eSmartReplyData\x12\r\n\x05reply\x18\x01 \x01(\t\x12\x18\n\x10\x63onfidence_score\x18\x02 \x01(\x01\x12U\n\x08metadata\x18\x03 \x03(\x0b\x32\x43.google.cloud.contactcenterinsights.v1.SmartReplyData.MetadataEntry\x12\x14\n\x0cquery_record\x18\x04 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xf4\x01\n\x1aSmartComposeSuggestionData\x12\x12\n\nsuggestion\x18\x01 \x01(\t\x12\x18\n\x10\x63onfidence_score\x18\x02 \x01(\x01\x12\x61\n\x08metadata\x18\x03 \x03(\x0b\x32O.google.cloud.contactcenterinsights.v1.SmartComposeSuggestionData.MetadataEntry\x12\x14\n\x0cquery_record\x18\x04 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"M\n\x19\x44ialogflowInteractionData\x12\x1c\n\x14\x64ialogflow_intent_id\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x42\x94\x02\n)com.google.cloud.contactcenterinsights.v1B\x0eResourcesProtoP\x01ZZgoogle.golang.org/genproto/googleapis/cloud/contactcenterinsights/v1;contactcenterinsights\xaa\x02%Google.Cloud.ContactCenterInsights.V1\xca\x02%Google\\Cloud\\ContactCenterInsights\\V1\xea\x02(Google::Cloud::ContactCenterInsights::V1b\x06proto3'
+  serialized_pb=b'\n5google/cloud/contactcenterinsights/v1/resources.proto\x12%google.cloud.contactcenterinsights.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xc4\x10\n\x0c\x43onversation\x12Y\n\rcall_metadata\x18\x07 \x01(\x0b\x32@.google.cloud.contactcenterinsights.v1.Conversation.CallMetadataH\x00\x12\x31\n\x0b\x65xpire_time\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x01\x12-\n\x03ttl\x18\x10 \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x04H\x01\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12R\n\x0b\x64\x61ta_source\x18\x02 \x01(\x0b\x32=.google.cloud.contactcenterinsights.v1.ConversationDataSource\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12.\n\nstart_time\x18\x11 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x15\n\rlanguage_code\x18\x0e \x01(\t\x12\x10\n\x08\x61gent_id\x18\x05 \x01(\t\x12O\n\x06labels\x18\x06 \x03(\x0b\x32?.google.cloud.contactcenterinsights.v1.Conversation.LabelsEntry\x12W\n\ntranscript\x18\x08 \x01(\x0b\x32>.google.cloud.contactcenterinsights.v1.Conversation.TranscriptB\x03\xe0\x41\x03\x12O\n\x06medium\x18\t \x01(\x0e\x32:.google.cloud.contactcenterinsights.v1.Conversation.MediumB\x03\xe0\x41\x05\x12\x30\n\x08\x64uration\x18\n \x01(\x0b\x32\x19.google.protobuf.DurationB\x03\xe0\x41\x03\x12\x17\n\nturn_count\x18\x0b \x01(\x05\x42\x03\xe0\x41\x03\x12M\n\x0flatest_analysis\x18\x0c \x01(\x0b\x32/.google.cloud.contactcenterinsights.v1.AnalysisB\x03\xe0\x41\x03\x12Z\n\x13runtime_annotations\x18\r \x03(\x0b\x32\x38.google.cloud.contactcenterinsights.v1.RuntimeAnnotationB\x03\xe0\x41\x03\x12k\n\x12\x64ialogflow_intents\x18\x12 \x03(\x0b\x32J.google.cloud.contactcenterinsights.v1.Conversation.DialogflowIntentsEntryB\x03\xe0\x41\x03\x1a?\n\x0c\x43\x61llMetadata\x12\x18\n\x10\x63ustomer_channel\x18\x01 \x01(\x05\x12\x15\n\ragent_channel\x18\x02 \x01(\x05\x1a\xb5\x04\n\nTranscript\x12m\n\x13transcript_segments\x18\x01 \x03(\x0b\x32P.google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment\x1a\xb7\x03\n\x11TranscriptSegment\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\x12h\n\x05words\x18\x03 \x03(\x0b\x32Y.google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment.WordInfo\x12\x15\n\rlanguage_code\x18\x04 \x01(\t\x12\x13\n\x0b\x63hannel_tag\x18\x05 \x01(\x05\x12[\n\x13segment_participant\x18\t \x01(\x0b\x32>.google.cloud.contactcenterinsights.v1.ConversationParticipant\x1a\x8c\x01\n\x08WordInfo\x12/\n\x0cstart_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12-\n\nend_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x0c\n\x04word\x18\x03 \x01(\t\x12\x12\n\nconfidence\x18\x04 \x01(\x02\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1aq\n\x16\x44ialogflowIntentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x46\n\x05value\x18\x02 \x01(\x0b\x32\x37.google.cloud.contactcenterinsights.v1.DialogflowIntent:\x02\x38\x01\":\n\x06Medium\x12\x16\n\x12MEDIUM_UNSPECIFIED\x10\x00\x12\x0e\n\nPHONE_CALL\x10\x01\x12\x08\n\x04\x43HAT\x10\x02:|\xea\x41y\n1contactcenterinsights.googleapis.com/Conversation\x12\x44projects/{project}/locations/{location}/conversations/{conversation}B\n\n\x08metadataB\x0c\n\nexpiration\"\xef\x02\n\x08\x41nalysis\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x35\n\x0crequest_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12S\n\x0f\x61nalysis_result\x18\x07 \x01(\x0b\x32\x35.google.cloud.contactcenterinsights.v1.AnalysisResultB\x03\xe0\x41\x03:\x8d\x01\xea\x41\x89\x01\n-contactcenterinsights.googleapis.com/Analysis\x12Xprojects/{project}/locations/{location}/conversations/{conversation}/analyses/{analysis}\"\xc0\x01\n\x16\x43onversationDataSource\x12\x46\n\ngcs_source\x18\x01 \x01(\x0b\x32\x30.google.cloud.contactcenterinsights.v1.GcsSourceH\x00\x12T\n\x11\x64ialogflow_source\x18\x03 \x01(\x0b\x32\x37.google.cloud.contactcenterinsights.v1.DialogflowSourceH\x00\x42\x08\n\x06source\";\n\tGcsSource\x12\x11\n\taudio_uri\x18\x01 \x01(\t\x12\x1b\n\x0etranscript_uri\x18\x02 \x01(\tB\x03\xe0\x41\x05\"K\n\x10\x44ialogflowSource\x12$\n\x17\x64ialogflow_conversation\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\taudio_uri\x18\x03 \x01(\t\"\xc6\x08\n\x0e\x41nalysisResult\x12l\n\x16\x63\x61ll_analysis_metadata\x18\x02 \x01(\x0b\x32J.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadataH\x00\x12,\n\x08\x65nd_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x8b\x07\n\x14\x43\x61llAnalysisMetadata\x12J\n\x0b\x61nnotations\x18\x02 \x03(\x0b\x32\x35.google.cloud.contactcenterinsights.v1.CallAnnotation\x12j\n\x08\x65ntities\x18\x03 \x03(\x0b\x32X.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata.EntitiesEntry\x12U\n\nsentiments\x18\x04 \x03(\x0b\x32\x41.google.cloud.contactcenterinsights.v1.ConversationLevelSentiment\x12h\n\x07intents\x18\x06 \x03(\x0b\x32W.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata.IntentsEntry\x12w\n\x0fphrase_matchers\x18\x07 \x03(\x0b\x32^.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata.PhraseMatchersEntry\x12S\n\x12issue_model_result\x18\x08 \x01(\x0b\x32\x37.google.cloud.contactcenterinsights.v1.IssueModelResult\x1a^\n\rEntitiesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12<\n\x05value\x18\x02 \x01(\x0b\x32-.google.cloud.contactcenterinsights.v1.Entity:\x02\x38\x01\x1a]\n\x0cIntentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12<\n\x05value\x18\x02 \x01(\x0b\x32-.google.cloud.contactcenterinsights.v1.Intent:\x02\x38\x01\x1am\n\x13PhraseMatchersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x45\n\x05value\x18\x02 \x01(\x0b\x32\x36.google.cloud.contactcenterinsights.v1.PhraseMatchData:\x02\x38\x01\x42\n\n\x08metadata\"o\n\x10IssueModelResult\x12\x13\n\x0bissue_model\x18\x01 \x01(\t\x12\x46\n\x06issues\x18\x02 \x03(\x0b\x32\x36.google.cloud.contactcenterinsights.v1.IssueAssignment\"\x7f\n\x1a\x43onversationLevelSentiment\x12\x13\n\x0b\x63hannel_tag\x18\x01 \x01(\x05\x12L\n\x0esentiment_data\x18\x02 \x01(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.SentimentData\"J\n\x0fIssueAssignment\x12\r\n\x05issue\x18\x01 \x01(\t\x12\r\n\x05score\x18\x02 \x01(\x01\x12\x19\n\x0c\x64isplay_name\x18\x03 \x01(\tB\x03\xe0\x41\x05\"\xa2\x06\n\x0e\x43\x61llAnnotation\x12T\n\x11interruption_data\x18\n \x01(\x0b\x32\x37.google.cloud.contactcenterinsights.v1.InterruptionDataH\x00\x12N\n\x0esentiment_data\x18\x0b \x01(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.SentimentDataH\x00\x12J\n\x0csilence_data\x18\x0c \x01(\x0b\x32\x32.google.cloud.contactcenterinsights.v1.SilenceDataH\x00\x12\x44\n\thold_data\x18\r \x01(\x0b\x32/.google.cloud.contactcenterinsights.v1.HoldDataH\x00\x12W\n\x13\x65ntity_mention_data\x18\x0f \x01(\x0b\x32\x38.google.cloud.contactcenterinsights.v1.EntityMentionDataH\x00\x12S\n\x11intent_match_data\x18\x10 \x01(\x0b\x32\x36.google.cloud.contactcenterinsights.v1.IntentMatchDataH\x00\x12S\n\x11phrase_match_data\x18\x11 \x01(\x0b\x32\x36.google.cloud.contactcenterinsights.v1.PhraseMatchDataH\x00\x12\x13\n\x0b\x63hannel_tag\x18\x01 \x01(\x05\x12\\\n\x19\x61nnotation_start_boundary\x18\x04 \x01(\x0b\x32\x39.google.cloud.contactcenterinsights.v1.AnnotationBoundary\x12Z\n\x17\x61nnotation_end_boundary\x18\x05 \x01(\x0b\x32\x39.google.cloud.contactcenterinsights.v1.AnnotationBoundaryB\x06\n\x04\x64\x61ta\"Y\n\x12\x41nnotationBoundary\x12\x14\n\nword_index\x18\x03 \x01(\x05H\x00\x12\x18\n\x10transcript_index\x18\x01 \x01(\x05\x42\x13\n\x11\x64\x65tailed_boundary\"\x80\x04\n\x06\x45ntity\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12@\n\x04type\x18\x02 \x01(\x0e\x32\x32.google.cloud.contactcenterinsights.v1.Entity.Type\x12M\n\x08metadata\x18\x03 \x03(\x0b\x32;.google.cloud.contactcenterinsights.v1.Entity.MetadataEntry\x12\x10\n\x08salience\x18\x04 \x01(\x02\x12G\n\tsentiment\x18\x05 \x01(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.SentimentData\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xc2\x01\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06PERSON\x10\x01\x12\x0c\n\x08LOCATION\x10\x02\x12\x10\n\x0cORGANIZATION\x10\x03\x12\t\n\x05\x45VENT\x10\x04\x12\x0f\n\x0bWORK_OF_ART\x10\x05\x12\x11\n\rCONSUMER_GOOD\x10\x06\x12\t\n\x05OTHER\x10\x07\x12\x10\n\x0cPHONE_NUMBER\x10\t\x12\x0b\n\x07\x41\x44\x44RESS\x10\n\x12\x08\n\x04\x44\x41TE\x10\x0b\x12\n\n\x06NUMBER\x10\x0c\x12\t\n\x05PRICE\x10\r\"*\n\x06Intent\x12\n\n\x02id\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\"?\n\x0fPhraseMatchData\x12\x16\n\x0ephrase_matcher\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\"(\n\x10\x44ialogflowIntent\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\"\x12\n\x10InterruptionData\"\r\n\x0bSilenceData\"\n\n\x08HoldData\"\x8f\x02\n\x11\x45ntityMentionData\x12\x18\n\x10\x65ntity_unique_id\x18\x01 \x01(\t\x12R\n\x04type\x18\x02 \x01(\x0e\x32\x44.google.cloud.contactcenterinsights.v1.EntityMentionData.MentionType\x12G\n\tsentiment\x18\x03 \x01(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.SentimentData\"C\n\x0bMentionType\x12\x1c\n\x18MENTION_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06PROPER\x10\x01\x12\n\n\x06\x43OMMON\x10\x02\"+\n\x0fIntentMatchData\x12\x18\n\x10intent_unique_id\x18\x01 \x01(\t\"1\n\rSentimentData\x12\x11\n\tmagnitude\x18\x01 \x01(\x02\x12\r\n\x05score\x18\x02 \x01(\x02\"\x9e\x06\n\nIssueModel\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12K\n\x05state\x18\x05 \x01(\x0e\x32\x37.google.cloud.contactcenterinsights.v1.IssueModel.StateB\x03\xe0\x41\x03\x12\\\n\x11input_data_config\x18\x06 \x01(\x0b\x32\x41.google.cloud.contactcenterinsights.v1.IssueModel.InputDataConfig\x12[\n\x0etraining_stats\x18\x07 \x01(\x0b\x32;.google.cloud.contactcenterinsights.v1.IssueModelLabelStatsB\x06\xe0\x41\x03\xe0\x41\x05\x1a\x8d\x01\n\x0fInputDataConfig\x12O\n\x06medium\x18\x01 \x01(\x0e\x32:.google.cloud.contactcenterinsights.v1.Conversation.MediumB\x03\xe0\x41\x02\x12)\n\x1ctraining_conversations_count\x18\x02 \x01(\x03\x42\x03\xe0\x41\x03\"j\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0e\n\nUNDEPLOYED\x10\x01\x12\r\n\tDEPLOYING\x10\x02\x12\x0c\n\x08\x44\x45PLOYED\x10\x03\x12\x0f\n\x0bUNDEPLOYING\x10\x04\x12\x0c\n\x08\x44\x45LETING\x10\x05:w\xea\x41t\n/contactcenterinsights.googleapis.com/IssueModel\x12\x41projects/{project}/locations/{location}/issueModels/{issue_model}\"\xa0\x02\n\x05Issue\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03:\x81\x01\xea\x41~\n*contactcenterinsights.googleapis.com/Issue\x12Pprojects/{project}/locations/{location}/issueModels/{issue_model}/issues/{issue}\"\x85\x03\n\x14IssueModelLabelStats\x12$\n\x1c\x61nalyzed_conversations_count\x18\x01 \x01(\x03\x12(\n unclassified_conversations_count\x18\x02 \x01(\x03\x12`\n\x0bissue_stats\x18\x03 \x03(\x0b\x32K.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStatsEntry\x1a@\n\nIssueStats\x12\r\n\x05issue\x18\x01 \x01(\t\x12#\n\x1blabeled_conversations_count\x18\x02 \x01(\x03\x1ay\n\x0fIssueStatsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12U\n\x05value\x18\x02 \x01(\x0b\x32\x46.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats:\x02\x38\x01\"\xdd\x05\n\rPhraseMatcher\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1b\n\x0brevision_id\x18\x02 \x01(\tB\x06\xe0\x41\x05\xe0\x41\x03\x12\x13\n\x0bversion_tag\x18\x03 \x01(\t\x12=\n\x14revision_create_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x14\n\x0c\x64isplay_name\x18\x05 \x01(\t\x12Y\n\x04type\x18\x06 \x01(\x0e\x32\x46.google.cloud.contactcenterinsights.v1.PhraseMatcher.PhraseMatcherTypeB\x03\xe0\x41\x02\x12\x0e\n\x06\x61\x63tive\x18\x07 \x01(\x08\x12]\n\x18phrase_match_rule_groups\x18\x08 \x03(\x0b\x32;.google.cloud.contactcenterinsights.v1.PhraseMatchRuleGroup\x12?\n\x16\x61\x63tivation_update_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12W\n\nrole_match\x18\n \x01(\x0e\x32\x43.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role\"P\n\x11PhraseMatcherType\x12#\n\x1fPHRASE_MATCHER_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06\x41LL_OF\x10\x01\x12\n\n\x06\x41NY_OF\x10\x02:\x80\x01\xea\x41}\n2contactcenterinsights.googleapis.com/PhraseMatcher\x12Gprojects/{project}/locations/{location}/phraseMatchers/{phrase_matcher}\"\xb5\x02\n\x14PhraseMatchRuleGroup\x12g\n\x04type\x18\x01 \x01(\x0e\x32T.google.cloud.contactcenterinsights.v1.PhraseMatchRuleGroup.PhraseMatchRuleGroupTypeB\x03\xe0\x41\x02\x12R\n\x12phrase_match_rules\x18\x02 \x03(\x0b\x32\x36.google.cloud.contactcenterinsights.v1.PhraseMatchRule\"`\n\x18PhraseMatchRuleGroupType\x12,\n(PHRASE_MATCH_RULE_GROUP_TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06\x41LL_OF\x10\x01\x12\n\n\x06\x41NY_OF\x10\x02\"\x84\x01\n\x0fPhraseMatchRule\x12\x12\n\x05query\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0f\n\x07negated\x18\x02 \x01(\x08\x12L\n\x06\x63onfig\x18\x03 \x01(\x0b\x32<.google.cloud.contactcenterinsights.v1.PhraseMatchRuleConfig\"x\n\x15PhraseMatchRuleConfig\x12U\n\x12\x65xact_match_config\x18\x01 \x01(\x0b\x32\x37.google.cloud.contactcenterinsights.v1.ExactMatchConfigH\x00\x42\x08\n\x06\x63onfig\"*\n\x10\x45xactMatchConfig\x12\x16\n\x0e\x63\x61se_sensitive\x18\x01 \x01(\x08\"\x91\x05\n\x08Settings\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x15\n\rlanguage_code\x18\x04 \x01(\t\x12\x33\n\x10\x63onversation_ttl\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12u\n\x1cpubsub_notification_settings\x18\x06 \x03(\x0b\x32O.google.cloud.contactcenterinsights.v1.Settings.PubsubNotificationSettingsEntry\x12W\n\x0f\x61nalysis_config\x18\x07 \x01(\x0b\x32>.google.cloud.contactcenterinsights.v1.Settings.AnalysisConfig\x1a\x41\n\x0e\x41nalysisConfig\x12/\n\'runtime_integration_analysis_percentage\x18\x01 \x01(\x01\x1a\x41\n\x1fPubsubNotificationSettingsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:d\xea\x41\x61\n-contactcenterinsights.googleapis.com/Settings\x12\x30projects/{project}/locations/{location}/settings\"\x98\x06\n\x11RuntimeAnnotation\x12Z\n\x12\x61rticle_suggestion\x18\x06 \x01(\x0b\x32<.google.cloud.contactcenterinsights.v1.ArticleSuggestionDataH\x00\x12J\n\nfaq_answer\x18\x07 \x01(\x0b\x32\x34.google.cloud.contactcenterinsights.v1.FaqAnswerDataH\x00\x12L\n\x0bsmart_reply\x18\x08 \x01(\x0b\x32\x35.google.cloud.contactcenterinsights.v1.SmartReplyDataH\x00\x12\x65\n\x18smart_compose_suggestion\x18\t \x01(\x0b\x32\x41.google.cloud.contactcenterinsights.v1.SmartComposeSuggestionDataH\x00\x12\x62\n\x16\x64ialogflow_interaction\x18\n \x01(\x0b\x32@.google.cloud.contactcenterinsights.v1.DialogflowInteractionDataH\x00\x12\x15\n\rannotation_id\x18\x01 \x01(\t\x12/\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12Q\n\x0estart_boundary\x18\x03 \x01(\x0b\x32\x39.google.cloud.contactcenterinsights.v1.AnnotationBoundary\x12O\n\x0c\x65nd_boundary\x18\x04 \x01(\x0b\x32\x39.google.cloud.contactcenterinsights.v1.AnnotationBoundary\x12N\n\x0f\x61nswer_feedback\x18\x05 \x01(\x0b\x32\x35.google.cloud.contactcenterinsights.v1.AnswerFeedbackB\x06\n\x04\x64\x61ta\"\x89\x02\n\x0e\x41nswerFeedback\x12\x61\n\x11\x63orrectness_level\x18\x01 \x01(\x0e\x32\x46.google.cloud.contactcenterinsights.v1.AnswerFeedback.CorrectnessLevel\x12\x0f\n\x07\x63licked\x18\x02 \x01(\x08\x12\x11\n\tdisplayed\x18\x03 \x01(\x08\"p\n\x10\x43orrectnessLevel\x12!\n\x1d\x43ORRECTNESS_LEVEL_UNSPECIFIED\x10\x00\x12\x0f\n\x0bNOT_CORRECT\x10\x01\x12\x15\n\x11PARTIALLY_CORRECT\x10\x02\x12\x11\n\rFULLY_CORRECT\x10\x03\"\x82\x02\n\x15\x41rticleSuggestionData\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0b\n\x03uri\x18\x02 \x01(\t\x12\x18\n\x10\x63onfidence_score\x18\x03 \x01(\x02\x12\\\n\x08metadata\x18\x04 \x03(\x0b\x32J.google.cloud.contactcenterinsights.v1.ArticleSuggestionData.MetadataEntry\x12\x14\n\x0cquery_record\x18\x05 \x01(\t\x12\x0e\n\x06source\x18\x06 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xf8\x01\n\rFaqAnswerData\x12\x0e\n\x06\x61nswer\x18\x01 \x01(\t\x12\x18\n\x10\x63onfidence_score\x18\x02 \x01(\x02\x12\x10\n\x08question\x18\x03 \x01(\t\x12T\n\x08metadata\x18\x04 \x03(\x0b\x32\x42.google.cloud.contactcenterinsights.v1.FaqAnswerData.MetadataEntry\x12\x14\n\x0cquery_record\x18\x05 \x01(\t\x12\x0e\n\x06source\x18\x06 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd7\x01\n\x0eSmartReplyData\x12\r\n\x05reply\x18\x01 \x01(\t\x12\x18\n\x10\x63onfidence_score\x18\x02 \x01(\x01\x12U\n\x08metadata\x18\x03 \x03(\x0b\x32\x43.google.cloud.contactcenterinsights.v1.SmartReplyData.MetadataEntry\x12\x14\n\x0cquery_record\x18\x04 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xf4\x01\n\x1aSmartComposeSuggestionData\x12\x12\n\nsuggestion\x18\x01 \x01(\t\x12\x18\n\x10\x63onfidence_score\x18\x02 \x01(\x01\x12\x61\n\x08metadata\x18\x03 \x03(\x0b\x32O.google.cloud.contactcenterinsights.v1.SmartComposeSuggestionData.MetadataEntry\x12\x14\n\x0cquery_record\x18\x04 \x01(\t\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"M\n\x19\x44ialogflowInteractionData\x12\x1c\n\x14\x64ialogflow_intent_id\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\"\xe6\x02\n\x17\x43onversationParticipant\x12Q\n\x1b\x64ialogflow_participant_name\x18\x05 \x01(\tB*\xfa\x41\'\n%dialogflow.googleapis.com/ParticipantH\x00\x12\x11\n\x07user_id\x18\x06 \x01(\tH\x00\x12\"\n\x16\x64ialogflow_participant\x18\x01 \x01(\tB\x02\x18\x01\x12Q\n\x04role\x18\x02 \x01(\x0e\x32\x43.google.cloud.contactcenterinsights.v1.ConversationParticipant.Role\"_\n\x04Role\x12\x14\n\x10ROLE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bHUMAN_AGENT\x10\x01\x12\x13\n\x0f\x41UTOMATED_AGENT\x10\x02\x12\x0c\n\x08\x45ND_USER\x10\x03\x12\r\n\tANY_AGENT\x10\x04\x42\r\n\x0bparticipantB\xec\x03\n)com.google.cloud.contactcenterinsights.v1B\x0eResourcesProtoP\x01ZZgoogle.golang.org/genproto/googleapis/cloud/contactcenterinsights/v1;contactcenterinsights\xaa\x02%Google.Cloud.ContactCenterInsights.V1\xca\x02%Google\\Cloud\\ContactCenterInsights\\V1\xea\x02(Google::Cloud::ContactCenterInsights::V1\xea\x41\xd4\x01\n%dialogflow.googleapis.com/Participant\x12Jprojects/{project}/conversations/{conversation}/participants/{participant}\x12_projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant}b\x06proto3'
   ,
   dependencies=[google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,])
 
 
-
-_CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_PARTICIPANT_ROLE = _descriptor.EnumDescriptor(
-  name='Role',
-  full_name='google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment.Participant.Role',
-  filename=None,
-  file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='ROLE_UNSPECIFIED', index=0, number=0,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='HUMAN_AGENT', index=1, number=1,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='AUTOMATED_AGENT', index=2, number=2,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='END_USER', index=3, number=3,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=2179,
-  serialized_end=2259,
-)
-_sym_db.RegisterEnumDescriptor(_CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_PARTICIPANT_ROLE)
 
 _CONVERSATION_MEDIUM = _descriptor.EnumDescriptor(
   name='Medium',
@@ -90,8 +55,8 @@ _CONVERSATION_MEDIUM = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2423,
-  serialized_end=2481,
+  serialized_start=2158,
+  serialized_end=2216,
 )
 _sym_db.RegisterEnumDescriptor(_CONVERSATION_MEDIUM)
 
@@ -170,8 +135,8 @@ _ENTITY_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5996,
-  serialized_end=6190,
+  serialized_start=5703,
+  serialized_end=5897,
 )
 _sym_db.RegisterEnumDescriptor(_ENTITY_TYPE)
 
@@ -200,8 +165,8 @@ _ENTITYMENTIONDATA_MENTIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=6595,
-  serialized_end=6662,
+  serialized_start=6302,
+  serialized_end=6369,
 )
 _sym_db.RegisterEnumDescriptor(_ENTITYMENTIONDATA_MENTIONTYPE)
 
@@ -245,8 +210,8 @@ _ISSUEMODEL_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=7094,
-  serialized_end=7200,
+  serialized_start=7039,
+  serialized_end=7145,
 )
 _sym_db.RegisterEnumDescriptor(_ISSUEMODEL_STATE)
 
@@ -275,8 +240,8 @@ _PHRASEMATCHER_PHRASEMATCHERTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=8440,
-  serialized_end=8520,
+  serialized_start=8474,
+  serialized_end=8554,
 )
 _sym_db.RegisterEnumDescriptor(_PHRASEMATCHER_PHRASEMATCHERTYPE)
 
@@ -305,8 +270,8 @@ _PHRASEMATCHRULEGROUP_PHRASEMATCHRULEGROUPTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=8867,
-  serialized_end=8963,
+  serialized_start=8901,
+  serialized_end=8997,
 )
 _sym_db.RegisterEnumDescriptor(_PHRASEMATCHRULEGROUP_PHRASEMATCHRULEGROUPTYPE)
 
@@ -340,10 +305,50 @@ _ANSWERFEEDBACK_CORRECTNESSLEVEL = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=10875,
-  serialized_end=10987,
+  serialized_start=10909,
+  serialized_end=11021,
 )
 _sym_db.RegisterEnumDescriptor(_ANSWERFEEDBACK_CORRECTNESSLEVEL)
+
+_CONVERSATIONPARTICIPANT_ROLE = _descriptor.EnumDescriptor(
+  name='Role',
+  full_name='google.cloud.contactcenterinsights.v1.ConversationParticipant.Role',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='ROLE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='HUMAN_AGENT', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='AUTOMATED_AGENT', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='END_USER', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='ANY_AGENT', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=12328,
+  serialized_end=12423,
+)
+_sym_db.RegisterEnumDescriptor(_CONVERSATIONPARTICIPANT_ROLE)
 
 
 _CONVERSATION_CALLMETADATA = _descriptor.Descriptor(
@@ -432,47 +437,8 @@ _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_WORDINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1876,
-  serialized_end=2016,
-)
-
-_CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_PARTICIPANT = _descriptor.Descriptor(
-  name='Participant',
-  full_name='google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment.Participant',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='dialogflow_participant', full_name='google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment.Participant.dialogflow_participant', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='role', full_name='google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment.Participant.role', index=1,
-      number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-    _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_PARTICIPANT_ROLE,
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2019,
-  serialized_end=2259,
+  serialized_start=1854,
+  serialized_end=1994,
 )
 
 _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT = _descriptor.Descriptor(
@@ -519,8 +485,8 @@ _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='participant', full_name='google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment.participant', index=5,
-      number=8, type=11, cpp_type=10, label=1,
+      name='segment_participant', full_name='google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment.segment_participant', index=5,
+      number=9, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -528,7 +494,7 @@ _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_WORDINFO, _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_PARTICIPANT, ],
+  nested_types=[_CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_WORDINFO, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -538,7 +504,7 @@ _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1555,
-  serialized_end=2259,
+  serialized_end=1994,
 )
 
 _CONVERSATION_TRANSCRIPT = _descriptor.Descriptor(
@@ -569,7 +535,7 @@ _CONVERSATION_TRANSCRIPT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1429,
-  serialized_end=2259,
+  serialized_end=1994,
 )
 
 _CONVERSATION_LABELSENTRY = _descriptor.Descriptor(
@@ -606,8 +572,8 @@ _CONVERSATION_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2261,
-  serialized_end=2306,
+  serialized_start=1996,
+  serialized_end=2041,
 )
 
 _CONVERSATION_DIALOGFLOWINTENTSENTRY = _descriptor.Descriptor(
@@ -644,8 +610,8 @@ _CONVERSATION_DIALOGFLOWINTENTSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2308,
-  serialized_end=2421,
+  serialized_start=2043,
+  serialized_end=2156,
 )
 
 _CONVERSATION = _descriptor.Descriptor(
@@ -806,7 +772,7 @@ _CONVERSATION = _descriptor.Descriptor(
     fields=[]),
   ],
   serialized_start=252,
-  serialized_end=2633,
+  serialized_end=2368,
 )
 
 
@@ -858,8 +824,8 @@ _ANALYSIS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2636,
-  serialized_end=3003,
+  serialized_start=2371,
+  serialized_end=2738,
 )
 
 
@@ -902,8 +868,8 @@ _CONVERSATIONDATASOURCE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3006,
-  serialized_end=3198,
+  serialized_start=2741,
+  serialized_end=2933,
 )
 
 
@@ -941,8 +907,8 @@ _GCSSOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3200,
-  serialized_end=3259,
+  serialized_start=2935,
+  serialized_end=2994,
 )
 
 
@@ -980,8 +946,8 @@ _DIALOGFLOWSOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3261,
-  serialized_end=3336,
+  serialized_start=2996,
+  serialized_end=3071,
 )
 
 
@@ -1019,8 +985,8 @@ _ANALYSISRESULT_CALLANALYSISMETADATA_ENTITIESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4121,
-  serialized_end=4215,
+  serialized_start=3856,
+  serialized_end=3950,
 )
 
 _ANALYSISRESULT_CALLANALYSISMETADATA_INTENTSENTRY = _descriptor.Descriptor(
@@ -1057,8 +1023,8 @@ _ANALYSISRESULT_CALLANALYSISMETADATA_INTENTSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4217,
-  serialized_end=4310,
+  serialized_start=3952,
+  serialized_end=4045,
 )
 
 _ANALYSISRESULT_CALLANALYSISMETADATA_PHRASEMATCHERSENTRY = _descriptor.Descriptor(
@@ -1095,8 +1061,8 @@ _ANALYSISRESULT_CALLANALYSISMETADATA_PHRASEMATCHERSENTRY = _descriptor.Descripto
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4312,
-  serialized_end=4421,
+  serialized_start=4047,
+  serialized_end=4156,
 )
 
 _ANALYSISRESULT_CALLANALYSISMETADATA = _descriptor.Descriptor(
@@ -1161,8 +1127,8 @@ _ANALYSISRESULT_CALLANALYSISMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3514,
-  serialized_end=4421,
+  serialized_start=3249,
+  serialized_end=4156,
 )
 
 _ANALYSISRESULT = _descriptor.Descriptor(
@@ -1204,8 +1170,8 @@ _ANALYSISRESULT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3339,
-  serialized_end=4433,
+  serialized_start=3074,
+  serialized_end=4168,
 )
 
 
@@ -1243,8 +1209,8 @@ _ISSUEMODELRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4435,
-  serialized_end=4546,
+  serialized_start=4170,
+  serialized_end=4281,
 )
 
 
@@ -1282,8 +1248,8 @@ _CONVERSATIONLEVELSENTIMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4548,
-  serialized_end=4675,
+  serialized_start=4283,
+  serialized_end=4410,
 )
 
 
@@ -1309,6 +1275,13 @@ _ISSUEASSIGNMENT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='display_name', full_name='google.cloud.contactcenterinsights.v1.IssueAssignment.display_name', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\005', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -1321,8 +1294,8 @@ _ISSUEASSIGNMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4677,
-  serialized_end=4724,
+  serialized_start=4412,
+  serialized_end=4486,
 )
 
 
@@ -1421,8 +1394,8 @@ _CALLANNOTATION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=4727,
-  serialized_end=5529,
+  serialized_start=4489,
+  serialized_end=5291,
 )
 
 
@@ -1435,21 +1408,14 @@ _ANNOTATIONBOUNDARY = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='time_offset', full_name='google.cloud.contactcenterinsights.v1.AnnotationBoundary.time_offset', index=0,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='word_index', full_name='google.cloud.contactcenterinsights.v1.AnnotationBoundary.word_index', index=1,
+      name='word_index', full_name='google.cloud.contactcenterinsights.v1.AnnotationBoundary.word_index', index=0,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='transcript_index', full_name='google.cloud.contactcenterinsights.v1.AnnotationBoundary.transcript_index', index=2,
+      name='transcript_index', full_name='google.cloud.contactcenterinsights.v1.AnnotationBoundary.transcript_index', index=1,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -1472,8 +1438,8 @@ _ANNOTATIONBOUNDARY = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=5532,
-  serialized_end=5675,
+  serialized_start=5293,
+  serialized_end=5382,
 )
 
 
@@ -1511,8 +1477,8 @@ _ENTITY_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5946,
-  serialized_end=5993,
+  serialized_start=5653,
+  serialized_end=5700,
 )
 
 _ENTITY = _descriptor.Descriptor(
@@ -1571,8 +1537,8 @@ _ENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5678,
-  serialized_end=6190,
+  serialized_start=5385,
+  serialized_end=5897,
 )
 
 
@@ -1610,8 +1576,8 @@ _INTENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6192,
-  serialized_end=6234,
+  serialized_start=5899,
+  serialized_end=5941,
 )
 
 
@@ -1649,8 +1615,8 @@ _PHRASEMATCHDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6236,
-  serialized_end=6299,
+  serialized_start=5943,
+  serialized_end=6006,
 )
 
 
@@ -1681,8 +1647,8 @@ _DIALOGFLOWINTENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6301,
-  serialized_end=6341,
+  serialized_start=6008,
+  serialized_end=6048,
 )
 
 
@@ -1706,8 +1672,8 @@ _INTERRUPTIONDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6343,
-  serialized_end=6361,
+  serialized_start=6050,
+  serialized_end=6068,
 )
 
 
@@ -1731,8 +1697,8 @@ _SILENCEDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6363,
-  serialized_end=6376,
+  serialized_start=6070,
+  serialized_end=6083,
 )
 
 
@@ -1756,8 +1722,8 @@ _HOLDDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6378,
-  serialized_end=6388,
+  serialized_start=6085,
+  serialized_end=6095,
 )
 
 
@@ -1803,8 +1769,8 @@ _ENTITYMENTIONDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6391,
-  serialized_end=6662,
+  serialized_start=6098,
+  serialized_end=6369,
 )
 
 
@@ -1835,8 +1801,8 @@ _INTENTMATCHDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6664,
-  serialized_end=6707,
+  serialized_start=6371,
+  serialized_end=6414,
 )
 
 
@@ -1874,10 +1840,48 @@ _SENTIMENTDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6709,
-  serialized_end=6758,
+  serialized_start=6416,
+  serialized_end=6465,
 )
 
+
+_ISSUEMODEL_INPUTDATACONFIG = _descriptor.Descriptor(
+  name='InputDataConfig',
+  full_name='google.cloud.contactcenterinsights.v1.IssueModel.InputDataConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='medium', full_name='google.cloud.contactcenterinsights.v1.IssueModel.InputDataConfig.medium', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='training_conversations_count', full_name='google.cloud.contactcenterinsights.v1.IssueModel.InputDataConfig.training_conversations_count', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6896,
+  serialized_end=7037,
+)
 
 _ISSUEMODEL = _descriptor.Descriptor(
   name='IssueModel',
@@ -1923,7 +1927,14 @@ _ISSUEMODEL = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='training_stats', full_name='google.cloud.contactcenterinsights.v1.IssueModel.training_stats', index=5,
+      name='input_data_config', full_name='google.cloud.contactcenterinsights.v1.IssueModel.input_data_config', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='training_stats', full_name='google.cloud.contactcenterinsights.v1.IssueModel.training_stats', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -1932,7 +1943,7 @@ _ISSUEMODEL = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[],
+  nested_types=[_ISSUEMODEL_INPUTDATACONFIG, ],
   enum_types=[
     _ISSUEMODEL_STATE,
   ],
@@ -1942,8 +1953,8 @@ _ISSUEMODEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=6761,
-  serialized_end=7321,
+  serialized_start=6468,
+  serialized_end=7266,
 )
 
 
@@ -1995,8 +2006,8 @@ _ISSUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7324,
-  serialized_end=7612,
+  serialized_start=7269,
+  serialized_end=7557,
 )
 
 
@@ -2034,8 +2045,8 @@ _ISSUEMODELLABELSTATS_ISSUESTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7817,
-  serialized_end=7881,
+  serialized_start=7762,
+  serialized_end=7826,
 )
 
 _ISSUEMODELLABELSTATS_ISSUESTATSENTRY = _descriptor.Descriptor(
@@ -2072,8 +2083,8 @@ _ISSUEMODELLABELSTATS_ISSUESTATSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7883,
-  serialized_end=8004,
+  serialized_start=7828,
+  serialized_end=7949,
 )
 
 _ISSUEMODELLABELSTATS = _descriptor.Descriptor(
@@ -2117,8 +2128,8 @@ _ISSUEMODELLABELSTATS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=7615,
-  serialized_end=8004,
+  serialized_start=7560,
+  serialized_end=7949,
 )
 
 
@@ -2193,6 +2204,13 @@ _PHRASEMATCHER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\340A\003', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='role_match', full_name='google.cloud.contactcenterinsights.v1.PhraseMatcher.role_match', index=9,
+      number=10, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -2206,8 +2224,8 @@ _PHRASEMATCHER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8007,
-  serialized_end=8651,
+  serialized_start=7952,
+  serialized_end=8685,
 )
 
 
@@ -2246,8 +2264,8 @@ _PHRASEMATCHRULEGROUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8654,
-  serialized_end=8963,
+  serialized_start=8688,
+  serialized_end=8997,
 )
 
 
@@ -2292,8 +2310,8 @@ _PHRASEMATCHRULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=8966,
-  serialized_end=9098,
+  serialized_start=9000,
+  serialized_end=9132,
 )
 
 
@@ -2329,8 +2347,8 @@ _PHRASEMATCHRULECONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=9100,
-  serialized_end=9220,
+  serialized_start=9134,
+  serialized_end=9254,
 )
 
 
@@ -2361,8 +2379,8 @@ _EXACTMATCHCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9222,
-  serialized_end=9264,
+  serialized_start=9256,
+  serialized_end=9298,
 )
 
 
@@ -2393,8 +2411,8 @@ _SETTINGS_ANALYSISCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9690,
-  serialized_end=9755,
+  serialized_start=9724,
+  serialized_end=9789,
 )
 
 _SETTINGS_PUBSUBNOTIFICATIONSETTINGSENTRY = _descriptor.Descriptor(
@@ -2431,8 +2449,8 @@ _SETTINGS_PUBSUBNOTIFICATIONSETTINGSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9757,
-  serialized_end=9822,
+  serialized_start=9791,
+  serialized_end=9856,
 )
 
 _SETTINGS = _descriptor.Descriptor(
@@ -2504,8 +2522,8 @@ _SETTINGS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=9267,
-  serialized_end=9924,
+  serialized_start=9301,
+  serialized_end=9958,
 )
 
 
@@ -2604,8 +2622,8 @@ _RUNTIMEANNOTATION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=9927,
-  serialized_end=10719,
+  serialized_start=9961,
+  serialized_end=10753,
 )
 
 
@@ -2651,8 +2669,8 @@ _ANSWERFEEDBACK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10722,
-  serialized_end=10987,
+  serialized_start=10756,
+  serialized_end=11021,
 )
 
 
@@ -2690,8 +2708,8 @@ _ARTICLESUGGESTIONDATA_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5946,
-  serialized_end=5993,
+  serialized_start=5653,
+  serialized_end=5700,
 )
 
 _ARTICLESUGGESTIONDATA = _descriptor.Descriptor(
@@ -2756,8 +2774,8 @@ _ARTICLESUGGESTIONDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=10990,
-  serialized_end=11248,
+  serialized_start=11024,
+  serialized_end=11282,
 )
 
 
@@ -2795,8 +2813,8 @@ _FAQANSWERDATA_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5946,
-  serialized_end=5993,
+  serialized_start=5653,
+  serialized_end=5700,
 )
 
 _FAQANSWERDATA = _descriptor.Descriptor(
@@ -2861,8 +2879,8 @@ _FAQANSWERDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11251,
-  serialized_end=11499,
+  serialized_start=11285,
+  serialized_end=11533,
 )
 
 
@@ -2900,8 +2918,8 @@ _SMARTREPLYDATA_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5946,
-  serialized_end=5993,
+  serialized_start=5653,
+  serialized_end=5700,
 )
 
 _SMARTREPLYDATA = _descriptor.Descriptor(
@@ -2952,8 +2970,8 @@ _SMARTREPLYDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11502,
-  serialized_end=11717,
+  serialized_start=11536,
+  serialized_end=11751,
 )
 
 
@@ -2991,8 +3009,8 @@ _SMARTCOMPOSESUGGESTIONDATA_METADATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5946,
-  serialized_end=5993,
+  serialized_start=5653,
+  serialized_end=5700,
 )
 
 _SMARTCOMPOSESUGGESTIONDATA = _descriptor.Descriptor(
@@ -3043,8 +3061,8 @@ _SMARTCOMPOSESUGGESTIONDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11720,
-  serialized_end=11964,
+  serialized_start=11754,
+  serialized_end=11998,
 )
 
 
@@ -3082,19 +3100,75 @@ _DIALOGFLOWINTERACTIONDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=11966,
-  serialized_end=12043,
+  serialized_start=12000,
+  serialized_end=12077,
+)
+
+
+_CONVERSATIONPARTICIPANT = _descriptor.Descriptor(
+  name='ConversationParticipant',
+  full_name='google.cloud.contactcenterinsights.v1.ConversationParticipant',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='dialogflow_participant_name', full_name='google.cloud.contactcenterinsights.v1.ConversationParticipant.dialogflow_participant_name', index=0,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\372A\'\n%dialogflow.googleapis.com/Participant', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='user_id', full_name='google.cloud.contactcenterinsights.v1.ConversationParticipant.user_id', index=1,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dialogflow_participant', full_name='google.cloud.contactcenterinsights.v1.ConversationParticipant.dialogflow_participant', index=2,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\030\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='role', full_name='google.cloud.contactcenterinsights.v1.ConversationParticipant.role', index=3,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _CONVERSATIONPARTICIPANT_ROLE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='participant', full_name='google.cloud.contactcenterinsights.v1.ConversationParticipant.participant',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=12080,
+  serialized_end=12438,
 )
 
 _CONVERSATION_CALLMETADATA.containing_type = _CONVERSATION
 _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_WORDINFO.fields_by_name['start_offset'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_WORDINFO.fields_by_name['end_offset'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_WORDINFO.containing_type = _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT
-_CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_PARTICIPANT.fields_by_name['role'].enum_type = _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_PARTICIPANT_ROLE
-_CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_PARTICIPANT.containing_type = _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT
-_CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_PARTICIPANT_ROLE.containing_type = _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_PARTICIPANT
 _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT.fields_by_name['words'].message_type = _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_WORDINFO
-_CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT.fields_by_name['participant'].message_type = _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_PARTICIPANT
+_CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT.fields_by_name['segment_participant'].message_type = _CONVERSATIONPARTICIPANT
 _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT.containing_type = _CONVERSATION_TRANSCRIPT
 _CONVERSATION_TRANSCRIPT.fields_by_name['transcript_segments'].message_type = _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT
 _CONVERSATION_TRANSCRIPT.containing_type = _CONVERSATION
@@ -3186,10 +3260,6 @@ _CALLANNOTATION.fields_by_name['intent_match_data'].containing_oneof = _CALLANNO
 _CALLANNOTATION.oneofs_by_name['data'].fields.append(
   _CALLANNOTATION.fields_by_name['phrase_match_data'])
 _CALLANNOTATION.fields_by_name['phrase_match_data'].containing_oneof = _CALLANNOTATION.oneofs_by_name['data']
-_ANNOTATIONBOUNDARY.fields_by_name['time_offset'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
-_ANNOTATIONBOUNDARY.oneofs_by_name['detailed_boundary'].fields.append(
-  _ANNOTATIONBOUNDARY.fields_by_name['time_offset'])
-_ANNOTATIONBOUNDARY.fields_by_name['time_offset'].containing_oneof = _ANNOTATIONBOUNDARY.oneofs_by_name['detailed_boundary']
 _ANNOTATIONBOUNDARY.oneofs_by_name['detailed_boundary'].fields.append(
   _ANNOTATIONBOUNDARY.fields_by_name['word_index'])
 _ANNOTATIONBOUNDARY.fields_by_name['word_index'].containing_oneof = _ANNOTATIONBOUNDARY.oneofs_by_name['detailed_boundary']
@@ -3201,9 +3271,12 @@ _ENTITY_TYPE.containing_type = _ENTITY
 _ENTITYMENTIONDATA.fields_by_name['type'].enum_type = _ENTITYMENTIONDATA_MENTIONTYPE
 _ENTITYMENTIONDATA.fields_by_name['sentiment'].message_type = _SENTIMENTDATA
 _ENTITYMENTIONDATA_MENTIONTYPE.containing_type = _ENTITYMENTIONDATA
+_ISSUEMODEL_INPUTDATACONFIG.fields_by_name['medium'].enum_type = _CONVERSATION_MEDIUM
+_ISSUEMODEL_INPUTDATACONFIG.containing_type = _ISSUEMODEL
 _ISSUEMODEL.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _ISSUEMODEL.fields_by_name['update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _ISSUEMODEL.fields_by_name['state'].enum_type = _ISSUEMODEL_STATE
+_ISSUEMODEL.fields_by_name['input_data_config'].message_type = _ISSUEMODEL_INPUTDATACONFIG
 _ISSUEMODEL.fields_by_name['training_stats'].message_type = _ISSUEMODELLABELSTATS
 _ISSUEMODEL_STATE.containing_type = _ISSUEMODEL
 _ISSUE.fields_by_name['create_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -3216,6 +3289,7 @@ _PHRASEMATCHER.fields_by_name['revision_create_time'].message_type = google_dot_
 _PHRASEMATCHER.fields_by_name['type'].enum_type = _PHRASEMATCHER_PHRASEMATCHERTYPE
 _PHRASEMATCHER.fields_by_name['phrase_match_rule_groups'].message_type = _PHRASEMATCHRULEGROUP
 _PHRASEMATCHER.fields_by_name['activation_update_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_PHRASEMATCHER.fields_by_name['role_match'].enum_type = _CONVERSATIONPARTICIPANT_ROLE
 _PHRASEMATCHER_PHRASEMATCHERTYPE.containing_type = _PHRASEMATCHER
 _PHRASEMATCHRULEGROUP.fields_by_name['type'].enum_type = _PHRASEMATCHRULEGROUP_PHRASEMATCHRULEGROUPTYPE
 _PHRASEMATCHRULEGROUP.fields_by_name['phrase_match_rules'].message_type = _PHRASEMATCHRULE
@@ -3266,6 +3340,14 @@ _SMARTREPLYDATA_METADATAENTRY.containing_type = _SMARTREPLYDATA
 _SMARTREPLYDATA.fields_by_name['metadata'].message_type = _SMARTREPLYDATA_METADATAENTRY
 _SMARTCOMPOSESUGGESTIONDATA_METADATAENTRY.containing_type = _SMARTCOMPOSESUGGESTIONDATA
 _SMARTCOMPOSESUGGESTIONDATA.fields_by_name['metadata'].message_type = _SMARTCOMPOSESUGGESTIONDATA_METADATAENTRY
+_CONVERSATIONPARTICIPANT.fields_by_name['role'].enum_type = _CONVERSATIONPARTICIPANT_ROLE
+_CONVERSATIONPARTICIPANT_ROLE.containing_type = _CONVERSATIONPARTICIPANT
+_CONVERSATIONPARTICIPANT.oneofs_by_name['participant'].fields.append(
+  _CONVERSATIONPARTICIPANT.fields_by_name['dialogflow_participant_name'])
+_CONVERSATIONPARTICIPANT.fields_by_name['dialogflow_participant_name'].containing_oneof = _CONVERSATIONPARTICIPANT.oneofs_by_name['participant']
+_CONVERSATIONPARTICIPANT.oneofs_by_name['participant'].fields.append(
+  _CONVERSATIONPARTICIPANT.fields_by_name['user_id'])
+_CONVERSATIONPARTICIPANT.fields_by_name['user_id'].containing_oneof = _CONVERSATIONPARTICIPANT.oneofs_by_name['participant']
 DESCRIPTOR.message_types_by_name['Conversation'] = _CONVERSATION
 DESCRIPTOR.message_types_by_name['Analysis'] = _ANALYSIS
 DESCRIPTOR.message_types_by_name['ConversationDataSource'] = _CONVERSATIONDATASOURCE
@@ -3303,6 +3385,7 @@ DESCRIPTOR.message_types_by_name['FaqAnswerData'] = _FAQANSWERDATA
 DESCRIPTOR.message_types_by_name['SmartReplyData'] = _SMARTREPLYDATA
 DESCRIPTOR.message_types_by_name['SmartComposeSuggestionData'] = _SMARTCOMPOSESUGGESTIONDATA
 DESCRIPTOR.message_types_by_name['DialogflowInteractionData'] = _DIALOGFLOWINTERACTIONDATA
+DESCRIPTOR.message_types_by_name['ConversationParticipant'] = _CONVERSATIONPARTICIPANT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Conversation = _reflection.GeneratedProtocolMessageType('Conversation', (_message.Message,), {
@@ -3322,13 +3405,6 @@ Conversation = _reflection.GeneratedProtocolMessageType('Conversation', (_messag
         'DESCRIPTOR' : _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_WORDINFO,
         '__module__' : 'google.cloud.contactcenterinsights.v1.resources_pb2'
         # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment.WordInfo)
-        })
-      ,
-
-      'Participant' : _reflection.GeneratedProtocolMessageType('Participant', (_message.Message,), {
-        'DESCRIPTOR' : _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT_PARTICIPANT,
-        '__module__' : 'google.cloud.contactcenterinsights.v1.resources_pb2'
-        # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.Conversation.Transcript.TranscriptSegment.Participant)
         })
       ,
       'DESCRIPTOR' : _CONVERSATION_TRANSCRIPT_TRANSCRIPTSEGMENT,
@@ -3364,7 +3440,6 @@ _sym_db.RegisterMessage(Conversation.CallMetadata)
 _sym_db.RegisterMessage(Conversation.Transcript)
 _sym_db.RegisterMessage(Conversation.Transcript.TranscriptSegment)
 _sym_db.RegisterMessage(Conversation.Transcript.TranscriptSegment.WordInfo)
-_sym_db.RegisterMessage(Conversation.Transcript.TranscriptSegment.Participant)
 _sym_db.RegisterMessage(Conversation.LabelsEntry)
 _sym_db.RegisterMessage(Conversation.DialogflowIntentsEntry)
 
@@ -3549,11 +3624,19 @@ SentimentData = _reflection.GeneratedProtocolMessageType('SentimentData', (_mess
 _sym_db.RegisterMessage(SentimentData)
 
 IssueModel = _reflection.GeneratedProtocolMessageType('IssueModel', (_message.Message,), {
+
+  'InputDataConfig' : _reflection.GeneratedProtocolMessageType('InputDataConfig', (_message.Message,), {
+    'DESCRIPTOR' : _ISSUEMODEL_INPUTDATACONFIG,
+    '__module__' : 'google.cloud.contactcenterinsights.v1.resources_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.IssueModel.InputDataConfig)
+    })
+  ,
   'DESCRIPTOR' : _ISSUEMODEL,
   '__module__' : 'google.cloud.contactcenterinsights.v1.resources_pb2'
   # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.IssueModel)
   })
 _sym_db.RegisterMessage(IssueModel)
+_sym_db.RegisterMessage(IssueModel.InputDataConfig)
 
 Issue = _reflection.GeneratedProtocolMessageType('Issue', (_message.Message,), {
   'DESCRIPTOR' : _ISSUE,
@@ -3724,6 +3807,13 @@ DialogflowInteractionData = _reflection.GeneratedProtocolMessageType('Dialogflow
   })
 _sym_db.RegisterMessage(DialogflowInteractionData)
 
+ConversationParticipant = _reflection.GeneratedProtocolMessageType('ConversationParticipant', (_message.Message,), {
+  'DESCRIPTOR' : _CONVERSATIONPARTICIPANT,
+  '__module__' : 'google.cloud.contactcenterinsights.v1.resources_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.contactcenterinsights.v1.ConversationParticipant)
+  })
+_sym_db.RegisterMessage(ConversationParticipant)
+
 
 DESCRIPTOR._options = None
 _CONVERSATION_LABELSENTRY._options = None
@@ -3750,8 +3840,10 @@ _DIALOGFLOWSOURCE.fields_by_name['dialogflow_conversation']._options = None
 _ANALYSISRESULT_CALLANALYSISMETADATA_ENTITIESENTRY._options = None
 _ANALYSISRESULT_CALLANALYSISMETADATA_INTENTSENTRY._options = None
 _ANALYSISRESULT_CALLANALYSISMETADATA_PHRASEMATCHERSENTRY._options = None
-_ANNOTATIONBOUNDARY.fields_by_name['time_offset']._options = None
+_ISSUEASSIGNMENT.fields_by_name['display_name']._options = None
 _ENTITY_METADATAENTRY._options = None
+_ISSUEMODEL_INPUTDATACONFIG.fields_by_name['medium']._options = None
+_ISSUEMODEL_INPUTDATACONFIG.fields_by_name['training_conversations_count']._options = None
 _ISSUEMODEL.fields_by_name['name']._options = None
 _ISSUEMODEL.fields_by_name['create_time']._options = None
 _ISSUEMODEL.fields_by_name['update_time']._options = None
@@ -3779,4 +3871,6 @@ _ARTICLESUGGESTIONDATA_METADATAENTRY._options = None
 _FAQANSWERDATA_METADATAENTRY._options = None
 _SMARTREPLYDATA_METADATAENTRY._options = None
 _SMARTCOMPOSESUGGESTIONDATA_METADATAENTRY._options = None
+_CONVERSATIONPARTICIPANT.fields_by_name['dialogflow_participant_name']._options = None
+_CONVERSATIONPARTICIPANT.fields_by_name['dialogflow_participant']._options = None
 # @@protoc_insertion_point(module_scope)

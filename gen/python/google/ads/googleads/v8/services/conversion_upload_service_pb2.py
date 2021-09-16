@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.ads.googleads.v8.common import offline_user_data_pb2 as google_dot_ads_dot_googleads_dot_v8_dot_common_dot_offline__user__data__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
@@ -24,9 +25,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n$com.google.ads.googleads.v8.servicesB\034ConversionUploadServiceProtoP\001ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v8/services;services\242\002\003GAA\252\002 Google.Ads.GoogleAds.V8.Services\312\002 Google\\Ads\\GoogleAds\\V8\\Services\352\002$Google::Ads::GoogleAds::V8::Services',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n@google/ads/googleads/v8/services/conversion_upload_service.proto\x12 google.ads.googleads.v8.services\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x17google/rpc/status.proto\"\xbb\x01\n\x1dUploadClickConversionsRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12K\n\x0b\x63onversions\x18\x02 \x03(\x0b\x32\x31.google.ads.googleads.v8.services.ClickConversionB\x03\xe0\x41\x02\x12\x1c\n\x0fpartial_failure\x18\x03 \x01(\x08\x42\x03\xe0\x41\x02\x12\x15\n\rvalidate_only\x18\x04 \x01(\x08\"\x9d\x01\n\x1eUploadClickConversionsResponse\x12\x31\n\x15partial_failure_error\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12H\n\x07results\x18\x02 \x03(\x0b\x32\x37.google.ads.googleads.v8.services.ClickConversionResult\"\xb9\x01\n\x1cUploadCallConversionsRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12J\n\x0b\x63onversions\x18\x02 \x03(\x0b\x32\x30.google.ads.googleads.v8.services.CallConversionB\x03\xe0\x41\x02\x12\x1c\n\x0fpartial_failure\x18\x03 \x01(\x08\x42\x03\xe0\x41\x02\x12\x15\n\rvalidate_only\x18\x04 \x01(\x08\"\x9b\x01\n\x1dUploadCallConversionsResponse\x12\x31\n\x15partial_failure_error\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12G\n\x07results\x18\x02 \x03(\x0b\x32\x36.google.ads.googleads.v8.services.CallConversionResult\"\x90\x04\n\x0f\x43lickConversion\x12\x12\n\x05gclid\x18\t \x01(\tH\x00\x88\x01\x01\x12\x1e\n\x11\x63onversion_action\x18\n \x01(\tH\x01\x88\x01\x01\x12!\n\x14\x63onversion_date_time\x18\x0b \x01(\tH\x02\x88\x01\x01\x12\x1d\n\x10\x63onversion_value\x18\x0c \x01(\x01H\x03\x88\x01\x01\x12\x1a\n\rcurrency_code\x18\r \x01(\tH\x04\x88\x01\x01\x12\x15\n\x08order_id\x18\x0e \x01(\tH\x05\x88\x01\x01\x12\\\n\x19\x65xternal_attribution_data\x18\x07 \x01(\x0b\x32\x39.google.ads.googleads.v8.services.ExternalAttributionData\x12J\n\x10\x63ustom_variables\x18\x0f \x03(\x0b\x32\x30.google.ads.googleads.v8.services.CustomVariable\x12=\n\tcart_data\x18\x10 \x01(\x0b\x32*.google.ads.googleads.v8.services.CartDataB\x08\n\x06_gclidB\x14\n\x12_conversion_actionB\x17\n\x15_conversion_date_timeB\x13\n\x11_conversion_valueB\x10\n\x0e_currency_codeB\x0b\n\t_order_id\"\x92\x03\n\x0e\x43\x61llConversion\x12\x16\n\tcaller_id\x18\x07 \x01(\tH\x00\x88\x01\x01\x12!\n\x14\x63\x61ll_start_date_time\x18\x08 \x01(\tH\x01\x88\x01\x01\x12\x1e\n\x11\x63onversion_action\x18\t \x01(\tH\x02\x88\x01\x01\x12!\n\x14\x63onversion_date_time\x18\n \x01(\tH\x03\x88\x01\x01\x12\x1d\n\x10\x63onversion_value\x18\x0b \x01(\x01H\x04\x88\x01\x01\x12\x1a\n\rcurrency_code\x18\x0c \x01(\tH\x05\x88\x01\x01\x12J\n\x10\x63ustom_variables\x18\r \x03(\x0b\x32\x30.google.ads.googleads.v8.services.CustomVariableB\x0c\n\n_caller_idB\x17\n\x15_call_start_date_timeB\x14\n\x12_conversion_actionB\x17\n\x15_conversion_date_timeB\x13\n\x11_conversion_valueB\x10\n\x0e_currency_code\"\xab\x01\n\x17\x45xternalAttributionData\x12(\n\x1b\x65xternal_attribution_credit\x18\x03 \x01(\x01H\x00\x88\x01\x01\x12\'\n\x1a\x65xternal_attribution_model\x18\x04 \x01(\tH\x01\x88\x01\x01\x42\x1e\n\x1c_external_attribution_creditB\x1d\n\x1b_external_attribution_model\"\xa7\x01\n\x15\x43lickConversionResult\x12\x12\n\x05gclid\x18\x04 \x01(\tH\x00\x88\x01\x01\x12\x1e\n\x11\x63onversion_action\x18\x05 \x01(\tH\x01\x88\x01\x01\x12!\n\x14\x63onversion_date_time\x18\x06 \x01(\tH\x02\x88\x01\x01\x42\x08\n\x06_gclidB\x14\n\x12_conversion_actionB\x17\n\x15_conversion_date_time\"\xea\x01\n\x14\x43\x61llConversionResult\x12\x16\n\tcaller_id\x18\x05 \x01(\tH\x00\x88\x01\x01\x12!\n\x14\x63\x61ll_start_date_time\x18\x06 \x01(\tH\x01\x88\x01\x01\x12\x1e\n\x11\x63onversion_action\x18\x07 \x01(\tH\x02\x88\x01\x01\x12!\n\x14\x63onversion_date_time\x18\x08 \x01(\tH\x03\x88\x01\x01\x42\x0c\n\n_caller_idB\x17\n\x15_call_start_date_timeB\x14\n\x12_conversion_actionB\x17\n\x15_conversion_date_time\"{\n\x0e\x43ustomVariable\x12Z\n\x1a\x63onversion_custom_variable\x18\x01 \x01(\tB6\xfa\x41\x33\n1googleads.googleapis.com/ConversionCustomVariable\x12\r\n\x05value\x18\x02 \x01(\t\"\xf8\x01\n\x08\x43\x61rtData\x12\x13\n\x0bmerchant_id\x18\x01 \x01(\t\x12\x19\n\x11\x66\x65\x65\x64_country_code\x18\x02 \x01(\t\x12\x1a\n\x12\x66\x65\x65\x64_language_code\x18\x03 \x01(\t\x12\x1e\n\x16local_transaction_cost\x18\x04 \x01(\x01\x12>\n\x05items\x18\x05 \x03(\x0b\x32/.google.ads.googleads.v8.services.CartData.Item\x1a@\n\x04Item\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x10\n\x08quantity\x18\x02 \x01(\x05\x12\x12\n\nunit_price\x18\x03 \x01(\x01\x32\xee\x04\n\x17\x43onversionUploadService\x12\x86\x02\n\x16UploadClickConversions\x12?.google.ads.googleads.v8.services.UploadClickConversionsRequest\x1a@.google.ads.googleads.v8.services.UploadClickConversionsResponse\"i\x82\xd3\xe4\x93\x02\x39\"4/v8/customers/{customer_id=*}:uploadClickConversions:\x01*\xda\x41\'customer_id,conversions,partial_failure\x12\x82\x02\n\x15UploadCallConversions\x12>.google.ads.googleads.v8.services.UploadCallConversionsRequest\x1a?.google.ads.googleads.v8.services.UploadCallConversionsResponse\"h\x82\xd3\xe4\x93\x02\x38\"3/v8/customers/{customer_id=*}:uploadCallConversions:\x01*\xda\x41\'customer_id,conversions,partial_failure\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x83\x02\n$com.google.ads.googleads.v8.servicesB\x1c\x43onversionUploadServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v8/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V8.Services\xca\x02 Google\\Ads\\GoogleAds\\V8\\Services\xea\x02$Google::Ads::GoogleAds::V8::Servicesb\x06proto3'
+  serialized_pb=b'\n@google/ads/googleads/v8/services/conversion_upload_service.proto\x12 google.ads.googleads.v8.services\x1a\x36google/ads/googleads/v8/common/offline_user_data.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x17google/rpc/status.proto\"\xbb\x01\n\x1dUploadClickConversionsRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12K\n\x0b\x63onversions\x18\x02 \x03(\x0b\x32\x31.google.ads.googleads.v8.services.ClickConversionB\x03\xe0\x41\x02\x12\x1c\n\x0fpartial_failure\x18\x03 \x01(\x08\x42\x03\xe0\x41\x02\x12\x15\n\rvalidate_only\x18\x04 \x01(\x08\"\x9d\x01\n\x1eUploadClickConversionsResponse\x12\x31\n\x15partial_failure_error\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12H\n\x07results\x18\x02 \x03(\x0b\x32\x37.google.ads.googleads.v8.services.ClickConversionResult\"\xb9\x01\n\x1cUploadCallConversionsRequest\x12\x18\n\x0b\x63ustomer_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12J\n\x0b\x63onversions\x18\x02 \x03(\x0b\x32\x30.google.ads.googleads.v8.services.CallConversionB\x03\xe0\x41\x02\x12\x1c\n\x0fpartial_failure\x18\x03 \x01(\x08\x42\x03\xe0\x41\x02\x12\x15\n\rvalidate_only\x18\x04 \x01(\x08\"\x9b\x01\n\x1dUploadCallConversionsResponse\x12\x31\n\x15partial_failure_error\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12G\n\x07results\x18\x02 \x03(\x0b\x32\x36.google.ads.googleads.v8.services.CallConversionResult\"\xda\x04\n\x0f\x43lickConversion\x12\x12\n\x05gclid\x18\t \x01(\tH\x00\x88\x01\x01\x12\x1e\n\x11\x63onversion_action\x18\n \x01(\tH\x01\x88\x01\x01\x12!\n\x14\x63onversion_date_time\x18\x0b \x01(\tH\x02\x88\x01\x01\x12\x1d\n\x10\x63onversion_value\x18\x0c \x01(\x01H\x03\x88\x01\x01\x12\x1a\n\rcurrency_code\x18\r \x01(\tH\x04\x88\x01\x01\x12\x15\n\x08order_id\x18\x0e \x01(\tH\x05\x88\x01\x01\x12\\\n\x19\x65xternal_attribution_data\x18\x07 \x01(\x0b\x32\x39.google.ads.googleads.v8.services.ExternalAttributionData\x12J\n\x10\x63ustom_variables\x18\x0f \x03(\x0b\x32\x30.google.ads.googleads.v8.services.CustomVariable\x12=\n\tcart_data\x18\x10 \x01(\x0b\x32*.google.ads.googleads.v8.services.CartData\x12H\n\x10user_identifiers\x18\x11 \x03(\x0b\x32..google.ads.googleads.v8.common.UserIdentifierB\x08\n\x06_gclidB\x14\n\x12_conversion_actionB\x17\n\x15_conversion_date_timeB\x13\n\x11_conversion_valueB\x10\n\x0e_currency_codeB\x0b\n\t_order_id\"\x92\x03\n\x0e\x43\x61llConversion\x12\x16\n\tcaller_id\x18\x07 \x01(\tH\x00\x88\x01\x01\x12!\n\x14\x63\x61ll_start_date_time\x18\x08 \x01(\tH\x01\x88\x01\x01\x12\x1e\n\x11\x63onversion_action\x18\t \x01(\tH\x02\x88\x01\x01\x12!\n\x14\x63onversion_date_time\x18\n \x01(\tH\x03\x88\x01\x01\x12\x1d\n\x10\x63onversion_value\x18\x0b \x01(\x01H\x04\x88\x01\x01\x12\x1a\n\rcurrency_code\x18\x0c \x01(\tH\x05\x88\x01\x01\x12J\n\x10\x63ustom_variables\x18\r \x03(\x0b\x32\x30.google.ads.googleads.v8.services.CustomVariableB\x0c\n\n_caller_idB\x17\n\x15_call_start_date_timeB\x14\n\x12_conversion_actionB\x17\n\x15_conversion_date_timeB\x13\n\x11_conversion_valueB\x10\n\x0e_currency_code\"\xab\x01\n\x17\x45xternalAttributionData\x12(\n\x1b\x65xternal_attribution_credit\x18\x03 \x01(\x01H\x00\x88\x01\x01\x12\'\n\x1a\x65xternal_attribution_model\x18\x04 \x01(\tH\x01\x88\x01\x01\x42\x1e\n\x1c_external_attribution_creditB\x1d\n\x1b_external_attribution_model\"\xf1\x01\n\x15\x43lickConversionResult\x12\x12\n\x05gclid\x18\x04 \x01(\tH\x00\x88\x01\x01\x12\x1e\n\x11\x63onversion_action\x18\x05 \x01(\tH\x01\x88\x01\x01\x12!\n\x14\x63onversion_date_time\x18\x06 \x01(\tH\x02\x88\x01\x01\x12H\n\x10user_identifiers\x18\x07 \x03(\x0b\x32..google.ads.googleads.v8.common.UserIdentifierB\x08\n\x06_gclidB\x14\n\x12_conversion_actionB\x17\n\x15_conversion_date_time\"\xea\x01\n\x14\x43\x61llConversionResult\x12\x16\n\tcaller_id\x18\x05 \x01(\tH\x00\x88\x01\x01\x12!\n\x14\x63\x61ll_start_date_time\x18\x06 \x01(\tH\x01\x88\x01\x01\x12\x1e\n\x11\x63onversion_action\x18\x07 \x01(\tH\x02\x88\x01\x01\x12!\n\x14\x63onversion_date_time\x18\x08 \x01(\tH\x03\x88\x01\x01\x42\x0c\n\n_caller_idB\x17\n\x15_call_start_date_timeB\x14\n\x12_conversion_actionB\x17\n\x15_conversion_date_time\"{\n\x0e\x43ustomVariable\x12Z\n\x1a\x63onversion_custom_variable\x18\x01 \x01(\tB6\xfa\x41\x33\n1googleads.googleapis.com/ConversionCustomVariable\x12\r\n\x05value\x18\x02 \x01(\t\"\xf8\x01\n\x08\x43\x61rtData\x12\x13\n\x0bmerchant_id\x18\x01 \x01(\t\x12\x19\n\x11\x66\x65\x65\x64_country_code\x18\x02 \x01(\t\x12\x1a\n\x12\x66\x65\x65\x64_language_code\x18\x03 \x01(\t\x12\x1e\n\x16local_transaction_cost\x18\x04 \x01(\x01\x12>\n\x05items\x18\x05 \x03(\x0b\x32/.google.ads.googleads.v8.services.CartData.Item\x1a@\n\x04Item\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x10\n\x08quantity\x18\x02 \x01(\x05\x12\x12\n\nunit_price\x18\x03 \x01(\x01\x32\xee\x04\n\x17\x43onversionUploadService\x12\x86\x02\n\x16UploadClickConversions\x12?.google.ads.googleads.v8.services.UploadClickConversionsRequest\x1a@.google.ads.googleads.v8.services.UploadClickConversionsResponse\"i\x82\xd3\xe4\x93\x02\x39\"4/v8/customers/{customer_id=*}:uploadClickConversions:\x01*\xda\x41\'customer_id,conversions,partial_failure\x12\x82\x02\n\x15UploadCallConversions\x12>.google.ads.googleads.v8.services.UploadCallConversionsRequest\x1a?.google.ads.googleads.v8.services.UploadCallConversionsResponse\"h\x82\xd3\xe4\x93\x02\x38\"3/v8/customers/{customer_id=*}:uploadCallConversions:\x01*\xda\x41\'customer_id,conversions,partial_failure\x1a\x45\xca\x41\x18googleads.googleapis.com\xd2\x41\'https://www.googleapis.com/auth/adwordsB\x83\x02\n$com.google.ads.googleads.v8.servicesB\x1c\x43onversionUploadServiceProtoP\x01ZHgoogle.golang.org/genproto/googleapis/ads/googleads/v8/services;services\xa2\x02\x03GAA\xaa\x02 Google.Ads.GoogleAds.V8.Services\xca\x02 Google\\Ads\\GoogleAds\\V8\\Services\xea\x02$Google::Ads::GoogleAds::V8::Servicesb\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_ads_dot_googleads_dot_v8_dot_common_dot_offline__user__data__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
 
 
@@ -79,8 +80,8 @@ _UPLOADCLICKCONVERSIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=243,
-  serialized_end=430,
+  serialized_start=299,
+  serialized_end=486,
 )
 
 
@@ -118,8 +119,8 @@ _UPLOADCLICKCONVERSIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=433,
-  serialized_end=590,
+  serialized_start=489,
+  serialized_end=646,
 )
 
 
@@ -171,8 +172,8 @@ _UPLOADCALLCONVERSIONSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=593,
-  serialized_end=778,
+  serialized_start=649,
+  serialized_end=834,
 )
 
 
@@ -210,8 +211,8 @@ _UPLOADCALLCONVERSIONSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=781,
-  serialized_end=936,
+  serialized_start=837,
+  serialized_end=992,
 )
 
 
@@ -286,6 +287,13 @@ _CLICKCONVERSION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='user_identifiers', full_name='google.ads.googleads.v8.services.ClickConversion.user_identifiers', index=9,
+      number=17, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -328,8 +336,8 @@ _CLICKCONVERSION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=939,
-  serialized_end=1467,
+  serialized_start=995,
+  serialized_end=1597,
 )
 
 
@@ -432,8 +440,8 @@ _CALLCONVERSION = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1470,
-  serialized_end=1872,
+  serialized_start=1600,
+  serialized_end=2002,
 )
 
 
@@ -481,8 +489,8 @@ _EXTERNALATTRIBUTIONDATA = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1875,
-  serialized_end=2046,
+  serialized_start=2005,
+  serialized_end=2176,
 )
 
 
@@ -515,6 +523,13 @@ _CLICKCONVERSIONRESULT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='user_identifiers', full_name='google.ads.googleads.v8.services.ClickConversionResult.user_identifiers', index=3,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -542,8 +557,8 @@ _CLICKCONVERSIONRESULT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2049,
-  serialized_end=2216,
+  serialized_start=2179,
+  serialized_end=2420,
 )
 
 
@@ -615,8 +630,8 @@ _CALLCONVERSIONRESULT = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2219,
-  serialized_end=2453,
+  serialized_start=2423,
+  serialized_end=2657,
 )
 
 
@@ -654,8 +669,8 @@ _CUSTOMVARIABLE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2455,
-  serialized_end=2578,
+  serialized_start=2659,
+  serialized_end=2782,
 )
 
 
@@ -700,8 +715,8 @@ _CARTDATA_ITEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2765,
-  serialized_end=2829,
+  serialized_start=2969,
+  serialized_end=3033,
 )
 
 _CARTDATA = _descriptor.Descriptor(
@@ -759,8 +774,8 @@ _CARTDATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2581,
-  serialized_end=2829,
+  serialized_start=2785,
+  serialized_end=3033,
 )
 
 _UPLOADCLICKCONVERSIONSREQUEST.fields_by_name['conversions'].message_type = _CLICKCONVERSION
@@ -772,6 +787,7 @@ _UPLOADCALLCONVERSIONSRESPONSE.fields_by_name['results'].message_type = _CALLCON
 _CLICKCONVERSION.fields_by_name['external_attribution_data'].message_type = _EXTERNALATTRIBUTIONDATA
 _CLICKCONVERSION.fields_by_name['custom_variables'].message_type = _CUSTOMVARIABLE
 _CLICKCONVERSION.fields_by_name['cart_data'].message_type = _CARTDATA
+_CLICKCONVERSION.fields_by_name['user_identifiers'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_common_dot_offline__user__data__pb2._USERIDENTIFIER
 _CLICKCONVERSION.oneofs_by_name['_gclid'].fields.append(
   _CLICKCONVERSION.fields_by_name['gclid'])
 _CLICKCONVERSION.fields_by_name['gclid'].containing_oneof = _CLICKCONVERSION.oneofs_by_name['_gclid']
@@ -815,6 +831,7 @@ _EXTERNALATTRIBUTIONDATA.fields_by_name['external_attribution_credit'].containin
 _EXTERNALATTRIBUTIONDATA.oneofs_by_name['_external_attribution_model'].fields.append(
   _EXTERNALATTRIBUTIONDATA.fields_by_name['external_attribution_model'])
 _EXTERNALATTRIBUTIONDATA.fields_by_name['external_attribution_model'].containing_oneof = _EXTERNALATTRIBUTIONDATA.oneofs_by_name['_external_attribution_model']
+_CLICKCONVERSIONRESULT.fields_by_name['user_identifiers'].message_type = google_dot_ads_dot_googleads_dot_v8_dot_common_dot_offline__user__data__pb2._USERIDENTIFIER
 _CLICKCONVERSIONRESULT.oneofs_by_name['_gclid'].fields.append(
   _CLICKCONVERSIONRESULT.fields_by_name['gclid'])
 _CLICKCONVERSIONRESULT.fields_by_name['gclid'].containing_oneof = _CLICKCONVERSIONRESULT.oneofs_by_name['_gclid']
@@ -953,8 +970,8 @@ _CONVERSIONUPLOADSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\030googleads.googleapis.com\322A\'https://www.googleapis.com/auth/adwords',
   create_key=_descriptor._internal_create_key,
-  serialized_start=2832,
-  serialized_end=3454,
+  serialized_start=3036,
+  serialized_end=3658,
   methods=[
   _descriptor.MethodDescriptor(
     name='UploadClickConversions',

@@ -16,7 +16,9 @@ from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
+from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -25,9 +27,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\035com.google.cloud.translate.v3B\027TranslationServiceProtoP\001ZBgoogle.golang.org/genproto/googleapis/cloud/translate/v3;translate\370\001\001\252\002\031Google.Cloud.Translate.V3\312\002\031Google\\Cloud\\Translate\\V3\352\002\034Google::Cloud::Translate::V3',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n3google/cloud/translate/v3/translation_service.proto\x12\x1bgoogle.cloud.translation.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"N\n\x1bTranslateTextGlossaryConfig\x12\x15\n\x08glossary\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x0bignore_case\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\"\xb5\x03\n\x14TranslateTextRequest\x12\x15\n\x08\x63ontents\x18\x01 \x03(\tB\x03\xe0\x41\x02\x12\x16\n\tmime_type\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12!\n\x14source_language_code\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12!\n\x14target_language_code\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12\x39\n\x06parent\x18\x08 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x12\n\x05model\x18\x06 \x01(\tB\x03\xe0\x41\x01\x12V\n\x0fglossary_config\x18\x07 \x01(\x0b\x32\x38.google.cloud.translation.v3.TranslateTextGlossaryConfigB\x03\xe0\x41\x01\x12R\n\x06labels\x18\n \x03(\x0b\x32=.google.cloud.translation.v3.TranslateTextRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xa0\x01\n\x15TranslateTextResponse\x12>\n\x0ctranslations\x18\x01 \x03(\x0b\x32(.google.cloud.translation.v3.Translation\x12G\n\x15glossary_translations\x18\x03 \x03(\x0b\x32(.google.cloud.translation.v3.Translation\"\xa8\x01\n\x0bTranslation\x12\x17\n\x0ftranslated_text\x18\x01 \x01(\t\x12\r\n\x05model\x18\x02 \x01(\t\x12\x1e\n\x16\x64\x65tected_language_code\x18\x04 \x01(\t\x12Q\n\x0fglossary_config\x18\x03 \x01(\x0b\x32\x38.google.cloud.translation.v3.TranslateTextGlossaryConfig\"\x9f\x02\n\x15\x44\x65tectLanguageRequest\x12\x39\n\x06parent\x18\x05 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x12\n\x05model\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x11\n\x07\x63ontent\x18\x01 \x01(\tH\x00\x12\x16\n\tmime_type\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12S\n\x06labels\x18\x06 \x03(\x0b\x32>.google.cloud.translation.v3.DetectLanguageRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x08\n\x06source\"=\n\x10\x44\x65tectedLanguage\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\"Z\n\x16\x44\x65tectLanguageResponse\x12@\n\tlanguages\x18\x01 \x03(\x0b\x32-.google.cloud.translation.v3.DetectedLanguage\"\x91\x01\n\x1cGetSupportedLanguagesRequest\x12\x39\n\x06parent\x18\x03 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\"\n\x15\x64isplay_language_code\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x12\n\x05model\x18\x02 \x01(\tB\x03\xe0\x41\x01\"W\n\x12SupportedLanguages\x12\x41\n\tlanguages\x18\x01 \x03(\x0b\x32..google.cloud.translation.v3.SupportedLanguage\"p\n\x11SupportedLanguage\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x16\n\x0esupport_source\x18\x03 \x01(\x08\x12\x16\n\x0esupport_target\x18\x04 \x01(\x08\"\x1e\n\tGcsSource\x12\x11\n\tinput_uri\x18\x01 \x01(\t\"m\n\x0bInputConfig\x12\x16\n\tmime_type\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12<\n\ngcs_source\x18\x02 \x01(\x0b\x32&.google.cloud.translation.v3.GcsSourceH\x00\x42\x08\n\x06source\"+\n\x0eGcsDestination\x12\x19\n\x11output_uri_prefix\x18\x01 \x01(\t\"e\n\x0cOutputConfig\x12\x46\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32+.google.cloud.translation.v3.GcsDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\x88\x06\n\x19\x42\x61tchTranslateTextRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12!\n\x14source_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\"\n\x15target_language_codes\x18\x03 \x03(\tB\x03\xe0\x41\x02\x12W\n\x06models\x18\x04 \x03(\x0b\x32\x42.google.cloud.translation.v3.BatchTranslateTextRequest.ModelsEntryB\x03\xe0\x41\x01\x12\x44\n\rinput_configs\x18\x05 \x03(\x0b\x32(.google.cloud.translation.v3.InputConfigB\x03\xe0\x41\x02\x12\x45\n\routput_config\x18\x06 \x01(\x0b\x32).google.cloud.translation.v3.OutputConfigB\x03\xe0\x41\x02\x12_\n\nglossaries\x18\x07 \x03(\x0b\x32\x46.google.cloud.translation.v3.BatchTranslateTextRequest.GlossariesEntryB\x03\xe0\x41\x01\x12W\n\x06labels\x18\t \x03(\x0b\x32\x42.google.cloud.translation.v3.BatchTranslateTextRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bModelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1ak\n\x0fGlossariesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12G\n\x05value\x18\x02 \x01(\x0b\x32\x38.google.cloud.translation.v3.TranslateTextGlossaryConfig:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xce\x02\n\x16\x42\x61tchTranslateMetadata\x12H\n\x05state\x18\x01 \x01(\x0e\x32\x39.google.cloud.translation.v3.BatchTranslateMetadata.State\x12\x1d\n\x15translated_characters\x18\x02 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x03 \x01(\x03\x12\x18\n\x10total_characters\x18\x04 \x01(\x03\x12/\n\x0bsubmit_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\"\xcb\x01\n\x16\x42\x61tchTranslateResponse\x12\x18\n\x10total_characters\x18\x01 \x01(\x03\x12\x1d\n\x15translated_characters\x18\x02 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x03 \x01(\x03\x12/\n\x0bsubmit_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"]\n\x13GlossaryInputConfig\x12<\n\ngcs_source\x18\x01 \x01(\x0b\x32&.google.cloud.translation.v3.GcsSourceH\x00\x42\x08\n\x06source\"\xfa\x04\n\x08Glossary\x12\x0c\n\x04name\x18\x01 \x01(\t\x12O\n\rlanguage_pair\x18\x03 \x01(\x0b\x32\x36.google.cloud.translation.v3.Glossary.LanguageCodePairH\x00\x12T\n\x12language_codes_set\x18\x04 \x01(\x0b\x32\x36.google.cloud.translation.v3.Glossary.LanguageCodesSetH\x00\x12\x46\n\x0cinput_config\x18\x05 \x01(\x0b\x32\x30.google.cloud.translation.v3.GlossaryInputConfig\x12\x18\n\x0b\x65ntry_count\x18\x06 \x01(\x05\x42\x03\xe0\x41\x03\x12\x34\n\x0bsubmit_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1aN\n\x10LanguageCodePair\x12\x1c\n\x14source_language_code\x18\x01 \x01(\t\x12\x1c\n\x14target_language_code\x18\x02 \x01(\t\x1a*\n\x10LanguageCodesSet\x12\x16\n\x0elanguage_codes\x18\x01 \x03(\t:e\xea\x41\x62\n!translate.googleapis.com/Glossary\x12=projects/{project}/locations/{location}/glossaries/{glossary}B\x0b\n\tlanguages\"\x90\x01\n\x15\x43reateGlossaryRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12<\n\x08glossary\x18\x02 \x01(\x0b\x32%.google.cloud.translation.v3.GlossaryB\x03\xe0\x41\x02\"M\n\x12GetGlossaryRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!translate.googleapis.com/Glossary\"P\n\x15\x44\x65leteGlossaryRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!translate.googleapis.com/Glossary\"\x98\x01\n\x15ListGlossariesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\"l\n\x16ListGlossariesResponse\x12\x39\n\nglossaries\x18\x01 \x03(\x0b\x32%.google.cloud.translation.v3.Glossary\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x88\x02\n\x16\x43reateGlossaryMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12H\n\x05state\x18\x02 \x01(\x0e\x32\x39.google.cloud.translation.v3.CreateGlossaryMetadata.State\x12/\n\x0bsubmit_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\"\x88\x02\n\x16\x44\x65leteGlossaryMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12H\n\x05state\x18\x02 \x01(\x0e\x32\x39.google.cloud.translation.v3.DeleteGlossaryMetadata.State\x12/\n\x0bsubmit_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\"\x85\x01\n\x16\x44\x65leteGlossaryResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12/\n\x0bsubmit_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp2\x8e\x10\n\x12TranslationService\x12\xd4\x02\n\rTranslateText\x12\x31.google.cloud.translation.v3.TranslateTextRequest\x1a\x32.google.cloud.translation.v3.TranslateTextResponse\"\xdb\x01\x82\xd3\xe4\x93\x02\x62\"1/v3/{parent=projects/*/locations/*}:translateText:\x01*Z*\"%/v3/{parent=projects/*}:translateText:\x01*\xda\x41$parent,target_language_code,contents\xda\x41Iparent,model,mime_type,source_language_code,target_language_code,contents\x12\x87\x02\n\x0e\x44\x65tectLanguage\x12\x32.google.cloud.translation.v3.DetectLanguageRequest\x1a\x33.google.cloud.translation.v3.DetectLanguageResponse\"\x8b\x01\x82\xd3\xe4\x93\x02\x64\"2/v3/{parent=projects/*/locations/*}:detectLanguage:\x01*Z+\"&/v3/{parent=projects/*}:detectLanguage:\x01*\xda\x41\x1eparent,model,mime_type,content\x12\x97\x02\n\x15GetSupportedLanguages\x12\x39.google.cloud.translation.v3.GetSupportedLanguagesRequest\x1a/.google.cloud.translation.v3.SupportedLanguages\"\x91\x01\x82\xd3\xe4\x93\x02\x66\x12\x36/v3/{parent=projects/*/locations/*}/supportedLanguagesZ,\x12*/v3/{parent=projects/*}/supportedLanguages\xda\x41\"parent,model,display_language_code\x12\xe1\x01\n\x12\x42\x61tchTranslateText\x12\x36.google.cloud.translation.v3.BatchTranslateTextRequest\x1a\x1d.google.longrunning.Operation\"t\x82\xd3\xe4\x93\x02;\"6/v3/{parent=projects/*/locations/*}:batchTranslateText:\x01*\xca\x41\x30\n\x16\x42\x61tchTranslateResponse\x12\x16\x42\x61tchTranslateMetadata\x12\xdc\x01\n\x0e\x43reateGlossary\x12\x32.google.cloud.translation.v3.CreateGlossaryRequest\x1a\x1d.google.longrunning.Operation\"w\x82\xd3\xe4\x93\x02:\"./v3/{parent=projects/*/locations/*}/glossaries:\x08glossary\xda\x41\x0fparent,glossary\xca\x41\"\n\x08Glossary\x12\x16\x43reateGlossaryMetadata\x12\xba\x01\n\x0eListGlossaries\x12\x32.google.cloud.translation.v3.ListGlossariesRequest\x1a\x33.google.cloud.translation.v3.ListGlossariesResponse\"?\x82\xd3\xe4\x93\x02\x30\x12./v3/{parent=projects/*/locations/*}/glossaries\xda\x41\x06parent\x12\xa4\x01\n\x0bGetGlossary\x12/.google.cloud.translation.v3.GetGlossaryRequest\x1a%.google.cloud.translation.v3.Glossary\"=\x82\xd3\xe4\x93\x02\x30\x12./v3/{name=projects/*/locations/*/glossaries/*}\xda\x41\x04name\x12\xd5\x01\n\x0e\x44\x65leteGlossary\x12\x32.google.cloud.translation.v3.DeleteGlossaryRequest\x1a\x1d.google.longrunning.Operation\"p\x82\xd3\xe4\x93\x02\x30*./v3/{name=projects/*/locations/*/glossaries/*}\xda\x41\x04name\xca\x41\x30\n\x16\x44\x65leteGlossaryResponse\x12\x16\x44\x65leteGlossaryMetadata\x1a~\xca\x41\x18translate.googleapis.com\xd2\x41`https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-translationB\xd8\x01\n\x1d\x63om.google.cloud.translate.v3B\x17TranslationServiceProtoP\x01ZBgoogle.golang.org/genproto/googleapis/cloud/translate/v3;translate\xf8\x01\x01\xaa\x02\x19Google.Cloud.Translate.V3\xca\x02\x19Google\\Cloud\\Translate\\V3\xea\x02\x1cGoogle::Cloud::Translate::V3b\x06proto3'
+  serialized_pb=b'\n3google/cloud/translate/v3/translation_service.proto\x12\x1bgoogle.cloud.translation.v3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"N\n\x1bTranslateTextGlossaryConfig\x12\x15\n\x08glossary\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x0bignore_case\x18\x02 \x01(\x08\x42\x03\xe0\x41\x01\"\xb5\x03\n\x14TranslateTextRequest\x12\x15\n\x08\x63ontents\x18\x01 \x03(\tB\x03\xe0\x41\x02\x12\x16\n\tmime_type\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12!\n\x14source_language_code\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12!\n\x14target_language_code\x18\x05 \x01(\tB\x03\xe0\x41\x02\x12\x39\n\x06parent\x18\x08 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x12\n\x05model\x18\x06 \x01(\tB\x03\xe0\x41\x01\x12V\n\x0fglossary_config\x18\x07 \x01(\x0b\x32\x38.google.cloud.translation.v3.TranslateTextGlossaryConfigB\x03\xe0\x41\x01\x12R\n\x06labels\x18\n \x03(\x0b\x32=.google.cloud.translation.v3.TranslateTextRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xa0\x01\n\x15TranslateTextResponse\x12>\n\x0ctranslations\x18\x01 \x03(\x0b\x32(.google.cloud.translation.v3.Translation\x12G\n\x15glossary_translations\x18\x03 \x03(\x0b\x32(.google.cloud.translation.v3.Translation\"\xa8\x01\n\x0bTranslation\x12\x17\n\x0ftranslated_text\x18\x01 \x01(\t\x12\r\n\x05model\x18\x02 \x01(\t\x12\x1e\n\x16\x64\x65tected_language_code\x18\x04 \x01(\t\x12Q\n\x0fglossary_config\x18\x03 \x01(\x0b\x32\x38.google.cloud.translation.v3.TranslateTextGlossaryConfig\"\x9f\x02\n\x15\x44\x65tectLanguageRequest\x12\x39\n\x06parent\x18\x05 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x12\n\x05model\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x11\n\x07\x63ontent\x18\x01 \x01(\tH\x00\x12\x16\n\tmime_type\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12S\n\x06labels\x18\x06 \x03(\x0b\x32>.google.cloud.translation.v3.DetectLanguageRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x08\n\x06source\"=\n\x10\x44\x65tectedLanguage\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\x12\x12\n\nconfidence\x18\x02 \x01(\x02\"Z\n\x16\x44\x65tectLanguageResponse\x12@\n\tlanguages\x18\x01 \x03(\x0b\x32-.google.cloud.translation.v3.DetectedLanguage\"\x91\x01\n\x1cGetSupportedLanguagesRequest\x12\x39\n\x06parent\x18\x03 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\"\n\x15\x64isplay_language_code\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12\x12\n\x05model\x18\x02 \x01(\tB\x03\xe0\x41\x01\"W\n\x12SupportedLanguages\x12\x41\n\tlanguages\x18\x01 \x03(\x0b\x32..google.cloud.translation.v3.SupportedLanguage\"p\n\x11SupportedLanguage\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x16\n\x0esupport_source\x18\x03 \x01(\x08\x12\x16\n\x0esupport_target\x18\x04 \x01(\x08\"#\n\tGcsSource\x12\x16\n\tinput_uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\"m\n\x0bInputConfig\x12\x16\n\tmime_type\x18\x01 \x01(\tB\x03\xe0\x41\x01\x12<\n\ngcs_source\x18\x02 \x01(\x0b\x32&.google.cloud.translation.v3.GcsSourceH\x00\x42\x08\n\x06source\"0\n\x0eGcsDestination\x12\x1e\n\x11output_uri_prefix\x18\x01 \x01(\tB\x03\xe0\x41\x02\"e\n\x0cOutputConfig\x12\x46\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32+.google.cloud.translation.v3.GcsDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\x83\x01\n\x13\x44ocumentInputConfig\x12\x11\n\x07\x63ontent\x18\x01 \x01(\x0cH\x00\x12<\n\ngcs_source\x18\x02 \x01(\x0b\x32&.google.cloud.translation.v3.GcsSourceH\x00\x12\x11\n\tmime_type\x18\x04 \x01(\tB\x08\n\x06source\"\x8a\x01\n\x14\x44ocumentOutputConfig\x12K\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32+.google.cloud.translation.v3.GcsDestinationB\x03\xe0\x41\x01H\x00\x12\x16\n\tmime_type\x18\x03 \x01(\tB\x03\xe0\x41\x01\x42\r\n\x0b\x64\x65stination\"\x96\x04\n\x18TranslateDocumentRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12!\n\x14source_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12!\n\x14target_language_code\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12T\n\x15\x64ocument_input_config\x18\x04 \x01(\x0b\x32\x30.google.cloud.translation.v3.DocumentInputConfigB\x03\xe0\x41\x02\x12V\n\x16\x64ocument_output_config\x18\x05 \x01(\x0b\x32\x31.google.cloud.translation.v3.DocumentOutputConfigB\x03\xe0\x41\x01\x12\x12\n\x05model\x18\x06 \x01(\tB\x03\xe0\x41\x01\x12V\n\x0fglossary_config\x18\x07 \x01(\x0b\x32\x38.google.cloud.translation.v3.TranslateTextGlossaryConfigB\x03\xe0\x41\x01\x12V\n\x06labels\x18\x08 \x03(\x0b\x32\x41.google.cloud.translation.v3.TranslateDocumentRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"e\n\x13\x44ocumentTranslation\x12\x1b\n\x13\x62yte_stream_outputs\x18\x01 \x03(\x0c\x12\x11\n\tmime_type\x18\x02 \x01(\t\x12\x1e\n\x16\x64\x65tected_language_code\x18\x03 \x01(\t\"\xa6\x02\n\x19TranslateDocumentResponse\x12N\n\x14\x64ocument_translation\x18\x01 \x01(\x0b\x32\x30.google.cloud.translation.v3.DocumentTranslation\x12W\n\x1dglossary_document_translation\x18\x02 \x01(\x0b\x32\x30.google.cloud.translation.v3.DocumentTranslation\x12\r\n\x05model\x18\x03 \x01(\t\x12Q\n\x0fglossary_config\x18\x04 \x01(\x0b\x32\x38.google.cloud.translation.v3.TranslateTextGlossaryConfig\"\x88\x06\n\x19\x42\x61tchTranslateTextRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12!\n\x14source_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\"\n\x15target_language_codes\x18\x03 \x03(\tB\x03\xe0\x41\x02\x12W\n\x06models\x18\x04 \x03(\x0b\x32\x42.google.cloud.translation.v3.BatchTranslateTextRequest.ModelsEntryB\x03\xe0\x41\x01\x12\x44\n\rinput_configs\x18\x05 \x03(\x0b\x32(.google.cloud.translation.v3.InputConfigB\x03\xe0\x41\x02\x12\x45\n\routput_config\x18\x06 \x01(\x0b\x32).google.cloud.translation.v3.OutputConfigB\x03\xe0\x41\x02\x12_\n\nglossaries\x18\x07 \x03(\x0b\x32\x46.google.cloud.translation.v3.BatchTranslateTextRequest.GlossariesEntryB\x03\xe0\x41\x01\x12W\n\x06labels\x18\t \x03(\x0b\x32\x42.google.cloud.translation.v3.BatchTranslateTextRequest.LabelsEntryB\x03\xe0\x41\x01\x1a-\n\x0bModelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1ak\n\x0fGlossariesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12G\n\x05value\x18\x02 \x01(\x0b\x32\x38.google.cloud.translation.v3.TranslateTextGlossaryConfig:\x02\x38\x01\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xce\x02\n\x16\x42\x61tchTranslateMetadata\x12H\n\x05state\x18\x01 \x01(\x0e\x32\x39.google.cloud.translation.v3.BatchTranslateMetadata.State\x12\x1d\n\x15translated_characters\x18\x02 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x03 \x01(\x03\x12\x18\n\x10total_characters\x18\x04 \x01(\x03\x12/\n\x0bsubmit_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\"\xcb\x01\n\x16\x42\x61tchTranslateResponse\x12\x18\n\x10total_characters\x18\x01 \x01(\x03\x12\x1d\n\x15translated_characters\x18\x02 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x03 \x01(\x03\x12/\n\x0bsubmit_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"]\n\x13GlossaryInputConfig\x12<\n\ngcs_source\x18\x01 \x01(\x0b\x32&.google.cloud.translation.v3.GcsSourceH\x00\x42\x08\n\x06source\"\xff\x04\n\x08Glossary\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12O\n\rlanguage_pair\x18\x03 \x01(\x0b\x32\x36.google.cloud.translation.v3.Glossary.LanguageCodePairH\x00\x12T\n\x12language_codes_set\x18\x04 \x01(\x0b\x32\x36.google.cloud.translation.v3.Glossary.LanguageCodesSetH\x00\x12\x46\n\x0cinput_config\x18\x05 \x01(\x0b\x32\x30.google.cloud.translation.v3.GlossaryInputConfig\x12\x18\n\x0b\x65ntry_count\x18\x06 \x01(\x05\x42\x03\xe0\x41\x03\x12\x34\n\x0bsubmit_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1aN\n\x10LanguageCodePair\x12\x1c\n\x14source_language_code\x18\x01 \x01(\t\x12\x1c\n\x14target_language_code\x18\x02 \x01(\t\x1a*\n\x10LanguageCodesSet\x12\x16\n\x0elanguage_codes\x18\x01 \x03(\t:e\xea\x41\x62\n!translate.googleapis.com/Glossary\x12=projects/{project}/locations/{location}/glossaries/{glossary}B\x0b\n\tlanguages\"\x90\x01\n\x15\x43reateGlossaryRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12<\n\x08glossary\x18\x02 \x01(\x0b\x32%.google.cloud.translation.v3.GlossaryB\x03\xe0\x41\x02\"M\n\x12GetGlossaryRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!translate.googleapis.com/Glossary\"P\n\x15\x44\x65leteGlossaryRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!translate.googleapis.com/Glossary\"\x98\x01\n\x15ListGlossariesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\"l\n\x16ListGlossariesResponse\x12\x39\n\nglossaries\x18\x01 \x03(\x0b\x32%.google.cloud.translation.v3.Glossary\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x88\x02\n\x16\x43reateGlossaryMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12H\n\x05state\x18\x02 \x01(\x0e\x32\x39.google.cloud.translation.v3.CreateGlossaryMetadata.State\x12/\n\x0bsubmit_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\"\x88\x02\n\x16\x44\x65leteGlossaryMetadata\x12\x0c\n\x04name\x18\x01 \x01(\t\x12H\n\x05state\x18\x02 \x01(\x0e\x32\x39.google.cloud.translation.v3.DeleteGlossaryMetadata.State\x12/\n\x0bsubmit_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\"\x85\x01\n\x16\x44\x65leteGlossaryResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12/\n\x0bsubmit_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xd4\x06\n\x1d\x42\x61tchTranslateDocumentRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12!\n\x14source_language_code\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\"\n\x15target_language_codes\x18\x03 \x03(\tB\x03\xe0\x41\x02\x12Q\n\rinput_configs\x18\x04 \x03(\x0b\x32\x35.google.cloud.translation.v3.BatchDocumentInputConfigB\x03\xe0\x41\x02\x12R\n\routput_config\x18\x05 \x01(\x0b\x32\x36.google.cloud.translation.v3.BatchDocumentOutputConfigB\x03\xe0\x41\x02\x12[\n\x06models\x18\x06 \x03(\x0b\x32\x46.google.cloud.translation.v3.BatchTranslateDocumentRequest.ModelsEntryB\x03\xe0\x41\x01\x12\x63\n\nglossaries\x18\x07 \x03(\x0b\x32J.google.cloud.translation.v3.BatchTranslateDocumentRequest.GlossariesEntryB\x03\xe0\x41\x01\x12r\n\x12\x66ormat_conversions\x18\x08 \x03(\x0b\x32Q.google.cloud.translation.v3.BatchTranslateDocumentRequest.FormatConversionsEntryB\x03\xe0\x41\x01\x1a-\n\x0bModelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1ak\n\x0fGlossariesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12G\n\x05value\x18\x02 \x01(\x0b\x32\x38.google.cloud.translation.v3.TranslateTextGlossaryConfig:\x02\x38\x01\x1a\x38\n\x16\x46ormatConversionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"b\n\x18\x42\x61tchDocumentInputConfig\x12<\n\ngcs_source\x18\x01 \x01(\x0b\x32&.google.cloud.translation.v3.GcsSourceH\x00\x42\x08\n\x06source\"r\n\x19\x42\x61tchDocumentOutputConfig\x12\x46\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32+.google.cloud.translation.v3.GcsDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\xd9\x02\n\x1e\x42\x61tchTranslateDocumentResponse\x12\x13\n\x0btotal_pages\x18\x01 \x01(\x03\x12\x18\n\x10translated_pages\x18\x02 \x01(\x03\x12\x14\n\x0c\x66\x61iled_pages\x18\x03 \x01(\x03\x12\x1c\n\x14total_billable_pages\x18\x04 \x01(\x03\x12\x18\n\x10total_characters\x18\x05 \x01(\x03\x12\x1d\n\x15translated_characters\x18\x06 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x07 \x01(\x03\x12!\n\x19total_billable_characters\x18\x08 \x01(\x03\x12/\n\x0bsubmit_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xe4\x03\n\x1e\x42\x61tchTranslateDocumentMetadata\x12P\n\x05state\x18\x01 \x01(\x0e\x32\x41.google.cloud.translation.v3.BatchTranslateDocumentMetadata.State\x12\x13\n\x0btotal_pages\x18\x02 \x01(\x03\x12\x18\n\x10translated_pages\x18\x03 \x01(\x03\x12\x14\n\x0c\x66\x61iled_pages\x18\x04 \x01(\x03\x12\x1c\n\x14total_billable_pages\x18\x05 \x01(\x03\x12\x18\n\x10total_characters\x18\x06 \x01(\x03\x12\x1d\n\x15translated_characters\x18\x07 \x01(\x03\x12\x19\n\x11\x66\x61iled_characters\x18\x08 \x01(\x03\x12!\n\x19total_billable_characters\x18\t \x01(\x03\x12/\n\x0bsubmit_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\x32\xd6\x13\n\x12TranslationService\x12\xd4\x02\n\rTranslateText\x12\x31.google.cloud.translation.v3.TranslateTextRequest\x1a\x32.google.cloud.translation.v3.TranslateTextResponse\"\xdb\x01\x82\xd3\xe4\x93\x02\x62\"1/v3/{parent=projects/*/locations/*}:translateText:\x01*Z*\"%/v3/{parent=projects/*}:translateText:\x01*\xda\x41$parent,target_language_code,contents\xda\x41Iparent,model,mime_type,source_language_code,target_language_code,contents\x12\x87\x02\n\x0e\x44\x65tectLanguage\x12\x32.google.cloud.translation.v3.DetectLanguageRequest\x1a\x33.google.cloud.translation.v3.DetectLanguageResponse\"\x8b\x01\x82\xd3\xe4\x93\x02\x64\"2/v3/{parent=projects/*/locations/*}:detectLanguage:\x01*Z+\"&/v3/{parent=projects/*}:detectLanguage:\x01*\xda\x41\x1eparent,model,mime_type,content\x12\x97\x02\n\x15GetSupportedLanguages\x12\x39.google.cloud.translation.v3.GetSupportedLanguagesRequest\x1a/.google.cloud.translation.v3.SupportedLanguages\"\x91\x01\x82\xd3\xe4\x93\x02\x66\x12\x36/v3/{parent=projects/*/locations/*}/supportedLanguagesZ,\x12*/v3/{parent=projects/*}/supportedLanguages\xda\x41\"parent,model,display_language_code\x12\xc4\x01\n\x11TranslateDocument\x12\x35.google.cloud.translation.v3.TranslateDocumentRequest\x1a\x36.google.cloud.translation.v3.TranslateDocumentResponse\"@\x82\xd3\xe4\x93\x02:\"5/v3/{parent=projects/*/locations/*}:translateDocument:\x01*\x12\xe1\x01\n\x12\x42\x61tchTranslateText\x12\x36.google.cloud.translation.v3.BatchTranslateTextRequest\x1a\x1d.google.longrunning.Operation\"t\x82\xd3\xe4\x93\x02;\"6/v3/{parent=projects/*/locations/*}:batchTranslateText:\x01*\xca\x41\x30\n\x16\x42\x61tchTranslateResponse\x12\x16\x42\x61tchTranslateMetadata\x12\xfe\x01\n\x16\x42\x61tchTranslateDocument\x12:.google.cloud.translation.v3.BatchTranslateDocumentRequest\x1a\x1d.google.longrunning.Operation\"\x88\x01\x82\xd3\xe4\x93\x02?\":/v3/{parent=projects/*/locations/*}:batchTranslateDocument:\x01*\xca\x41@\n\x1e\x42\x61tchTranslateDocumentResponse\x12\x1e\x42\x61tchTranslateDocumentMetadata\x12\xdc\x01\n\x0e\x43reateGlossary\x12\x32.google.cloud.translation.v3.CreateGlossaryRequest\x1a\x1d.google.longrunning.Operation\"w\x82\xd3\xe4\x93\x02:\"./v3/{parent=projects/*/locations/*}/glossaries:\x08glossary\xda\x41\x0fparent,glossary\xca\x41\"\n\x08Glossary\x12\x16\x43reateGlossaryMetadata\x12\xba\x01\n\x0eListGlossaries\x12\x32.google.cloud.translation.v3.ListGlossariesRequest\x1a\x33.google.cloud.translation.v3.ListGlossariesResponse\"?\x82\xd3\xe4\x93\x02\x30\x12./v3/{parent=projects/*/locations/*}/glossaries\xda\x41\x06parent\x12\xa4\x01\n\x0bGetGlossary\x12/.google.cloud.translation.v3.GetGlossaryRequest\x1a%.google.cloud.translation.v3.Glossary\"=\x82\xd3\xe4\x93\x02\x30\x12./v3/{name=projects/*/locations/*/glossaries/*}\xda\x41\x04name\x12\xd5\x01\n\x0e\x44\x65leteGlossary\x12\x32.google.cloud.translation.v3.DeleteGlossaryRequest\x1a\x1d.google.longrunning.Operation\"p\x82\xd3\xe4\x93\x02\x30*./v3/{name=projects/*/locations/*/glossaries/*}\xda\x41\x04name\xca\x41\x30\n\x16\x44\x65leteGlossaryResponse\x12\x16\x44\x65leteGlossaryMetadata\x1a~\xca\x41\x18translate.googleapis.com\xd2\x41`https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-translationB\xd8\x01\n\x1d\x63om.google.cloud.translate.v3B\x17TranslationServiceProtoP\x01ZBgoogle.golang.org/genproto/googleapis/cloud/translate/v3;translate\xf8\x01\x01\xaa\x02\x19Google.Cloud.Translate.V3\xca\x02\x19Google\\Cloud\\Translate\\V3\xea\x02\x1cGoogle::Cloud::Translate::V3b\x06proto3'
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_client__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_longrunning_dot_operations__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
 
 
 
@@ -71,8 +73,8 @@ _BATCHTRANSLATEMETADATA_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3223,
-  serialized_end=3324,
+  serialized_start=4499,
+  serialized_end=4600,
 )
 _sym_db.RegisterEnumDescriptor(_BATCHTRANSLATEMETADATA_STATE)
 
@@ -116,8 +118,8 @@ _CREATEGLOSSARYMETADATA_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3223,
-  serialized_end=3324,
+  serialized_start=4499,
+  serialized_end=4600,
 )
 _sym_db.RegisterEnumDescriptor(_CREATEGLOSSARYMETADATA_STATE)
 
@@ -161,10 +163,55 @@ _DELETEGLOSSARYMETADATA_STATE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3223,
-  serialized_end=3324,
+  serialized_start=4499,
+  serialized_end=4600,
 )
 _sym_db.RegisterEnumDescriptor(_DELETEGLOSSARYMETADATA_STATE)
+
+_BATCHTRANSLATEDOCUMENTMETADATA_STATE = _descriptor.EnumDescriptor(
+  name='State',
+  full_name='google.cloud.translation.v3.BatchTranslateDocumentMetadata.State',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='STATE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='RUNNING', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SUCCEEDED', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='FAILED', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CANCELLING', index=4, number=4,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CANCELLED', index=5, number=5,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=4499,
+  serialized_end=4600,
+)
+_sym_db.RegisterEnumDescriptor(_BATCHTRANSLATEDOCUMENTMETADATA_STATE)
 
 
 _TRANSLATETEXTGLOSSARYCONFIG = _descriptor.Descriptor(
@@ -201,8 +248,8 @@ _TRANSLATETEXTGLOSSARYCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=269,
-  serialized_end=347,
+  serialized_start=323,
+  serialized_end=401,
 )
 
 
@@ -240,8 +287,8 @@ _TRANSLATETEXTREQUEST_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=742,
-  serialized_end=787,
+  serialized_start=796,
+  serialized_end=841,
 )
 
 _TRANSLATETEXTREQUEST = _descriptor.Descriptor(
@@ -320,8 +367,8 @@ _TRANSLATETEXTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=350,
-  serialized_end=787,
+  serialized_start=404,
+  serialized_end=841,
 )
 
 
@@ -359,8 +406,8 @@ _TRANSLATETEXTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=790,
-  serialized_end=950,
+  serialized_start=844,
+  serialized_end=1004,
 )
 
 
@@ -412,8 +459,8 @@ _TRANSLATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=953,
-  serialized_end=1121,
+  serialized_start=1007,
+  serialized_end=1175,
 )
 
 
@@ -451,8 +498,8 @@ _DETECTLANGUAGEREQUEST_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=742,
-  serialized_end=787,
+  serialized_start=796,
+  serialized_end=841,
 )
 
 _DETECTLANGUAGEREQUEST = _descriptor.Descriptor(
@@ -515,8 +562,8 @@ _DETECTLANGUAGEREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1124,
-  serialized_end=1411,
+  serialized_start=1178,
+  serialized_end=1465,
 )
 
 
@@ -554,8 +601,8 @@ _DETECTEDLANGUAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1413,
-  serialized_end=1474,
+  serialized_start=1467,
+  serialized_end=1528,
 )
 
 
@@ -586,8 +633,8 @@ _DETECTLANGUAGERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1476,
-  serialized_end=1566,
+  serialized_start=1530,
+  serialized_end=1620,
 )
 
 
@@ -632,8 +679,8 @@ _GETSUPPORTEDLANGUAGESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1569,
-  serialized_end=1714,
+  serialized_start=1623,
+  serialized_end=1768,
 )
 
 
@@ -664,8 +711,8 @@ _SUPPORTEDLANGUAGES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1716,
-  serialized_end=1803,
+  serialized_start=1770,
+  serialized_end=1857,
 )
 
 
@@ -717,8 +764,8 @@ _SUPPORTEDLANGUAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1805,
-  serialized_end=1917,
+  serialized_start=1859,
+  serialized_end=1971,
 )
 
 
@@ -736,7 +783,7 @@ _GCSSOURCE = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -749,8 +796,8 @@ _GCSSOURCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1919,
-  serialized_end=1949,
+  serialized_start=1973,
+  serialized_end=2008,
 )
 
 
@@ -793,8 +840,8 @@ _INPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=1951,
-  serialized_end=2060,
+  serialized_start=2010,
+  serialized_end=2119,
 )
 
 
@@ -812,7 +859,7 @@ _GCSDESTINATION = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -825,8 +872,8 @@ _GCSDESTINATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2062,
-  serialized_end=2105,
+  serialized_start=2121,
+  serialized_end=2169,
 )
 
 
@@ -862,8 +909,321 @@ _OUTPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=2107,
-  serialized_end=2208,
+  serialized_start=2171,
+  serialized_end=2272,
+)
+
+
+_DOCUMENTINPUTCONFIG = _descriptor.Descriptor(
+  name='DocumentInputConfig',
+  full_name='google.cloud.translation.v3.DocumentInputConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='content', full_name='google.cloud.translation.v3.DocumentInputConfig.content', index=0,
+      number=1, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"",
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='gcs_source', full_name='google.cloud.translation.v3.DocumentInputConfig.gcs_source', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='mime_type', full_name='google.cloud.translation.v3.DocumentInputConfig.mime_type', index=2,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='source', full_name='google.cloud.translation.v3.DocumentInputConfig.source',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2275,
+  serialized_end=2406,
+)
+
+
+_DOCUMENTOUTPUTCONFIG = _descriptor.Descriptor(
+  name='DocumentOutputConfig',
+  full_name='google.cloud.translation.v3.DocumentOutputConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='gcs_destination', full_name='google.cloud.translation.v3.DocumentOutputConfig.gcs_destination', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='mime_type', full_name='google.cloud.translation.v3.DocumentOutputConfig.mime_type', index=1,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='destination', full_name='google.cloud.translation.v3.DocumentOutputConfig.destination',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2409,
+  serialized_end=2547,
+)
+
+
+_TRANSLATEDOCUMENTREQUEST_LABELSENTRY = _descriptor.Descriptor(
+  name='LabelsEntry',
+  full_name='google.cloud.translation.v3.TranslateDocumentRequest.LabelsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.cloud.translation.v3.TranslateDocumentRequest.LabelsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.cloud.translation.v3.TranslateDocumentRequest.LabelsEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=796,
+  serialized_end=841,
+)
+
+_TRANSLATEDOCUMENTREQUEST = _descriptor.Descriptor(
+  name='TranslateDocumentRequest',
+  full_name='google.cloud.translation.v3.TranslateDocumentRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.translation.v3.TranslateDocumentRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='source_language_code', full_name='google.cloud.translation.v3.TranslateDocumentRequest.source_language_code', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='target_language_code', full_name='google.cloud.translation.v3.TranslateDocumentRequest.target_language_code', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='document_input_config', full_name='google.cloud.translation.v3.TranslateDocumentRequest.document_input_config', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='document_output_config', full_name='google.cloud.translation.v3.TranslateDocumentRequest.document_output_config', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='model', full_name='google.cloud.translation.v3.TranslateDocumentRequest.model', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='glossary_config', full_name='google.cloud.translation.v3.TranslateDocumentRequest.glossary_config', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='labels', full_name='google.cloud.translation.v3.TranslateDocumentRequest.labels', index=7,
+      number=8, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_TRANSLATEDOCUMENTREQUEST_LABELSENTRY, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2550,
+  serialized_end=3084,
+)
+
+
+_DOCUMENTTRANSLATION = _descriptor.Descriptor(
+  name='DocumentTranslation',
+  full_name='google.cloud.translation.v3.DocumentTranslation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='byte_stream_outputs', full_name='google.cloud.translation.v3.DocumentTranslation.byte_stream_outputs', index=0,
+      number=1, type=12, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='mime_type', full_name='google.cloud.translation.v3.DocumentTranslation.mime_type', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='detected_language_code', full_name='google.cloud.translation.v3.DocumentTranslation.detected_language_code', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3086,
+  serialized_end=3187,
+)
+
+
+_TRANSLATEDOCUMENTRESPONSE = _descriptor.Descriptor(
+  name='TranslateDocumentResponse',
+  full_name='google.cloud.translation.v3.TranslateDocumentResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='document_translation', full_name='google.cloud.translation.v3.TranslateDocumentResponse.document_translation', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='glossary_document_translation', full_name='google.cloud.translation.v3.TranslateDocumentResponse.glossary_document_translation', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='model', full_name='google.cloud.translation.v3.TranslateDocumentResponse.model', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='glossary_config', full_name='google.cloud.translation.v3.TranslateDocumentResponse.glossary_config', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3190,
+  serialized_end=3484,
 )
 
 
@@ -901,8 +1261,8 @@ _BATCHTRANSLATETEXTREQUEST_MODELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2786,
-  serialized_end=2831,
+  serialized_start=4062,
+  serialized_end=4107,
 )
 
 _BATCHTRANSLATETEXTREQUEST_GLOSSARIESENTRY = _descriptor.Descriptor(
@@ -939,8 +1299,8 @@ _BATCHTRANSLATETEXTREQUEST_GLOSSARIESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2833,
-  serialized_end=2940,
+  serialized_start=4109,
+  serialized_end=4216,
 )
 
 _BATCHTRANSLATETEXTREQUEST_LABELSENTRY = _descriptor.Descriptor(
@@ -977,8 +1337,8 @@ _BATCHTRANSLATETEXTREQUEST_LABELSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=742,
-  serialized_end=787,
+  serialized_start=796,
+  serialized_end=841,
 )
 
 _BATCHTRANSLATETEXTREQUEST = _descriptor.Descriptor(
@@ -1057,8 +1417,8 @@ _BATCHTRANSLATETEXTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2211,
-  serialized_end=2987,
+  serialized_start=3487,
+  serialized_end=4263,
 )
 
 
@@ -1118,8 +1478,8 @@ _BATCHTRANSLATEMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2990,
-  serialized_end=3324,
+  serialized_start=4266,
+  serialized_end=4600,
 )
 
 
@@ -1178,8 +1538,8 @@ _BATCHTRANSLATERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3327,
-  serialized_end=3530,
+  serialized_start=4603,
+  serialized_end=4806,
 )
 
 
@@ -1215,8 +1575,8 @@ _GLOSSARYINPUTCONFIG = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3532,
-  serialized_end=3625,
+  serialized_start=4808,
+  serialized_end=4901,
 )
 
 
@@ -1254,8 +1614,8 @@ _GLOSSARY_LANGUAGECODEPAIR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4024,
-  serialized_end=4102,
+  serialized_start=5305,
+  serialized_end=5383,
 )
 
 _GLOSSARY_LANGUAGECODESSET = _descriptor.Descriptor(
@@ -1285,8 +1645,8 @@ _GLOSSARY_LANGUAGECODESSET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4104,
-  serialized_end=4146,
+  serialized_start=5385,
+  serialized_end=5427,
 )
 
 _GLOSSARY = _descriptor.Descriptor(
@@ -1303,7 +1663,7 @@ _GLOSSARY = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='language_pair', full_name='google.cloud.translation.v3.Glossary.language_pair', index=1,
       number=3, type=11, cpp_type=10, label=1,
@@ -1363,8 +1723,8 @@ _GLOSSARY = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=3628,
-  serialized_end=4262,
+  serialized_start=4904,
+  serialized_end=5543,
 )
 
 
@@ -1402,8 +1762,8 @@ _CREATEGLOSSARYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4265,
-  serialized_end=4409,
+  serialized_start=5546,
+  serialized_end=5690,
 )
 
 
@@ -1434,8 +1794,8 @@ _GETGLOSSARYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4411,
-  serialized_end=4488,
+  serialized_start=5692,
+  serialized_end=5769,
 )
 
 
@@ -1466,8 +1826,8 @@ _DELETEGLOSSARYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4490,
-  serialized_end=4570,
+  serialized_start=5771,
+  serialized_end=5851,
 )
 
 
@@ -1519,8 +1879,8 @@ _LISTGLOSSARIESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4573,
-  serialized_end=4725,
+  serialized_start=5854,
+  serialized_end=6006,
 )
 
 
@@ -1558,8 +1918,8 @@ _LISTGLOSSARIESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4727,
-  serialized_end=4835,
+  serialized_start=6008,
+  serialized_end=6116,
 )
 
 
@@ -1605,8 +1965,8 @@ _CREATEGLOSSARYMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4838,
-  serialized_end=5102,
+  serialized_start=6119,
+  serialized_end=6383,
 )
 
 
@@ -1652,8 +2012,8 @@ _DELETEGLOSSARYMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5105,
-  serialized_end=5369,
+  serialized_start=6386,
+  serialized_end=6650,
 )
 
 
@@ -1698,8 +2058,468 @@ _DELETEGLOSSARYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=5372,
-  serialized_end=5505,
+  serialized_start=6653,
+  serialized_end=6786,
+)
+
+
+_BATCHTRANSLATEDOCUMENTREQUEST_MODELSENTRY = _descriptor.Descriptor(
+  name='ModelsEntry',
+  full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.ModelsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.ModelsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.ModelsEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4062,
+  serialized_end=4107,
+)
+
+_BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY = _descriptor.Descriptor(
+  name='GlossariesEntry',
+  full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.GlossariesEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.GlossariesEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.GlossariesEntry.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=4109,
+  serialized_end=4216,
+)
+
+_BATCHTRANSLATEDOCUMENTREQUEST_FORMATCONVERSIONSENTRY = _descriptor.Descriptor(
+  name='FormatConversionsEntry',
+  full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.FormatConversionsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.FormatConversionsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.FormatConversionsEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7585,
+  serialized_end=7641,
+)
+
+_BATCHTRANSLATEDOCUMENTREQUEST = _descriptor.Descriptor(
+  name='BatchTranslateDocumentRequest',
+  full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='parent', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.parent', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002\372A#\n!locations.googleapis.com/Location', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='source_language_code', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.source_language_code', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='target_language_codes', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.target_language_codes', index=2,
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='input_configs', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.input_configs', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='output_config', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.output_config', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='models', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.models', index=5,
+      number=6, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='glossaries', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.glossaries', index=6,
+      number=7, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='format_conversions', full_name='google.cloud.translation.v3.BatchTranslateDocumentRequest.format_conversions', index=7,
+      number=8, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_BATCHTRANSLATEDOCUMENTREQUEST_MODELSENTRY, _BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY, _BATCHTRANSLATEDOCUMENTREQUEST_FORMATCONVERSIONSENTRY, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=6789,
+  serialized_end=7641,
+)
+
+
+_BATCHDOCUMENTINPUTCONFIG = _descriptor.Descriptor(
+  name='BatchDocumentInputConfig',
+  full_name='google.cloud.translation.v3.BatchDocumentInputConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='gcs_source', full_name='google.cloud.translation.v3.BatchDocumentInputConfig.gcs_source', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='source', full_name='google.cloud.translation.v3.BatchDocumentInputConfig.source',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=7643,
+  serialized_end=7741,
+)
+
+
+_BATCHDOCUMENTOUTPUTCONFIG = _descriptor.Descriptor(
+  name='BatchDocumentOutputConfig',
+  full_name='google.cloud.translation.v3.BatchDocumentOutputConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='gcs_destination', full_name='google.cloud.translation.v3.BatchDocumentOutputConfig.gcs_destination', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='destination', full_name='google.cloud.translation.v3.BatchDocumentOutputConfig.destination',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=7743,
+  serialized_end=7857,
+)
+
+
+_BATCHTRANSLATEDOCUMENTRESPONSE = _descriptor.Descriptor(
+  name='BatchTranslateDocumentResponse',
+  full_name='google.cloud.translation.v3.BatchTranslateDocumentResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='total_pages', full_name='google.cloud.translation.v3.BatchTranslateDocumentResponse.total_pages', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='translated_pages', full_name='google.cloud.translation.v3.BatchTranslateDocumentResponse.translated_pages', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='failed_pages', full_name='google.cloud.translation.v3.BatchTranslateDocumentResponse.failed_pages', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_billable_pages', full_name='google.cloud.translation.v3.BatchTranslateDocumentResponse.total_billable_pages', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_characters', full_name='google.cloud.translation.v3.BatchTranslateDocumentResponse.total_characters', index=4,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='translated_characters', full_name='google.cloud.translation.v3.BatchTranslateDocumentResponse.translated_characters', index=5,
+      number=6, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='failed_characters', full_name='google.cloud.translation.v3.BatchTranslateDocumentResponse.failed_characters', index=6,
+      number=7, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_billable_characters', full_name='google.cloud.translation.v3.BatchTranslateDocumentResponse.total_billable_characters', index=7,
+      number=8, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='submit_time', full_name='google.cloud.translation.v3.BatchTranslateDocumentResponse.submit_time', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_time', full_name='google.cloud.translation.v3.BatchTranslateDocumentResponse.end_time', index=9,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=7860,
+  serialized_end=8205,
+)
+
+
+_BATCHTRANSLATEDOCUMENTMETADATA = _descriptor.Descriptor(
+  name='BatchTranslateDocumentMetadata',
+  full_name='google.cloud.translation.v3.BatchTranslateDocumentMetadata',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='state', full_name='google.cloud.translation.v3.BatchTranslateDocumentMetadata.state', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_pages', full_name='google.cloud.translation.v3.BatchTranslateDocumentMetadata.total_pages', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='translated_pages', full_name='google.cloud.translation.v3.BatchTranslateDocumentMetadata.translated_pages', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='failed_pages', full_name='google.cloud.translation.v3.BatchTranslateDocumentMetadata.failed_pages', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_billable_pages', full_name='google.cloud.translation.v3.BatchTranslateDocumentMetadata.total_billable_pages', index=4,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_characters', full_name='google.cloud.translation.v3.BatchTranslateDocumentMetadata.total_characters', index=5,
+      number=6, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='translated_characters', full_name='google.cloud.translation.v3.BatchTranslateDocumentMetadata.translated_characters', index=6,
+      number=7, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='failed_characters', full_name='google.cloud.translation.v3.BatchTranslateDocumentMetadata.failed_characters', index=7,
+      number=8, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='total_billable_characters', full_name='google.cloud.translation.v3.BatchTranslateDocumentMetadata.total_billable_characters', index=8,
+      number=9, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='submit_time', full_name='google.cloud.translation.v3.BatchTranslateDocumentMetadata.submit_time', index=9,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _BATCHTRANSLATEDOCUMENTMETADATA_STATE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=8208,
+  serialized_end=8692,
 )
 
 _TRANSLATETEXTREQUEST_LABELSENTRY.containing_type = _TRANSLATETEXTREQUEST
@@ -1723,6 +2543,25 @@ _OUTPUTCONFIG.fields_by_name['gcs_destination'].message_type = _GCSDESTINATION
 _OUTPUTCONFIG.oneofs_by_name['destination'].fields.append(
   _OUTPUTCONFIG.fields_by_name['gcs_destination'])
 _OUTPUTCONFIG.fields_by_name['gcs_destination'].containing_oneof = _OUTPUTCONFIG.oneofs_by_name['destination']
+_DOCUMENTINPUTCONFIG.fields_by_name['gcs_source'].message_type = _GCSSOURCE
+_DOCUMENTINPUTCONFIG.oneofs_by_name['source'].fields.append(
+  _DOCUMENTINPUTCONFIG.fields_by_name['content'])
+_DOCUMENTINPUTCONFIG.fields_by_name['content'].containing_oneof = _DOCUMENTINPUTCONFIG.oneofs_by_name['source']
+_DOCUMENTINPUTCONFIG.oneofs_by_name['source'].fields.append(
+  _DOCUMENTINPUTCONFIG.fields_by_name['gcs_source'])
+_DOCUMENTINPUTCONFIG.fields_by_name['gcs_source'].containing_oneof = _DOCUMENTINPUTCONFIG.oneofs_by_name['source']
+_DOCUMENTOUTPUTCONFIG.fields_by_name['gcs_destination'].message_type = _GCSDESTINATION
+_DOCUMENTOUTPUTCONFIG.oneofs_by_name['destination'].fields.append(
+  _DOCUMENTOUTPUTCONFIG.fields_by_name['gcs_destination'])
+_DOCUMENTOUTPUTCONFIG.fields_by_name['gcs_destination'].containing_oneof = _DOCUMENTOUTPUTCONFIG.oneofs_by_name['destination']
+_TRANSLATEDOCUMENTREQUEST_LABELSENTRY.containing_type = _TRANSLATEDOCUMENTREQUEST
+_TRANSLATEDOCUMENTREQUEST.fields_by_name['document_input_config'].message_type = _DOCUMENTINPUTCONFIG
+_TRANSLATEDOCUMENTREQUEST.fields_by_name['document_output_config'].message_type = _DOCUMENTOUTPUTCONFIG
+_TRANSLATEDOCUMENTREQUEST.fields_by_name['glossary_config'].message_type = _TRANSLATETEXTGLOSSARYCONFIG
+_TRANSLATEDOCUMENTREQUEST.fields_by_name['labels'].message_type = _TRANSLATEDOCUMENTREQUEST_LABELSENTRY
+_TRANSLATEDOCUMENTRESPONSE.fields_by_name['document_translation'].message_type = _DOCUMENTTRANSLATION
+_TRANSLATEDOCUMENTRESPONSE.fields_by_name['glossary_document_translation'].message_type = _DOCUMENTTRANSLATION
+_TRANSLATEDOCUMENTRESPONSE.fields_by_name['glossary_config'].message_type = _TRANSLATETEXTGLOSSARYCONFIG
 _BATCHTRANSLATETEXTREQUEST_MODELSENTRY.containing_type = _BATCHTRANSLATETEXTREQUEST
 _BATCHTRANSLATETEXTREQUEST_GLOSSARIESENTRY.fields_by_name['value'].message_type = _TRANSLATETEXTGLOSSARYCONFIG
 _BATCHTRANSLATETEXTREQUEST_GLOSSARIESENTRY.containing_type = _BATCHTRANSLATETEXTREQUEST
@@ -1764,6 +2603,28 @@ _DELETEGLOSSARYMETADATA.fields_by_name['submit_time'].message_type = google_dot_
 _DELETEGLOSSARYMETADATA_STATE.containing_type = _DELETEGLOSSARYMETADATA
 _DELETEGLOSSARYRESPONSE.fields_by_name['submit_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _DELETEGLOSSARYRESPONSE.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_BATCHTRANSLATEDOCUMENTREQUEST_MODELSENTRY.containing_type = _BATCHTRANSLATEDOCUMENTREQUEST
+_BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY.fields_by_name['value'].message_type = _TRANSLATETEXTGLOSSARYCONFIG
+_BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY.containing_type = _BATCHTRANSLATEDOCUMENTREQUEST
+_BATCHTRANSLATEDOCUMENTREQUEST_FORMATCONVERSIONSENTRY.containing_type = _BATCHTRANSLATEDOCUMENTREQUEST
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['input_configs'].message_type = _BATCHDOCUMENTINPUTCONFIG
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['output_config'].message_type = _BATCHDOCUMENTOUTPUTCONFIG
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['models'].message_type = _BATCHTRANSLATEDOCUMENTREQUEST_MODELSENTRY
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['glossaries'].message_type = _BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['format_conversions'].message_type = _BATCHTRANSLATEDOCUMENTREQUEST_FORMATCONVERSIONSENTRY
+_BATCHDOCUMENTINPUTCONFIG.fields_by_name['gcs_source'].message_type = _GCSSOURCE
+_BATCHDOCUMENTINPUTCONFIG.oneofs_by_name['source'].fields.append(
+  _BATCHDOCUMENTINPUTCONFIG.fields_by_name['gcs_source'])
+_BATCHDOCUMENTINPUTCONFIG.fields_by_name['gcs_source'].containing_oneof = _BATCHDOCUMENTINPUTCONFIG.oneofs_by_name['source']
+_BATCHDOCUMENTOUTPUTCONFIG.fields_by_name['gcs_destination'].message_type = _GCSDESTINATION
+_BATCHDOCUMENTOUTPUTCONFIG.oneofs_by_name['destination'].fields.append(
+  _BATCHDOCUMENTOUTPUTCONFIG.fields_by_name['gcs_destination'])
+_BATCHDOCUMENTOUTPUTCONFIG.fields_by_name['gcs_destination'].containing_oneof = _BATCHDOCUMENTOUTPUTCONFIG.oneofs_by_name['destination']
+_BATCHTRANSLATEDOCUMENTRESPONSE.fields_by_name['submit_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_BATCHTRANSLATEDOCUMENTRESPONSE.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_BATCHTRANSLATEDOCUMENTMETADATA.fields_by_name['state'].enum_type = _BATCHTRANSLATEDOCUMENTMETADATA_STATE
+_BATCHTRANSLATEDOCUMENTMETADATA.fields_by_name['submit_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_BATCHTRANSLATEDOCUMENTMETADATA_STATE.containing_type = _BATCHTRANSLATEDOCUMENTMETADATA
 DESCRIPTOR.message_types_by_name['TranslateTextGlossaryConfig'] = _TRANSLATETEXTGLOSSARYCONFIG
 DESCRIPTOR.message_types_by_name['TranslateTextRequest'] = _TRANSLATETEXTREQUEST
 DESCRIPTOR.message_types_by_name['TranslateTextResponse'] = _TRANSLATETEXTRESPONSE
@@ -1778,6 +2639,11 @@ DESCRIPTOR.message_types_by_name['GcsSource'] = _GCSSOURCE
 DESCRIPTOR.message_types_by_name['InputConfig'] = _INPUTCONFIG
 DESCRIPTOR.message_types_by_name['GcsDestination'] = _GCSDESTINATION
 DESCRIPTOR.message_types_by_name['OutputConfig'] = _OUTPUTCONFIG
+DESCRIPTOR.message_types_by_name['DocumentInputConfig'] = _DOCUMENTINPUTCONFIG
+DESCRIPTOR.message_types_by_name['DocumentOutputConfig'] = _DOCUMENTOUTPUTCONFIG
+DESCRIPTOR.message_types_by_name['TranslateDocumentRequest'] = _TRANSLATEDOCUMENTREQUEST
+DESCRIPTOR.message_types_by_name['DocumentTranslation'] = _DOCUMENTTRANSLATION
+DESCRIPTOR.message_types_by_name['TranslateDocumentResponse'] = _TRANSLATEDOCUMENTRESPONSE
 DESCRIPTOR.message_types_by_name['BatchTranslateTextRequest'] = _BATCHTRANSLATETEXTREQUEST
 DESCRIPTOR.message_types_by_name['BatchTranslateMetadata'] = _BATCHTRANSLATEMETADATA
 DESCRIPTOR.message_types_by_name['BatchTranslateResponse'] = _BATCHTRANSLATERESPONSE
@@ -1791,6 +2657,11 @@ DESCRIPTOR.message_types_by_name['ListGlossariesResponse'] = _LISTGLOSSARIESRESP
 DESCRIPTOR.message_types_by_name['CreateGlossaryMetadata'] = _CREATEGLOSSARYMETADATA
 DESCRIPTOR.message_types_by_name['DeleteGlossaryMetadata'] = _DELETEGLOSSARYMETADATA
 DESCRIPTOR.message_types_by_name['DeleteGlossaryResponse'] = _DELETEGLOSSARYRESPONSE
+DESCRIPTOR.message_types_by_name['BatchTranslateDocumentRequest'] = _BATCHTRANSLATEDOCUMENTREQUEST
+DESCRIPTOR.message_types_by_name['BatchDocumentInputConfig'] = _BATCHDOCUMENTINPUTCONFIG
+DESCRIPTOR.message_types_by_name['BatchDocumentOutputConfig'] = _BATCHDOCUMENTOUTPUTCONFIG
+DESCRIPTOR.message_types_by_name['BatchTranslateDocumentResponse'] = _BATCHTRANSLATEDOCUMENTRESPONSE
+DESCRIPTOR.message_types_by_name['BatchTranslateDocumentMetadata'] = _BATCHTRANSLATEDOCUMENTMETADATA
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 TranslateTextGlossaryConfig = _reflection.GeneratedProtocolMessageType('TranslateTextGlossaryConfig', (_message.Message,), {
@@ -1906,6 +2777,49 @@ OutputConfig = _reflection.GeneratedProtocolMessageType('OutputConfig', (_messag
   # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.OutputConfig)
   })
 _sym_db.RegisterMessage(OutputConfig)
+
+DocumentInputConfig = _reflection.GeneratedProtocolMessageType('DocumentInputConfig', (_message.Message,), {
+  'DESCRIPTOR' : _DOCUMENTINPUTCONFIG,
+  '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.DocumentInputConfig)
+  })
+_sym_db.RegisterMessage(DocumentInputConfig)
+
+DocumentOutputConfig = _reflection.GeneratedProtocolMessageType('DocumentOutputConfig', (_message.Message,), {
+  'DESCRIPTOR' : _DOCUMENTOUTPUTCONFIG,
+  '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.DocumentOutputConfig)
+  })
+_sym_db.RegisterMessage(DocumentOutputConfig)
+
+TranslateDocumentRequest = _reflection.GeneratedProtocolMessageType('TranslateDocumentRequest', (_message.Message,), {
+
+  'LabelsEntry' : _reflection.GeneratedProtocolMessageType('LabelsEntry', (_message.Message,), {
+    'DESCRIPTOR' : _TRANSLATEDOCUMENTREQUEST_LABELSENTRY,
+    '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.TranslateDocumentRequest.LabelsEntry)
+    })
+  ,
+  'DESCRIPTOR' : _TRANSLATEDOCUMENTREQUEST,
+  '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.TranslateDocumentRequest)
+  })
+_sym_db.RegisterMessage(TranslateDocumentRequest)
+_sym_db.RegisterMessage(TranslateDocumentRequest.LabelsEntry)
+
+DocumentTranslation = _reflection.GeneratedProtocolMessageType('DocumentTranslation', (_message.Message,), {
+  'DESCRIPTOR' : _DOCUMENTTRANSLATION,
+  '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.DocumentTranslation)
+  })
+_sym_db.RegisterMessage(DocumentTranslation)
+
+TranslateDocumentResponse = _reflection.GeneratedProtocolMessageType('TranslateDocumentResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TRANSLATEDOCUMENTRESPONSE,
+  '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.TranslateDocumentResponse)
+  })
+_sym_db.RegisterMessage(TranslateDocumentResponse)
 
 BatchTranslateTextRequest = _reflection.GeneratedProtocolMessageType('BatchTranslateTextRequest', (_message.Message,), {
 
@@ -2038,6 +2952,65 @@ DeleteGlossaryResponse = _reflection.GeneratedProtocolMessageType('DeleteGlossar
   })
 _sym_db.RegisterMessage(DeleteGlossaryResponse)
 
+BatchTranslateDocumentRequest = _reflection.GeneratedProtocolMessageType('BatchTranslateDocumentRequest', (_message.Message,), {
+
+  'ModelsEntry' : _reflection.GeneratedProtocolMessageType('ModelsEntry', (_message.Message,), {
+    'DESCRIPTOR' : _BATCHTRANSLATEDOCUMENTREQUEST_MODELSENTRY,
+    '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.BatchTranslateDocumentRequest.ModelsEntry)
+    })
+  ,
+
+  'GlossariesEntry' : _reflection.GeneratedProtocolMessageType('GlossariesEntry', (_message.Message,), {
+    'DESCRIPTOR' : _BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY,
+    '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.BatchTranslateDocumentRequest.GlossariesEntry)
+    })
+  ,
+
+  'FormatConversionsEntry' : _reflection.GeneratedProtocolMessageType('FormatConversionsEntry', (_message.Message,), {
+    'DESCRIPTOR' : _BATCHTRANSLATEDOCUMENTREQUEST_FORMATCONVERSIONSENTRY,
+    '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+    # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.BatchTranslateDocumentRequest.FormatConversionsEntry)
+    })
+  ,
+  'DESCRIPTOR' : _BATCHTRANSLATEDOCUMENTREQUEST,
+  '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.BatchTranslateDocumentRequest)
+  })
+_sym_db.RegisterMessage(BatchTranslateDocumentRequest)
+_sym_db.RegisterMessage(BatchTranslateDocumentRequest.ModelsEntry)
+_sym_db.RegisterMessage(BatchTranslateDocumentRequest.GlossariesEntry)
+_sym_db.RegisterMessage(BatchTranslateDocumentRequest.FormatConversionsEntry)
+
+BatchDocumentInputConfig = _reflection.GeneratedProtocolMessageType('BatchDocumentInputConfig', (_message.Message,), {
+  'DESCRIPTOR' : _BATCHDOCUMENTINPUTCONFIG,
+  '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.BatchDocumentInputConfig)
+  })
+_sym_db.RegisterMessage(BatchDocumentInputConfig)
+
+BatchDocumentOutputConfig = _reflection.GeneratedProtocolMessageType('BatchDocumentOutputConfig', (_message.Message,), {
+  'DESCRIPTOR' : _BATCHDOCUMENTOUTPUTCONFIG,
+  '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.BatchDocumentOutputConfig)
+  })
+_sym_db.RegisterMessage(BatchDocumentOutputConfig)
+
+BatchTranslateDocumentResponse = _reflection.GeneratedProtocolMessageType('BatchTranslateDocumentResponse', (_message.Message,), {
+  'DESCRIPTOR' : _BATCHTRANSLATEDOCUMENTRESPONSE,
+  '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.BatchTranslateDocumentResponse)
+  })
+_sym_db.RegisterMessage(BatchTranslateDocumentResponse)
+
+BatchTranslateDocumentMetadata = _reflection.GeneratedProtocolMessageType('BatchTranslateDocumentMetadata', (_message.Message,), {
+  'DESCRIPTOR' : _BATCHTRANSLATEDOCUMENTMETADATA,
+  '__module__' : 'google.cloud.translate.v3.translation_service_pb2'
+  # @@protoc_insertion_point(class_scope:google.cloud.translation.v3.BatchTranslateDocumentMetadata)
+  })
+_sym_db.RegisterMessage(BatchTranslateDocumentMetadata)
+
 
 DESCRIPTOR._options = None
 _TRANSLATETEXTGLOSSARYCONFIG.fields_by_name['glossary']._options = None
@@ -2059,7 +3032,20 @@ _DETECTLANGUAGEREQUEST.fields_by_name['labels']._options = None
 _GETSUPPORTEDLANGUAGESREQUEST.fields_by_name['parent']._options = None
 _GETSUPPORTEDLANGUAGESREQUEST.fields_by_name['display_language_code']._options = None
 _GETSUPPORTEDLANGUAGESREQUEST.fields_by_name['model']._options = None
+_GCSSOURCE.fields_by_name['input_uri']._options = None
 _INPUTCONFIG.fields_by_name['mime_type']._options = None
+_GCSDESTINATION.fields_by_name['output_uri_prefix']._options = None
+_DOCUMENTOUTPUTCONFIG.fields_by_name['gcs_destination']._options = None
+_DOCUMENTOUTPUTCONFIG.fields_by_name['mime_type']._options = None
+_TRANSLATEDOCUMENTREQUEST_LABELSENTRY._options = None
+_TRANSLATEDOCUMENTREQUEST.fields_by_name['parent']._options = None
+_TRANSLATEDOCUMENTREQUEST.fields_by_name['source_language_code']._options = None
+_TRANSLATEDOCUMENTREQUEST.fields_by_name['target_language_code']._options = None
+_TRANSLATEDOCUMENTREQUEST.fields_by_name['document_input_config']._options = None
+_TRANSLATEDOCUMENTREQUEST.fields_by_name['document_output_config']._options = None
+_TRANSLATEDOCUMENTREQUEST.fields_by_name['model']._options = None
+_TRANSLATEDOCUMENTREQUEST.fields_by_name['glossary_config']._options = None
+_TRANSLATEDOCUMENTREQUEST.fields_by_name['labels']._options = None
 _BATCHTRANSLATETEXTREQUEST_MODELSENTRY._options = None
 _BATCHTRANSLATETEXTREQUEST_GLOSSARIESENTRY._options = None
 _BATCHTRANSLATETEXTREQUEST_LABELSENTRY._options = None
@@ -2071,6 +3057,7 @@ _BATCHTRANSLATETEXTREQUEST.fields_by_name['input_configs']._options = None
 _BATCHTRANSLATETEXTREQUEST.fields_by_name['output_config']._options = None
 _BATCHTRANSLATETEXTREQUEST.fields_by_name['glossaries']._options = None
 _BATCHTRANSLATETEXTREQUEST.fields_by_name['labels']._options = None
+_GLOSSARY.fields_by_name['name']._options = None
 _GLOSSARY.fields_by_name['entry_count']._options = None
 _GLOSSARY.fields_by_name['submit_time']._options = None
 _GLOSSARY.fields_by_name['end_time']._options = None
@@ -2083,6 +3070,17 @@ _LISTGLOSSARIESREQUEST.fields_by_name['parent']._options = None
 _LISTGLOSSARIESREQUEST.fields_by_name['page_size']._options = None
 _LISTGLOSSARIESREQUEST.fields_by_name['page_token']._options = None
 _LISTGLOSSARIESREQUEST.fields_by_name['filter']._options = None
+_BATCHTRANSLATEDOCUMENTREQUEST_MODELSENTRY._options = None
+_BATCHTRANSLATEDOCUMENTREQUEST_GLOSSARIESENTRY._options = None
+_BATCHTRANSLATEDOCUMENTREQUEST_FORMATCONVERSIONSENTRY._options = None
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['parent']._options = None
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['source_language_code']._options = None
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['target_language_codes']._options = None
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['input_configs']._options = None
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['output_config']._options = None
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['models']._options = None
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['glossaries']._options = None
+_BATCHTRANSLATEDOCUMENTREQUEST.fields_by_name['format_conversions']._options = None
 
 _TRANSLATIONSERVICE = _descriptor.ServiceDescriptor(
   name='TranslationService',
@@ -2091,8 +3089,8 @@ _TRANSLATIONSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=b'\312A\030translate.googleapis.com\322A`https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-translation',
   create_key=_descriptor._internal_create_key,
-  serialized_start=5508,
-  serialized_end=7570,
+  serialized_start=8695,
+  serialized_end=11213,
   methods=[
   _descriptor.MethodDescriptor(
     name='TranslateText',
@@ -2125,9 +3123,19 @@ _TRANSLATIONSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='TranslateDocument',
+    full_name='google.cloud.translation.v3.TranslationService.TranslateDocument',
+    index=3,
+    containing_service=None,
+    input_type=_TRANSLATEDOCUMENTREQUEST,
+    output_type=_TRANSLATEDOCUMENTRESPONSE,
+    serialized_options=b'\202\323\344\223\002:\"5/v3/{parent=projects/*/locations/*}:translateDocument:\001*',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='BatchTranslateText',
     full_name='google.cloud.translation.v3.TranslationService.BatchTranslateText',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=_BATCHTRANSLATETEXTREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -2135,9 +3143,19 @@ _TRANSLATIONSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='BatchTranslateDocument',
+    full_name='google.cloud.translation.v3.TranslationService.BatchTranslateDocument',
+    index=5,
+    containing_service=None,
+    input_type=_BATCHTRANSLATEDOCUMENTREQUEST,
+    output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
+    serialized_options=b'\202\323\344\223\002?\":/v3/{parent=projects/*/locations/*}:batchTranslateDocument:\001*\312A@\n\036BatchTranslateDocumentResponse\022\036BatchTranslateDocumentMetadata',
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='CreateGlossary',
     full_name='google.cloud.translation.v3.TranslationService.CreateGlossary',
-    index=4,
+    index=6,
     containing_service=None,
     input_type=_CREATEGLOSSARYREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
@@ -2147,7 +3165,7 @@ _TRANSLATIONSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='ListGlossaries',
     full_name='google.cloud.translation.v3.TranslationService.ListGlossaries',
-    index=5,
+    index=7,
     containing_service=None,
     input_type=_LISTGLOSSARIESREQUEST,
     output_type=_LISTGLOSSARIESRESPONSE,
@@ -2157,7 +3175,7 @@ _TRANSLATIONSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetGlossary',
     full_name='google.cloud.translation.v3.TranslationService.GetGlossary',
-    index=6,
+    index=8,
     containing_service=None,
     input_type=_GETGLOSSARYREQUEST,
     output_type=_GLOSSARY,
@@ -2167,7 +3185,7 @@ _TRANSLATIONSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='DeleteGlossary',
     full_name='google.cloud.translation.v3.TranslationService.DeleteGlossary',
-    index=7,
+    index=9,
     containing_service=None,
     input_type=_DELETEGLOSSARYREQUEST,
     output_type=google_dot_longrunning_dot_operations__pb2._OPERATION,
