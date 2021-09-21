@@ -19,7 +19,7 @@ gen-go:
 	protoc --proto_path=src --go_out=gen/go --go_opt=paths=source_relative ${ENVOY_PROTOS}
 
 install-protoc-gen-go:
-	go get github.com/golang/protobuf/protoc-gen-go
+	echo 'See https://github.com/protocolbuffers/protobuf-go'
 
 dist-python:
 	cd dist/python && ./build.sh
