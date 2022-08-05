@@ -24,7 +24,6 @@ mkdir -p gen/{go,python,java}
 
 
 protoc \
-  -Ideps/protobuf/src \
   -Ideps/data-plane-api \
   -Ideps/googleapis \
   -Ideps/grafeas \
@@ -35,8 +34,8 @@ protoc \
   -Ideps/client_model \
   --python_out=gen/python \
   --java_out=gen/java \
-  deps/data-plane-api/envoy/**/*.proto \
   deps/client_model/io/**/*.proto \
+  deps/data-plane-api/envoy/**/*.proto \
   deps/googleapis/google/**/*.proto \
   deps/googleapis/grafeas/**/*.proto \
   deps/opencensus-proto/src/opencensus/proto/**/*.proto \
