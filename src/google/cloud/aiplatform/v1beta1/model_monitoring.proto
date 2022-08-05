@@ -1,4 +1,4 @@
-// Copyright 2021 Google LLC
+// Copyright 2022 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,7 +18,6 @@ package google.cloud.aiplatform.v1beta1;
 
 import "google/api/resource.proto";
 import "google/cloud/aiplatform/v1beta1/io.proto";
-import "google/api/annotations.proto";
 
 option csharp_namespace = "Google.Cloud.AIPlatform.V1Beta1";
 option go_package = "google.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform";
@@ -28,7 +27,25 @@ option java_package = "com.google.cloud.aiplatform.v1beta1";
 option php_namespace = "Google\\Cloud\\AIPlatform\\V1beta1";
 option ruby_package = "Google::Cloud::AIPlatform::V1beta1";
 
-// Next ID: 6
+// Next ID: 5
+message ModelMonitoringConfig {
+  // Model monitoring objective config.
+  repeated ModelMonitoringObjectiveConfig objective_configs = 3;
+
+  // Model monitoring alert config.
+  ModelMonitoringAlertConfig alert_config = 2;
+
+  // YAML schema file uri in Cloud Storage describing the format of a single
+  // instance that you want Tensorflow Data Validation (TFDV) to analyze.
+  //
+  // If there are any data type differences between predict instance and TFDV
+  // instance, this field can be used to override the schema.
+  // For models trained with Vertex AI, this field must be set as all the
+  // fields in predict instance formatted as string.
+  string analysis_instance_schema_uri = 4;
+}
+
+// Next ID: 8
 message ModelMonitoringObjectiveConfig {
   // Training Dataset information.
   message TrainingDataset {
@@ -56,6 +73,8 @@ message ModelMonitoringObjectiveConfig {
     //
     // "csv"
     // The source file is a CSV file.
+    // "jsonl"
+    // The source file is a JSONL file.
     string data_format = 2;
 
     // The target field name the model is to predict.
@@ -81,6 +100,11 @@ message ModelMonitoringObjectiveConfig {
     // against attribution score distance between the training and prediction
     // feature.
     map<string, ThresholdConfig> attribution_score_skew_thresholds = 2;
+
+    // Skew anomaly detection threshold used by all features.
+    // When the per-feature thresholds are not set, this field can be used to
+    // specify a threshold for all features.
+    ThresholdConfig default_skew_threshold = 6;
   }
 
   // The config for Prediction data drift detection.
@@ -94,10 +118,15 @@ message ModelMonitoringObjectiveConfig {
     // Key is the feature name and value is the threshold. The threshold here is
     // against attribution score distance between different time windows.
     map<string, ThresholdConfig> attribution_score_drift_thresholds = 2;
+
+    // Drift anomaly detection threshold used by all features.
+    // When the per-feature thresholds are not set, this field can be used to
+    // specify a threshold for all features.
+    ThresholdConfig default_drift_threshold = 5;
   }
 
-  // The config for integrated with Explainable AI. Only applicable if the Model
-  // has explanation_spec populated.
+  // The config for integrating with Vertex Explainable AI. Only applicable if
+  // the Model has explanation_spec populated.
   message ExplanationConfig {
     // Output from [BatchPredictionJob][google.cloud.aiplatform.v1beta1.BatchPredictionJob] for Model Monitoring baseline dataset,
     // which can be used to generate baseline attribution scores.
@@ -128,8 +157,8 @@ message ModelMonitoringObjectiveConfig {
       PredictionFormat prediction_format = 1;
     }
 
-    // If want to analyze the Explainable AI feature attribute scores or not.
-    // If set to true, Vertex AI will log the feature attributions from
+    // If want to analyze the Vertex Explainable AI feature attribute scores or
+    // not. If set to true, Vertex AI will log the feature attributions from
     // explain response and do the skew/drift detection for them.
     bool enable_feature_attributes = 1;
 
@@ -147,11 +176,11 @@ message ModelMonitoringObjectiveConfig {
   // The config for drift of prediction data.
   PredictionDriftDetectionConfig prediction_drift_detection_config = 3;
 
-  // The config for integrated with Explainable AI.
+  // The config for integrating with Vertex Explainable AI.
   ExplanationConfig explanation_config = 5;
 }
 
-// Next ID: 2
+// Next ID: 3
 message ModelMonitoringAlertConfig {
   // The config for email alert.
   message EmailAlertConfig {
@@ -163,6 +192,13 @@ message ModelMonitoringAlertConfig {
     // Email alert config.
     EmailAlertConfig email_alert_config = 1;
   }
+
+  // Dump the anomalies to Cloud Logging. The anomalies will be put to json
+  // payload encoded from proto
+  // [google.cloud.aiplatform.logging.ModelMonitoringAnomaliesLogEntry][].
+  // This can be further sinked to Pub/Sub or any other services supported
+  // by Cloud Logging.
+  bool enable_logging = 2;
 }
 
 // The config for feature monitoring threshold.
