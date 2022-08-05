@@ -19,9 +19,6 @@ git clone --depth=1 https://github.com/prometheus/client_model
 
 popd
 
-rm -rf gen
-mkdir -p gen/{go,python,java}
-
 
 protoc \
   -Ideps/data-plane-api \
@@ -32,8 +29,10 @@ protoc \
   -Ideps/protoc-gen-validate \
   -Ideps/xds \
   -Ideps/client_model \
+  -Ideps/protobuf/src \
   --python_out=gen/python \
   --java_out=gen/java \
+  deps/protobuf/src/google/protobuf/*.proto \
   deps/client_model/io/**/*.proto \
   deps/data-plane-api/envoy/**/*.proto \
   deps/googleapis/google/**/*.proto \

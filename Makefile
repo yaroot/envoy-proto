@@ -9,17 +9,14 @@ clean:
 base:
 	mkdir -p gen/python gen/java gen/go
 
-gen-java:
-	protoc --proto_path=src --python_out=gen/java ${ENVOY_PROTOS}
+gen:
+	./build.sh
 
-gen-python:
-	protoc --proto_path=src --python_out=gen/python ${ENVOY_PROTOS}
+# gen-go:
+# 	protoc --proto_path=src --go_out=gen/go --go_opt=paths=source_relative ${ENVOY_PROTOS}
 
-gen-go:
-	protoc --proto_path=src --go_out=gen/go --go_opt=paths=source_relative ${ENVOY_PROTOS}
-
-install-protoc-gen-go:
-	echo 'See https://github.com/protocolbuffers/protobuf-go'
+# install-protoc-gen-go:
+# 	echo 'See https://github.com/protocolbuffers/protobuf-go'
 
 dist-python:
 	cd dist/python && ./build.sh
