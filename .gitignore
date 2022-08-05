@@ -1,4 +1,4 @@
 .bloop
 .idea
 target
-.deps
+deps/
